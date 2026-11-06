@@ -16,6 +16,8 @@
 | Q-015 | `.|.|.|.|.` has five dots and four vertical separator marks | Verifiable string property; semantics reserved | Count written characters |
 | Q7 | An intended path must be distinguished from observed receipt | Proposed language design rule | Demonstration event log and explicit uncertainty |
 | Q-016 | Five-station relay is one illustrative reading of `.|.|.|.|.` | Proposed interpretation | Define station mapping and transmission semantics |
+| Q8 | A signal pattern requires an explicit reading convention to determine a message | Proposed language design rule | Demonstrate divergent codebooks for identical marks |
+| Q-018 | Two-dot flash code is an illustrative teaching convention | Not canonical transport syntax | Define codebook and decoding rule |
 | P-001 | QUANTA maps directly onto physical microstructure | Untested physical hypothesis | Quantitative predictions and independent evidence |
 
 A precise specification is **not** automatically a statement about physics. A pretty diagram is **not** a measurement.

@@ -6,12 +6,13 @@
 
 ## Read and explore
 
-- [Reader companion (index.html)](./index.html) — single-file GitHub Pages experience with Chapters 1–5, symbols, and interactive puzzles.
+- [Reader companion (index.html)](./index.html) — single-file GitHub Pages experience with Chapters 1–6, symbols, and interactive puzzles.
 - [Chapter 1: Zero](./book/chapters/01-zero.md) — manuscript with technical ledger.
 - [Chapter 2: The Dot](./book/chapters/02-the-dot.md) — distinction, relationships, identity, Puzzle 002, and Q1.
 - [Chapter 3: The Gap](./book/chapters/03-the-gap.md) — the between, the engine analogy, [()], Puzzle 003, and Q2.
 - [Chapter 4: The Boundary](./book/chapters/04-the-boundary.md) — inside and outside, selective passage, Puzzle 004, and Q3.
 - [Chapter 5: The Box](./book/chapters/05-the-box.md) — containment, nesting, Puzzle 005, and Q4.
+- [Chapter 6: The Loop](./book/chapters/06-the-loop.md) — return, movement versus shape, Puzzle 006, and Q5.
 - [Visual lexicon](./language/LEXICON.md) — symbols, visual readings, and reserved definitions.
 - [Claims ledger](./research/CLAIMS.md) — established math versus proposed language versus untested physics.
 - [Writing guide](./book/STYLE.md) — reader-first editorial principles.

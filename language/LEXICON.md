@@ -19,6 +19,8 @@ Each symbol has a **reader's intuition** and a **formal status**. Until canonica
 
 | `.|.|.|.|.` | Five dots and four separators; five-station path in Chapter 8's teaching example | Example relay interpretation only; general transport grammar remains reserved |
 
+| `. .` | Two marks separated by a gap | Can represent a fictional two-flash message only when paired with a reading convention |
+
 ## Use in the book
 
 First show the mark; then give one sentence; then show one visual relation; finally provide optional formal detail.

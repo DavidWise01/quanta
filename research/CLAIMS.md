@@ -12,6 +12,8 @@
 | Q3 | Boundary crossing and retention require explicit rules | Proposed language design rule | Defined crossing and retention semantics |
 | Q4 | Containment does not by itself erase identity or merge container and content | Proposed language design rule | Nested-container examples and explicit transformation semantics |
 | Q5 | Returning to a starting position does not erase the journey or imply the entire state repeats | Proposed language design rule | Model a closed route with distinct traversal history |
+| Q6 | Vessel transfer descriptions distinguish movement, copying, transformation and loss | Proposed language design rule | A formal state transition ledger |
+| Q-015 | `.|.|.|.|.` has five dots and four vertical separator marks | Verifiable string property; semantics reserved | Count written characters |
 | P-001 | QUANTA maps directly onto physical microstructure | Untested physical hypothesis | Quantitative predictions and independent evidence |
 
 A precise specification is **not** automatically a statement about physics. A pretty diagram is **not** a measurement.

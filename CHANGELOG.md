@@ -1,5 +1,11 @@
 # QUANTA · Changelog
 
+## 2026-11-06 — Chapters 3 and 4
+- Saved Chapter 3: The Gap, including the central [()] analogy and Q2.
+- Wrote Chapter 4: The Boundary, including Q3 and Puzzle 004.
+- Extended the reader-facing site with both chapters and interactive puzzles.
+- Updated the lexicon, claim ledger, and reading links.
+
 ## 2026-11-06 — Chapter 2 · The Dot
 - Added the second reader-first manuscript with Q1 Identity Before Comparison and Puzzle 002.
 - Extended the interactive reading website with Chapter 2 and its puzzle.

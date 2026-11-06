@@ -295,6 +295,6 @@ The distinction between movement, copying, and transformation resembles distinct
 | M-014 | Engines require defined material, energy, motion, and exchange conditions | Established engineering |
 | M-015 | Matching drawings do not by themselves establish object identity or transport | Elementary modeling principle |
 | Q-014 | A vessel combines a held region with declared receiving, retention, transformation, and release behavior | Proposed QUANTA language concept |
-| Q-015 | `.|.|.||.` is a candidate visual transport string: five dots and four separators | Syntax observation; transport meaning not yet formalized |
+| Q-015 | `.|.|.|.|.` is a candidate visual transport string: five dots and four separators | Syntax observation; transport meaning not yet formalized |
 | Q6 | Passage With Provenance | Proposed language design rule |
 | P-007 | The proposed QUANTA vessel is an experimentally established fundamental structure of physical space | Not established or claimed |

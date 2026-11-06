@@ -6,13 +6,15 @@ Each symbol has a **reader's intuition** and a **formal status**. Until canonica
 |---|---|---|
 | `0` | Begin here | Structured origin concept; exact kernel schema pending |
 | `.` | One here | Position marker; Q1 adds identity tracking when claiming persistence |
-| `|` | An edge or separation | Boundary marker; syntax pending |
+| `|` | An edge or separation | Boundary marker; Q3 requires a rule for passage and retention |
 | `[ ]` | A place held between sides | Box / retention metaphor |
 | `( )` | A path that returns | Loop / toroid metaphor, not necessarily a physical torus |
 | `{ }` | Room for change | Generative / transformation scope metaphor |
 | `}{` | Opening a division | Provisional unbinding notation |
 | `{{i}}` | A recognizable center | Proposed identity/observer token |
 | `/\\` | A fold or diamond | Reserved geometry metaphor |
+
+| `[()]` | A loop held inside a box | Core visual metaphor for a working gap, not an established physical geometry |
 
 ## Use in the book
 

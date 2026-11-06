@@ -11,6 +11,7 @@
 | Q2 | Interactions dependent on a gap must describe that gap | Proposed language design rule | A declared representation of the between |
 | Q3 | Boundary crossing and retention require explicit rules | Proposed language design rule | Defined crossing and retention semantics |
 | Q4 | Containment does not by itself erase identity or merge container and content | Proposed language design rule | Nested-container examples and explicit transformation semantics |
+| Q5 | Returning to a starting position does not erase the journey or imply the entire state repeats | Proposed language design rule | Model a closed route with distinct traversal history |
 | P-001 | QUANTA maps directly onto physical microstructure | Untested physical hypothesis | Quantitative predictions and independent evidence |
 
 A precise specification is **not** automatically a statement about physics. A pretty diagram is **not** a measurement.

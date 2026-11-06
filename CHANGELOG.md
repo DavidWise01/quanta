@@ -1,5 +1,10 @@
 # QUANTA · Changelog
 
+## 2026-11-06 — Chapter 2 · The Dot
+- Added the second reader-first manuscript with Q1 Identity Before Comparison and Puzzle 002.
+- Extended the interactive reading website with Chapter 2 and its puzzle.
+- Extended the visual language notes to distinguish identification from mere resemblance.
+
 ## 2026-11-06 — Reader companion foundation
 - Established root-level GitHub Pages website.
 - Introduced visual symbol tiles, a step-by-step symbolic playground, and Puzzle 001.

@@ -1,5 +1,10 @@
 # QUANTA · Changelog
 
+## 2026-11-06 — Chapter 9 · The Signal
+- Added the complete Chapter 9 manuscript, Puzzle 009, and Q8 Meaning Requires a Reading Rule.
+- Added a two-codebook signal demonstration to the reader website.
+- Updated lexicon and claims ledger to distinguish signal, message, and interpretation.
+
 ## 2026-11-06 — Chapter 8 · The Path
 - Added Chapter 8: The Path, with relay-station imagery, Puzzle 008, and Q7 Trace Before Arrival.
 - Added an accessible stepwise five-station relay with observable event history to the GitHub Pages reader.

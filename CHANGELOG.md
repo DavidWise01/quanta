@@ -1,5 +1,10 @@
 # QUANTA · Changelog
 
+## 2026-11-06 — Chapter 6 · The Loop
+- Added the complete Chapter 6 manuscript and Puzzle 006, introducing Q5 Return Without Erasure.
+- Added the sixth visual reader chapter and a manually advanced loop demonstrating the preserved lap count.
+- Updated lexicon and claims ledger, maintaining the distinction between a loop drawing and a moving system.
+
 ## 2026-11-06 — Chapter 5 · The Box
 - Added the complete Chapter 5 manuscript and Puzzle 005, introducing Q4 Containment Preserves Distinction.
 - Added Chapter 5 to the interactive reader and maintained the book, lexicon and claims ledger.

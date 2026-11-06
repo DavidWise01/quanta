@@ -10,6 +10,7 @@
 | Q1 | Persistent-identity claims require a declared tracking rule | Proposed language design rule | Named examples and consistency tests |
 | Q2 | Interactions dependent on a gap must describe that gap | Proposed language design rule | A declared representation of the between |
 | Q3 | Boundary crossing and retention require explicit rules | Proposed language design rule | Defined crossing and retention semantics |
+| Q4 | Containment does not by itself erase identity or merge container and content | Proposed language design rule | Nested-container examples and explicit transformation semantics |
 | P-001 | QUANTA maps directly onto physical microstructure | Untested physical hypothesis | Quantitative predictions and independent evidence |
 
 A precise specification is **not** automatically a statement about physics. A pretty diagram is **not** a measurement.

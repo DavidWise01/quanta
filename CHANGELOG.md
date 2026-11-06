@@ -1,5 +1,10 @@
 # QUANTA · Changelog
 
+## 2026-11-06 — Chapter 8 · The Path
+- Added Chapter 8: The Path, with relay-station imagery, Puzzle 008, and Q7 Trace Before Arrival.
+- Added an accessible stepwise five-station relay with observable event history to the GitHub Pages reader.
+- Extended the lexicon and ledger while leaving full physical or computational transport semantics open for specification.
+
 ## 2026-11-06 — Chapter 7 · The Vessel
 - Added Chapter 7 as a standalone manuscript, including Q6 Passage With Provenance and Puzzle 007.
 - Introduced the `.|.|.|.|.` transport motif as a five-mark, four-boundary string; formal semantics reserved for a later chapter.

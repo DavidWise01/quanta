@@ -1,5 +1,9 @@
 # QUANTA · Changelog
 
+## 2026-11-06 — Chapter 5 · The Box
+- Added the complete Chapter 5 manuscript and Puzzle 005, introducing Q4 Containment Preserves Distinction.
+- Added Chapter 5 to the interactive reader and maintained the book, lexicon and claims ledger.
+
 ## 2026-11-06 — Chapters 3 and 4
 - Saved Chapter 3: The Gap, including the central [()] analogy and Q2.
 - Wrote Chapter 4: The Boundary, including Q3 and Puzzle 004.

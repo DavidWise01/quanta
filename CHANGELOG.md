@@ -1,5 +1,10 @@
 # QUANTA · Changelog
 
+## 2026-11-06 — Chapter 7 · The Vessel
+- Added Chapter 7 as a standalone manuscript, including Q6 Passage With Provenance and Puzzle 007.
+- Introduced the `.|.|.|.|.` transport motif as a five-mark, four-boundary string; formal semantics reserved for a later chapter.
+- Added a four-stage visual vessel activity and quiz to the website, preserving the manuscript/reference split.
+
 ## 2026-11-06 — Chapter 6 · The Loop
 - Added the complete Chapter 6 manuscript and Puzzle 006, introducing Q5 Return Without Erasure.
 - Added the sixth visual reader chapter and a manually advanced loop demonstrating the preserved lap count.

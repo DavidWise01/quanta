@@ -8,7 +8,7 @@ Each symbol has a **reader's intuition** and a **formal status**. Until canonica
 | `.` | One here | Position marker; Q1 adds identity tracking when claiming persistence |
 | `|` | An edge or separation | Boundary marker; Q3 requires a rule for passage and retention |
 | `[ ]` | A place held between sides | Box / retention metaphor; Q4 preserves container/content distinction |
-| `( )` | A path that returns | Loop / toroid metaphor, not necessarily a physical torus |
+| `( )` | A path that returns | Proposed loop / toroidal token; not sufficient to assert motion, and not literally a torus |
 | `{ }` | Room for change | Generative / transformation scope metaphor |
 | `}{` | Opening a division | Provisional unbinding notation |
 | `{{i}}` | A recognizable center | Proposed identity/observer token |

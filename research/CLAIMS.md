@@ -14,6 +14,8 @@
 | Q5 | Returning to a starting position does not erase the journey or imply the entire state repeats | Proposed language design rule | Model a closed route with distinct traversal history |
 | Q6 | Vessel transfer descriptions distinguish movement, copying, transformation and loss | Proposed language design rule | A formal state transition ledger |
 | Q-015 | `.|.|.|.|.` has five dots and four vertical separator marks | Verifiable string property; semantics reserved | Count written characters |
+| Q7 | An intended path must be distinguished from observed receipt | Proposed language design rule | Demonstration event log and explicit uncertainty |
+| Q-016 | Five-station relay is one illustrative reading of `.|.|.|.|.` | Proposed interpretation | Define station mapping and transmission semantics |
 | P-001 | QUANTA maps directly onto physical microstructure | Untested physical hypothesis | Quantitative predictions and independent evidence |
 
 A precise specification is **not** automatically a statement about physics. A pretty diagram is **not** a measurement.

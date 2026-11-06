@@ -5,7 +5,7 @@ Each symbol has a **reader's intuition** and a **formal status**. Until canonica
 | Symbol | Reader sees | Language status |
 |---|---|---|
 | `0` | Begin here | Structured origin concept; exact kernel schema pending |
-| `.` | One here | Position marker; domain pending |
+| `.` | One here | Position marker; Q1 adds identity tracking when claiming persistence |
 | `|` | An edge or separation | Boundary marker; syntax pending |
 | `[ ]` | A place held between sides | Box / retention metaphor |
 | `( )` | A path that returns | Loop / toroid metaphor, not necessarily a physical torus |

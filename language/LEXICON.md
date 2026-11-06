@@ -17,7 +17,7 @@ Each symbol has a **reader's intuition** and a **formal status**. Until canonica
 | `[ [ . ] ]` | A marked point inside a box inside a box | Provisional nested containment reading |
 | `[()]` | A loop held inside a box | Core visual metaphor for a working gap, not an established physical geometry |
 
-| `.|.|.|.|.` | Five marks partitioned by four vertical separators | Reserved candidate transport motif; no transfer semantics declared yet |
+| `.|.|.|.|.` | Five dots and four separators; five-station path in Chapter 8's teaching example | Example relay interpretation only; general transport grammar remains reserved |
 
 ## Use in the book
 

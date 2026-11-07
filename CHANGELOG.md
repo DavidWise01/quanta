@@ -1,5 +1,10 @@
 # QUANTA · Changelog
 
+## 2026-11-07 — Chapter 18 · The Action
+- Added Chapter 18: The Action, Q17 Action Requires an Outcome Trace and Puzzle 018.
+- Added a simulated action-trace journal that separates selection, attempt, and hypothetical outcome.
+- Updated the lexicon and claims ledger to distinguish command receipt from verified action result.
+
 ## 2026-11-07 — Chapter 17 · The Choice
 - Added Chapter 17: The Choice, Q16 Choice Without Retroactive Certainty and Puzzle 017.
 - Added a temporary choice journal distinguishing selection, attempted action, and reported outcome.

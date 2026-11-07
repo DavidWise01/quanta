@@ -1,5 +1,10 @@
 # QUANTA · Changelog
 
+## 2026-11-07 — Chapter 23 · The Failure
+- Added Chapter 23: The Failure, Q22 Preserve the Smallest Honest Failure, and Puzzle 023.
+- Added a bounded counterexample minimizer for the introductory alternating-sequence grammar, retaining the original failing example and reduction trace.
+- Updated lexicon and claims ledger to distinguish a mathematical counterexample from a diagnosed physical cause.
+
 ## 2026-11-07 — Chapter 22 · The Experiment
 - Added Chapter 22: The Experiment, Q21 Experiment With Declared Controls, and Puzzle 022.
 - Added an idealized card-shadow projection simulation with a session-only trial/deviation log, explicitly labeled model rather than physical measurement.

@@ -79,6 +79,9 @@ Composing these families into one executable sentence requires separately declar
 | `.|.|.|.|.` revisited | Five literal dots and four bars, distinct from interpretations as stations or sample points | Chapter 31 layered reading; neither codebook follows uniquely from the marks, and no physical tesseract projection is established |
 | `original / interpretation / proof / observation / analogy` | Separate layers of claims about one recorded trace | Chapter 31 provenance discipline; later readings never rewrite source evidence |
 
+| `[ .|.|.|.|. ]` | One containing frame around five dots and four bars | Chapter 32 synthesis; containment does not collapse provenance, identity, authority, or scientific evidence |
+| `one box: mark / record / interpretation / analogy / unknown` | Heterogeneous entries held together with their types intact | Proposed container architecture rather than one universal semantic equivalence |
+
 ## Use in the book
 
 First show the mark; then give one sentence; then show one visual relation; finally provide optional formal detail.

@@ -22,6 +22,9 @@
 | Q-020 | Dot and square/round delimiters form a first teaching subset | Proposed QUANTA grammar | Executable nesting checker and examples |
 | Q10 | Containment, sequence, and identity references remain distinct when combined | Proposed language design rule | Three-family recognizer and future composition grammar |
 | Q-023 | `{{i}}` recognized as a reserved whole identity token | Proposed lexical convention | Token recognition without invented execution semantics |
+| Q11 | Transformation descriptions preserve source, operation, and result | Proposed language design rule | Explicit mapping and lineage record |
+| Q12 | Witness account distinguishes observation, conditions, and interpretation; missing stays missing | Proposed language design rule | Witness journal and cross-checking |
+| P-012 | Written wall-trace is a measured tesseract projection | Not established | Explicit mapping and independent evidence |
 | P-001 | QUANTA maps directly onto physical microstructure | Untested physical hypothesis | Quantitative predictions and independent evidence |
 
 A precise specification is **not** automatically a statement about physics. A pretty diagram is **not** a measurement.

@@ -1,0 +1,48 @@
+name: Build complete QUANTA Word manuscript
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/build_complete_docx.py'
+      - 'book/chapters/**'
+      - '.github/workflows/build-docx.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  manuscript:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install python-docx==1.2.0
+      - name: Assemble all chapters
+        run: python scripts/build_complete_docx.py
+      - name: Verify output contents
+        run: |
+          python - <<'PY'
+          from docx import Document
+          p='book/QUANTA_The_Wordle_of_Space_Complete_32_5.docx'
+          d=Document(p)
+          text='\n'.join(x.text for x in d.paragraphs)
+          assert 'The Half-Step' in text and 'The One Box' in text
+          assert 'The Shadow Revisited' in text and 'Chapter 1' in text
+          print('DOCX verified:',len(d.paragraphs),'paragraphs')
+          PY
+      - name: Commit finished Word edition
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add book/QUANTA_The_Wordle_of_Space_Complete_32_5.docx
+          if ! git diff --cached --quiet; then
+            git commit -m "release: complete 32.5 chapter Word manuscript"
+            git push
+          fi
+      - uses: actions/upload-artifact@v4
+        with:
+          name: QUANTA-complete-DOCX
+          path: book/QUANTA_The_Wordle_of_Space_Complete_32_5.docx

@@ -1,5 +1,11 @@
 # QUANTA · Changelog
 
+## 2026-11-07 — Chapter 20 · The Lesson
+- Added Chapter 20: The Lesson, Q19 Learning Requires a Tested Revision, and Puzzle 020.
+- Added a teaching experiment contrasting sunlight-only selection with inspection; recorded outcomes remain limited to observations.
+- Reached the 20-of-32.5 milestone; Chapter 21 begins the test-and-invariant act.
+- Updated lexicon and claims ledger, distinguishing proposed policies from verified learning.
+
 ## 2026-11-07 — Chapter 19 · The Feedback and 32.5-Chapter Plan
 - Added Chapter 19: The Feedback, Q18 Feedback Must Reference Reality and Puzzle 019.
 - Established the 32.5-chapter roadmap, including the final half-chapter and a return to one box.

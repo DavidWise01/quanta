@@ -85,6 +85,10 @@
 | M-062 | Literal character counts and grammar membership can be verified without assigning physical meaning | Established formal reasoning | Character count and grammar validator |
 | M-063 | A given syntax may be compatible with multiple semantic codebooks | Established language principle | A1 and B1 interpretations of the same source string |
 | P-031 | The five-dot motif is verified as a physical tesseract projection | Not established | Explicit projection model and independent evidence |
+| Q31 | One box preserves distinct types, source provenance, authority and uncertainties of its entries | Proposed language design rule | Typed container schema and provenance-preserving round-trip validation |
+| M-064 | A container may hold distinct kinds of records without equating their referents | Established modeling distinction | Typed data and separate identifiers |
+| M-065 | A syntactically valid symbol sequence does not determine a unique physical interpretation | Established semantics principle | Multiple codebooks or models for same string |
+| P-032 | A boxed five-dot pattern demonstrates a physical tesseract or universal theory | Not established | Formal projection rule and independent empirical evidence |
 | P-001 | QUANTA maps directly onto physical microstructure | Untested physical hypothesis | Quantitative predictions and independent evidence |
 
 A precise specification is **not** automatically a statement about physics. A pretty diagram is **not** a measurement.

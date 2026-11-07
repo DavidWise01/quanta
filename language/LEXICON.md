@@ -46,6 +46,8 @@ Composing these families into one executable sentence requires separately declar
 
 | `intent → attempt → outcome` | A staged account of attempted action and response | Chapter 18 teaching diagram; arrows and words are not canonical executable QUANTA tokens |
 
+| `prediction → observation → comparison` | A feedback sequence that preserves both expectation and observed result | Chapter 19 teaching diagram; a full protocol and learning criterion remain to be defined |
+
 ## Use in the book
 
 First show the mark; then give one sentence; then show one visual relation; finally provide optional formal detail.

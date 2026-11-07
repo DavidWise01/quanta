@@ -31,6 +31,9 @@
 | Q14 | Comparison specifies source records, property and reading rule, without conflating representation and identity | Proposed language design rule | Append-only comparison ledger and explicit criteria |
 | Q-030 | Record-to-record comparison should retain references to its inputs | Proposed architecture | Formal comparison schemas and provenance tests |
 | P-015 | Matching projected shadows uniquely identify the original source | Not established | Additional measurements and a proven injective reconstruction method |
+| Q15 | Difference reports name input records, direction, criterion, and observed change | Proposed language design rule | Demonstration with reversed comparison and traceable inputs |
+| Q-032 | Directional representational difference is separated from its physical cause | Proposed record requirement | Define formal diff algorithm and tie-break rules |
+| P-016 | A glyph change proves physical creation or destruction | Not established | Validated physical mapping and measurements |
 | P-001 | QUANTA maps directly onto physical microstructure | Untested physical hypothesis | Quantitative predictions and independent evidence |
 
 A precise specification is **not** automatically a statement about physics. A pretty diagram is **not** a measurement.

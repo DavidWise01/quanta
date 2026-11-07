@@ -58,6 +58,10 @@
 | Q23 | An invariant names a domain, allowed transformation and preserved property | Proposed language design rule | Scoped proof or test with explicit counterexamples beyond the domain |
 | M-049 | Appending `|.` preserves alternating dot/bar grammar and the dot-minus-bar difference of 1 | Established formal-language property for the defined grammar | Induction on the number of appended pairs |
 | P-024 | The symbolic invariant proves an invariant of photons, light or physical tesseracts | Not established | Independent physical model and measurements |
+| Q24 | Claims carry their domain, assumptions, and applicable transformations | Proposed language design rule | Domain checks and out-of-scope classification |
+| M-050 | An implication restricted to a domain does not assert its conclusion outside that domain | Established logic | Formal conditional proof |
+| M-051 | Dot-minus-bar count of one is necessary but insufficient for the alternating grammar | Established formal-language property | Example `..|` and exact pattern validator |
+| P-025 | A symbolic grammar boundary establishes physical limits of a tesseract projection | Not established | Defined projection and physical evidence |
 | P-001 | QUANTA maps directly onto physical microstructure | Untested physical hypothesis | Quantitative predictions and independent evidence |
 
 A precise specification is **not** automatically a statement about physics. A pretty diagram is **not** a measurement.

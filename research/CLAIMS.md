@@ -28,6 +28,9 @@
 | Q13 | Witness records are appended; corrections reference, rather than overwrite, prior entries | Proposed language design rule | Record format, provenance checks, tamper-resistant retention |
 | Q-028 | A container may hold ordered observation reports | Proposed QUANTA architecture | Formal schema and retrieval semantics |
 | P-014 | Append-only entries guarantee observation accuracy | Not established | External verification and source integrity |
+| Q14 | Comparison specifies source records, property and reading rule, without conflating representation and identity | Proposed language design rule | Append-only comparison ledger and explicit criteria |
+| Q-030 | Record-to-record comparison should retain references to its inputs | Proposed architecture | Formal comparison schemas and provenance tests |
+| P-015 | Matching projected shadows uniquely identify the original source | Not established | Additional measurements and a proven injective reconstruction method |
 | P-001 | QUANTA maps directly onto physical microstructure | Untested physical hypothesis | Quantitative predictions and independent evidence |
 
 A precise specification is **not** automatically a statement about physics. A pretty diagram is **not** a measurement.

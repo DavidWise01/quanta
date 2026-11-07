@@ -85,6 +85,10 @@ Composing these families into one executable sentence requires separately declar
 | `[ .|.|.|.|. ]   .` | The familiar boxed motif with one separate, unassigned dot outside it | Chapter 32.5 coda; does not assert a sixth station, new dimension, or physical result |
 | `?` beside the record | An explicit question preserved beyond the end of the account | Q32: unknown stays distinct from measured, proved, and interpreted claims |
 
+| `.|.|.|.|.|.|.|.|.|.|.` | Eleven-dot, ten-bar *dimension signature* at level 11 | QG-011 ordinal shorthand only, not the 2,048-vertex graph |
+| `H_(n+1) = H_n □ K2` | Duplicate the n-cube and connect matching vertices along a new axis | Established Cartesian-product construction; proposed QUANTA substrate encoding |
+| `G(H11)` | Proposed globule envelope around the 11D hypercube | Speculative model label, no validated string-theoretic or physical interpretation |
+
 ## Use in the book
 
 First show the mark; then give one sentence; then show one visual relation; finally provide optional formal detail.

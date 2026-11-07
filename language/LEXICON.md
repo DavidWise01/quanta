@@ -38,6 +38,8 @@ Composing these families into one executable sentence requires separately declar
 
 | `[ 001, 002, 003 ]` | An ordered container of observation records | Chapter 14 illustration; entry numbering and correction references are proposed, not yet executable QUANTA syntax |
 
+| `[ . ] | [ . . ]` | Two written forms presented for comparison | Chapter 15 illustration; bar is a visual distinction, not a defined comparison operator |
+
 ## Use in the book
 
 First show the mark; then give one sentence; then show one visual relation; finally provide optional formal detail.

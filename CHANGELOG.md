@@ -1,5 +1,10 @@
 # QUANTA · Changelog
 
+## 2026-11-07 — Complete GitHub Pages book and cover
+- Published `book.html` as a full manuscript reader, sourcing every original chapter (1–32.5) from the canonical repository Markdown files.
+- Added the geometric QUANTA cover as `assets/quanta-geometric-cover.svg` and featured the book and cover on the existing home page.
+- Included all puzzles and technical notes, a 33-item table of contents, responsive navigation, search, reading progress and the complete Word manuscript link.
+
 ## 2026-11-07 — Chapter 32.5 · The Half-Step · Manuscript complete
 - Added the final half-chapter: The Half-Step, Q32 The Open Gap Remains Legible, and Puzzle 032.5.
 - Added an interactive half-open-door journal with an unassigned dot and an explicitly open question.

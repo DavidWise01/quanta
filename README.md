@@ -6,7 +6,7 @@
 
 ## Read and explore
 
-- [Reader companion (index.html)](./index.html) — single-file GitHub Pages experience with Chapters 1–29, symbols, and interactive puzzles.
+- [Reader companion (index.html)](./index.html) — single-file GitHub Pages experience with Chapters 1–30, symbols, and interactive puzzles.
 - [Chapter 1: Zero](./book/chapters/01-zero.md) — manuscript with technical ledger.
 - [Chapter 2: The Dot](./book/chapters/02-the-dot.md) — distinction, relationships, identity, Puzzle 002, and Q1.
 - [Chapter 3: The Gap](./book/chapters/03-the-gap.md) — the between, the engine analogy, [()], Puzzle 003, and Q2.
@@ -37,6 +37,7 @@
 - [Chapter 27: The Neighbor](./book/chapters/27-the-neighbor.md) — separate witnesses, attributed copies, Puzzle 027 and Q26.
 - [Chapter 28: The Exchange](./book/chapters/28-the-exchange.md) — packets, acknowledgments, codebooks, Puzzle 028, and Q27.
 - [Chapter 29: The Weave](./book/chapters/29-the-weave.md) — network provenance, copied versus original observations, Puzzle 029, and Q28.
+- [Chapter 30: The Homecoming](./book/chapters/30-the-homecoming.md) — local indexing without ownership collapse, Puzzle 030, and Q29.
 - [Visual lexicon](./language/LEXICON.md) — symbols, visual readings, and reserved definitions.
 - [Claims ledger](./research/CLAIMS.md) — established math versus proposed language versus untested physics.
 - [Writing guide](./book/STYLE.md) — reader-first editorial principles.

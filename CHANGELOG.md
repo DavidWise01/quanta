@@ -1,5 +1,11 @@
 # QUANTA · Changelog
 
+## 2026-11-07 — Chapter 32.5 · The Half-Step · Manuscript complete
+- Added the final half-chapter: The Half-Step, Q32 The Open Gap Remains Legible, and Puzzle 032.5.
+- Added an interactive half-open-door journal with an unassigned dot and an explicitly open question.
+- Completed the planned 32 full chapters plus an intentionally shorter 32.5 coda, with the site, lexicon, claims ledger, and roadmap updated.
+- The final dot is a literary symbol, not evidence for an extra physical dimension.
+
 ## 2026-11-07 — Chapter 32 · The One Box
 - Added Chapter 32: The One Box, Q31 One Box, Distinctions Intact, and Puzzle 032.
 - Added a session-only one-box composition lab preserving separate types and origins of marks, evidence, copies, analogies, and unknowns.

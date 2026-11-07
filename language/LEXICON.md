@@ -33,6 +33,9 @@ A dot is a mark. Matched `[ ]` and `( )` may nest. Crossed or unmatched delimite
 
 Composing these families into one executable sentence requires separately declared relationship operators.
 
+| `}{` | Opening / unbinding between representations | Transformation motif Q11; full execution grammar reserved |
+| `{{i}} : observation` | Named observer reference associated with a reported appearance | Teaching notation for Q12, not a guarantee of consciousness or accuracy |
+
 ## Use in the book
 
 First show the mark; then give one sentence; then show one visual relation; finally provide optional formal detail.

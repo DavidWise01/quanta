@@ -76,6 +76,9 @@ Composing these families into one executable sentence requires separately declar
 
 | `HOME(A): local / received / copied / unknown` | An index within box A of its own and externally sourced records | Chapter 30 teaching notation; indexing is not ownership or proof of complete global state |
 
+| `.|.|.|.|.` revisited | Five literal dots and four bars, distinct from interpretations as stations or sample points | Chapter 31 layered reading; neither codebook follows uniquely from the marks, and no physical tesseract projection is established |
+| `original / interpretation / proof / observation / analogy` | Separate layers of claims about one recorded trace | Chapter 31 provenance discipline; later readings never rewrite source evidence |
+
 ## Use in the book
 
 First show the mark; then give one sentence; then show one visual relation; finally provide optional formal detail.

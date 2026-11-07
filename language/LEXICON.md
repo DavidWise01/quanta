@@ -44,6 +44,8 @@ Composing these families into one executable sentence requires separately declar
 
 | `{ inspect | compare | wait }` | A visual menu of alternatives | Chapter 17 teaching sketch only; bars are separators and braces do not yet define executable choice syntax |
 
+| `intent → attempt → outcome` | A staged account of attempted action and response | Chapter 18 teaching diagram; arrows and words are not canonical executable QUANTA tokens |
+
 ## Use in the book
 
 First show the mark; then give one sentence; then show one visual relation; finally provide optional formal detail.

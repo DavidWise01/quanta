@@ -34,6 +34,9 @@
 | Q15 | Difference reports name input records, direction, criterion, and observed change | Proposed language design rule | Demonstration with reversed comparison and traceable inputs |
 | Q-032 | Directional representational difference is separated from its physical cause | Proposed record requirement | Define formal diff algorithm and tie-break rules |
 | P-016 | A glyph change proves physical creation or destruction | Not established | Validated physical mapping and measurements |
+| Q16 | Choice accounts keep observation, alternatives, intention, attempted action and outcome distinct | Proposed language design rule | Decision journal with separate evidence and outcome events |
+| Q-034 | Braces can illustrate alternatives without selecting one | Proposed teaching notation | Future formal grammar and semantics |
+| P-017 | A drawn choice proves successful autonomous action | Not established | Independent execution and outcome evidence |
 | P-001 | QUANTA maps directly onto physical microstructure | Untested physical hypothesis | Quantitative predictions and independent evidence |
 
 A precise specification is **not** automatically a statement about physics. A pretty diagram is **not** a measurement.

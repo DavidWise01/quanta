@@ -65,6 +65,9 @@ Composing these families into one executable sentence requires separately declar
 | `trial 001 / trial 002 / trial 003` | Repeated observations under a declared method | Chapter 26 teaching record; per-trial provenance and tolerance must be preserved |
 | `target ± tolerance` | A specified acceptance band for readings | Comparison rule, not proof of a physical constant or guaranteed reproducibility |
 
+| `[ A ] | [ B ]` | Two separately labeled boxes with a shared gap or boundary | Chapter 27 teaching motif; different sources remain distinct despite matching glyphs |
+| `copied from A into B` | Received report with source retained | Provenance statement; a copy is not independent verification or authority to modify A |
+
 ## Use in the book
 
 First show the mark; then give one sentence; then show one visual relation; finally provide optional formal detail.

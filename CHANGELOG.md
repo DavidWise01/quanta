@@ -1,5 +1,11 @@
 # QUANTA · Changelog
 
+## 2026-11-07 — Chapter 32 · The One Box
+- Added Chapter 32: The One Box, Q31 One Box, Distinctions Intact, and Puzzle 032.
+- Added a session-only one-box composition lab preserving separate types and origins of marks, evidence, copies, analogies, and unknowns.
+- Completed the 32 full chapters; the intentionally shorter Chapter 32.5 coda remains.
+- Extended lexicon and research ledger without promoting metaphors to physical evidence.
+
 ## 2026-11-07 — Chapter 31 · The Shadow Revisited
 - Added Chapter 31: The Shadow Revisited, Q30 A Revisited Observation Keeps Its Layers, and Puzzle 031.
 - Added a codebook-selection experiment preserving the original five-dot trace while appending interpretations in a temporary journal.

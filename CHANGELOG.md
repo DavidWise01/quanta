@@ -1,5 +1,11 @@
 # QUANTA · Changelog
 
+## 2026-11-07 — Chapter 31 · The Shadow Revisited
+- Added Chapter 31: The Shadow Revisited, Q30 A Revisited Observation Keeps Its Layers, and Puzzle 031.
+- Added a codebook-selection experiment preserving the original five-dot trace while appending interpretations in a temporary journal.
+- Entered the final 31–32.5 arc of the book, with the original wall-shadow revisited through layered evidence.
+- Extended the lexicon and claims ledger to distinguish syntax, semantics, mathematical proofs, empirical findings, and metaphors.
+
 ## 2026-11-07 — Chapter 30 · The Homecoming
 - Added Chapter 30: The Homecoming, Q29 Home Preserves the Outside, and Puzzle 030.
 - Added an interactive local home-index lab preserving separate origin and ownership for observations and received copies.

@@ -59,6 +59,9 @@ Composing these families into one executable sentence requires separately declar
 
 | `s → s + '|.'` | Appending another boundary-and-dot pair to a valid alternating sequence | Chapter 24 teaching operation; preserves grammar membership and dot count minus bar count equal to 1, not a physical assertion |
 
+| `s in L => s + '|.' in L` | Conditional preservation of alternation under a declared extension | Chapter 25 formal-language interpretation, not a universal repair operator |
+| `..|` | Two dots and one bar in an invalid order | Illustrates that a count difference of one is not sufficient for grammar membership |
+
 ## Use in the book
 
 First show the mark; then give one sentence; then show one visual relation; finally provide optional formal detail.

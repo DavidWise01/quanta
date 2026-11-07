@@ -1,5 +1,10 @@
 # QUANTA · Changelog
 
+## 2026-11-06 — Chapter 10 · The Code
+- Added full Chapter 10, introducing Q9 Form Before Interpretation and Puzzle 010.
+- Added the first simple QUANTA nesting syntax checker in the GitHub Pages reader.
+- Separated basic bracket syntax from reserved transport and identity forms.
+
 ## 2026-11-06 — Chapter 9 · The Signal
 - Added the complete Chapter 9 manuscript, Puzzle 009, and Q8 Meaning Requires a Reading Rule.
 - Added a two-codebook signal demonstration to the reader website.

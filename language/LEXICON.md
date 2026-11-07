@@ -55,6 +55,8 @@ Composing these families into one executable sentence requires separately declar
 
 | `[ CHANGE ] [ KEEP ] [ OBSERVE ]` | The design of a controlled experiment | Chapter 22 teaching notation; labels are not QUANTA execution operators |
 
+| `.|.` | A two-dot, one-boundary alternating sequence; smallest counterexample to the claim that all such sequences have five dots | Chapter 23 teaching grammar, not a measured tesseract or transport phenomenon |
+
 ## Use in the book
 
 First show the mark; then give one sentence; then show one visual relation; finally provide optional formal detail.

@@ -6,7 +6,7 @@
 
 ## Read and explore
 
-- [Reader companion (index.html)](./index.html) — single-file GitHub Pages experience with Chapters 1–18, symbols, and interactive puzzles.
+- [Reader companion (index.html)](./index.html) — single-file GitHub Pages experience with Chapters 1–19, symbols, and interactive puzzles.
 - [Chapter 1: Zero](./book/chapters/01-zero.md) — manuscript with technical ledger.
 - [Chapter 2: The Dot](./book/chapters/02-the-dot.md) — distinction, relationships, identity, Puzzle 002, and Q1.
 - [Chapter 3: The Gap](./book/chapters/03-the-gap.md) — the between, the engine analogy, [()], Puzzle 003, and Q2.
@@ -25,6 +25,8 @@
 - [Chapter 16: The Difference](./book/chapters/16-the-difference.md) — directed differences, representational change, Puzzle 016, and Q15.
 - [Chapter 17: The Choice](./book/chapters/17-the-choice.md) — alternatives, intention versus action, Puzzle 017, and Q16.
 - [Chapter 18: The Action](./book/chapters/18-the-action.md) — intention, attempt, result verification, Puzzle 018, and Q17.
+- [Chapter 19: The Feedback](./book/chapters/19-the-feedback.md) — expectation versus outcome, feedback, Puzzle 019, and Q18.
+- [32.5-chapter book roadmap](./book/ROADMAP-32-5.md) — full book arc and intentional half-chapter finale.
 - [Visual lexicon](./language/LEXICON.md) — symbols, visual readings, and reserved definitions.
 - [Claims ledger](./research/CLAIMS.md) — established math versus proposed language versus untested physics.
 - [Writing guide](./book/STYLE.md) — reader-first editorial principles.

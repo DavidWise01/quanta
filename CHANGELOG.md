@@ -1,5 +1,11 @@
 # QUANTA · Changelog
 
+## 2026-11-07 — Chapter 27 · The Neighbor
+- Added Chapter 27: The Neighbor, Q26 Neighboring Records Preserve Identity, and Puzzle 027.
+- Added a two-notebook provenance lab showing attributed copies without independent verification or source edits.
+- Began the connections arc, preserving identifiers and authority boundaries between neighbors.
+- Updated visual lexicon and research claims ledger.
+
 ## 2026-11-07 — Chapter 26 · The Repetition
 - Added Chapter 26: The Repetition, Q25 Repetition Preserves Every Trial, and Puzzle 026.
 - Added an interactive, explicitly fictional repeat-measurement lab with per-trial fixed tolerance and append-only in-session records.

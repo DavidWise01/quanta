@@ -1,0 +1,25 @@
+name: QG-012 Chrome Dot invariant tests
+on:
+  push:
+    paths:
+      - 'language/chrome-dot.mjs'
+      - 'tests/chrome-dot.test.mjs'
+      - '.github/workflows/chrome-dot-tests.yml'
+  pull_request:
+    paths:
+      - 'language/chrome-dot.mjs'
+      - 'tests/chrome-dot.test.mjs'
+      - '.github/workflows/chrome-dot-tests.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  deterministic-fold:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Validate fixed point and lineage
+        run: node --test tests/chrome-dot.test.mjs

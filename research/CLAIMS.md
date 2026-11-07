@@ -69,6 +69,10 @@
 | M-054 | Equal written forms need not identify the same physical source | Established identity and representation distinction | Separate source records with equal content |
 | M-055 | A copied report does not constitute independent empirical verification | Established provenance principle | Traceable original and copy lineage |
 | P-027 | Drawn neighboring boxes prove actual communication or shared authority | Not established | Observable message transfer and permission policy |
+| Q27 | Exchange accounts preserve sender attribution, message content, delivery evidence, interpretation rule, and agreement independently | Proposed language design rule | Message schema with separate receipt and interpretation records |
+| M-056 | Receipt of symbols does not establish agreement about their interpretation | Established communication principle | Example of identical payload decoded by two distinct codebooks |
+| M-057 | Syntactically valid messages can differ from an originally intended payload | Established computer-science principle | Independent integrity comparison against an authenticated reference |
+| P-028 | An acknowledgment proves understanding or editing authority | Not established | Separate interpretation evidence and explicit permission |
 | P-001 | QUANTA maps directly onto physical microstructure | Untested physical hypothesis | Quantitative predictions and independent evidence |
 
 A precise specification is **not** automatically a statement about physics. A pretty diagram is **not** a measurement.

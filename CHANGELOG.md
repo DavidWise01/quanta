@@ -1,5 +1,11 @@
 # QUANTA · Changelog
 
+## 2026-11-07 — Chapter 30 · The Homecoming
+- Added Chapter 30: The Homecoming, Q29 Home Preserves the Outside, and Puzzle 030.
+- Added an interactive local home-index lab preserving separate origin and ownership for observations and received copies.
+- Completed the neighbor/exchange/weave/homecoming act and prepared the final 31–32.5 arc.
+- Updated lexicon and claims ledger.
+
 ## 2026-11-07 — Chapter 29 · The Weave
 - Added Chapter 29: The Weave, Q28 A Weave Must Preserve Its Sources, and Puzzle 029.
 - Added an interactive provenance tracer distinguishing two originating observations from three copied reports.

@@ -71,6 +71,9 @@ Composing these families into one executable sentence requires separately declar
 | `[ A ] → | → [ B ]` | An intended transfer from one separately identified box to another | Chapter 28 teaching picture; an arrow does not prove delivery, authentication, or understanding |
 | `codebook A1 / codebook B1` | Two interpretations of the same dot-and-bar message | Codebooks must be specified or negotiated; syntax identity is not semantic agreement |
 
+| `[ A ] — [ B ] — [ C ]` | A network of separately identified boxes | Chapter 29 teaching diagram; lines require typed, directed, evidence-backed relationships |
+| `C1 → A1 → B1` | A copied report traced to its originating measurement | Provenance lineage; multiple copies do not count as multiple independent measurement events |
+
 ## Use in the book
 
 First show the mark; then give one sentence; then show one visual relation; finally provide optional formal detail.

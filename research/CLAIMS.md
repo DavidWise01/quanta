@@ -81,6 +81,10 @@
 | M-060 | A local index is not equivalent to the full system it represents | Established modeling distinction | Contrast local view and full network state |
 | M-061 | Provenance separates local observations from externally originated reports and copies | Established data-lineage principle | Original record identifiers and copy chains |
 | P-030 | Aggregating records into a home index confers global ownership or proves completeness | Not established | Independent authority and completeness protocols |
+| Q30 | Revisiting an observation preserves literal marks and source provenance while separating new interpretations, formal deductions, measurements and analogies | Proposed language design rule | Layered source-linked records with non-destructive revisions |
+| M-062 | Literal character counts and grammar membership can be verified without assigning physical meaning | Established formal reasoning | Character count and grammar validator |
+| M-063 | A given syntax may be compatible with multiple semantic codebooks | Established language principle | A1 and B1 interpretations of the same source string |
+| P-031 | The five-dot motif is verified as a physical tesseract projection | Not established | Explicit projection model and independent evidence |
 | P-001 | QUANTA maps directly onto physical microstructure | Untested physical hypothesis | Quantitative predictions and independent evidence |
 
 A precise specification is **not** automatically a statement about physics. A pretty diagram is **not** a measurement.

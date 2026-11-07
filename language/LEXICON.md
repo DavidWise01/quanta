@@ -89,6 +89,9 @@ Composing these families into one executable sentence requires separately declar
 | `H_(n+1) = H_n □ K2` | Duplicate the n-cube and connect matching vertices along a new axis | Established Cartesian-product construction; proposed QUANTA substrate encoding |
 | `G(H11)` | Proposed globule envelope around the 11D hypercube | Speculative model label, no validated string-theoretic or physical interpretation |
 
+| `\\.|./` | Proposed inward-fold primitive converging groups of eight positions to a chrome dot | QG-012 finite-state visualization, not physical quantum measurement |
+| `8 → 4 → 2 → 1 → 1` | Pairwise aggregation followed by a stable fixed point | QG-012; preserve all eight leaf identifiers in lineage and reuse terminal identity |
+
 ## Use in the book
 
 First show the mark; then give one sentence; then show one visual relation; finally provide optional formal detail.

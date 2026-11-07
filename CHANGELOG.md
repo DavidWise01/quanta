@@ -1,5 +1,10 @@
 # QUANTA · Changelog
 
+## 2026-11-07 — Chapter 17 · The Choice
+- Added Chapter 17: The Choice, Q16 Choice Without Retroactive Certainty and Puzzle 017.
+- Added a temporary choice journal distinguishing selection, attempted action, and reported outcome.
+- Extended lexicon and claims ledger with provisional alternative-brace notation and decision provenance.
+
 ## 2026-11-07 — Chapter 16 · The Difference
 - Added Chapter 16: The Difference, with Q15 Difference With Scope and Puzzle 016.
 - Added a reversible dot-count difference experiment with a temporary append-only report ledger.

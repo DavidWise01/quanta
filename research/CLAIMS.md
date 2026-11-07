@@ -37,6 +37,9 @@
 | Q16 | Choice accounts keep observation, alternatives, intention, attempted action and outcome distinct | Proposed language design rule | Decision journal with separate evidence and outcome events |
 | Q-034 | Braces can illustrate alternatives without selecting one | Proposed teaching notation | Future formal grammar and semantics |
 | P-017 | A drawn choice proves successful autonomous action | Not established | Independent execution and outcome evidence |
+| Q17 | Action accounts distinguish intention, authorization, attempt, execution evidence, and observed result | Proposed language design rule | Versioned action schema and independently verified outcomes |
+| Q-036 | An action trace records unknown or failed outcomes without promoting request receipt to success | Proposed record architecture | Trace validator and outcome tests |
+| P-018 | A QUANTA command guarantees the requested physical outcome | Not established | Independently observed external execution |
 | P-001 | QUANTA maps directly onto physical microstructure | Untested physical hypothesis | Quantitative predictions and independent evidence |
 
 A precise specification is **not** automatically a statement about physics. A pretty diagram is **not** a measurement.

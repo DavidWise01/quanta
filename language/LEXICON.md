@@ -82,6 +82,9 @@ Composing these families into one executable sentence requires separately declar
 | `[ .|.|.|.|. ]` | One containing frame around five dots and four bars | Chapter 32 synthesis; containment does not collapse provenance, identity, authority, or scientific evidence |
 | `one box: mark / record / interpretation / analogy / unknown` | Heterogeneous entries held together with their types intact | Proposed container architecture rather than one universal semantic equivalence |
 
+| `[ .|.|.|.|. ]   .` | The familiar boxed motif with one separate, unassigned dot outside it | Chapter 32.5 coda; does not assert a sixth station, new dimension, or physical result |
+| `?` beside the record | An explicit question preserved beyond the end of the account | Q32: unknown stays distinct from measured, proved, and interpreted claims |
+
 ## Use in the book
 
 First show the mark; then give one sentence; then show one visual relation; finally provide optional formal detail.

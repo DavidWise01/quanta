@@ -1,5 +1,11 @@
 # QUANTA · Changelog
 
+## 2026-11-07 — QG-011 · Eleven-dimensional globule
+- Added `language/QG-011-11D-GLOBULE.md` with exact graph substrate definitions and an explicit distinction between the eleven-dot level signature and the 11D hypercube.
+- Added `11d.html`, an interactive n=1–11 canvas projection, exact vertex/edge/face counts, graph validation, and projection rotation.
+- Updated the home-page navigation, reader links, visual lexicon, and research claims ledger.
+- The term globule is a proposed QUANTA container metaphor and is not an experimentally validated M-theory object.
+
 ## 2026-11-07 — Complete GitHub Pages book and cover
 - Published `book.html` as a full manuscript reader, sourcing every original chapter (1–32.5) from the canonical repository Markdown files.
 - Added the geometric QUANTA cover as `assets/quanta-geometric-cover.svg` and featured the book and cover on the existing home page.

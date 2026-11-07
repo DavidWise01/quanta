@@ -42,6 +42,8 @@ Composing these families into one executable sentence requires separately declar
 
 | `[ . ] → [ . . ]` | An illustrative before/after change of one drawn dot | Chapter 16 difference example; arrow and edit semantics are not yet canonical QUANTA operators |
 
+| `{ inspect | compare | wait }` | A visual menu of alternatives | Chapter 17 teaching sketch only; bars are separators and braces do not yet define executable choice syntax |
+
 ## Use in the book
 
 First show the mark; then give one sentence; then show one visual relation; finally provide optional formal detail.

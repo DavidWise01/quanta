@@ -1,5 +1,10 @@
 # QUANTA · Changelog
 
+## 2026-11-07 — Chapter 15 · The Comparison
+- Added Chapter 15: The Comparison, with Q14 Compare Without Conflation and Puzzle 015.
+- Added a side-by-side representation comparison and in-session append-only comparison journal.
+- Updated lexicon and claims ledger to distinguish representational similarity from identity, state, or cause.
+
 ## 2026-11-06 — Chapter 14 · The Record
 - Added Chapter 14: The Record, with Q13 Memory Without Revision of History and Puzzle 014.
 - Added a temporary append-only witness log with referenced corrections in the reader companion.

@@ -21,6 +21,10 @@ Each symbol has a **reader's intuition** and a **formal status**. Until canonica
 
 | `. .` | Two marks separated by a gap | Can represent a fictional two-flash message only when paired with a reading convention |
 
+## Introductory grammar subset (Chapter 10)
+
+A dot is a mark. Matched `[ ]` and `( )` may nest. Crossed or unmatched delimiters fail the introductory check. Spaces are ignored. Other notation, including `|`, `{ }`, `}{`, and `{{i}}`, is reserved for later grammars and should not be silently interpreted as part of this subset.
+
 ## Use in the book
 
 First show the mark; then give one sentence; then show one visual relation; finally provide optional formal detail.

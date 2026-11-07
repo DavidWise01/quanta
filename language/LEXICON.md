@@ -53,6 +53,8 @@ Composing these families into one executable sentence requires separately declar
 | `[ ? ]` | A held research question and an explicit unknown | Chapter 21 teaching motif; `?` is not a canonical QUANTA operator |
 | `[ CHANGE ] [ OBSERVE ] [ COMPARE ]` | Three parts of an inspectable test question | Explanatory labels, not executable syntax |
 
+| `[ CHANGE ] [ KEEP ] [ OBSERVE ]` | The design of a controlled experiment | Chapter 22 teaching notation; labels are not QUANTA execution operators |
+
 ## Use in the book
 
 First show the mark; then give one sentence; then show one visual relation; finally provide optional formal detail.

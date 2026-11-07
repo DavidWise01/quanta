@@ -50,6 +50,9 @@ Composing these families into one executable sentence requires separately declar
 
 | `[ observe → revise → test ]` | A feedback-based learning cycle | Chapter 20 teaching model; not a canonical program or proof of improvement |
 
+| `[ ? ]` | A held research question and an explicit unknown | Chapter 21 teaching motif; `?` is not a canonical QUANTA operator |
+| `[ CHANGE ] [ OBSERVE ] [ COMPARE ]` | Three parts of an inspectable test question | Explanatory labels, not executable syntax |
+
 ## Use in the book
 
 First show the mark; then give one sentence; then show one visual relation; finally provide optional formal detail.

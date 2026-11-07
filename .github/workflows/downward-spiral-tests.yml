@@ -1,0 +1,27 @@
+name: QG-013 Spiral transport and encryption tests
+on:
+  push:
+    paths:
+      - 'language/downward-spiral.mjs'
+      - 'language/chrome-dot.mjs'
+      - 'tests/downward-spiral.test.mjs'
+      - '.github/workflows/downward-spiral-tests.yml'
+  pull_request:
+    paths:
+      - 'language/downward-spiral.mjs'
+      - 'language/chrome-dot.mjs'
+      - 'tests/downward-spiral.test.mjs'
+      - '.github/workflows/downward-spiral-tests.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  route-and-envelope:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Test route, provenance and standard encryption
+        run: node --test tests/downward-spiral.test.mjs

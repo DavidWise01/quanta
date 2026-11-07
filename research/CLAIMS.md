@@ -62,6 +62,9 @@
 | M-050 | An implication restricted to a domain does not assert its conclusion outside that domain | Established logic | Formal conditional proof |
 | M-051 | Dot-minus-bar count of one is necessary but insufficient for the alternating grammar | Established formal-language property | Example `..|` and exact pattern validator |
 | P-025 | A symbolic grammar boundary establishes physical limits of a tesseract projection | Not established | Defined projection and physical evidence |
+| Q25 | Repetition reports preserve every trial, conditions, deviations and declared tolerances | Proposed language design rule | Per-trial ledger and reproducibility protocol |
+| M-052 | Consistency of measurement results is evaluated under defined methods and comparison criteria | Established measurement methodology | Repeat trials under documented conditions |
+| P-026 | Three similar invented measurements establish a physical law or real reproducibility | Not established | Real independent measurements and analyses |
 | P-001 | QUANTA maps directly onto physical microstructure | Untested physical hypothesis | Quantitative predictions and independent evidence |
 
 A precise specification is **not** automatically a statement about physics. A pretty diagram is **not** a measurement.

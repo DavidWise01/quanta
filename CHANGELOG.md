@@ -1,5 +1,11 @@
 # QUANTA · Changelog
 
+## 2026-11-07 — Chapter 21 · The Question
+- Added Chapter 21: The Question, Q20 A Question Must Expose Its Test, and Puzzle 021.
+- Added a question-building lab recording variables, observations and comparison baselines without claiming a test was performed.
+- Started the planned experiment-and-invariant act of the 32.5-chapter book.
+- Updated visual lexicon and research claims ledger.
+
 ## 2026-11-07 — Chapter 20 · The Lesson
 - Added Chapter 20: The Lesson, Q19 Learning Requires a Tested Revision, and Puzzle 020.
 - Added a teaching experiment contrasting sunlight-only selection with inspection; recorded outcomes remain limited to observations.

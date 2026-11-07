@@ -40,6 +40,9 @@
 | Q17 | Action accounts distinguish intention, authorization, attempt, execution evidence, and observed result | Proposed language design rule | Versioned action schema and independently verified outcomes |
 | Q-036 | An action trace records unknown or failed outcomes without promoting request receipt to success | Proposed record architecture | Trace validator and outcome tests |
 | P-018 | A QUANTA command guarantees the requested physical outcome | Not established | Independently observed external execution |
+| Q18 | Feedback records link a prior expectation to observed evidence and an explicit comparison | Proposed language design rule | Source-linked feedback schema and independent evaluation |
+| Q-038 | Feedback cycles can inform a later choice without silently rewriting earlier records | Proposed architecture | Append-only feedback journal and repeatable tests |
+| P-019 | Feedback alone guarantees improvement or reveals the unique cause of error | Not established | Controlled experiments and independently specified performance criteria |
 | P-001 | QUANTA maps directly onto physical microstructure | Untested physical hypothesis | Quantitative predictions and independent evidence |
 
 A precise specification is **not** automatically a statement about physics. A pretty diagram is **not** a measurement.

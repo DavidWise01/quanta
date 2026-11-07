@@ -65,6 +65,10 @@
 | Q25 | Repetition reports preserve every trial, conditions, deviations and declared tolerances | Proposed language design rule | Per-trial ledger and reproducibility protocol |
 | M-052 | Consistency of measurement results is evaluated under defined methods and comparison criteria | Established measurement methodology | Repeat trials under documented conditions |
 | P-026 | Three similar invented measurements establish a physical law or real reproducibility | Not established | Real independent measurements and analyses |
+| Q26 | Connected neighbors retain distinct identity, provenance, and authority boundaries | Proposed language design rule | Explicit source identifiers and attributed-transfer records |
+| M-054 | Equal written forms need not identify the same physical source | Established identity and representation distinction | Separate source records with equal content |
+| M-055 | A copied report does not constitute independent empirical verification | Established provenance principle | Traceable original and copy lineage |
+| P-027 | Drawn neighboring boxes prove actual communication or shared authority | Not established | Observable message transfer and permission policy |
 | P-001 | QUANTA maps directly onto physical microstructure | Untested physical hypothesis | Quantitative predictions and independent evidence |
 
 A precise specification is **not** automatically a statement about physics. A pretty diagram is **not** a measurement.

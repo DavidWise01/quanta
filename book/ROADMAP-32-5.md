@@ -57,4 +57,6 @@
 32. **The One Box** — the whole reader's journey folded into a single, accessible scene.
 32.5. **The Half-Step** — a shorter coda; one unresolved gap, one honest witness, one page left open.
 
-All titles from 20 onward are **planned, not yet drafted**. Their progression may be refined in later turns without changing the 32.5-chapter length. Chapter 19 is drafted and committed; the first 18 chapters are likewise committed.
+**Editorial status (7 November 2026): COMPLETE.** All 32 full chapters and the deliberately short Chapter 32.5 coda are drafted and committed. Each has a reader-facing puzzle; Chapters 1–32.5 are represented in the GitHub Pages reader. The manuscript remains an editorial edition, not an independent scientific validation. Future revisions should preserve the original provenance and distinguish new findings from established claims.
+
+**Final coda:** [Chapter 32.5 — The Half-Step](./chapters/32-5-the-half-step.md).

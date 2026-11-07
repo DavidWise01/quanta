@@ -1,5 +1,11 @@
 # QUANTA · Changelog
 
+## 2026-11-07 — Chapter 26 · The Repetition
+- Added Chapter 26: The Repetition, Q25 Repetition Preserves Every Trial, and Puzzle 026.
+- Added an interactive, explicitly fictional repeat-measurement lab with per-trial fixed tolerance and append-only in-session records.
+- Concluded the planned experiment-and-invariant arc; Chapter 27 begins the connection arc.
+- Updated lexicon and claims ledger on method, variation, and repeatability scope.
+
 ## 2026-11-07 — Chapter 25 · The Boundary Again
 - Added Chapter 25: The Boundary Again, Q24 A Claim Must Carry Its Boundary, and Puzzle 025.
 - Added a browser-based boundary tester for valid versus invalid domains and allowed versus excluded transformations.

@@ -6,7 +6,7 @@
 
 ## Read and explore
 
-- [Reader companion (index.html)](./index.html) — single-file GitHub Pages experience with Chapters 1–20, symbols, and interactive puzzles.
+- [Reader companion (index.html)](./index.html) — single-file GitHub Pages experience with Chapters 1–21, symbols, and interactive puzzles.
 - [Chapter 1: Zero](./book/chapters/01-zero.md) — manuscript with technical ledger.
 - [Chapter 2: The Dot](./book/chapters/02-the-dot.md) — distinction, relationships, identity, Puzzle 002, and Q1.
 - [Chapter 3: The Gap](./book/chapters/03-the-gap.md) — the between, the engine analogy, [()], Puzzle 003, and Q2.
@@ -28,6 +28,7 @@
 - [Chapter 19: The Feedback](./book/chapters/19-the-feedback.md) — expectation versus outcome, feedback, Puzzle 019, and Q18.
 - [32.5-chapter book roadmap](./book/ROADMAP-32-5.md) — full book arc and intentional half-chapter finale.
 - [Chapter 20: The Lesson](./book/chapters/20-the-lesson.md) — evidence-based revised rules, Puzzle 020, and Q19.
+- [Chapter 21: The Question](./book/chapters/21-the-question.md) — testable questions, Puzzle 021, and Q20.
 - [Visual lexicon](./language/LEXICON.md) — symbols, visual readings, and reserved definitions.
 - [Claims ledger](./research/CLAIMS.md) — established math versus proposed language versus untested physics.
 - [Writing guide](./book/STYLE.md) — reader-first editorial principles.

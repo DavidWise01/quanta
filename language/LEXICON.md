@@ -57,6 +57,8 @@ Composing these families into one executable sentence requires separately declar
 
 | `.|.` | A two-dot, one-boundary alternating sequence; smallest counterexample to the claim that all such sequences have five dots | Chapter 23 teaching grammar, not a measured tesseract or transport phenomenon |
 
+| `s → s + '|.'` | Appending another boundary-and-dot pair to a valid alternating sequence | Chapter 24 teaching operation; preserves grammar membership and dot count minus bar count equal to 1, not a physical assertion |
+
 ## Use in the book
 
 First show the mark; then give one sentence; then show one visual relation; finally provide optional formal detail.

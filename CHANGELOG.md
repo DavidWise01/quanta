@@ -1,5 +1,11 @@
 # QUANTA · Changelog
 
+## 2026-11-06 — Chapters 12–13 · Transformation and Witness
+- Committed Chapter 12, previously drafted but absent from GitHub, preserving its core wall-shadow account and Q11.
+- Committed Chapter 13, including Q12 Witness Without Possession and Puzzle 013.
+- Added both visual reading sections, an append-only-in-session witness journal, and their interactive quizzes.
+- Updated the lexicon and research ledger. Browser journal entries are temporary and not server-stored.
+
 ## 2026-11-06 — Chapter 11 · The Grammar
 - Added Chapter 11: The Grammar, with Q10 Preserve the Relationship Type and Puzzle 011.
 - Added a three-family teaching grammar recognizer to the GitHub Pages reader.

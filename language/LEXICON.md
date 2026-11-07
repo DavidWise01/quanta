@@ -36,6 +36,8 @@ Composing these families into one executable sentence requires separately declar
 | `}{` | Opening / unbinding between representations | Transformation motif Q11; full execution grammar reserved |
 | `{{i}} : observation` | Named observer reference associated with a reported appearance | Teaching notation for Q12, not a guarantee of consciousness or accuracy |
 
+| `[ 001, 002, 003 ]` | An ordered container of observation records | Chapter 14 illustration; entry numbering and correction references are proposed, not yet executable QUANTA syntax |
+
 ## Use in the book
 
 First show the mark; then give one sentence; then show one visual relation; finally provide optional formal detail.

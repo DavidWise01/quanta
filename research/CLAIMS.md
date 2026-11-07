@@ -92,6 +92,10 @@
 | Q32 | A completed QUANTA account may preserve an explicit unknown without inventing a conclusion | Proposed language design rule | Typed, source-linked unknown state retained in finalized records |
 | M-066 | Adding an unassigned mark outside a defined expression does not alter its internal character count | Established syntactic reasoning | Count marks only within the defined delimiters |
 | P-0325 | An extra dot outside the boxed motif establishes a new physical dimension or scientific result | Not established | A formal model and independent physical evidence |
+| QG-011 | QUANTA's 11-dot signature indexes an 11-axis hypercube substrate without encoding all its vertices | Proposed language architecture | Separate surface grammar from unique 11-bit addresses and one-bit edge incidence |
+| M-067 | The 11-cube has 2,048 vertices, 11,264 edges, and 28,160 square faces | Established combinatorics | V=2^11; E=11×2^10; F=binomial(11,2)×2^9 |
+| M-068 | Every 11-cube vertex has degree 11, and edges link addresses at Hamming distance one | Established hypercube graph theory | Enumerate one-bit flips for all 11-bit addresses |
+| P-011 | The proposed globule or 11D graph projection demonstrates a physical string-theory or M-theory object | Not established | A dynamical physical theory and independent tests |
 | P-001 | QUANTA maps directly onto physical microstructure | Untested physical hypothesis | Quantitative predictions and independent evidence |
 
 A precise specification is **not** automatically a statement about physics. A pretty diagram is **not** a measurement.

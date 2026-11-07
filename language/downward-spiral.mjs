@@ -123,6 +123,43 @@ async function keyFromPassword(password, salt, iterations) {
   );
 }
 
+/**
+ * Reorder UTF-8 bytes by the actual spiral route prior to encryption.
+ * Each independent 2^d-byte block is padded with zeros; the original byte length
+ * stays inside the AES-GCM ciphertext as a four-byte little-endian prefix.
+ */
+function packSpiralMessage(message, dimension) {
+  const raw = text(message), s = instantiateSpiral(dimension), block = s.route.length;
+  if (raw.length > 1048576) throw new RangeError("Payload limit is 1 MiB UTF-8.");
+  const packed = new Uint8Array(4 + Math.ceil(raw.length / block) * block);
+  new DataView(packed.buffer).setUint32(0, raw.length, true);
+  for (let begin = 0; begin < packed.length - 4; begin += block) {
+    for (let i = 0; i < block; i++) {
+      const original = begin + s.route[i];
+      packed[4 + begin + i] = original < raw.length ? raw[original] : 0;
+    }
+  }
+  return packed;
+}
+function unpackSpiralMessage(packed, dimension) {
+  if (packed.length < 4) throw new Error("Truncated transport frame.");
+  const s = instantiateSpiral(dimension), block = s.route.length;
+  const length = new DataView(packed.buffer, packed.byteOffset, packed.byteLength).getUint32(0, true);
+  if (length > 1048576 || (packed.length - 4) % block !== 0 ||
+      packed.length - 4 !== Math.ceil(length / block) * block) {
+    throw new Error("Invalid authenticated spiral frame length.");
+  }
+  const raw = new Uint8Array(length);
+  for (let begin = 0; begin < packed.length - 4; begin += block) {
+    for (let i = 0; i < block; i++) {
+      const target = begin + s.route[i];
+      if (target < length) raw[target] = packed[4 + begin + i];
+      else if (packed[4 + begin + i] !== 0) throw new Error("Invalid transport padding.");
+    }
+  }
+  return new TextDecoder("utf-8", { fatal: true }).decode(raw);
+}
+
 /** Encrypt UTF-8. Random salt & nonce are newly generated for each envelope. */
 export async function sealTransport(message, password, dimension = 11) {
   assertDimension(dimension);
@@ -134,7 +171,7 @@ export async function sealTransport(message, password, dimension = 11) {
   const key = await keyFromPassword(password, salt, KDF_ITERATIONS);
   const ciphertext = await crypto.subtle.encrypt(
     { name: "AES-GCM", iv: nonce, additionalData: text(JSON.stringify(header)), tagLength: 128 },
-    key, text(message)
+    key, packSpiralMessage(message, dimension)
   );
   return {
     version: SPIRAL_VERSION, header,
@@ -158,5 +195,5 @@ export async function openTransport(envelope, password) {
     { name: "AES-GCM", iv: nonce, additionalData: text(JSON.stringify(header)), tagLength: 128 },
     key, fromUrl64(envelope.ciphertext)
   );
-  return new TextDecoder("utf-8", { fatal: true }).decode(clear);
+  return unpackSpiralMessage(new Uint8Array(clear), header.dimensions);
 }

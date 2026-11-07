@@ -1,5 +1,10 @@
 # QUANTA · Changelog
 
+## 2026-11-07 — Chapter 16 · The Difference
+- Added Chapter 16: The Difference, with Q15 Difference With Scope and Puzzle 016.
+- Added a reversible dot-count difference experiment with a temporary append-only report ledger.
+- Updated the lexicon and claims ledger to keep representational change distinct from cause.
+
 ## 2026-11-07 — Chapter 15 · The Comparison
 - Added Chapter 15: The Comparison, with Q14 Compare Without Conflation and Puzzle 015.
 - Added a side-by-side representation comparison and in-session append-only comparison journal.

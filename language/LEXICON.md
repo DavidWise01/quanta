@@ -68,6 +68,9 @@ Composing these families into one executable sentence requires separately declar
 | `[ A ] | [ B ]` | Two separately labeled boxes with a shared gap or boundary | Chapter 27 teaching motif; different sources remain distinct despite matching glyphs |
 | `copied from A into B` | Received report with source retained | Provenance statement; a copy is not independent verification or authority to modify A |
 
+| `[ A ] → | → [ B ]` | An intended transfer from one separately identified box to another | Chapter 28 teaching picture; an arrow does not prove delivery, authentication, or understanding |
+| `codebook A1 / codebook B1` | Two interpretations of the same dot-and-bar message | Codebooks must be specified or negotiated; syntax identity is not semantic agreement |
+
 ## Use in the book
 
 First show the mark; then give one sentence; then show one visual relation; finally provide optional formal detail.

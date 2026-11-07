@@ -74,6 +74,8 @@ Composing these families into one executable sentence requires separately declar
 | `[ A ] — [ B ] — [ C ]` | A network of separately identified boxes | Chapter 29 teaching diagram; lines require typed, directed, evidence-backed relationships |
 | `C1 → A1 → B1` | A copied report traced to its originating measurement | Provenance lineage; multiple copies do not count as multiple independent measurement events |
 
+| `HOME(A): local / received / copied / unknown` | An index within box A of its own and externally sourced records | Chapter 30 teaching notation; indexing is not ownership or proof of complete global state |
+
 ## Use in the book
 
 First show the mark; then give one sentence; then show one visual relation; finally provide optional formal detail.

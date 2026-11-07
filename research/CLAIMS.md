@@ -77,6 +77,10 @@
 | M-058 | Copies do not create additional independent empirical observations | Established provenance principle | Record lineage from copies to original measurement |
 | M-059 | Correlated evidence and circulating reports can distort naive corroboration counts | Established evidentiary reasoning | Dependency-aware source analysis |
 | P-029 | Multiple matching network messages establish independent physical corroboration | Not established | Independent and comparable measurement procedures |
+| Q29 | A local home index preserves origin, ownership, received-copy status, and uncertainty for referenced records | Proposed language design rule | Typed home-index schema and lineage checks |
+| M-060 | A local index is not equivalent to the full system it represents | Established modeling distinction | Contrast local view and full network state |
+| M-061 | Provenance separates local observations from externally originated reports and copies | Established data-lineage principle | Original record identifiers and copy chains |
+| P-030 | Aggregating records into a home index confers global ownership or proves completeness | Not established | Independent authority and completeness protocols |
 | P-001 | QUANTA maps directly onto physical microstructure | Untested physical hypothesis | Quantitative predictions and independent evidence |
 
 A precise specification is **not** automatically a statement about physics. A pretty diagram is **not** a measurement.

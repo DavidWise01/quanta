@@ -90,3 +90,15 @@ test("AES-GCM rejects wrong password, changed header and tampered ciphertext", a
 test("unsupported dimensions are refused", () => {
   for(const bad of [0,2,12,11.5,"11",null]) assert.throws(()=>instantiateSpiral(bad),RangeError);
 });
+
+test("AES-GCM actually transports byte blocks through the spiral with reversible padding", async () => {
+  const password="another-test-only-long-passphrase";
+  for(const [d,message] of [[3,""],[3,"Hello 🌐! repeated enough to span more than eight bytes"],[11,"short"],[11,"x".repeat(2071)]]) {
+    const env=await sealTransport(message,password,d);
+    const utf8length=new TextEncoder().encode(message).length;
+    const n=2**d, blocks=Math.ceil(utf8length/n);
+    const raw=Uint8Array.from(atob(env.ciphertext.replace(/-/g,"+").replace(/_/g,"/")),c=>c.charCodeAt(0));
+    assert.equal(raw.length,4+blocks*n+16,"expected authenticated padded frame length");
+    assert.equal(await openTransport(env,password),message);
+  }
+});

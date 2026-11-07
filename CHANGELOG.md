@@ -1,5 +1,10 @@
 # QUANTA · Changelog
 
+## 2026-11-07 — Chapter 25 · The Boundary Again
+- Added Chapter 25: The Boundary Again, Q24 A Claim Must Carry Its Boundary, and Puzzle 025.
+- Added a browser-based boundary tester for valid versus invalid domains and allowed versus excluded transformations.
+- Updated lexicon and claims ledger on scoped implications and necessary versus sufficient conditions.
+
 ## 2026-11-07 — Chapter 24 · The Invariant
 - Added Chapter 24: The Invariant, Q23 Invariance Requires a Declared Transformation, and Puzzle 024.
 - Added an interactive alternating-sequence invariant test with a contrasting out-of-domain edit and an in-session event trace.

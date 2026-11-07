@@ -6,6 +6,10 @@
 
 ## Read and explore
 
+- **[Read the complete book with geometric cover](./book.html)** — full 32.5-chapter GitHub Pages edition, loading all original chapter manuscripts, puzzles, and notes.
+- [Geometric book cover (SVG)](./assets/quanta-geometric-cover.svg) — crisp scalable cover for the reader.
+- [Complete Word manuscript (DOCX)](./book/QUANTA_The_Wordle_of_Space_Complete_32_5.docx).
+
 - [Reader companion (index.html)](./index.html) — single-file GitHub Pages experience with all 32 chapters and the 32.5 coda, symbols, and interactive puzzles.
 - [Chapter 1: Zero](./book/chapters/01-zero.md) — manuscript with technical ledger.
 - [Chapter 2: The Dot](./book/chapters/02-the-dot.md) — distinction, relationships, identity, Puzzle 002, and Q1.

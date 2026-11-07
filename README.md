@@ -6,6 +6,9 @@
 
 ## Read and explore
 
+- **[Explore QG-011: The 11D Globule](./11d.html)** — interactive 1D–11D hypercube with exact combinatorial invariants and rotatable 2D projection.
+- [QG-011 formal specification](./language/QG-011-11D-GLOBULE.md) — separate ordinal dot-bar signature from the n-cube graph and physical speculation.
+
 - **[Read the complete book with geometric cover](./book.html)** — full 32.5-chapter GitHub Pages edition, loading all original chapter manuscripts, puzzles, and notes.
 - [Geometric book cover (SVG)](./assets/quanta-geometric-cover.svg) — crisp scalable cover for the reader.
 - [Complete Word manuscript (DOCX)](./book/QUANTA_The_Wordle_of_Space_Complete_32_5.docx).

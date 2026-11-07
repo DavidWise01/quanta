@@ -20,6 +20,8 @@
 | Q-018 | Two-dot flash code is an illustrative teaching convention | Not canonical transport syntax | Define codebook and decoding rule |
 | Q9 | An expression must be checked against its applicable grammar before meaning is assigned | Proposed language design rule | Introductory parser checks nesting and rejects unsupported marks |
 | Q-020 | Dot and square/round delimiters form a first teaching subset | Proposed QUANTA grammar | Executable nesting checker and examples |
+| Q10 | Containment, sequence, and identity references remain distinct when combined | Proposed language design rule | Three-family recognizer and future composition grammar |
+| Q-023 | `{{i}}` recognized as a reserved whole identity token | Proposed lexical convention | Token recognition without invented execution semantics |
 | P-001 | QUANTA maps directly onto physical microstructure | Untested physical hypothesis | Quantitative predictions and independent evidence |
 
 A precise specification is **not** automatically a statement about physics. A pretty diagram is **not** a measurement.

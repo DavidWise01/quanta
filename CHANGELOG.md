@@ -1,5 +1,10 @@
 # QUANTA · Changelog
 
+## 2026-11-06 — Chapter 11 · The Grammar
+- Added Chapter 11: The Grammar, with Q10 Preserve the Relationship Type and Puzzle 011.
+- Added a three-family teaching grammar recognizer to the GitHub Pages reader.
+- Kept nested forms, sequential forms, and the reserved identity token distinct; full mixed grammar remains future work.
+
 ## 2026-11-06 — Chapter 10 · The Code
 - Added full Chapter 10, introducing Q9 Form Before Interpretation and Puzzle 010.
 - Added the first simple QUANTA nesting syntax checker in the GitHub Pages reader.

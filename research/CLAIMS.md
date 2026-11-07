@@ -89,6 +89,9 @@
 | M-064 | A container may hold distinct kinds of records without equating their referents | Established modeling distinction | Typed data and separate identifiers |
 | M-065 | A syntactically valid symbol sequence does not determine a unique physical interpretation | Established semantics principle | Multiple codebooks or models for same string |
 | P-032 | A boxed five-dot pattern demonstrates a physical tesseract or universal theory | Not established | Formal projection rule and independent empirical evidence |
+| Q32 | A completed QUANTA account may preserve an explicit unknown without inventing a conclusion | Proposed language design rule | Typed, source-linked unknown state retained in finalized records |
+| M-066 | Adding an unassigned mark outside a defined expression does not alter its internal character count | Established syntactic reasoning | Count marks only within the defined delimiters |
+| P-0325 | An extra dot outside the boxed motif establishes a new physical dimension or scientific result | Not established | A formal model and independent physical evidence |
 | P-001 | QUANTA maps directly onto physical microstructure | Untested physical hypothesis | Quantitative predictions and independent evidence |
 
 A precise specification is **not** automatically a statement about physics. A pretty diagram is **not** a measurement.

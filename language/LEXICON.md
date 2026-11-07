@@ -48,6 +48,8 @@ Composing these families into one executable sentence requires separately declar
 
 | `prediction → observation → comparison` | A feedback sequence that preserves both expectation and observed result | Chapter 19 teaching diagram; a full protocol and learning criterion remain to be defined |
 
+| `[ observe → revise → test ]` | A feedback-based learning cycle | Chapter 20 teaching model; not a canonical program or proof of improvement |
+
 ## Use in the book
 
 First show the mark; then give one sentence; then show one visual relation; finally provide optional formal detail.

@@ -49,6 +49,9 @@
 | Q20 | A research question states known evidence, unknowns, scope, and potential tests | Proposed language design rule | Explicit question schema and reproducible investigation examples |
 | Q-042 | Questions can reference evidence without converting uncertainty into a claim | Proposed architecture | Provenance-aware test-planning records |
 | P-021 | Every meaningful question requires an immediate empirical test | Not established | Distinguish empirical inquiry from philosophical and literary questions |
+| Q21 | Experiments declare the variable, controlled conditions, measurement and deviations | Proposed language design rule | Trial schema and repeatable tests with recorded confounders |
+| Q-044 | Simulated projections must be identified separately from observed physical measurements | Proposed evidence policy | Model provenance and independent empirical comparisons |
+| P-022 | A flat-card shadow validates a literal tesseract projection | Not established | Explicit higher-dimensional mapping and evidence |
 | P-001 | QUANTA maps directly onto physical microstructure | Untested physical hypothesis | Quantitative predictions and independent evidence |
 
 A precise specification is **not** automatically a statement about physics. A pretty diagram is **not** a measurement.

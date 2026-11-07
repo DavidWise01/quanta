@@ -62,6 +62,9 @@ Composing these families into one executable sentence requires separately declar
 | `s in L => s + '|.' in L` | Conditional preservation of alternation under a declared extension | Chapter 25 formal-language interpretation, not a universal repair operator |
 | `..|` | Two dots and one bar in an invalid order | Illustrates that a count difference of one is not sufficient for grammar membership |
 
+| `trial 001 / trial 002 / trial 003` | Repeated observations under a declared method | Chapter 26 teaching record; per-trial provenance and tolerance must be preserved |
+| `target ± tolerance` | A specified acceptance band for readings | Comparison rule, not proof of a physical constant or guaranteed reproducibility |
+
 ## Use in the book
 
 First show the mark; then give one sentence; then show one visual relation; finally provide optional formal detail.

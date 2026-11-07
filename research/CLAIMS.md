@@ -96,6 +96,9 @@
 | M-067 | The 11-cube has 2,048 vertices, 11,264 edges, and 28,160 square faces | Established combinatorics | V=2^11; E=11×2^10; F=binomial(11,2)×2^9 |
 | M-068 | Every 11-cube vertex has degree 11, and edges link addresses at Hamming distance one | Established hypercube graph theory | Enumerate one-bit flips for all 11-bit addresses |
 | P-011 | The proposed globule or 11D graph projection demonstrates a physical string-theory or M-theory object | Not established | A dynamical physical theory and independent tests |
+| QG-012 | Repeated pairwise folding of 8 sources gives representative counts 8, 4, 2, 1, 1 | Proposed QUANTA folding overlay over elementary combinatorics | Bounded deterministic pairing with retained leaf lineage and unchanged terminal node |
+| M-069 | The map F(n)=max(1,ceil(n/2)) has F(1)=1 and yields the count sequence 8,4,2,1,1 | Established arithmetic | Direct evaluation |
+| P-012 | A terminal chrome dot is a physically demonstrated quantum object | Not established | Physical model, quantum dynamics, testable predictions and evidence |
 | P-001 | QUANTA maps directly onto physical microstructure | Untested physical hypothesis | Quantitative predictions and independent evidence |
 
 A precise specification is **not** automatically a statement about physics. A pretty diagram is **not** a measurement.

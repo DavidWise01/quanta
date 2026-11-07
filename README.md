@@ -6,7 +6,7 @@
 
 ## Read and explore
 
-- [Reader companion (index.html)](./index.html) — single-file GitHub Pages experience with Chapters 1–25, symbols, and interactive puzzles.
+- [Reader companion (index.html)](./index.html) — single-file GitHub Pages experience with Chapters 1–26, symbols, and interactive puzzles.
 - [Chapter 1: Zero](./book/chapters/01-zero.md) — manuscript with technical ledger.
 - [Chapter 2: The Dot](./book/chapters/02-the-dot.md) — distinction, relationships, identity, Puzzle 002, and Q1.
 - [Chapter 3: The Gap](./book/chapters/03-the-gap.md) — the between, the engine analogy, [()], Puzzle 003, and Q2.
@@ -33,6 +33,7 @@
 - [Chapter 23: The Failure](./book/chapters/23-the-failure.md) — counterexample preservation and reduction, Puzzle 023, and Q22.
 - [Chapter 24: The Invariant](./book/chapters/24-the-invariant.md) — declared transformations, preservation proof, Puzzle 024, and Q23.
 - [Chapter 25: The Boundary Again](./book/chapters/25-the-boundary-again.md) — domain boundaries, necessary versus sufficient conditions, Puzzle 025, and Q24.
+- [Chapter 26: The Repetition](./book/chapters/26-the-repetition.md) — repeatability, tolerances, trial preservation, Puzzle 026, and Q25.
 - [Visual lexicon](./language/LEXICON.md) — symbols, visual readings, and reserved definitions.
 - [Claims ledger](./research/CLAIMS.md) — established math versus proposed language versus untested physics.
 - [Writing guide](./book/STYLE.md) — reader-first editorial principles.

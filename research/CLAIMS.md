@@ -73,6 +73,10 @@
 | M-056 | Receipt of symbols does not establish agreement about their interpretation | Established communication principle | Example of identical payload decoded by two distinct codebooks |
 | M-057 | Syntactically valid messages can differ from an originally intended payload | Established computer-science principle | Independent integrity comparison against an authenticated reference |
 | P-028 | An acknowledgment proves understanding or editing authority | Not established | Separate interpretation evidence and explicit permission |
+| Q28 | Network links retain typed directions, source references, and distinctions between copies and original observations | Proposed language design rule | Traceable provenance graph with no duplicate-as-independent counts |
+| M-058 | Copies do not create additional independent empirical observations | Established provenance principle | Record lineage from copies to original measurement |
+| M-059 | Correlated evidence and circulating reports can distort naive corroboration counts | Established evidentiary reasoning | Dependency-aware source analysis |
+| P-029 | Multiple matching network messages establish independent physical corroboration | Not established | Independent and comparable measurement procedures |
 | P-001 | QUANTA maps directly onto physical microstructure | Untested physical hypothesis | Quantitative predictions and independent evidence |
 
 A precise specification is **not** automatically a statement about physics. A pretty diagram is **not** a measurement.

@@ -1,5 +1,10 @@
 # QUANTA · Changelog
 
+## 2026-11-07 — Chapter 24 · The Invariant
+- Added Chapter 24: The Invariant, Q23 Invariance Requires a Declared Transformation, and Puzzle 024.
+- Added an interactive alternating-sequence invariant test with a contrasting out-of-domain edit and an in-session event trace.
+- Updated visual lexicon and claims ledger to distinguish formal-language preservation from physical claims.
+
 ## 2026-11-07 — Chapter 23 · The Failure
 - Added Chapter 23: The Failure, Q22 Preserve the Smallest Honest Failure, and Puzzle 023.
 - Added a bounded counterexample minimizer for the introductory alternating-sequence grammar, retaining the original failing example and reduction trace.

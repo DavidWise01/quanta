@@ -1,5 +1,10 @@
 # QUANTA · Changelog
 
+## 2026-11-07 — Chapter 28 · The Exchange
+- Added Chapter 28: The Exchange, Q27 Exchange Preserves Meaning and Provenance Boundaries, and Puzzle 028.
+- Added a simulated four-step exchange lab differentiating sending, receipt, interpretation, and agreement, with an in-session journal.
+- Extended lexicon and claims ledger on codebooks, integrity, attribution, and authority boundaries.
+
 ## 2026-11-07 — Chapter 27 · The Neighbor
 - Added Chapter 27: The Neighbor, Q26 Neighboring Records Preserve Identity, and Puzzle 027.
 - Added a two-notebook provenance lab showing attributed copies without independent verification or source edits.

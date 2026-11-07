@@ -1,5 +1,10 @@
 # QUANTA · Changelog
 
+## 2026-11-07 — Chapter 29 · The Weave
+- Added Chapter 29: The Weave, Q28 A Weave Must Preserve Its Sources, and Puzzle 029.
+- Added an interactive provenance tracer distinguishing two originating observations from three copied reports.
+- Updated lexicon and claims ledger on source lineages, typed relationships, and feedback loops.
+
 ## 2026-11-07 — Chapter 28 · The Exchange
 - Added Chapter 28: The Exchange, Q27 Exchange Preserves Meaning and Provenance Boundaries, and Puzzle 028.
 - Added a simulated four-step exchange lab differentiating sending, receipt, interpretation, and agreement, with an in-session journal.

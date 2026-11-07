@@ -1,5 +1,10 @@
 # QUANTA · Changelog
 
+## 2026-11-07 — QG-012 · Quantum Chrome Dot
+- Defined `\\.|./` as a proposed fold primitive: 8 → 4 → 2 → 1 → 1, with unchanged terminal-node identity at the fifth state.
+- Added a provenance-preserving fold control to the 11D experiment without altering the underlying hypercube adjacency or vertex counts.
+- Added the QG-012 specification, lexicon notation, arithmetic invariant, and appropriate physical-claim caveat.
+
 ## 2026-11-07 — QG-011 · Eleven-dimensional globule
 - Added `language/QG-011-11D-GLOBULE.md` with exact graph substrate definitions and an explicit distinction between the eleven-dot level signature and the 11D hypercube.
 - Added `11d.html`, an interactive n=1–11 canvas projection, exact vertex/edge/face counts, graph validation, and projection rotation.

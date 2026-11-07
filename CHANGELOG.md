@@ -1,5 +1,11 @@
 # QUANTA · Changelog
 
+## 2026-11-07 — Chapter 19 · The Feedback and 32.5-Chapter Plan
+- Added Chapter 19: The Feedback, Q18 Feedback Must Reference Reality and Puzzle 019.
+- Established the 32.5-chapter roadmap, including the final half-chapter and a return to one box.
+- Added a simulated prediction-versus-outcome comparison with a temporary append-only feedback journal.
+- Extended lexicon and claims ledger without claiming feedback automatically yields improvement.
+
 ## 2026-11-07 — Chapter 18 · The Action
 - Added Chapter 18: The Action, Q17 Action Requires an Outcome Trace and Puzzle 018.
 - Added a simulated action-trace journal that separates selection, attempt, and hypothetical outcome.

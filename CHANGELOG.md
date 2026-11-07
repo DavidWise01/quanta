@@ -1,5 +1,12 @@
 # QUANTA · Changelog
 
+## 2026-11-07 — QG-013 · Downward Spiral Transport
+- Preserved the proposed literal signature `12|8/64/3|2/16/8|/4/2/1/1` as an unassigned versioned field label, without inventing semantics for its numeric segments.
+- Created `language/downward-spiral.mjs`: Gray-address ordered eight-source globules across dimensions 3–11, clockwise outer-to-inner grid traversal, and reversible payload-byte transport.
+- Applied local standard AES-256-GCM authenticated encryption with fresh nonce/salt, PBKDF2-HMAC-SHA-256 and authenticated header fields; the spiral is not itself encryption.
+- Published `spiral.html`, a browser-local send/decrypt console and 16×16 spiral visualization at 11D; added tests and an Actions workflow.
+- Linked the new console from the homepage and 11D lab and extended the lexicon and claims ledger.
+
 ## 2026-11-07 — QG-012 · Quantum Chrome Dot
 - Defined `\\.|./` as a proposed fold primitive: 8 → 4 → 2 → 1 → 1, with unchanged terminal-node identity at the fifth state.
 - Added a provenance-preserving fold control to the 11D experiment without altering the underlying hypercube adjacency or vertex counts.

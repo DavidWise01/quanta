@@ -55,6 +55,9 @@
 | Q22 | Keep original failure, exact predicate, and reduction history while minimizing | Proposed language design rule | Bounded reducer with failure-preserving checks |
 | M-046 | One valid counterexample refutes a universal claim under stated definitions | Established logic | Show grammar membership and failure of universal statement |
 | P-023 | An anomalous shadow measurement by itself identifies the responsible physical cause | Not established | Controlled repetitions and independent condition checks |
+| Q23 | An invariant names a domain, allowed transformation and preserved property | Proposed language design rule | Scoped proof or test with explicit counterexamples beyond the domain |
+| M-049 | Appending `|.` preserves alternating dot/bar grammar and the dot-minus-bar difference of 1 | Established formal-language property for the defined grammar | Induction on the number of appended pairs |
+| P-024 | The symbolic invariant proves an invariant of photons, light or physical tesseracts | Not established | Independent physical model and measurements |
 | P-001 | QUANTA maps directly onto physical microstructure | Untested physical hypothesis | Quantitative predictions and independent evidence |
 
 A precise specification is **not** automatically a statement about physics. A pretty diagram is **not** a measurement.

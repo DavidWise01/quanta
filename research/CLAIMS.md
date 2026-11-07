@@ -43,6 +43,9 @@
 | Q18 | Feedback records link a prior expectation to observed evidence and an explicit comparison | Proposed language design rule | Source-linked feedback schema and independent evaluation |
 | Q-038 | Feedback cycles can inform a later choice without silently rewriting earlier records | Proposed architecture | Append-only feedback journal and repeatable tests |
 | P-019 | Feedback alone guarantees improvement or reveals the unique cause of error | Not established | Controlled experiments and independently specified performance criteria |
+| Q19 | A lesson references evidence, a proposed decision-rule revision, and subsequent tests against an objective | Proposed language design rule | Versioned lesson schema, independent evaluations and baselines |
+| Q-040 | A retained lesson is not automatically an improvement | Proposed evaluation rule | Replicated trials with declared success metrics |
+| P-020 | Feedback or memory alone guarantees better future decisions | Not established | Objective-grounded comparative testing |
 | P-001 | QUANTA maps directly onto physical microstructure | Untested physical hypothesis | Quantitative predictions and independent evidence |
 
 A precise specification is **not** automatically a statement about physics. A pretty diagram is **not** a measurement.

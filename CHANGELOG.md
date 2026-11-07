@@ -1,5 +1,10 @@
 # QUANTA · Changelog
 
+## 2026-11-06 — Chapter 14 · The Record
+- Added Chapter 14: The Record, with Q13 Memory Without Revision of History and Puzzle 014.
+- Added a temporary append-only witness log with referenced corrections in the reader companion.
+- Updated lexicon and claims ledger; distinguished durable memory policy from demo-only UI state.
+
 ## 2026-11-06 — Chapters 12–13 · Transformation and Witness
 - Committed Chapter 12, previously drafted but absent from GitHub, preserving its core wall-shadow account and Q11.
 - Committed Chapter 13, including Q12 Witness Without Possession and Puzzle 013.

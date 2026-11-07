@@ -18,6 +18,8 @@
 | Q-016 | Five-station relay is one illustrative reading of `.|.|.|.|.` | Proposed interpretation | Define station mapping and transmission semantics |
 | Q8 | A signal pattern requires an explicit reading convention to determine a message | Proposed language design rule | Demonstrate divergent codebooks for identical marks |
 | Q-018 | Two-dot flash code is an illustrative teaching convention | Not canonical transport syntax | Define codebook and decoding rule |
+| Q9 | An expression must be checked against its applicable grammar before meaning is assigned | Proposed language design rule | Introductory parser checks nesting and rejects unsupported marks |
+| Q-020 | Dot and square/round delimiters form a first teaching subset | Proposed QUANTA grammar | Executable nesting checker and examples |
 | P-001 | QUANTA maps directly onto physical microstructure | Untested physical hypothesis | Quantitative predictions and independent evidence |
 
 A precise specification is **not** automatically a statement about physics. A pretty diagram is **not** a measurement.

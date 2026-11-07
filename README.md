@@ -6,7 +6,7 @@
 
 ## Read and explore
 
-- [Reader companion (index.html)](./index.html) — single-file GitHub Pages experience with Chapters 1–11, symbols, and interactive puzzles.
+- [Reader companion (index.html)](./index.html) — single-file GitHub Pages experience with Chapters 1–13, symbols, and interactive puzzles.
 - [Chapter 1: Zero](./book/chapters/01-zero.md) — manuscript with technical ledger.
 - [Chapter 2: The Dot](./book/chapters/02-the-dot.md) — distinction, relationships, identity, Puzzle 002, and Q1.
 - [Chapter 3: The Gap](./book/chapters/03-the-gap.md) — the between, the engine analogy, [()], Puzzle 003, and Q2.
@@ -18,6 +18,8 @@
 - [Chapter 9: The Signal](./book/chapters/09-the-signal.md) — shared reading rules, Puzzle 009, and Q8.
 - [Chapter 10: The Code](./book/chapters/10-the-code.md) — first syntax rules, an interactive nesting checker, Puzzle 010, and Q9.
 - [Chapter 11: The Grammar](./book/chapters/11-the-grammar.md) — nesting, sequence, identity, Puzzle 011, and Q10.
+- [Chapter 12: The Transformation](./book/chapters/12-the-transformation.md) — one box, changing wall-trace, Q11, and Puzzle 012.
+- [Chapter 13: The Witness](./book/chapters/13-the-witness.md) — observer references, honest records, Q12, and Puzzle 013.
 - [Visual lexicon](./language/LEXICON.md) — symbols, visual readings, and reserved definitions.
 - [Claims ledger](./research/CLAIMS.md) — established math versus proposed language versus untested physics.
 - [Writing guide](./book/STYLE.md) — reader-first editorial principles.

@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>QUANTA — QG-011: The 11D Globule</title>
+<meta name="description" content="Explore a mathematically exact n-dimensional hypercube from one dimension to eleven, projected onto a two-dimensional screen."/>
+<style>
+:root{color-scheme:dark;--bg:#061119;--surface:#10222c;--line:#2b4b58;--fg:#ecfffa;--dim:#91adb5;--cyan:#65f5df;--amber:#ffa96f}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font:15px/1.55 system-ui,Segoe UI,sans-serif}a{color:var(--cyan)}
+header{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:15px clamp(16px,3vw,40px);border-bottom:1px solid var(--line);background:#061218}header strong{letter-spacing:.12em}header nav{display:flex;gap:17px;font-size:.85rem}
+main{max-width:1400px;margin:auto;padding:30px clamp(14px,3vw,40px) 80px}.eyebrow{font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(--cyan);font-weight:800}
+h1{font-size:clamp(2.3rem,5.5vw,5rem);line-height:1.05;margin:10px 0 10px;letter-spacing:-.04em}h2{font-size:1.2rem;margin:0 0 12px}p{max-width:75ch;color:#bfd1d4}.small{font-size:.8rem;color:var(--dim)}.intro{margin-bottom:30px}
+.layout{display:grid;grid-template-columns:minmax(300px,1.7fr) minmax(275px,1fr);gap:20px}.card{border:1px solid var(--line);border-radius:15px;background:var(--surface);padding:22px;min-width:0}
+.viewport{aspect-ratio:1.25;background:radial-gradient(ellipse at 50% 50%,#0a3a41 0%,#06151f 61%,#030d13 100%);border:1px solid #2b5960;border-radius:11px;position:relative;overflow:hidden}
+.viewport canvas{width:100%;height:100%;display:block;touch-action:none}.viewport .overlay{position:absolute;bottom:12px;left:13px;pointer-events:none;font:11px Consolas,monospace;color:#86c9ca}
+.status{border:1px solid #2b6c68;border-radius:9px;background:#0b2c2f;color:#bffff4;padding:11px 14px;font-size:.83rem;margin-top:14px}
+.control{margin-bottom:22px}.control-head{display:flex;justify-content:space-between;gap:12px;align-items:center;margin-bottom:10px}.control-head strong{font-variant-numeric:tabular-nums;font-size:1.2rem;color:var(--cyan)}
+input[type=range]{width:100%;accent-color:var(--cyan);cursor:pointer}.actions{display:flex;gap:8px;flex-wrap:wrap;margin:16px 0}button{background:#173843;border:1px solid #428078;color:#ebfff8;border-radius:8px;padding:10px 14px;cursor:pointer}button:hover{background:#24545b}
+.metrics{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px;margin:14px 0}.metric{border:1px solid #294c57;border-radius:9px;padding:13px 9px;background:#081c25;text-align:center}.metric .value{display:block;color:#e7fff8;font-size:clamp(1rem,2.5vw,1.5rem);font-weight:750;font-variant-numeric:tabular-nums}.metric label{font-size:.69rem;color:var(--dim);text-transform:uppercase;letter-spacing:.07em}
+.signature{font:clamp(16px,2vw,24px)/1.5 Consolas,monospace;color:var(--amber);overflow:auto;white-space:nowrap;padding:12px;background:#071b22;border:1px solid #31525c;border-radius:9px;text-align:center}
+pre{white-space:pre-wrap;overflow-wrap:anywhere;color:#c9fff3;font:13px/1.55 Consolas,monospace;background:#071920;border-radius:8px;padding:15px}
+.info-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:20px}.info-grid .card{padding:22px}.legend{color:#a9c3c6;font-size:.84rem;line-height:1.7}
+footer{margin-top:40px;border-top:1px solid var(--line);padding-top:25px;color:var(--dim);font-size:.83rem}
+@media(max-width:950px){.layout{grid-template-columns:1fr}.viewport{aspect-ratio:1.45}.info-grid{grid-template-columns:1fr}}
+@media(max-width:560px){header nav{gap:8px;font-size:.75rem}.card{padding:15px}.metrics{gap:5px}.viewport{aspect-ratio:1}}
+</style></head><body>
+<header><strong>◈ QUANTA <span style="color:#65f5df">/ QG-011</span></strong><nav><a href="book.html">Full book</a><a href="index.html">Companion</a><a href="language/QG-011-11D-GLOBULE.md">Specification</a></nav></header>
+<main><div class="intro"><div class="eyebrow">The next natural invariant · Graph substrate + observer projection</div><h1>The Eleven-Dimensional Globule</h1><p>From <code>.</code> (a vertex) and <code>.|.</code> (two vertices with an edge), grow an actual hypercube through eleven independent axes. The dot-and-bar signature tracks the <em>level</em>; the projected graph shows the much larger underlying structure.</p></div>
+<div class="layout">
+<section class="card"><div class="control-head"><h2>Observer window · 2D projection</h2><span class="small" id="draw-status">Ready</span></div><div class="viewport"><canvas id="view" aria-label="Projected wireframe of selected-dimensional hypercube">Your browser needs canvas support.</canvas><div class="overlay">Projection is not a physical measurement · drag to rotate</div></div>
+<div class="status" id="verification" role="status" aria-live="polite">Validating the exact hypercube graph…</div>
+<div class="actions"><button id="rotate">Start rotation</button><button id="reset">Reset projection</button><button id="verify">Run all 11 gates</button></div>
+<div class="small">The 11D graph has 2,048 unique vertices and 11,264 edges. A 2D drawing can overlap vertices and cross edges without creating new graph incidence.</div></section>
+<aside class="card">
+<div class="control"><div class="control-head"><label for="dimension"><strong>Dimension</strong></label><strong id="dim-label">11D</strong></div><input type="range" min="1" max="11" step="1" id="dimension" value="11"/><div class="small">Move from a segment, square and cube through tesseract (4D), penteract (5D), and the 11-cube.</div></div>
+<h2>Exact combinatorial counts</h2><div class="metrics"><div class="metric"><span class="value" id="vertices">2,048</span><label>Vertices</label></div><div class="metric"><span class="value" id="edges">11,264</span><label>Edges</label></div><div class="metric"><span class="value" id="faces">28,160</span><label>Square faces</label></div></div>
+<div class="small">Every vertex in the n-cube has exactly n neighbors.</div>
+<h2 style="margin-top:25px">QUANTA surface signature</h2><div class="signature" id="signature">.|.|.|.|.|.|.|.|.|.|.</div><p class="small" id="surface-status">11 dots · 10 bars. This is an ordinal level marker, not the full 11D graph.</p>
+<h2 style="margin-top:26px">The growth operation</h2><pre>H₀ = one vertex
+H₁ = two vertices + one edge
+Hₙ₊₁ = two copies of Hₙ
+       + corresponding cross-links
+vertex = n-bit address
+edge   = one-bit change</pre>
+<p class="small">A sequence of 11 dots joined by 10 bars has only 11 vertices and 10 edges. Its role here is a <em>dimensional label</em>, not a lossless encoding of the 2,048-vertex structure.</p>
+</aside></div>
+<div class="info-grid"><section class="card"><h2>Three invariants to preserve</h2><p><strong>Identity:</strong> each vertex retains its unique n-bit address. <strong>Adjacency:</strong> an edge joins addresses at Hamming distance one. <strong>Projection:</strong> moving the 2D view does not change either.</p><p class="legend">For dimension n: V = 2ⁿ; E = n·2ⁿ⁻¹; square faces = n(n−1)·2ⁿ⁻³ for n ≥ 2. The 11D graph has 22 facets of dimension ten.</p></section><section class="card"><h2>11D is not a physics proof</h2><p>Superstring models normally use 10 spacetime dimensions; M-theory is associated with 11. In this lab, <strong>11D means 11 independent mathematical graph coordinates</strong>. The globule is a proposed QUANTA envelope, not a verified compactification, brane, particle, or natural object.</p><p class="legend">Next test: define a metric and a projection inverse or reconstruction criterion. Until then, this is a testable combinatorial model and a deliberately lossy visualization.</p></section></div>
+<footer>QUANTA · QG-011 · <a href="language/QG-011-11D-GLOBULE.md">Read full specification</a> · <a href="book.html">Back to the complete book</a> · David Lee Wise</footer></main>
+<script>
+(function(){
+const slider=document.getElementById('dimension'),canvas=document.getElementById('view'),ctx=canvas.getContext('2d'),labels={1:'Line segment',2:'Square',3:'Cube',4:'Tesseract',5:'Penteract',11:'11-cube / globule model'};
+const $=id=>document.getElementById(id),format=n=>n.toLocaleString('en-US');
+let dimension=11,angle=0.15,running=false,frame=0,vertices=[],edges=[],sizeW=0,sizeH=0;
+function make(n){let count=1<<n,verts=Array.from({length:count},(_,i)=>i),edgePairs=[];
+for(let v=0;v<count;v++)for(let bit=0;bit<n;bit++){const u=v^(1<<bit);if(v<u)edgePairs.push([v,u])}
+return {verts,edgePairs}}
+function counts(n){return {v:2**n,e:n*2**(n-1),f:n>=2?n*(n-1)*2**(n-3):0}}
+function check(n){const d=make(n),c=counts(n),deg=new Uint16Array(1<<n),seen=new Set();for(const [a,b] of d.edgePairs){if(a>=b)return false;let delta=a^b;if((delta&(delta-1))!==0)return false;const key=a+':'+b;if(seen.has(key))return false;seen.add(key);deg[a]++;deg[b]++}return d.verts.length===c.v&&d.edgePairs.length===c.e&&deg.every(x=>x===n)}
+function resize(){const b=canvas.getBoundingClientRect(),scale=Math.min(2,window.devicePixelRatio||1);sizeW=b.width;sizeH=b.height;canvas.width=Math.round(sizeW*scale);canvas.height=Math.round(sizeH*scale);ctx.setTransform(scale,0,0,scale,0,0);draw()}
+function rebuild(){dimension=+slider.value;const d=make(dimension),c=counts(dimension);vertices=d.verts;edges=d.edgePairs;
+$('dim-label').textContent=dimension+'D';$('vertices').textContent=format(c.v);$('edges').textContent=format(c.e);$('faces').textContent=format(c.f);$('signature').textContent='.'+'|.'.repeat(dimension-1);
+$('surface-status').textContent=dimension+' dots · '+(dimension-1)+' bars. '+(labels[dimension]||dimension+'-cube')+'; surface signature is an ordinal marker.';
+const good=check(dimension);$('verification').textContent=(good?'PASS':'FAIL')+' · '+dimension+'D addresses, exact one-bit edges and degree '+dimension+' · projection independent of graph.';
+resize()}
+function project(v){let x=0,y=0;for(let j=0;j<dimension;j++){const sign=(v&(1<<j))?1:-1,t=angle*(0.25+j*0.035)+j*2.399963229728653,weight=1/(1+j*.13);x+=sign*Math.cos(t)*weight;y+=sign*Math.sin(t)*weight}return [x,y]}
+function draw(){if(!sizeW||!sizeH)return;ctx.clearRect(0,0,sizeW,sizeH);const points=vertices.map(project);let max=0;for(const [x,y] of points)max=Math.max(max,Math.abs(x),Math.abs(y));const scale=Math.min(sizeW,sizeH)*.41/(max||1),cx=sizeW/2,cy=sizeH/2;
+ctx.lineWidth=dimension>=8?.48:.95;ctx.strokeStyle='rgba(82,232,214,'+(dimension>=9?.14:.32)+')';ctx.beginPath();for(const [a,b] of edges){const p=points[a],q=points[b];ctx.moveTo(cx+p[0]*scale,cy+p[1]*scale);ctx.lineTo(cx+q[0]*scale,cy+q[1]*scale)}ctx.stroke();
+ctx.fillStyle=dimension>=9?'rgba(200,255,248,.38)':'rgba(200,255,248,.9)';const radius=dimension>=9?.75:dimension>=6?1.15:2.2;for(const [x,y] of points){ctx.beginPath();ctx.arc(cx+x*scale,cy+y*scale,radius,0,Math.PI*2);ctx.fill()}
+$('draw-status').textContent=dimension+'D · '+format(vertices.length)+' points projected to 2D'}
+function tick(){if(!running)return;angle+=.012;draw();frame=requestAnimationFrame(tick)}
+$('rotate').addEventListener('click',function(){running=!running;this.textContent=running?'Pause rotation':'Start rotation';if(running)tick();else cancelAnimationFrame(frame)});
+$('reset').addEventListener('click',()=>{angle=.15;draw()});
+$('verify').addEventListener('click',()=>{let fails=[];for(let n=1;n<=11;n++)if(!check(n))fails.push(n);$('verification').textContent=fails.length?'FAIL · dimensions '+fails.join(','):'PASS · all 11 dimensions, expected counts, one-bit edges, unique incidence and uniform degree';});
+slider.addEventListener('input',rebuild);let dragging=false,lastX=0;canvas.addEventListener('pointerdown',e=>{dragging=true;lastX=e.clientX;canvas.setPointerCapture(e.pointerId)});canvas.addEventListener('pointermove',e=>{if(!dragging)return;angle+=(e.clientX-lastX)*.009;lastX=e.clientX;draw()});canvas.addEventListener('pointerup',()=>dragging=false);canvas.addEventListener('pointercancel',()=>dragging=false);
+window.addEventListener('resize',resize);rebuild();
+})();
+</script></body></html>

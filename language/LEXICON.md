@@ -25,6 +25,14 @@ Each symbol has a **reader's intuition** and a **formal status**. Until canonica
 
 A dot is a mark. Matched `[ ]` and `( )` may nest. Crossed or unmatched delimiters fail the introductory check. Spaces are ignored. Other notation, including `|`, `{ }`, `}{`, and `{{i}}`, is reserved for later grammars and should not be silently interpreted as part of this subset.
 
+## Three grammar families (Chapter 11)
+
+- **Nesting:** paired square and round delimiters around dots, such as `[ ( . ) ]`.
+- **Sequence:** alternating dots and bars, such as `.|.|.|.|.`. This is a teaching reading, not verified transport.
+- **Identity reference:** the reserved whole token `{{i}}`. The reader recognizes it but does not invent execution semantics.
+
+Composing these families into one executable sentence requires separately declared relationship operators.
+
 ## Use in the book
 
 First show the mark; then give one sentence; then show one visual relation; finally provide optional formal detail.

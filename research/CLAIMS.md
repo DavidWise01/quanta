@@ -25,6 +25,9 @@
 | Q11 | Transformation descriptions preserve source, operation, and result | Proposed language design rule | Explicit mapping and lineage record |
 | Q12 | Witness account distinguishes observation, conditions, and interpretation; missing stays missing | Proposed language design rule | Witness journal and cross-checking |
 | P-012 | Written wall-trace is a measured tesseract projection | Not established | Explicit mapping and independent evidence |
+| Q13 | Witness records are appended; corrections reference, rather than overwrite, prior entries | Proposed language design rule | Record format, provenance checks, tamper-resistant retention |
+| Q-028 | A container may hold ordered observation reports | Proposed QUANTA architecture | Formal schema and retrieval semantics |
+| P-014 | Append-only entries guarantee observation accuracy | Not established | External verification and source integrity |
 | P-001 | QUANTA maps directly onto physical microstructure | Untested physical hypothesis | Quantitative predictions and independent evidence |
 
 A precise specification is **not** automatically a statement about physics. A pretty diagram is **not** a measurement.

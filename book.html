@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/><meta name="theme-color" content="#061219"/>
+<title>QUANTA — The Wordle of Space | Complete Book</title>
+<meta name="description" content="The complete 32.5-chapter QUANTA book by David Lee Wise: every chapter, puzzle and technical note, with geometric cover art."/>
+<link rel="icon" type="image/svg+xml" href="assets/quanta-geometric-cover.svg"/>
+<style>
+:root{--bg:#061219;--panel:#091d25;--ink:#e7f4f3;--muted:#9eb7b8;--border:#25444d;--accent:#65f1e3;--text:#e7eff0}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:80px}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.65 system-ui,-apple-system,Segoe UI,sans-serif}
+a{color:var(--accent);text-decoration:none}a:hover{text-decoration:underline}button,input{font:inherit}.progress{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,#54ead9,#c8fff5);z-index:200}
+.top{position:sticky;top:0;z-index:100;background:#061219ed;border-bottom:1px solid var(--border);height:62px;padding:0 24px;display:flex;align-items:center;justify-content:space-between;gap:14px;backdrop-filter:blur(14px)}
+.logo{font-weight:800;letter-spacing:.18em;color:#fff}.logo em{font-style:normal;color:var(--accent)}.toplinks{display:flex;align-items:center;gap:18px;font-size:.82rem}.toplinks a{white-space:nowrap}.menu{display:none}
+.layout{display:grid;grid-template-columns:272px minmax(0,1fr)}aside{background:#081920;border-right:1px solid var(--border);position:sticky;top:62px;height:calc(100vh - 62px);overflow:auto;padding:22px 15px 30px;scrollbar-color:#335e64 transparent}
+.tiny{font-size:.73rem;color:var(--muted)}.upper{font-size:.69rem;letter-spacing:.19em;text-transform:uppercase;font-weight:800;color:var(--accent)}.search{display:block;width:100%;background:#071319;color:#fff;border:1px solid #365960;border-radius:8px;padding:9px 11px;margin:11px 0 15px;outline-color:var(--accent)}.act-title{margin:20px 8px 7px;color:var(--accent);font-size:.7rem;font-weight:750;letter-spacing:.11em}.toc a{display:flex;align-items:center;gap:9px;font-size:.81rem;color:#bdd1d2;padding:7px 9px;border-radius:7px;line-height:1.33}.toc a:hover,.toc a.active{background:#164048;color:#fff;text-decoration:none}.toc .num{font-size:.75rem;font-variant-numeric:tabular-nums;color:#73f8e7;min-width:26px}
+main{min-width:0}.cover{min-height:90vh;display:grid;grid-template-columns:minmax(235px,385px) minmax(260px,520px);gap:clamp(30px,6vw,95px);align-items:center;justify-content:center;padding:50px clamp(26px,6vw,80px);background:radial-gradient(ellipse at 42% 46%,#10424a,transparent 67%),#061219;border-bottom:1px solid var(--border)}.cover-art{display:block;max-width:385px;width:100%;aspect-ratio:2/3;margin:auto;box-shadow:0 25px 65px #000c,0 0 0 1px #39858b}.hero h1{font-size:clamp(3.7rem,8vw,7rem);line-height:1;letter-spacing:.03em;margin:12px 0}.hero h2{font-weight:400;font-size:clamp(1.25rem,2.4vw,2rem);color:var(--accent);letter-spacing:.1em;margin:0 0 25px}.author{font:1.5rem Georgia,serif;color:#fff}.hero p{color:#b3cdce;max-width:44ch}.cta{display:flex;gap:10px;flex-wrap:wrap;margin-top:25px}.btn{display:inline-flex;padding:11px 17px;font-weight:700;font-size:.85rem;justify-content:center;align-items:center;background:var(--accent);border:1px solid var(--accent);border-radius:8px;color:#082328}.btn.outline{background:transparent;color:#ddfff8;border-color:#53848b}
+.introduction{max-width:810px;margin:auto;padding:55px 30px;border-bottom:1px solid var(--border)}.introduction h2{font:2.6rem Georgia,serif;margin:8px 0 12px}.introduction p{color:#bfd2d0}.load-state{font-size:.82rem;color:var(--muted);min-height:1.5em}
+.chapter{padding:72px clamp(28px,7vw,90px) 80px;border-bottom:1px solid var(--border);max-width:1130px;margin:auto;scroll-margin-top:65px;content-visibility:auto;contain-intrinsic-size:auto 1800px}.chapter-eyebrow{display:flex;justify-content:space-between;gap:10px;color:var(--accent);font-size:.7rem;text-transform:uppercase;letter-spacing:.12em;padding-bottom:13px;border-bottom:1px solid var(--border);font-weight:700}
+.prose{font:18px/1.84 Georgia,"Times New Roman",serif;max-width:760px;margin:0 auto;color:var(--text)}.prose h2,.prose h3,.prose h4,.prose h5{font-family:system-ui,Segoe UI,sans-serif;line-height:1.22}.prose h2{font-size:clamp(2rem,5vw,3.3rem);letter-spacing:-.04em;color:#fff;margin:35px 0 8px}.prose h3{font-size:clamp(1.18rem,2.8vw,1.7rem);color:var(--accent);font-weight:450;margin:6px 0 28px}.prose h4{font-size:1.24rem;color:#dafcf3;margin:35px 0 12px}.prose h5{font-size:1.05rem;margin:25px 0 10px}.prose p{margin:0 0 20px}.prose p.meta{font-size:.85rem;color:#9cb8b8}.prose strong{color:#fff}.prose em{color:#dfefec}.prose blockquote{margin:27px 0;border-left:3px solid var(--accent);padding:7px 0 7px 22px;color:#d6fff8;font-style:italic;font-size:1.14em}
+.prose pre{background:#031017;color:#d2fff6;border:1px solid #2d5258;border-radius:9px;padding:21px 24px;overflow-x:auto;font:14px/1.62 Consolas,"Courier New",monospace;white-space:pre;tab-size:2;margin:23px 0 28px}.prose :not(pre)>code{color:#ffc595;background:#102930;padding:2px 5px;border-radius:3px;font:0.86em Consolas,monospace}.prose ol,.prose ul{padding-left:1.45em}.prose li{margin:7px 0}.prose hr{border:0;border-top:1px solid var(--border);margin:35px 0}.table-wrap{overflow:auto;margin:22px 0}.prose table{border-collapse:collapse;width:100%;font:13px/1.5 system-ui,sans-serif;min-width:460px}.prose th,.prose td{padding:11px 12px;text-align:left;vertical-align:top;border:1px solid #25424a}.prose th{color:#d8fff7;background:#133138}.chap-nav{margin:40px auto 0;max-width:760px;border-top:1px solid var(--border);padding-top:18px;display:flex;justify-content:space-between;gap:10px;font-size:.83rem}.chap-nav a{max-width:48%}.loading{padding:50px;text-align:center;color:var(--muted);font-family:system-ui}
+.footer{text-align:center;padding:45px 20px;color:var(--muted);font-size:.8rem}.small-control{background:transparent;border:1px solid #426971;color:#dcfaf5;border-radius:7px;padding:6px 10px;cursor:pointer}
+body.light{--bg:#edf3ef;--panel:#fff;--ink:#18363a;--muted:#47676c;--border:#c1d4d0;--accent:#007e77;--text:#283a3a;background:#fff}body.light main{background:#fff}body.light .chapter{background:#fff}body.light .prose h2,body.light .prose strong{color:#142d30}body.light .prose h4{color:#166c67}body.light .prose blockquote{color:#256560}body.light .prose pre{color:#194b46;background:#eef8f5;border-color:#bbd9d3}body.light .prose :not(pre)>code{color:#a35213;background:#eef2ef}
+[hidden]{display:none!important}
+@media(max-width:1050px){.layout{grid-template-columns:225px minmax(0,1fr)}.cover{padding:35px;gap:30px}}
+@media(max-width:760px){.top{padding:0 14px}.toplinks a.secondary-link{display:none}.menu{display:block}.layout{display:block}aside{display:none;position:fixed;z-index:90;top:62px;bottom:0;left:0;width:min(325px,90vw);height:auto;box-shadow:12px 20px 35px #000a}aside.open{display:block}.cover{grid-template-columns:1fr;min-height:0;text-align:center;padding:38px 25px 65px}.cover-art{max-width:245px}.hero h1{font-size:3.8rem}.hero p{margin-left:auto;margin-right:auto}.cta{justify-content:center}.chapter{padding:50px 22px 64px}.prose{font-size:17px}.prose h2{font-size:2.1rem}}
+@media print{.top,aside,.progress,.cta,.chap-nav{display:none!important}.layout{display:block}.cover{break-after:page;min-height:0;height:95vh}.chapter{break-before:page;content-visibility:visible;contain:none;border:0;padding:15mm 6mm}.prose{color:#111;font-size:11pt}.prose h2,.prose h3,.prose h4,.prose strong{color:#111}.prose pre{color:#111;background:#eee;white-space:pre-wrap}.table-wrap{overflow:visible}.prose table{font-size:8pt}}
+</style></head><body>
+<div class="progress" id="progress"></div>
+<header class="top"><div style="display:flex;align-items:center;gap:12px"><button class="small-control menu" id="menu" aria-label="Open table of contents" aria-expanded="false">☰</button><a href="#cover" class="logo">◈ QUANTA<em>.</em></a></div><div class="toplinks"><a class="secondary-link" href="index.html">Companion</a><a class="secondary-link" href="book/QUANTA_The_Wordle_of_Space_Complete_32_5.docx">Word edition</a><button class="small-control" id="theme" aria-label="Toggle reading colors">☼</button></div></header>
+<div class="layout"><aside id="sidebar"><div class="upper">The complete book</div><p class="tiny">David Lee Wise · 32.5 chapters</p><label class="tiny" for="search">Search chapter titles</label><input class="search" id="search" placeholder="Find a chapter…" autocomplete="off"/><nav class="toc" id="toc"><a href="#cover">◈ &nbsp; Front cover</a></nav><p class="tiny">Every chapter is loaded directly from its canonical GitHub Pages manuscript file.</p></aside>
+<main><section class="cover" id="cover"><img class="cover-art" src="assets/quanta-geometric-cover.svg" alt="Geometric QUANTA cover: glowing circles, nested squares and five dots separated by four bars, in teal on black" width="1024" height="1536"/><div class="hero"><div class="upper">Complete 32.5-chapter edition</div><h1>QUANTA</h1><h2>The Wordle of Space</h2><div class="author">David Lee Wise</div><p>A journey from the first zero to the final half-step. One mark, one boundary, one box—and a whole world of questions.</p><div class="cta"><a class="btn" href="#chapter-1">Start reading →</a><a class="btn outline" href="book/QUANTA_The_Wordle_of_Space_Complete_32_5.docx">Download Word manuscript</a></div><p class="tiny">Full manuscript · puzzles · technical notes · geometric cover · November 2026</p></div></section>
+<section class="introduction"><div class="upper">A note to the reader</div><h2>One box. An entire journey.</h2><p>This is the <strong>full book</strong>, not a chapter-summary sampler. Every chapter below loads the complete manuscript text, including the Wordle of Space puzzles and technical notes, directly from the repository's canonical sources.</p><p>The cover is a faithful geometric SVG companion to the approved teal-and-black cover. All formal claims and physical analogies retain the qualifications recorded in the manuscript.</p><div class="load-state" id="load-status" aria-live="polite">Opening the complete manuscript…</div></section>
+<div id="chapters"></div><footer class="footer">QUANTA — The Wordle of Space · David Lee Wise · <a href="index.html">Interactive companion</a> · <a href="https://github.com/DavidWise01/quanta">GitHub repository</a></footer>
+</main></div>
+<script>
+(function(){
+"use strict";
+var names=["01-zero.md","02-the-dot.md","03-the-gap.md","04-the-boundary.md","05-the-box.md","06-the-loop.md","07-the-vessel.md","08-the-path.md","09-the-signal.md","10-the-code.md","11-the-grammar.md","12-the-transformation.md","13-the-witness.md","14-the-record.md","15-the-comparison.md","16-the-difference.md","17-the-choice.md","18-the-action.md","19-the-feedback.md","20-the-lesson.md","21-the-question.md","22-the-experiment.md","23-the-failure.md","24-the-invariant.md","25-the-boundary-again.md","26-the-repetition.md","27-the-neighbor.md","28-the-exchange.md","29-the-weave.md","30-the-homecoming.md","31-the-shadow-revisited.md","32-the-one-box.md","32-5-the-half-step.md"];
+var acts=[{first:1,last:8,name:"I · Learn to See"},{first:9,last:12,name:"II · Learn to Read"},{first:13,last:20,name:"III · Learn to Respond"},{first:21,last:26,name:"IV · Learn to Test"},{first:27,last:30,name:"V · Learn to Connect"},{first:31,last:33,name:"VI · Close the Shape"}];
+var toc=document.getElementById("toc"),container=document.getElementById("chapters"),status=document.getElementById("load-status"),menu=document.getElementById("menu"),side=document.getElementById("sidebar");
+function escapeHTML(s){return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;")}
+function renderInline(s){
+ var parts=[],str=escapeHTML(s);
+ str=str.replace(/&#96;([^&]*?)&#96;/g,function(_,v){parts.push("<code>"+v+"</code>");return "%%CODE"+(parts.length-1)+"%%"});
+ str=str.replace(/\x60([^\x60]+)\x60/g,function(_,v){parts.push("<code>"+v+"</code>");return "%%CODE"+(parts.length-1)+"%%"});
+ str=str.replace(/\*\*([^*]+)\*\*/g,"<strong>$1</strong>").replace(/(^|[^*])\*([^*]+)\*(?!\*)/g,"$1<em>$2</em>");
+ str=str.replace(/\[([^\]]+)\]\((https?:\/\/[^ )]+)\)/g,'<a href="$2" target="_blank" rel="noopener">$1</a>');
+ return str.replace(/%%CODE(\d+)%%/g,function(_,n){return parts[Number(n)]})
+}
+function parseMarkdown(md){
+ var lines=md.replace(/\r\n/g,"\n").split("\n"),i=0,out="";
+ while(i<lines.length){
+ var line=lines[i],t=line.trim();if(!t){i++;continue}
+ if(t.startsWith("~~~")||t.startsWith("\x60\x60\x60")){
+  var fence=t.slice(0,3),block=[];i++;
+  while(i<lines.length&&!lines[i].trim().startsWith(fence)){block.push(lines[i]);i++}if(i<lines.length)i++;
+  out+='<pre><code>'+escapeHTML(block.join("\n"))+"</code></pre>";continue
+ }
+ if(/^---+$/.test(t)){out+="<hr>";i++;continue}
+ var h=/^(#{1,6})\s+(.*)$/.exec(t);
+ if(h){var n=Math.min(6,h[1].length+1);out+="<h"+n+">"+renderInline(h[2])+"</h"+n+">";i++;continue}
+ if(t.charAt(0)==="|"&&i+1<lines.length&&/^\|?[\s:|-]+\|?$/.test(lines[i+1].trim())&&lines[i+1].includes("-")){
+  var spl=function(x){return x.trim().replace(/^\|/,"").replace(/\|$/,"").split("|").map(function(s){return s.trim()})};
+  var headers=spl(lines[i]);i+=2;out+='<div class="table-wrap"><table><thead><tr>'+headers.map(function(s){return "<th>"+renderInline(s)+"</th>"}).join("")+"</tr></thead><tbody>";
+  while(i<lines.length&&lines[i].trim().startsWith("|")){var row=spl(lines[i]);out+="<tr>"+headers.map(function(_,j){return "<td>"+renderInline(row[j]||"")+"</td>"}).join("")+"</tr>";i++}
+  out+="</tbody></table></div>";continue
+ }
+ if(t.startsWith(">")){var quote=[];while(i<lines.length&&lines[i].trim().startsWith(">")){quote.push(renderInline(lines[i].trim().replace(/^>\s?/,"")));i++}out+="<blockquote>"+quote.join("<br>")+"</blockquote>";continue}
+ if(/^[-*]\s+/.test(t)||/^\d+\.\s+/.test(t)){
+  var ordered=/^\d+\.\s+/.test(t),tag=ordered?"ol":"ul",entries=[];
+  while(i<lines.length&&(ordered?/^\d+\.\s+/.test(lines[i].trim()):/^[-*]\s+/.test(lines[i].trim()))){entries.push(renderInline(lines[i].trim().replace(ordered?/^\d+\.\s+/:/^[-*]\s+/,"")));i++}
+  out+="<"+tag+">"+entries.map(function(x){return "<li>"+x+"</li>"}).join("")+"</"+tag+">";continue
+ }
+ var para=[t];i++;
+ while(i<lines.length){
+  var next=lines[i].trim(),after=(lines[i+1]||"").trim();
+  if(!next||/^#{1,6}\s/.test(next)||/^---+$/.test(next)||next.startsWith(">")||next.startsWith("\x60\x60\x60")||next.startsWith("~~~")||/^[-*]\s+/.test(next)||/^\d+\.\s+/.test(next)||next.startsWith("|")&&/^\|?[\s:|-]+\|?$/.test(after))break;
+  para.push(next);i++;
+ }
+ var cls=para.length===1&&/^\*(QUANTA:|David Lee Wise|Reader-first|Manuscript|Final half-chapter|Editorial note)/.test(para[0])?' class="meta"':"";
+ out+="<p"+cls+">"+renderInline(para.join(" "))+"</p>"
+ }
+ return out
+}
+function chapterLabel(file){var name=file.replace(/^\d+(?:-\d+)?-/,"").replace(/\.md$/,"").replace(/-/g," ");return name.replace(/\b\w/g,function(x){return x.toUpperCase()})}
+var navLinks=[],states=[];
+for(var k=0;k<names.length;k++){
+ var idx=k+1,id="chapter-"+(k===32?"32-5":idx),num=k===32?"32.5":String(idx),act=acts.find(function(a){return idx>=a.first&&idx<=a.last});
+ if(idx===act.first){var group=document.createElement("div");group.className="act-title";group.textContent="ACT "+act.name;toc.appendChild(group)}
+ var a=document.createElement("a");a.href="#"+id;a.dataset.target=id;a.className="toc-chapter";a.innerHTML='<span class="num">'+num+'</span><span>'+escapeHTML(chapterLabel(names[k]))+"</span>";toc.appendChild(a);navLinks.push(a);
+ var section=document.createElement("section");section.className="chapter";section.id=id;section.dataset.number=idx;section.innerHTML='<div class="chapter-eyebrow"><span>ACT '+escapeHTML(act.name)+'</span><span>CHAPTER '+num+'</span></div><div class="prose"><p class="loading">Loading the complete Chapter '+num+'…</p></div><div class="chap-nav"><a href="#'+(k===0?"cover":"chapter-"+(k===32?32:k))+'">← Previous</a><a href="#'+(k===32?"cover":"chapter-"+(k===31?"32-5":k+2))+'">'+(k===32?"Back to cover ↑":"Next →")+"</a></div>";
+ container.appendChild(section);states.push({file:names[k],section:section,done:false})
+}
+var complete=0,failures=0;
+function loadChapter(st){
+ return fetch("book/chapters/"+st.file,{cache:"default"}).then(function(r){if(!r.ok)throw Error("HTTP "+r.status);return r.text()}).then(function(md){
+  st.section.querySelector(".prose").innerHTML=parseMarkdown(md);
+  st.done=true;complete++;
+  status.textContent="Full manuscript loaded: "+complete+" of 33 chapters"+(failures?" · "+failures+" unavailable":"")+".";
+ }).catch(function(e){
+  failures++;st.section.querySelector(".prose").innerHTML='<p>Unable to load this chapter right now. <a href="book/chapters/'+encodeURIComponent(st.file)+'">Open the original manuscript file</a>.</p>';
+  status.textContent=complete+" loaded · "+failures+" not available. The original Markdown source links remain accessible.";
+ })
+}
+var nextIndex=0;
+function worker(){if(nextIndex>=states.length)return Promise.resolve();var st=states[nextIndex++];return loadChapter(st).then(worker)}
+Promise.all([worker(),worker(),worker(),worker(),worker()]).then(function(){if(!failures)status.textContent="All 33 chapter files loaded — the complete 32.5-chapter book is ready to read.";if(location.hash&&document.getElementById(location.hash.slice(1)))setTimeout(function(){document.getElementById(location.hash.slice(1)).scrollIntoView()},200)});
+document.getElementById("search").addEventListener("input",function(e){var q=e.target.value.trim().toLowerCase();navLinks.forEach(function(a){a.hidden=!a.textContent.toLowerCase().includes(q)});document.querySelectorAll(".act-title").forEach(function(a){var n=a.nextElementSibling,visible=0;while(n&&n.classList.contains("toc-chapter")){if(!n.hidden)visible++;n=n.nextElementSibling}a.hidden=!!q&&!visible})});
+var prog=document.getElementById("progress");function updateProgress(){var max=document.documentElement.scrollHeight-innerHeight;prog.style.width=(max>0?Math.max(0,Math.min(100,scrollY/max*100)):0)+"%"}window.addEventListener("scroll",updateProgress,{passive:true});window.addEventListener("resize",updateProgress);updateProgress();
+var observer=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting)navLinks.forEach(function(a){a.classList.toggle("active",a.dataset.target===e.target.id)})})},{rootMargin:"-12% 0px -70% 0px"});states.forEach(function(s){observer.observe(s.section)});
+menu.addEventListener("click",function(){var open=side.classList.toggle("open");menu.setAttribute("aria-expanded",open?"true":"false")});toc.addEventListener("click",function(){side.classList.remove("open");menu.setAttribute("aria-expanded","false")});
+document.getElementById("theme").addEventListener("click",function(){var light=document.body.classList.toggle("light");this.textContent=light?"☾":"☼"})
+})();
+</script></body></html>

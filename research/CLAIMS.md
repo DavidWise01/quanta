@@ -46,6 +46,9 @@
 | Q19 | A lesson references evidence, a proposed decision-rule revision, and subsequent tests against an objective | Proposed language design rule | Versioned lesson schema, independent evaluations and baselines |
 | Q-040 | A retained lesson is not automatically an improvement | Proposed evaluation rule | Replicated trials with declared success metrics |
 | P-020 | Feedback or memory alone guarantees better future decisions | Not established | Objective-grounded comparative testing |
+| Q20 | A research question states known evidence, unknowns, scope, and potential tests | Proposed language design rule | Explicit question schema and reproducible investigation examples |
+| Q-042 | Questions can reference evidence without converting uncertainty into a claim | Proposed architecture | Provenance-aware test-planning records |
+| P-021 | Every meaningful question requires an immediate empirical test | Not established | Distinguish empirical inquiry from philosophical and literary questions |
 | P-001 | QUANTA maps directly onto physical microstructure | Untested physical hypothesis | Quantitative predictions and independent evidence |
 
 A precise specification is **not** automatically a statement about physics. A pretty diagram is **not** a measurement.

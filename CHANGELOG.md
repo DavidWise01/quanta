@@ -1,5 +1,10 @@
 # QUANTA · Changelog
 
+## 2026-11-07 — Chapter 22 · The Experiment
+- Added Chapter 22: The Experiment, Q21 Experiment With Declared Controls, and Puzzle 022.
+- Added an idealized card-shadow projection simulation with a session-only trial/deviation log, explicitly labeled model rather than physical measurement.
+- Updated the lexicon and claims ledger, distinguishing a card shadow from an actual tesseract projection model.
+
 ## 2026-11-07 — Chapter 21 · The Question
 - Added Chapter 21: The Question, Q20 A Question Must Expose Its Test, and Puzzle 021.
 - Added a question-building lab recording variables, observations and comparison baselines without claiming a test was performed.

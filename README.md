@@ -6,7 +6,8 @@
 
 ## Read and explore
 
-- **[Explore QG-011: The 11D Globule](./11d.html)** — interactive 1D–11D hypercube with exact combinatorial invariants and rotatable 2D projection.
+- **[Explore QG-011 / QG-012: the 11D Globule and Quantum Chrome Dot](./11d.html)** — interactive 1D–11D hypercube with exact combinatorial invariants and rotatable 2D projection.
+- [QG-012 Quantum Chrome Dot](./language/QG-012-CHROME-DOT.md) — provenance-preserving fold 8 → 4 → 2 → 1 → 1, ending at a stable one.
 - [QG-011 formal specification](./language/QG-011-11D-GLOBULE.md) — separate ordinal dot-bar signature from the n-cube graph and physical speculation.
 
 - **[Read the complete book with geometric cover](./book.html)** — full 32.5-chapter GitHub Pages edition, loading all original chapter manuscripts, puzzles, and notes.

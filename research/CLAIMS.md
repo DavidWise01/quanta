@@ -52,6 +52,9 @@
 | Q21 | Experiments declare the variable, controlled conditions, measurement and deviations | Proposed language design rule | Trial schema and repeatable tests with recorded confounders |
 | Q-044 | Simulated projections must be identified separately from observed physical measurements | Proposed evidence policy | Model provenance and independent empirical comparisons |
 | P-022 | A flat-card shadow validates a literal tesseract projection | Not established | Explicit higher-dimensional mapping and evidence |
+| Q22 | Keep original failure, exact predicate, and reduction history while minimizing | Proposed language design rule | Bounded reducer with failure-preserving checks |
+| M-046 | One valid counterexample refutes a universal claim under stated definitions | Established logic | Show grammar membership and failure of universal statement |
+| P-023 | An anomalous shadow measurement by itself identifies the responsible physical cause | Not established | Controlled repetitions and independent condition checks |
 | P-001 | QUANTA maps directly onto physical microstructure | Untested physical hypothesis | Quantitative predictions and independent evidence |
 
 A precise specification is **not** automatically a statement about physics. A pretty diagram is **not** a measurement.

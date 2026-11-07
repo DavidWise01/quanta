@@ -40,6 +40,8 @@ Composing these families into one executable sentence requires separately declar
 
 | `[ . ] | [ . . ]` | Two written forms presented for comparison | Chapter 15 illustration; bar is a visual distinction, not a defined comparison operator |
 
+| `[ . ] → [ . . ]` | An illustrative before/after change of one drawn dot | Chapter 16 difference example; arrow and edit semantics are not yet canonical QUANTA operators |
+
 ## Use in the book
 
 First show the mark; then give one sentence; then show one visual relation; finally provide optional formal detail.

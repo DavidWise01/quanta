@@ -134,6 +134,8 @@ Composing these families into one executable sentence requires separately declar
 
 | `|||| WHICH MEANS → REQUIRES → ROOTS ||||` | Backward dependency tracing of a contextual interpretation to earlier documented statements, missing sources and unresolved leaf claims | QG-030; DAG with 60-node bound, source/era witnesses and explicit gaps; no causal or historical proof inferred |
 
+| `|||| root → root → dependents → WHICH MEANS ||||` | Forward propagation of source-evidence updates across canonical QG-030 prerequisite DAGs | QG-031; append-only revision history and exact impacted-address trace, no automatic inference of truth |
+
 ## Use in the book
 
 First show the mark; then give one sentence; then show one visual relation; finally provide optional formal detail.

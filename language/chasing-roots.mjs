@@ -13,6 +13,15 @@ const ID=/^[a-z][a-z0-9-]{0,63}$/;
 const STATUSES=freeze(["sourced","annotated","hypothesis","unknown","disputed"]);
 const own=Object.hasOwn;
 const exact=(a,b)=>JSON.stringify(a)===JSON.stringify(b);
+function fingerprint(value){
+ // FNV-1a over JSON UTF-16 code units: deterministic error-detection only.
+ let h=14695981039346656037n;
+ for(const ch of JSON.stringify(value)){
+  h^=BigInt(ch.charCodeAt(0));
+  h=(h*1099511628211n)&((1n<<64n)-1n);
+ }
+ return h.toString(16).padStart(16,"0");
+}
 function plain(v,fields,label){
  if(!v||typeof v!=="object"||Array.isArray(v)||Object.keys(v).some(k=>!fields.includes(k)))throw new TypeError("Invalid "+label+" fields");
 }
@@ -97,8 +106,9 @@ export function composeRootChase(input){
  const phases=freeze(["is","was","whichMeans"].map((role,i)=>freeze({
    role,station:ring.roles[i].station,quad:ring.roles[i].glyph.phase.quad
  })));
- return freeze({version:ROOT_VERSION,carrier:ROOT_CARRIER,
-  society:n.society,target:n.target,nodes:n.nodes,phases,trace});
+ const core={version:ROOT_VERSION,carrier:ROOT_CARRIER,
+  society:n.society,target:n.target,nodes:n.nodes,phases,trace};
+ return freeze({...core,fingerprint:fingerprint(core)});
 }
 export function recoverRootChase(packet){
  if(!packet||packet.version!==ROOT_VERSION||packet.carrier!==ROOT_CARRIER)throw new TypeError("Unknown root packet");

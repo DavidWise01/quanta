@@ -1,0 +1,25 @@
+name: QG-021 Corpus memory and lineage tests
+on:
+  push:
+    paths:
+      - 'language/corpus-memory.mjs'
+      - 'language/corpus-box.mjs'
+      - 'tests/corpus-memory.test.mjs'
+      - '.github/workflows/corpus-memory-tests.yml'
+  pull_request:
+    paths:
+      - 'language/corpus-memory.mjs'
+      - 'tests/corpus-memory.test.mjs'
+      - '.github/workflows/corpus-memory-tests.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  memory:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node --test tests/corpus-memory.test.mjs

@@ -1,0 +1,27 @@
+name: QG-019 Paragraph transport tests
+on:
+  push:
+    paths:
+      - 'language/paragraph-box.mjs'
+      - 'language/sentence-box.mjs'
+      - 'language/word-box.mjs'
+      - 'language/alphabet-box.mjs'
+      - 'tests/paragraph-box.test.mjs'
+      - '.github/workflows/paragraph-box-tests.yml'
+  pull_request:
+    paths:
+      - 'language/paragraph-box.mjs'
+      - 'tests/paragraph-box.test.mjs'
+      - '.github/workflows/paragraph-box-tests.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  paragraph:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node --test tests/paragraph-box.test.mjs

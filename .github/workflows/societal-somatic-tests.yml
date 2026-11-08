@@ -1,0 +1,25 @@
+name: QG-029 Temporal societal somatic tests
+on:
+  push:
+    paths:
+      - 'language/societal-somatic.mjs'
+      - 'language/semantic-ring.mjs'
+      - 'tests/societal-somatic.test.mjs'
+      - '.github/workflows/societal-somatic-tests.yml'
+  pull_request:
+    paths:
+      - 'language/societal-somatic.mjs'
+      - 'tests/societal-somatic.test.mjs'
+      - '.github/workflows/societal-somatic-tests.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  social-context:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node --test tests/societal-somatic.test.mjs

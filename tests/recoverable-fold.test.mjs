@@ -38,7 +38,7 @@ test("compact terminal+witness frame reconstructs full 128-bit source",()=>{
 test("tampering a stage is detected against recorded source lineage",()=>{
  const s=fold128("11001001".repeat(16));
  const stages=[...s.stages];
- stages[5]={...stages[5],witness:"0".repeat(4)};
+ stages[5]={...stages[5],witness:(stages[5].witness[0]==="0"?"1":"0")+stages[5].witness.slice(1)};
  assert.equal(validateFold128({...s,stages}).pass,false);
 });
 test("incomplete witness is rejected",()=>{

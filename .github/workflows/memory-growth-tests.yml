@@ -1,0 +1,25 @@
+name: QG-024 Convergent growth tests
+on:
+  push:
+    paths:
+      - 'language/memory-growth.mjs'
+      - 'language/memory-convergence.mjs'
+      - 'tests/memory-growth.test.mjs'
+      - '.github/workflows/memory-growth-tests.yml'
+  pull_request:
+    paths:
+      - 'language/memory-growth.mjs'
+      - 'tests/memory-growth.test.mjs'
+      - '.github/workflows/memory-growth-tests.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  growth:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node --test tests/memory-growth.test.mjs

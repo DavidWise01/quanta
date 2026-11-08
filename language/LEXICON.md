@@ -100,6 +100,8 @@ Composing these families into one executable sentence requires separately declar
 
 | `QG-014 128→1 + witness` | Seven XOR-right folds leave one parity bit plus 127 retained witness bits | Reversible 128-bit representation, *not* compression, physical quantum behavior, or standalone encryption |
 
+| `QG-015: 128 → (1+127) → spiral → authenticated envelope → 128` | Combine reversible fold and authenticated downward-spiral transmission | Receiver reconstructs all source bits; one visible dot is not lossless without witness |
+
 ## Use in the book
 
 First show the mark; then give one sentence; then show one visual relation; finally provide optional formal detail.

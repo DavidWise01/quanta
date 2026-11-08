@@ -1,5 +1,10 @@
 # QUANTA · Changelog
 
+## 2026-11-08 — QG-028 · SEE/DO/LEARN Ring Binding
+- Bound every QG-027 A–Z semantic triad to three distinct QG-026 sixty-ring quadrant phase addresses using the first canonical glyph vertex as a deterministic anchor.
+- DO carries complete ordered somatic stroke verbs; SEE and LEARN carry full source glyph geometry and authored role words without claiming actual perception or learning.
+- Added executable `language/semantic-ring.mjs`, `triad-ring.html` viewer, formal spec and six automated tests. 
+
 ## 2026-11-08 — QG-027 · Semantic Triads
 - Defined exactly 78 first-letter-aligned SEE/DO/LEARN vocabulary terms across all 26 QUANTA uppercase glyphs.
 - Created `language/semantic-triad.mjs`, the formal vocabulary specification and five automated tests.

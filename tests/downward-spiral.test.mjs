@@ -1,7 +1,7 @@
 import test from "node:test";
 import assert from "node:assert/strict";
 import {
-  SPIRAL_SIGNATURE, spiralCells, gray, ungray, instantiateSpiral,
+  SPIRAL_SIGNATURE, BIT_WIDTH_LADDER, BIT_WIDTH_CHUNKS, validateBitWidthLadder, spiralCells, gray, ungray, instantiateSpiral,
   encodeVertexOrder, decodeVertexOrder, sealTransport, openTransport
 } from "../language/downward-spiral.mjs";
 
@@ -101,4 +101,12 @@ test("AES-GCM actually transports byte blocks through the spiral with reversible
     assert.equal(raw.length,4+blocks*n+16,"expected authenticated padded frame length");
     assert.equal(await openTransport(env,password),message);
   }
+});
+
+test("four-number width chunks plus stable terminal bit are canonical", () => {
+  assert.deepEqual(BIT_WIDTH_LADDER,[128,64,32,16,8,4,2,1,1]);
+  assert.deepEqual(BIT_WIDTH_CHUNKS,[[128,64,32,16],[8,4,2,1],[1]]);
+  assert.equal(validateBitWidthLadder(),true);
+  assert.equal(validateBitWidthLadder([128,64,32,16,8,4,2,1,0]),false);
+  assert.equal(validateBitWidthLadder([128,64,32,16,8,4,3,1,1]),false);
 });

@@ -1,0 +1,24 @@
+name: QG-016 Alphabet box and phase transport tests
+on:
+  push:
+    paths:
+      - 'language/alphabet-box.mjs'
+      - 'tests/alphabet-box.test.mjs'
+      - '.github/workflows/alphabet-box-tests.yml'
+  pull_request:
+    paths:
+      - 'language/alphabet-box.mjs'
+      - 'tests/alphabet-box.test.mjs'
+      - '.github/workflows/alphabet-box-tests.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  alphabet:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node --test tests/alphabet-box.test.mjs

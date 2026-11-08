@@ -96,6 +96,7 @@ function mergePlan(plan,resolutions,requireComplete){
      if(typeof resolution.text!=="string")throw new TypeError("Custom resolution requires text");
      text=resolution.text;
     }else text=row[decision];
+   }
   }
   selected[row.address]=text;
   results.push(freeze({...row,decision,merged:text}));

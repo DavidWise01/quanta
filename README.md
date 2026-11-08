@@ -10,6 +10,9 @@
 
 ## Read and explore
 
+- **[QG-029 Societal Somatics](./society.html)** — the contextual `IS → WAS → WHICH MEANS` transport, with year, IANA timezone, place, group, evidence status and human-assigned social dimensions mapped to three 60-ring phases. [Kernel](./language/societal-somatic.mjs) · [Specification](./language/QG-029-SOCIETAL-SOMATIC.md) · [Tests](./tests/societal-somatic.test.mjs).
+
+
 - **[QG-028 SEE/DO/LEARN Ring](./triad-ring.html)** — bind all 78 authored semantic role terms to exact QG-026 glyph-phase stations of the QG-025 60-ring, with full DO somatic drawing verbs. [Kernel](./language/semantic-ring.mjs) · [Specification](./language/QG-028-SEMANTIC-RING.md) · [Tests](./tests/semantic-ring.test.mjs).
 
 

@@ -114,6 +114,8 @@ Composing these families into one executable sentence requires separately declar
 
 | `|||| corpus ||||` | Complete ordered documents, chapters, sections, paragraphs and typed source references | QG-020; deterministic scoped path addresses, exact nested QG-019 paragraph recovery and four presentation levels |
 
+| `|||| corpus@r0000 → corpus@r0001 ||||` | Immutable sequential corpus snapshots and lineage links | QG-021; explicitly tracked edits/creation/retirement, exact earlier revision recovery, no automatic storage or cryptographic authenticity |
+
 ## Use in the book
 
 First show the mark; then give one sentence; then show one visual relation; finally provide optional formal detail.

@@ -10,6 +10,9 @@
 
 ## Read and explore
 
+- **[QG-028 SEE/DO/LEARN Ring](./triad-ring.html)** — bind all 78 authored semantic role terms to exact QG-026 glyph-phase stations of the QG-025 60-ring, with full DO somatic drawing verbs. [Kernel](./language/semantic-ring.mjs) · [Specification](./language/QG-028-SEMANTIC-RING.md) · [Tests](./tests/semantic-ring.test.mjs).
+
+
 - **[QG-027 SEE/DO/LEARN Semantic Triads](./language/QG-027-SEMANTIC-TRIADS.md)** — 26 letters with exactly three assigned terms each: observe, act, learn. [Executable lexicon](./language/semantic-triad.mjs) and [tests](./tests/semantic-triad.test.mjs).
 
 

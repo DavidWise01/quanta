@@ -1,0 +1,25 @@
+name: QG-030 Chasing Roots tests
+on:
+  push:
+    paths:
+      - 'language/chasing-roots.mjs'
+      - 'language/societal-somatic.mjs'
+      - 'tests/chasing-roots.test.mjs'
+      - '.github/workflows/chasing-roots-tests.yml'
+  pull_request:
+    paths:
+      - 'language/chasing-roots.mjs'
+      - 'tests/chasing-roots.test.mjs'
+      - '.github/workflows/chasing-roots-tests.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  chasing-roots:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node --test tests/chasing-roots.test.mjs

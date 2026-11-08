@@ -10,6 +10,9 @@
 
 ## Read and explore
 
+- **[QG-032 Root Reconciliation](./reconcile.html)** — record opposing cited observations about the same leaf root, carry forward their affected dependents, and append a reasoned review decision without overwriting either witness. [Kernel](./language/root-reconciliation.mjs) · [Specification](./language/QG-032-ROOT-RECONCILIATION.md) · [Seven tests](./tests/root-reconciliation.test.mjs).
+
+
 - **[QG-031 Root Roots Propagation](./root-roots.html)** — update evidence at one or several prerequisite root nodes and propagate impact forward to every dependent claim, preserving the original history without automatic truth promotion. [Kernel](./language/root-propagation.mjs) · [Specification](./language/QG-031-ROOT-ROOTS.md) · [Seven tests](./tests/root-propagation.test.mjs).
 
 

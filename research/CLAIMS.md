@@ -117,6 +117,8 @@
 | P-017 | A single visual Chrome Dot uniquely identifies all original words and meanings | Not established, generally false without witness | Preserve canonical token addresses, ordered context, and source reference |
 | QG-018 | Sentence Box preserves case, exact spaces, punctuation, linked word order, and continuous quarter-turn phase across words | Implemented computational language grammar | Sentence round-trip, phase reset and mutation rejection tests |
 | P-018 | Single-dot projections intrinsically contain sentence meaning without an external source witness | Not established | Retain explicit text, word links, context and canonical glyph references |
+| QG-019 | The Paragraph Box preserves ordered sentence fragments, original case/spacing, LF line breaks, contextual labels and previous/next fragment links | Implemented computational composition protocol | Exact multiline recovery, 4/3/2/1 view and mutation tests |
+| P-019 | A visible single Chrome Dot independently represents arbitrary paragraph meaning | Not established | Complete source and witness must be retained; no inferential semantic model is defined |
 | P-001 | QUANTA maps directly onto physical microstructure | Untested physical hypothesis | Quantitative predictions and independent evidence |
 
 A precise specification is **not** automatically a statement about physics. A pretty diagram is **not** a measurement.

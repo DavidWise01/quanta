@@ -1,0 +1,24 @@
+name: QG-032 Root reconciliation tests
+on:
+  push:
+    paths:
+      - 'language/root-reconciliation.mjs'
+      - 'tests/root-reconciliation.test.mjs'
+      - '.github/workflows/root-reconciliation-tests.yml'
+  pull_request:
+    paths:
+      - 'language/root-reconciliation.mjs'
+      - 'tests/root-reconciliation.test.mjs'
+      - '.github/workflows/root-reconciliation-tests.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  reconcile:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node --test tests/root-reconciliation.test.mjs

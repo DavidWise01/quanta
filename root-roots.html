@@ -1,0 +1,79 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>QUANTA QG-031 · Root Roots</title>
+<style>
+:root{color-scheme:dark;--bg:#07141b;--panel:#112932;--line:#365c65;--ink:#effff8;--muted:#a7c8ca;--cyan:#72efdd;--gold:#f4c68e;--pink:#ffaba9}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 40% 0%,#1a454e,transparent 65%),var(--bg);color:var(--ink);font:15px/1.55 system-ui,Segoe UI,sans-serif}a{color:var(--cyan)}header{display:flex;justify-content:space-between;align-items:center;gap:12px;background:#071820ef;border-bottom:1px solid var(--line);padding:14px 25px;position:sticky;top:0}header strong{letter-spacing:.13em}nav{display:flex;gap:14px;font-size:.82rem}main{max-width:1420px;margin:auto;padding:35px 25px 85px}.eyebrow{color:var(--cyan);font-size:.7rem;font-weight:800;letter-spacing:.18em;text-transform:uppercase}h1{font-size:clamp(2.4rem,5.5vw,5.1rem);letter-spacing:-.05em;line-height:1.07;margin:10px 0}.intro{max-width:84ch;color:var(--muted)}h2{font-size:1.12rem;margin:0 0 14px}.layout{display:grid;grid-template-columns:minmax(330px,1fr) minmax(330px,1.1fr);gap:18px;margin-top:22px}.card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:19px;min-width:0}.field{display:block;font-size:.78rem;font-weight:800;color:#c4e0dc;margin:15px 0 6px}textarea,input,select{width:100%;background:#071f27;border:1px solid #3e6b72;border-radius:8px;padding:11px;color:var(--ink);font:13px/1.4 Consolas,monospace}textarea{resize:vertical;min-height:105px}.controls{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0}button{border:1px solid #4c8d86;background:#174d57;color:var(--ink);border-radius:8px;padding:10px 13px;cursor:pointer;font:inherit}button.primary{background:var(--cyan);color:#0b3530;font-weight:800}.status{background:#0b3539;border-left:3px solid var(--cyan);border-radius:8px;padding:12px;color:#c8fff4;font-size:.84rem}.status.error{border-color:var(--pink);color:#ffddd6}.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:13px 0}.stat{background:#071e26;border:1px solid #365c64;border-radius:9px;padding:11px;text-align:center}.stat strong{font-size:1.5rem;display:block;color:var(--cyan)}.stat small{color:var(--muted);font-size:.72rem}.timeline{display:flex;gap:8px;overflow:auto;align-items:center;margin:14px 0}.timeline button{white-space:nowrap;font-family:Consolas,monospace}.timeline button.active{background:var(--gold);color:#2b200f}.graph{max-height:420px;overflow:auto;background:#071d25;border:1px solid #345e65;padding:12px;border-radius:9px}.node{border-left:4px solid #699b9e;background:#0c3037;border-radius:7px;padding:11px;margin:9px 0}.node.affected{border-left-color:var(--gold)}.node.changed{border-left-color:var(--cyan)}.node strong{font-size:.87rem}.node small{display:block;color:var(--muted);font:11px Consolas,monospace}.node p{font-size:.87rem;margin:5px 0}.readout{background:#071d26;border:1px solid #345b63;border-radius:8px;padding:12px;font:12px/1.6 Consolas,monospace;white-space:pre-wrap;overflow-wrap:anywhere;max-height:210px;overflow:auto}.hint{color:var(--muted);font-size:.8rem}footer{border-top:1px solid var(--line);padding-top:19px;margin-top:34px;color:var(--muted);font-size:.81rem}@media(max-width:930px){.layout{grid-template-columns:1fr}}@media(max-width:550px){main{padding:25px 13px}.card{padding:13px}header{padding:12px}nav{font-size:.74rem;gap:7px}}
+</style></head><body>
+<header><strong>◈ QUANTA <span style="color:var(--cyan)">/ QG-031</span></strong><nav><a href="roots.html">Chasing Roots</a><a href="society.html">Somatics</a><a href="book.html">Book</a></nav></header><main>
+<div class="eyebrow">Backward roots · forward impact · immutable witness</div><h1>Root Roots.</h1>
+<p class="intro">Once a documented root changes, trace the consequences forward through every declared dependency. The interpretation is flagged for review without automatically changing its truth status. Both the old and the new source remain recoverable.</p>
+<div class="layout"><section class="card"><h2>Append evidence to a source root</h2><label class="field" for="root">Choose a leaf root</label><select id="root"></select><label class="field" for="status-select">New evidence status</label><select id="status-select"><option value="sourced">Sourced</option><option value="annotated">Annotated</option><option value="hypothesis">Hypothesis</option><option value="unknown">Unknown</option><option value="disputed">Disputed</option></select>
+<label class="field" for="url">HTTPS evidence URL (required for sourced)</label><input id="url" value="https://collection.sciencemuseumgroup.org.uk/people/cp38764/ada-lovelace">
+<label class="field" for="comment">Revision note</label><input id="comment" value="New evidence at a root">
+<div class="controls"><button id="append" class="primary">Propagate forward</button><button id="reset">Reset example</button><button id="export">Copy ledger JSON</button></div>
+<div class="status" id="status" role="status" aria-live="polite">Ready to propagate.</div>
+<label class="field" for="import">Restore complete propagation ledger</label><textarea id="import" placeholder="Paste exported QG-031 JSON"></textarea><div class="controls"><button id="load">Validate and import</button></div>
+<p class="hint">A root's evidence or status must actually change. Sourced means a URL was supplied—not that the page's claims were independently verified.</p>
+</section>
+<section class="card"><h2>Propagation history</h2><div class="timeline" id="timeline"></div><div class="stats"><div class="stat"><strong id="roots-count">—</strong><small>Changed roots</small></div><div class="stat"><strong id="affected-count">—</strong><small>Impacted nodes</small></div><div class="stat"><strong id="gaps-count">—</strong><small>Current gaps</small></div></div>
+<div class="graph" id="graph"></div>
+<label class="field">Forward impact witnesses</label><div class="readout" id="impact"></div><label class="field">Exact historical source at selected revision</label><div class="readout" id="history"></div>
+<p class="hint">Blue edges represent updated roots, gold edges represent their dependents. Unchanged statements keep their original wording and status. This is an impact analysis, not factual entailment.</p>
+</section></div><footer><a href="language/QG-031-ROOT-ROOTS.md">Specification</a> · <a href="language/root-propagation.mjs">Kernel</a> · <a href="tests/root-propagation.test.mjs">Regression tests</a></footer>
+</main><script type="module">
+import {instantiateRootPropagation,propagateRoots,recoverRootRevision,inspectRootImpact,verifyRootPropagation} from "./language/root-propagation.mjs";
+const $=id=>document.getElementById(id);
+const url="https://collection.sciencemuseumgroup.org.uk/people/cp38764/ada-lovelace";
+const society={id:"ada-1843",letter:"A",subject:"Ada Lovelace",is:"Mathematical writer",was:"Student of mathematics",
+ whichMeans:"Her notes explored the Analytical Engine's wider possibilities",wasYear:1833,
+ context:{year:1843,timezone:"Europe/London",place:"London",group:"Computing scholarship"},
+ weight:{authority:2,reach:2,legacy:4,confidence:.7,basis:"Illustrative human annotation"},evidence:[{label:"Museum",url}],status:"sourced"};
+const fixture={society,target:"meaning",nodes:[
+ {id:"meaning",statement:society.whichMeans,role:"conclusion",year:1843,status:"annotated",requires:["notes","engine"],evidence:[]},
+ {id:"notes",statement:"Notes were published in 1843",role:"prerequisite",year:1843,status:"sourced",requires:["study"],evidence:[{label:"Museum",url}]},
+ {id:"engine",statement:"An Analytical Engine was proposed",role:"prerequisite",year:1837,status:"sourced",requires:[],evidence:[{label:"Museum",url}]},
+ {id:"study",statement:"She studied mathematics",role:"prerequisite",year:1833,status:"unknown",requires:[],evidence:[]}
+]};
+let memory,selected="p0000";
+function note(s,bad=false){$("status").textContent=s;$("status").classList.toggle("error",bad)}
+function options(){
+ const select=$("root"),old=select.value;select.textContent="";
+ const packet=memory.revisions.at(-1).snapshot;
+ for(const node of packet.nodes.filter(n=>n.requires.length===0)){
+  const o=document.createElement("option");o.value=node.id;o.textContent=node.id+" · "+node.status;select.append(o);
+ }
+ if([...select.options].some(o=>o.value===old))select.value=old;
+}
+function render(){
+ const audit=verifyRootPropagation(memory);if(!audit.pass)throw Error(audit.error);
+ const row=memory.revisions.find(r=>r.id===selected)||memory.revisions.at(-1);selected=row.id;
+ $("roots-count").textContent=row.changedRoots.length;$("affected-count").textContent=row.affected.length;
+ $("gaps-count").textContent=row.snapshot.trace.gaps.length;
+ $("timeline").textContent="";for(const rev of memory.revisions){const b=document.createElement("button");b.textContent=rev.id;b.classList.toggle("active",rev.id===selected);b.onclick=()=>{selected=rev.id;render()};$("timeline").append(b)}
+ $("graph").textContent="";for(const node of row.snapshot.nodes){
+  const item=document.createElement("div");item.className="node"+(row.changedRoots.includes(node.id)?" changed":row.affected.includes(node.id)?" affected":"");
+  const head=document.createElement("strong");head.textContent=node.id+" · "+node.status;
+  const para=document.createElement("p");para.textContent=node.statement;
+  const dep=document.createElement("small");dep.textContent=node.requires.length?"REQUIRES: "+node.requires.join(", "):"ROOT: "+node.evidence.length+" evidence URL(s)";
+  item.append(head,para,dep);$("graph").append(item);
+ }
+ const impact=inspectRootImpact(memory,selected);
+ $("impact").textContent="ROOTS: "+(impact.changedRoots.join(", ")||"none")+"\nDEPENDENTS: "+(impact.affected.join(", ")||"none")+
+  "\nWHICH MEANS requires review? "+(impact.interpretationNeedsReview?"YES":"NO")+"\nClaims automatically promoted? NO";
+ const restored=recoverRootRevision(memory,selected);
+ $("history").textContent=JSON.stringify({revision:selected,subject:restored.claim.subject,year:restored.claim.context.year,
+  nodes:restored.nodes.map(n=>({id:n.id,status:n.status,evidence:n.evidence.length}))},null,2);
+ options();
+}
+$("append").onclick=()=>{
+ try{
+ const root=$("root").value,v=$("status-select").value,link=$("url").value.trim();
+ const list=link?[{label:"User-supplied source",url:link}]:[];
+ memory=propagateRoots(memory,[{id:root,status:v,evidence:list}],$("comment").value);
+ selected=memory.revisions.at(-1).id;render();note("PASS · evidence update appended; every dependent flagged for review.");
+ }catch(e){note("Propagation refused: "+e.message,true)}
+};
+$("reset").onclick=()=>{try{memory=instantiateRootPropagation(fixture);selected="p0000";render();note("PASS · original root graph instantiated.")}catch(e){note(e.message,true)}};
+$("export").onclick=async()=>{try{await navigator.clipboard.writeText(JSON.stringify(memory,null,2));note("Complete immutable history copied.")}catch(e){note("Clipboard unavailable.",true)}};
+$("load").onclick=()=>{try{const next=JSON.parse($("import").value),audit=verifyRootPropagation(next);if(!audit.pass)throw Error(audit.error);memory=next;selected=memory.revisions.at(-1).id;render();note("PASS · imported history and every forward propagation replayed.")}catch(e){note(e.message,true)}};
+$("reset").click();
+</script></body></html>

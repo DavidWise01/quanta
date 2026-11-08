@@ -10,6 +10,9 @@
 
 ## Read and explore
 
+- **[QG-019 Paragraph Box](./paragraphs.html)** — complete paragraph transport, exact newline and blank-line preservation, relational sentence indices, and 4→3→2→1 visual folds.
+- [Paragraph kernel](./language/paragraph-box.mjs), [specification](./language/QG-019-PARAGRAPH-BOX.md), and [seven regression tests](./tests/paragraph-box.test.mjs).
+
 - **[QG-018 Sentence Box](./sentences.html)** — sentence-level transport preserving case, punctuation, spaces, word relations, continuous a/b/c/d phase, and exact recovery.
 - [Sentence kernel](./language/sentence-box.mjs), [formal specification](./language/QG-018-SENTENCE-BOX.md), and [six regression tests](./tests/sentence-box.test.mjs).
 

@@ -1,5 +1,10 @@
 # QUANTA · Changelog
 
+## 2026-11-08 — QG-018 · Sentence Box
+- Instantiated `language/sentence-box.mjs`, preserving exact capitalization, spaces, punctuation, word offsets and word-to-word relationship indices.
+- The a/b/c/d phase register continues across words, resets on `.`, `?`, `!`, and rotates somatic drawing verbs at sentence level.
+- Added `sentences.html`, an interactive four-level fold/unfold lab, plus specification and six regression tests. The initial GitHub Actions suite passed.
+
 ## 2026-11-07 — QG-017 · Word Box composition
 - Introduced `language/word-box.mjs` with a single `||||` carrier for ordered words, spaces, per-letter quarter-turn phases, contextual semantic witness, and translated somatic drawing actions.
 - Added `words.html` to fold a whole phrase through levels 4→3→2→1 and reconstruct the exact text; the canonical source dictionary remains available at all levels.

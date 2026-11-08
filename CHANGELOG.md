@@ -1,5 +1,11 @@
 # QUANTA · Changelog
 
+## 2026-11-08 — QG-021 · Corpus Memory
+- Implemented `language/corpus-memory.mjs` with immutable append-only full corpus snapshots, parent revision IDs, and paragraph lineage across edits, additions, retirements, and explicit moved-address mappings.
+- Added `memory.html` for local revision timelines, historic source retrieval, traceable paragraph addresses and JSON ledger export/import.
+- Added QG-021 formal specification and seven tests; the GitHub Actions suite passed.
+- Memory is a deterministic model: browser state does not persist automatically and revision IDs are local rather than cryptographic hashes.
+
 ## 2026-11-08 — QG-020 · Corpus Box
 - Created `language/corpus-box.mjs` with `||||` structured documents, chapters, sections, paragraph witnesses, deterministic source addresses, typed references and inverse validation.
 - Published `corpus.html`, an interactive address tree and 4→3→2→1 view, plus QG-020 spec and seven GitHub Actions regression tests.

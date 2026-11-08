@@ -128,6 +128,8 @@ Composing these families into one executable sentence requires separately declar
 
 | `||A|| → Alarm / Action / Achieve` | Three authored first-letter meanings per letter: SEE, DO, LEARN | QG-027: 78 semantic role assignments across A–Z, not inferred meaning |
 
+| `||A|| : Alarm @a → Action @b → Achieve @c` | Each letter's SEE, DO, LEARN role uses a different 90°-spaced 60-ring station, with DO carrying complete stroke verbs | QG-028; `rolePhase=(entryPhase+roleOffset) mod 4`, explicit semantic witnesses, no autonomous inference |
+
 ## Use in the book
 
 First show the mark; then give one sentence; then show one visual relation; finally provide optional formal detail.

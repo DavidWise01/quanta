@@ -4,10 +4,12 @@ import {instantiateCorpusMemory,appendCorpusRevision} from "../language/corpus-m
 import {projectCorpusRevision,unfoldCorpusProjection,walkRevisionHistory,walkParagraphProjection,verifyCorpusProjection,PROJECTION_LEVELS}
  from "../language/memory-projection.mjs";
 
-const source=(text="A dot begins.")=>({title:"QUANTA",documents:[{
- id:"quanta",title:"QUANTA",chapters:[{id:"zero",title:"Zero",sections:[
- {id:"opening",title:"Opening",paragraphs:[text,"The box remembers."]}
- ]}]}]}],references:[]});
+function source(text="A dot begins.") {
+  const section={id:"opening",title:"Opening",paragraphs:[text,"The box remembers."]};
+  const chapter={id:"zero",title:"Zero",sections:[section]};
+  const document={id:"quanta",title:"QUANTA",chapters:[chapter]};
+  return {title:"QUANTA",documents:[document],references:[]};
+}
 const address="doc/quanta/ch/zero/sec/opening/p/0";
 function memory(){
  let m=instantiateCorpusMemory(source(),"First dot");

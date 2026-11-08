@@ -121,6 +121,8 @@
 | P-019 | A visible single Chrome Dot independently represents arbitrary paragraph meaning | Not established | Complete source and witness must be retained; no inferential semantic model is defined |
 | QG-020 | Corpus Box preserves ordered documents, chapters, sections, exact paragraph source, stable snapshot addresses and explicit inter-source references | Implemented computational transport grammar | Nested source round-trip, deterministic lookup, reference-validation and 4/1 fold invariants |
 | P-020 | A projected Chrome Dot independently encodes a complete corpus without canonical source witness | Not established; generally false | Retain explicit full structured source and nested geometric language witnesses |
+| QG-021 | The Corpus Memory ledger can retain immutable complete source revisions with parent links and explicit paragraph lineage | Implemented computational version ledger | Exact prior source replay, one-to-one moved-address map, append-only and corrupt-record tests |
+| P-021 | A structural version ledger is automatically durable or cryptographically tamper-proof | Not established; false without external persistence/authentication | Explicit export/storage and independent witness or content commitments would be needed |
 | P-001 | QUANTA maps directly onto physical microstructure | Untested physical hypothesis | Quantitative predictions and independent evidence |
 
 A precise specification is **not** automatically a statement about physics. A pretty diagram is **not** a measurement.

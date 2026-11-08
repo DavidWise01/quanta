@@ -126,6 +126,8 @@ Composing these families into one executable sentence requires separately declar
 
 | `|||| ||Q|| → 60-station phase ||||` | Canonical 5×5 vector glyph vertices and somatic verbs transported onto the 60-position ring | QG-026; `home(x,y)=2(5y+x)` gives 25 exact source addresses, active station `=(home+15q) mod 60`; all 26 letters recover |
 
+| `||A|| → Alarm / Action / Achieve` | Three authored first-letter meanings per letter: SEE, DO, LEARN | QG-027: 78 semantic role assignments across A–Z, not inferred meaning |
+
 ## Use in the book
 
 First show the mark; then give one sentence; then show one visual relation; finally provide optional formal detail.

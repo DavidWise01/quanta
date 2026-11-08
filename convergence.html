@@ -19,7 +19,12 @@ import {instantiateCorpusMemory,appendCorpusRevision} from "./language/corpus-me
 import {compareCorpusBranches,convergeCorpusMemory,recoverCorpusConvergence,verifyCorpusConvergence} from "./language/memory-convergence.mjs";
 const $=id=>document.getElementById(id);
 const paths=["doc/quanta/ch/zero/sec/opening/p/0","doc/quanta/ch/zero/sec/opening/p/1"];
-const source=(a,b)=>({title:"QUANTA",documents:[{id:"quanta",title:"QUANTA",chapters:[{id:"zero",title:"Zero",sections:[{id:"opening",title:"Opening",paragraphs:[a,b]}]}]}]}],references:[]});
+function source(a,b){
+ const section={id:"opening",title:"Opening",paragraphs:[a,b]};
+ const chapter={id:"zero",title:"Zero",sections:[section]};
+ const document={id:"quanta",title:"QUANTA",chapters:[chapter]};
+ return {title:"QUANTA",documents:[document],references:[]};
+}
 let left,right,report,merged=null;
 const initial=["The dot begins.","The box remembers."];
 function note(text,bad=false){$("status").textContent=text;$("status").classList.toggle("bad",bad)}

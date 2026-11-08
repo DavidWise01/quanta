@@ -10,6 +10,10 @@
 
 ## Read and explore
 
+- **[QG-023 Memory Convergence](./convergence.html)** — two independently appended corpus histories from one shared ancestor, explicit three-way paragraph comparison and conflict choices, preserving both immutable branches.
+- [Convergence kernel](./language/memory-convergence.mjs), [formal specification](./language/QG-023-MEMORY-CONVERGENCE.md), and [seven regression tests](./tests/memory-convergence.test.mjs).
+
+
 - **[QG-022 Memory Projection](./projection.html)** — select one revision as a visible Chrome Dot, unfold its exact structured source, walk all immutable parent revisions, and trace a paragraph backward through lineage.
 - [Projection kernel](./language/memory-projection.mjs), [formal specification](./language/QG-022-MEMORY-PROJECTION.md), and [seven invariant tests](./tests/memory-projection.test.mjs).
 

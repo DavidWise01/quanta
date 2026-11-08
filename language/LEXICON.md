@@ -106,6 +106,8 @@ Composing these families into one executable sentence requires separately declar
 | `||A||` … `||Z||` | Any uppercase Latin letter as a graph and stroke sequence | QG-016 canonical A–Z glyph identity, immutable source path and verb transcript |
 | `a:4→3→2→1; b:4→3→2→1; c:4→3→2→1; d:4→3→2→1` | Four 90° phases, each with four presentation levels | QG-016 geometry/semantic/somatic phase transport; full source retained |
 
+| `|||| QUANTA GLOBULE ||||` | Ordered phrase transported as one box with spaces and exact a/b/c/d phase addresses | QG-017 word composition kernel; reversible through canonical glyph references, not one-dot-only recovery |
+
 ## Use in the book
 
 First show the mark; then give one sentence; then show one visual relation; finally provide optional formal detail.

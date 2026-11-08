@@ -108,6 +108,8 @@
 | QG-014 | Reversible 128-to-1 visible fold with a 127-bit residual witness | Proposed QUANTA codec built on established XOR algebra | Exact source reconstruction and fixed-point tests across 128 single-bit inputs |
 | M-073 | Seven pairwise XOR merges of 128 bits yield one parity bit and 127 witness bits | Established discrete mathematics | Sum residual lengths 64+32+16+8+4+2+1=127; inverse reconstruction |
 | P-014 | One bit by itself losslessly represents all arbitrary 128-bit sources | False absent external information | Pigeonhole principle; requires witness or other side information |
+| QG-015 | One terminal bit plus 127 witness bits can be serialized, authenticated by AES-GCM, transported in a reversible spiral and exactly reconstructed | Implemented software protocol prototype; not independently security audited | End-to-end tests for all dimensions 3–11, wrong password, modified envelope and source equality |
+| T-015 | A self-declared sourceTag inside AES-GCM protected content is integrity-protected, but not proof of the claimed human identity | Established security distinction | Threat model and sender-key authentication required for identity guarantees |
 | P-001 | QUANTA maps directly onto physical microstructure | Untested physical hypothesis | Quantitative predictions and independent evidence |
 
 A precise specification is **not** automatically a statement about physics. A pretty diagram is **not** a measurement.

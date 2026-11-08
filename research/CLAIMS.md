@@ -111,6 +111,8 @@
 | QG-015 | One terminal bit plus 127 witness bits can be serialized, authenticated by AES-GCM, transported in a reversible spiral and exactly reconstructed | Implemented software protocol prototype; not independently security audited | End-to-end tests for all dimensions 3–11, wrong password, modified envelope and source equality |
 | T-015 | A self-declared sourceTag inside AES-GCM protected content is integrity-protected, but not proof of the claimed human identity | Established security distinction | Threat model and sender-key authentication required for identity guarantees |
 | SEC-015 | QG-015 uses standard AES-GCM but lacks protocol replay prevention and independent sender authentication; password entropy is not guaranteed | Confirmed source-audit findings | Address high-priority issues before production use; see research/QG-015-CRYPTOGRAPHIC-AUDIT.md |
+| QG-016 | The full A–Z Latin uppercase alphabet can be represented as ordered vector strokes, somatic pen verbs, and four exact quarter-turn phase quads | Implemented geometrical alphabet transport language | 26-letter roundtrip, full 360° geometry recovery and phase mutation tests |
+| P-016 | Rotational glyph phase alone transfers intrinsic word meaning or physical state | Not established | Language context and a separate semantics model / physical experiment would be required |
 | P-001 | QUANTA maps directly onto physical microstructure | Untested physical hypothesis | Quantitative predictions and independent evidence |
 
 A precise specification is **not** automatically a statement about physics. A pretty diagram is **not** a measurement.

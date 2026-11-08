@@ -1,5 +1,11 @@
 # QUANTA · Changelog
 
+## 2026-11-08 — QG-029 · Societal Somatics
+- Added a source-oriented `IS → WAS → WHICH MEANS` grammar with exact historical year, IANA time zone, geographic place, group, evidence URL and epistemic status.
+- Bound contextual statements to 3 distinct 60-ring phase slots via QG-028, while preserving complete canonical glyph witnesses and somatic drawing verbs.
+- Added caller-assigned authority/reach/legacy context scales with confidence and rationale; cross-group/place numeric comparison explicitly refused.
+- Published `society.html` interactive viewer, source documentation and seven regression tests.
+
 ## 2026-11-08 — QG-028 · SEE/DO/LEARN Ring Binding
 - Bound every QG-027 A–Z semantic triad to three distinct QG-026 sixty-ring quadrant phase addresses using the first canonical glyph vertex as a deterministic anchor.
 - DO carries complete ordered somatic stroke verbs; SEE and LEARN carry full source glyph geometry and authored role words without claiming actual perception or learning.

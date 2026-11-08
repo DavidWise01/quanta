@@ -129,6 +129,8 @@
 | P-023 | A converged source tree automatically solves semantic, structural or distributed consensus conflicts | Not established; outside QG-023.1 scope | Explicit context/structural lineage and external consensus model would be needed |
 | QG-024 | Converged corpus memory can grow into new independent branches and converge again while preserving original source ancestry | Implemented computational directed acyclic history graph | Seven tests: second-generation convergence, source replay, conflict gating, parent validation and JSON recovery |
 | P-024 | Local ancestry node IDs establish global identity or globally unique lowest common ancestor | Not established | Content-addressed identities and a precise DAG ancestry ordering specification would be required |
+| QG-025 | A sexagesimal transport can use 60 unique stations grouped in four 15-station quads with exact +15 mod 60 quarter-turn phase and lossless integer place-value recovery | Established radix arithmetic combined with proposed QUANTA geometry | Seven regression tests: station partition, 90° rotation, all 12 divisors, BigInt positional roundtrip and tamper checks |
+| P-025 | Historical Vedic mathematics or Babylonians used QUANTA's four-quadrant 60-station phase transport | Not established; modern interpretive design | Explicit historical source evidence would be required |
 | P-001 | QUANTA maps directly onto physical microstructure | Untested physical hypothesis | Quantitative predictions and independent evidence |
 
 A precise specification is **not** automatically a statement about physics. A pretty diagram is **not** a measurement.

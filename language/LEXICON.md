@@ -108,6 +108,8 @@ Composing these families into one executable sentence requires separately declar
 
 | `|||| QUANTA GLOBULE ||||` | Ordered phrase transported as one box with spaces and exact a/b/c/d phase addresses | QG-017 word composition kernel; reversible through canonical glyph references, not one-dot-only recovery |
 
+| `|||| Quanta folds, then returns. ||||` | Sentence-level transport with exact spelling, punctuation, spaces and linked words | QG-018; phase continues across words and resets after `.`, `?`, or `!`; all source geometry remains recoverable |
+
 ## Use in the book
 
 First show the mark; then give one sentence; then show one visual relation; finally provide optional formal detail.

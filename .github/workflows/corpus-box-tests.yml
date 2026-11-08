@@ -1,0 +1,25 @@
+name: QG-020 Corpus transport tests
+on:
+  push:
+    paths:
+      - 'language/corpus-box.mjs'
+      - 'language/paragraph-box.mjs'
+      - 'tests/corpus-box.test.mjs'
+      - '.github/workflows/corpus-box-tests.yml'
+  pull_request:
+    paths:
+      - 'language/corpus-box.mjs'
+      - 'tests/corpus-box.test.mjs'
+      - '.github/workflows/corpus-box-tests.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  corpus:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node --test tests/corpus-box.test.mjs

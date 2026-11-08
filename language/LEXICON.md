@@ -132,6 +132,8 @@ Composing these families into one executable sentence requires separately declar
 
 | `||A|| → IS / WAS / WHICH MEANS @ era, group, zone` | Source-grounded contextual identity, prior role, and attributed interpretation, each tied to one 60-ring phase | QG-029; social weights are caller-assigned, only compared within matching group/place, never innate rankings |
 
+| `|||| WHICH MEANS → REQUIRES → ROOTS ||||` | Backward dependency tracing of a contextual interpretation to earlier documented statements, missing sources and unresolved leaf claims | QG-030; DAG with 60-node bound, source/era witnesses and explicit gaps; no causal or historical proof inferred |
+
 ## Use in the book
 
 First show the mark; then give one sentence; then show one visual relation; finally provide optional formal detail.

@@ -1,0 +1,25 @@
+name: QG-031 Root Roots propagation tests
+on:
+  push:
+    paths:
+      - 'language/root-propagation.mjs'
+      - 'language/chasing-roots.mjs'
+      - 'tests/root-propagation.test.mjs'
+      - '.github/workflows/root-propagation-tests.yml'
+  pull_request:
+    paths:
+      - 'language/root-propagation.mjs'
+      - 'tests/root-propagation.test.mjs'
+      - '.github/workflows/root-propagation-tests.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  propagation:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node --test tests/root-propagation.test.mjs

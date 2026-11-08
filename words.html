@@ -1,0 +1,67 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>QUANTA QG-017 · Word Box Composer</title><meta name="description" content="Compose words inside the QUANTA box, phase them through four quads and unfold exactly."/>
+<style>
+:root{color-scheme:dark;--bg:#07131b;--panel:#102630;--stroke:#375966;--fg:#eafff9;--dim:#acc1c8;--aqua:#76ead8;--gold:#f4c48b}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 35% 0%,#18424d,transparent 60%),var(--bg);color:var(--fg);font:15px/1.6 system-ui,Segoe UI,sans-serif}a{color:var(--aqua)}header{padding:16px clamp(15px,3vw,34px);border-bottom:1px solid var(--stroke);background:#07131be9;display:flex;align-items:center;justify-content:space-between;gap:12px;position:sticky;top:0;z-index:2}header strong{letter-spacing:.15em}nav{display:flex;gap:16px;font-size:.84rem}main{max-width:1450px;margin:auto;padding:35px clamp(15px,3vw,35px) 80px}.eyebrow{font-weight:800;letter-spacing:.19em;text-transform:uppercase;color:var(--aqua);font-size:.68rem}h1{font-size:clamp(2.4rem,5.5vw,5.4rem);line-height:1.07;letter-spacing:-.052em;margin:8px 0}h2{font-size:1.13rem;margin:0 0 14px}.intro{color:var(--dim);max-width:86ch}.card{padding:21px;background:var(--panel);border:1px solid var(--stroke);border-radius:14px;min-width:0}.cols{display:grid;grid-template-columns:minmax(340px,1.5fr) minmax(280px,1fr);gap:18px;margin-top:19px}.field{font-size:.78rem;font-weight:800;color:#bcdfd9;display:block;margin:15px 0 6px}input,textarea,button{font:inherit}input,textarea{width:100%;background:#071d24;border:1px solid #426e70;color:var(--fg);padding:11px;border-radius:8px}textarea{resize:vertical;min-height:140px;font:12px/1.5 Consolas,monospace}button{border:1px solid #478a83;background:#17444e;color:#ecfff9;padding:10px 14px;border-radius:8px;cursor:pointer}button.active{background:var(--gold);border-color:var(--gold);color:#30200d}button.primary{background:var(--aqua);color:#08282b;font-weight:800}.buttons{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0}.stage{background:radial-gradient(circle,#153f46,#06151d);border:1px solid #33666e;border-radius:12px;overflow:hidden;min-height:240px;position:relative}.stage canvas{display:block;width:100%;height:310px}.caption{font-size:.75rem;color:var(--dim);padding:9px 12px;border-top:1px solid #2c565d}.tiles{display:flex;flex-wrap:wrap;gap:7px;margin:14px 0}.tile{min-width:64px;text-align:center;background:#091d25;border:1px solid #315862;border-radius:8px;padding:7px 8px;font:12px Consolas,monospace}.tile strong{display:block;color:var(--aqua);font-size:1.3rem}.tile span{color:var(--gold)}.tile.space{min-width:27px;border-style:dashed;color:var(--dim);font-size:1.2rem}.readout{background:#071b24;border:1px solid #335760;padding:12px;border-radius:8px;font:12px/1.55 Consolas,monospace;white-space:pre-wrap;overflow-wrap:anywhere;color:#c4fff0}.status{background:#0b3135;border-left:3px solid #72e3ce;border-radius:7px;padding:11px 14px;font-size:.83rem;color:#c5fff2;margin-top:13px}.status.fail{border-color:#ff9683;color:#ffd3c9}.metrics{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:7px;margin:17px 0}.metric{background:#091d25;border-radius:8px;text-align:center;padding:12px 7px;border:1px solid #2f5860}.metric strong{display:block;font-size:1.4rem;color:#e4fffa}.metric small{color:var(--dim)}.small{font-size:.8rem;color:var(--dim)}footer{border-top:1px solid var(--stroke);margin-top:30px;padding-top:18px;color:var(--dim);font-size:.81rem}@media(max-width:990px){.cols{grid-template-columns:1fr}}@media(max-width:550px){.card{padding:14px}.stage canvas{height:235px}header nav{gap:9px;font-size:.74rem}}
+</style></head><body>
+<header><strong>◈ QUANTA <span style="color:#76ead8">/ QG-017</span></strong><nav><a href="alphabet.html">Alphabet</a><a href="11d.html">11D Lab</a><a href="book.html">Book</a></nav></header>
+<main><div class="eyebrow">Composition · transport · semantic/somatic lineage</div><h1>A word is a traveling box.</h1><p class="intro">Individual letters already fold. Now the box preserves their <strong>order, spaces, phase, coordinates, and drawing actions</strong> as one composition. Each word starts its own a/b/c/d phase cycle, advancing 90° per letter; every glyph retains the full canonical strokes behind the level-one Chrome Dot.</p>
+<div class="cols"><section class="card"><h2>Word-to-geometry transport</h2><label for="source" class="field">Word or phrase · uppercase A–Z, single spaces</label><input id="source" value="QUANTA GLOBULE" maxlength="128" spellcheck="false"/>
+<label for="meaning" class="field">Optional contextual semantic witness</label><input id="meaning" value="QUANTA: geometry carried as language" maxlength="512"/>
+<div class="buttons"><button class="primary" id="compose">Compose + verify</button><button class="active" data-level="4">4 · Strokes</button><button data-level="3">3 · Vertices</button><button data-level="2">2 · Endpoints</button><button data-level="1">1 · Chrome Dots</button></div>
+<div class="stage"><canvas id="word-view" aria-label="QUANTA word phase geometry visualization"></canvas><div class="caption" id="caption">Level 4 · every stroke at its transported phase</div></div>
+<div class="tiles" id="glyph-tiles"></div>
+<div id="status" role="status" aria-live="polite" class="status">Ready to compose the word box.</div>
+<p class="small">The four presentation levels are visual views, not physical dimensions. The actual packet retains the letters, phase, word boundaries and canonical shape references so the source can be unfolded.</p>
+</section>
+<aside class="card"><h2>Receiver · exact reconstruction</h2><div class="metrics"><div class="metric"><strong id="letter-count">—</strong><small>Letters</small></div><div class="metric"><strong id="word-count">—</strong><small>Words</small></div><div class="metric"><strong id="verb-count">—</strong><small>Pen verbs</small></div></div>
+<label for="packet" class="field">Reversible composition packet</label><textarea id="packet" spellcheck="false" aria-label="Editable box packet JSON"></textarea><div class="buttons"><button id="restore">Recover from packet</button><button id="copy">Copy packet</button></div>
+<label class="field" for="recovered">Recovered text</label><input id="recovered" readonly/>
+<label class="field" for="verbs">Somatic transcript · ordered actions</label><textarea id="verbs" readonly style="min-height:190px"></textarea>
+<p class="small">The semantic channel preserves identity and optional context. It doesn't infer a letter's intrinsic meaning. This is geometric transport, not encryption.</p></aside></div>
+<footer><a href="language/QG-017-WORD-BOX.md">Formal QG-017 specification</a> · <a href="language/word-box.mjs">Executable word kernel</a> · <a href="tests/word-box.test.mjs">Automated invariant tests</a></footer></main>
+<script type="module">
+import {composeWordBox,recoverWordBox,expandWordBox,verifyWordBox} from "./language/word-box.mjs";
+const $=id=>document.getElementById(id),canvas=$("word-view"),ctx=canvas.getContext("2d");
+let level=4,packet=null,rendered=null;
+function fail(message){$("status").classList.add("fail");$("status").textContent=message}
+function pass(message){$("status").classList.remove("fail");$("status").textContent=message}
+function paint(){
+ if(!packet||!rendered)return;
+ const r=canvas.getBoundingClientRect(),scale=Math.min(2,window.devicePixelRatio||1);
+ const width=Math.max(10,r.width),height=Math.max(10,r.height);
+ canvas.width=Math.round(width*scale);canvas.height=Math.round(height*scale);ctx.setTransform(scale,0,0,scale,0,0);ctx.clearRect(0,0,width,height);
+ const useful=rendered.items.filter(item=>item.type==="glyph");
+ const span=Math.max(5,packet.width-2);
+ const sx=Math.min(27,(width-32)/span);const sy=Math.min(35,(height-38)/5);
+ const s=Math.min(sx,sy),baseX=16,baseY=height/2-2*s;
+ ctx.strokeStyle="rgba(109,234,217,.12)";ctx.lineWidth=1;
+ for(let row=0;row<=4;row++){ctx.beginPath();ctx.moveTo(14,baseY+row*s);ctx.lineTo(width-14,baseY+row*s);ctx.stroke()}
+ function toPoint(p){return [baseX+p.x*s,baseY+p.y*s]}
+ for(const item of useful){
+  const view=item.view;ctx.save();ctx.strokeStyle="#79f6e0";ctx.fillStyle="#77f3df";ctx.lineWidth=Math.min(3,s*.18);ctx.lineCap="round";ctx.lineJoin="round";
+  if(view.kind==="geometry"){ctx.beginPath();for(const stroke of view.paths)stroke.forEach((p,i)=>{const [x,y]=toPoint(p);if(i===0)ctx.moveTo(x,y);else ctx.lineTo(x,y)});ctx.stroke()}
+  else if(view.kind==="chrome-dot"){const [x,y]=toPoint(view.point);ctx.fillStyle="#ffc68d";ctx.shadowColor="#f8b76f";ctx.shadowBlur=16;ctx.beginPath();ctx.arc(x,y,Math.max(2,Math.min(7,s*.3)),0,Math.PI*2);ctx.fill()}
+  else{ctx.fillStyle=view.kind==="endpoints"?"#ffc68d":"#77f3df";for(const p of view.points){const [x,y]=toPoint(p);ctx.beginPath();ctx.arc(x,y,Math.max(1.8,s*.15),0,Math.PI*2);ctx.fill()}}
+  ctx.restore();
+ }
+ if(packet.width*s>width-10){ctx.fillStyle="#bbc6c7";ctx.font="12px system-ui";ctx.fillText("Full composition retained in packet; viewport scales to fit.",15,height-13)}
+}
+function renderViews(){
+ if(!packet)return;rendered=expandWordBox(packet,level);paint();
+ $("caption").textContent=["","Level 1 · one dot per source letter","Level 2 · endpoints of each glyph stroke sequence","Level 3 · source vertices","Level 4 · full transported geometry"][level];
+ document.querySelectorAll("[data-level]").forEach(b=>b.classList.toggle("active",Number(b.dataset.level)===level));
+ $("glyph-tiles").textContent="";
+ for(const token of packet.tokens){const e=document.createElement("div");e.className="tile"+(token.type==="space"?" space":"");if(token.type==="space")e.textContent="␣";else{const title=document.createElement("strong"),sub=document.createElement("span");title.textContent=token.token[2];sub.textContent=token.phase+" · "+token.degrees+"°";e.append(title,sub)}$("glyph-tiles").appendChild(e)}
+ $("letter-count").textContent=rendered.items.filter(i=>i.type==="glyph").length;
+ $("word-count").textContent=rendered.semantic.words.length;
+ $("verb-count").textContent=rendered.somatic.length;
+ $("verbs").value=rendered.somatic.slice(0,90).map(v=>"w"+v.wordIndex+"."+v.letterIndex+" "+v.letter+" "+v.verb+(v.to?"("+v.to.x+","+v.to.y+")":"")).join("\n")+(rendered.somatic.length>90?"\n… "+(rendered.somatic.length-90)+" further actions":"");
+}
+function compose(){try{const value=$("source").value;packet=composeWordBox(value,{context:$("meaning").value||null});const verdict=verifyWordBox(packet);if(!verdict.pass)throw new Error(verdict.error);$("packet").value=JSON.stringify(packet,null,2);$("recovered").value=recoverWordBox(packet);renderViews();pass("PASS · "+verdict.letters+" letters and "+verdict.spaces+" spaces with "+verdict.verbs+" somatic actions reconstructed.")}catch(e){fail("Composition rejected: "+e.message)}}
+$("compose").onclick=compose;
+document.querySelectorAll("[data-level]").forEach(b=>b.onclick=()=>{level=Number(b.dataset.level);renderViews()});
+$("restore").onclick=()=>{try{const candidate=JSON.parse($("packet").value),source=recoverWordBox(candidate);packet=candidate;$("source").value=source;$("meaning").value=candidate.context||"";$("recovered").value=source;renderViews();pass("PASS · restored exact source from ordered canonical box packet.")}catch(e){fail("Receiver rejected packet: "+e.message)}};
+$("copy").onclick=async()=>{try{await navigator.clipboard.writeText($("packet").value);pass("Packet copied; sequence, whitespace and phase are retained.")}catch{fail("Clipboard unavailable.")}};
+addEventListener("resize",paint);compose();
+</script></body></html>

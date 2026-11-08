@@ -10,6 +10,10 @@
 
 ## Read and explore
 
+- **[QG-022 Memory Projection](./projection.html)** — select one revision as a visible Chrome Dot, unfold its exact structured source, walk all immutable parent revisions, and trace a paragraph backward through lineage.
+- [Projection kernel](./language/memory-projection.mjs), [formal specification](./language/QG-022-MEMORY-PROJECTION.md), and [seven invariant tests](./tests/memory-projection.test.mjs).
+
+
 - **[QG-021 Corpus Memory](./memory.html)** — append-only immutable corpus revision snapshots, parent IDs, paragraph provenance links, and exact earlier source recovery.
 - [Memory kernel](./language/corpus-memory.mjs), [formal specification](./language/QG-021-CORPUS-MEMORY.md), and [seven regression tests](./tests/corpus-memory.test.mjs).
 

@@ -133,6 +133,8 @@
 | P-025 | Historical Vedic mathematics or Babylonians used QUANTA's four-quadrant 60-station phase transport | Not established; modern interpretive design | Explicit historical source evidence would be required |
 | QG-026 | All 26 canonical QUANTA uppercase glyphs have an injective 25-vertex source map into a 60-station phase ring with exact somatic verb positions and reversible source identity | Implemented computational geometric language transport | Seven tests: 25-vertex inversion, 4×90° phase orbit, full A–Z and Q tail reconstruction, phrase roundtrip and mutation rejection |
 | P-026 | Station-phase transport by itself encodes semantics or physically rotates a glyph in space | Not established | User-assigned context and an independent physical/geometric model would be needed |
+| QG-028 | All 78 SEE/DO/LEARN assignments across A–Z can be bound to three distinct 60-ring phase addresses while preserving original glyph and DO somatic verb witnesses | Implemented semantic/geometry binding | Six tests: A–Z complete phase orbits, phrase/space recovery, verbs and tamper rejection |
+| P-028 | Assigning semantic role words to glyphs constitutes autonomous learning or observed external behavior | Not established | Instrumented perception, controlled action and independently checked learning outcomes would be necessary |
 | P-001 | QUANTA maps directly onto physical microstructure | Untested physical hypothesis | Quantitative predictions and independent evidence |
 
 A precise specification is **not** automatically a statement about physics. A pretty diagram is **not** a measurement.

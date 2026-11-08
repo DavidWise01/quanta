@@ -120,6 +120,8 @@ Composing these families into one executable sentence requires separately declar
 
 | `|||| branch A + branch B → convergence ||||` | Two complete corpus histories sharing a common source, compared with explicit three-way paragraph choices | QG-023; both branch ledgers retained, no silent conflict winner, only same-topology paragraph edits supported |
 
+| `|||| → fork → converge → fork → converge → ||||` | Multi-generation ancestry graph with exact retained corpus snapshots and one/two-parent transitions | QG-024; append-only node DAG, explicit conflict resolution, deterministic ancestral source replay |
+
 ## Use in the book
 
 First show the mark; then give one sentence; then show one visual relation; finally provide optional formal detail.

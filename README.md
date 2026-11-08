@@ -10,6 +10,10 @@
 
 ## Read and explore
 
+- **[QG-021 Corpus Memory](./memory.html)** — append-only immutable corpus revision snapshots, parent IDs, paragraph provenance links, and exact earlier source recovery.
+- [Memory kernel](./language/corpus-memory.mjs), [formal specification](./language/QG-021-CORPUS-MEMORY.md), and [seven regression tests](./tests/corpus-memory.test.mjs).
+
+
 - **[QG-020 Corpus Box](./corpus.html)** — deterministic `||||` carrier for complete documents, chapters, sections, exact paragraphs, indexed source addresses and explicit reference verbs.
 - [Corpus Box executable kernel](./language/corpus-box.mjs), [formal specification](./language/QG-020-CORPUS-BOX.md), and [seven regression tests](./tests/corpus-box.test.mjs).
 

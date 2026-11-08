@@ -1,0 +1,26 @@
+name: QG-022 Memory projection tests
+on:
+  push:
+    paths:
+      - 'language/memory-projection.mjs'
+      - 'language/corpus-memory.mjs'
+      - 'language/corpus-box.mjs'
+      - 'tests/memory-projection.test.mjs'
+      - '.github/workflows/memory-projection-tests.yml'
+  pull_request:
+    paths:
+      - 'language/memory-projection.mjs'
+      - 'tests/memory-projection.test.mjs'
+      - '.github/workflows/memory-projection-tests.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  projection:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node --test tests/memory-projection.test.mjs

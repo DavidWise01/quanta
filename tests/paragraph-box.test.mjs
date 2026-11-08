@@ -54,8 +54,8 @@ test("reject invalid source chars / oversized paragraph",()=>{
   assert.throws(()=>composeParagraphBox(text),TypeError);
  }
 });
-test("long valid line splits into 512-char reversible sentence blocks",()=>{
+test("long valid line splits into nested-word-safe 128-char blocks",()=>{
  const p=composeParagraphBox("A".repeat(1100));
- assert.equal(p.segmentCount,3);
+ assert.equal(p.segmentCount,9);
  assert.equal(recoverParagraphBox(p),"A".repeat(1100));
 });

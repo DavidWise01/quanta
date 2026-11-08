@@ -8,7 +8,7 @@ The paragraph is the next compositional boundary after letters (QG-016), words (
 
 - Exact permitted input: ASCII A–Z and a–z, spaces, \`.,!?;:'"()-\`, and LF (\`\\n\`) line breaks; maximum 4096 characters.
 - Keep all original character offsets, original case, punctuation, repeated spaces and blank lines.
-- Each line is segmented at sentence-ending punctuation groups (\`.\`, \`?\`, \`!\`). Segment lengths beyond 512 characters are divided into consecutive 512-character chunks to meet the QG-018 input bound.
+- Each line is segmented at sentence-ending punctuation groups (\`.\`, \`?\`, \`!\`). Sentence fragments are divided into consecutive **128-character chunks** to respect the stricter nested QG-017 word length bound (128), as well as QG-018 (512).
 - Each sentence fragment gets a canonical QG-018 Sentence Box.
 - Every fragment records its globally ordered sequence index, line index, source offset and links to previous / next fragments.
 - Line break is itself a separate transport token.

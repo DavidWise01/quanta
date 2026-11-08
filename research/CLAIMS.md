@@ -135,6 +135,8 @@
 | P-026 | Station-phase transport by itself encodes semantics or physically rotates a glyph in space | Not established | User-assigned context and an independent physical/geometric model would be needed |
 | QG-028 | All 78 SEE/DO/LEARN assignments across A–Z can be bound to three distinct 60-ring phase addresses while preserving original glyph and DO somatic verb witnesses | Implemented semantic/geometry binding | Six tests: A–Z complete phase orbits, phrase/space recovery, verbs and tamper rejection |
 | P-028 | Assigning semantic role words to glyphs constitutes autonomous learning or observed external behavior | Not established | Instrumented perception, controlled action and independently checked learning outcomes would be necessary |
+| QG-029 | IS/WAS/WHICH MEANS claims can be bound to 60-ring semantic phases and contextualized with dates, IANA timezone, group, place and evidence without inferring social worth | Implemented computational source annotation | Seven tests: period bounds, phase witnesses, provenance status, comparison scope and altered-packet rejection |
+| P-029 | A time zone, gender or hereditary title alone establishes objective societal importance or exemption from law | Not established | Contextual legal and historical source evidence and appropriately scoped comparisons are required |
 | P-001 | QUANTA maps directly onto physical microstructure | Untested physical hypothesis | Quantitative predictions and independent evidence |
 
 A precise specification is **not** automatically a statement about physics. A pretty diagram is **not** a measurement.

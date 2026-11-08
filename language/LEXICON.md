@@ -118,6 +118,8 @@ Composing these families into one executable sentence requires separately declar
 
 | `|||| corpus@r0002 → • → r0001 → r0000 ||||` | A single Chrome Dot is a *view* of an addressed corpus revision; the separate ledger witnesses complete source history | QG-022; exact recoverable projection, verified backward parent walk and paragraph lineage |
 
+| `|||| branch A + branch B → convergence ||||` | Two complete corpus histories sharing a common source, compared with explicit three-way paragraph choices | QG-023; both branch ledgers retained, no silent conflict winner, only same-topology paragraph edits supported |
+
 ## Use in the book
 
 First show the mark; then give one sentence; then show one visual relation; finally provide optional formal detail.

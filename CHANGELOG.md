@@ -1,5 +1,10 @@
 # QUANTA · Changelog
 
+## 2026-11-07 — QG-013 width-ladder clarification
+- Author clarified the legacy signature as the nine-stage descending **bit-width** ladder `128/64/32/16 · 8/4/2/1 · 1` in four-number chunks, with the final 1→1 a stable fixed point.
+- Kept raw serialization unchanged; added explicit normalized constants, a validator, tests, the on-page width display, and revised research-language definitions.
+- Distinguished this bit-width ladder from eight-source globules and from AES-256-GCM encryption.
+
 ## 2026-11-07 — QG-013 · Downward Spiral Transport
 - Preserved the proposed literal signature `12|8/64/3|2/16/8|/4/2/1/1` as an unassigned versioned field label, without inventing semantics for its numeric segments.
 - Created `language/downward-spiral.mjs`: Gray-address ordered eight-source globules across dimensions 3–11, clockwise outer-to-inner grid traversal, and reversible payload-byte transport.

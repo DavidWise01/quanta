@@ -10,6 +10,9 @@
 
 ## Read and explore
 
+- **[QG-027 SEE/DO/LEARN Semantic Triads](./language/QG-027-SEMANTIC-TRIADS.md)** — 26 letters with exactly three assigned terms each: observe, act, learn. [Executable lexicon](./language/semantic-triad.mjs) and [tests](./tests/semantic-triad.test.mjs).
+
+
 - **[QG-026 Alphabet on the 60 Ring](./ring-language.html)** — all 26 uppercase vector glyphs transported as exact ring-addressed vertices and ordered somatic pen verbs across a/b/c/d quarter-turn phases, with complete semantic token and phrase reconstruction.
 - [Executable alphabet-ring kernel](./language/alphabet-ring.mjs), [formal specification](./language/QG-026-ALPHABET-RING.md), and [seven regression tests](./tests/alphabet-ring.test.mjs).
 

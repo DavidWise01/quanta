@@ -122,6 +122,8 @@ Composing these families into one executable sentence requires separately declar
 
 | `|||| → fork → converge → fork → converge → ||||` | Multi-generation ancestry graph with exact retained corpus snapshots and one/two-parent transitions | QG-024; append-only node DAG, explicit conflict resolution, deterministic ancestral source replay |
 
+| `|||| [00..59] × (a,b,c,d) ||||` | Babylonian-inspired sexagesimal radix-60 digit positions with QUANTA's four 15-station quarter-turn quads | QG-025; rotation by +15 modulo 60 is exact 90°, full integer positional reversal through BigInt |
+
 ## Use in the book
 
 First show the mark; then give one sentence; then show one visual relation; finally provide optional formal detail.

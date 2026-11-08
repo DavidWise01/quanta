@@ -113,6 +113,8 @@
 | SEC-015 | QG-015 uses standard AES-GCM but lacks protocol replay prevention and independent sender authentication; password entropy is not guaranteed | Confirmed source-audit findings | Address high-priority issues before production use; see research/QG-015-CRYPTOGRAPHIC-AUDIT.md |
 | QG-016 | The full A–Z Latin uppercase alphabet can be represented as ordered vector strokes, somatic pen verbs, and four exact quarter-turn phase quads | Implemented geometrical alphabet transport language | 26-letter roundtrip, full 360° geometry recovery and phase mutation tests |
 | P-016 | Rotational glyph phase alone transfers intrinsic word meaning or physical state | Not established | Language context and a separate semantics model / physical experiment would be required |
+| QG-017 | Composed words preserve token order, explicit spaces, quarter-turn phase schedule, somatic stroke addressing and contextual labels across a folded view | Proposed QUANTA compositional language, executable kernel | A–Z phrase round-trip, invalid whitespace and phase mutation tests |
+| P-017 | A single visual Chrome Dot uniquely identifies all original words and meanings | Not established, generally false without witness | Preserve canonical token addresses, ordered context, and source reference |
 | P-001 | QUANTA maps directly onto physical microstructure | Untested physical hypothesis | Quantitative predictions and independent evidence |
 
 A precise specification is **not** automatically a statement about physics. A pretty diagram is **not** a measurement.

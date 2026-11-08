@@ -127,6 +127,8 @@
 | P-022 | A standalone dot without a source ledger can reconstruct arbitrary historical corpus revisions | Not established; impossible generally without side information | Preserve revision reference and full external memory witness |
 | QG-023 | Two independent corpus revision histories can converge at their latest structurally identical shared ancestor, retaining both branches and explicitly resolving conflicting paragraph edits | Implemented computational version composition | Seven tests: ancestor, disjoint edits, conflicts, topology mismatch and replay validation |
 | P-023 | A converged source tree automatically solves semantic, structural or distributed consensus conflicts | Not established; outside QG-023.1 scope | Explicit context/structural lineage and external consensus model would be needed |
+| QG-024 | Converged corpus memory can grow into new independent branches and converge again while preserving original source ancestry | Implemented computational directed acyclic history graph | Seven tests: second-generation convergence, source replay, conflict gating, parent validation and JSON recovery |
+| P-024 | Local ancestry node IDs establish global identity or globally unique lowest common ancestor | Not established | Content-addressed identities and a precise DAG ancestry ordering specification would be required |
 | P-001 | QUANTA maps directly onto physical microstructure | Untested physical hypothesis | Quantitative predictions and independent evidence |
 
 A precise specification is **not** automatically a statement about physics. A pretty diagram is **not** a measurement.

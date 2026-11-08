@@ -1,0 +1,83 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>QUANTA QG-032 · Root Reconciliation</title>
+<style>
+:root{color-scheme:dark;--bg:#07151e;--card:#112933;--line:#335c65;--ink:#ebfff9;--muted:#a6c7c9;--mint:#72e8d4;--gold:#fac68b;--rose:#eca0a8}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 35% -5%,#20545b,transparent 62%),var(--bg);color:var(--ink);font:15px/1.55 system-ui,Segoe UI,sans-serif}
+a{color:var(--mint)}header{background:#071923ee;border-bottom:1px solid var(--line);padding:15px 27px;display:flex;justify-content:space-between;align-items:center;gap:12px;position:sticky;top:0;z-index:3}header strong{letter-spacing:.14em}nav{display:flex;gap:15px;font-size:.83rem}
+main{max-width:1400px;margin:auto;padding:35px 24px 85px}h1{font-size:clamp(2.4rem,5.6vw,5.4rem);letter-spacing:-.055em;line-height:1.05;margin:10px 0}h2{font-size:1.13rem;margin:0 0 14px}.eyebrow{font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--mint);font-weight:800}.intro{max-width:86ch;color:var(--muted)}
+.layout{display:grid;grid-template-columns:minmax(330px,1fr) minmax(320px,1.08fr);gap:18px;margin-top:24px}.card{min-width:0;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:19px}.columns{display:grid;grid-template-columns:1fr 1fr;gap:10px}.field{display:block;color:#c3e1dc;font-size:.79rem;font-weight:800;margin:14px 0 6px}
+input,textarea,select{width:100%;color:var(--ink);background:#071e28;border:1px solid #3e7375;border-radius:8px;padding:11px;font:13px/1.4 Consolas,monospace}textarea{resize:vertical;min-height:73px}
+button{background:#18505b;color:var(--ink);border:1px solid #4b8784;border-radius:8px;padding:10px 13px;cursor:pointer;font:inherit}button.primary{background:var(--mint);color:#0b322d;font-weight:800}
+.controls{display:flex;flex-wrap:wrap;gap:8px;margin:15px 0}.status{background:#0b353a;color:#c9fff4;border-left:3px solid var(--mint);padding:12px;border-radius:7px;font-size:.84rem}.status.error{border-color:var(--rose);color:#ffdcdd}
+.comparison{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:12px 0}.witness{background:#081f29;border:1px solid #3a636b;border-radius:9px;padding:13px;min-width:0}.witness.support{border-top:4px solid var(--mint)}.witness.challenge{border-top:4px solid var(--rose)}.witness strong{display:block;font-size:.9rem}.witness p{overflow-wrap:anywhere;font-size:.84rem}.witness small{color:var(--muted);overflow-wrap:anywhere}
+.metric-row{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:14px 0}.metric{background:#081e27;border:1px solid #345a64;padding:11px;border-radius:8px;text-align:center}.metric b{display:block;font-size:1.5rem;color:var(--mint)}.metric small{color:var(--muted);font-size:.7rem}
+.readout{padding:12px;background:#071f28;border:1px solid #345a64;border-radius:8px;min-height:70px;max-height:230px;overflow:auto;white-space:pre-wrap;overflow-wrap:anywhere;font:12px/1.6 Consolas,monospace}
+.ledger{max-height:200px;overflow:auto}.event{padding:10px 12px;background:#081f28;border-left:3px solid var(--gold);margin:8px 0;border-radius:5px}.event span{display:block;font-size:.82rem;color:var(--muted)}.hint{color:var(--muted);font-size:.8rem}
+footer{border-top:1px solid var(--line);padding-top:20px;margin-top:32px;font-size:.81rem;color:var(--muted)}
+@media(max-width:960px){.layout{grid-template-columns:1fr}}@media(max-width:550px){main{padding:24px 12px}.card{padding:13px}header{padding:11px}nav{gap:7px;font-size:.74rem}.comparison{gap:5px}.witness{padding:8px}}
+</style></head><body>
+<header><strong>◈ QUANTA <span style="color:var(--mint)">/ QG-032</span></strong><nav><a href="root-roots.html">Root Roots</a><a href="roots.html">Chasing Roots</a><a href="book.html">Book</a></nav></header>
+<main><div class="eyebrow">Two observations · one root · no erased witnesses</div><h1>Root Reconciliation.</h1>
+<p class="intro">When two cited observations disagree about the same historical source root, keep both. Trace the affected interpretation forward, ask what would settle the disagreement, and record an explicit decision without pretending the software has established historical truth.</p>
+<div class="layout">
+<section class="card"><h2>Encounter two root witnesses</h2><label class="field" for="root">Existing source root</label><select id="root"></select><div class="columns">
+<div><label class="field" for="support">Supports · statement</label><textarea id="support">The available record supports the reported mathematical studies.</textarea><label class="field" for="url-a">Supporting HTTPS evidence</label><input id="url-a" value="https://collection.sciencemuseumgroup.org.uk/people/cp38764/ada-lovelace"></div>
+<div><label class="field" for="challenge">Challenges · statement</label><textarea id="challenge">The available record leaves parts of that interpretation uncertain.</textarea><label class="field" for="url-b">Challenging HTTPS evidence</label><input id="url-b" value="https://www.hsm.ox.ac.uk/imagining-ai"></div></div>
+<label class="field" for="question">What observation would resolve the disagreement?</label><input id="question" value="Which original document independently supports the specific statement?">
+<div class="controls"><button id="encounter" class="primary">Record conflict</button><button id="reset">Reset example</button></div>
+<h2 style="margin-top:22px">Explicit review</h2><label class="field" for="conflict">Open conflict</label><select id="conflict"></select><label class="field" for="decision">Reviewer decision</label><select id="decision"><option value="insufficient">Insufficient evidence</option><option value="support">Support accepted for review</option><option value="challenge">Challenge accepted for review</option></select>
+<label class="field" for="rationale">Rationale</label><textarea id="rationale">The historical sources need closer examination before settling this interpretation.</textarea>
+<label class="field" for="review-url">Reviewer evidence URL</label><input id="review-url" value="https://collection.sciencemuseumgroup.org.uk/people/cp38764/ada-lovelace">
+<div class="controls"><button class="primary" id="review">Append review</button><button id="export">Copy full JSON</button></div><div id="status" class="status" role="status" aria-live="polite">Ready to preserve both root witnesses.</div>
+<p class="hint">The demo’s two statements are illustrative opposing interpretations, not a verified historical dispute. Source links are provided for inspection; the software does not read or authenticate their contents.</p></section>
+<section class="card"><h2>Encounter and impact</h2><div class="metric-row"><div class="metric"><b id="total">0</b><small>Conflicts</small></div><div class="metric"><b id="open">0</b><small>Still open</small></div><div class="metric"><b id="reviewed">0</b><small>Reviewed</small></div></div>
+<div id="witnesses" class="comparison"><div class="witness support">Supporting observation</div><div class="witness challenge">Challenging observation</div></div>
+<label class="field">Downstream dependent statements</label><div id="impact" class="readout">Record a root encounter first.</div>
+<label class="field">Append-only history</label><div class="ledger" id="events"></div>
+<label class="field">Reviewer’s unresolved question</label><div id="unresolved" class="readout">No encounter recorded.</div>
+<p class="hint">Reviewed does not mean proven. Both original observations remain in the canonical record; earlier event entries are not overwritten.</p></section></div>
+<footer><a href="language/QG-032-ROOT-RECONCILIATION.md">Specification</a> · <a href="language/root-reconciliation.mjs">Executable kernel</a> · <a href="tests/root-reconciliation.test.mjs">Seven tests</a></footer>
+</main><script type="module">
+import {instantiateReconciliation,encounterRootConflict,decideRootConflict,inspectRootReconciliation,verifyRootReconciliation} from "./language/root-reconciliation.mjs";
+const $=id=>document.getElementById(id);
+const url="https://collection.sciencemuseumgroup.org.uk/people/cp38764/ada-lovelace";
+const society={id:"ada-1843",letter:"A",subject:"Ada Lovelace",is:"Mathematical writer",was:"Student of mathematics",
+ whichMeans:"Her notes explored the Analytical Engine's wider possibilities",wasYear:1833,
+ context:{year:1843,timezone:"Europe/London",place:"London",group:"Computing scholarship"},
+ weight:{authority:2,reach:2,legacy:4,confidence:.7,basis:"Illustrative human annotation"},evidence:[{label:"Museum",url}],status:"sourced"};
+const fixture={society,target:"meaning",nodes:[
+ {id:"meaning",statement:society.whichMeans,role:"conclusion",year:1843,status:"annotated",requires:["notes","engine"],evidence:[]},
+ {id:"notes",statement:"Notes were published in 1843",role:"prerequisite",year:1843,status:"annotated",requires:["study"],evidence:[]},
+ {id:"engine",statement:"An Analytical Engine was proposed",role:"prerequisite",year:1837,status:"sourced",requires:[],evidence:[{label:"Museum",url}]},
+ {id:"study",statement:"She studied mathematics",role:"prerequisite",year:1833,status:"unknown",requires:[],evidence:[]}
+]};
+let ledger=null;
+function notice(message,bad=false){$("status").textContent=message;$("status").classList.toggle("error",bad)}
+function render(){
+ const stats=inspectRootReconciliation(ledger);$("total").textContent=stats.conflicts;$("open").textContent=stats.open;$("reviewed").textContent=stats.reviewed;
+ const r=$("root"),prior=r.value;r.textContent="";for(const n of ledger.rootPacket.nodes.filter(n=>n.requires.length===0)){const option=document.createElement("option");option.value=n.id;option.textContent=n.id+" · "+n.status;r.append(option)}if([...r.options].some(o=>o.value===prior))r.value=prior;
+ const sel=$("conflict");sel.textContent="";for(const c of ledger.conflicts.filter(c=>c.state==="open")){const o=document.createElement("option");o.value=c.id;o.textContent=c.id+" · "+c.root;sel.append(o)}
+ const selected=ledger.conflicts.at(-1),area=$("witnesses");area.textContent="";
+ if(selected){for(const item of selected.observations){const div=document.createElement("div");div.className="witness "+(item.position==="supports"?"support":"challenge");
+ const head=document.createElement("strong");head.textContent=item.position.toUpperCase();
+ const p=document.createElement("p");p.textContent=item.statement;
+ const foot=document.createElement("small");foot.textContent=item.id+" · "+item.year+" · "+item.evidence.length+" source(s)";
+ div.append(head,p,foot);area.append(div)}
+ $("impact").textContent="ROOT: "+selected.root+"\nIMPACTED: "+selected.affected.join(" → ")+"\nSTATUS: "+selected.state+"\nInterpretation proven automatically? NO";
+ $("unresolved").textContent=selected.observations[0].question+"\n\n"+(selected.decision?"REVIEW: "+selected.decision.choice+"\n"+selected.decision.rationale:"OPEN: decision not recorded.");
+ }else{$("impact").textContent="Record a conflicting pair of witnesses.";$("unresolved").textContent="No encounter recorded."}
+ $("events").textContent="";for(const e of ledger.events){const div=document.createElement("div");div.className="event";const title=document.createElement("strong");title.textContent="e"+String(e.index).padStart(4,"0")+" · "+e.kind;const span=document.createElement("span");span.textContent=e.kind==="encounter"?"Two observations retained at "+e.conflict.root:"Review appended to "+e.id;div.append(title,span);$("events").append(div)}
+}
+$("encounter").onclick=()=>{try{
+ const root=$("root").value,year=ledger.rootPacket.society.claim.context.year,q=$("question").value;
+ const a={id:"witness-a-"+ledger.conflicts.length,root,position:"supports",statement:$("support").value,year,evidence:[{label:"Supporting source",url:$("url-a").value}],question:q};
+ const b={id:"witness-b-"+ledger.conflicts.length,root,position:"challenges",statement:$("challenge").value,year,evidence:[{label:"Challenging source",url:$("url-b").value}],question:q};
+ ledger=encounterRootConflict(ledger,a,b);render();notice("PASS · both opposing observations retained; dependent claims marked for review.");
+ }catch(e){notice("Encounter refused: "+e.message,true)}};
+$("review").onclick=()=>{try{
+ ledger=decideRootConflict(ledger,$("conflict").value,$("decision").value,$("rationale").value,[{label:"Reviewer source",url:$("review-url").value}]);
+ render();notice("PASS · review appended. Original witnesses preserved; no truth inferred.");
+ }catch(e){notice("Review refused: "+e.message,true)}};
+$("reset").onclick=()=>{try{ledger=instantiateReconciliation(fixture);render();notice("PASS · original historical root graph retained.")}catch(e){notice(e.message,true)}};
+$("export").onclick=async()=>{try{await navigator.clipboard.writeText(JSON.stringify(ledger,null,2));notice("Full root reconciliation ledger copied.")}catch(e){notice("Clipboard unavailable.",true)}};
+$("reset").click();
+</script></body></html>

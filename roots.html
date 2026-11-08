@@ -1,0 +1,73 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>QUANTA QG-030 · Chasing Roots</title><meta name="description" content="Trace historical and societal meanings backwards to explicit source roots, prerequisite statements and evidence gaps.">
+<style>
+:root{color-scheme:dark;--bg:#08151d;--surface:#102a34;--line:#345b66;--ink:#eafff8;--muted:#b0cbd0;--cyan:#68eed6;--amber:#f5c890;--pink:#f5a8ae}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 35% 0%,#19454e,transparent 60%),var(--bg);color:var(--ink);font:15px/1.55 system-ui,Segoe UI,sans-serif}
+a{color:var(--cyan)}header{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:15px 25px;background:#071921eb;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:3}
+header strong{letter-spacing:.12em}nav{display:flex;gap:14px;font-size:.82rem}main{max-width:1450px;margin:auto;padding:37px 24px 85px}
+.eyebrow{text-transform:uppercase;letter-spacing:.18em;font-size:.7rem;font-weight:800;color:var(--cyan)}h1{font-size:clamp(2.4rem,5.5vw,5.1rem);letter-spacing:-.05em;line-height:1.06;margin:10px 0}h2{font-size:1.12rem;margin:0 0 14px}
+.intro{color:var(--muted);max-width:82ch}.layout{display:grid;grid-template-columns:minmax(330px,1.08fr) minmax(325px,1fr);gap:18px;margin-top:23px}.card{background:var(--surface);border:1px solid var(--line);border-radius:15px;padding:19px;min-width:0}
+label{display:block;color:#c5e0dc;font-size:.8rem;font-weight:800;margin:15px 0 7px}textarea{background:#071d27;border:1px solid #487478;border-radius:8px;color:var(--ink);padding:12px;resize:vertical;width:100%;min-height:360px;font:12px/1.5 Consolas,monospace}
+.actions{display:flex;gap:8px;flex-wrap:wrap;margin:15px 0}button{background:#18505b;color:var(--ink);border:1px solid #4c918a;border-radius:8px;padding:10px 13px;cursor:pointer;font:inherit}button.primary{background:var(--cyan);color:#073530;font-weight:800}
+.status{border-left:3px solid var(--cyan);background:#0c3438;color:#cafff5;padding:12px;border-radius:8px;font-size:.84rem}.status.bad{border-color:var(--pink);color:#ffd9d8}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:15px 0}.stat{text-align:center;background:#071e27;border:1px solid #325960;border-radius:9px;padding:11px 5px}.stat strong{display:block;font-size:1.5rem;color:var(--cyan)}.stat small{color:var(--muted);font-size:.72rem}
+.graph{border:1px solid #37646b;background:#071d27;border-radius:10px;padding:12px;max-height:510px;overflow:auto}.node{border:1px solid #3c6970;border-left:4px solid var(--cyan);background:#0c2b34;padding:12px;margin:10px 0;border-radius:9px;min-width:0}.node.gap{border-left-color:var(--pink)}.node.root{border-left-color:var(--amber)}.head{display:flex;align-items:center;justify-content:space-between;gap:10px}.node strong{font-size:.88rem}.node small{font:11px Consolas,monospace;color:var(--muted);overflow-wrap:anywhere}.node p{margin:6px 0;color:#e1faf1;font-size:.89rem}.connector{color:#9fd8d3;font:12px Consolas,monospace}.readout{white-space:pre-wrap;overflow-wrap:anywhere;font:12px/1.6 Consolas,monospace;padding:12px;background:#071e26;border:1px solid #315660;border-radius:9px;max-height:160px;overflow:auto}.hint{color:var(--muted);font-size:.8rem}footer{border-top:1px solid var(--line);margin-top:35px;padding-top:20px;color:var(--muted);font-size:.81rem}
+@media(max-width:940px){.layout{grid-template-columns:1fr}}@media(max-width:550px){main{padding:26px 13px}.card{padding:13px}header{padding:12px}nav{gap:7px;font-size:.74rem}}
+</style></head><body><header><strong>◈ QUANTA <span style="color:var(--cyan)">/ QG-030</span></strong><nav><a href="society.html">Societal Somatics</a><a href="triad-ring.html">Semantic Ring</a><a href="book.html">Book</a></nav></header><main>
+<div class="eyebrow">Evidence dependencies · backwards graph · sixty-root capacity</div><h1>Chasing Roots.</h1>
+<p class="intro">Start with <strong>WHICH MEANS</strong> and walk backward through the statements it requires. Every root must be visible. Missing evidence remains a gap, not a conveniently invented fact. Historical context and the three 60-ring semantic phases stay attached to the claim.</p>
+<div class="layout"><section class="card"><h2>Author the root graph</h2><p class="hint">This source JSON contains one full QG-029 societal claim, a target statement and a list of prerequisite nodes. Edit their statements, years, statuses, cited links and <code>requires</code> addresses.</p>
+<label for="source">Context + prerequisite graph · JSON</label><textarea id="source" spellcheck="false"></textarea><div class="actions"><button id="chase" class="primary">Chase the roots</button><button id="restore">Restore example</button><button id="copy">Copy witness JSON</button></div>
+<div id="status" class="status" role="status" aria-live="polite">Ready to walk back through the sources.</div><p class="hint">Links mean “declared prerequisite,” not proven causal entailment. The system distinguishes source links from the user's interpretation of their significance.</p></section>
+<section class="card"><h2>Root walk · from interpretation backward</h2><div class="stats"><div class="stat"><strong id="reached">—</strong><small>Reached nodes</small></div><div class="stat"><strong id="roots">—</strong><small>Leaf roots</small></div><div class="stat"><strong id="gaps">—</strong><small>Evidence gaps</small></div></div>
+<div id="graph" class="graph" aria-label="Backwards claim dependency walk"></div>
+<label>Roots / uncertainty frontier</label><div id="frontier" class="readout"></div>
+<label>60-ring statement anchors</label><div id="phases" class="readout"></div>
+<p class="hint">A sourced leaf has a supplied HTTPS reference, but a link alone does not prove that source supports its exact statement. The engine never marks an entire historical interpretation as proved.</p></section></div>
+<footer><a href="language/QG-030-CHASING-ROOTS.md">Formal specification</a> · <a href="language/chasing-roots.mjs">Executable kernel</a> · <a href="tests/chasing-roots.test.mjs">Regression tests</a></footer>
+</main><script type="module">
+import {composeRootChase,recoverRootChase,verifyRootChase} from "./language/chasing-roots.mjs";
+const $=id=>document.getElementById(id);
+const url="https://collection.sciencemuseumgroup.org.uk/people/cp38764/ada-lovelace";
+const original={society:{id:"ada-1843",letter:"A",subject:"Ada Lovelace",
+ is:"Mathematical writer",was:"Studied mathematics and worked with Charles Babbage",
+ whichMeans:"Her notes explored the Analytical Engine's wider possibilities",
+ wasYear:1833,context:{year:1843,timezone:"Europe/London",place:"London",group:"Computing scholarship"},
+ weight:{authority:2,reach:2,legacy:4,confidence:.7,basis:"Illustrative assigned ordinal; not objective social importance"},
+ evidence:[{label:"Science Museum Group biography",url}],status:"sourced"},
+ target:"interpretation",nodes:[
+ {id:"interpretation",statement:"Her notes explored the Analytical Engine's wider possibilities",role:"conclusion",status:"annotated",year:1843,requires:["notes","engine"],evidence:[]},
+ {id:"notes",statement:"Notes were published in 1843",role:"prerequisite",status:"sourced",year:1843,requires:["study"],evidence:[{label:"Biography",url}]},
+ {id:"engine",statement:"An Analytical Engine was proposed",role:"prerequisite",status:"sourced",year:1837,requires:[],evidence:[{label:"Museum",url}]},
+ {id:"study",statement:"She studied mathematics",role:"prerequisite",status:"unknown",year:1833,requires:[],evidence:[]}
+ ]};
+let packet=null;
+function setStatus(text,bad=false){$("status").textContent=text;$("status").classList.toggle("bad",bad)}
+function render(){
+ const info=recoverRootChase(packet),audit=verifyRootChase(packet),nodeMap=new Map(info.nodes.map(n=>[n.id,n]));
+ $("reached").textContent=audit.reached;$("roots").textContent=audit.roots;$("gaps").textContent=audit.gaps;
+ $("graph").textContent="";
+ for(const step of packet.trace.order){
+  const node=nodeMap.get(step.id),container=document.createElement("div");
+  container.className="node"+(packet.trace.gaps.some(x=>x.id===step.id)?" gap":node.requires.length?"":" root");
+  container.style.marginLeft=Math.min(step.depth*22,110)+"px";
+  const head=document.createElement("div");head.className="head";
+  const title=document.createElement("strong");title.textContent=node.id+" · "+node.status;
+  const detail=document.createElement("small");detail.textContent="YEAR "+node.year;
+  head.append(title,detail);
+  const body=document.createElement("p");body.textContent=node.statement;
+  const dep=document.createElement("div");dep.className="connector";dep.textContent=node.requires.length?"REQUIRES → "+node.requires.join(" · "):"ROOT · "+(node.status==="sourced"?"evidence link supplied":"evidence missing or unresolved");
+  container.append(head,body,dep);
+  if(node.evidence.length){const links=document.createElement("div");for(const source of node.evidence){const a=document.createElement("a");a.href=source.url;a.target="_blank";a.rel="noopener noreferrer";a.textContent=source.label;links.append(a,"  ")}container.append(links)}
+  $("graph").append(container);
+ }
+ $("frontier").textContent=packet.trace.roots.map(id=>"root "+id).join("\n")+"\n\nGAPS:\n"+(packet.trace.gaps.length?packet.trace.gaps.map(x=>x.id+" · "+x.reason).join("\n"):"No uncited leaves within recorded graph.")+
+  "\n\nUNLINKED: "+(packet.trace.unlinked.join(", ")||"none")+"\n\nInterpretation proved automatically? NO";
+ $("phases").textContent=info.claim.subject+" · "+info.claim.context.year+" · "+info.claim.context.group+"\n"+
+ packet.phases.map(x=>x.role.toUpperCase()+" → "+x.quad+" / station "+x.station).join("\n");
+}
+function chase(){try{packet=composeRootChase(JSON.parse($("source").value));const report=verifyRootChase(packet);if(!report.pass)throw Error(report.error);render();setStatus("PASS · traced "+report.reached+" nodes, "+report.roots+" roots, "+report.gaps+" evidence gap(s). No causal proof inferred.");}catch(e){setStatus("Trace refused: "+e.message,true)}}
+$("chase").onclick=chase;$("restore").onclick=()=>{$("source").value=JSON.stringify(original,null,2);chase()};
+$("copy").onclick=async()=>{try{if(!packet)throw Error("Chase first");await navigator.clipboard.writeText(JSON.stringify(packet,null,2));setStatus("Canonical root witness copied with original source and context.")}catch(e){setStatus(e.message,true)}};
+$("restore").click();
+</script></body></html>

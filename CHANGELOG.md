@@ -1,5 +1,10 @@
 # QUANTA · Changelog
 
+## 2026-11-08 — QG-032 · Root Reconciliation
+- Built `language/root-reconciliation.mjs` to preserve opposing, cited observations of one original QG-030/QG-031 leaf root with a complete append-only event history.
+- Captured deterministic impacted downstream claims, required explicit review choices with supporting evidence and retained both original witnesses without rewriting source statements.
+- Published `reconcile.html`, formal QG-032 specification and seven regression tests, all passing GitHub Actions.
+
 ## 2026-11-08 — QG-031 · Root Roots Propagation
 - Implemented `language/root-propagation.mjs` as an append-only multi-version evidence ledger; updates to documented leaf roots propagate forward through all reverse dependency links.
 - Canonically recorded changed-root addresses, impacted dependent claims, preserved prior snapshots and review-required flags without silently promoting interpretation truth.

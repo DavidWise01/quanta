@@ -1,5 +1,10 @@
 # QUANTA · Changelog
 
+## 2026-11-08 — QG-022 · Memory Projection
+- Added `language/memory-projection.mjs`, selecting a QG-021 corpus revision through a single visible Chrome Dot while retaining full source and lineage in the ledger.
+- Added a revision-specific 4→3→2→1 projection, exact historic source unfolding, backward parent-chain walk and source-address tracing.
+- Published `projection.html`, seven regression tests and the QG-022 specification. The dot is a reference, never a self-contained corpus compressor.
+
 ## 2026-11-08 — QG-021 · Corpus Memory
 - Implemented `language/corpus-memory.mjs` with immutable append-only full corpus snapshots, parent revision IDs, and paragraph lineage across edits, additions, retirements, and explicit moved-address mappings.
 - Added `memory.html` for local revision timelines, historic source retrieval, traceable paragraph addresses and JSON ledger export/import.

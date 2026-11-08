@@ -110,6 +110,8 @@ Composing these families into one executable sentence requires separately declar
 
 | `|||| Quanta folds, then returns. ||||` | Sentence-level transport with exact spelling, punctuation, spaces and linked words | QG-018; phase continues across words and resets after `.`, `?`, or `!`; all source geometry remains recoverable |
 
+| `|||| sentence 1.\nSentence 2! ||||` | Paragraphs preserve all lines, contexts, and linked sentence-fragment addresses | QG-019; reconstructs exact ASCII source through QG-018 Sentence Boxes and canonical glyph references |
+
 ## Use in the book
 
 First show the mark; then give one sentence; then show one visual relation; finally provide optional formal detail.

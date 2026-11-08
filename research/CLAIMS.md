@@ -141,6 +141,8 @@
 | P-030 | A source URL, a dependency arrow, or a deterministic fingerprint proves a claim true or a document authentic | Not established | Independent source inspection, warranted inference, and authenticated signatures or trusted provenance would be necessary |
 | QG-031 | New evidence/status recorded at a leaf root can trigger deterministic forward impact tracing to every dependent statement without rewriting historical source snapshots | Implemented computational evidence-impact propagation | Seven tests: multi-root impact union, preserved earlier evidence, mutation checks, replay and strict leaf-only update gates |
 | P-031 | A newly linked source proves every downstream interpretation true | Not established | Independent source validation and logical entailment checking would be required |
+| QG-032 | Opposing observations about one historic prerequisite root can be retained and explicitly reviewed while all downstream affected claims remain identifiable | Implemented computational conflict reconciliation | Seven tests: opposing witness preservation, decisions and citation gates, malformed origins, impact replay, mutation rejection and serialized history |
+| P-032 | A reviewed contradiction can be automatically resolved into established historical truth solely by linking source URLs | Not established | Independent source inspection and justified assessment of statements is required |
 | P-001 | QUANTA maps directly onto physical microstructure | Untested physical hypothesis | Quantitative predictions and independent evidence |
 
 A precise specification is **not** automatically a statement about physics. A pretty diagram is **not** a measurement.

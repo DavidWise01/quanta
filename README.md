@@ -6,6 +6,9 @@
 
 ## Read and explore
 
+- **[QG-015 Authenticated Chrome Dot Transport](./authenticated.html)** — send one visible bit plus its 127-bit witness through QG-013, verify authentication, and recover the original 128 bits.
+- [QG-015 specification](./language/QG-015-AUTHENTICATED-CHROME.md), [module](./language/authenticated-chrome.mjs) and [tests](./tests/authenticated-chrome.test.mjs).
+
 - **[QG-014 Recoverable Chrome Dot](./fold.html)** — live 128 → 64 → 32 → 16 | 8 → 4 → 2 → 1 | 1 fold with a portable 127-bit witness and exact recovery.
 - [QG-014 source module](./language/recoverable-fold.mjs), [specification](./language/QG-014-RECOVERABLE-FOLD.md), and [test suite](./tests/recoverable-fold.test.mjs).
 

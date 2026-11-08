@@ -1,5 +1,10 @@
 # QUANTA · Changelog
 
+## 2026-11-08 — QG-023 · Memory Convergence
+- Added `language/memory-convergence.mjs` with common-ancestor matching, explicit three-way paragraph comparisons, preserved two-parent history, and no silent conflict winner.
+- Published `convergence.html`, a two-branch visual comparison/merge console, and QG-023 formal specification and regression tests.
+- Current scope: identical document hierarchy and reference topology; paragraph-text edits only. Structural differences deliberately fail closed.
+
 ## 2026-11-08 — QG-022 · Memory Projection
 - Added `language/memory-projection.mjs`, selecting a QG-021 corpus revision through a single visible Chrome Dot while retaining full source and lineage in the ledger.
 - Added a revision-specific 4→3→2→1 projection, exact historic source unfolding, backward parent-chain walk and source-address tracing.

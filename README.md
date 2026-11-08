@@ -10,6 +10,10 @@
 
 ## Read and explore
 
+- **[QG-026 Alphabet on the 60 Ring](./ring-language.html)** — all 26 uppercase vector glyphs transported as exact ring-addressed vertices and ordered somatic pen verbs across a/b/c/d quarter-turn phases, with complete semantic token and phrase reconstruction.
+- [Executable alphabet-ring kernel](./language/alphabet-ring.mjs), [formal specification](./language/QG-026-ALPHABET-RING.md), and [seven regression tests](./tests/alphabet-ring.test.mjs).
+
+
 - **[QG-025 Sexagesimal 60 Ring](./sixty.html)** — build exactly sixty positions with four 15-station quads, exact 90° phase turns, BigInt base-60 place-value transport, and reversible decimal recovery.
 - [Base-60 kernel](./language/sexagesimal-ring.mjs), [historical and technical specification](./language/QG-025-SEXAGESIMAL-60.md), [seven regression tests](./tests/sexagesimal-ring.test.mjs).
 

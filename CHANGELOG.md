@@ -1,5 +1,11 @@
 # QUANTA · Changelog
 
+## 2026-11-07 — QG-014 · Recoverable Chrome Dot
+- Instantiated `language/recoverable-fold.mjs`, an immutable exact reversible 128-bit folding primitive with XOR-right witnesses.
+- Two four-width chunks are preserved, and the final 1→1 fold is a fixed point; portable frames carry one terminal bit plus 127 witness bits.
+- Added `fold.html` for witness export/import and complete source recovery, plus deterministic regression tests and GitHub Actions.
+- Clarified that one visible dot without its witness is information-losing and that the witness must be authenticated externally for security.
+
 ## 2026-11-07 — QG-013 width-ladder clarification
 - Author clarified the legacy signature as the nine-stage descending **bit-width** ladder `128/64/32/16 · 8/4/2/1 · 1` in four-number chunks, with the final 1→1 a stable fixed point.
 - Kept raw serialization unchanged; added explicit normalized constants, a validator, tests, the on-page width display, and revised research-language definitions.

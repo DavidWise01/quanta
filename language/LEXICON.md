@@ -92,9 +92,11 @@ Composing these families into one executable sentence requires separately declar
 | `\\.|./` | Proposed inward-fold primitive converging groups of eight positions to a chrome dot | QG-012 finite-state visualization, not physical quantum measurement |
 | `8 → 4 → 2 → 1 → 1` | Pairwise aggregation followed by a stable fixed point | QG-012; preserve all eight leaf identifiers in lineage and reuse terminal identity |
 
-| `12&#124;8/64/3&#124;2/16/8&#124;/4/2/1/1` | Author's literal downward-spiral transport signature | QG-013 versioned protocol label; internal field semantics remain unresolved |
+| `12&#124;8/64/3&#124;2/16/8&#124;/4/2/1/1` | Author's literal downward-spiral transport signature | QG-013 legacy raw spelling of the now-defined nine-stage bit-width ladder |
 | `gray8-outer-spiral-v1` | Gray-code vertex traversal, eight-address globules, clockwise outer-to-inner grid | QG-013 deterministic reversible transport permutation across dimensions 3–11 |
 | `AES-256-GCM + PBKDF2-HMAC-SHA-256` | Authenticated encryption of spiral-permuted UTF-8 bytes | Standard crypto algorithms used in an experimental unaudited QUANTA interface; not a novel geometric cipher |
+
+| `128,64,32,16 / 8,4,2,1 / 1` | Canonical width ladder: two four-number chunks, final unchanged one | QG-013; each nonterminal width halves, final `1 → 1` is idempotent |
 
 ## Use in the book
 

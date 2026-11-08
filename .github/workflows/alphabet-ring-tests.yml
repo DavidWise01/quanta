@@ -1,0 +1,26 @@
+name: QG-026 Alphabet ring tests
+on:
+  push:
+    paths:
+      - 'language/alphabet-ring.mjs'
+      - 'language/alphabet-box.mjs'
+      - 'language/sexagesimal-ring.mjs'
+      - 'tests/alphabet-ring.test.mjs'
+      - '.github/workflows/alphabet-ring-tests.yml'
+  pull_request:
+    paths:
+      - 'language/alphabet-ring.mjs'
+      - 'tests/alphabet-ring.test.mjs'
+      - '.github/workflows/alphabet-ring-tests.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  alphabet-ring:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node --test tests/alphabet-ring.test.mjs

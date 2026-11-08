@@ -25,7 +25,7 @@ QG-029's source context (historical year, IANA time-zone annotation, group/place
 - Maximum 60 fact nodes and 180 prerequisite links.
 - Years represented are CE 1–9999; the prerequisite year may not exceed the containing claim's year.
 - No cycles, missing referenced nodes, duplicate IDs or repeated dependency IDs.
-- Exact canonical reconstruction checks every node, social context and phase witness. Structural verification is not cryptographic authenticity.
+- Exact canonical reconstruction checks every node, social context and phase witness. A deterministic non-cryptographic FNV-style fingerprint detects uncoordinated accidental changes to stored packet fields; it does not authenticate authorship or prevent deliberate rewriting and recomputing of the packet. Structural verification is not cryptographic authenticity.
 - `interpretationProven:false` is intentional; the program does not prove factual or causal claims.
 
 ## Artifacts

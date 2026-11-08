@@ -131,6 +131,8 @@
 | P-024 | Local ancestry node IDs establish global identity or globally unique lowest common ancestor | Not established | Content-addressed identities and a precise DAG ancestry ordering specification would be required |
 | QG-025 | A sexagesimal transport can use 60 unique stations grouped in four 15-station quads with exact +15 mod 60 quarter-turn phase and lossless integer place-value recovery | Established radix arithmetic combined with proposed QUANTA geometry | Seven regression tests: station partition, 90° rotation, all 12 divisors, BigInt positional roundtrip and tamper checks |
 | P-025 | Historical Vedic mathematics or Babylonians used QUANTA's four-quadrant 60-station phase transport | Not established; modern interpretive design | Explicit historical source evidence would be required |
+| QG-026 | All 26 canonical QUANTA uppercase glyphs have an injective 25-vertex source map into a 60-station phase ring with exact somatic verb positions and reversible source identity | Implemented computational geometric language transport | Seven tests: 25-vertex inversion, 4×90° phase orbit, full A–Z and Q tail reconstruction, phrase roundtrip and mutation rejection |
+| P-026 | Station-phase transport by itself encodes semantics or physically rotates a glyph in space | Not established | User-assigned context and an independent physical/geometric model would be needed |
 | P-001 | QUANTA maps directly onto physical microstructure | Untested physical hypothesis | Quantitative predictions and independent evidence |
 
 A precise specification is **not** automatically a statement about physics. A pretty diagram is **not** a measurement.

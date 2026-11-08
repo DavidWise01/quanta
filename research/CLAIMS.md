@@ -105,6 +105,9 @@
 | T-013 | Permuting byte blocks by a reversible vertex route then using AES-GCM permits authenticated restoration | Software implementation, not independently security audited | Tests for inverse permutation, password rejection, ciphertext modification, AAD binding and Unicode framing |
 | P-013 | The downward spiral itself is secret or guarantees quantum-grade encryption or physical 11D communication | Not established | Security review, precise threat model and independent physical evidence |
 | M-072 | The nine-stage width schedule 128,64,32,16,8,4,2,1,1 halves for seven transitions and is stable at the terminal 1→1 | Established arithmetic; proposed QUANTA stage schedule | Verify two four-number chunks plus terminal fixed point |
+| QG-014 | Reversible 128-to-1 visible fold with a 127-bit residual witness | Proposed QUANTA codec built on established XOR algebra | Exact source reconstruction and fixed-point tests across 128 single-bit inputs |
+| M-073 | Seven pairwise XOR merges of 128 bits yield one parity bit and 127 witness bits | Established discrete mathematics | Sum residual lengths 64+32+16+8+4+2+1=127; inverse reconstruction |
+| P-014 | One bit by itself losslessly represents all arbitrary 128-bit sources | False absent external information | Pigeonhole principle; requires witness or other side information |
 | P-001 | QUANTA maps directly onto physical microstructure | Untested physical hypothesis | Quantitative predictions and independent evidence |
 
 A precise specification is **not** automatically a statement about physics. A pretty diagram is **not** a measurement.

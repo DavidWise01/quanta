@@ -10,6 +10,9 @@
 
 ## Read and explore
 
+- **[QG-016 Alphabet Box](./alphabet.html)** — the complete A–Z geometric language, `||||` carrier, `||Q||`-style tokens, four 90° quads `a/b/c/d`, each with `4 → 3 → 2 → 1` presentation depth and ordered somatic pen verbs.
+- [Alphabet Box specification](./language/QG-016-ALPHABET-BOX.md), [executable module](./language/alphabet-box.mjs), and [alphabet tests](./tests/alphabet-box.test.mjs).
+
 - **[QG-015 Authenticated Chrome Dot Transport](./authenticated.html)** — send one visible bit plus its 127-bit witness through QG-013, verify authentication, and recover the original 128 bits.
 - [QG-015 specification](./language/QG-015-AUTHENTICATED-CHROME.md), [module](./language/authenticated-chrome.mjs) and [tests](./tests/authenticated-chrome.test.mjs).
 

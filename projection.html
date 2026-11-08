@@ -23,7 +23,12 @@
 import {instantiateCorpusMemory,appendCorpusRevision} from "./language/corpus-memory.mjs";
 import {projectCorpusRevision,unfoldCorpusProjection,walkRevisionHistory,walkParagraphProjection,verifyCorpusProjection} from "./language/memory-projection.mjs";
 const $=id=>document.getElementById(id);
-const source=(a,b)=>({title:"QUANTA · The Wordle of Space",documents:[{id:"quanta",title:"QUANTA",chapters:[{id:"zero",title:"Zero",sections:[{id:"opening",title:"Opening",paragraphs:[a,b]}]}]}]}],references:[]});
+function source(a,b) {
+  const section={id:"opening",title:"Opening",paragraphs:[a,b]};
+  const chapter={id:"zero",title:"Zero",sections:[section]};
+  const document={id:"quanta",title:"QUANTA",chapters:[chapter]};
+  return {title:"QUANTA - The Wordle of Space",documents:[document],references:[]};
+}
 let memory=instantiateCorpusMemory(source("A dot begins.","The box carries the source."),"The first source");
 memory=appendCorpusRevision(memory,source("A dot folds.","The box carries the source."),{comment:"The fold"});
 memory=appendCorpusRevision(memory,source("The dot returns.","The word carries its lineage."),{comment:"The return"});

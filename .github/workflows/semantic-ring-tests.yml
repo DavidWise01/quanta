@@ -1,0 +1,26 @@
+name: QG-028 Semantic ring binding tests
+on:
+  push:
+    paths:
+      - 'language/semantic-ring.mjs'
+      - 'language/semantic-triad.mjs'
+      - 'language/alphabet-ring.mjs'
+      - 'tests/semantic-ring.test.mjs'
+      - '.github/workflows/semantic-ring-tests.yml'
+  pull_request:
+    paths:
+      - 'language/semantic-ring.mjs'
+      - 'tests/semantic-ring.test.mjs'
+      - '.github/workflows/semantic-ring-tests.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  semantic-ring:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node --test tests/semantic-ring.test.mjs

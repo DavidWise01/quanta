@@ -1,5 +1,10 @@
 # QUANTA · Changelog
 
+## 2026-11-07 — QG-015 source cryptographic audit
+- Published `research/QG-015-CRYPTOGRAPHIC-AUDIT.md` and `tests/cryptographic-audit.test.mjs`; 8 adversarial regression cases completed successfully.
+- Audit documents known issues: replay, sender-label impersonation, weak-passphrase/offline guessing risk, inadequate inbound size bounds, and lack of independent witness authentication.
+- Marked the public sender/receiver console as an **educational-only prototype, NOT approved for sensitive use**. No cryptographic algorithms or existing envelope format changed during the audit.
+
 ## 2026-11-07 — QG-015 · Authenticated Chrome Dot Transport
 - Instantiated `language/authenticated-chrome.mjs` joining the 128→1+127 recoverable fold, downward-spiral address transport, and authenticated AES-GCM envelope.
 - Added the browser sender/receiver console `authenticated.html`, QG-015 specification, automated tests and GitHub Actions workflow.

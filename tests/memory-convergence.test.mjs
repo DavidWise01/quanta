@@ -6,7 +6,10 @@ import {compareCorpusBranches,convergeCorpusMemory,recoverCorpusConvergence,veri
  from "../language/memory-convergence.mjs";
 const addr=i=>"doc/quanta/ch/zero/sec/opening/p/"+i;
 function source(first="The dot begins.",second="The box remembers."){
- return {title:"QUANTA",documents:[{id:"quanta",title:"QUANTA",chapters:[{id:"zero",title:"Zero",sections:[{id:"opening",title:"Opening",paragraphs:[first,second]}]}]}]}],references:[]};
+ const section={id:"opening",title:"Opening",paragraphs:[first,second]};
+ const chapter={id:"zero",title:"Zero",sections:[section]};
+ const document={id:"quanta",title:"QUANTA",chapters:[chapter]};
+ return {title:"QUANTA",documents:[document],references:[]};
 }
 function branchPair(leftSource,rightSource){
  const root=instantiateCorpusMemory(source(),"common origin");

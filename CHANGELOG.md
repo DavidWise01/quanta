@@ -1,5 +1,11 @@
 # QUANTA · Changelog
 
+## 2026-11-08 — QG-026 · Alphabet on the 60 Ring
+- Implemented `language/alphabet-ring.mjs`, bridging all 26 QG-016 vector glyphs to QG-025 sixty-station transport. The 25 unique 5×5 source vertices map injectively to even home stations 0..48, with each 90° phase represented by +15 modulo 60.
+- Every source stroke, semantic glyph ID and ordered somatic PEN_UP/MOVE/DRAW/TURN action retains explicit phase-addressed witnesses. Spaces remain exact and reset the per-word phase schedule.
+- Published `ring-language.html` with a paired canonical 5×5 glyph viewer and full 60-station ring, four quarter-turn controls, editable phrase transport and exact recovery.
+- Added QG-026 specification and seven automated tests; GitHub Actions passed. Phase address shifts are not claimed to be physical glyph rotation or data compression.
+
 ## 2026-11-08 — QG-025 · Sexagesimal 60 Ring
 - Built `language/sexagesimal-ring.mjs` using Babylonian-inspired powers-of-sixty place values with exactly 60 positions, four 15-station phase quads, and deterministic +15 mod 60 quarter-turn transport.
 - Added reversible BigInt conversion and exact 4-turn phase recovery, `sixty.html` interactive ring, formal specification citing independent historical research, seven tests and GitHub CI.

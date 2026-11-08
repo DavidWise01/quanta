@@ -10,6 +10,10 @@
 
 ## Read and explore
 
+- **[QG-024 Convergent Memory Growth](./growth.html)** — a directed ancestry graph of immutable corpus snapshots, with one-parent branch growth and two-parent convergence that can repeat across generations.
+- [Graph kernel](./language/memory-growth.mjs), [formal specification](./language/QG-024-MEMORY-GROWTH.md), and [seven regression tests](./tests/memory-growth.test.mjs).
+
+
 - **[QG-023 Memory Convergence](./convergence.html)** — two independently appended corpus histories from one shared ancestor, explicit three-way paragraph comparison and conflict choices, preserving both immutable branches.
 - [Convergence kernel](./language/memory-convergence.mjs), [formal specification](./language/QG-023-MEMORY-CONVERGENCE.md), and [seven regression tests](./tests/memory-convergence.test.mjs).
 

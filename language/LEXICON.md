@@ -98,6 +98,8 @@ Composing these families into one executable sentence requires separately declar
 
 | `128,64,32,16 / 8,4,2,1 / 1` | Canonical width ladder: two four-number chunks, final unchanged one | QG-013; each nonterminal width halves, final `1 → 1` is idempotent |
 
+| `QG-014 128→1 + witness` | Seven XOR-right folds leave one parity bit plus 127 retained witness bits | Reversible 128-bit representation, *not* compression, physical quantum behavior, or standalone encryption |
+
 ## Use in the book
 
 First show the mark; then give one sentence; then show one visual relation; finally provide optional formal detail.

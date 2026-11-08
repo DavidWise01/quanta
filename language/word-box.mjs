@@ -84,7 +84,7 @@ export function expandWordBox(packet,level=4){
   const view=glyph.levels.find(s=>s.level===level).view;
   let world;
   if(view.kind==="geometry"){
-   world=freezeRecord({kind:view.kind,paths:Object.freeze(view.paths.map(stroke=>Object.freeze(stroke.map(p=>freezeRecord({x:p.x+t.offset,y:p.y}))))});
+   world=freezeRecord({kind:view.kind,paths:Object.freeze(view.paths.map(stroke=>Object.freeze(stroke.map(p=>freezeRecord({x:p.x+t.offset,y:p.y})))))});
   }else if(view.kind==="chrome-dot"){
    world=freezeRecord({kind:view.kind,point:freezeRecord({x:view.point.x+t.offset,y:view.point.y})});
   }else{

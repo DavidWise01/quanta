@@ -125,6 +125,8 @@
 | P-021 | A structural version ledger is automatically durable or cryptographically tamper-proof | Not established; false without external persistence/authentication | Explicit export/storage and independent witness or content commitments would be needed |
 | QG-022 | One Chrome Dot can serve as a projection pointer to a selected QG-021 corpus revision with full source recovery from a retained ledger | Implemented computational transport projection | Four-level fold views, exact selected-source recovery, backwards revision and paragraph address walk tests |
 | P-022 | A standalone dot without a source ledger can reconstruct arbitrary historical corpus revisions | Not established; impossible generally without side information | Preserve revision reference and full external memory witness |
+| QG-023 | Two independent corpus revision histories can converge at their latest structurally identical shared ancestor, retaining both branches and explicitly resolving conflicting paragraph edits | Implemented computational version composition | Seven tests: ancestor, disjoint edits, conflicts, topology mismatch and replay validation |
+| P-023 | A converged source tree automatically solves semantic, structural or distributed consensus conflicts | Not established; outside QG-023.1 scope | Explicit context/structural lineage and external consensus model would be needed |
 | P-001 | QUANTA maps directly onto physical microstructure | Untested physical hypothesis | Quantitative predictions and independent evidence |
 
 A precise specification is **not** automatically a statement about physics. A pretty diagram is **not** a measurement.

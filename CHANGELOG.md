@@ -1,5 +1,10 @@
 # QUANTA · Changelog
 
+## 2026-11-08 — QG-024 · Convergent Memory Growth
+- Added `language/memory-growth.mjs`: a replayable append-only directed ancestry graph containing full QG-020 corpus snapshots, one-parent branches, two-parent convergences and explicit common ancestor references.
+- Convergence reuses QG-023's three-way paragraph rules and rejects unresolved conflicts; prior branches are never modified.
+- Published `growth.html` interactive ancestry graph, QG-024 specification and seven automated tests. The GitHub Actions suite passed.
+
 ## 2026-11-08 — QG-023 · Memory Convergence
 - Added `language/memory-convergence.mjs` with common-ancestor matching, explicit three-way paragraph comparisons, preserved two-parent history, and no silent conflict winner.
 - Published `convergence.html`, a two-branch visual comparison/merge console, and QG-023 formal specification and regression tests.

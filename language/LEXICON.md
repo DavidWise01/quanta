@@ -102,6 +102,10 @@ Composing these families into one executable sentence requires separately declar
 
 | `QG-015: 128 → (1+127) → spiral → authenticated envelope → 128` | Combine reversible fold and authenticated downward-spiral transmission | Receiver reconstructs all source bits; one visible dot is not lossless without witness |
 
+| `||||` | Four-bar geometric transport carrier | QG-016; encloses an explicit letter-token packet |
+| `||A||` … `||Z||` | Any uppercase Latin letter as a graph and stroke sequence | QG-016 canonical A–Z glyph identity, immutable source path and verb transcript |
+| `a:4→3→2→1; b:4→3→2→1; c:4→3→2→1; d:4→3→2→1` | Four 90° phases, each with four presentation levels | QG-016 geometry/semantic/somatic phase transport; full source retained |
+
 ## Use in the book
 
 First show the mark; then give one sentence; then show one visual relation; finally provide optional formal detail.

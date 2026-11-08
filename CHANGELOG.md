@@ -1,5 +1,10 @@
 # QUANTA · Changelog
 
+## 2026-11-07 — QG-017 · Word Box composition
+- Introduced `language/word-box.mjs` with a single `||||` carrier for ordered words, spaces, per-letter quarter-turn phases, contextual semantic witness, and translated somatic drawing actions.
+- Added `words.html` to fold a whole phrase through levels 4→3→2→1 and reconstruct the exact text; the canonical source dictionary remains available at all levels.
+- Added `language/QG-017-WORD-BOX.md`, automated tests and an Actions workflow.
+
 ## 2026-11-07 — QG-016 · Alphabet Box phase–semantic–somatic transport
 - Implemented `language/alphabet-box.mjs`: complete A–Z vector stroke corpus, `||||` carrier, `||LETTER||` tokens, preserved semantic glyph identity, and ordered somatic drawing verbs.
 - Added quads `a/b/c/d` at 0°/90°/180°/270°, each displaying `4 → 3 → 2 → 1` while preserving full canonical source strokes.

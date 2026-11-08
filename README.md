@@ -10,6 +10,9 @@
 
 ## Read and explore
 
+- **[QG-018 Sentence Box](./sentences.html)** — sentence-level transport preserving case, punctuation, spaces, word relations, continuous a/b/c/d phase, and exact recovery.
+- [Sentence kernel](./language/sentence-box.mjs), [formal specification](./language/QG-018-SENTENCE-BOX.md), and [six regression tests](./tests/sentence-box.test.mjs).
+
 - **[QG-017 Word Box Composer](./words.html)** — phase-semantic-somatic composition for A–Z words and phrases, keeping word order, spaces, 90° phase schedule, 4→3→2→1 views and source reconstruction.
 - [Word transport kernel](./language/word-box.mjs), [specification](./language/QG-017-WORD-BOX.md) and [tests](./tests/word-box.test.mjs).
 

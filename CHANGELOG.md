@@ -1,5 +1,10 @@
 # QUANTA · Changelog
 
+## 2026-11-08 — QG-020 · Corpus Box
+- Created `language/corpus-box.mjs` with `||||` structured documents, chapters, sections, paragraph witnesses, deterministic source addresses, typed references and inverse validation.
+- Published `corpus.html`, an interactive address tree and 4→3→2→1 view, plus QG-020 spec and seven GitHub Actions regression tests.
+- The corpus packet preserves canonical text and references; the Chrome Dot is a projection rather than independent lossless compression.
+
 ## 2026-11-08 — QG-019 · Paragraph Box
 - Added `language/paragraph-box.mjs`, an ordered paragraph container with exact LF line-break witnesses, sentence fragment links, offsets and context.
 - Built `paragraphs.html` to explore four visual folds and recover complete paragraph source through canonical QG-018 sentence and QG-017 word references.

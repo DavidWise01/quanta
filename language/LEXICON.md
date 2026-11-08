@@ -136,6 +136,8 @@ Composing these families into one executable sentence requires separately declar
 
 | `|||| root → root → dependents → WHICH MEANS ||||` | Forward propagation of source-evidence updates across canonical QG-030 prerequisite DAGs | QG-031; append-only revision history and exact impacted-address trace, no automatic inference of truth |
 
+| `|||| root {support | challenge} → review → preserve both ||||` | Contradictory evidence observations at one prerequisite root retained in an append-only reconciliation history | QG-032; explicit sourced review and downstream impact, never automatic truth |
+
 ## Use in the book
 
 First show the mark; then give one sentence; then show one visual relation; finally provide optional formal detail.

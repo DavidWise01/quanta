@@ -1,0 +1,79 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>QUANTA · QG-023 Memory Convergence</title><meta name="description" content="Two independent QUANTA corpus memory branches converge through an explicit common ancestor and conflict resolution."/>
+<style>
+:root{color-scheme:dark;--bg:#07131b;--card:#112934;--line:#355d67;--fg:#eafff9;--muted:#a8c2c8;--cyan:#79f1df;--gold:#ffd09a;--pink:#f2acaa}*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 31% 0%,#19444d,transparent 56%),var(--bg);color:var(--fg);font:15px/1.6 system-ui,Segoe UI,sans-serif}a{color:var(--cyan)}header{display:flex;align-items:center;justify-content:space-between;padding:15px clamp(14px,3vw,32px);background:#08171eed;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:3}header strong{letter-spacing:.13em}nav{display:flex;gap:16px;font-size:.85rem}main{max-width:1400px;margin:auto;padding:35px clamp(14px,3vw,34px) 90px}.eyebrow{font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.18em;color:var(--cyan)}h1{font-size:clamp(2.3rem,5.5vw,4.9rem);line-height:1.08;letter-spacing:-.045em;margin:10px 0}h2{font-size:1.12rem;margin:0 0 14px}.intro{max-width:81ch;color:var(--muted)}.diagram{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:20px;max-width:750px;margin:25px auto 35px;text-align:center}.node{background:#123a42;border:1px solid #4a807c;padding:13px;border-radius:11px;font:14px Consolas,monospace}.ancestor{grid-column:1/-1;justify-self:center;min-width:220px}.branch{border-color:#567d8a}.converged{grid-column:1/-1;justify-self:center;min-width:240px;border-color:var(--gold);background:#3c342a}.diagram .arrow{font:1.3rem Consolas;color:var(--cyan)}.diagram .arrow.center{grid-column:1/-1}.cols{display:grid;grid-template-columns:minmax(330px,1.05fr) minmax(340px,1fr);gap:18px}.card{background:var(--card);border:1px solid var(--line);padding:20px;border-radius:14px;min-width:0}.label{display:block;color:#c0dddc;font-size:.8rem;font-weight:800;margin:15px 0 6px}textarea,input,select{width:100%;background:#071c25;color:var(--fg);border:1px solid #3d6f72;border-radius:8px;padding:12px;font:13px/1.5 Consolas,monospace}textarea{resize:vertical;min-height:110px}.choices{display:flex;gap:9px;flex-wrap:wrap;margin:16px 0}button{font:inherit;background:#194c56;color:var(--fg);border:1px solid #4e8986;border-radius:8px;padding:11px 15px;cursor:pointer}button.primary{background:var(--cyan);color:#0c3031;font-weight:800}.status{background:#0b3439;border-left:3px solid var(--cyan);border-radius:7px;padding:12px;color:#cafff2;font-size:.85rem}.status.bad{border-color:#e8928a;color:#ffd6d0}.record{padding:11px;border-bottom:1px solid #2c525a}.record:last-child{border-bottom:0}.records{border:1px solid #325e66;border-radius:9px;background:#081f27;max-height:330px;overflow:auto}.record strong{color:var(--cyan)}.record small{display:block;color:var(--muted);font:11px/1.6 Consolas,monospace;overflow-wrap:anywhere}.conflict{background:#32252d;border:1px solid #ad7478;border-radius:9px;padding:13px;margin:13px 0}.conflict strong{color:var(--pink)}.metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:14px 0}.metric{background:#071d25;border:1px solid #34535c;border-radius:8px;text-align:center;padding:12px 5px}.metric b{font-size:1.35rem;color:var(--cyan);display:block}.metric small{color:var(--muted);font-size:.72rem}.hint{color:var(--muted);font-size:.8rem}.readout{background:#081b23;border:1px solid #335d67;border-radius:9px;padding:14px;max-height:270px;overflow:auto;white-space:pre-wrap;overflow-wrap:anywhere;font:12px/1.6 Consolas,monospace}footer{border-top:1px solid var(--line);margin-top:32px;padding-top:20px;color:var(--muted);font-size:.83rem}@media(max-width:950px){.cols{grid-template-columns:1fr}}@media(max-width:540px){header nav{font-size:.72rem;gap:8px}.card{padding:14px}}
+</style></head><body><header><strong>◈ QUANTA <span style="color:#79f1df">/ QG-023</span></strong><nav><a href="projection.html">Projection</a><a href="memory.html">Memory</a><a href="book.html">Book</a></nav></header>
+<main><div class="eyebrow">Two histories · common origin · explicit convergence</div><h1>Two paths. Neither forgotten.</h1><p class="intro">A corpus may grow in two directions from the same ancestor. QG-023 compares both complete histories, automatically combines nonconflicting paragraph edits, and keeps conflicts open until you select a resolution. Both original branches survive the convergence.</p>
+<div class="diagram" aria-label="Two-parent history convergence"><div class="node ancestor">• r0000 · shared origin</div><div class="arrow">↙</div><div class="arrow">↘</div><div class="node branch">◉ left · r0001</div><div class="node branch">◉ right · r0001</div><div class="arrow">↘</div><div class="arrow">↙</div><div class="node converged">◆ convergence · two parents</div></div>
+<div class="cols"><section class="card"><h2>Independent branch revisions</h2><p class="hint">Edit each branch's two paragraphs. Both begin at the identical r0000 memory snapshot.</p>
+<label class="label" for="left-a">Left branch · paragraph 1</label><textarea id="left-a">The left branch grows.</textarea>
+<label class="label" for="left-b">Left branch · paragraph 2</label><textarea id="left-b">The box remembers.</textarea>
+<label class="label" for="right-a">Right branch · paragraph 1</label><textarea id="right-a">The dot begins.</textarea>
+<label class="label" for="right-b">Right branch · paragraph 2</label><textarea id="right-b">The right branch grows.</textarea>
+<div class="choices"><button class="primary" id="compare">Compare branches</button><button id="reset">Restore example</button></div>
+<div class="metrics"><div class="metric"><b id="origin">r0000</b><small>Ancestor</small></div><div class="metric"><b id="conflicts-count">—</b><small>Conflicts</small></div><div class="metric"><b id="changes">—</b><small>Paragraphs</small></div></div><div class="status" id="status" role="status" aria-live="polite">Ready for two-parent convergence.</div></section>
+<aside class="card"><h2>Comparison and merge witness</h2><div id="records" class="records"></div><div id="conflicts"></div><div class="choices"><button class="primary" id="converge">Converge when resolved</button><button id="copy">Copy convergence record</button></div><label class="label">Exact merged corpus source</label><div id="merged" class="readout">Compare branches first.</div><label class="label">Preserved parent lineage</label><div class="readout" id="parents">Each branch keeps its own r0000 → r0001 history.</div><p class="hint">The merge supports paragraph-text changes within an identical document hierarchy. Structural edits are refused, not silently reconciled. This is a geometric-language transport and versioning experiment, not security or distributed consensus.</p></aside></div>
+<footer><a href="language/QG-023-MEMORY-CONVERGENCE.md">Formal specification</a> · <a href="language/memory-convergence.mjs">Executable convergence kernel</a> · <a href="tests/memory-convergence.test.mjs">Regression tests</a></footer>
+</main><script type="module">
+import {instantiateCorpusMemory,appendCorpusRevision} from "./language/corpus-memory.mjs";
+import {compareCorpusBranches,convergeCorpusMemory,recoverCorpusConvergence,verifyCorpusConvergence} from "./language/memory-convergence.mjs";
+const $=id=>document.getElementById(id);
+const paths=["doc/quanta/ch/zero/sec/opening/p/0","doc/quanta/ch/zero/sec/opening/p/1"];
+const source=(a,b)=>({title:"QUANTA",documents:[{id:"quanta",title:"QUANTA",chapters:[{id:"zero",title:"Zero",sections:[{id:"opening",title:"Opening",paragraphs:[a,b]}]}]}]}],references:[]});
+let left,right,report,merged=null;
+const initial=["The dot begins.","The box remembers."];
+function note(text,bad=false){$("status").textContent=text;$("status").classList.toggle("bad",bad)}
+function compare(){
+ try{
+  const origin=instantiateCorpusMemory(source(...initial),"shared origin");
+  left=appendCorpusRevision(origin,source($("left-a").value,$("left-b").value),{comment:"left path"});
+  right=appendCorpusRevision(origin,source($("right-a").value,$("right-b").value),{comment:"right path"});
+  report=compareCorpusBranches(left,right);merged=null;
+  $("origin").textContent=report.ancestor;$("conflicts-count").textContent=report.conflicts.length;
+  $("changes").textContent=report.entries.length;
+  $("records").textContent="";$("conflicts").textContent="";
+  for(const item of report.entries){
+   const row=document.createElement("div");row.className="record";
+   const bold=document.createElement("strong");bold.textContent=item.status;
+   const summary=document.createElement("small");summary.textContent=item.address+"\nbase: "+item.base+"\nleft: "+item.left+"\nright: "+item.right;
+   row.append(bold,summary);$("records").append(row);
+  }
+  for(let i=0;i<report.conflicts.length;i++){
+   const address=report.conflicts[i],record=report.entries.find(x=>x.address===address);
+   const box=document.createElement("div");box.className="conflict";
+   const heading=document.createElement("strong");heading.textContent="Conflict · paragraph "+(i+1);
+   const select=document.createElement("select");select.dataset.address=address;
+   for(const [value,text] of [["","Choose a resolution"],["left","Keep left"],["right","Keep right"],["base","Keep ancestor"],["custom","Write custom text"]]){
+    const option=document.createElement("option");option.value=value;option.textContent=text;select.append(option);
+   }
+   const custom=document.createElement("textarea");custom.placeholder="Custom paragraph (if selected)";custom.style.minHeight="70px";
+   box.append(heading,document.createElement("p"),select,custom);$("conflicts").append(box);
+  }
+  $("merged").textContent="Comparison complete. Resolve conflicts, then converge.";
+  $("parents").textContent="ancestor: "+report.ancestor+"\nleft head: "+report.leftHead+"\nright head: "+report.rightHead+"\nboth complete ledgers preserved";
+  note(report.ready?"PASS · all paragraphs are compatible; ready to converge.":"PAUSED · "+report.conflicts.length+" explicit conflict(s). Choose a resolution to continue.");
+ }catch(e){report=null;note("Comparison rejected: "+e.message,true)}
+}
+$("compare").onclick=compare;
+$("converge").onclick=()=>{
+ try{
+  if(!report)throw Error("Compare branches first.");
+  const resolutions={};
+  for(const select of document.querySelectorAll("#conflicts select")){
+   if(!select.value)throw Error("Unresolved conflict at "+select.dataset.address);
+   const entry={choice:select.value};
+   if(select.value==="custom")entry.text=select.parentElement.querySelector("textarea").value;
+   resolutions[select.dataset.address]=entry;
+  }
+  merged=convergeCorpusMemory(left,right,resolutions);
+  const verdict=verifyCorpusConvergence(merged);
+  if(!verdict.pass)throw Error(verdict.error);
+  $("merged").textContent=JSON.stringify(recoverCorpusConvergence(merged),null,2);
+  $("parents").textContent="ancestor "+merged.ancestor+"\nleft "+merged.parents.left+": "+merged.branches.left.revisions.length+" full snapshots\nright "+merged.parents.right+": "+merged.branches.right.revisions.length+" full snapshots\nrecords "+merged.records.length+"\nconflicts resolved "+verdict.resolvedConflicts;
+  note("PASS · converged both branches and preserved every historical source.");
+ }catch(e){note("Convergence refused: "+e.message,true)}
+};
+$("copy").onclick=async()=>{try{if(!merged)throw Error("Converge first.");await navigator.clipboard.writeText(JSON.stringify(merged,null,2));note("Full convergence record copied with both branch histories.")}catch(e){note(e.message,true)}};
+$("reset").onclick=()=>{$("left-a").value="The left branch grows.";$("left-b").value=initial[1];$("right-a").value=initial[0];$("right-b").value="The right branch grows.";compare()};
+compare();
+</script></body></html>

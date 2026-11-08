@@ -10,6 +10,9 @@
 
 ## Read and explore
 
+- **[QG-030 Chasing Roots](./roots.html)** — walk a contextual `WHICH MEANS` claim backward through explicit prerequisite nodes toward historical source roots, uncertain leaves and evidence gaps. [Executable kernel](./language/chasing-roots.mjs) · [Specification](./language/QG-030-CHASING-ROOTS.md) · [Tests](./tests/chasing-roots.test.mjs).
+
+
 - **[QG-029 Societal Somatics](./society.html)** — the contextual `IS → WAS → WHICH MEANS` transport, with year, IANA timezone, place, group, evidence status and human-assigned social dimensions mapped to three 60-ring phases. [Kernel](./language/societal-somatic.mjs) · [Specification](./language/QG-029-SOCIETAL-SOMATIC.md) · [Tests](./tests/societal-somatic.test.mjs).
 
 

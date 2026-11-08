@@ -1,5 +1,11 @@
 # QUANTA · Changelog
 
+## 2026-11-07 — QG-016 · Alphabet Box phase–semantic–somatic transport
+- Implemented `language/alphabet-box.mjs`: complete A–Z vector stroke corpus, `||||` carrier, `||LETTER||` tokens, preserved semantic glyph identity, and ordered somatic drawing verbs.
+- Added quads `a/b/c/d` at 0°/90°/180°/270°, each displaying `4 → 3 → 2 → 1` while preserving full canonical source strokes.
+- Created `alphabet.html`, QG-016 specification, and six automated invariant tests; the initial GitHub Actions suite passed.
+- The alphabet engine is geometric transport rather than encryption, and optional meanings are provided by context rather than inferred from isolated letters.
+
 ## 2026-11-07 — QG-015 source cryptographic audit
 - Published `research/QG-015-CRYPTOGRAPHIC-AUDIT.md` and `tests/cryptographic-audit.test.mjs`; 8 adversarial regression cases completed successfully.
 - Audit documents known issues: replay, sender-label impersonation, weak-passphrase/offline guessing risk, inadequate inbound size bounds, and lack of independent witness authentication.

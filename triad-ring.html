@@ -1,0 +1,57 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>QUANTA QG-028 · Semantic Ring</title>
+<style>
+:root{color-scheme:dark;--bg:#07141c;--panel:#102933;--line:#375b65;--ink:#effff9;--muted:#a7c8c8;--teal:#64e5d0;--gold:#f9c48e;--violet:#b5a1ff}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 40% 0%,#1e4650,transparent 65%),var(--bg);color:var(--ink);font:15px/1.55 system-ui,Segoe UI,sans-serif}a{color:var(--teal)}header{background:#071820eb;border-bottom:1px solid var(--line);padding:14px 25px;display:flex;align-items:center;justify-content:space-between;gap:12px;position:sticky;top:0}header strong{letter-spacing:.14em}nav{display:flex;gap:12px;font-size:.82rem}main{max-width:1340px;margin:auto;padding:35px 24px 90px}.eyebrow{font-size:.7rem;color:var(--teal);letter-spacing:.18em;text-transform:uppercase;font-weight:800}h1{font-size:clamp(2.4rem,5.5vw,5rem);line-height:1.07;letter-spacing:-.05em;margin:9px 0}.intro{max-width:86ch;color:var(--muted)}h2{font-size:1.12rem;margin:0 0 13px}.layout{display:grid;grid-template-columns:minmax(320px,1.3fr) minmax(290px,1fr);gap:18px;margin-top:22px}.card{background:var(--panel);border:1px solid var(--line);border-radius:15px;padding:19px;min-width:0}.alphabet{display:grid;grid-template-columns:repeat(13,minmax(0,1fr));gap:5px}.alphabet button{border:1px solid #3b666c;border-radius:6px;background:#09232c;color:var(--ink);padding:8px 0;font:700 13px Consolas,monospace;cursor:pointer}.alphabet button.selected{background:var(--gold);color:#281b0b}.wheel{display:block;width:100%;aspect-ratio:1;max-height:550px;margin:12px auto;background:radial-gradient(circle,#123b44,#061821);border:1px solid #315960;border-radius:12px}.terms{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.term{background:#071f28;border:1px solid #355e66;border-radius:8px;padding:12px;text-align:center}.term label{display:block;font-size:.7rem;color:var(--muted);font-weight:800;letter-spacing:.13em}.term strong{font-size:clamp(.88rem,1.45vw,1.2rem)}.term small{display:block;color:var(--gold);font:12px Consolas,monospace}input,textarea{background:#071d26;border:1px solid #3a6771;border-radius:8px;padding:12px;color:var(--ink);width:100%;font:13px/1.45 Consolas,monospace}textarea{resize:vertical;min-height:135px}.field{font-size:.78rem;color:#b8ddd7;font-weight:800;margin:16px 0 7px;display:block}.actions{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0}button{background:#174f58;border:1px solid #46837f;border-radius:8px;color:var(--ink);padding:10px 13px;cursor:pointer;font:inherit}button.primary{background:var(--teal);color:#0a332e;font-weight:800}.readout{background:#071d26;border:1px solid #355e66;border-radius:8px;padding:12px;white-space:pre-wrap;overflow-wrap:anywhere;max-height:230px;overflow:auto;font:12px/1.65 Consolas,monospace;min-height:74px}.status{background:#0b3337;border-left:3px solid var(--teal);padding:12px;color:#d1fff5;border-radius:7px;font-size:.83rem}.status.bad{border-color:#f99;color:#ffddd5}.hint{font-size:.8rem;color:var(--muted)}.tokens{display:flex;gap:5px;flex-wrap:wrap;margin:10px 0}.tokens button{padding:7px 9px;font:12px Consolas,monospace}.tokens button.active{background:var(--gold);color:#2d1e0b}footer{border-top:1px solid var(--line);padding-top:20px;margin-top:32px;color:var(--muted);font-size:.81rem}@media(max-width:900px){.layout{grid-template-columns:1fr}}@media(max-width:550px){main{padding:25px 13px}.card{padding:12px}.alphabet{grid-template-columns:repeat(9,1fr)}.terms{gap:4px}.term{padding:8px 3px}nav{font-size:.72rem}}
+</style></head><body><header><strong>◈ QUANTA <span style="color:var(--teal)">/ QG-028</span></strong><nav><a href="ring-language.html">Alphabet Ring</a><a href="sixty.html">60</a><a href="book.html">Book</a></nav></header><main>
+<div class="eyebrow">Seventy-eight semantic terms · sixty stations · three role phases</div><h1>See. Do. Learn.</h1><p class="intro">Every A–Z letter now has three assigned semantic roles bound to three exact quarter-turn phases on the sixty-position ring. SEE observes a cue, DO retains the complete glyph drawing actions, and LEARN names a learning target. The binding is explicit and exactly reconstructible.</p>
+<div class="layout"><section class="card"><h2>Select the semantic letter</h2><div class="alphabet" id="alphabet"></div><canvas class="wheel" id="ring" aria-label="60 station ring with three highlighted semantic role addresses"></canvas><div class="terms" id="terms"></div><p class="hint">Each colored marker is a distinct role station. Space between letters resets the phase. All original vector strokes and verb records remain in the transport witness.</p></section>
+<aside class="card"><h2>Transport and unfold</h2><label class="field" for="phrase">Uppercase phrase · letters and spaces</label><input id="phrase" maxlength="128" value="ALARM ACTION ACHIEVE">
+<div class="actions"><button id="bind" class="primary">Bind to 60</button><button id="recover">Unfold original</button><button id="copy">Copy witness</button></div><div class="tokens" id="tokens"></div><label class="field">Selected letter · role + station + drawing action</label><div class="readout" id="details"></div><label class="field">Recovered source</label><div class="readout" id="result"></div><div class="status" id="status" role="status" aria-live="polite">Ready.</div><p class="hint">The roles are authored semantic labels rather than measured perception or autonomous learning. The DO column carries QG-026's somatic drawing verbs.</p></aside></div>
+<footer><a href="language/QG-028-SEMANTIC-RING.md">Specification</a> · <a href="language/semantic-ring.mjs">Executable semantic ring kernel</a> · <a href="tests/semantic-ring.test.mjs">Tests</a></footer>
+</main><script type="module">
+import {SEMANTIC_ALPHABET} from "./language/semantic-triad.mjs";
+import {bindSemanticLetter,bindSemanticText,recoverSemanticText,verifySemanticBinding} from "./language/semantic-ring.mjs";
+const $=id=>document.getElementById(id);
+let textPacket=null,chosen="A",entry=0;const roleColors=["#64e5d0","#f9c48e","#b5a1ff"];
+function status(t,bad=false){$("status").textContent=t;$("status").classList.toggle("bad",bad)}
+function setup(){const e=$("ring"),r=e.getBoundingClientRect(),s=Math.max(100,Math.min(r.width,r.height)),d=Math.min(devicePixelRatio||1,2);e.width=s*d;e.height=s*d;const c=e.getContext("2d");c.setTransform(d,0,0,d,0,0);c.clearRect(0,0,s,s);return {c,s}}
+function render(){
+ const binding=bindSemanticLetter(chosen,entry),{c,s}=setup(),mid=s/2,r=s*.37;
+ const pos=n=>{const a=-Math.PI/2+n*Math.PI/30;return [mid+r*Math.cos(a),mid+r*Math.sin(a)]};
+ for(let q=0;q<4;q++){c.beginPath();c.strokeStyle=["#64e5d0","#f9c48e","#91a5f4","#b5a1ff"][q];c.globalAlpha=.36;c.lineWidth=Math.max(5,r*.08);c.arc(mid,mid,r,-Math.PI/2+q*Math.PI/2,-Math.PI/2+(q+1)*Math.PI/2);c.stroke()}c.globalAlpha=1;
+ for(let n=0;n<60;n++){const p=pos(n);c.beginPath();c.fillStyle="#8dbfc0";c.arc(p[0],p[1],Math.max(1.1,s*.003),0,Math.PI*2);c.fill()}
+ binding.roles.forEach((role,i)=>{
+  const [x,y]=pos(role.station);c.beginPath();c.fillStyle=roleColors[i];c.shadowColor=roleColors[i];c.shadowBlur=18;c.arc(x,y,Math.max(5,s*.013),0,Math.PI*2);c.fill();c.shadowBlur=0;
+  c.textAlign="center";c.textBaseline="middle";c.font="bold "+Math.max(11,s*.027)+"px Consolas,monospace";c.fillText(String(role.station),x+11,y-11);
+ });
+ c.fillStyle="#eafff5";c.textAlign="center";c.textBaseline="middle";c.font="bold "+Math.max(23,s*.13)+"px Consolas,monospace";c.fillText(chosen,mid,mid-15);
+ c.font=Math.max(11,s*.032)+"px Consolas,monospace";c.fillText("SEE / DO / LEARN",mid,mid+s*.08);
+ $("terms").textContent="";binding.roles.forEach((role,i)=>{
+  const box=document.createElement("div");box.className="term";
+  const label=document.createElement("label");label.textContent=role.role.toUpperCase();label.style.color=roleColors[i];
+  const word=document.createElement("strong");word.textContent=role.term;
+  const small=document.createElement("small");small.textContent="station "+role.station+" · "+role.degrees+"°";
+  box.append(label,word,small);$("terms").append(box);
+ });
+ $("details").textContent=binding.roles.map(r=>r.role.toUpperCase()+" : "+r.term+" @"+r.station+" ["+r.glyph.phase.quad+"]"+
+ (r.role==="do"?"\n  Somatic: "+r.verbs.map(v=>v.verb).join(" → "):"")).join("\n\n");
+ document.querySelectorAll("#alphabet button").forEach(b=>b.classList.toggle("selected",b.textContent===chosen));
+}
+for(const x of SEMANTIC_ALPHABET){const b=document.createElement("button");b.textContent=x.letter;b.onclick=()=>{chosen=x.letter;entry=0;render()};$("alphabet").append(b)}
+function bind(){
+ try{textPacket=bindSemanticText($("phrase").value);const report=verifySemanticBinding(textPacket);if(!report.pass)throw Error(report.error);
+  $("tokens").textContent="";
+  for(const item of textPacket.items){
+   const b=document.createElement("button");b.textContent=item.kind==="space"?"␣":item.char+"·"+item.binding.roles[0].glyph.phase.quad;
+   if(item.kind==="letter")b.onclick=()=>{chosen=item.char;entry=item.binding.entryPhase;render();document.querySelectorAll("#tokens button").forEach(x=>x.classList.remove("active"));b.classList.add("active")};
+   $("tokens").append(b);
+  }
+  $("result").textContent="|||| "+JSON.stringify(recoverSemanticText(textPacket))+" ||||\n"+report.letters+" letters · "+report.roles+" bound roles · "+report.doVerbs+" drawing verbs.";
+  status("PASS · exact semantic-role / ring-phase source binding verified.");
+  const first=textPacket.items.find(x=>x.kind==="letter");if(first){chosen=first.char;entry=first.binding.entryPhase}render();
+ }catch(e){status("Binding refused: "+e.message,true)}
+}
+$("bind").onclick=bind;$("recover").onclick=()=>{try{$("result").textContent="RECOVERED: "+JSON.stringify(recoverSemanticText(textPacket));status("PASS · exact source reconstructed.")}catch(e){status(e.message,true)}};
+$("copy").onclick=async()=>{try{await navigator.clipboard.writeText(JSON.stringify(textPacket,null,2));status("Full semantic-ring witness copied.")}catch(e){status(e.message,true)}};
+addEventListener("resize",render);bind();
+</script></body></html>

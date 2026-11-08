@@ -1,0 +1,28 @@
+name: QG-015 Cryptographic audit regression tests
+on:
+  push:
+    paths:
+      - 'language/authenticated-chrome.mjs'
+      - 'language/downward-spiral.mjs'
+      - 'language/recoverable-fold.mjs'
+      - 'tests/cryptographic-audit.test.mjs'
+      - '.github/workflows/cryptographic-audit.yml'
+  pull_request:
+    paths:
+      - 'language/authenticated-chrome.mjs'
+      - 'language/downward-spiral.mjs'
+      - 'language/recoverable-fold.mjs'
+      - 'tests/cryptographic-audit.test.mjs'
+      - '.github/workflows/cryptographic-audit.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node --test tests/cryptographic-audit.test.mjs

@@ -1,5 +1,10 @@
 # QUANTA · Changelog
 
+## 2026-11-07 — QG-015 · Authenticated Chrome Dot Transport
+- Instantiated `language/authenticated-chrome.mjs` joining the 128→1+127 recoverable fold, downward-spiral address transport, and authenticated AES-GCM envelope.
+- Added the browser sender/receiver console `authenticated.html`, QG-015 specification, automated tests and GitHub Actions workflow.
+- Confirmed round-trip and tamper rejection in GitHub Actions across all supported dimension levels; preserved warnings that this is not an independently security-audited system.
+
 ## 2026-11-07 — QG-014 · Recoverable Chrome Dot
 - Instantiated `language/recoverable-fold.mjs`, an immutable exact reversible 128-bit folding primitive with XOR-right witnesses.
 - Two four-width chunks are preserved, and the final 1→1 fold is a fixed point; portable frames carry one terminal bit plus 127 witness bits.

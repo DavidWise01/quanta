@@ -1,0 +1,25 @@
+name: QG-023 Memory convergence tests
+on:
+  push:
+    paths:
+      - 'language/memory-convergence.mjs'
+      - 'language/corpus-memory.mjs'
+      - 'tests/memory-convergence.test.mjs'
+      - '.github/workflows/memory-convergence-tests.yml'
+  pull_request:
+    paths:
+      - 'language/memory-convergence.mjs'
+      - 'tests/memory-convergence.test.mjs'
+      - '.github/workflows/memory-convergence-tests.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  convergence:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node --test tests/memory-convergence.test.mjs

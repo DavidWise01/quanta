@@ -10,6 +10,9 @@
 
 ## Read and explore
 
+- **[QG-031 Root Roots Propagation](./root-roots.html)** — update evidence at one or several prerequisite root nodes and propagate impact forward to every dependent claim, preserving the original history without automatic truth promotion. [Kernel](./language/root-propagation.mjs) · [Specification](./language/QG-031-ROOT-ROOTS.md) · [Seven tests](./tests/root-propagation.test.mjs).
+
+
 - **[QG-030 Chasing Roots](./roots.html)** — walk a contextual `WHICH MEANS` claim backward through explicit prerequisite nodes toward historical source roots, uncertain leaves and evidence gaps. [Executable kernel](./language/chasing-roots.mjs) · [Specification](./language/QG-030-CHASING-ROOTS.md) · [Tests](./tests/chasing-roots.test.mjs).
 
 

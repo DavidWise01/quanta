@@ -99,11 +99,12 @@
 | QG-012 | Repeated pairwise folding of 8 sources gives representative counts 8, 4, 2, 1, 1 | Proposed QUANTA folding overlay over elementary combinatorics | Bounded deterministic pairing with retained leaf lineage and unchanged terminal node |
 | M-069 | The map F(n)=max(1,ceil(n/2)) has F(1)=1 and yields the count sequence 8,4,2,1,1 | Established arithmetic | Direct evaluation |
 | P-012 | A terminal chrome dot is a physically demonstrated quantum object | Not established | Physical model, quantum dynamics, testable predictions and evidence |
-| QG-013 | The exact downward-spiral signature labels a dimension-indexed transport envelope | Proposed QUANTA language protocol | Define individual signature fields explicitly, stabilize version and validate framing |
+| QG-013 | The exact downward-spiral signature labels a dimension-indexed transport envelope | Proposed QUANTA language protocol | Normalized meaning clarified as nine descending bit-width values grouped four-four-one; legacy serialization maintained |
 | M-070 | A clockwise outer-to-inner traversal of the finite rectangular grid can list all globule cells once | Established finite algorithm | Enumerate unique coordinates across dimensions 3–11 |
 | M-071 | Gray-code address order gives consecutive addresses at Hamming distance one | Established binary combinatorics | Enumerate every adjacent Gray pair |
 | T-013 | Permuting byte blocks by a reversible vertex route then using AES-GCM permits authenticated restoration | Software implementation, not independently security audited | Tests for inverse permutation, password rejection, ciphertext modification, AAD binding and Unicode framing |
 | P-013 | The downward spiral itself is secret or guarantees quantum-grade encryption or physical 11D communication | Not established | Security review, precise threat model and independent physical evidence |
+| M-072 | The nine-stage width schedule 128,64,32,16,8,4,2,1,1 halves for seven transitions and is stable at the terminal 1→1 | Established arithmetic; proposed QUANTA stage schedule | Verify two four-number chunks plus terminal fixed point |
 | P-001 | QUANTA maps directly onto physical microstructure | Untested physical hypothesis | Quantitative predictions and independent evidence |
 
 A precise specification is **not** automatically a statement about physics. A pretty diagram is **not** a measurement.

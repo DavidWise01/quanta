@@ -7,7 +7,7 @@
 ## Read and explore
 
 - **[QG-013 Downward Spiral Transport](./spiral.html)** — 3D–11D eight-source globule routing, reversible byte permutation, and local AES-256-GCM encryption/decryption console.
-- [QG-013 protocol specification](./language/QG-013-DOWNWARD-SPIRAL.md) — preserves the exact `12|8/64/3|2/16/8|/4/2/1/1` signature and separates transport from cryptography.
+- [QG-013 protocol specification](./language/QG-013-DOWNWARD-SPIRAL.md) — preserves the raw `12|8/64/3|2/16/8|/4/2/1/1` signature, now explicitly decoded as **128/64/32/16 · 8/4/2/1 · 1** (four-number chunks plus stable one), and separates transport from cryptography.
 - [QG-013 executable module](./language/downward-spiral.mjs) and [tests](./tests/downward-spiral.test.mjs).
 
 - **[Explore QG-011 / QG-012: the 11D Globule and Quantum Chrome Dot](./11d.html)** — interactive 1D–11D hypercube with exact combinatorial invariants and rotatable 2D projection.

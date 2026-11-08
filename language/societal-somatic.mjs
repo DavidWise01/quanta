@@ -9,7 +9,7 @@
  * Temporal and social significance are NOT determined by an IANA offset,
  * a gender, a title, a glyph, or an inherent "importance" scale.
  */
-import {bindSemanticLetter,recoverSemanticLetter} from "./semantic-ring.mjs";
+import {bindSemanticLetter} from "./semantic-ring.mjs";
 export const VERSION="QG-029.1",CARRIER="||||";
 export const ROLES=Object.freeze(["is","was","whichMeans"]);
 export const DIMENSIONS=Object.freeze(["authority","reach","legacy"]);
@@ -89,16 +89,15 @@ export function recoverSocialContext(packet){
  if(!packet||packet.version!==VERSION||packet.carrier!==CARRIER)throw new TypeError("Unknown social context packet");
  const expected=record(packet.claim);
  if(JSON.stringify(expected)!==JSON.stringify(packet))throw new Error("Social context, chronology, station or role witness mismatch");
- for(const a of packet.anchors)recoverSemanticLetter({
-  version:"QG-028.1",carrier:CARRIER,letter:packet.claim.letter,token:"||"+packet.claim.letter+"||",
-  entryPhase:0,roles:packet.anchors.map((role,i)=>({
-   role:["see","do","learn"][i],term:bindSemanticLetter(packet.claim.letter,0).roles[i].term,
-   offset:i,phase:role.phase,degrees:role.phase*90,station:role.station,
-   anchorHome:role.glyph.geometry[0].vertices[0].home,
-   location:role.glyph.geometry[0].vertices[0].location,
-   glyph:role.glyph,verbs:role.somatic
-  })),exitPhase:3
- });
+ const ring=bindSemanticLetter(packet.claim.letter,0);
+ for(let i=0;i<packet.anchors.length;i++){
+  const anchor=packet.anchors[i],expectedRole=ring.roles[i];
+  if(anchor.station!==expectedRole.station||anchor.phase!==expectedRole.phase||
+     JSON.stringify(anchor.glyph)!==JSON.stringify(expectedRole.glyph)||
+     JSON.stringify(anchor.somatic)!==JSON.stringify(i===1?expectedRole.verbs:[]))
+    throw new Error("Canonical semantic ring witness mismatch");
+ }
+
  return packet.claim;
 }
 export function compareSocialContext(a,b){

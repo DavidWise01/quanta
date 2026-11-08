@@ -1,0 +1,24 @@
+name: QG-014 Recoverable fold tests
+on:
+  push:
+    paths:
+      - 'language/recoverable-fold.mjs'
+      - 'tests/recoverable-fold.test.mjs'
+      - '.github/workflows/recoverable-fold-tests.yml'
+  pull_request:
+    paths:
+      - 'language/recoverable-fold.mjs'
+      - 'tests/recoverable-fold.test.mjs'
+      - '.github/workflows/recoverable-fold-tests.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  recoverable-fold:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node --test tests/recoverable-fold.test.mjs

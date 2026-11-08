@@ -1,5 +1,11 @@
 # QUANTA · Changelog
 
+## 2026-11-08 — QG-030 · Chasing Roots
+- Introduced `language/chasing-roots.mjs`: a deterministic backward prerequisite DAG for QG-029 contextual `WHICH MEANS` claims, bounded to 60 nodes and 180 declared links.
+- Preserved exact nested contextual claims and 60-ring role phases. Tracked documented roots, unresolved leaves, disconnected statements, and cycle/chronology validation.
+- Added a non-cryptographic deterministic fingerprint to detect accidental edits to existing packets. Neither links nor fingerprints independently prove factual accuracy.
+- Published `roots.html`, `language/QG-030-CHASING-ROOTS.md`, and seven CI regression tests.
+
 ## 2026-11-08 — QG-029 · Societal Somatics
 - Added a source-oriented `IS → WAS → WHICH MEANS` grammar with exact historical year, IANA time zone, geographic place, group, evidence URL and epistemic status.
 - Bound contextual statements to 3 distinct 60-ring phase slots via QG-028, while preserving complete canonical glyph witnesses and somatic drawing verbs.

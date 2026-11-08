@@ -115,6 +115,8 @@
 | P-016 | Rotational glyph phase alone transfers intrinsic word meaning or physical state | Not established | Language context and a separate semantics model / physical experiment would be required |
 | QG-017 | Composed words preserve token order, explicit spaces, quarter-turn phase schedule, somatic stroke addressing and contextual labels across a folded view | Proposed QUANTA compositional language, executable kernel | A–Z phrase round-trip, invalid whitespace and phase mutation tests |
 | P-017 | A single visual Chrome Dot uniquely identifies all original words and meanings | Not established, generally false without witness | Preserve canonical token addresses, ordered context, and source reference |
+| QG-018 | Sentence Box preserves case, exact spaces, punctuation, linked word order, and continuous quarter-turn phase across words | Implemented computational language grammar | Sentence round-trip, phase reset and mutation rejection tests |
+| P-018 | Single-dot projections intrinsically contain sentence meaning without an external source witness | Not established | Retain explicit text, word links, context and canonical glyph references |
 | P-001 | QUANTA maps directly onto physical microstructure | Untested physical hypothesis | Quantitative predictions and independent evidence |
 
 A precise specification is **not** automatically a statement about physics. A pretty diagram is **not** a measurement.

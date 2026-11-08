@@ -10,6 +10,10 @@
 
 ## Read and explore
 
+- **[QG-020 Corpus Box](./corpus.html)** — deterministic `||||` carrier for complete documents, chapters, sections, exact paragraphs, indexed source addresses and explicit reference verbs.
+- [Corpus Box executable kernel](./language/corpus-box.mjs), [formal specification](./language/QG-020-CORPUS-BOX.md), and [seven regression tests](./tests/corpus-box.test.mjs).
+
+
 - **[QG-019 Paragraph Box](./paragraphs.html)** — complete paragraph transport, exact newline and blank-line preservation, relational sentence indices, and 4→3→2→1 visual folds.
 - [Paragraph kernel](./language/paragraph-box.mjs), [specification](./language/QG-019-PARAGRAPH-BOX.md), and [seven regression tests](./tests/paragraph-box.test.mjs).
 

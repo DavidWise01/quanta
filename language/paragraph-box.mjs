@@ -21,7 +21,7 @@ function segments(line){
  const matches=line.match(/[^.!?]*[.!?]+|[^.!?]+$/g)||[];
  const result=[];
  for(const part of matches){
-  for(let at=0;at<part.length;at+=512)result.push(part.slice(at,at+512));
+  for(let at=0;at<part.length;at+=128)result.push(part.slice(at,at+128));
  }
  if(result.join("")!==line)throw new Error("Segmentation lost a source character.");
  return result;

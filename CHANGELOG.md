@@ -1,5 +1,10 @@
 # QUANTA · Changelog
 
+## 2026-11-08 — QG-027 · Semantic Triads
+- Defined exactly 78 first-letter-aligned SEE/DO/LEARN vocabulary terms across all 26 QUANTA uppercase glyphs.
+- Created `language/semantic-triad.mjs`, the formal vocabulary specification and five automated tests.
+- Lexicon labels are assigned semantic roles, not autonomous inference or new physics; QG-026 geometry is preserved unchanged.
+
 ## 2026-11-08 — QG-026 · Alphabet on the 60 Ring
 - Implemented `language/alphabet-ring.mjs`, bridging all 26 QG-016 vector glyphs to QG-025 sixty-station transport. The 25 unique 5×5 source vertices map injectively to even home stations 0..48, with each 90° phase represented by +15 modulo 60.
 - Every source stroke, semantic glyph ID and ordered somatic PEN_UP/MOVE/DRAW/TURN action retains explicit phase-addressed witnesses. Spaces remain exact and reset the per-word phase schedule.

@@ -137,6 +137,8 @@
 | P-028 | Assigning semantic role words to glyphs constitutes autonomous learning or observed external behavior | Not established | Instrumented perception, controlled action and independently checked learning outcomes would be necessary |
 | QG-029 | IS/WAS/WHICH MEANS claims can be bound to 60-ring semantic phases and contextualized with dates, IANA timezone, group, place and evidence without inferring social worth | Implemented computational source annotation | Seven tests: period bounds, phase witnesses, provenance status, comparison scope and altered-packet rejection |
 | P-029 | A time zone, gender or hereditary title alone establishes objective societal importance or exemption from law | Not established | Contextual legal and historical source evidence and appropriately scoped comparisons are required |
+| QG-030 | An attributed `WHICH MEANS` statement can be traced through a declared acyclic prerequisite graph to observable source leaves, documenting missing citations and temporal context | Implemented computational provenance tracing | Seven tests: dependency traversal, nested QG-029 witness, cycle and chronology rejection, unlinked facts, packet fingerprint and mutation checks |
+| P-030 | A source URL, a dependency arrow, or a deterministic fingerprint proves a claim true or a document authentic | Not established | Independent source inspection, warranted inference, and authenticated signatures or trusted provenance would be necessary |
 | P-001 | QUANTA maps directly onto physical microstructure | Untested physical hypothesis | Quantitative predictions and independent evidence |
 
 A precise specification is **not** automatically a statement about physics. A pretty diagram is **not** a measurement.

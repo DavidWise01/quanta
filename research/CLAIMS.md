@@ -123,6 +123,8 @@
 | P-020 | A projected Chrome Dot independently encodes a complete corpus without canonical source witness | Not established; generally false | Retain explicit full structured source and nested geometric language witnesses |
 | QG-021 | The Corpus Memory ledger can retain immutable complete source revisions with parent links and explicit paragraph lineage | Implemented computational version ledger | Exact prior source replay, one-to-one moved-address map, append-only and corrupt-record tests |
 | P-021 | A structural version ledger is automatically durable or cryptographically tamper-proof | Not established; false without external persistence/authentication | Explicit export/storage and independent witness or content commitments would be needed |
+| QG-022 | One Chrome Dot can serve as a projection pointer to a selected QG-021 corpus revision with full source recovery from a retained ledger | Implemented computational transport projection | Four-level fold views, exact selected-source recovery, backwards revision and paragraph address walk tests |
+| P-022 | A standalone dot without a source ledger can reconstruct arbitrary historical corpus revisions | Not established; impossible generally without side information | Preserve revision reference and full external memory witness |
 | P-001 | QUANTA maps directly onto physical microstructure | Untested physical hypothesis | Quantitative predictions and independent evidence |
 
 A precise specification is **not** automatically a statement about physics. A pretty diagram is **not** a measurement.

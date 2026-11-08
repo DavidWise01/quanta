@@ -1,5 +1,10 @@
 # QUANTA · Changelog
 
+## 2026-11-08 — QG-025 · Sexagesimal 60 Ring
+- Built `language/sexagesimal-ring.mjs` using Babylonian-inspired powers-of-sixty place values with exactly 60 positions, four 15-station phase quads, and deterministic +15 mod 60 quarter-turn transport.
+- Added reversible BigInt conversion and exact 4-turn phase recovery, `sixty.html` interactive ring, formal specification citing independent historical research, seven tests and GitHub CI.
+- Distinguished historical Babylonian sexagesimal notation, the separate Indian/Vedic number traditions, and the modern QUANTA phase geometry. The GitHub Actions tests passed.
+
 ## 2026-11-08 — QG-024 · Convergent Memory Growth
 - Added `language/memory-growth.mjs`: a replayable append-only directed ancestry graph containing full QG-020 corpus snapshots, one-parent branches, two-parent convergences and explicit common ancestor references.
 - Convergence reuses QG-023's three-way paragraph rules and rejects unresolved conflicts; prior branches are never modified.

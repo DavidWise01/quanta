@@ -112,6 +112,8 @@ Composing these families into one executable sentence requires separately declar
 
 | `|||| sentence 1.\nSentence 2! ||||` | Paragraphs preserve all lines, contexts, and linked sentence-fragment addresses | QG-019; reconstructs exact ASCII source through QG-018 Sentence Boxes and canonical glyph references |
 
+| `|||| corpus ||||` | Complete ordered documents, chapters, sections, paragraphs and typed source references | QG-020; deterministic scoped path addresses, exact nested QG-019 paragraph recovery and four presentation levels |
+
 ## Use in the book
 
 First show the mark; then give one sentence; then show one visual relation; finally provide optional formal detail.

@@ -6,6 +6,18 @@
 import { runChromeDot, validateChromeDot } from "./chrome-dot.mjs";
 
 export const SPIRAL_SIGNATURE = "12|8/64/3|2/16/8|/4/2/1/1";
+export const BIT_WIDTH_LADDER = Object.freeze([128,64,32,16,8,4,2,1,1]);
+export const BIT_WIDTH_CHUNKS = Object.freeze([
+  Object.freeze([128,64,32,16]),
+  Object.freeze([8,4,2,1]),
+  Object.freeze([1])
+]);
+export function validateBitWidthLadder(values = BIT_WIDTH_LADDER) {
+  if (!Array.isArray(values) || values.length !== 9) return false;
+  if (values[0] !== 128 || values[8] !== 1) return false;
+  for (let i=1; i<8; i++) if (values[i] !== values[i-1]/2) return false;
+  return values[7] === values[8] && BIT_WIDTH_CHUNKS.slice(0,2).every(c=>c.length===4);
+}
 export const SPIRAL_VERSION = "QG-013.1";
 export const ROUTE_ID = "gray8-outer-spiral-v1";
 export const KDF_ITERATIONS = 250000;

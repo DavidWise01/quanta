@@ -1,0 +1,25 @@
+name: QG-017 Word box composition tests
+on:
+  push:
+    paths:
+      - 'language/word-box.mjs'
+      - 'language/alphabet-box.mjs'
+      - 'tests/word-box.test.mjs'
+      - '.github/workflows/word-box-tests.yml'
+  pull_request:
+    paths:
+      - 'language/word-box.mjs'
+      - 'tests/word-box.test.mjs'
+      - '.github/workflows/word-box-tests.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  composition:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node --test tests/word-box.test.mjs

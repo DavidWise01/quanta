@@ -1,0 +1,26 @@
+name: QG-018 Sentence transport tests
+on:
+  push:
+    paths:
+      - 'language/sentence-box.mjs'
+      - 'language/word-box.mjs'
+      - 'language/alphabet-box.mjs'
+      - 'tests/sentence-box.test.mjs'
+      - '.github/workflows/sentence-box-tests.yml'
+  pull_request:
+    paths:
+      - 'language/sentence-box.mjs'
+      - 'tests/sentence-box.test.mjs'
+      - '.github/workflows/sentence-box-tests.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  sentence:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node --test tests/sentence-box.test.mjs

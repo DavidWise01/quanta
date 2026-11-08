@@ -116,6 +116,8 @@ Composing these families into one executable sentence requires separately declar
 
 | `|||| corpus@r0000 → corpus@r0001 ||||` | Immutable sequential corpus snapshots and lineage links | QG-021; explicitly tracked edits/creation/retirement, exact earlier revision recovery, no automatic storage or cryptographic authenticity |
 
+| `|||| corpus@r0002 → • → r0001 → r0000 ||||` | A single Chrome Dot is a *view* of an addressed corpus revision; the separate ledger witnesses complete source history | QG-022; exact recoverable projection, verified backward parent walk and paragraph lineage |
+
 ## Use in the book
 
 First show the mark; then give one sentence; then show one visual relation; finally provide optional formal detail.

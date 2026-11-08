@@ -1,0 +1,97 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>QUANTA · QG-024 Convergent Memory Growth</title>
+<style>
+:root{color-scheme:dark;--bg:#07121b;--panel:#102732;--stroke:#345861;--fg:#eafff9;--dim:#abc5ca;--teal:#73efda;--amber:#f7cb96}*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 28% 0%,#18464d,transparent 62%),var(--bg);color:var(--fg);font:15px/1.56 system-ui,Segoe UI,sans-serif}a{color:var(--teal)}header{padding:15px 27px;display:flex;justify-content:space-between;align-items:center;gap:16px;border-bottom:1px solid var(--stroke);background:#081820e6;position:sticky;top:0;z-index:3}header strong{letter-spacing:.15em}nav{display:flex;gap:16px;font-size:.84rem}main{max-width:1460px;margin:auto;padding:38px 24px 80px}.eyebrow{color:var(--teal);font-size:.7rem;font-weight:800;letter-spacing:.17em;text-transform:uppercase}h1{font-size:clamp(2.4rem,5.6vw,5rem);letter-spacing:-.05em;line-height:1.08;margin:9px 0}h2{font-size:1.12rem;margin:0 0 13px}.intro{max-width:88ch;color:var(--dim)}.layout{display:grid;grid-template-columns:minmax(300px,1fr) minmax(350px,1.25fr);gap:18px;margin-top:20px}.card{background:var(--panel);border:1px solid var(--stroke);border-radius:15px;padding:20px;min-width:0}.label{display:block;color:#bddedc;font-size:.79rem;font-weight:800;margin:14px 0 6px}select,input,textarea{background:#061b23;color:var(--fg);border:1px solid #487278;border-radius:8px;padding:11px;width:100%;font:12px/1.5 ui-monospace,Consolas,monospace}textarea{resize:vertical;min-height:115px}button{border:1px solid #4b8984;background:#1a4c58;color:var(--fg);border-radius:8px;padding:10px 14px;cursor:pointer;font:inherit}button.primary{background:var(--teal);color:#0b3230;font-weight:800}.actions{display:flex;gap:8px;flex-wrap:wrap;margin:15px 0}.status{border-left:3px solid var(--teal);background:#0c3239;padding:12px;border-radius:8px;font-size:.84rem;color:#cafff5}.status.bad{border-color:#f99;color:#ffd6ce}.diagram{width:100%;height:385px;border:1px solid #336168;background:radial-gradient(ellipse at center,#153d45,#071820);border-radius:12px}.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:15px 0}.stat{text-align:center;background:#081d26;border:1px solid #34575e;border-radius:9px;padding:12px 5px}.stat b{display:block;font-size:1.45rem;color:var(--teal)}.stat small{font-size:.72rem;color:var(--dim)}.detail{background:#071d25;border:1px solid #335760;border-radius:8px;padding:12px;font:12px/1.5 Consolas,monospace;overflow:auto;white-space:pre-wrap;overflow-wrap:anywhere;max-height:230px}.hint{color:var(--dim);font-size:.79rem}.left-right{display:grid;grid-template-columns:1fr 1fr;gap:9px}footer{border-top:1px solid var(--stroke);margin-top:35px;padding-top:19px;font-size:.8rem;color:var(--dim)}@media(max-width:960px){.layout{grid-template-columns:1fr}}@media(max-width:530px){main{padding:26px 13px}.card{padding:14px}header{padding:13px}nav{gap:8px;font-size:.72rem}.diagram{height:290px}}
+</style></head><body><header><strong>◈ QUANTA <span style="color:#73efda">/ QG-024</span></strong><nav><a href="convergence.html">Convergence</a><a href="memory.html">Memory</a><a href="book.html">Book</a></nav></header>
+<main><div class="eyebrow">Growing ancestry · one or two parents · retained source</div><h1>Converge. Grow. Diverge again.</h1><p class="intro">A converged corpus becomes the origin for another generation of independent branches. Every node contains a complete source snapshot, with one parent for ordinary growth and two parents for convergence. This viewer keeps all earlier states addressable.</p>
+<div class="layout"><section class="card"><h2>Grow the ancestry graph</h2>
+<label class="label">Select parent for a new branch</label><select id="parent"></select>
+<label class="label">New paragraph text · first paragraph</label><textarea id="branch-a">The next generation begins.</textarea>
+<label class="label">Second paragraph</label><textarea id="branch-b">The box remembers.</textarea>
+<div class="actions"><button class="primary" id="grow">Append a child branch</button><button id="demo">Reset two-generation example</button></div>
+<h2 style="margin-top:18px">Converge two branches</h2>
+<div class="left-right"><div><label class="label">Left parent</label><select id="left"></select></div><div><label class="label">Right parent</label><select id="right"></select></div></div>
+<label class="label">Conflicting paragraph choice</label><select id="choice"><option value="">Do not resolve (stop at conflict)</option><option value="left">Choose left</option><option value="right">Choose right</option><option value="base">Choose common ancestor</option></select>
+<div class="actions"><button class="primary" id="converge">Append convergence node</button><button id="export">Copy full graph JSON</button></div>
+<div class="status" id="status" role="status" aria-live="polite">Ready · graph validation required for every append.</div>
+<p class="hint">For this version, convergence requires matching paragraph addresses and document structure. The branch step can change a valid corpus source; incompatible structures will be refused at merge time.</p>
+</section>
+<section class="card"><h2>Ancestry · select a dot to unfold</h2>
+<svg class="diagram" id="diagram" viewBox="0 0 700 385" role="img" aria-label="Directed ancestry graph of source revisions"></svg>
+<div class="stats"><div class="stat"><b id="nodes">—</b><small>Nodes</small></div><div class="stat"><b id="edges">—</b><small>Parent links</small></div><div class="stat"><b id="merges">—</b><small>Convergences</small></div></div>
+<label class="label">Selected source and backward ancestry</label><div class="detail" id="detail">Click a node to inspect its complete source and parents.</div>
+<label class="label">Replayable graph JSON (import/export)</label><textarea id="ledger" placeholder="The complete ancestry graph can be copied or pasted here."></textarea>
+<div class="actions"><button id="load">Validate + import graph</button><button id="copy-node">Copy selected source</button></div>
+<p class="hint">The browser holds memory only during the current session. Export JSON for later recovery. Local node IDs are not content hashes or global identities.</p>
+</section></div>
+<footer><a href="language/QG-024-MEMORY-GROWTH.md">QG-024 specification</a> · <a href="language/memory-growth.mjs">Executable graph kernel</a> · <a href="tests/memory-growth.test.mjs">Regression tests</a></footer></main>
+<script type="module">
+import {instantiateGrowth,growCorpusBranch,convergeGrowthBranches,recoverGrowthNode,traceGrowthAncestors,verifyGrowthGraph} from "./language/memory-growth.mjs";
+const $=id=>document.getElementById(id);
+function source(a="The dot begins.",b="The box remembers."){
+ const section={id:"opening",title:"Opening",paragraphs:[a,b]};
+ const chapter={id:"zero",title:"Zero",sections:[section]};
+ const doc={id:"quanta",title:"QUANTA",chapters:[chapter]};
+ return {title:"QUANTA",documents:[doc],references:[]};
+}
+let graph,selected="n0000";
+const address="doc/quanta/ch/zero/sec/opening/p/0";
+function notice(msg,bad=false){$("status").textContent=msg;$("status").classList.toggle("bad",bad)}
+function options(select,prefer){const old=prefer??select.value;select.textContent="";for(const node of graph.nodes){const item=document.createElement("option");item.value=node.id;item.textContent=node.id+" · "+node.kind;select.append(item)}if(graph.nodes.some(x=>x.id===old))select.value=old;}
+function inspect(id){
+ selected=id;const node=graph.nodes.find(x=>x.id===id);if(!node)return;
+ const original=recoverGrowthNode(graph,id);
+ const tree=traceGrowthAncestors(graph,id).map(x=>x.id+" "+x.kind+" ← ["+x.parents.join(", ")+"]");
+ $("detail").textContent=id+" · "+node.kind+"\nparents: "+node.parents.join(", ")+"\ncommon ancestor: "+(node.base??"—")+"\n\n"+JSON.stringify(original,null,2)+"\n\nBackward closure:\n"+tree.join("\n");
+ draw();
+}
+function draw(){
+ const svg=$("diagram"),N="http://www.w3.org/2000/svg";svg.textContent="";
+ const positions=new Map(),depths=new Map(),n=graph.nodes;
+ for(const node of n){depths.set(node.id,node.parents.length?Math.max(...node.parents.map(p=>depths.get(p)??0))+1:0)}
+ const groups=new Map();for(const node of n){const d=depths.get(node.id);if(!groups.has(d))groups.set(d,[]);groups.get(d).push(node)}
+ const maxDepth=Math.max(...depths.values(),0);
+ for(const [d,nodes] of groups){nodes.forEach((node,i)=>positions.set(node.id,{x:(i+1)*700/(nodes.length+1),y:34+d*Math.min(82,295/Math.max(1,maxDepth))}))}
+ function element(tag,attrs){const e=document.createElementNS(N,tag);for(const [k,v] of Object.entries(attrs))e.setAttribute(k,String(v));return e}
+ for(const node of n){for(const parent of node.parents){const a=positions.get(parent),b=positions.get(node.id);const line=element("line",{x1:a.x,y1:a.y+14,x2:b.x,y2:b.y-14,stroke:"#4c9990","stroke-width":2});svg.append(line)}}
+ for(const node of n){
+  const p=positions.get(node.id),isSelected=node.id===selected;
+  const g=element("g",{tabindex:0,role:"button","aria-label":node.id+" "+node.kind});
+  const circle=element("circle",{cx:p.x,cy:p.y,r:node.kind==="convergence"?17:14,fill:isSelected?"#f7cb96":"#0a4246",stroke:isSelected?"#f7cb96":"#76eadd","stroke-width":2});
+  const label=element("text",{x:p.x,y:p.y+34,"text-anchor":"middle",fill:"#dcfff3","font-size":12,"font-family":"monospace"});
+  label.textContent=node.id;g.append(circle,label);g.addEventListener("click",()=>inspect(node.id));g.addEventListener("keydown",e=>{if(e.key==="Enter")inspect(node.id)});svg.append(g);
+ }
+}
+function render(){
+ const report=verifyGrowthGraph(graph);if(!report.pass)throw Error(report.error);
+ $("nodes").textContent=report.nodes;$("edges").textContent=report.edges;$("merges").textContent=report.convergences;
+ options($("parent"));options($("left"));options($("right"));
+ $("ledger").value=JSON.stringify(graph,null,2);
+ inspect(graph.nodes.some(x=>x.id===selected)?selected:graph.nodes.at(-1).id);
+}
+function demo(){
+ graph=instantiateGrowth(source(),"Origin");
+ graph=growCorpusBranch(graph,"n0000",source("The left branch grows."),"Left first generation");
+ graph=growCorpusBranch(graph,"n0000",source(undefined,"The right branch grows."),"Right first generation");
+ graph=convergeGrowthBranches(graph,"n0001","n0002");
+ graph=growCorpusBranch(graph,"n0003",source("The next left path.","The right branch grows."));
+ graph=growCorpusBranch(graph,"n0003",source("The left branch grows.","The next right path."));
+ graph=convergeGrowthBranches(graph,"n0004","n0005");
+ selected="n0006";render();notice("PASS · two complete branch/convergence generations created and replay-validated.");
+}
+$("demo").onclick=()=>{try{demo()}catch(e){notice(e.message,true)}};
+$("grow").onclick=()=>{try{
+ const parent=$("parent").value;
+ const newSource=source($("branch-a").value,$("branch-b").value);
+ graph=growCorpusBranch(graph,parent,newSource);
+ selected=graph.nodes.at(-1).id;render();notice("PASS · child appended without changing any ancestor.");}catch(e){notice("Growth refused: "+e.message,true)}};
+$("converge").onclick=()=>{try{
+ const left=$("left").value,right=$("right").value,resolutions={};
+ if($("choice").value){for(const i of [0,1])resolutions[address.slice(0,-1)+i]={choice:$("choice").value}}
+ graph=convergeGrowthBranches(graph,left,right,resolutions);
+ selected=graph.nodes.at(-1).id;render();notice("PASS · two parents preserved, common ancestor and merged source replay-validated.");}catch(e){notice("Convergence refused: "+e.message,true)}};
+$("export").onclick=async()=>{try{await navigator.clipboard.writeText(JSON.stringify(graph,null,2));notice("Complete graph copied. Keep it to preserve this history.")}catch{notice("Clipboard unavailable.",true)}};
+$("copy-node").onclick=async()=>{try{await navigator.clipboard.writeText(JSON.stringify(recoverGrowthNode(graph,selected),null,2));notice("Selected node's source copied.")}catch(e){notice(e.message,true)}};
+$("load").onclick=()=>{try{const candidate=JSON.parse($("ledger").value),verdict=verifyGrowthGraph(candidate);if(!verdict.pass)throw Error(verdict.error);graph=candidate;selected=graph.nodes.at(-1).id;render();notice("PASS · complete ancestry imported and independently replayed.")}catch(e){notice("Import rejected: "+e.message,true)}};
+demo();
+</script></body></html>

@@ -1,5 +1,10 @@
 # QUANTA · Changelog
 
+## 2026-11-08 — QG-019 · Paragraph Box
+- Added `language/paragraph-box.mjs`, an ordered paragraph container with exact LF line-break witnesses, sentence fragment links, offsets and context.
+- Built `paragraphs.html` to explore four visual folds and recover complete paragraph source through canonical QG-018 sentence and QG-017 word references.
+- Added a formal spec and seven CI tests; the initial test run exposed the 128-character nested word limit, which was addressed by 128-character fragment cap.
+
 ## 2026-11-08 — QG-018 · Sentence Box
 - Instantiated `language/sentence-box.mjs`, preserving exact capitalization, spaces, punctuation, word offsets and word-to-word relationship indices.
 - The a/b/c/d phase register continues across words, resets on `.`, `?`, `!`, and rotates somatic drawing verbs at sentence level.

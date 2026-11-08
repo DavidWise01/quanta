@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#06141b">
+<title>QUANTA QG-015 — Authenticated Chrome Dot</title>
+<style>
+:root{color-scheme:dark;--bg:#06121a;--panel:#0e252d;--line:#315560;--fg:#e3f8f5;--muted:#a2c1c1;--teal:#74f0de;--amber:#ffc58d}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 30% 9%,#194750,transparent 55%),var(--bg);color:var(--fg);font:15px/1.6 system-ui,Segoe UI,sans-serif}a{color:var(--teal)}header{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:16px 25px;background:#06151be9;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:3}header strong{letter-spacing:.14em}nav{display:flex;gap:14px;font-size:.83rem}main{max-width:1200px;margin:auto;padding:36px 20px 85px}.eyebrow{font-size:.68rem;color:var(--teal);letter-spacing:.19em;font-weight:800;text-transform:uppercase}h1{font-size:clamp(2.3rem,6vw,5rem);line-height:1.05;letter-spacing:-.045em;margin:10px 0}h2{font-size:1.15rem;margin:0 0 10px}.desc{max-width:74ch;color:var(--muted)}.signature{font:clamp(13px,2vw,19px) Consolas,monospace;color:var(--amber);margin:20px 0;padding:12px;border:1px solid #53645a;background:#091e25;border-radius:8px}.stages{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin:18px 0 26px}.stages span{background:#103139;border:1px solid #417b78;border-radius:8px;padding:8px 12px;color:#c2f8e7;font:14px Consolas,monospace}.layout{display:grid;grid-template-columns:1fr 1fr;gap:18px}.card{background:var(--panel);border:1px solid var(--line);border-radius:15px;padding:22px;min-width:0}.label{font-size:.81rem;font-weight:700;color:#b5d8d5;margin:16px 0 6px;display:block}textarea,input{width:100%;border:1px solid #3d6b70;background:#061921;border-radius:9px;color:#e8fff9;padding:12px;font:13px/1.5 Consolas,monospace;outline-color:var(--teal)}textarea{resize:vertical;min-height:135px}input[type=range]{accent-color:var(--teal)}button{padding:11px 15px;border-radius:9px;background:#184852;border:1px solid #498680;color:#f0fffd;cursor:pointer;font:inherit}button.primary{background:var(--teal);color:#06302c;font-weight:800}button:disabled{opacity:.45;cursor:wait}.buttons{display:flex;flex-wrap:wrap;gap:9px;margin:15px 0}.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin:17px 0}.stat{background:#071b24;border:1px solid #2c555a;border-radius:9px;text-align:center;padding:13px 5px}.stat strong{display:block;font-size:1.35rem;color:var(--teal)}.stat small{color:var(--muted)}.dot{height:116px;border:1px solid #426967;background:radial-gradient(circle,#185457,#071f27 65%);display:grid;place-items:center;border-radius:12px;margin:20px 0}.dot span{font-size:72px;color:var(--amber);line-height:1;text-shadow:0 0 30px #ffca92}.msg{background:#092a2d;border-left:3px solid var(--teal);padding:12px 14px;border-radius:6px;font-size:.84rem;color:#ccfff4;min-height:47px}.msg.error{border-color:#ff897b;color:#ffd0c9}.minor{font-size:.8rem;color:var(--muted)}footer{margin-top:40px;padding-top:20px;border-top:1px solid var(--line);font-size:.8rem;color:var(--muted)}@media(max-width:780px){.layout{grid-template-columns:1fr}}@media(max-width:530px){nav{font-size:.72rem;gap:8px}.card{padding:15px}.stats{gap:5px}.stat strong{font-size:1.1rem}}
+</style></head><body>
+<header><strong>◈ QUANTA <span style="color:#74f0de">/ QG-015</span></strong><nav><a href="fold.html">Fold</a><a href="spiral.html">Spiral</a><a href="book.html">Book</a></nav></header>
+<main><div class="eyebrow">Authenticated traversal · exact recovery · fixed point</div><h1>Send one Chrome Dot.<br>Recover every bit.</h1><p class="desc">QG-015 combines the immutable 128-to-1 Chrome Dot fold with its 127-bit witness, reversible downward spiral and authenticated AES-256-GCM envelope. The receiver verifies the encrypted message and reconstructs the original 128 bits.</p>
+<div class="signature">128 → 64 → 32 → 16 | 8 → 4 → 2 → 1 | 1</div>
+<div class="stages"><span>128-bit source</span>→<span>1 + 127 witness</span>→<span>spiral</span>→<span>AES-GCM</span>→<span>verify</span>→<span>128 recovered</span></div>
+<div class="layout">
+<section class="card"><h2>Sender · form the Chrome Dot</h2><label class="label" for="source">128-bit source · 32 hexadecimal characters</label><input id="source" value="0123456789abcdef0123456789abcdef" spellcheck="false" maxlength="32"/>
+<label class="label" for="source-tag">Source reference (self-declared label)</label><input id="source-tag" value="quanta-source" maxlength="96"/>
+<label class="label" for="dimensions">Transport dimensions: <span id="dimension-label">11D</span></label><input id="dimensions" type="range" min="3" max="11" step="1" value="11"/>
+<label class="label" for="passphrase">Private passphrase · at least 12 characters</label><input id="passphrase" type="password" autocomplete="new-password" placeholder="Strong passphrase, kept in your browser"/>
+<div class="buttons"><button id="send" class="primary">Fold + authenticate + send</button><button id="random">New 128-bit source</button></div>
+<div class="dot"><span id="terminal">○</span></div><div class="stats"><div class="stat"><strong>1</strong><small>Visible bit</small></div><div class="stat"><strong>127</strong><small>Witness bits</small></div><div class="stat"><strong>1 → 1</strong><small>Fixed point</small></div></div><div id="sender-status" class="msg" aria-live="polite">Ready to instantiate and seal the transport frame.</div></section>
+<section class="card"><h2>Receiver · verify before unfolding</h2><p class="minor">The JSON envelope can be copied to another session or device. Decryption uses the private passphrase; modified ciphertext or authenticated routing metadata is rejected.</p>
+<label class="label" for="envelope">Authenticated transport envelope</label><textarea id="envelope" spellcheck="false" placeholder="Encrypted envelope appears here; paste another envelope to receive." style="min-height:210px"></textarea>
+<div class="buttons"><button class="primary" id="receive">Authenticate + recover</button><button id="copy">Copy encrypted envelope</button></div>
+<label class="label" for="recovered">Recovered 128-bit word</label><input id="recovered" readonly placeholder="Verification result"/>
+<label class="label" for="receipt">Verified receipt</label><textarea id="receipt" readonly style="min-height:104px"></textarea>
+<div id="receiver-status" class="msg" aria-live="polite">Awaiting authenticated delivery.</div>
+<p class="minor">This is a software prototype, not independently audited. Source labels are self-declared, not cryptographic signatures. The spiral is public and is not itself encryption.</p></section>
+</div><footer><a href="language/QG-015-AUTHENTICATED-CHROME.md">Read the QG-015 specification</a> · <a href="https://github.com/DavidWise01/quanta">Source and automated tests</a></footer></main>
+<script type="module">
+import {sendChromeDot, receiveChromeDot, composeChromeFrame} from "./language/authenticated-chrome.mjs";
+const $=id=>document.getElementById(id);let last=null;
+function bitsFromHex(hex){if(!/^[a-fA-F0-9]{32}$/.test(hex))throw Error("Exactly 32 hexadecimal characters required.");return [...hex].map(c=>Number.parseInt(c,16).toString(2).padStart(4,"0")).join("")}
+function hexFromBits(bits){return Array.from({length:32},(_,i)=>parseInt(bits.slice(i*4,i*4+4),2).toString(16)).join("")}
+function report(id,t,bad=false){const x=$(id);x.textContent=t;x.classList.toggle("error",bad)}
+function busy(on){$("send").disabled=on;$("receive").disabled=on}
+$("dimensions").addEventListener("input",()=>{$("dimension-label").textContent=$("dimensions").value+"D"});
+$("send").addEventListener("click",async()=>{busy(true);try{
+ const bits=bitsFromHex($("source").value.trim()),tag=$("source-tag").value,dim=Number($("dimensions").value),pass=$("passphrase").value;
+ const f=composeChromeFrame(bits,tag);$("terminal").textContent=f.fold.terminal==="0"?"○":"●";
+ const env=await sendChromeDot(bits,pass,dim,tag);$("envelope").value=JSON.stringify(env,null,2);last=bits;
+ report("sender-status","SEALED · one Chrome Dot and 127 witness bits protected inside a "+dim+"D authenticated spiral envelope.");
+}catch(e){report("sender-status","Send refused: "+e.message,true)}finally{busy(false)}});
+$("receive").addEventListener("click",async()=>{busy(true);try{
+ const env=JSON.parse($("envelope").value),result=await receiveChromeDot(env,$("passphrase").value);
+ const hex=hexFromBits(result.sourceBits);$("recovered").value=hex;
+ $("receipt").value=JSON.stringify({verified:result.verified,sourceTag:result.sourceTag,terminal:result.terminal,witnessBits:result.witnessBits,dimensions:env.header.dimensions,widths:result.widths,matchesCurrentSource:last===null?null:last===result.sourceBits},null,2);
+ report("receiver-status","PASS · authenticated and reconstructed all 128 bits. The terminal dot and full witness were preserved.");
+}catch(e){$("recovered").value="";$("receipt").value="";report("receiver-status","Authentication or reconstruction failed. Check the password and envelope.",true)}finally{busy(false)}});
+$("copy").addEventListener("click",async()=>{if(!$("envelope").value)return;try{await navigator.clipboard.writeText($("envelope").value);report("receiver-status","Encrypted envelope copied; the passphrase is not included.")}catch{report("receiver-status","Clipboard unavailable; manually copy the envelope.",true)}});
+$("random").addEventListener("click",()=>{const bytes=new Uint8Array(16);crypto.getRandomValues(bytes);$("source").value=[...bytes].map(x=>x.toString(16).padStart(2,"0")).join("");report("sender-status","New random source ready to fold.")});
+</script></body></html>

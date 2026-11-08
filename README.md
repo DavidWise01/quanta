@@ -4,6 +4,10 @@
 
 > Start at zero. Make a mark. Discover a relationship.
 
+## Security status
+
+**Security audit: NOT APPROVED for sensitive/production data.** The QG-015 cryptographic prototype has high-priority findings for replay, claimed sender identity and weak-password handling. [Read the cryptographic audit](./research/QG-015-CRYPTOGRAPHIC-AUDIT.md) and [reproducible adversarial tests](./tests/cryptographic-audit.test.mjs).
+
 ## Read and explore
 
 - **[QG-015 Authenticated Chrome Dot Transport](./authenticated.html)** — send one visible bit plus its 127-bit witness through QG-013, verify authentication, and recover the original 128 bits.

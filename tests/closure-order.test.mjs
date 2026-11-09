@@ -22,7 +22,7 @@ test('sequential boundaries have no crossing',()=>{
  const a=analyzeClosure('[.](.)');assert.equal(a.crossings.length,0);
 });
 test('multiple crossings counted deterministically',()=>{
- const a=analyzeClosure('[(][)]');assert.equal(a.crossings.length,1);
+ const a=analyzeClosure('[(][)]');assert.equal(a.crossings.length,2);
 });
 test('unmatched closer rejected',()=>assert.throws(()=>analyzeClosure('].'),/Unmatched/));
 test('unclosed opener rejected',()=>assert.throws(()=>analyzeClosure('[(.'),/Unclosed/));

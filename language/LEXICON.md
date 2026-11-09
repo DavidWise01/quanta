@@ -158,6 +158,8 @@ Composing these families into one executable sentence requires separately declar
 
 | `|||| play → observe → question reward → held-out test → preserve ||||` | Compare previously fixed candidate utility models against separately labeled experiences, retain baseline if new predictive score fails | QG-042; model selection from a fixed family, not proven autonomous discovery or subjective enjoyment |
 
+| `|||| familiar games → model → unseen games → verify → preserve ||||` | A proposed reward model must beat the original on entirely withheld game identities before transfer is supported | QG-043; synthetic domain-held-out evaluation, not proof of general intelligence or enjoyment |
+
 ## Use in the book
 
 First show the mark; then give one sentence; then show one visual relation; finally provide optional formal detail.

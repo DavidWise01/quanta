@@ -18,6 +18,9 @@ QG-034 has an executable, deterministic boot path: `node language/instantiate-ke
 
 ## Read and explore
 
+- **[QG-043 Unseen-Game Transfer](./unseen-game-transfer.html)** — strict game-identity holdout test: select a reward model using familiar games and require improvement on entirely different game IDs, without changing any QG-041 source events. [Kernel](./language/unseen-game-transfer.mjs) · [Specification](./language/QG-043-UNSEEN-GAME-TRANSFER.md) · [Eleven tests](./tests/unseen-game-transfer.test.mjs).
+
+
 - **[QG-042 The Observer's Discovery](./observer-discovery.html)** — holdout-validated, append-only comparison of alternative reward-weight models against the original QG-041 formula. Demonstrates toy preference-model revision rather than autonomous conscious discovery. [Kernel](./language/observer-discovery.mjs) · [Specification](./language/QG-042-OBSERVER-DISCOVERY.md) · [Eleven tests](./tests/observer-discovery.test.mjs).
 
 

@@ -1,0 +1,14 @@
+import test from "node:test";import assert from "node:assert/strict";
+import {simulatedTransfer,appendTransferEvaluation,instantiateTransfer,verifyTransfer} from "../language/unseen-game-transfer.mjs";
+const clone=x=>JSON.parse(JSON.stringify(x));
+test("model generalizes to entirely disjoint game IDs",()=>{const s=appendTransferEvaluation(simulatedTransfer());assert.equal(verifyTransfer(s).pass,true);assert.equal(s.result.accepted,true);assert.equal(s.result.trainingSamples,12);assert.equal(s.result.transferSamples,12)});
+test("model with better training fit can fail unseen games",()=>{const s=appendTransferEvaluation(simulatedTransfer({scenario:"fails-transfer"}));assert.equal(s.result.accepted,false);assert.ok(s.result.candidateTrain<s.result.baselineTrain);assert.ok(s.result.candidateTransfer>s.result.baselineTransfer)});
+test("correct original model must not be replaced",()=>{const s=appendTransferEvaluation(simulatedTransfer({scenario:"baseline-best"}));assert.equal(s.result.accepted,false)});
+test("same games in train and transfer are rejected",()=>{const s=simulatedTransfer();assert.throws(()=>instantiateTransfer(s.source,s.labels,{trainingGames:["arena","chess","go"],transferGames:["arena","shogi","hex"]}))});
+test("mixed event across train and unseen groups is rejected",()=>{const s=simulatedTransfer(),x=clone(s.source);x.events[1].games=["chess","hex"];assert.throws(()=>instantiateTransfer(x,s.labels,{trainingGames:s.trainingGames,transferGames:s.transferGames}))});
+test("unassigned game identities are rejected",()=>{const s=simulatedTransfer(),x=clone(s.source);x.events[0].game="unassigned";assert.throws(()=>instantiateTransfer(x,s.labels,{trainingGames:s.trainingGames,transferGames:s.transferGames}))});
+test("loss of outcome data fails closed",()=>{const s=simulatedTransfer();assert.throws(()=>instantiateTransfer(s.source,s.labels.slice(0,-1),{trainingGames:s.trainingGames,transferGames:s.transferGames}))});
+test("no double evaluation or rewritten source results",()=>{const s=appendTransferEvaluation(simulatedTransfer());assert.throws(()=>appendTransferEvaluation(s));const x=clone(s);x.result.decision="forged";assert.equal(verifyTransfer(x).pass,false)});
+test("training label replacement is detected",()=>{const s=appendTransferEvaluation(simulatedTransfer()),x=clone(s);x.labels[0].target=12;assert.equal(verifyTransfer(x).pass,false)});
+test("transfer label replacement is detected",()=>{const s=appendTransferEvaluation(simulatedTransfer()),x=clone(s);x.labels[19].target=12;assert.equal(verifyTransfer(x).pass,false)});
+test("original ledger remains immutable after evaluation",()=>{const original=simulatedTransfer(),after=appendTransferEvaluation(original);assert.equal(original.events.length,0);assert.equal(after.events.length,1);assert.deepEqual(original.source,after.source)});

@@ -1,5 +1,11 @@
 # QUANTA · Changelog
 
+## 2026-11-09 — QG-043 · Unseen-Game Transfer
+- Held out all game identities from a designated transfer set instead of only chronological samples. Candidate utility weights are selected on training games only; transfer outcomes independently gate adoption.
+- Added disjoint-identity leakage checks, dual-mode coverage, insufficient-data guards, append-only replay, and deterministic success/failure/baseline synthetic experiments.
+- Added eleven regression tests, a GitHub Pages interactive viewer, formal specification, CI workflow, updated lexicon and claims ledger. No claim of universal generalization or actual subjective enjoyment.
+
+
 ## 2026-11-09 — QG-042 · The Observer's Discovery
 - Added a bounded deterministic test for updating the player's *reward model*: select a candidate using past training outcomes and adopt only after independently reserved holdout data shows improvement.
 - Preserved QG-041 original event history and labels with replay verification, fail-closed comparison, negative and distribution-shift cases; synthetic proxy rewards are not real enjoyment.

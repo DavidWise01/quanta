@@ -165,3 +165,10 @@ Composing these families into one executable sentence requires separately declar
 First show the mark; then give one sentence; then show one visual relation; finally provide optional formal detail.
 
 Do not assert that the shape of a symbol proves the shape of a particle, or that a number represents a physical dimension without a testable definition.
+
+## QG-044 — Closure order
+
+- `.[(.])`: canonical **interleaved** box/fold closure (box closes before fold); one crossing of the written boundary intervals.
+- `.[(.)]`: **nested** closure (fold closes before box); zero crossings.
+- `.`: a vertex; `[ ]` and `( )` distinguish box and fold boundary types within this *new* dedicated grammar, which explicitly extends the earlier introductory chapter's nesting-only subset. Crossing written intervals does not establish 3D geometry.
+- Invariant: `unfoldClosure(foldClosure(s)) === s`; preserve offsets, pairing and closure order, including spaces.

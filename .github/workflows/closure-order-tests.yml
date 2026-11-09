@@ -1,0 +1,24 @@
+name: QG-044 Closure Order Tests
+on:
+  push:
+    paths:
+      - "language/closure-order.mjs"
+      - "tests/closure-order.test.mjs"
+      - ".github/workflows/closure-order-tests.yml"
+  pull_request:
+    paths:
+      - "language/closure-order.mjs"
+      - "tests/closure-order.test.mjs"
+      - ".github/workflows/closure-order-tests.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - run: node --test tests/closure-order.test.mjs

@@ -1,5 +1,11 @@
 # QUANTA · Changelog
 
+## 2026-11-09 — QG-044 · Closure-Order Invariant
+- Added symbolic grammar distinguishing interleaved `.[(.])` from nested `.[(.)]` through interval crossing and closure order.
+- Implemented lossless fold/unfold packets preserving source, token offsets, paired intervals, and crossing evidence, with deterministic tamper detection of inconsistent packets (not cryptographic authentication).
+- Added 13 regression tests, chrome/orange interactive Pages lab, formal scope note, claims and lexicon entries.
+
+
 ## 2026-11-09 — QG-043 · Unseen-Game Transfer
 - Held out all game identities from a designated transfer set instead of only chronological samples. Candidate utility weights are selected on training games only; transfer outcomes independently gate adoption.
 - Added disjoint-identity leakage checks, dual-mode coverage, insufficient-data guards, append-only replay, and deterministic success/failure/baseline synthetic experiments.

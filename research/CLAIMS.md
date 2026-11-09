@@ -166,3 +166,5 @@
 | P-001 | QUANTA maps directly onto physical microstructure | Untested physical hypothesis | Quantitative predictions and independent evidence |
 
 A precise specification is **not** automatically a statement about physics. A pretty diagram is **not** a measurement.
+
+| QG-044 | Interleaved `.[(.])` and nested `.[(.)]` have equal glyph multisets but different paired-interval crossings and closure order | Implemented symbolic grammar, not physical topology | Deterministic parser and 13 tests; exact replay and mismatch rejection |

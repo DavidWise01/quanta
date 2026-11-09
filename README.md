@@ -18,6 +18,9 @@ QG-034 has an executable, deterministic boot path: `node language/instantiate-ke
 
 ## Read and explore
 
+- **[QG-044 Closure-Order Invariant](./closure-order.html)** — compare interleaved `.[(.])` with nested `.[(.)]`, preserve paired boundaries and exact fold/unfold replay. [Kernel](./language/closure-order.mjs) · [Specification](./language/QG-044-CLOSURE-ORDER.md) · [Thirteen tests](./tests/closure-order.test.mjs).
+
+
 - **[QG-043 Unseen-Game Transfer](./unseen-game-transfer.html)** — strict game-identity holdout test: select a reward model using familiar games and require improvement on entirely different game IDs, without changing any QG-041 source events. [Kernel](./language/unseen-game-transfer.mjs) · [Specification](./language/QG-043-UNSEEN-GAME-TRANSFER.md) · [Eleven tests](./tests/unseen-game-transfer.test.mjs).
 
 

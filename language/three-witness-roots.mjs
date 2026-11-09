@@ -19,9 +19,10 @@ function field(s,name,max=900){if(typeof s!=="string"||!s.trim()||s.length>max||
 function id(s,name){if(typeof s!=="string"||!ID.test(s))throw new TypeError("Invalid "+name);return s}
 function shape(o,keys,name){if(!o||typeof o!=="object"||Array.isArray(o)||Object.keys(o).some(k=>!keys.includes(k)))throw new TypeError("Invalid "+name)}
 function evidence(e){
- shape(e,["label","url"],"source evidence");
+ shape(e,["label","url","host"],"source evidence");
  const label=field(e.label,"source label",200),url=field(e.url,"source HTTPS URL",1000);
  let host;try{const u=new URL(url);if(u.protocol!=="https:"||u.username||u.password)throw Error();host=u.hostname.toLowerCase()}catch{throw new TypeError("Evidence needs a valid HTTPS URL")}
+ if(Object.hasOwn(e,"host")&&e.host!==host)throw new Error("Source host and HTTPS URL mismatch");
  return freeze({label,url,host});
 }
 function rooted(source){

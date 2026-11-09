@@ -8,6 +8,10 @@
 
 **Security audit: NOT APPROVED for sensitive/production data.** The QG-015 cryptographic prototype has high-priority findings for replay, claimed sender identity and weak-password handling. [Read the cryptographic audit](./research/QG-015-CRYPTOGRAPHIC-AUDIT.md) and [reproducible adversarial tests](./tests/cryptographic-audit.test.mjs).
 
+## Canonical kernel instantiation
+
+QG-034 has an executable, deterministic boot path: `node language/instantiate-kernel.mjs`. It constructs a **synthetic** QG-033 trio and a source-ancestry graph where three apparent reports share one original, then replay-verifies both ledgers. The instance is observation-only: it does not crawl the internet, authenticate provenance, rewrite claims, or silently persist local memory. Save/export its ledger explicitly. [Bootstrap source](./language/instantiate-kernel.mjs) · [Boot tests](./tests/instantiate-kernel.test.mjs).
+
 ## Read and explore
 
 - **[QG-034 Witness Lineage](./witness-lineage.html)** — trace three QG-033 witnesses backward through their attributed original records, identify shared origins, and report a conservative independent lineage count without erasing original reports. [Kernel](./language/witness-lineage.mjs) · [Specification](./language/QG-034-WITNESS-LINEAGE.md) · [Eight tests](./tests/witness-lineage.test.mjs).

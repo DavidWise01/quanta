@@ -1,5 +1,10 @@
 # QUANTA · Changelog
 
+## 2026-11-08 — QG-034.2 · Canonical Kernel Instantiation
+- Added deterministic `language/instantiate-kernel.mjs` boot entrypoint to instantiate verified QG-033 and QG-034 ledgers from an explicitly synthetic three-reports/one-origin fixture.
+- Added three boot tests and the boot command to the README. No autonomous source authentication, real-world claim promotion or background persistence implied.
+
+
 ## 2026-11-08 — QG-034 · Witness Lineage
 - Added separate QG-034 ancestry DAG over a replay-verified QG-033 trio; trace back to terminal origins, detect shared origin ancestry and transitive witness dependence.
 - Count conservative connected independent lineages rather than three hosts or three votes; preserve exact source witness URLs and their original histories.

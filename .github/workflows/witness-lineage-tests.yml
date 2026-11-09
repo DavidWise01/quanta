@@ -5,6 +5,10 @@ on:
       - "language/witness-lineage.mjs"
       - "language/three-witness-roots.mjs"
       - "tests/witness-lineage.test.mjs"
+      - "tests/instantiate-kernel.test.mjs"
+      - "language/instantiate-kernel.mjs"
+      - "tests/instantiate-kernel.test.mjs"
+      - "language/instantiate-kernel.mjs"
       - ".github/workflows/witness-lineage-tests.yml"
   pull_request:
     paths:
@@ -20,4 +24,4 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: "22"
-      - run: node --test tests/witness-lineage.test.mjs
+      - run: node --test tests/witness-lineage.test.mjs tests/instantiate-kernel.test.mjs

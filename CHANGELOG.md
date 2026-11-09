@@ -1,5 +1,10 @@
 # QUANTA · Changelog
 
+## 2026-11-09 — QG-046 · First Contact
+- Analytically derived the first rim-to-center collision at radial strength 1 for the declared pinching family; all fan triangle areas remain positive before contact.
+- Implemented seven Fibonacci-strength observations, an append-only-value replay ledger, 14 regression cases, interactive Pages lab, proof notes and claims ledger. A collapsed embedding is not a constructed new topology.
+
+
 ## 2026-11-09 — QG-045 · Center-Pinch Conservation
 - Instantiated a planar wheel-graph geometry with 3, 4, 5, 8, or 13 outer vertices plus one independent center point.
 - Added bounded radial pinches, face-orientation and nonincident-edge intersection guards, Euler V-E+F=2 validation, and 20-step geometric sampling of each motion (not a continuous proof).

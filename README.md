@@ -18,6 +18,9 @@ QG-034 has an executable, deterministic boot path: `node language/instantiate-ke
 
 ## Read and explore
 
+- **[QG-046 First Contact](./first-broken-edge.html)** — find the analytic first failure of a center-pinch wheel at strength 1, replay the seven Fibonacci checkpoints, and stop at the collapsed edge. [Kernel](./language/first-broken-edge.mjs) · [Proof](./language/QG-046-FIRST-CONTACT.md) · [14 tests](./tests/first-broken-edge.test.mjs).
+
+
 - **[QG-045 Center-Pinch Conservation](./center-pinch.html)** — move the center, pinch radial connections, reject collapsed faces and crossing edges, and replay the seven Fibonacci observation steps. [Kernel](./language/center-pinch.mjs) · [Specification](./language/QG-045-CENTER-PINCH.md) · [Thirteen tests](./tests/center-pinch.test.mjs).
 
 

@@ -179,3 +179,8 @@ Do not assert that the shape of a symbol proves the shape of a particle, or that
 - `pinch`: bounded displacement of the center and radial shortening of the ring; only accepted if every triangular spoke-face remains positively oriented and no disjoint edges cross at sampled checkpoints.
 - `V=n+1, E=2n, F=n+1, V-E+F=2` for the planar embedded wheel including its exterior face. The graph's combinatorics are preserved by the operation.
 - `1/1/2/3/5/8/13` are event checkpoints, not a Mandelbrot proof or physical capacitance law.
+
+## QG-046 — First contact
+
+- `s` is radial pinch strength; `r_i(s)=1-s*(0.55+0.45*cos(lobes*2*pi*i/n))`.
+- `first contact` occurs at `s=1` for this declared wheel deformation because the index-zero radial factor reaches zero. This is a singular embedding, not a physical phase transition.

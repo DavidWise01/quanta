@@ -1,0 +1,17 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {WALK,COUNTS,boundary,sample,start,append,verify,demo} from '../language/first-broken-edge.mjs';
+test('walk preserved',()=>assert.deepEqual(WALK,[1,1,2,3,5,8,13]));
+test('analytic boundary at 1',()=>{for(const n of COUNTS)for(const k of [1,2,3,5,8])assert.equal(boundary(n,k).firstContact,1)});
+test('before boundary valid',()=>{for(const n of COUNTS)for(const k of [1,2,3,5,8])for(const s of [0,.5,.9,.999])assert.equal(sample(n,k,s).valid,true)});
+test('at boundary vertex zero meets center',()=>{for(const n of COUNTS)for(const k of [1,2,3,5,8]){const a=sample(n,k,1);assert.equal(a.valid,false);assert.ok(a.collided.includes(0))}});
+test('beyond boundary fails',()=>{for(const n of COUNTS)assert.equal(sample(n,2,1.001).valid,false)});
+test('seven checkpoints',()=>{const l=demo(13);assert.equal(l.observations.length,7);assert.equal(l.observations[6].result.valid,false);assert.equal(verify(l).passed,true)});
+test('append is value-only and nondestructive',()=>{const l=start(8),snap=JSON.stringify(l);append(l,.5);assert.equal(JSON.stringify(l),snap)});
+test('invalid n rejected',()=>assert.throws(()=>boundary(2,2)));
+test('invalid lobes rejected',()=>assert.throws(()=>boundary(5,0)));
+test('invalid s rejected',()=>assert.throws(()=>sample(5,2,-1)));
+test('tampered result rejected',()=>{const l=demo();l.observations[0].result.valid=false;assert.throws(()=>verify(l))});
+test('deleted event rejected',()=>{const l=demo();l.observations.splice(2,1);assert.throws(()=>verify(l))});
+test('tampered strength rejected',()=>{const l=demo();l.observations[1].strength=.42;assert.throws(()=>verify(l))});
+test('tampered certificate rejected',()=>{const l=demo();l.spec.firstContact=.9;assert.throws(()=>verify(l))});

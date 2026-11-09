@@ -170,3 +170,5 @@ A precise specification is **not** automatically a statement about physics. A pr
 | QG-044 | Interleaved `.[(.])` and nested `.[(.)]` have equal glyph multisets but different paired-interval crossings and closure order | Implemented symbolic grammar, not physical topology | Deterministic parser and 13 tests; exact replay and mismatch rejection |
 
 | QG-045 | A bounded planar wheel graph can be pinched while preserving vertices, edges, faces and Euler characteristic 2, provided embedding checks pass | Implemented geometric model and empirical regression | Run thirteen tests, reject degenerate/crossing faces and altered replay; no physical torus or phase claim |
+
+| QG-046 | First center/rim contact is at radial strength s=1 for the declared wheel family; no face collapses before it | Analytic derivation and deterministic implementation | Coefficient bound and fan area formula; 14 regression tests, including replay tamper cases |

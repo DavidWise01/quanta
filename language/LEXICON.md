@@ -144,6 +144,8 @@ Composing these families into one executable sentence requires separately declar
 
 | `[84211]` containing `||AaaA|| ||BbbB|| ||CccC|| ||DddD||` | One enclosing symbolic 8→4→2→1→1 fold with four 1311 actor boxes, each accounting for six inward-facing slots; judge D records without overwriting players | QG-035; computational metaphor, not physical qubits or authenticated Byzantine fault tolerance |
 
+| `[8→4→2→1→1]` / `[84211]` | Pair eight original identity/chamber leaves down to one nested tree, then carry the last tree unchanged; unfold to restore all four fully sealed 1311 chambers | QG-036; lossless *representation* not data compression, physical qubits, or truth proof |
+
 ## Use in the book
 
 First show the mark; then give one sentence; then show one visual relation; finally provide optional formal detail.

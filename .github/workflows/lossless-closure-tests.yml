@@ -1,0 +1,26 @@
+name: QG-036 Lossless Closure Tests
+on:
+  push:
+    paths:
+      - "language/byzantine-84211.mjs"
+      - "language/lossless-closure.mjs"
+      - "tests/lossless-closure.test.mjs"
+      - ".github/workflows/lossless-closure-tests.yml"
+  pull_request:
+    paths:
+      - "language/byzantine-84211.mjs"
+      - "language/lossless-closure.mjs"
+      - "tests/lossless-closure.test.mjs"
+      - ".github/workflows/lossless-closure-tests.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - run: node --test tests/byzantine-84211.test.mjs tests/lossless-closure.test.mjs

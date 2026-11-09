@@ -147,6 +147,8 @@
 | P-033 | Three separately hosted citations, a majority or unanimity establishes independent authorship or historical truth | Not established | Publisher/source authentication, content inspection and valid reasoning would be necessary |
 | QG-034 | A verified QG-033 trio can be annotated with a bounded, acyclic source-ancestry graph and collapsed into conservative independent witness components without rewriting source evidence | Implemented computational lineage protocol | Eight regression tests for shared origins, separate origins, transitive connections, source-mismatch rejection, cycle rejection, replay and appended review |
 | P-034 | Three distinct citation hosts or three aligned reports necessarily represent three independent original sources or prove historical truth | Not established | Authenticate the source documents, manually reconcile aliases and check genuine source independence |
+| QG-036 | Four fully sealed QG-035 actor chambers and their event history can be transported through a nested 8→4→2→1→1 fold with exact recovery | Implemented deterministic reversible representation | Eight tests cover completeness, 24 faces, ruling, reverse fold, corruption and no mutation |
+| P-036 | A single final numeric 1 stores four complete witnesses by data compression or quantum encoding | Not established | This representation explicitly retains nested child nodes and original ledger; physical or compression claims require independent evidence |
 | P-001 | QUANTA maps directly onto physical microstructure | Untested physical hypothesis | Quantitative predictions and independent evidence |
 
 A precise specification is **not** automatically a statement about physics. A pretty diagram is **not** a measurement.

@@ -1,5 +1,11 @@
 # QUANTA · Changelog
 
+## 2026-11-08 — QG-036 · Lossless [84211] Closure
+- Added explicitly non-compressive 8→4→2→1→1 nested pair transport, retaining four sealed 1311 boxes and exact QG-035 replayable history.
+- Final 1→1 closure is an unchanged full nested tree; recover all 8 leaves, 4 sealed identities, 24 faces and judge ruling. Reject incomplete or tampered representations.
+- Published interactive fold viewer, eight regression tests, formal spec and GitHub Actions workflow. Neither quantum processing nor Byzantine consensus is claimed.
+
+
 ## 2026-11-08 — QG-035 · One [84211] Byzantine Box
 - Added four bounded 1311 actor chambers inside one symbolic 8→4→2→1→1 enclosure; 24 internal face slots tracked and sealed individually.
 - Judge D cannot seal before A/B/C and cannot rewrite prior reports; one subsequent verdict is additive and never proves truth.

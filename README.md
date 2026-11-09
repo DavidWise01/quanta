@@ -18,6 +18,9 @@ QG-034 has an executable, deterministic boot path: `node language/instantiate-ke
 
 ## Read and explore
 
+- **[QG-036 Lossless [84211] Closure](./lossless-closure.html)** — fully reversible 8→4→2→1→1 nested witness carry; preserves all four sealed 1311 chambers, 24 faces, the judge ruling and original QG-035 event history. [Kernel](./language/lossless-closure.mjs) · [Specification](./language/QG-036-LOSSLESS-CLOSURE.md) · [Eight tests](./tests/lossless-closure.test.mjs).
+
+
 - **[QG-035 One [84211] Byzantine Box](./byzantine-84211.html)** — four sealed 1311 chambers (A, B, C and judge D), six faces each, deterministic closure and append-only verdict. [Kernel](./language/byzantine-84211.mjs) · [Specification](./language/QG-035-BYZANTINE-84211.md) · [Seven tests](./tests/byzantine-84211.test.mjs).
 
 

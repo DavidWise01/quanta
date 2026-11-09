@@ -1,5 +1,11 @@
 # QUANTA · Changelog
 
+## 2026-11-08 — QG-034 · Witness Lineage
+- Added separate QG-034 ancestry DAG over a replay-verified QG-033 trio; trace back to terminal origins, detect shared origin ancestry and transitive witness dependence.
+- Count conservative connected independent lineages rather than three hosts or three votes; preserve exact source witness URLs and their original histories.
+- Published a graphical interactive lineage explorer, formal specification, eight tests and append-only human review events. Origins are attributed, not authenticated; historical truth is never inferred.
+
+
 ## 2026-11-08 — QG-033 · Three-Witness Root Consensus
 - Built `language/three-witness-roots.mjs` for 3 distinctly named observations at the same historical leaf root, retaining each HTTPS source and declared independence rationale.
 - Bound three witnesses to the subject glyph's existing QG-028 60-ring phases a/b/c, classifying unanimous support, unanimous challenge, split and incomplete groups without asserting truth.

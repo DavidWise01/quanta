@@ -10,6 +10,9 @@
 
 ## Read and explore
 
+- **[QG-034 Witness Lineage](./witness-lineage.html)** — trace three QG-033 witnesses backward through their attributed original records, identify shared origins, and report a conservative independent lineage count without erasing original reports. [Kernel](./language/witness-lineage.mjs) · [Specification](./language/QG-034-WITNESS-LINEAGE.md) · [Eight tests](./tests/witness-lineage.test.mjs).
+
+
 - **[QG-033 Three-Witness Root Consensus](./three-witnesses.html)** — compare exactly three independently declared cited observations at one prerequisite root; preserve unanimous, split or incomplete classifications, all witness sources, downstream impact and explicit human review. [Kernel](./language/three-witness-roots.mjs) · [Specification](./language/QG-033-THREE-WITNESS-ROOTS.md) · [Seven tests](./tests/three-witness-roots.test.mjs).
 
 

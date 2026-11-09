@@ -1,0 +1,23 @@
+name: QG-034 Witness Lineage Tests
+on:
+  push:
+    paths:
+      - "language/witness-lineage.mjs"
+      - "language/three-witness-roots.mjs"
+      - "tests/witness-lineage.test.mjs"
+      - ".github/workflows/witness-lineage-tests.yml"
+  pull_request:
+    paths:
+      - "language/witness-lineage.mjs"
+      - "language/three-witness-roots.mjs"
+      - "tests/witness-lineage.test.mjs"
+      - ".github/workflows/witness-lineage-tests.yml"
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - run: node --test tests/witness-lineage.test.mjs

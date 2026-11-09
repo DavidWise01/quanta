@@ -172,3 +172,10 @@ Do not assert that the shape of a symbol proves the shape of a particle, or that
 - `.[(.)]`: **nested** closure (fold closes before box); zero crossings.
 - `.`: a vertex; `[ ]` and `( )` distinguish box and fold boundary types within this *new* dedicated grammar, which explicitly extends the earlier introductory chapter's nesting-only subset. Crossing written intervals does not establish 3D geometry.
 - Invariant: `unfoldClosure(foldClosure(s)) === s`; preserve offsets, pairing and closure order, including spaces.
+
+## QG-045 — Center-pinch geometry
+
+- `n + .` (n = 3,4,5,8,13): planar *wheel graph* with n ring vertices, one center vertex, n perimeter edges, n radial edges. This is an explicit chosen geometric interpretation, not a universal reading of `|||` or `||||`.
+- `pinch`: bounded displacement of the center and radial shortening of the ring; only accepted if every triangular spoke-face remains positively oriented and no disjoint edges cross at sampled checkpoints.
+- `V=n+1, E=2n, F=n+1, V-E+F=2` for the planar embedded wheel including its exterior face. The graph's combinatorics are preserved by the operation.
+- `1/1/2/3/5/8/13` are event checkpoints, not a Mandelbrot proof or physical capacitance law.

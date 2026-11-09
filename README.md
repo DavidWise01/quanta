@@ -18,6 +18,9 @@ QG-034 has an executable, deterministic boot path: `node language/instantiate-ke
 
 ## Read and explore
 
+- **[QG-045 Center-Pinch Conservation](./center-pinch.html)** — move the center, pinch radial connections, reject collapsed faces and crossing edges, and replay the seven Fibonacci observation steps. [Kernel](./language/center-pinch.mjs) · [Specification](./language/QG-045-CENTER-PINCH.md) · [Thirteen tests](./tests/center-pinch.test.mjs).
+
+
 - **[QG-044 Closure-Order Invariant](./closure-order.html)** — compare interleaved `.[(.])` with nested `.[(.)]`, preserve paired boundaries and exact fold/unfold replay. [Kernel](./language/closure-order.mjs) · [Specification](./language/QG-044-CLOSURE-ORDER.md) · [Thirteen tests](./tests/closure-order.test.mjs).
 
 

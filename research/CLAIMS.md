@@ -168,3 +168,5 @@
 A precise specification is **not** automatically a statement about physics. A pretty diagram is **not** a measurement.
 
 | QG-044 | Interleaved `.[(.])` and nested `.[(.)]` have equal glyph multisets but different paired-interval crossings and closure order | Implemented symbolic grammar, not physical topology | Deterministic parser and 13 tests; exact replay and mismatch rejection |
+
+| QG-045 | A bounded planar wheel graph can be pinched while preserving vertices, edges, faces and Euler characteristic 2, provided embedding checks pass | Implemented geometric model and empirical regression | Run thirteen tests, reject degenerate/crossing faces and altered replay; no physical torus or phase claim |

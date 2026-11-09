@@ -1,5 +1,11 @@
 # QUANTA · Changelog
 
+## 2026-11-09 — QG-045 · Center-Pinch Conservation
+- Instantiated a planar wheel-graph geometry with 3, 4, 5, 8, or 13 outer vertices plus one independent center point.
+- Added bounded radial pinches, face-orientation and nonincident-edge intersection guards, Euler V-E+F=2 validation, and 20-step geometric sampling of each motion (not a continuous proof).
+- Added seven Fibonacci observation events, append-only-value replay ledger, thirteen adversarial tests, and interactive GitHub Pages lab. Excludes torus/physical phase-change claims.
+
+
 ## 2026-11-09 — QG-044 · Closure-Order Invariant
 - Added symbolic grammar distinguishing interleaved `.[(.])` from nested `.[(.)]` through interval crossing and closure order.
 - Implemented lossless fold/unfold packets preserving source, token offsets, paired intervals, and crossing evidence, with deterministic tamper detection of inconsistent packets (not cryptographic authentication).

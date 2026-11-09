@@ -1,5 +1,11 @@
 # QUANTA · Changelog
 
+## 2026-11-09 — QG-040 · Revocation Freshness
+- Added a P-256 root-signed checkpoint binding a canonical complete-declared revocation collection, publication sequence and bounded validity interval.
+- Verification rejects missing, expired, future-dated, rolled-back, altered or wrongly signed checkpoints; reuses QG-039 to check delegated signing authority after freshness.
+- Added interactive Pages lab, formal spec, eleven adversarial tests and GitHub Actions workflow. Root-declared completeness does not prove real-world revocation completeness; clock and high-water mark are external.
+
+
 ## 2026-11-08 — QG-039 · Trusted Key Lineage
 - Added externally pinned trust-root authorization for QG-038 attestations using signed P-256 delegation certificates and bounded role chains.
 - Added signed root revocations, explicit evaluation time and failures on expired, substituted, unauthorized or invalid signers; separate trust-root custody remains mandatory.

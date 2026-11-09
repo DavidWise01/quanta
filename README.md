@@ -18,6 +18,9 @@ QG-034 has an executable, deterministic boot path: `node language/instantiate-ke
 
 ## Read and explore
 
+- **[QG-040 Revocation Freshness](./revocation-freshness.html)** — reject expired, rolled-back, missing or altered root-signed revocation checkpoints before accepting QG-039 signer authority. Requires externally maintained sequence floor, clock and independent root trust. [Kernel](./language/revocation-freshness.mjs) · [Specification](./language/QG-040-REVOCATION-FRESHNESS.md) · [Eleven tests](./tests/revocation-freshness.test.mjs).
+
+
 - **[QG-039 Trusted Key Lineage](./trusted-key-lineage.html)** — verify a QG-038 signer through a separately pinned P-256 authority, bounded signed delegation chain, role constraints, expiry and signed revocations. [Kernel](./language/trusted-key-lineage.mjs) · [Specification](./language/QG-039-TRUSTED-KEY-LINEAGE.md) · [Nine tests](./tests/trusted-key-lineage.test.mjs).
 
 

@@ -152,6 +152,8 @@ Composing these families into one executable sentence requires separately declar
 
 | `|||| signature → key ancestry → root trust → revocation gate → preserve ||||` | Chain the QG-038 signing key to an externally pinned authority, verify authorized delegation and reject known revoked keys | QG-039; no automatic trust in embedded public keys or unverifiable revocation freshness |
 
+| `|||| lineage → signed freshness checkpoint → verify → preserve ||||` | Bind a supplied revocation collection to root signature, sequence, issue/expiry and external high-water/age constraints before accepting QG-039 signer | QG-040; signer-declared completeness and locally enforced freshness, not independent CRL completeness proof |
+
 ## Use in the book
 
 First show the mark; then give one sentence; then show one visual relation; finally provide optional formal detail.

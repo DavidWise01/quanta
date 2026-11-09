@@ -1,0 +1,26 @@
+name: QG-040 Revocation Freshness Tests
+on:
+  push:
+    paths:
+      - "language/revocation-freshness.mjs"
+      - "language/trusted-key-lineage.mjs"
+      - "tests/revocation-freshness.test.mjs"
+      - ".github/workflows/revocation-freshness-tests.yml"
+  pull_request:
+    paths:
+      - "language/revocation-freshness.mjs"
+      - "language/trusted-key-lineage.mjs"
+      - "tests/revocation-freshness.test.mjs"
+      - ".github/workflows/revocation-freshness-tests.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - run: node --test tests/revocation-freshness.test.mjs

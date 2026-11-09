@@ -148,6 +148,8 @@ Composing these families into one executable sentence requires separately declar
 
 | `|||| fold → independent read → compare manifest → preserve ||||` | Independently unfold the final 1 tree to eight actor leaves and verify four six-face chambers against a separately supplied sealed manifest | QG-037; read-only structural verification, not external authorship authentication |
 
+| `|||| sealed [84211] → SHA-256 → P-256 signature → trusted verification ||||` | Sign full sealed carrier and separate manifest; verify both digests and signature against a separately trusted key | QG-038; cryptographic integrity only, not independently established source truth or signer authorization |
+
 ## Use in the book
 
 First show the mark; then give one sentence; then show one visual relation; finally provide optional formal detail.

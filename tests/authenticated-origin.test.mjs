@@ -1,0 +1,16 @@
+import test from "node:test";
+import assert from "node:assert/strict";
+import {demo84211,close84211} from "../language/lossless-closure.mjs";
+import {buildClosureManifest} from "../language/independent-closure.mjs";
+import {generateDemoSigningKeys,attestOrigin,verifyAuthenticatedOrigin} from "../language/authenticated-origin.mjs";
+const copy=x=>JSON.parse(JSON.stringify(x));
+const fixture=async()=>{const source=demo84211(),packet=close84211(source),manifest=buildClosureManifest(source),keys=await generateDemoSigningKeys(),att=await attestOrigin(packet,manifest,keys.privateKey,"test-signer");return {packet,manifest,keys,att}};
+test("trusted P-256 signature authenticates complete independent closure",async()=>{const f=await fixture(),r=await verifyAuthenticatedOrigin(f.packet,f.manifest,f.att,f.keys.publicKey);assert.equal(r.pass,true);assert.equal(r.interpretationProven,false)});
+test("modified source statement is rejected",async()=>{const f=await fixture(),p=copy(f.packet);p.source.actors[0].statement="forged";assert.equal((await verifyAuthenticatedOrigin(p,f.manifest,f.att,f.keys.publicKey)).pass,false)});
+test("modified terminal tree is rejected",async()=>{const f=await fixture(),p=copy(f.packet);p.stages[4][0].kind="forged";assert.equal((await verifyAuthenticatedOrigin(p,f.manifest,f.att,f.keys.publicKey)).pass,false)});
+test("manifest tampering is rejected",async()=>{const f=await fixture(),m=copy(f.manifest);m.actors[0].source="forged";assert.equal((await verifyAuthenticatedOrigin(f.packet,m,f.att,f.keys.publicKey)).pass,false)});
+test("untrusted different key cannot validate signature",async()=>{const f=await fixture(),other=await generateDemoSigningKeys();assert.equal((await verifyAuthenticatedOrigin(f.packet,f.manifest,f.att,other.publicKey)).pass,false)});
+test("signature and digest forgery are rejected",async()=>{const f=await fixture();for(const edit of [a=>a.signature="00".repeat(64),a=>a.manifestSha256="00".repeat(32),a=>a.algorithm="none"]){const a=copy(f.att);edit(a);assert.equal((await verifyAuthenticatedOrigin(f.packet,f.manifest,a,f.keys.publicKey)).pass,false)}});
+test("attestation cannot claim authenticity with missing independent trust",async()=>{const f=await fixture();assert.equal((await verifyAuthenticatedOrigin(f.packet,f.manifest,f.att,null)).pass,false)});
+test("signer cannot attest invalid packet or wrong key kind",async()=>{const f=await fixture(),p=copy(f.packet);p.widths[0]=9;await assert.rejects(()=>attestOrigin(p,f.manifest,f.keys.privateKey,"test-signer"));await assert.rejects(()=>attestOrigin(f.packet,f.manifest,f.keys.publicKey,"test-signer"))});
+test("JSON key insertion order does not change canonical signed meaning",async()=>{const f=await fixture(),p=copy(f.packet),rev=Object.fromEntries(Object.entries(p).reverse());assert.equal((await verifyAuthenticatedOrigin(rev,f.manifest,f.att,f.keys.publicKey)).pass,true)});

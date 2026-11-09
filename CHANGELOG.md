@@ -1,5 +1,11 @@
 # QUANTA · Changelog
 
+## 2026-11-08 — QG-038 · Authenticated Origin
+- Added experimental ECDSA P-256 / SHA-256 signed attestation covering the full QG-036 carrier and separately supplied QG-037 manifest, after independent structural verification.
+- Verification requires a public key obtained through an external trust boundary. The browser lab uses a disposable demo key; signer labels, original source authenticity and truth remain unproven.
+- Published nine regression tests, interactive Pages lab, formal specification, claim classifications and CI workflow.
+
+
 ## 2026-11-08 — QG-037 · Independent Closure Witness
 - Introduced a separate read-only verifier that unfolds the terminal QG-036 tree without invoking QG-036 recovery, checks 8→4→2→1→1 intermediate stages and compares all four complete witness chambers against a separate QG-035 manifest.
 - Compared wrapper verdict and original event history against that manifest because neither is encoded within the 8 witness leaves themselves.

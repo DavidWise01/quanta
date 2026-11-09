@@ -18,6 +18,9 @@ QG-034 has an executable, deterministic boot path: `node language/instantiate-ke
 
 ## Read and explore
 
+- **[QG-038 Authenticated Origin](./authenticated-origin.html)** — bind the entire QG-036 carrier and QG-037 independent manifest using SHA-256 digests and an ECDSA P-256 signature; verify with an externally trusted public key. Demo keys are disposable and do not establish historical identity. [Kernel](./language/authenticated-origin.mjs) · [Spec](./language/QG-038-AUTHENTICATED-ORIGIN.md) · [Nine tests](./tests/authenticated-origin.test.mjs).
+
+
 - **[QG-037 Independent Closure Witness](./independent-closure.html)** — a second verifier unfolds the final QG-036 nested carrier and compares its four sealed chambers with a separately supplied manifest, preserving all events, source statements and judge ruling. [Kernel](./language/independent-closure.mjs) · [Specification](./language/QG-037-INDEPENDENT-CLOSURE.md) · [Nine tests](./tests/independent-closure.test.mjs).
 
 

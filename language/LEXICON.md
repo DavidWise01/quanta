@@ -138,6 +138,8 @@ Composing these families into one executable sentence requires separately declar
 
 | `|||| root {support | challenge} → review → preserve both ||||` | Contradictory evidence observations at one prerequisite root retained in an append-only reconciliation history | QG-032; explicit sourced review and downstream impact, never automatic truth |
 
+| `|||| root → witness a / witness b / witness c → review ||||` | Three distinct sourced witness declarations on one root mapped to 60-ring a/b/c positions, comparing support, challenge, and missing evidence | QG-033; agreement classified, independence declared but not proven, no automatic historical truth |
+
 ## Use in the book
 
 First show the mark; then give one sentence; then show one visual relation; finally provide optional formal detail.

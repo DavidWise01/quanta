@@ -143,6 +143,8 @@
 | P-031 | A newly linked source proves every downstream interpretation true | Not established | Independent source validation and logical entailment checking would be required |
 | QG-032 | Opposing observations about one historic prerequisite root can be retained and explicitly reviewed while all downstream affected claims remain identifiable | Implemented computational conflict reconciliation | Seven tests: opposing witness preservation, decisions and citation gates, malformed origins, impact replay, mutation rejection and serialized history |
 | P-032 | A reviewed contradiction can be automatically resolved into established historical truth solely by linking source URLs | Not established | Independent source inspection and justified assessment of statements is required |
+| QG-033 | Three source-diverse witness declarations of the same historical root can be retained and compared across unanimous, split and incomplete outcomes without altering root or claim history | Implemented computational source-comparison protocol | Seven tests: source host and ID diversity, phase slots, agreement states, historical bounds, append-only review and replay checks |
+| P-033 | Three separately hosted citations, a majority or unanimity establishes independent authorship or historical truth | Not established | Publisher/source authentication, content inspection and valid reasoning would be necessary |
 | P-001 | QUANTA maps directly onto physical microstructure | Untested physical hypothesis | Quantitative predictions and independent evidence |
 
 A precise specification is **not** automatically a statement about physics. A pretty diagram is **not** a measurement.

@@ -1,5 +1,11 @@
 # QUANTA · Changelog
 
+## 2026-11-08 — QG-039 · Trusted Key Lineage
+- Added externally pinned trust-root authorization for QG-038 attestations using signed P-256 delegation certificates and bounded role chains.
+- Added signed root revocations, explicit evaluation time and failures on expired, substituted, unauthorized or invalid signers; separate trust-root custody remains mandatory.
+- Published interactive Pages viewer, specification, nine adversarial regression tests, GitHub Actions workflow, and updated claims ledger. Revocation freshness is not yet established.
+
+
 ## 2026-11-08 — QG-038 · Authenticated Origin
 - Added experimental ECDSA P-256 / SHA-256 signed attestation covering the full QG-036 carrier and separately supplied QG-037 manifest, after independent structural verification.
 - Verification requires a public key obtained through an external trust boundary. The browser lab uses a disposable demo key; signer labels, original source authenticity and truth remain unproven.

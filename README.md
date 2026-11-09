@@ -18,6 +18,9 @@ QG-034 has an executable, deterministic boot path: `node language/instantiate-ke
 
 ## Read and explore
 
+- **[QG-039 Trusted Key Lineage](./trusted-key-lineage.html)** — verify a QG-038 signer through a separately pinned P-256 authority, bounded signed delegation chain, role constraints, expiry and signed revocations. [Kernel](./language/trusted-key-lineage.mjs) · [Specification](./language/QG-039-TRUSTED-KEY-LINEAGE.md) · [Nine tests](./tests/trusted-key-lineage.test.mjs).
+
+
 - **[QG-038 Authenticated Origin](./authenticated-origin.html)** — bind the entire QG-036 carrier and QG-037 independent manifest using SHA-256 digests and an ECDSA P-256 signature; verify with an externally trusted public key. Demo keys are disposable and do not establish historical identity. [Kernel](./language/authenticated-origin.mjs) · [Spec](./language/QG-038-AUTHENTICATED-ORIGIN.md) · [Nine tests](./tests/authenticated-origin.test.mjs).
 
 

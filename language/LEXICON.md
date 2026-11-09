@@ -150,6 +150,8 @@ Composing these families into one executable sentence requires separately declar
 
 | `|||| sealed [84211] → SHA-256 → P-256 signature → trusted verification ||||` | Sign full sealed carrier and separate manifest; verify both digests and signature against a separately trusted key | QG-038; cryptographic integrity only, not independently established source truth or signer authorization |
 
+| `|||| signature → key ancestry → root trust → revocation gate → preserve ||||` | Chain the QG-038 signing key to an externally pinned authority, verify authorized delegation and reject known revoked keys | QG-039; no automatic trust in embedded public keys or unverifiable revocation freshness |
+
 ## Use in the book
 
 First show the mark; then give one sentence; then show one visual relation; finally provide optional formal detail.

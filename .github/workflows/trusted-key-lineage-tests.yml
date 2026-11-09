@@ -1,0 +1,26 @@
+name: QG-039 Trusted Key Lineage Tests
+on:
+  push:
+    paths:
+      - "language/trusted-key-lineage.mjs"
+      - "language/authenticated-origin.mjs"
+      - "tests/trusted-key-lineage.test.mjs"
+      - ".github/workflows/trusted-key-lineage-tests.yml"
+  pull_request:
+    paths:
+      - "language/trusted-key-lineage.mjs"
+      - "language/authenticated-origin.mjs"
+      - "tests/trusted-key-lineage.test.mjs"
+      - ".github/workflows/trusted-key-lineage-tests.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - run: node --test tests/trusted-key-lineage.test.mjs

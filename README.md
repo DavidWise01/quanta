@@ -10,6 +10,9 @@
 
 ## Read and explore
 
+- **[QG-033 Three-Witness Root Consensus](./three-witnesses.html)** — compare exactly three independently declared cited observations at one prerequisite root; preserve unanimous, split or incomplete classifications, all witness sources, downstream impact and explicit human review. [Kernel](./language/three-witness-roots.mjs) · [Specification](./language/QG-033-THREE-WITNESS-ROOTS.md) · [Seven tests](./tests/three-witness-roots.test.mjs).
+
+
 - **[QG-032 Root Reconciliation](./reconcile.html)** — record opposing cited observations about the same leaf root, carry forward their affected dependents, and append a reasoned review decision without overwriting either witness. [Kernel](./language/root-reconciliation.mjs) · [Specification](./language/QG-032-ROOT-RECONCILIATION.md) · [Seven tests](./tests/root-reconciliation.test.mjs).
 
 

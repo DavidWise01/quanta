@@ -1,0 +1,24 @@
+name: QG-035 Byzantine Box Tests
+on:
+  push:
+    paths:
+      - "language/byzantine-84211.mjs"
+      - "tests/byzantine-84211.test.mjs"
+      - ".github/workflows/byzantine-box-tests.yml"
+  pull_request:
+    paths:
+      - "language/byzantine-84211.mjs"
+      - "tests/byzantine-84211.test.mjs"
+      - ".github/workflows/byzantine-box-tests.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - run: node --test tests/byzantine-84211.test.mjs

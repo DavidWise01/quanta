@@ -142,6 +142,8 @@ Composing these families into one executable sentence requires separately declar
 
 | `|||| witnesses → ancestry → shared origins → effective lineages ||||` | Trace three QG-033 voices backward through their declared original sources; collapse copied testimony to conservative independent lineage components while retaining all voices | QG-034; ancestry metadata is not source authentication or truth proof |
 
+| `[84211]` containing `||AaaA|| ||BbbB|| ||CccC|| ||DddD||` | One enclosing symbolic 8→4→2→1→1 fold with four 1311 actor boxes, each accounting for six inward-facing slots; judge D records without overwriting players | QG-035; computational metaphor, not physical qubits or authenticated Byzantine fault tolerance |
+
 ## Use in the book
 
 First show the mark; then give one sentence; then show one visual relation; finally provide optional formal detail.

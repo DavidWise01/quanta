@@ -18,6 +18,9 @@ QG-034 has an executable, deterministic boot path: `node language/instantiate-ke
 
 ## Read and explore
 
+- **[QG-035 One [84211] Byzantine Box](./byzantine-84211.html)** — four sealed 1311 chambers (A, B, C and judge D), six faces each, deterministic closure and append-only verdict. [Kernel](./language/byzantine-84211.mjs) · [Specification](./language/QG-035-BYZANTINE-84211.md) · [Seven tests](./tests/byzantine-84211.test.mjs).
+
+
 - **[QG-034 Witness Lineage](./witness-lineage.html)** — trace three QG-033 witnesses backward through their attributed original records, identify shared origins, and report a conservative independent lineage count without erasing original reports. [Kernel](./language/witness-lineage.mjs) · [Specification](./language/QG-034-WITNESS-LINEAGE.md) · [Eight tests](./tests/witness-lineage.test.mjs).
 
 

@@ -1,5 +1,11 @@
 # QUANTA · Changelog
 
+## 2026-11-08 — QG-035 · One [84211] Byzantine Box
+- Added four bounded 1311 actor chambers inside one symbolic 8→4→2→1→1 enclosure; 24 internal face slots tracked and sealed individually.
+- Judge D cannot seal before A/B/C and cannot rewrite prior reports; one subsequent verdict is additive and never proves truth.
+- Added deterministic event replay, seven regression tests, an interactive Pages viewer and CI workflow. Byzantine-inspired, not proven distributed consensus or actual quantum processing.
+
+
 ## 2026-11-08 — QG-034.3 · Scheduled GitHub Kernel Verification
 - Scheduled GitHub Actions daily at 09:17 UTC with optional manual dispatch. Runs regression suite, deterministic kernel instantiation and strict three-witness/one-origin invariant guard.
 - Uploads a 90-day JSON status artifact; limited to read-only repository permissions. No automatic edits or persistent runtime memory.

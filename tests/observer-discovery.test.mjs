@@ -1,0 +1,15 @@
+import test from "node:test";
+import assert from "node:assert/strict";
+import {simulatedDiscovery,appendDiscoveryEvaluation,verifyDiscovery,instantiateDiscovery} from "../language/observer-discovery.mjs";
+const copy=x=>JSON.parse(JSON.stringify(x));
+test("candidate improves both train and held-out experiences",()=>{const s=appendDiscoveryEvaluation(simulatedDiscovery());assert.equal(verifyDiscovery(s).pass,true);assert.equal(s.result.decision,"adopt-proposal");assert.ok(s.result.candidateHoldout<s.result.baselineHoldout)});
+test("correct baseline is retained",()=>{const s=appendDiscoveryEvaluation(simulatedDiscovery({scenario:"negative"}));assert.equal(s.result.decision,"retain-baseline")});
+test("training improvement alone cannot override worse holdout",()=>{const s=appendDiscoveryEvaluation(simulatedDiscovery({scenario:"mixed"}));assert.equal(s.result.decision,"retain-baseline");assert.ok(s.result.candidateTrain<s.result.baselineTrain);assert.ok(s.result.candidateHoldout>s.result.baselineHoldout)});
+test("no result before evaluation and immutable original preserved",()=>{const s=simulatedDiscovery(),b=appendDiscoveryEvaluation(s);assert.equal(s.result,null);assert.equal(s.events.length,0);assert.equal(b.events.length,1)});
+test("tampering with original game report is caught",()=>{const s=appendDiscoveryEvaluation(simulatedDiscovery()),x=copy(s);x.source.events[0].payoff=10;assert.equal(verifyDiscovery(x).pass,false)});
+test("outcome relabeling after evaluation breaks replay",()=>{const s=appendDiscoveryEvaluation(simulatedDiscovery()),x=copy(s);x.labels[0].target=9;assert.equal(verifyDiscovery(x).pass,false)});
+test("tampering with selected candidate or metrics is caught",()=>{const s=appendDiscoveryEvaluation(simulatedDiscovery()),x=copy(s);x.result.candidate[0]=10;assert.equal(verifyDiscovery(x).pass,false)});
+test("second evaluation is rejected",()=>{const s=appendDiscoveryEvaluation(simulatedDiscovery());assert.throws(()=>appendDiscoveryEvaluation(s))});
+test("every game must have one label, no fake missing experience",()=>{const s=simulatedDiscovery();assert.throws(()=>instantiateDiscovery(s.source,s.labels.slice(1)))});
+test("both modes must appear in each side of precommitted chronological split",()=>{const s=simulatedDiscovery(),x=copy(s.source);for(let i=12;i<x.events.length;i++)x.events[i].mode="play";assert.throws(()=>instantiateDiscovery(x,s.labels))});
+test("24 factorial prior does not guarantee an improvement",()=>{const s=appendDiscoveryEvaluation(simulatedDiscovery({scenario:"negative"}));assert.equal(s.source.provenPriorGames,false);assert.equal(s.result.accepted,false)});

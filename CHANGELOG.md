@@ -1,5 +1,11 @@
 # QUANTA · Changelog
 
+## 2026-11-09 — QG-042 · The Observer's Discovery
+- Added a bounded deterministic test for updating the player's *reward model*: select a candidate using past training outcomes and adopt only after independently reserved holdout data shows improvement.
+- Preserved QG-041 original event history and labels with replay verification, fail-closed comparison, negative and distribution-shift cases; synthetic proxy rewards are not real enjoyment.
+- Added eleven regression tests, interactive Pages laboratory, formal specification, claims ledger update and GitHub Actions workflow.
+
+
 ## 2026-11-09 — QG-041 · Emergent Observer Preference
 - Modeled a veteran player learning a reversible preference between single-game play and simultaneous multi-game observation, using only recorded sample utility—not a forced 24! counter transition.
 - Kept 24! as a symbolic experience-space maximum and any enormous prior-game count explicitly unverified; implemented deterministic novelty, breadth, payoff and attention-cost utility with append-only history.

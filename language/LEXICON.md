@@ -156,6 +156,8 @@ Composing these families into one executable sentence requires separately declar
 
 | `24! → player → observer → player?` | A seasoned player might prefer comparing many games after measuring utility from both kinds of experiences; can return to playing if new evidence wins | QG-041; declared permutation space not played history, toy reward model not proven pleasure or AI autonomy |
 
+| `|||| play → observe → question reward → held-out test → preserve ||||` | Compare previously fixed candidate utility models against separately labeled experiences, retain baseline if new predictive score fails | QG-042; model selection from a fixed family, not proven autonomous discovery or subjective enjoyment |
+
 ## Use in the book
 
 First show the mark; then give one sentence; then show one visual relation; finally provide optional formal detail.

@@ -18,6 +18,9 @@ QG-034 has an executable, deterministic boot path: `node language/instantiate-ke
 
 ## Read and explore
 
+- **[QG-042 The Observer's Discovery](./observer-discovery.html)** — holdout-validated, append-only comparison of alternative reward-weight models against the original QG-041 formula. Demonstrates toy preference-model revision rather than autonomous conscious discovery. [Kernel](./language/observer-discovery.mjs) · [Specification](./language/QG-042-OBSERVER-DISCOVERY.md) · [Eleven tests](./tests/observer-discovery.test.mjs).
+
+
 - **[QG-041 Emergent Observer Preference](./emergent-observer.html)** — deterministic toy model of a veteran player learning to prefer cross-game observation when it earns more defined utility, with reversible choices and explicit uncertainty. The 24! history is declared, not falsely claimed as simulated. [Kernel](./language/emergent-observer.mjs) · [Specification](./language/QG-041-EMERGENT-OBSERVER.md) · [Eleven tests](./tests/emergent-observer.test.mjs).
 
 

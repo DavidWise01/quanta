@@ -1,0 +1,46 @@
+name: QG-034 Scheduled Kernel Verification
+on:
+  schedule:
+    - cron: "17 9 * * *" # Daily 09:17 UTC; 03:17 CST / 04:17 CDT
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: qg034-daily-verify
+  cancel-in-progress: false
+
+jobs:
+  verify:
+    name: Replay kernel and verify invariant
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Run witness lineage and canonical bootstrap regression suite
+        run: node --test tests/witness-lineage.test.mjs tests/instantiate-kernel.test.mjs
+      - name: Instantiate, validate and preserve status report
+        run: |
+          mkdir -p verification
+          node language/instantiate-kernel.mjs > verification/qg034-status.json
+          node --input-type=module -e '
+            import fs from "node:fs";
+            const s=JSON.parse(fs.readFileSync("verification/qg034-status.json","utf8"));
+            if(s.status!=="INSTANTIATED" || !s.q33Verified || !s.q34Verified ||
+               s.witnesses!==3 || s.independentLineages!==1 ||
+               s.evidenceRoots!==1 || s.interpretationProven!==false ||
+               s.fixture!==true) process.exit(1);
+            console.log("QG-034 synthetic shared-root invariant: PASS");
+          '
+      - name: Upload verification evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: qg034-verification-${{ github.run_number }}
+          path: verification/qg034-status.json
+          if-no-files-found: warn
+          retention-days: 90

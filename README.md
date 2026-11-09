@@ -12,6 +12,10 @@
 
 QG-034 has an executable, deterministic boot path: `node language/instantiate-kernel.mjs`. It constructs a **synthetic** QG-033 trio and a source-ancestry graph where three apparent reports share one original, then replay-verifies both ledgers. The instance is observation-only: it does not crawl the internet, authenticate provenance, rewrite claims, or silently persist local memory. Save/export its ledger explicitly. [Bootstrap source](./language/instantiate-kernel.mjs) · [Boot tests](./tests/instantiate-kernel.test.mjs).
 
+## Scheduled GitHub verification
+
+[QG-034 scheduled kernel verification](./.github/workflows/qg034-scheduled-verify.yml) runs daily at **09:17 UTC** (**03:17 CST / 04:17 CDT** in America/Chicago) and also supports manual GitHub Actions dispatch. It runs the QG-034 regression tests, instantiates the synthetic three-witness/one-origin kernel, checks its conserved evidence lineage invariant, and uploads a retained JSON status artifact for 90 days. It only has `contents: read` permissions, does **not** push, modify sources, authenticate external claims, or preserve agent memory between runs. GitHub-hosted scheduled Actions may execute late or be disabled after prolonged inactivity; examine the Actions tab for actual run status.
+
 ## Read and explore
 
 - **[QG-034 Witness Lineage](./witness-lineage.html)** — trace three QG-033 witnesses backward through their attributed original records, identify shared origins, and report a conservative independent lineage count without erasing original reports. [Kernel](./language/witness-lineage.mjs) · [Specification](./language/QG-034-WITNESS-LINEAGE.md) · [Eight tests](./tests/witness-lineage.test.mjs).

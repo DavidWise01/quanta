@@ -4,17 +4,17 @@ on:
     paths:
       - "language/witness-lineage.mjs"
       - "language/three-witness-roots.mjs"
+      - "language/instantiate-kernel.mjs"
       - "tests/witness-lineage.test.mjs"
       - "tests/instantiate-kernel.test.mjs"
-      - "language/instantiate-kernel.mjs"
-      - "tests/instantiate-kernel.test.mjs"
-      - "language/instantiate-kernel.mjs"
       - ".github/workflows/witness-lineage-tests.yml"
   pull_request:
     paths:
       - "language/witness-lineage.mjs"
       - "language/three-witness-roots.mjs"
+      - "language/instantiate-kernel.mjs"
       - "tests/witness-lineage.test.mjs"
+      - "tests/instantiate-kernel.test.mjs"
       - ".github/workflows/witness-lineage-tests.yml"
 jobs:
   test:

@@ -1,5 +1,10 @@
 # QUANTA · Changelog
 
+## 2026-11-08 — QG-034.3 · Scheduled GitHub Kernel Verification
+- Scheduled GitHub Actions daily at 09:17 UTC with optional manual dispatch. Runs regression suite, deterministic kernel instantiation and strict three-witness/one-origin invariant guard.
+- Uploads a 90-day JSON status artifact; limited to read-only repository permissions. No automatic edits or persistent runtime memory.
+
+
 ## 2026-11-08 — QG-034.2 · Canonical Kernel Instantiation
 - Added deterministic `language/instantiate-kernel.mjs` boot entrypoint to instantiate verified QG-033 and QG-034 ledgers from an explicitly synthetic three-reports/one-origin fixture.
 - Added three boot tests and the boot command to the README. No autonomous source authentication, real-world claim promotion or background persistence implied.

@@ -18,6 +18,9 @@ QG-034 has an executable, deterministic boot path: `node language/instantiate-ke
 
 ## Read and explore
 
+- **[QG-041 Emergent Observer Preference](./emergent-observer.html)** — deterministic toy model of a veteran player learning to prefer cross-game observation when it earns more defined utility, with reversible choices and explicit uncertainty. The 24! history is declared, not falsely claimed as simulated. [Kernel](./language/emergent-observer.mjs) · [Specification](./language/QG-041-EMERGENT-OBSERVER.md) · [Eleven tests](./tests/emergent-observer.test.mjs).
+
+
 - **[QG-040 Revocation Freshness](./revocation-freshness.html)** — reject expired, rolled-back, missing or altered root-signed revocation checkpoints before accepting QG-039 signer authority. Requires externally maintained sequence floor, clock and independent root trust. [Kernel](./language/revocation-freshness.mjs) · [Specification](./language/QG-040-REVOCATION-FRESHNESS.md) · [Eleven tests](./tests/revocation-freshness.test.mjs).
 
 

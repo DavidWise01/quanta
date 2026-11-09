@@ -154,6 +154,8 @@ Composing these families into one executable sentence requires separately declar
 
 | `|||| lineage → signed freshness checkpoint → verify → preserve ||||` | Bind a supplied revocation collection to root signature, sequence, issue/expiry and external high-water/age constraints before accepting QG-039 signer | QG-040; signer-declared completeness and locally enforced freshness, not independent CRL completeness proof |
 
+| `24! → player → observer → player?` | A seasoned player might prefer comparing many games after measuring utility from both kinds of experiences; can return to playing if new evidence wins | QG-041; declared permutation space not played history, toy reward model not proven pleasure or AI autonomy |
+
 ## Use in the book
 
 First show the mark; then give one sentence; then show one visual relation; finally provide optional formal detail.

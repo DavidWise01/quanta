@@ -1,0 +1,14 @@
+import test from "node:test";import assert from "node:assert/strict";
+import {SPACE_24_FACTORIAL,instantiateObserver,appendExperience,simulatedVeteran,verifyObserver} from "../language/emergent-observer.mjs";
+const cp=x=>JSON.parse(JSON.stringify(x));
+test("24! exact breadth, no fictional full enumeration",()=>{assert.equal(BigInt(SPACE_24_FACTORIAL),Array.from({length:24},(_,i)=>BigInt(i+1)).reduce((a,b)=>a*b,1n));assert.equal(instantiateObserver({declaredPriorGames:SPACE_24_FACTORIAL}).provenPriorGames,false)});
+test("veteran finds observing multiple games more useful under richer signals",()=>{const s=simulatedVeteran();assert.equal(verifyObserver(s).pass,true);assert.equal(s.choice,"observe");assert.ok(s.scores.observe>s.scores.play)});
+test("veteran does not shift merely because the 24! prior is declared",()=>{const s=instantiateObserver({declaredPriorGames:SPACE_24_FACTORIAL});assert.equal(s.choice,"undetermined");assert.equal(s.sampled.observe,0)});
+test("observer does not switch when monitoring is worse",()=>{const s=simulatedVeteran({watchRich:false});assert.equal(s.choice,"play")});
+test("experience choice depends on evidence, not claim of prior games",()=>{const a=simulatedVeteran({declaredPriorGames:"0"}),b=simulatedVeteran();assert.equal(a.choice,b.choice);assert.deepEqual(a.scores,b.scores)});
+test("no switch without sampling both modes",()=>{let s=instantiateObserver();for(let i=0;i<14;i++)s=appendExperience(s,{mode:"play",game:"arena",patterns:["p"+i],payoff:1,cost:0});assert.equal(s.choice,"undetermined")});
+test("a play report cannot impersonate simultaneous multi-game observation",()=>{const s=instantiateObserver();assert.throws(()=>appendExperience(s,{mode:"observe",games:["a","a"],patterns:["p"],payoff:0,cost:0}));assert.throws(()=>appendExperience(s,{mode:"play",game:"a",games:["b"],patterns:["p"],payoff:0,cost:0}))});
+test("historical observation cannot be silently rewritten",()=>{const s=simulatedVeteran(),fake=cp(s);fake.events[0].patterns=["forged"];assert.equal(verifyObserver(fake).pass,false)});
+test("a negative cost or externally forged parent breaks replay",()=>{const s=instantiateObserver();assert.throws(()=>appendExperience(s,{mode:"play",game:"a",patterns:["p"],payoff:0,cost:-1}));const b=appendExperience(s,{mode:"play",game:"a",patterns:["p"],payoff:0,cost:0});b.events[0].parent="other";assert.equal(verifyObserver(b).pass,false)});
+test("choice can reverse after later play evidence—observer is not imprisoned",()=>{let s=simulatedVeteran();for(let i=0;i<6;i++)s=appendExperience(s,{mode:"play",game:"new"+i,patterns:["fresh"+i,"unseen"+i],payoff:6,cost:0});assert.equal(s.choice,"play");assert.equal(verifyObserver(s).pass,true)});
+test("original states remain unchanged when new experiences are appended",()=>{const a=instantiateObserver(),b=appendExperience(a,{mode:"play",game:"arena",patterns:["p"],payoff:1,cost:0});assert.equal(a.events.length,0);assert.equal(b.events.length,1)});

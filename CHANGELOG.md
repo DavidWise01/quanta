@@ -1,5 +1,11 @@
 # QUANTA · Changelog
 
+## 2026-11-09 — QG-041 · Emergent Observer Preference
+- Modeled a veteran player learning a reversible preference between single-game play and simultaneous multi-game observation, using only recorded sample utility—not a forced 24! counter transition.
+- Kept 24! as a symbolic experience-space maximum and any enormous prior-game count explicitly unverified; implemented deterministic novelty, breadth, payoff and attention-cost utility with append-only history.
+- Added eleven adversarial/unit tests, browser visualization, formal specification, actions workflow and claims ledger. No subjective enjoyment or autonomous agent asserted.
+
+
 ## 2026-11-09 — QG-040 · Revocation Freshness
 - Added a P-256 root-signed checkpoint binding a canonical complete-declared revocation collection, publication sequence and bounded validity interval.
 - Verification rejects missing, expired, future-dated, rolled-back, altered or wrongly signed checkpoints; reuses QG-039 to check delegated signing authority after freshness.

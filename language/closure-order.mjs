@@ -11,7 +11,7 @@ export function analyzeClosure(source) {
   let event = 0;
   for (let i=0; i<source.length; i++) {
     const glyph=source[i];
-    if (/\\s/.test(glyph)) continue;
+    if (/\s/.test(glyph)) continue;
     if (glyph !== '.' && !(glyph in OPENS) && !(glyph in CLOSES))
       throw new Error('Unknown symbol at index '+i);
     tokens.push({glyph,index:i});

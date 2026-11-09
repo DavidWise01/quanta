@@ -1,0 +1,26 @@
+name: QG-033 Three-witness root tests
+on:
+  push:
+    paths:
+      - 'language/three-witness-roots.mjs'
+      - 'language/chasing-roots.mjs'
+      - 'language/root-propagation.mjs'
+      - 'tests/three-witness-roots.test.mjs'
+      - '.github/workflows/three-witness-roots-tests.yml'
+  pull_request:
+    paths:
+      - 'language/three-witness-roots.mjs'
+      - 'tests/three-witness-roots.test.mjs'
+      - '.github/workflows/three-witness-roots-tests.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  witness:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node --test tests/three-witness-roots.test.mjs

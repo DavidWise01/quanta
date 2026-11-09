@@ -18,6 +18,9 @@ QG-034 has an executable, deterministic boot path: `node language/instantiate-ke
 
 ## Read and explore
 
+- **[QG-037 Independent Closure Witness](./independent-closure.html)** — a second verifier unfolds the final QG-036 nested carrier and compares its four sealed chambers with a separately supplied manifest, preserving all events, source statements and judge ruling. [Kernel](./language/independent-closure.mjs) · [Specification](./language/QG-037-INDEPENDENT-CLOSURE.md) · [Nine tests](./tests/independent-closure.test.mjs).
+
+
 - **[QG-036 Lossless [84211] Closure](./lossless-closure.html)** — fully reversible 8→4→2→1→1 nested witness carry; preserves all four sealed 1311 chambers, 24 faces, the judge ruling and original QG-035 event history. [Kernel](./language/lossless-closure.mjs) · [Specification](./language/QG-036-LOSSLESS-CLOSURE.md) · [Eight tests](./tests/lossless-closure.test.mjs).
 
 

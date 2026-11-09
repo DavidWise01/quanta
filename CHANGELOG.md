@@ -1,5 +1,11 @@
 # QUANTA · Changelog
 
+## 2026-11-08 — QG-037 · Independent Closure Witness
+- Introduced a separate read-only verifier that unfolds the terminal QG-036 tree without invoking QG-036 recovery, checks 8→4→2→1→1 intermediate stages and compares all four complete witness chambers against a separate QG-035 manifest.
+- Compared wrapper verdict and original event history against that manifest because neither is encoded within the 8 witness leaves themselves.
+- Added nine adversarial regression tests, interactive Pages lab and CI workflow. Authenticity depends on independent, trustworthy manifest custody, not on JSON equality alone.
+
+
 ## 2026-11-08 — QG-036 · Lossless [84211] Closure
 - Added explicitly non-compressive 8→4→2→1→1 nested pair transport, retaining four sealed 1311 boxes and exact QG-035 replayable history.
 - Final 1→1 closure is an unchanged full nested tree; recover all 8 leaves, 4 sealed identities, 24 faces and judge ruling. Reject incomplete or tampered representations.

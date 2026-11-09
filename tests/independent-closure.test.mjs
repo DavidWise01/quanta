@@ -1,0 +1,15 @@
+import test from "node:test";
+import assert from "node:assert/strict";
+import {demo84211,close84211} from "../language/lossless-closure.mjs";
+import {buildClosureManifest,verifyIndependentClosure} from "../language/independent-closure.mjs";
+const c=x=>JSON.parse(JSON.stringify(x));
+const fixture=()=>{const source=demo84211();return [close84211(source),buildClosureManifest(source)]};
+test("independent leaf unfolding matches external sealed manifest",()=>{const [p,m]=fixture(),v=verifyIndependentClosure(p,m);assert.equal(v.pass,true);assert.equal(v.faces,24);assert.equal(v.actors,4);assert.equal(v.manifestRequired,true)});
+test("final 1 to 1 identity is mandatory",()=>{const [p,m]=fixture();p.stages[4][0].kind="unknown";assert.equal(verifyIndependentClosure(p,m).pass,false)});
+test("one witness statement altered in folded tree is rejected",()=>{const [p,m]=fixture();p.stages[4][0].children[0].children[0].children[1].value.statement="false report";assert.equal(verifyIndependentClosure(p,m).pass,false)});
+test("forged independent manifest fails against unchanged carrier",()=>{const [p,m]=fixture();m.actors[0].statement="forged";assert.equal(verifyIndependentClosure(p,m).pass,false)});
+test("source event history mismatch is rejected",()=>{const [p,m]=fixture();p.ledgerEvents[0].face="-z";assert.equal(verifyIndependentClosure(p,m).pass,false)});
+test("judge verdict mismatch rejected even if witness leaves unchanged",()=>{const [p,m]=fixture();p.source.ruling.outcome="support";assert.equal(verifyIndependentClosure(p,m).pass,false)});
+test("reordered actor identity rejects",()=>{const [p,m]=fixture();p.stages[4][0].children[0].children[0].children[0].value="BbbB";assert.equal(verifyIndependentClosure(p,m).pass,false)});
+test("intermediate-stage tampering rejects even when final tree survives",()=>{const [p,m]=fixture();p.stages[2][0].kind="unknown";assert.equal(verifyIndependentClosure(p,m).pass,false)});
+test("invalid manifest, corrupted leaf, and missing face reject",()=>{const [p,m]=fixture();assert.equal(verifyIndependentClosure(p,null).pass,false);const q=c(p);q.stages[4][0].children[0].children[0].children[1].value.faces.pop();assert.equal(verifyIndependentClosure(q,m).pass,false)});

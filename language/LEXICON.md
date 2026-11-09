@@ -146,6 +146,8 @@ Composing these families into one executable sentence requires separately declar
 
 | `[8→4→2→1→1]` / `[84211]` | Pair eight original identity/chamber leaves down to one nested tree, then carry the last tree unchanged; unfold to restore all four fully sealed 1311 chambers | QG-036; lossless *representation* not data compression, physical qubits, or truth proof |
 
+| `|||| fold → independent read → compare manifest → preserve ||||` | Independently unfold the final 1 tree to eight actor leaves and verify four six-face chambers against a separately supplied sealed manifest | QG-037; read-only structural verification, not external authorship authentication |
+
 ## Use in the book
 
 First show the mark; then give one sentence; then show one visual relation; finally provide optional formal detail.

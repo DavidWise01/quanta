@@ -149,6 +149,8 @@
 | P-034 | Three distinct citation hosts or three aligned reports necessarily represent three independent original sources or prove historical truth | Not established | Authenticate the source documents, manually reconcile aliases and check genuine source independence |
 | QG-036 | Four fully sealed QG-035 actor chambers and their event history can be transported through a nested 8→4→2→1→1 fold with exact recovery | Implemented deterministic reversible representation | Eight tests cover completeness, 24 faces, ruling, reverse fold, corruption and no mutation |
 | P-036 | A single final numeric 1 stores four complete witnesses by data compression or quantum encoding | Not established | This representation explicitly retains nested child nodes and original ledger; physical or compression claims require independent evidence |
+| QG-037 | A second algorithm can reconstruct the terminal [84211] tree without the original QG-036 decoder and compare chambers, source ledger and judge ruling with a separate original manifest | Implemented structural verification protocol | Nine tests of valid recovery, damaged final tree, forged manifest, verdict discrepancy, event mismatch, actor reorder and stage corruption |
+| P-037 | Matching a manifest generated from the same potentially forged packet proves independent witness identity | Not established | Manifest custody, signatures and trusted independent records are necessary for authentication |
 | P-001 | QUANTA maps directly onto physical microstructure | Untested physical hypothesis | Quantitative predictions and independent evidence |
 
 A precise specification is **not** automatically a statement about physics. A pretty diagram is **not** a measurement.

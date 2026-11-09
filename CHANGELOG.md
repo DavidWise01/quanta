@@ -1,5 +1,10 @@
 # QUANTA · Changelog
 
+## 2026-11-08 — QG-033 · Three-Witness Root Consensus
+- Built `language/three-witness-roots.mjs` for 3 distinctly named observations at the same historical leaf root, retaining each HTTPS source and declared independence rationale.
+- Bound three witnesses to the subject glyph's existing QG-028 60-ring phases a/b/c, classifying unanimous support, unanimous challenge, split and incomplete groups without asserting truth.
+- Added append-only human source-reviewed decisions, deterministic impacted dependency addresses, `three-witnesses.html`, a formal spec and seven regression tests.
+
 ## 2026-11-08 — QG-032 · Root Reconciliation
 - Built `language/root-reconciliation.mjs` to preserve opposing, cited observations of one original QG-030/QG-031 leaf root with a complete append-only event history.
 - Captured deterministic impacted downstream claims, required explicit review choices with supporting evidence and retained both original witnesses without rewriting source statements.

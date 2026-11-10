@@ -215,3 +215,9 @@ Do not assert that the shape of a symbol proves the shape of a particle, or that
 - `A_k(theta)`: amplitude channel `0.55+0.45*cos(k*theta)`. On the thirteen-position grid, roots 5/8 and 6/7 remain aliased for any number of amplitude-only measurements at grid vertices.
 - `P_k(theta)`: phase-oriented channel `sin(k*theta)`. At vertex 1 it distinguishes the cosine-frequency aliases within the declared 8-root family.
 - `sufficient`: exactly one candidate remains given the declared finite model and measured features; not proof of all possible physical roots.
+
+## QG-052 — Independent information
+
+- `information gain`: `log2(|compatible before|)-log2(|compatible after|)` under a uniform finite candidate prior; measured in model-relative bits.
+- `repeated 1`: second permitted observation event at the same position; an amplitude duplicate may add zero information, while a phase measurement may distinguish ambiguous roots.
+- `expected gain`: prior partition-based expectation across possible outcomes, distinct from realized gain after measurement.

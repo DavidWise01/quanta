@@ -18,6 +18,9 @@ QG-034 has an executable, deterministic boot path: `node language/instantiate-ke
 
 ## Read and explore
 
+- **[QG-052 Independent Information](./independent-information.html)** — compare repeating an amplitude measurement against measuring phase at the same Fibonacci vertex; quantify candidate reduction and expected versus realized information gain. [Kernel](./language/independent-information.mjs) · [Specification](./language/QG-052-INDEPENDENT-INFORMATION.md) · [18 tests](./tests/independent-information.test.mjs).
+
+
 - **[QG-051 Observation Sufficiency](./observation-sufficiency.html)** — keep the exact 1/1/2/3/5/8/13 walk, observe amplitude at the first 1 and phase at the repeated 1, and measure when every finite candidate root becomes distinguishable. [Kernel](./language/observation-sufficiency.mjs) · [Specification](./language/QG-051-OBSERVATION-SUFFICIENCY.md) · [18 tests](./tests/observation-sufficiency.test.mjs).
 
 

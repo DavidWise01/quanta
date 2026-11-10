@@ -1,5 +1,10 @@
 # QUANTA · Changelog
 
+## 2026-11-10 — QG-052 · Independent Information
+- Measured conditional information gain at the repeated Fibonacci 1 without moving: duplicate amplitude adds zero bits; phase resolves a two-root ambiguity and adds one bit under a uniform candidate prior.
+- Added candidate-partition forecasts, deterministic two-event replay, 18 regression tests, ASCII interactive Pages lab, and a model-dependence note. This is not a proof of physically independent sensors.
+
+
 ## 2026-11-10 — QG-051 · Observation Sufficiency
 - Preserved the Fibonacci path 1/1/2/3/5/8/13 with its repeated first position as a second measurement rather than duplicate distance traveled.
 - Demonstrated that amplitude-only samples on the thirteen-position ring cannot separate aliased roots 5/8 and 6/7; a phase measurement at the same permitted vertex distinguishes all eight enumerated roots.

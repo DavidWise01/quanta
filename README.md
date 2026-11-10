@@ -18,6 +18,9 @@ QG-034 has an executable, deterministic boot path: `node language/instantiate-ke
 
 ## Read and explore
 
+- **[QG-050 Ambiguous Roots](./ambiguous-roots.html)** — observe an eight-vertex ring, retain both possible cosine generators, choose an off-grid distinguishing measurement, and replay evidence. [Kernel](./language/ambiguous-roots.mjs) · [Specification](./language/QG-050-AMBIGUOUS-ROOTS.md) · [16 tests](./tests/ambiguous-roots.test.mjs).
+
+
 - **[QG-049 Minimum Fold Memory](./minimum-fold-memory.html)** — store successor + versioned generator recipe + lobe witness, regenerate the exact original, and compare serialized size with full QG-048 evidence. [Kernel](./language/minimum-fold-memory.mjs) · [Specification](./language/QG-049-MINIMUM-FOLD-MEMORY.md) · [14 tests](./tests/minimum-fold-memory.test.mjs).
 
 

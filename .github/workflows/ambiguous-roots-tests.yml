@@ -1,0 +1,24 @@
+name: QG-050 Ambiguous Roots Tests
+on:
+  push:
+    paths:
+      - "language/ambiguous-roots.mjs"
+      - "tests/ambiguous-roots.test.mjs"
+      - ".github/workflows/ambiguous-roots-tests.yml"
+  pull_request:
+    paths:
+      - "language/ambiguous-roots.mjs"
+      - "tests/ambiguous-roots.test.mjs"
+      - ".github/workflows/ambiguous-roots-tests.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - run: node --test tests/ambiguous-roots.test.mjs tests/minimum-fold-memory.test.mjs

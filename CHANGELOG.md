@@ -1,5 +1,11 @@
 # QUANTA · Changelog
 
+## 2026-11-10 — QG-050 · Ambiguous Roots
+- Added an observer-first synthetic model of observationally indistinguishable roots: 8-point samples cannot distinguish cosine frequencies 1 and 7.
+- Added bounded off-grid experimental probes that separate candidates when their predicted observations diverge; preserved all compatible roots until new evidence arrives.
+- Added 16 tests, deterministic append-by-value observation ledger, interactive ASCII viewer, and documented the limited candidate class. No claims about actual Mandelbrot or physical systems.
+
+
 ## 2026-11-10 — QG-049 · Minimum Fold Memory
 - Replaced QG-048's duplicate full preimage with a smaller recipe-relative witness: successor, fixed generator recipe, and lobes parameter; n inferred from successor size.
 - Regenerates source and contraction deterministically; rejects stale, inconsistent, unknown, or missing witnesses. Includes 14 regression tests and a canvas viewer.

@@ -202,3 +202,9 @@ Do not assert that the shape of a symbol proves the shape of a particle, or that
 - `successor + recipe + lobes` is a smaller recipe-relative witness for the deterministic QG-047 source family, not an information-theoretically minimum description.
 - `n` is inferred from the successor's vertex count; `lobes` declares the family member. Restored source is accepted only if regenerating the successor reproduces the provided successor exactly.
 - A successor without the prior generative rule may admit multiple original graphs and cannot be assumed reversible.
+
+## QG-050 — Ambiguous roots
+
+- `root`: one candidate generating parameter in a fixed family, not a verified identity inferred from a silhouette.
+- `observational equivalence`: two generators produce the same observations at every permitted sampled vertex. In the eight-vertex ring, cosine frequencies 1 and 7 are equivalent on the ring.
+- `off-grid probe`: an additional observation chosen where candidate predictions differ, preserving the previous evidence and withholding identification until the candidates separate.

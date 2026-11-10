@@ -196,3 +196,9 @@ Do not assert that the shape of a symbol proves the shape of a particle, or that
 - `freezePinch` stores full original vertices, original edges, and lineage alongside a contracted successor.
 - `unfoldPinch` reconstructs the exact source and checks its independent deterministic contraction. The successor without preimage is insufficient for exact reversal.
 - `unfold(fold(G))=G` is a reversible-data invariant only when source identity and edge evidence have been preserved; not a claim that physical pinching is reversible.
+
+## QG-049 — Minimum fold memory
+
+- `successor + recipe + lobes` is a smaller recipe-relative witness for the deterministic QG-047 source family, not an information-theoretically minimum description.
+- `n` is inferred from the successor's vertex count; `lobes` declares the family member. Restored source is accepted only if regenerating the successor reproduces the provided successor exactly.
+- A successor without the prior generative rule may admit multiple original graphs and cannot be assumed reversible.

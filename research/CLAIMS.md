@@ -176,3 +176,5 @@ A precise specification is **not** automatically a statement about physics. A pr
 | QG-047 | After single spoke contraction at first contact, simplified wheel successor has V=n, E=2n-3, F=n-1 and Euler 2 | Defined finite graph surgery with preserved source lineage | Verify one removed self-loop, two duplicate edge mappings, positive successor fan faces, deterministic replay and 14 tests |
 
 | QG-048 | For QG-047 single-contact contraction, exact original graph recovery is possible from a retained full preimage and matching vertex/edge lineage; successor alone is insufficient | Deterministic graph data model | Five-size exact round trips, stripped-evidence rejection, lineage/tamper tests, 15 regression tests |
+
+| QG-049 | Known QG-047 generator plus successor and its lobe parameter can regenerate the exact source without duplicate full original graph data | Defined recipe-relative compression, not universal minimality | Five-size round trips, JSON size comparison, missing-witness and tamper rejection, 14 tests |

@@ -1,0 +1,24 @@
+name: QG-049 Minimum Fold Memory Tests
+on:
+  push:
+    paths:
+      - "language/minimum-fold-memory.mjs"
+      - "tests/minimum-fold-memory.test.mjs"
+      - ".github/workflows/minimum-fold-memory-tests.yml"
+  pull_request:
+    paths:
+      - "language/minimum-fold-memory.mjs"
+      - "tests/minimum-fold-memory.test.mjs"
+      - ".github/workflows/minimum-fold-memory-tests.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - run: node --test tests/post-contact-reconstruction.test.mjs tests/reversible-pinch.test.mjs tests/minimum-fold-memory.test.mjs

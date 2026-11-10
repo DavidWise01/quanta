@@ -1,0 +1,18 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {COUNTS,compressPinch,restorePinch,verifyCompressed,strippedWitness,aliasEvidence,createLedger,verifyLedger,appendCompress} from '../language/minimum-fold-memory.mjs';
+import {sourceGraph} from '../language/post-contact-reconstruction.mjs';
+test('exact original recoverable for five sizes',()=>{for(const n of COUNTS)assert.deepEqual(restorePinch(compressPinch(n)),sourceGraph(n))});
+test('smaller serialized packet than QG-048 duplicated preimage',()=>{for(const n of COUNTS){const v=verifyCompressed(compressPinch(n));assert.ok(v.bytesSaved>0,JSON.stringify(v))}});
+test('successor vertex count determines n',()=>{for(const n of COUNTS)assert.equal(verifyCompressed(compressPinch(n)).n,n)});
+test('recipe witness requires lobe parameter',()=>assert.throws(()=>restorePinch(strippedWitness(compressPinch(8))),/Missing/));
+test('reject wrong generator parameter',()=>{const p=compressPinch(8);p.witness.lobes=2;assert.throws(()=>restorePinch(p))});
+test('reject changed successor edge',()=>{const p=compressPinch(8);p.successor.edges[0].a='FORGED';assert.throws(()=>restorePinch(p),/match/)});
+test('reject missing successor vertex',()=>{const p=compressPinch(8);p.successor.vertices.pop();assert.throws(()=>restorePinch(p))});
+test('reject changed successor coordinates',()=>{const p=compressPinch(8);p.successor.vertices[1].position.x+=.01;assert.throws(()=>restorePinch(p),/match/)});
+test('reject unknown recipe',()=>{const p=compressPinch(8);p.recipe='UNKNOWN';assert.throws(()=>restorePinch(p),/recipe/)});
+test('reject unsupported simultaneous contacts',()=>assert.throws(()=>compressPinch(8,2),/Multiple simultaneous/));
+test('alias warning is explicit and not a unique-source claim',()=>{const x=aliasEvidence();assert.notEqual(x.firstLobes,x.secondLobes);assert.equal(x.n,8)});
+test('ledger append is nondestructive',()=>{const l=createLedger(5),before=JSON.stringify(l);const q=appendCompress(l);assert.equal(JSON.stringify(l),before);assert.equal(verifyLedger(q).events,1)});
+test('ledger rejects deleted event',()=>{const l=appendCompress(appendCompress(createLedger(8)));l.events.shift();assert.throws(()=>verifyLedger(l),/Replay/)});
+test('ledger rejects altered witness',()=>{const l=appendCompress(createLedger(8));l.events[0].packet.witness.lobes=5;assert.throws(()=>verifyLedger(l),/Replay/)});

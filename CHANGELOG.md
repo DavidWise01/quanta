@@ -1,5 +1,11 @@
 # QUANTA · Changelog
 
+## 2026-11-10 — QG-049 · Minimum Fold Memory
+- Replaced QG-048's duplicate full preimage with a smaller recipe-relative witness: successor, fixed generator recipe, and lobes parameter; n inferred from successor size.
+- Regenerates source and contraction deterministically; rejects stale, inconsistent, unknown, or missing witnesses. Includes 14 regression tests and a canvas viewer.
+- JSON character-count comparison is not a universal minimal-bit proof or a guarantee of unique source reconstruction from an arbitrary collapsed graph.
+
+
 ## 2026-11-09 — QG-048 · Reversible Pinch
 - Added exact reverse of QG-047's explicit center/rim contraction using retained original graph, vertex identities, and full edge lineage.
 - Proved and regression-tested five outer ring sizes; a contracted successor without preimage evidence is intentionally insufficient for unique reversal.

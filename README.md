@@ -18,6 +18,9 @@ QG-034 has an executable, deterministic boot path: `node language/instantiate-ke
 
 ## Read and explore
 
+- **[QG-049 Minimum Fold Memory](./minimum-fold-memory.html)** — store successor + versioned generator recipe + lobe witness, regenerate the exact original, and compare serialized size with full QG-048 evidence. [Kernel](./language/minimum-fold-memory.mjs) · [Specification](./language/QG-049-MINIMUM-FOLD-MEMORY.md) · [14 tests](./tests/minimum-fold-memory.test.mjs).
+
+
 - **[QG-048 Reversible Pinch](./reversible-pinch.html)** — lossless center/rim contraction and exact preimage restoration with full vertex and edge lineage. Explore the canvas lab and the failure when preimage evidence is stripped. [Kernel](./language/reversible-pinch.mjs) · [Specification](./language/QG-048-REVERSIBLE-PINCH.md) · [15 regression tests](./tests/reversible-pinch.test.mjs).
 
 

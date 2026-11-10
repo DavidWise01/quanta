@@ -1,5 +1,11 @@
 # QUANTA · Changelog
 
+## 2026-11-09 — QG-048 · Reversible Pinch
+- Added exact reverse of QG-047's explicit center/rim contraction using retained original graph, vertex identities, and full edge lineage.
+- Proved and regression-tested five outer ring sizes; a contracted successor without preimage evidence is intentionally insufficient for unique reversal.
+- Added 15 regression tests, in-browser canvas, interactive Pages lab, formal specification and replay checks. No external authentication or physical topology claim.
+
+
 ## 2026-11-09 — QG-047 · Post-Contact Reconstruction
 - Extended QG-046 first-contact evidence with an explicit graph contraction that merges the center and touching rim vertex, removes a self-loop, and deduplicates two parallel edges.
 - Preserved an exact mapping from original vertices and every original edge to its successor or removal reason; proved successor counts V=n, E=2n-3, F=n-1, Euler=2 for the defined planar family.

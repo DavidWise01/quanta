@@ -1,0 +1,25 @@
+name: QG-048 Reversible Pinch Tests
+on:
+  push:
+    paths:
+      - "language/reversible-pinch.mjs"
+      - "language/post-contact-reconstruction.mjs"
+      - "tests/reversible-pinch.test.mjs"
+      - ".github/workflows/reversible-pinch-tests.yml"
+  pull_request:
+    paths:
+      - "language/reversible-pinch.mjs"
+      - "tests/reversible-pinch.test.mjs"
+      - ".github/workflows/reversible-pinch-tests.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - run: node --test tests/first-broken-edge.test.mjs tests/post-contact-reconstruction.test.mjs tests/reversible-pinch.test.mjs

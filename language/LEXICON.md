@@ -190,3 +190,9 @@ Do not assert that the shape of a symbol proves the shape of a particle, or that
 - `C+R0`: explicit successor vertex label after contracting the contacted `C--R0` spoke, not simply drawing overlapping points.
 - `edgeLineage`: total mapping of source edges to successor edges or a documented deletion reason (self-loop/parallel deduplication).
 - `V=n, E=2n-3, F=n-1`: contracted planar wheel counts including exterior face. Graph contraction changes the cell count while preserving Euler value 2; it is not evidence of a physical topological phase transition.
+
+## QG-048 — Reversible pinch
+
+- `freezePinch` stores full original vertices, original edges, and lineage alongside a contracted successor.
+- `unfoldPinch` reconstructs the exact source and checks its independent deterministic contraction. The successor without preimage is insufficient for exact reversal.
+- `unfold(fold(G))=G` is a reversible-data invariant only when source identity and edge evidence have been preserved; not a claim that physical pinching is reversible.

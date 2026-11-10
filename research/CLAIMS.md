@@ -188,3 +188,5 @@ A precise specification is **not** automatically a statement about physics. A pr
 | QG-053 | Within the eight-root synthetic model, phase at the repeated Fibonacci 1 can resolve ambiguity without coordinate movement; redundant amplitude cannot | Implemented bounded information-gain decision rule | Finite candidate partitions, replayed stay/stop events, 17 regression tests; not globally optimal exploration or a physical movement law |
 
 | QG-054 | In the eight-root synthetic model, second-vertex phase measurement can yield one expected bit and is worthwhile under a positive-net, affordable cost rule | Implemented finite one-step decision policy | Strict break-even threshold, zero-cost/zero-value/budget cases, replay and 21 tests; no universal optimality or physical cost claims |
+
+| QG-055 | In a declared deterministic finite price schedule, an observer can prefer waiting over immediate measurement or stopping by comparing discounted information value and costs | Implemented synthetic finite-horizon decision rule | Exact three-tick cost example, replay verifier, budget, tie, discount and tampering tests (26 cases); not predictive of actual future costs |

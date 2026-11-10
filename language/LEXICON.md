@@ -233,3 +233,9 @@ Do not assert that the shape of a symbol proves the shape of a particle, or that
 - `benefit`: expected candidate information bits multiplied by a declared, nonnegative value per bit.
 - `cost`: declared per-channel observation credits at the **same** Fibonacci position 1; a separate budget constrains affordable measurements.
 - `break-even`: `expectedBits*valuePerBit = sensorCost`; an observation is authorized only for strictly positive net benefit and adequate budget.
+
+## QG-055 — The value of waiting
+
+- `buy now`: an affordable current phase observation offers the strongest strictly positive expected net benefit.
+- `wait`: an affordable later observation in a declared finite price schedule offers higher expected discounted net benefit; advance one simulation tick and recompute.
+- `stop`: no feasible observation has strictly positive expected benefit after sensor cost and waiting fee. Remaining candidates are preserved rather than guessed.

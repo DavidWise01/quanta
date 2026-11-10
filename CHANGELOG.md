@@ -1,5 +1,10 @@
 # QUANTA · Changelog
 
+## 2026-11-10 — QG-055 · The Value of Waiting
+- Added finite-horizon waiting decisions for synthetic sensor prices, a waiting fee, discounted information value, and a hard budget. The observer can wait without moving along Fibonacci coordinates.
+- Logs wait/observe/stop events and verifies deterministic replay; added 26 adversarial tests, interactive ASCII GitHub Pages lab, and exact model scope. This does not schedule real background work.
+
+
 ## 2026-11-10 — QG-054 · The Cost of Knowing
 - Added one-step expected value-of-information policy: benefit (uniform candidate information bits × declared value per bit) minus observation cost, subject to a hard budget.
 - A zero-net or unaffordable observation is rejected while the original ambiguous evidence is preserved; added 21 regression tests, interactive ASCII Page, and formal model limits. Credits are not physical electrical capacitance.

@@ -18,6 +18,9 @@ QG-034 has an executable, deterministic boot path: `node language/instantiate-ke
 
 ## Read and explore
 
+- **[QG-055 Value of Waiting](./value-of-waiting.html)** — compare buying a second observation now, paying to wait for a lower deterministic future price, or stopping with uncertainty. [Kernel](./language/value-of-waiting.mjs) · [Specification](./language/QG-055-VALUE-OF-WAITING.md) · [26 tests](./tests/value-of-waiting.test.mjs).
+
+
 - **[QG-054 Cost of Knowing](./cost-of-knowing.html)** — compare expected bits against observation cost, value per bit and budget at the repeated Fibonacci position 1. Stop at or below break-even. [Kernel](./language/cost-of-knowing.mjs) · [Specification](./language/QG-054-COST-OF-KNOWING.md) · [21 tests](./tests/cost-of-knowing.test.mjs).
 
 

@@ -18,6 +18,9 @@ QG-034 has an executable, deterministic boot path: `node language/instantiate-ke
 
 ## Read and explore
 
+- **[QG-056 Uncertainty of Waiting](./uncertain-waiting.html)** — model unknown future phase prices with explicit forecast probabilities; decide before seeing the realized branch and preserve the observed outcome separately. [Kernel](./language/uncertain-waiting.mjs) · [Specification](./language/QG-056-UNCERTAIN-WAITING.md) · [29 tests](./tests/uncertain-waiting.test.mjs).
+
+
 - **[QG-055 Value of Waiting](./value-of-waiting.html)** — compare buying a second observation now, paying to wait for a lower deterministic future price, or stopping with uncertainty. [Kernel](./language/value-of-waiting.mjs) · [Specification](./language/QG-055-VALUE-OF-WAITING.md) · [26 tests](./tests/value-of-waiting.test.mjs).
 
 

@@ -239,3 +239,10 @@ Do not assert that the shape of a symbol proves the shape of a particle, or that
 - `buy now`: an affordable current phase observation offers the strongest strictly positive expected net benefit.
 - `wait`: an affordable later observation in a declared finite price schedule offers higher expected discounted net benefit; advance one simulation tick and recompute.
 - `stop`: no feasible observation has strictly positive expected benefit after sensor cost and waiting fee. Remaining candidates are preserved rather than guessed.
+
+## QG-056 — Uncertainty of waiting
+
+- `forecast`: declared prices with normalized probabilities, not observed future facts.
+- `realized price`: one branch disclosed after the observer chooses to wait; stored separately from the prior forecast.
+- `wait option`: expected contingent surplus of buying only if useful and affordable after price is revealed, less the certain waiting fee.
+- `stop after waiting`: retain ambiguity if the realized price does not justify observing phase; no fabricated evidence.

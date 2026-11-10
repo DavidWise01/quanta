@@ -1,5 +1,10 @@
 # QUANTA · Changelog
 
+## 2026-11-10 — QG-056 · The Uncertainty of Waiting
+- Replaced guaranteed future costs with a finite hypothetical probability distribution; added contingent policy to buy now, wait, or stop, and only conditionally buy when a future price is actually revealed.
+- Kept the forecast separate from the realized observation; logged and replay-verified both favorable and unfavorable branches. Added 29 adversarial tests, ASCII interactive lab and documentation; probabilities remain assumptions rather than calibrated predictions.
+
+
 ## 2026-11-10 — QG-055 · The Value of Waiting
 - Added finite-horizon waiting decisions for synthetic sensor prices, a waiting fee, discounted information value, and a hard budget. The observer can wait without moving along Fibonacci coordinates.
 - Logs wait/observe/stop events and verifies deterministic replay; added 26 adversarial tests, interactive ASCII GitHub Pages lab, and exact model scope. This does not schedule real background work.

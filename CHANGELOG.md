@@ -1,5 +1,11 @@
 # QUANTA · Changelog
 
+## 2026-11-09 — QG-047 · Post-Contact Reconstruction
+- Extended QG-046 first-contact evidence with an explicit graph contraction that merges the center and touching rim vertex, removes a self-loop, and deduplicates two parallel edges.
+- Preserved an exact mapping from original vertices and every original edge to its successor or removal reason; proved successor counts V=n, E=2n-3, F=n-1, Euler=2 for the defined planar family.
+- Added 14 adversarial regression tests, replay verification, a chrome/orange interactive Pages viewer, and a formal specification. A new graph is not a physical phase transition.
+
+
 ## 2026-11-09 — QG-046 · First Contact
 - Analytically derived the first rim-to-center collision at radial strength 1 for the declared pinching family; all fan triangle areas remain positive before contact.
 - Implemented seven Fibonacci-strength observations, an append-only-value replay ledger, 14 regression cases, interactive Pages lab, proof notes and claims ledger. A collapsed embedding is not a constructed new topology.

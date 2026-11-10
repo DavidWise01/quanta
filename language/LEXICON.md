@@ -184,3 +184,9 @@ Do not assert that the shape of a symbol proves the shape of a particle, or that
 
 - `s` is radial pinch strength; `r_i(s)=1-s*(0.55+0.45*cos(lobes*2*pi*i/n))`.
 - `first contact` occurs at `s=1` for this declared wheel deformation because the index-zero radial factor reaches zero. This is a singular embedding, not a physical phase transition.
+
+## QG-047 — Post-contact reconstruction
+
+- `C+R0`: explicit successor vertex label after contracting the contacted `C--R0` spoke, not simply drawing overlapping points.
+- `edgeLineage`: total mapping of source edges to successor edges or a documented deletion reason (self-loop/parallel deduplication).
+- `V=n, E=2n-3, F=n-1`: contracted planar wheel counts including exterior face. Graph contraction changes the cell count while preserving Euler value 2; it is not evidence of a physical topological phase transition.

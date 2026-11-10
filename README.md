@@ -18,6 +18,9 @@ QG-034 has an executable, deterministic boot path: `node language/instantiate-ke
 
 ## Read and explore
 
+- **[QG-047 Post-Contact Reconstruction](./post-contact-reconstruction.html)** — explicitly merge the touching center and rim vertex, remove loops and duplicate edges, retain every source-to-successor edge mapping, and replay-check the result. [Kernel](./language/post-contact-reconstruction.mjs) · [Specification](./language/QG-047-POST-CONTACT-RECONSTRUCTION.md) · [14 regression tests](./tests/post-contact-reconstruction.test.mjs).
+
+
 - **[QG-046 First Contact](./first-broken-edge.html)** — find the analytic first failure of a center-pinch wheel at strength 1, replay the seven Fibonacci checkpoints, and stop at the collapsed edge. [Kernel](./language/first-broken-edge.mjs) · [Proof](./language/QG-046-FIRST-CONTACT.md) · [14 tests](./tests/first-broken-edge.test.mjs).
 
 

@@ -1,0 +1,26 @@
+name: QG-047 Post-Contact Reconstruction Tests
+on:
+  push:
+    paths:
+      - "language/post-contact-reconstruction.mjs"
+      - "language/first-broken-edge.mjs"
+      - "tests/post-contact-reconstruction.test.mjs"
+      - ".github/workflows/post-contact-reconstruction-tests.yml"
+  pull_request:
+    paths:
+      - "language/post-contact-reconstruction.mjs"
+      - "language/first-broken-edge.mjs"
+      - "tests/post-contact-reconstruction.test.mjs"
+      - ".github/workflows/post-contact-reconstruction-tests.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - run: node --test tests/center-pinch.test.mjs tests/first-broken-edge.test.mjs tests/post-contact-reconstruction.test.mjs

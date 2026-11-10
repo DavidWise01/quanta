@@ -18,6 +18,9 @@ QG-034 has an executable, deterministic boot path: `node language/instantiate-ke
 
 ## Read and explore
 
+- **[QG-054 Cost of Knowing](./cost-of-knowing.html)** — compare expected bits against observation cost, value per bit and budget at the repeated Fibonacci position 1. Stop at or below break-even. [Kernel](./language/cost-of-knowing.mjs) · [Specification](./language/QG-054-COST-OF-KNOWING.md) · [21 tests](./tests/cost-of-knowing.test.mjs).
+
+
 - **[QG-053 No-Wasted-Movement Bound](./no-wasted-movement.html)** — compare expected information gain at the current Fibonacci vertex against the cost of moving to the next position. Stay when a phase measurement resolves ambiguity; stop if no positive-gain action exists. [Kernel](./language/no-wasted-movement.mjs) · [Spec](./language/QG-053-NO-WASTED-MOVEMENT.md) · [17 tests](./tests/no-wasted-movement.test.mjs).
 
 

@@ -227,3 +227,9 @@ Do not assert that the shape of a symbol proves the shape of a particle, or that
 - `stay`: take an unused informative measurement channel at the current allowed Fibonacci coordinate.
 - `move`: advance only to the next permitted *different* Fibonacci coordinate if its expected gain, less a declared nonnegative movement penalty, is positive and best.
 - `stop`: observed candidates are unique or no admissible action has strictly positive modeled net gain; uncertainty may remain.
+
+## QG-054 — The cost of knowing
+
+- `benefit`: expected candidate information bits multiplied by a declared, nonnegative value per bit.
+- `cost`: declared per-channel observation credits at the **same** Fibonacci position 1; a separate budget constrains affordable measurements.
+- `break-even`: `expectedBits*valuePerBit = sensorCost`; an observation is authorized only for strictly positive net benefit and adequate budget.

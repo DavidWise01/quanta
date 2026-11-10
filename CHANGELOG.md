@@ -1,5 +1,10 @@
 # QUANTA · Changelog
 
+## 2026-11-10 — QG-054 · The Cost of Knowing
+- Added one-step expected value-of-information policy: benefit (uniform candidate information bits × declared value per bit) minus observation cost, subject to a hard budget.
+- A zero-net or unaffordable observation is rejected while the original ambiguous evidence is preserved; added 21 regression tests, interactive ASCII Page, and formal model limits. Credits are not physical electrical capacitance.
+
+
 ## 2026-11-10 — QG-053 · No-Wasted-Movement Bound
 - Implemented bounded action selection at the current permitted Fibonacci vertex based on expected candidate-count information gain, with an optional movement penalty.
 - Preserved distinct observation opportunities at the repeated first 1, avoided duplicate measurements, and stopped when no positive-gain action existed. Added 17 tests, ASCII lab and specification; synthetic information, not physical movement or actual identification.

@@ -1,0 +1,24 @@
+name: QG-054 Cost of Knowing Tests
+on:
+  push:
+    paths:
+      - "language/cost-of-knowing.mjs"
+      - "tests/cost-of-knowing.test.mjs"
+      - ".github/workflows/cost-of-knowing-tests.yml"
+  pull_request:
+    paths:
+      - "language/cost-of-knowing.mjs"
+      - "tests/cost-of-knowing.test.mjs"
+      - ".github/workflows/cost-of-knowing-tests.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - run: node --test tests/no-wasted-movement.test.mjs tests/cost-of-knowing.test.mjs

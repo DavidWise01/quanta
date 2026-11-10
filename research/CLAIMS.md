@@ -186,3 +186,5 @@ A precise specification is **not** automatically a statement about physics. A pr
 | QG-052 | A repeated amplitude observation at the same coordinate does not change a deterministic candidate set, whereas phase can split roots 5/8 or 6/7 into singletons in the QG-051 eight-root model | Exact finite-model information calculation | Forecasted partitions, realized 0 versus 1 bit, audit across all roots, 18 adversarial regression tests |
 
 | QG-053 | Within the eight-root synthetic model, phase at the repeated Fibonacci 1 can resolve ambiguity without coordinate movement; redundant amplitude cannot | Implemented bounded information-gain decision rule | Finite candidate partitions, replayed stay/stop events, 17 regression tests; not globally optimal exploration or a physical movement law |
+
+| QG-054 | In the eight-root synthetic model, second-vertex phase measurement can yield one expected bit and is worthwhile under a positive-net, affordable cost rule | Implemented finite one-step decision policy | Strict break-even threshold, zero-cost/zero-value/budget cases, replay and 21 tests; no universal optimality or physical cost claims |

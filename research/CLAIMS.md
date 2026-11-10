@@ -180,3 +180,5 @@ A precise specification is **not** automatically a statement about physics. A pr
 | QG-049 | Known QG-047 generator plus successor and its lobe parameter can regenerate the exact source without duplicate full original graph data | Defined recipe-relative compression, not universal minimality | Five-size round trips, JSON size comparison, missing-witness and tamper rejection, 14 tests |
 
 | QG-050 | A regular 8-point ring sampled by the cosine response cannot distinguish frequencies 1 and 7, but an off-grid sample can separate them within the enumerated candidate family | Established trigonometric aliasing; implemented bounded observer experiment | Exact sampled-angle cosine identity, 16 regression tests, and replay evidence; not universal identification |
+
+| QG-051 | Two channels at the same allowed Fibonacci position distinguish all eight declared cosine-frequency roots on a thirteen-point ring, while amplitude alone cannot separate 5/8 or 6/7 | Proven finite-model trig identity plus tested implementation | Exact 13-grid alias relationships, sine sign distinctions, exhaustive eight-root audit, 18 regression tests |

@@ -1,5 +1,11 @@
 # QUANTA · Changelog
 
+## 2026-11-10 — QG-051 · Observation Sufficiency
+- Preserved the Fibonacci path 1/1/2/3/5/8/13 with its repeated first position as a second measurement rather than duplicate distance traveled.
+- Demonstrated that amplitude-only samples on the thirteen-position ring cannot separate aliased roots 5/8 and 6/7; a phase measurement at the same permitted vertex distinguishes all eight enumerated roots.
+- Added 18 regression tests, a deterministic blind measurement ledger, an interactive ASCII Pages viewer and documented the finite candidate-class limits.
+
+
 ## 2026-11-10 — QG-050 · Ambiguous Roots
 - Added an observer-first synthetic model of observationally indistinguishable roots: 8-point samples cannot distinguish cosine frequencies 1 and 7.
 - Added bounded off-grid experimental probes that separate candidates when their predicted observations diverge; preserved all compatible roots until new evidence arrives.

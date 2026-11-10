@@ -208,3 +208,10 @@ Do not assert that the shape of a symbol proves the shape of a particle, or that
 - `root`: one candidate generating parameter in a fixed family, not a verified identity inferred from a silhouette.
 - `observational equivalence`: two generators produce the same observations at every permitted sampled vertex. In the eight-vertex ring, cosine frequencies 1 and 7 are equivalent on the ring.
 - `off-grid probe`: an additional observation chosen where candidate predictions differ, preserving the previous evidence and withholding identification until the candidates separate.
+
+## QG-051 — Observation sufficiency
+
+- `1 / 1`: two observation events at one permitted Fibonacci position, amplitude first and phase second, without moving to an unauthorized coordinate.
+- `A_k(theta)`: amplitude channel `0.55+0.45*cos(k*theta)`. On the thirteen-position grid, roots 5/8 and 6/7 remain aliased for any number of amplitude-only measurements at grid vertices.
+- `P_k(theta)`: phase-oriented channel `sin(k*theta)`. At vertex 1 it distinguishes the cosine-frequency aliases within the declared 8-root family.
+- `sufficient`: exactly one candidate remains given the declared finite model and measured features; not proof of all possible physical roots.

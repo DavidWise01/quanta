@@ -18,6 +18,9 @@ QG-034 has an executable, deterministic boot path: `node language/instantiate-ke
 
 ## Read and explore
 
+- **[QG-051 Observation Sufficiency](./observation-sufficiency.html)** — keep the exact 1/1/2/3/5/8/13 walk, observe amplitude at the first 1 and phase at the repeated 1, and measure when every finite candidate root becomes distinguishable. [Kernel](./language/observation-sufficiency.mjs) · [Specification](./language/QG-051-OBSERVATION-SUFFICIENCY.md) · [18 tests](./tests/observation-sufficiency.test.mjs).
+
+
 - **[QG-050 Ambiguous Roots](./ambiguous-roots.html)** — observe an eight-vertex ring, retain both possible cosine generators, choose an off-grid distinguishing measurement, and replay evidence. [Kernel](./language/ambiguous-roots.mjs) · [Specification](./language/QG-050-AMBIGUOUS-ROOTS.md) · [16 tests](./tests/ambiguous-roots.test.mjs).
 
 

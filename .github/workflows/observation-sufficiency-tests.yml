@@ -1,0 +1,24 @@
+name: QG-051 Observation Sufficiency Tests
+on:
+  push:
+    paths:
+      - "language/observation-sufficiency.mjs"
+      - "tests/observation-sufficiency.test.mjs"
+      - ".github/workflows/observation-sufficiency-tests.yml"
+  pull_request:
+    paths:
+      - "language/observation-sufficiency.mjs"
+      - "tests/observation-sufficiency.test.mjs"
+      - ".github/workflows/observation-sufficiency-tests.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - run: node --test tests/ambiguous-roots.test.mjs tests/observation-sufficiency.test.mjs

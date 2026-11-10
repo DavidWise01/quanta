@@ -1,5 +1,10 @@
 # QUANTA · Changelog
 
+## 2026-11-10 — QG-053 · No-Wasted-Movement Bound
+- Implemented bounded action selection at the current permitted Fibonacci vertex based on expected candidate-count information gain, with an optional movement penalty.
+- Preserved distinct observation opportunities at the repeated first 1, avoided duplicate measurements, and stopped when no positive-gain action existed. Added 17 tests, ASCII lab and specification; synthetic information, not physical movement or actual identification.
+
+
 ## 2026-11-10 — QG-052 · Independent Information
 - Measured conditional information gain at the repeated Fibonacci 1 without moving: duplicate amplitude adds zero bits; phase resolves a two-root ambiguity and adds one bit under a uniform candidate prior.
 - Added candidate-partition forecasts, deterministic two-event replay, 18 regression tests, ASCII interactive Pages lab, and a model-dependence note. This is not a proof of physically independent sensors.

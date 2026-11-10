@@ -18,6 +18,9 @@ QG-034 has an executable, deterministic boot path: `node language/instantiate-ke
 
 ## Read and explore
 
+- **[QG-053 No-Wasted-Movement Bound](./no-wasted-movement.html)** — compare expected information gain at the current Fibonacci vertex against the cost of moving to the next position. Stay when a phase measurement resolves ambiguity; stop if no positive-gain action exists. [Kernel](./language/no-wasted-movement.mjs) · [Spec](./language/QG-053-NO-WASTED-MOVEMENT.md) · [17 tests](./tests/no-wasted-movement.test.mjs).
+
+
 - **[QG-052 Independent Information](./independent-information.html)** — compare repeating an amplitude measurement against measuring phase at the same Fibonacci vertex; quantify candidate reduction and expected versus realized information gain. [Kernel](./language/independent-information.mjs) · [Specification](./language/QG-052-INDEPENDENT-INFORMATION.md) · [18 tests](./tests/independent-information.test.mjs).
 
 

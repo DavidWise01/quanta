@@ -184,3 +184,5 @@ A precise specification is **not** automatically a statement about physics. A pr
 | QG-051 | Two channels at the same allowed Fibonacci position distinguish all eight declared cosine-frequency roots on a thirteen-point ring, while amplitude alone cannot separate 5/8 or 6/7 | Proven finite-model trig identity plus tested implementation | Exact 13-grid alias relationships, sine sign distinctions, exhaustive eight-root audit, 18 regression tests |
 
 | QG-052 | A repeated amplitude observation at the same coordinate does not change a deterministic candidate set, whereas phase can split roots 5/8 or 6/7 into singletons in the QG-051 eight-root model | Exact finite-model information calculation | Forecasted partitions, realized 0 versus 1 bit, audit across all roots, 18 adversarial regression tests |
+
+| QG-053 | Within the eight-root synthetic model, phase at the repeated Fibonacci 1 can resolve ambiguity without coordinate movement; redundant amplitude cannot | Implemented bounded information-gain decision rule | Finite candidate partitions, replayed stay/stop events, 17 regression tests; not globally optimal exploration or a physical movement law |

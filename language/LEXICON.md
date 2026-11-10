@@ -221,3 +221,9 @@ Do not assert that the shape of a symbol proves the shape of a particle, or that
 - `information gain`: `log2(|compatible before|)-log2(|compatible after|)` under a uniform finite candidate prior; measured in model-relative bits.
 - `repeated 1`: second permitted observation event at the same position; an amplitude duplicate may add zero information, while a phase measurement may distinguish ambiguous roots.
 - `expected gain`: prior partition-based expectation across possible outcomes, distinct from realized gain after measurement.
+
+## QG-053 — No-wasted-movement bound
+
+- `stay`: take an unused informative measurement channel at the current allowed Fibonacci coordinate.
+- `move`: advance only to the next permitted *different* Fibonacci coordinate if its expected gain, less a declared nonnegative movement penalty, is positive and best.
+- `stop`: observed candidates are unique or no admissible action has strictly positive modeled net gain; uncertainty may remain.

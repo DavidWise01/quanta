@@ -66,7 +66,7 @@ export function appendCost(log,observedValue){
 }
 export function demoCost(root=5,overrides={}){
  const log=startCost(root,overrides),plan=optionsAtOne([log.first],log.settings).decision;
- return plan?appendCost(log,measure(root,1,plan.channel)):log;
+ return plan.kind==='observe'?appendCost(log,measure(root,1,plan.channel)):log;
 }
 export function threshold(root=5,settings=SETTINGS){
  const ledger=startCost(root,settings);

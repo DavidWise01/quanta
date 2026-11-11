@@ -253,3 +253,10 @@ Do not assert that the shape of a symbol proves the shape of a particle, or that
 - `Brier score`: squared difference between a predicted probability and a later observed binary outcome, aggregated by mean; lower is better on observed examples.
 - `empirical rate`: observed event frequency, kept distinct from the smoothed posterior-predictive probability.
 - `calibration bin`: grouping of forecasts by stated probability, showing observed frequency and sample count without claiming certainty from sparse evidence.
+
+## QG-058 — Change versus noise
+
+- `baseline`: the first fixed set of 20 binary observations, never retrospectively rewritten after monitoring begins.
+- `monitor batch`: the next complete nonoverlapping set of 20 outcomes, tested only when complete.
+- `alpha spending`: per-batch error allocation `alpha/[k(k+1)]` to bound the familywise false-alert rate under the stationary independent Bernoulli null hypothesis.
+- `review`: a threshold exceedance signaling that the null model merits investigation, not independently proven world change.

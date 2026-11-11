@@ -1,5 +1,10 @@
 # QUANTA · Changelog
 
+## 2026-11-10 — QG-058 · Change Versus Noise
+- Added baseline-versus-batch difference screening under an explicitly stationary independent Bernoulli null model, using Hoeffding bounds and alpha spending over repeated fixed checkpoints.
+- Preserved each input, comparison, and original baseline in a replay-verifiable value ledger; flagged possible changes for review without asserting causal explanation or proof of stationarity. Added 26 tests and interactive ASCII laboratory.
+
+
 ## 2026-11-10 — QG-057 · Forecast Reliability
 - Separated prior probability forecasts from later realized binary price outcomes; added issuance-before-observation event semantics with deterministic replay.
 - Implemented Beta(3,2) illustrative posterior predictive updates, Brier scoring, empirical rate, calibration bins and explicit small-sample warnings. Added 26 regression tests, browser ASCII laboratory and formal model limitations.

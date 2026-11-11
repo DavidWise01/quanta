@@ -1,0 +1,24 @@
+name: QG-058 Change Versus Noise Tests
+on:
+  push:
+    paths:
+      - "language/change-versus-noise.mjs"
+      - "tests/change-versus-noise.test.mjs"
+      - ".github/workflows/change-versus-noise-tests.yml"
+  pull_request:
+    paths:
+      - "language/change-versus-noise.mjs"
+      - "tests/change-versus-noise.test.mjs"
+      - ".github/workflows/change-versus-noise-tests.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - run: node --test tests/forecast-reliability.test.mjs tests/change-versus-noise.test.mjs

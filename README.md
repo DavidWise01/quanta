@@ -18,6 +18,9 @@ QG-034 has an executable, deterministic boot path: `node language/instantiate-ke
 
 ## Read and explore
 
+- **[QG-058 Change Versus Noise](./change-versus-noise.html)** — freeze a 20-event baseline, compare fixed 20-event monitoring batches, and flag possible shifts with across-checkpoint error control. [Kernel](./language/change-versus-noise.mjs) · [Specification](./language/QG-058-CHANGE-VERSUS-NOISE.md) · [26 regression tests](./tests/change-versus-noise.test.mjs).
+
+
 - **[QG-057 Forecast Reliability](./forecast-reliability.html)** — issue a forecast before revealing an outcome, update a declared Beta(3,2) prior, measure Brier loss and empirical calibration, and replay-check the evidence. [Kernel](./language/forecast-reliability.mjs) · [Specification](./language/QG-057-FORECAST-RELIABILITY.md) · [26 tests](./tests/forecast-reliability.test.mjs).
 
 

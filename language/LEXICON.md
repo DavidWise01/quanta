@@ -267,3 +267,10 @@ Do not assert that the shape of a symbol proves the shape of a particle, or that
 - `candidate`: alerting monitor batch interpreted provisionally, not automatically accepted as a new truth.
 - `confirmation`: an independent new sequence of 20 observed outcomes, separate from baseline and seed batch.
 - `promote / reject`: explicit finite-model decision after a complete confirmation batch; both preserve the old history and the fresh evidence.
+
+## QG-060 — The right to be wrong
+
+- `promotion history`: the QG-059 decision and its originating QG-058 alert, retained even when subsequent authority changes.
+- `fresh validation`: a separate 20-outcome window following promotion, not a duplicated source or reused confirming batch.
+- `withdrawn authority`: an explicit current status assigned when a fixed validation discrepancy threshold is exceeded; not deletion of previous evidence.
+- `withdrawal certificate`: replayable record of promoted and validation rates, decision threshold, and old and new symbolic authority.

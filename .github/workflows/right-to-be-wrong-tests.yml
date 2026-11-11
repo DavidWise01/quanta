@@ -1,0 +1,24 @@
+name: QG-060 Right To Be Wrong Tests
+on:
+  push:
+    paths:
+      - "language/right-to-be-wrong.mjs"
+      - "tests/right-to-be-wrong.test.mjs"
+      - ".github/workflows/right-to-be-wrong-tests.yml"
+  pull_request:
+    paths:
+      - "language/right-to-be-wrong.mjs"
+      - "tests/right-to-be-wrong.test.mjs"
+      - ".github/workflows/right-to-be-wrong-tests.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - run: node --test tests/sealed-model-handoff.test.mjs tests/right-to-be-wrong.test.mjs

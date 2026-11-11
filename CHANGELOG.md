@@ -1,5 +1,10 @@
 # QUANTA · Changelog
 
+## 2026-11-11 — QG-060 · The Right to Be Wrong
+- Introduced a post-promotion validation boundary: one separate 20-outcome fixed-window test can withdraw the *current* symbolic authority of a promoted provisional candidate, without erasing or modifying the historical QG-058 alert and QG-059 promotion decision.
+- Added a replay-checked withdrawal certificate, 24 regression tests, a visual ASCII Pages laboratory, and documented that the value ledger is not cryptographically sealed or proof of real-world drift.
+
+
 ## 2026-11-11 — QG-059 · Sealed Model Handoff
 - Added explicit preservation of an old baseline and source QG-058 alert while independently testing a provisional candidate model against 20 fresh binary observations.
 - Candidate is not promoted before a complete confirmation batch, and a rejected candidate remains on record. Added 22 new regression tests, source/decision replay checks, interactive ASCII Pages lab and formal limits on the meaning of promotion.

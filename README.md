@@ -18,6 +18,9 @@ QG-034 has an executable, deterministic boot path: `node language/instantiate-ke
 
 ## Read and explore
 
+- **[QG-060 The Right to Be Wrong](./right-to-be-wrong.html)** — validate a provisionally promoted model using fresh evidence and withdraw present authority if contradicted, without rewriting the original promotion or old baseline. [Kernel](./language/right-to-be-wrong.mjs) · [Specification](./language/QG-060-RIGHT-TO-BE-WRONG.md) · [24 tests](./tests/right-to-be-wrong.test.mjs).
+
+
 - **[QG-059 Sealed Model Handoff](./sealed-model-handoff.html)** — retain the old QG-058 baseline after a shift alert, collect fresh confirming evidence for a provisional candidate, then promote or reject without erasing either history. [Kernel](./language/sealed-model-handoff.mjs) · [Spec](./language/QG-059-SEALED-MODEL-HANDOFF.md) · [22 tests](./tests/sealed-model-handoff.test.mjs).
 
 

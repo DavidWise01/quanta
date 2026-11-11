@@ -18,6 +18,9 @@ QG-034 has an executable, deterministic boot path: `node language/instantiate-ke
 
 ## Read and explore
 
+- **[QG-057 Forecast Reliability](./forecast-reliability.html)** — issue a forecast before revealing an outcome, update a declared Beta(3,2) prior, measure Brier loss and empirical calibration, and replay-check the evidence. [Kernel](./language/forecast-reliability.mjs) · [Specification](./language/QG-057-FORECAST-RELIABILITY.md) · [26 tests](./tests/forecast-reliability.test.mjs).
+
+
 - **[QG-056 Uncertainty of Waiting](./uncertain-waiting.html)** — model unknown future phase prices with explicit forecast probabilities; decide before seeing the realized branch and preserve the observed outcome separately. [Kernel](./language/uncertain-waiting.mjs) · [Specification](./language/QG-056-UNCERTAIN-WAITING.md) · [29 tests](./tests/uncertain-waiting.test.mjs).
 
 

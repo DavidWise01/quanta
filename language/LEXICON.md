@@ -246,3 +246,10 @@ Do not assert that the shape of a symbol proves the shape of a particle, or that
 - `realized price`: one branch disclosed after the observer chooses to wait; stored separately from the prior forecast.
 - `wait option`: expected contingent surplus of buying only if useful and affordable after price is revealed, less the certain waiting fee.
 - `stop after waiting`: retain ambiguity if the realized price does not justify observing phase; no fabricated evidence.
+
+## QG-057 — Forecast reliability
+
+- `issued forecast`: probability fixed in an event ledger before the corresponding binary price outcome becomes available.
+- `Brier score`: squared difference between a predicted probability and a later observed binary outcome, aggregated by mean; lower is better on observed examples.
+- `empirical rate`: observed event frequency, kept distinct from the smoothed posterior-predictive probability.
+- `calibration bin`: grouping of forecasts by stated probability, showing observed frequency and sample count without claiming certainty from sparse evidence.

@@ -1,5 +1,10 @@
 # QUANTA · Changelog
 
+## 2026-11-10 — QG-057 · Forecast Reliability
+- Separated prior probability forecasts from later realized binary price outcomes; added issuance-before-observation event semantics with deterministic replay.
+- Implemented Beta(3,2) illustrative posterior predictive updates, Brier scoring, empirical rate, calibration bins and explicit small-sample warnings. Added 26 regression tests, browser ASCII laboratory and formal model limitations.
+
+
 ## 2026-11-10 — QG-056 · The Uncertainty of Waiting
 - Replaced guaranteed future costs with a finite hypothetical probability distribution; added contingent policy to buy now, wait, or stop, and only conditionally buy when a future price is actually revealed.
 - Kept the forecast separate from the realized observation; logged and replay-verified both favorable and unfavorable branches. Added 29 adversarial tests, ASCII interactive lab and documentation; probabilities remain assumptions rather than calibrated predictions.

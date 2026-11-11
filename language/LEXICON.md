@@ -274,3 +274,11 @@ Do not assert that the shape of a symbol proves the shape of a particle, or that
 - `fresh validation`: a separate 20-outcome window following promotion, not a duplicated source or reused confirming batch.
 - `withdrawn authority`: an explicit current status assigned when a fixed validation discrepancy threshold is exceeded; not deletion of previous evidence.
 - `withdrawal certificate`: replayable record of promoted and validation rates, decision threshold, and old and new symbolic authority.
+
+## QG-061 — Relearning without amnesia
+
+- `ancestryRoot`: the asserted common origin of evidence packets; a GitHub/0root.ai mirror pair represents one claimed root, not two independent witnesses.
+- `independent_claim`: the first packet attributed to a particular ancestry root; this is not external cryptographic verification of source independence.
+- `mirrored_or_repeated`: later packet with the same root and outcome; retained but not double counted.
+- `review_lineage`: contradictory outcomes attributed to one root, which block candidate promotion pending review.
+- `eligible_for_provisional_authority`: three distinct root claims agree with the new candidate; a separate explicit action is still required.

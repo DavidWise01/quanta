@@ -1,5 +1,10 @@
 # QUANTA · Changelog
 
+## 2026-11-11 — QG-061 · Relearning Without Amnesia
+- Added an explicit post-withdrawal relearning lifecycle, retaining QG-058, QG-059, QG-060 history while proposing a new candidate from fresh validation.
+- Added witness-ancestry accounting with GitHub and 0root.ai mirrors sharing one synthetic root, three distinct matching root claims required for provisional-authorization eligibility, contradictory-root quarantine, and a separate authorization action. Added 27 regression tests and an interactive ASCII Pages lab. Source independence remains an unverified input claim.
+
+
 ## 2026-11-11 — QG-060 · The Right to Be Wrong
 - Introduced a post-promotion validation boundary: one separate 20-outcome fixed-window test can withdraw the *current* symbolic authority of a promoted provisional candidate, without erasing or modifying the historical QG-058 alert and QG-059 promotion decision.
 - Added a replay-checked withdrawal certificate, 24 regression tests, a visual ASCII Pages laboratory, and documented that the value ledger is not cryptographically sealed or proof of real-world drift.

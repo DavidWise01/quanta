@@ -18,6 +18,9 @@ QG-034 has an executable, deterministic boot path: `node language/instantiate-ke
 
 ## Read and explore
 
+- **[QG-061 Relearning Without Amnesia](./relearning-without-amnesia.html)** — after a verified withdrawal, build a candidate from new validation, preserve the original promotion, deduplicate mirrors by source ancestry, and require three matching distinct source-root claims before explicit provisional reauthorization. [Kernel](./language/relearning-without-amnesia.mjs) · [Specification](./language/QG-061-RELEARNING-WITHOUT-AMNESIA.md) · [27 tests](./tests/relearning-without-amnesia.test.mjs).
+
+
 - **[QG-060 The Right to Be Wrong](./right-to-be-wrong.html)** — validate a provisionally promoted model using fresh evidence and withdraw present authority if contradicted, without rewriting the original promotion or old baseline. [Kernel](./language/right-to-be-wrong.mjs) · [Specification](./language/QG-060-RIGHT-TO-BE-WRONG.md) · [24 tests](./tests/right-to-be-wrong.test.mjs).
 
 

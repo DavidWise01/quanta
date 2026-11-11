@@ -18,6 +18,9 @@ QG-034 has an executable, deterministic boot path: `node language/instantiate-ke
 
 ## Read and explore
 
+- **[QG-059 Sealed Model Handoff](./sealed-model-handoff.html)** — retain the old QG-058 baseline after a shift alert, collect fresh confirming evidence for a provisional candidate, then promote or reject without erasing either history. [Kernel](./language/sealed-model-handoff.mjs) · [Spec](./language/QG-059-SEALED-MODEL-HANDOFF.md) · [22 tests](./tests/sealed-model-handoff.test.mjs).
+
+
 - **[QG-058 Change Versus Noise](./change-versus-noise.html)** — freeze a 20-event baseline, compare fixed 20-event monitoring batches, and flag possible shifts with across-checkpoint error control. [Kernel](./language/change-versus-noise.mjs) · [Specification](./language/QG-058-CHANGE-VERSUS-NOISE.md) · [26 regression tests](./tests/change-versus-noise.test.mjs).
 
 

@@ -1,5 +1,10 @@
 # QUANTA · Changelog
 
+## 2026-11-11 — QG-059 · Sealed Model Handoff
+- Added explicit preservation of an old baseline and source QG-058 alert while independently testing a provisional candidate model against 20 fresh binary observations.
+- Candidate is not promoted before a complete confirmation batch, and a rejected candidate remains on record. Added 22 new regression tests, source/decision replay checks, interactive ASCII Pages lab and formal limits on the meaning of promotion.
+
+
 ## 2026-11-10 — QG-058 · Change Versus Noise
 - Added baseline-versus-batch difference screening under an explicitly stationary independent Bernoulli null model, using Hoeffding bounds and alpha spending over repeated fixed checkpoints.
 - Preserved each input, comparison, and original baseline in a replay-verifiable value ledger; flagged possible changes for review without asserting causal explanation or proof of stationarity. Added 26 tests and interactive ASCII laboratory.

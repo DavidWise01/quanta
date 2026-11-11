@@ -260,3 +260,10 @@ Do not assert that the shape of a symbol proves the shape of a particle, or that
 - `monitor batch`: the next complete nonoverlapping set of 20 outcomes, tested only when complete.
 - `alpha spending`: per-batch error allocation `alpha/[k(k+1)]` to bound the familywise false-alert rate under the stationary independent Bernoulli null hypothesis.
 - `review`: a threshold exceedance signaling that the null model merits investigation, not independently proven world change.
+
+## QG-059 — Sealed model handoff
+
+- `sealedOld`: retained full source QG-058 change-alert ledger; immutable by the new operation, but not cryptographically protected against an external rewrite.
+- `candidate`: alerting monitor batch interpreted provisionally, not automatically accepted as a new truth.
+- `confirmation`: an independent new sequence of 20 observed outcomes, separate from baseline and seed batch.
+- `promote / reject`: explicit finite-model decision after a complete confirmation batch; both preserve the old history and the fresh evidence.

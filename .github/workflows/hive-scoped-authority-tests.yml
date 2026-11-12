@@ -1,0 +1,24 @@
+name: QG-072 Scoped Authority Tests
+on:
+  push:
+    paths:
+      - "language/hive-scoped-authority.mjs"
+      - "tests/hive-scoped-authority.test.mjs"
+      - ".github/workflows/hive-scoped-authority-tests.yml"
+  pull_request:
+    paths:
+      - "language/hive-scoped-authority.mjs"
+      - "tests/hive-scoped-authority.test.mjs"
+      - ".github/workflows/hive-scoped-authority-tests.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - run: node --test tests/hive-authority-lease.test.mjs tests/hive-scoped-authority.test.mjs

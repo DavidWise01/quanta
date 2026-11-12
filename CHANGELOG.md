@@ -1,5 +1,10 @@
 # QUANTA · Changelog
 
+## 2026-11-12 — QG-072 · Authority Must Have Scope
+- Added issuer-signed scope rules bound to an active QG-071 lease digest, agent identity, checkpoint and revocation floor. Decisions require matching action + destination surface; lease expiration still denies operation despite a valid scope signature.
+- Denied gated GitHub information export to 0root.ai or the public internet; restricted external internet to discovery in the modeled policy. Added 30 regression tests and an interactive ASCII lab. Information classification is caller-declared, not yet authenticated taint tracking.
+
+
 ## 2026-11-12 — QG-071 · Authority Has a Lifetime
 - Added a signed finite logical-time lease bound to QG-070 challenge, agent identity, checkpoint digest and revocation floor, validated against an independently supplied monotonic logical clock.
 - Added bounded duration, exclusive expiry, chained non-overlapping renewal requiring fresh challenge evidence and append-by-value signature history; 26 regressions, ASCII lab and spec. Trusted time and durable replay storage are external assumptions.

@@ -356,3 +356,10 @@ Do not assert that the shape of a symbol proves the shape of a particle, or that
 - `exclusive expiry`: a lease authorizes only for `issuedAt <= tick < expiresAt` under a trusted externally supplied clock.
 - `trusted clock floor`: independent monotonic minimum tick; a caller-provided modeled guard, not real-world secure time.
 - `fresh renewal`: a new non-overlapping lease linked to its predecessor and a different verified QG-070 challenge; historical leases remain intact.
+
+## QG-072 — Authority must have scope
+
+- `scope grant`: issuer-signed finite set of explicit action/surface pairs cryptographically bound to one verified QG-071 signed lease and its identity/floor.
+- `access surface`: `github` (owned, gated), `0root.ai` (owned, public), or `public-internet` (external discovery); ownership and witness ancestry do not imply equal disclosure rights.
+- `gated export denial`: a modeled hard rule that prevents data marked `gated` and sourced on GitHub from moving to 0root.ai or external public internet, regardless of the action grant.
+- `decision receipt`: an append-by-value, replay-checked action request, reason and grant/lease hash. Real enforcement requires a trusted call-site and authenticated data classification.

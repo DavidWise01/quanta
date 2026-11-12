@@ -290,3 +290,10 @@ Do not assert that the shape of a symbol proves the shape of a particle, or that
 - `robots policy`: declared model input `allow`, `disallow`, or `unknown`; not proof that a live site's actual rules were checked.
 - `llms discovery`: `listed`, `unlisted`, or `unknown` metadata, never itself permission to access or disclose gated content.
 - `review_shared_ancestry`: contradictory packet outcomes inside one traced evidence component; block authorization.
+
+## QG-063 — Pinned source admission
+
+- `pinned manifest`: pretrusted local reference mapping source + surface to a SHA-256 content digest, declared ancestry and modeled access status; the registry itself is not externally authenticated.
+- `integrity match`: SHA-256 of the submitted text matches the pinned digest. This establishes consistency with the pinned copy, not actual authorship.
+- `quarantine receipt`: retained, non-counting packet marked as unknown, digest mismatch, robots disallow or unknown access policy.
+- `admitted evidence`: packet with a matched manifest and acceptable declared access status; only the manifest's ancestry enters QG-062's independent-root counter.

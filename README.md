@@ -18,6 +18,9 @@ QG-034 has an executable, deterministic boot path: `node language/instantiate-ke
 
 ## Read and explore
 
+- **[QG-063 Pinned Source Admission](./pinned-source-admission.html)** — before external evidence counts, verify source identity and SHA-256 content against an independently supplied pinned registry, quarantine unrecognized or modified packets, then deduplicate accepted upstream ancestry through QG-062. [Kernel](./language/pinned-source-admission.mjs) · [Specification](./language/QG-063-PINNED-SOURCE-ADMISSION.md) · [28 tests](./tests/pinned-source-admission.test.mjs).
+
+
 - **[QG-062 Three Surfaces, Independent Roots](./three-surface-ancestry.html)** — distinguish gated GitHub, public 0root.ai, and permitted external internet discovery; collapse mirrors and shared or transitive upstream ancestry before evidence votes. [Kernel](./language/three-surface-ancestry.mjs) · [Specification](./language/QG-062-THREE-SURFACE-ANCESTRY.md) · [32 tests](./tests/three-surface-ancestry.test.mjs).
 
 

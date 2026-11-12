@@ -1,0 +1,24 @@
+name: QG-063 Pinned Source Admission Tests
+on:
+  push:
+    paths:
+      - "language/pinned-source-admission.mjs"
+      - "tests/pinned-source-admission.test.mjs"
+      - ".github/workflows/pinned-source-admission-tests.yml"
+  pull_request:
+    paths:
+      - "language/pinned-source-admission.mjs"
+      - "tests/pinned-source-admission.test.mjs"
+      - ".github/workflows/pinned-source-admission-tests.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - run: node --test tests/three-surface-ancestry.test.mjs tests/pinned-source-admission.test.mjs

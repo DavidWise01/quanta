@@ -1,0 +1,24 @@
+name: QG-070 Fresh Challenge Tests
+on:
+  push:
+    paths:
+      - "language/hive-fresh-challenge.mjs"
+      - "tests/hive-fresh-challenge.test.mjs"
+      - ".github/workflows/hive-fresh-challenge-tests.yml"
+  pull_request:
+    paths:
+      - "language/hive-fresh-challenge.mjs"
+      - "tests/hive-fresh-challenge.test.mjs"
+      - ".github/workflows/hive-fresh-challenge-tests.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - run: node --test tests/hive-rejoin.test.mjs tests/hive-fresh-challenge.test.mjs

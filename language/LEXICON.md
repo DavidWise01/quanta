@@ -342,3 +342,10 @@ Do not assert that the shape of a symbol proves the shape of a particle, or that
 - `verified-awaiting-authorization`: successful checkpoint and revocation replay does not itself authorize the agent to act.
 - `rejoin certificate`: explicit modeled authorization bound to the verified checkpoint digest, agent ID and independently pinned revocation floor.
 - `rejoined`: modeled locally verified authority, not real distributed consensus, remote identity proof or live permission grant.
+
+## QG-070 — Freshness must be proven
+
+- `issuer-signed challenge`: a fresh random 256-bit nonce plus agent identity, checkpoint digest, revocation floor, sequence and rejoin digest, authenticated by an independently pinned issuer public key.
+- `agent challenge response`: signature from the pinned agent key over the exact issuer-signed challenge digest and current trust parameters.
+- `consume-once`: value-appended challenge state transition that rejects duplicate response consumption in the modeled ledger; requires external durable state in a real deployment.
+- `explicit fresh rejoin`: separate final approval after the challenge has verified and been consumed, preserving the original QG-069 offline observations.

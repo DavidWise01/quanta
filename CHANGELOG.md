@@ -1,5 +1,10 @@
 # QUANTA · Changelog
 
+## 2026-11-12 — QG-070 · Freshness Must Be Proven
+- Added an issuer-signed random 256-bit challenge and independently pinned agent-key response bound to the exact QG-069 checkpoint, identity and QG-068 revocation floor, with explicit one-time consumption and a separate rejoin authorization.
+- Added 28 regression tests for nonce uniqueness, signature and key substitution, wrong checkpoint/epoch, attempted replay, duplicate consumption and preserved offline history; ASCII Pages laboratory and formal spec. Synthetic keys and local ledger only; no real remote attestation or durable nonce store.
+
+
 ## 2026-11-12 — QG-069 · Rejoining the Hive
 - Introduced a replayable offline-to-online rejoin state machine that retains local observations by value and denies authority until a current QG-068 checkpoint matches an independently supplied SHA-256 digest and revocation floor.
 - Added a separate explicit authorization step after the verified checkpoint, 28 regression tests for stale, tampered, offline and wrong-pin paths, an ASCII browser lab and formal spec. No deployed synchronization or remote attestation is claimed.

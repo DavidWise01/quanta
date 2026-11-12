@@ -18,6 +18,9 @@ QG-034 has an executable, deterministic boot path: `node language/instantiate-ke
 
 ## Read and explore
 
+- **[QG-070 Freshness Must Be Proven](./hive-fresh-challenge.html)** — issue an issuer-signed random 256-bit challenge tied to a verified QG-069 checkpoint, require an independently pinned agent-key response, consume it once, and explicitly reauthorize; replayed responses fail. [Kernel](./language/hive-fresh-challenge.mjs) · [Specification](./language/QG-070-FRESHNESS-MUST-BE-PROVEN.md) · [28 tests](./tests/hive-fresh-challenge.test.mjs).
+
+
 - **[QG-069 Rejoining the Hive](./hive-rejoin.html)** — an offline agent retains observations, verifies a separately pinned fresh trust checkpoint against QG-066–068 revocation ancestry, and obtains explicit reauthorization; stale and tampered updates fail closed. [Kernel](./language/hive-rejoin.mjs) · [Specification](./language/QG-069-REJOINING-THE-HIVE.md) · [28 tests](./tests/hive-rejoin.test.mjs).
 
 

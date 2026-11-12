@@ -1,5 +1,10 @@
 # QUANTA · Changelog
 
+## 2026-11-12 — QG-066 · Recovery Without the Old Key
+- Added an explicit emergency recovery branch independent of normal QG-065 dual-signature rotation. A separately pinned recovery policy requires three valid Ed25519 guardian votes from three distinct declared source ancestries and successor proof of key possession.
+- Preserved the full QG-065 historical source chain, bound recovery to its SHA-256 digest, and verified new manifests under the recovered key without erasing old signatures. Added 27 tests and interactive browser ASCII lab. Synthetic guardians only; externally pinned quorum independence and durability remain assumptions.
+
+
 ## 2026-11-12 — QG-065 · Trust Anchor Rotation
 - Added dual-signed Ed25519 transitions requiring a current-key authorization and new-key proof of possession over a canonical linked transition payload.
 - Retained old historical signed manifests by key epoch, enforced monotonic manifest revisions and independent minimum sequence floors for rollback detection. Added 24 regression tests and browser ASCII lab. Synthetic signers only; no live identities or keys rotated.

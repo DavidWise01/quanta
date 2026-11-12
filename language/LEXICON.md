@@ -311,3 +311,11 @@ Do not assert that the shape of a symbol proves the shape of a particle, or that
 - `key epoch`: immutable historical index binding a signed source manifest to the original verification key active when that manifest was recorded.
 - `previousHash`: SHA-256 link to the preceding signed transition; verifies the locally supplied chain against insertion or alteration.
 - `external rollback floor`: separately persisted minimum permitted sequence and source-manifest revision, required to reject otherwise valid old states.
+
+## QG-066 — Recovery without the old key
+
+- `recovery policy pin`: externally maintained allowlist of guardian public keys and their declared ancestral roots, plus historical QG-065 chain pin and rollback floors.
+- `recovery petition`: canonical payload binding a specific historical chain digest, retired key fingerprint, successor public key and recovery sequence.
+- `guardian quorum`: at least three unique pinned guardian signatures from three distinct policy-pinned ancestry roots, not three retellings of one approval.
+- `successor proof of possession`: successor Ed25519 signature over the same petition, proving control of the candidate private key.
+- `recovered epoch`: a separate signed-manifest context after recovery; old signed manifests remain verifiable under original historical key epochs.

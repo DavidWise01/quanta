@@ -18,6 +18,9 @@ QG-034 has an executable, deterministic boot path: `node language/instantiate-ke
 
 ## Read and explore
 
+- **[QG-066 Recovery Without the Old Key](./recovery-without-old-key.html)** — retain the QG-065 historical signature chain, check a separately pinned 3-distinct-guardian emergency recovery quorum, require new-key proof of possession, and accept new source manifests without pretending the retired key signed the recovery. [Kernel](./language/recovery-without-old-key.mjs) · [Spec](./language/QG-066-RECOVERY-WITHOUT-OLD-KEY.md) · [27 tests](./tests/recovery-without-old-key.test.mjs).
+
+
 - **[QG-065 Trust Anchor Rotation](./trust-anchor-rotation.html)** — require a dual-signed Ed25519 key transition, link prior signatures with a hash chain, enforce externally pinned rollback floors, and preserve each historical signed manifest under its original key epoch. [Kernel](./language/trust-anchor-rotation.mjs) · [Specification](./language/QG-065-TRUST-ANCHOR-ROTATION.md) · [24 tests](./tests/trust-anchor-rotation.test.mjs).
 
 

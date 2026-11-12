@@ -1,0 +1,24 @@
+name: QG-066 Recovery Without Old Key Tests
+on:
+  push:
+    paths:
+      - "language/recovery-without-old-key.mjs"
+      - "tests/recovery-without-old-key.test.mjs"
+      - ".github/workflows/recovery-without-old-key-tests.yml"
+  pull_request:
+    paths:
+      - "language/recovery-without-old-key.mjs"
+      - "tests/recovery-without-old-key.test.mjs"
+      - ".github/workflows/recovery-without-old-key-tests.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - run: node --test tests/trust-anchor-rotation.test.mjs tests/recovery-without-old-key.test.mjs

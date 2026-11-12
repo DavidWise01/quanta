@@ -1,5 +1,10 @@
 # QUANTA · Changelog
 
+## 2026-11-12 — QG-073 · Provenance Survives Transformation
+- Added a source-registry-pinned derivation graph where summaries, translations and combinations inherit every upstream source root, origin surface and the strictest confidentiality label.
+- Derived labels are computed from parents, not caller assertions; linked QG-072 signed-scope authorization enforces denial of gated exports even after rewriting. Added 24 regression tests, ASCII lab and specification. Trustworthiness of initial registry labels and real network enforcement remain unproven.
+
+
 ## 2026-11-12 — QG-072 · Authority Must Have Scope
 - Added issuer-signed scope rules bound to an active QG-071 lease digest, agent identity, checkpoint and revocation floor. Decisions require matching action + destination surface; lease expiration still denies operation despite a valid scope signature.
 - Denied gated GitHub information export to 0root.ai or the public internet; restricted external internet to discovery in the modeled policy. Added 30 regression tests and an interactive ASCII lab. Information classification is caller-declared, not yet authenticated taint tracking.

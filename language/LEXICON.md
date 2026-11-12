@@ -363,3 +363,10 @@ Do not assert that the shape of a symbol proves the shape of a particle, or that
 - `access surface`: `github` (owned, gated), `0root.ai` (owned, public), or `public-internet` (external discovery); ownership and witness ancestry do not imply equal disclosure rights.
 - `gated export denial`: a modeled hard rule that prevents data marked `gated` and sourced on GitHub from moving to 0root.ai or external public internet, regardless of the action grant.
 - `decision receipt`: an append-by-value, replay-checked action request, reason and grant/lease hash. Real enforcement requires a trusted call-site and authenticated data classification.
+
+## QG-073 — Provenance survives transformation
+
+- `pinned source root`: source identity, text digest, surface, upstream root ancestry and confidentiality from an independently selected registry; the registry's trustworthiness must be established externally.
+- `derived provenance`: immutable computed union of all parent origins and ancestry carried through summarization, translation, extraction and combination.
+- `restrictive label inheritance`: a derived node is gated if any of its parent nodes is gated; no self-declared `public` override or silent declassification.
+- `derived export gate`: QG-072 scope receives computed classification/origin instead of source text's claimed label, and rejects gated results on public surfaces.

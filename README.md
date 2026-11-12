@@ -18,6 +18,9 @@ QG-034 has an executable, deterministic boot path: `node language/instantiate-ke
 
 ## Read and explore
 
+- **[QG-073 Provenance Survives Transformation](./provenance-transformation.html)** — append-only derivation graph inheriting source confidentiality and all ancestry through summarization, translation, extraction and combination. Gated derivatives cannot export to public surfaces; public derivatives still require QG-072 signed scope. [Kernel](./language/provenance-transformation.mjs) · [Spec](./language/QG-073-PROVENANCE-TRANSFORMATION.md) · [24 tests](./tests/provenance-transformation.test.mjs).
+
+
 - **[QG-072 Authority Must Have Scope](./hive-scoped-authority.html)** — issuer-signed action/surface capabilities bound to QG-071 leases. Enforce three distinct access boundaries, deny private-to-public GitHub exports, and refuse permissions not explicitly granted. [Kernel](./language/hive-scoped-authority.mjs) · [Specification](./language/QG-072-AUTHORITY-SCOPE.md) · [30 tests](./tests/hive-scoped-authority.test.mjs).
 
 

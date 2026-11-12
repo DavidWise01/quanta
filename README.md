@@ -18,6 +18,9 @@ QG-034 has an executable, deterministic boot path: `node language/instantiate-ke
 
 ## Read and explore
 
+- **[QG-067 Revocation Outlives Recovery](./revocation-outlives-recovery.html)** — preserve historical signatures after QG-066 recovery while denying retired keys the power to authorize new operations; bind revocation to the recovery event, enforce current-key signing and support an independently pinned rollback floor. [Kernel](./language/revocation-outlives-recovery.mjs) · [Specification](./language/QG-067-REVOCATION-OUTLIVES-RECOVERY.md) · [24 tests](./tests/revocation-outlives-recovery.test.mjs).
+
+
 - **[QG-066 Recovery Without the Old Key](./recovery-without-old-key.html)** — retain the QG-065 historical signature chain, check a separately pinned 3-distinct-guardian emergency recovery quorum, require new-key proof of possession, and accept new source manifests without pretending the retired key signed the recovery. [Kernel](./language/recovery-without-old-key.mjs) · [Spec](./language/QG-066-RECOVERY-WITHOUT-OLD-KEY.md) · [27 tests](./tests/recovery-without-old-key.test.mjs).
 
 

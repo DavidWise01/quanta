@@ -319,3 +319,10 @@ Do not assert that the shape of a symbol proves the shape of a particle, or that
 - `guardian quorum`: at least three unique pinned guardian signatures from three distinct policy-pinned ancestry roots, not three retellings of one approval.
 - `successor proof of possession`: successor Ed25519 signature over the same petition, proving control of the candidate private key.
 - `recovered epoch`: a separate signed-manifest context after recovery; old signed manifests remain verifiable under original historical key epochs.
+
+## QG-067 — Revocation outlives recovery
+
+- `historically valid signature`: a signature on original bytes verifying against the key active at its historical epoch; it does not confer current authority.
+- `revocation certificate`: a successor-signed record binding the verified recovery digest, QG-065 historical digest, retired/successor fingerprints and explicit no-new-operations disposition for the old key.
+- `current authorization gate`: checks revocation existence, unique operation sequence and signature under the new active key, never under a retired key.
+- `revocation rollback floor`: externally maintained minimum revocation sequence; absent externally durable state the ledger alone cannot rule out valid older snapshots.

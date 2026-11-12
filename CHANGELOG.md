@@ -1,5 +1,10 @@
 # QUANTA · Changelog
 
+## 2026-11-12 — QG-067 · Revocation Outlives Recovery
+- Added a successor-signed revocation certificate after QG-066 recovery, binding the retired key fingerprint, recovered successor key, historical QG-065 chain and original recovery digest.
+- Preserved verification of historical manifests while requiring successor-key signatures for all new operations. A separately pinned revocation sequence floor detects replay without the revocation. Added 24 tests and an interactive ASCII lab, all synthetic and not deployed credential revocation.
+
+
 ## 2026-11-12 — QG-066 · Recovery Without the Old Key
 - Added an explicit emergency recovery branch independent of normal QG-065 dual-signature rotation. A separately pinned recovery policy requires three valid Ed25519 guardian votes from three distinct declared source ancestries and successor proof of key possession.
 - Preserved the full QG-065 historical source chain, bound recovery to its SHA-256 digest, and verified new manifests under the recovered key without erasing old signatures. Added 27 tests and interactive browser ASCII lab. Synthetic guardians only; externally pinned quorum independence and durability remain assumptions.

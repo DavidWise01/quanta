@@ -297,3 +297,10 @@ Do not assert that the shape of a symbol proves the shape of a particle, or that
 - `integrity match`: SHA-256 of the submitted text matches the pinned digest. This establishes consistency with the pinned copy, not actual authorship.
 - `quarantine receipt`: retained, non-counting packet marked as unknown, digest mismatch, robots disallow or unknown access policy.
 - `admitted evidence`: packet with a matched manifest and acceptable declared access status; only the manifest's ancestry enters QG-062's independent-root counter.
+
+## QG-064 — The trust anchor
+
+- `trust anchor`: independently supplied public Ed25519 verification key plus a pinned minimum accepted manifest revision; it is never taken from an untrusted evidence packet.
+- `signed manifest`: canonical sorted-key source-registry payload and its Ed25519 signature, verified before QG-063 accepts packets.
+- `rollback bound`: a signed but older revision is rejected if below the separately pinned minimum; without maintained external state a rollback cannot be detected.
+- `authorship boundary`: a valid signature proves possession of a corresponding private key, not that the key holder owns the claimed publisher or that the associated evidence is true.

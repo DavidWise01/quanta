@@ -1,5 +1,10 @@
 # QUANTA · Changelog
 
+## 2026-11-12 — QG-064 · The Trust Anchor
+- Added Ed25519 signed source-manifest verification using an independently pinned public JWK and minimum revision. Payload canonicalization and SHA-256 digest bind registry contents; mismatched keys, tampering and rollback are rejected before QG-063 admission.
+- Integrated with QG-063 source SHA-256 checks and QG-062 shared-ancestry counting without granting automatic authority. Added 24 negative/positive regression tests and interactive ASCII lab. Keys and manifests are synthetic, not verified real-site publisher credentials.
+
+
 ## 2026-11-11 — QG-063 · Pinned Source Admission
 - Introduced a pinned local manifest admission gate before QG-062 ancestry counting. The browser/Node engine computes SHA-256 content digests, checks pinned source/surface identity and predeclared public robots status, and quarantines unknown, modified and disallowed packets.
 - Accepted source ancestry comes from the pinned manifest rather than packet assertions, while mirrors and syndication still merge under QG-062. Added 28 regression tests and interactive ASCII lab; this does not authenticate real website authorship or fetch live site access rules.

@@ -18,6 +18,9 @@ QG-034 has an executable, deterministic boot path: `node language/instantiate-ke
 
 ## Read and explore
 
+- **[QG-064 Signed Trust Anchor](./signed-trust-anchor.html)** — verify a signed source manifest using an externally supplied Ed25519 public key before QG-063 digest admission and QG-062 ancestry counting. [Kernel](./language/signed-trust-anchor.mjs) · [Spec](./language/QG-064-TRUST-ANCHOR.md) · [24 tests](./tests/signed-trust-anchor.test.mjs).
+
+
 - **[QG-063 Pinned Source Admission](./pinned-source-admission.html)** — before external evidence counts, verify source identity and SHA-256 content against an independently supplied pinned registry, quarantine unrecognized or modified packets, then deduplicate accepted upstream ancestry through QG-062. [Kernel](./language/pinned-source-admission.mjs) · [Specification](./language/QG-063-PINNED-SOURCE-ADMISSION.md) · [28 tests](./tests/pinned-source-admission.test.mjs).
 
 

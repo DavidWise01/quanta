@@ -1,0 +1,24 @@
+name: QG-064 Signed Trust Anchor Tests
+on:
+  push:
+    paths:
+      - "language/signed-trust-anchor.mjs"
+      - "tests/signed-trust-anchor.test.mjs"
+      - ".github/workflows/signed-trust-anchor-tests.yml"
+  pull_request:
+    paths:
+      - "language/signed-trust-anchor.mjs"
+      - "tests/signed-trust-anchor.test.mjs"
+      - ".github/workflows/signed-trust-anchor-tests.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - run: node --test tests/pinned-source-admission.test.mjs tests/signed-trust-anchor.test.mjs

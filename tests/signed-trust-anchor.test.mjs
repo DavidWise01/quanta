@@ -1,0 +1,28 @@
+import test from 'node:test';import assert from 'node:assert/strict';
+import {generateFixtureSigner,signManifest,verifyManifest,start,append,verify,syntheticFixture} from '../language/signed-trust-anchor.mjs';
+const clone=x=>JSON.parse(JSON.stringify(x));
+async function full(){const f=await syntheticFixture();let r=await start(f.envelope,f.anchor);for(const p of f.data)r=await append(r,p,f.anchor);return {r,f}}
+test('legitimate independently pinned signature verifies',async()=>{const f=await syntheticFixture();assert.equal((await verifyManifest(f.envelope,f.anchor)).valid,true)});
+test('Ed25519 fixture produces portable public JWK',async()=>{const k=await generateFixtureSigner();assert.equal(k.publicJwk.kty,'OKP');assert.equal(k.publicJwk.crv,'Ed25519')});
+test('signature binds registry digest',async()=>{const f=await syntheticFixture();assert.match(f.envelope.digest,/^[0-9a-f]{64}$/)});
+test('cannot start without external trust anchor',async()=>{const f=await syntheticFixture();await assert.rejects(()=>start(f.envelope,null),/anchor/)});
+test('cannot accept a self-signed but unrelated public key',async()=>{const f=await syntheticFixture(),attacker=await generateFixtureSigner();await assert.rejects(()=>start(f.envelope,{publicJwk:attacker.publicJwk,minRevision:2}),/signature/)});
+test('tampered registry rejects before admission',async()=>{const f=await syntheticFixture('tampered-manifest');await assert.rejects(()=>start(f.envelope,f.anchor),/digest/)});
+test('recomputed hash without valid signature does not suffice',async()=>{const f=await syntheticFixture();f.envelope.payload.registry[2].ancestors=['fabricated'];const {sha256}=await import('../language/pinned-source-admission.mjs');f.envelope.digest=await sha256(JSON.stringify(f.envelope.payload));await assert.rejects(()=>start(f.envelope,f.anchor))});
+test('rollback revisions rejected',async()=>{const f=await syntheticFixture('rollback');await assert.rejects(()=>start(f.envelope,f.anchor),/rolled back/)});
+test('manifest of positive revision signed then verified',async()=>{const k=await generateFixtureSigner();const e=await signManifest([],1,k.privateKey);assert.equal((await verifyManifest(e,{publicJwk:k.publicJwk,minRevision:1})).revision,1)});
+test('revision zero rejected at signing',async()=>{const k=await generateFixtureSigner();await assert.rejects(()=>signManifest([],0,k.privateKey))});
+test('unknown signing key is never accepted',async()=>await assert.rejects(()=>signManifest([],1,null)));
+test('valid source content passes both gates',async()=>{const {r,f}=await full();assert.equal((await verify(r,f.anchor)).accepted,4)});
+test('owned mirror pair still counts as one ancestry',async()=>{const {r}=await full();assert.equal(r.admission.ancestry.count,3)});
+test('admitted content never automatically grants model authority',async()=>{const {r}=await full();assert.equal(r.admission.ancestry.authority,'withdrawn')});
+test('modified content quarantined despite valid manifest',async()=>{const f=await syntheticFixture('tampered-content');let r=await start(f.envelope,f.anchor);for(const p of f.data)r=await append(r,p,f.anchor);assert.equal(r.admission.quarantined,1);assert.equal(r.admission.ancestry.count,2)});
+test('old value left unchanged by later append',async()=>{const f=await syntheticFixture();const r=await start(f.envelope,f.anchor),before=JSON.stringify(r);await append(r,f.data[0],f.anchor);assert.equal(JSON.stringify(r),before)});
+test('changed historical packet detected',async()=>{const {r,f}=await full();r.admission.submitted[0].body='fake';await assert.rejects(()=>verify(r,f.anchor))});
+test('changed signature detected',async()=>{const {r,f}=await full();r.envelope.signature='AAAA';await assert.rejects(()=>verify(r,f.anchor))});
+test('changed recorded verification fingerprint detected',async()=>{const {r,f}=await full();r.signature.anchorFingerprint='fake';await assert.rejects(()=>verify(r,f.anchor),/replay/)});
+test('changed downstream ancestry detected',async()=>{const {r,f}=await full();r.admission.ancestry.count=4;await assert.rejects(()=>verify(r,f.anchor))});
+test('change trust anchor after admission blocks append',async()=>{const f=await syntheticFixture();const a=await generateFixtureSigner();let r=await start(f.envelope,f.anchor);await assert.rejects(()=>append(r,f.data[0],{publicJwk:a.publicJwk,minRevision:2}))});
+test('duplicate packet rejected by QG-063 after signing',async()=>{const f=await syntheticFixture();let r=await append(await start(f.envelope,f.anchor),f.data[0],f.anchor);await assert.rejects(()=>append(r,f.data[0],f.anchor),/Duplicate/)});
+test('no author name proof from matching digest',async()=>{const {r,f}=await full();assert.equal((await verify(r,f.anchor)).valid,true);assert.equal(r.signature.sources,4)});
+test('no implicit trust on unspecified minimum revision',async()=>{const f=await syntheticFixture();await assert.rejects(()=>verifyManifest(f.envelope,{publicJwk:f.anchor.publicJwk}),/anchor/)});

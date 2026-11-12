@@ -18,6 +18,9 @@ QG-034 has an executable, deterministic boot path: `node language/instantiate-ke
 
 ## Read and explore
 
+- **[QG-074 Independent Declassification](./independent-declassification.html)** — preserve gated QG-073 ancestors while reviewing exact separate release bytes with three independently pinned ancestral reviewer roots; release requires QG-072 signed `publish @ 0root.ai` authority. [Kernel](./language/independent-declassification.mjs) · [Spec](./language/QG-074-INDEPENDENT-DECLASSIFICATION.md) · [20 tests](./tests/independent-declassification.test.mjs).
+
+
 - **[QG-073 Provenance Survives Transformation](./provenance-transformation.html)** — append-only derivation graph inheriting source confidentiality and all ancestry through summarization, translation, extraction and combination. Gated derivatives cannot export to public surfaces; public derivatives still require QG-072 signed scope. [Kernel](./language/provenance-transformation.mjs) · [Spec](./language/QG-073-PROVENANCE-TRANSFORMATION.md) · [24 tests](./tests/provenance-transformation.test.mjs).
 
 

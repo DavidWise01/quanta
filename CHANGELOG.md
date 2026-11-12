@@ -1,5 +1,10 @@
 # QUANTA · Changelog
 
+## 2026-11-12 — QG-074 · Independent Declassification
+- Added exact-artifact release petitions bound to a gated QG-073 source graph, text hash, source ancestry, original classification and destination, requiring valid Ed25519 approval from three separately pinned reviewer roots.
+- Preserved original gated nodes while creating distinct modeled public-release artifacts; a successful reviewer quorum still requires active QG-072 signed publication scope. Added 20 adversarial tests, ASCII Pages lab and specification. Synthetic reviewer signatures cannot prove content sanitization.
+
+
 ## 2026-11-12 — QG-073 · Provenance Survives Transformation
 - Added a source-registry-pinned derivation graph where summaries, translations and combinations inherit every upstream source root, origin surface and the strictest confidentiality label.
 - Derived labels are computed from parents, not caller assertions; linked QG-072 signed-scope authorization enforces denial of gated exports even after rewriting. Added 24 regression tests, ASCII lab and specification. Trustworthiness of initial registry labels and real network enforcement remain unproven.

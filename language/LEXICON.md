@@ -370,3 +370,10 @@ Do not assert that the shape of a symbol proves the shape of a particle, or that
 - `derived provenance`: immutable computed union of all parent origins and ancestry carried through summarization, translation, extraction and combination.
 - `restrictive label inheritance`: a derived node is gated if any of its parent nodes is gated; no self-declared `public` override or silent declassification.
 - `derived export gate`: QG-072 scope receives computed classification/origin instead of source text's claimed label, and rejects gated results on public surfaces.
+
+## QG-074 — Independent declassification
+
+- `release petition`: a cryptographically bound request naming the gated source and ancestry, exact separately proposed public bytes, destination and prior approved release hash.
+- `reviewer root quorum`: at least three separately pinned Ed25519 reviewer identities from distinct declared ancestral roots; the releasing agent cannot approve itself merely by editing its own label.
+- `approved release artifact`: a new object with three verified review signatures; it is not a rewrite or relabeling of the original gated QG-073 node.
+- `publication gate`: requires both an independently approved exact release artifact and a valid, current QG-072 issuer-signed publish permission for 0root.ai.

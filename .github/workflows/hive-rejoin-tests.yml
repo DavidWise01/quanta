@@ -1,0 +1,24 @@
+name: QG-069 Hive Rejoin Tests
+on:
+  push:
+    paths:
+      - "language/hive-rejoin.mjs"
+      - "tests/hive-rejoin.test.mjs"
+      - ".github/workflows/hive-rejoin-tests.yml"
+  pull_request:
+    paths:
+      - "language/hive-rejoin.mjs"
+      - "tests/hive-rejoin.test.mjs"
+      - ".github/workflows/hive-rejoin-tests.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - run: node --test tests/hive-revocation-floor.test.mjs tests/hive-rejoin.test.mjs

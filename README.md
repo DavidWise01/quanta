@@ -18,6 +18,9 @@ QG-034 has an executable, deterministic boot path: `node language/instantiate-ke
 
 ## Read and explore
 
+- **[QG-069 Rejoining the Hive](./hive-rejoin.html)** — an offline agent retains observations, verifies a separately pinned fresh trust checkpoint against QG-066–068 revocation ancestry, and obtains explicit reauthorization; stale and tampered updates fail closed. [Kernel](./language/hive-rejoin.mjs) · [Specification](./language/QG-069-REJOINING-THE-HIVE.md) · [28 tests](./tests/hive-rejoin.test.mjs).
+
+
 - **[QG-068 Revocation Across the Hive](./hive-revocation-floor.html)** — classify agent trust snapshots as current, stale, offline, or invalid; require a separately pinned revocation floor and replay verification before an agent may authorize new operations. [Kernel](./language/hive-revocation-floor.mjs) · [Specification](./language/QG-068-REVOCATION-ACROSS-HIVE.md) · [26 tests](./tests/hive-revocation-floor.test.mjs).
 
 

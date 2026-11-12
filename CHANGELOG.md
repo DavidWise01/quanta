@@ -1,5 +1,10 @@
 # QUANTA · Changelog
 
+## 2026-11-12 — QG-069 · Rejoining the Hive
+- Introduced a replayable offline-to-online rejoin state machine that retains local observations by value and denies authority until a current QG-068 checkpoint matches an independently supplied SHA-256 digest and revocation floor.
+- Added a separate explicit authorization step after the verified checkpoint, 28 regression tests for stale, tampered, offline and wrong-pin paths, an ASCII browser lab and formal spec. No deployed synchronization or remote attestation is claimed.
+
+
 ## 2026-11-12 — QG-068 · Revocation Across the Hive
 - Added a synthetic multi-agent revocation gate requiring an independent minimum revocation sequence, verified QG-066 recovery and QG-067 successor-signed revocation for all new operations.
 - Classified fresh, stale, offline and tampered local agent trust snapshots with append-by-value digest receipts; denied local authority when the cached snapshot cannot meet the external revocation floor. Added 26 tests, ASCII lab and specification. No real distributed synchronization or durable floor is claimed.

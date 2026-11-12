@@ -334,3 +334,11 @@ Do not assert that the shape of a symbol proves the shape of a particle, or that
 - `stale`: previously internally valid but pre-revocation trust state; it cannot authorize new actions.
 - `offline`: agent not able to attest current trust state at the authorization gate, denied despite locally cached signature validity.
 - `current`: online snapshot cryptographically verified against an independent revocation floor; explicit authorization still required.
+
+## QG-069 — Rejoining the hive
+
+- `offline history`: append-by-value local observations preserved without gaining trust authority.
+- `checkpointDigest`: a SHA-256 digest pinned independently of the rejoining agent; packet content cannot set its own expected digest.
+- `verified-awaiting-authorization`: successful checkpoint and revocation replay does not itself authorize the agent to act.
+- `rejoin certificate`: explicit modeled authorization bound to the verified checkpoint digest, agent ID and independently pinned revocation floor.
+- `rejoined`: modeled locally verified authority, not real distributed consensus, remote identity proof or live permission grant.

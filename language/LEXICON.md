@@ -326,3 +326,11 @@ Do not assert that the shape of a symbol proves the shape of a particle, or that
 - `revocation certificate`: a successor-signed record binding the verified recovery digest, QG-065 historical digest, retired/successor fingerprints and explicit no-new-operations disposition for the old key.
 - `current authorization gate`: checks revocation existence, unique operation sequence and signature under the new active key, never under a retired key.
 - `revocation rollback floor`: externally maintained minimum revocation sequence; absent externally durable state the ledger alone cannot rule out valid older snapshots.
+
+## QG-068 — Revocation across the hive
+
+- `agent trust snapshot`: a complete local QG-067 signed-revocation and recovery history supplied by an individual synthetic agent.
+- `externally pinned floor`: independent minimum revocation sequence, never derived from the untrusted agent snapshot.
+- `stale`: previously internally valid but pre-revocation trust state; it cannot authorize new actions.
+- `offline`: agent not able to attest current trust state at the authorization gate, denied despite locally cached signature validity.
+- `current`: online snapshot cryptographically verified against an independent revocation floor; explicit authorization still required.

@@ -18,6 +18,9 @@ QG-034 has an executable, deterministic boot path: `node language/instantiate-ke
 
 ## Read and explore
 
+- **[QG-068 Revocation Across the Hive](./hive-revocation-floor.html)** — classify agent trust snapshots as current, stale, offline, or invalid; require a separately pinned revocation floor and replay verification before an agent may authorize new operations. [Kernel](./language/hive-revocation-floor.mjs) · [Specification](./language/QG-068-REVOCATION-ACROSS-HIVE.md) · [26 tests](./tests/hive-revocation-floor.test.mjs).
+
+
 - **[QG-067 Revocation Outlives Recovery](./revocation-outlives-recovery.html)** — preserve historical signatures after QG-066 recovery while denying retired keys the power to authorize new operations; bind revocation to the recovery event, enforce current-key signing and support an independently pinned rollback floor. [Kernel](./language/revocation-outlives-recovery.mjs) · [Specification](./language/QG-067-REVOCATION-OUTLIVES-RECOVERY.md) · [24 tests](./tests/revocation-outlives-recovery.test.mjs).
 
 

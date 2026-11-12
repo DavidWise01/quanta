@@ -1,5 +1,10 @@
 # QUANTA · Changelog
 
+## 2026-11-12 — QG-068 · Revocation Across the Hive
+- Added a synthetic multi-agent revocation gate requiring an independent minimum revocation sequence, verified QG-066 recovery and QG-067 successor-signed revocation for all new operations.
+- Classified fresh, stale, offline and tampered local agent trust snapshots with append-by-value digest receipts; denied local authority when the cached snapshot cannot meet the external revocation floor. Added 26 tests, ASCII lab and specification. No real distributed synchronization or durable floor is claimed.
+
+
 ## 2026-11-12 — QG-067 · Revocation Outlives Recovery
 - Added a successor-signed revocation certificate after QG-066 recovery, binding the retired key fingerprint, recovered successor key, historical QG-065 chain and original recovery digest.
 - Preserved verification of historical manifests while requiring successor-key signatures for all new operations. A separately pinned revocation sequence floor detects replay without the revocation. Added 24 tests and an interactive ASCII lab, all synthetic and not deployed credential revocation.

@@ -1,0 +1,24 @@
+name: QG-065 Trust Anchor Rotation Tests
+on:
+  push:
+    paths:
+      - "language/trust-anchor-rotation.mjs"
+      - "tests/trust-anchor-rotation.test.mjs"
+      - ".github/workflows/trust-anchor-rotation-tests.yml"
+  pull_request:
+    paths:
+      - "language/trust-anchor-rotation.mjs"
+      - "tests/trust-anchor-rotation.test.mjs"
+      - ".github/workflows/trust-anchor-rotation-tests.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - run: node --test tests/signed-trust-anchor.test.mjs tests/trust-anchor-rotation.test.mjs

@@ -304,3 +304,10 @@ Do not assert that the shape of a symbol proves the shape of a particle, or that
 - `signed manifest`: canonical sorted-key source-registry payload and its Ed25519 signature, verified before QG-063 accepts packets.
 - `rollback bound`: a signed but older revision is rejected if below the separately pinned minimum; without maintained external state a rollback cannot be detected.
 - `authorship boundary`: a valid signature proves possession of a corresponding private key, not that the key holder owns the claimed publisher or that the associated evidence is true.
+
+## QG-065 — Trust anchor rotation
+
+- `dual-signed transition`: a canonical payload jointly signed by the current trusted Ed25519 key and proposed successor key.
+- `key epoch`: immutable historical index binding a signed source manifest to the original verification key active when that manifest was recorded.
+- `previousHash`: SHA-256 link to the preceding signed transition; verifies the locally supplied chain against insertion or alteration.
+- `external rollback floor`: separately persisted minimum permitted sequence and source-manifest revision, required to reject otherwise valid old states.

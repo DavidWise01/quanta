@@ -1,5 +1,10 @@
 # QUANTA · Changelog
 
+## 2026-11-12 — QG-065 · Trust Anchor Rotation
+- Added dual-signed Ed25519 transitions requiring a current-key authorization and new-key proof of possession over a canonical linked transition payload.
+- Retained old historical signed manifests by key epoch, enforced monotonic manifest revisions and independent minimum sequence floors for rollback detection. Added 24 regression tests and browser ASCII lab. Synthetic signers only; no live identities or keys rotated.
+
+
 ## 2026-11-12 — QG-064 · The Trust Anchor
 - Added Ed25519 signed source-manifest verification using an independently pinned public JWK and minimum revision. Payload canonicalization and SHA-256 digest bind registry contents; mismatched keys, tampering and rollback are rejected before QG-063 admission.
 - Integrated with QG-063 source SHA-256 checks and QG-062 shared-ancestry counting without granting automatic authority. Added 24 negative/positive regression tests and interactive ASCII lab. Keys and manifests are synthetic, not verified real-site publisher credentials.

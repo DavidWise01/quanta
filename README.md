@@ -18,6 +18,9 @@ QG-034 has an executable, deterministic boot path: `node language/instantiate-ke
 
 ## Read and explore
 
+- **[QG-065 Trust Anchor Rotation](./trust-anchor-rotation.html)** — require a dual-signed Ed25519 key transition, link prior signatures with a hash chain, enforce externally pinned rollback floors, and preserve each historical signed manifest under its original key epoch. [Kernel](./language/trust-anchor-rotation.mjs) · [Specification](./language/QG-065-TRUST-ANCHOR-ROTATION.md) · [24 tests](./tests/trust-anchor-rotation.test.mjs).
+
+
 - **[QG-064 Signed Trust Anchor](./signed-trust-anchor.html)** — verify a signed source manifest using an externally supplied Ed25519 public key before QG-063 digest admission and QG-062 ancestry counting. [Kernel](./language/signed-trust-anchor.mjs) · [Spec](./language/QG-064-TRUST-ANCHOR.md) · [24 tests](./tests/signed-trust-anchor.test.mjs).
 
 

@@ -1,5 +1,10 @@
 # QUANTA · Changelog
 
+## 2026-11-11 — QG-062 · Three Surfaces, Independent Roots
+- Modeled the three discovery surfaces: gated GitHub and 0root.ai as one owned source ancestry, and policy-aware public internet evidence from potentially many sites. Shared upstream identifiers create transitive ancestry components, preventing duplicate votes from syndicated sources.
+- Added explicit synthetic robots/llms policy annotations (robots disallow blocks; unknown quarantines; llms is discovery, not permission), conflicting-lineage review, and separate provisional authorization. 32 regression tests, ASCII lab, specification, and provenance boundaries. No actual sites or policies are fetched.
+
+
 ## 2026-11-11 — QG-061 · Relearning Without Amnesia
 - Added an explicit post-withdrawal relearning lifecycle, retaining QG-058, QG-059, QG-060 history while proposing a new candidate from fresh validation.
 - Added witness-ancestry accounting with GitHub and 0root.ai mirrors sharing one synthetic root, three distinct matching root claims required for provisional-authorization eligibility, contradictory-root quarantine, and a separate authorization action. Added 27 regression tests and an interactive ASCII Pages lab. Source independence remains an unverified input claim.

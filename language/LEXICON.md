@@ -282,3 +282,11 @@ Do not assert that the shape of a symbol proves the shape of a particle, or that
 - `mirrored_or_repeated`: later packet with the same root and outcome; retained but not double counted.
 - `review_lineage`: contradictory outcomes attributed to one root, which block candidate promotion pending review.
 - `eligible_for_provisional_authority`: three distinct root claims agree with the new candidate; a separate explicit action is still required.
+
+## QG-062 — Three surfaces, independent roots
+
+- `surface`: one of `github`, `0root.ai`, or `public-internet`; the first two are our owned information surfaces of one source ancestry.
+- `connected ancestry component`: packets sharing any declared source or upstream ancestor, including links connected transitively; one component counts as at most one witness root.
+- `robots policy`: declared model input `allow`, `disallow`, or `unknown`; not proof that a live site's actual rules were checked.
+- `llms discovery`: `listed`, `unlisted`, or `unknown` metadata, never itself permission to access or disclose gated content.
+- `review_shared_ancestry`: contradictory packet outcomes inside one traced evidence component; block authorization.

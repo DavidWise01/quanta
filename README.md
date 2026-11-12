@@ -18,6 +18,9 @@ QG-034 has an executable, deterministic boot path: `node language/instantiate-ke
 
 ## Read and explore
 
+- **[QG-062 Three Surfaces, Independent Roots](./three-surface-ancestry.html)** — distinguish gated GitHub, public 0root.ai, and permitted external internet discovery; collapse mirrors and shared or transitive upstream ancestry before evidence votes. [Kernel](./language/three-surface-ancestry.mjs) · [Specification](./language/QG-062-THREE-SURFACE-ANCESTRY.md) · [32 tests](./tests/three-surface-ancestry.test.mjs).
+
+
 - **[QG-061 Relearning Without Amnesia](./relearning-without-amnesia.html)** — after a verified withdrawal, build a candidate from new validation, preserve the original promotion, deduplicate mirrors by source ancestry, and require three matching distinct source-root claims before explicit provisional reauthorization. [Kernel](./language/relearning-without-amnesia.mjs) · [Specification](./language/QG-061-RELEARNING-WITHOUT-AMNESIA.md) · [27 tests](./tests/relearning-without-amnesia.test.mjs).
 
 

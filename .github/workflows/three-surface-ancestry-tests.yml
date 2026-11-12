@@ -1,0 +1,24 @@
+name: QG-062 Three Surface Ancestry Tests
+on:
+  push:
+    paths:
+      - "language/three-surface-ancestry.mjs"
+      - "tests/three-surface-ancestry.test.mjs"
+      - ".github/workflows/three-surface-ancestry-tests.yml"
+  pull_request:
+    paths:
+      - "language/three-surface-ancestry.mjs"
+      - "tests/three-surface-ancestry.test.mjs"
+      - ".github/workflows/three-surface-ancestry-tests.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - run: node --test tests/relearning-without-amnesia.test.mjs tests/three-surface-ancestry.test.mjs

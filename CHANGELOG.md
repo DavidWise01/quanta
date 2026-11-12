@@ -1,5 +1,10 @@
 # QUANTA · Changelog
 
+## 2026-11-12 — QG-071 · Authority Has a Lifetime
+- Added a signed finite logical-time lease bound to QG-070 challenge, agent identity, checkpoint digest and revocation floor, validated against an independently supplied monotonic logical clock.
+- Added bounded duration, exclusive expiry, chained non-overlapping renewal requiring fresh challenge evidence and append-by-value signature history; 26 regressions, ASCII lab and spec. Trusted time and durable replay storage are external assumptions.
+
+
 ## 2026-11-12 — QG-070 · Freshness Must Be Proven
 - Added an issuer-signed random 256-bit challenge and independently pinned agent-key response bound to the exact QG-069 checkpoint, identity and QG-068 revocation floor, with explicit one-time consumption and a separate rejoin authorization.
 - Added 28 regression tests for nonce uniqueness, signature and key substitution, wrong checkpoint/epoch, attempted replay, duplicate consumption and preserved offline history; ASCII Pages laboratory and formal spec. Synthetic keys and local ledger only; no real remote attestation or durable nonce store.

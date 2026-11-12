@@ -349,3 +349,10 @@ Do not assert that the shape of a symbol proves the shape of a particle, or that
 - `agent challenge response`: signature from the pinned agent key over the exact issuer-signed challenge digest and current trust parameters.
 - `consume-once`: value-appended challenge state transition that rejects duplicate response consumption in the modeled ledger; requires external durable state in a real deployment.
 - `explicit fresh rejoin`: separate final approval after the challenge has verified and been consumed, preserving the original QG-069 offline observations.
+
+## QG-071 — Authority has a lifetime
+
+- `authority lease`: issuer-signed, finite logical-tick authorization bound to a verified QG-070 challenge, agent identity, checkpoint and revocation epoch.
+- `exclusive expiry`: a lease authorizes only for `issuedAt <= tick < expiresAt` under a trusted externally supplied clock.
+- `trusted clock floor`: independent monotonic minimum tick; a caller-provided modeled guard, not real-world secure time.
+- `fresh renewal`: a new non-overlapping lease linked to its predecessor and a different verified QG-070 challenge; historical leases remain intact.

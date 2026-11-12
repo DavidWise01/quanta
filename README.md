@@ -18,6 +18,9 @@ QG-034 has an executable, deterministic boot path: `node language/instantiate-ke
 
 ## Read and explore
 
+- **[QG-071 Authority Has a Lifetime](./hive-authority-lease.html)** — issuer-signed finite logical-time leases for freshly rejoined agents; expired or not-yet-active leases fail closed, and renewal requires a different verified QG-070 challenge. [Kernel](./language/hive-authority-lease.mjs) · [Specification](./language/QG-071-AUTHORITY-LEASE.md) · [26 tests](./tests/hive-authority-lease.test.mjs).
+
+
 - **[QG-070 Freshness Must Be Proven](./hive-fresh-challenge.html)** — issue an issuer-signed random 256-bit challenge tied to a verified QG-069 checkpoint, require an independently pinned agent-key response, consume it once, and explicitly reauthorize; replayed responses fail. [Kernel](./language/hive-fresh-challenge.mjs) · [Specification](./language/QG-070-FRESHNESS-MUST-BE-PROVEN.md) · [28 tests](./tests/hive-fresh-challenge.test.mjs).
 
 

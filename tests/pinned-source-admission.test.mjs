@@ -18,7 +18,7 @@ test('tampered report quarantined rather than accepted',async()=>{const x=await 
 test('unknown report quarantined despite matching body',async()=>{const x=await fixture('untrusted');assert.equal(x.ancestry.count,2)});
 test('admission does not automatically authorize symbolic authority',async()=>assert.equal((await fixture()).ancestry.authority,'withdrawn'));
 test('separate authorization eligibility does not grant authority',async()=>{const x=await authorize(await fixture());assert.equal(x.eligible,true);assert.equal(x.authority,'withdrawn')});
-test('insufficient distinct roots cannot authorize',async()=>await assert.rejects(()=>authorize(await fixture('syndicated')),/gate/));
+test('insufficient distinct roots cannot authorize',async()=>await assert.rejects(async()=>authorize(await fixture('syndicated')),/gate/));
 test('immutable prior value after append',async()=>{const x=await start([await pin()]);const raw=JSON.stringify(x);await append(x,p());assert.equal(JSON.stringify(x),raw)});
 test('admission replays all fixture cases',async()=>{for(const kind of ['valid','syndicated','tampered','untrusted'])assert.equal((await verify(await fixture(kind))).valid,true)});
 test('later packet hash mutation detected',async()=>{const x=await fixture();x.submitted[2].body='changed';await assert.rejects(()=>verify(x),/replay/)});
@@ -26,7 +26,7 @@ test('altered receipt detected',async()=>{const x=await fixture();x.receipts[0].
 test('altered ancestry detected',async()=>{const x=await fixture();x.ancestry.count=999;await assert.rejects(()=>verify(x),/replay/)});
 test('caller cannot supply arbitrary ancestors through packet',async()=>{const x=await append(await start([await pin()]),{...p(),ancestors:['fake']});assert.equal(x.ancestry.components[0].lineage.includes('fake'),false)});
 test('duplicate packet identifier rejected',async()=>{const x=await append(await start([await pin()]),p());await assert.rejects(()=>append(x,p()),/Duplicate/)});
-test('reject forged pre-withdrawal epoch',async()=>await assert.rejects(()=>append(await start([await pin()]),{...p(),epoch:'before'})));
-test('reject bad pinned digest',async()=>await assert.rejects(()=>start([{...await pin(),digest:'123'}])));
+test('reject forged pre-withdrawal epoch',async()=>await assert.rejects(async()=>append(await start([await pin()]),{...p(),epoch:'before'})));
+test('reject bad pinned digest',async()=>await assert.rejects(async()=>start([{...await pin(),digest:'123'}])));
 test('reject duplicate source identities in pinned registry',async()=>{const s=await pin();await assert.rejects(()=>start([s,s]),/Duplicate/)});
-test('no packet appending after threshold reached',async()=>await assert.rejects(()=>append(await fixture(),p('late')),/closed/));
+test('no packet appending after threshold reached',async()=>await assert.rejects(async()=>append(await fixture(),p('late')),/closed/));

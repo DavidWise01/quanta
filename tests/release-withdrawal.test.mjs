@@ -7,7 +7,7 @@ test('withdrawn artifact has no new publication authority',async()=>{const f=awa
 test('approved unwithdrawn artifact passes separate scope',async()=>{const f=await fixture('approved'),s=await scopeFixture();assert.equal((await authorizePublication(f.record,'release-1',s.scope,s.trust,s.clock,f.pin)).allowed,true)});
 test('missing release is rejected',async()=>{const f=await fixture('approved');await assert.rejects(()=>petition(f.record,'ghost',f.pin),/missing/)});
 test('forged reviewer signature rejects withdrawal',async()=>await assert.rejects(()=>fixture('forged'),/signature/));
-test('duplicate reviewer rejects withdrawal',async()=>await assert.rejects(()=>fixture('duplicate'),/Duplicate/)});
+test('duplicate reviewer rejects withdrawal',async()=>await assert.rejects(()=>fixture('duplicate'),/Duplicate/));
 test('shared ancestry reviewer roots reject withdrawal',async()=>await assert.rejects(()=>fixture('shared'),/policy|ancestry|signature|reviewer/) );
 test('withdrawal petition cannot be changed',async()=>{const f=await fixture('approved');f.payload.exactPublicDigest='0'.repeat(64);await assert.rejects(()=>withdraw(f.record,f.payload,f.votes,f.pin),/Petition/)});
 test('cannot withdraw same release twice',async()=>{const f=await fixture();await assert.rejects(()=>petition(f.record,'release-1',f.pin),/Already/)});

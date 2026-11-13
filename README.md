@@ -18,6 +18,9 @@ QG-034 has an executable, deterministic boot path: `node language/instantiate-ke
 
 ## Read and explore
 
+- **[QG-076 Withdrawal Across the Hive](./hive-withdrawal-checkpoint.html)** — every synthetic publishing agent must replay QG-075 signed withdrawal state against an independently pinned minimum sequence and exact current SHA-256 head. Stale, offline, tampered and divergent snapshots fail closed. [Kernel](./language/hive-withdrawal-checkpoint.mjs) · [Specification](./language/QG-076-WITHDRAWAL-ACROSS-HIVE.md) · [28 tests](./tests/hive-withdrawal-checkpoint.test.mjs).
+
+
 - **[QG-075 Release Can Be Withdrawn](./release-withdrawal.html)** — a separate 3-root signed withdrawal ledger revokes future use of a QG-074 approved release without erasing the original approval, content digest, source ancestry or review signatures. [Kernel](./language/release-withdrawal.mjs) · [Spec](./language/QG-075-RELEASE-WITHDRAWAL.md) · [24 tests](./tests/release-withdrawal.test.mjs).
 
 

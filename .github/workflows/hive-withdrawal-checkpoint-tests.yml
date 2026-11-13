@@ -1,0 +1,24 @@
+name: QG-076 Hive Withdrawal Checkpoint Tests
+on:
+  push:
+    paths:
+      - "language/hive-withdrawal-checkpoint.mjs"
+      - "tests/hive-withdrawal-checkpoint.test.mjs"
+      - ".github/workflows/hive-withdrawal-checkpoint-tests.yml"
+  pull_request:
+    paths:
+      - "language/hive-withdrawal-checkpoint.mjs"
+      - "tests/hive-withdrawal-checkpoint.test.mjs"
+      - ".github/workflows/hive-withdrawal-checkpoint-tests.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - run: node --test tests/release-withdrawal.test.mjs tests/hive-withdrawal-checkpoint.test.mjs

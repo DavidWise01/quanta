@@ -1,5 +1,10 @@
 # QUANTA · Changelog
 
+## 2026-11-12 — QG-076 · Withdrawal Across the Hive
+- Added a model of five hive agents carrying separate complete signed QG-075 release/withdrawal snapshots and verifying each against an independently pinned withdrawal sequence floor and exact trusted SHA-256 head.
+- The new publication gate requires a current online agent plus the QG-075 withdrawal-aware release check and QG-072 signed publishing scope. Tests include rejecting publication of the withdrawn first release while permitting the separately approved second release, stale and divergent states, offline and invalid agents. Added 28 regressions, spec and ASCII lab; no live propagation implemented.
+
+
 ## 2026-11-12 — QG-075 · Release Can Be Withdrawn
 - Added independent, quorum-signed withdrawal events cryptographically bound to exact QG-074 approved artifacts, source-review history, release destination and prior withdrawal event hash.
 - Preserved historical approval and gated provenance while denying future publishing through the QG-075 authorization gate. Added 24 adversarial tests, an interactive ASCII lab and formal specification. No live publication takedown is performed; historical QG-074 helper alone is not a withdrawal-aware gate.

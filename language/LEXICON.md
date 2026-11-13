@@ -384,3 +384,10 @@ Do not assert that the shape of a symbol proves the shape of a particle, or that
 - `withdrawal quorum`: at least three authorized Ed25519 reviewer votes from distinct policy-pinned ancestry roots over one exact withdrawal payload.
 - `withdrawn release`: retains historically valid approval and source ancestry but cannot acquire future publication eligibility through the QG-075 gate.
 - `independent withdrawal floor`: externally maintained minimum accepted withdrawal sequence needed to reject pre-withdrawal rollback snapshots.
+
+## QG-076 — Withdrawal across the hive
+
+- `withdrawal head pin`: separately supplied SHA-256 digest of the full trusted QG-075 approval-and-withdrawal state; prevents an alternative valid signing history from being considered current.
+- `withdrawal floor`: an independent minimum signed-withdrawal sequence, required before any agent may publish.
+- `agent withdrawal snapshot`: agent-supplied local QG-075 record, replayed in full but never allowed to choose its own expected head digest.
+- `current publication gate`: QG-076 check requiring a verified online agent at the trusted head plus a non-withdrawn QG-075 release and active QG-072 publishing scope.

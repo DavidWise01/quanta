@@ -18,6 +18,9 @@ QG-034 has an executable, deterministic boot path: `node language/instantiate-ke
 
 ## Read and explore
 
+- **[QG-075 Release Can Be Withdrawn](./release-withdrawal.html)** — a separate 3-root signed withdrawal ledger revokes future use of a QG-074 approved release without erasing the original approval, content digest, source ancestry or review signatures. [Kernel](./language/release-withdrawal.mjs) · [Spec](./language/QG-075-RELEASE-WITHDRAWAL.md) · [24 tests](./tests/release-withdrawal.test.mjs).
+
+
 - **[QG-074 Independent Declassification](./independent-declassification.html)** — preserve gated QG-073 ancestors while reviewing exact separate release bytes with three independently pinned ancestral reviewer roots; release requires QG-072 signed `publish @ 0root.ai` authority. [Kernel](./language/independent-declassification.mjs) · [Spec](./language/QG-074-INDEPENDENT-DECLASSIFICATION.md) · [20 tests](./tests/independent-declassification.test.mjs).
 
 

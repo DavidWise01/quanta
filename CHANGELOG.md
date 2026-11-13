@@ -1,5 +1,10 @@
 # QUANTA · Changelog
 
+## 2026-11-12 — QG-075 · Release Can Be Withdrawn
+- Added independent, quorum-signed withdrawal events cryptographically bound to exact QG-074 approved artifacts, source-review history, release destination and prior withdrawal event hash.
+- Preserved historical approval and gated provenance while denying future publishing through the QG-075 authorization gate. Added 24 adversarial tests, an interactive ASCII lab and formal specification. No live publication takedown is performed; historical QG-074 helper alone is not a withdrawal-aware gate.
+
+
 ## 2026-11-12 — QG-074 · Independent Declassification
 - Added exact-artifact release petitions bound to a gated QG-073 source graph, text hash, source ancestry, original classification and destination, requiring valid Ed25519 approval from three separately pinned reviewer roots.
 - Preserved original gated nodes while creating distinct modeled public-release artifacts; a successful reviewer quorum still requires active QG-072 signed publication scope. Added 20 adversarial tests, ASCII Pages lab and specification. Synthetic reviewer signatures cannot prove content sanitization.

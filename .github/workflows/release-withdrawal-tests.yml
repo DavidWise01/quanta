@@ -1,0 +1,24 @@
+name: QG-075 Release Withdrawal Tests
+on:
+  push:
+    paths:
+      - "language/release-withdrawal.mjs"
+      - "tests/release-withdrawal.test.mjs"
+      - ".github/workflows/release-withdrawal-tests.yml"
+  pull_request:
+    paths:
+      - "language/release-withdrawal.mjs"
+      - "tests/release-withdrawal.test.mjs"
+      - ".github/workflows/release-withdrawal-tests.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - run: node --test tests/independent-declassification.test.mjs tests/release-withdrawal.test.mjs

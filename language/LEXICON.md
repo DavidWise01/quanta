@@ -377,3 +377,10 @@ Do not assert that the shape of a symbol proves the shape of a particle, or that
 - `reviewer root quorum`: at least three separately pinned Ed25519 reviewer identities from distinct declared ancestral roots; the releasing agent cannot approve itself merely by editing its own label.
 - `approved release artifact`: a new object with three verified review signatures; it is not a rewrite or relabeling of the original gated QG-073 node.
 - `publication gate`: requires both an independently approved exact release artifact and a valid, current QG-072 issuer-signed publish permission for 0root.ai.
+
+## QG-075 — Release can be withdrawn
+
+- `withdrawal petition`: a monotonic signed request targeting an exact QG-074 approved artifact and history hash, not an editable status flag.
+- `withdrawal quorum`: at least three authorized Ed25519 reviewer votes from distinct policy-pinned ancestry roots over one exact withdrawal payload.
+- `withdrawn release`: retains historically valid approval and source ancestry but cannot acquire future publication eligibility through the QG-075 gate.
+- `independent withdrawal floor`: externally maintained minimum accepted withdrawal sequence needed to reject pre-withdrawal rollback snapshots.

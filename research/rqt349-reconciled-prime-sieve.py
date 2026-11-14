@@ -4,7 +4,6 @@ Requires rqt348-results.json in the same directory (full frozen input ledger).
 No rational/isotropic or integral-root witness is claimed.
 """
 import json
-from pathlib import Path
 import sympy as s
 F=s.Matrix([
 [-4523390658618420908,2239380521691398176,-2422224054680331217,-3109472006028867029],
@@ -12,7 +11,7 @@ F=s.Matrix([
 [-2422224054680331217,-1185189370853509030,-5270086080008383040,4649693842155823637],
 [-3109472006028867029,4418426561730616356,4649693842155823637,-12373412455412906476]])
 assert F.det()==-8281492574115056973770683990411769007319047636247715225543944839911172
-ledger=json.loads(Path(__file__).with_name('rqt348-results.json').read_text())['ledger']
+
 def gram(n,d):
  T=s.Matrix([[-(n+d),0,0],[0,1,0],[n,0,0],[0,0,1]])
  return T.T*F*T
@@ -30,6 +29,13 @@ def cert(G,p):
  Q=int((v.T*G*v)[0])
  assert Q%p==0 and Q%(p*p)!=0
  return {'p':int(p),'radical':list(map(int,v)),'norm_over_p_mod_p':Q//p%p}
+ledger=[]
+oldprimes=list(s.primerange(3,20000))
+for d,lo,hi in [(-1,188,205),(1,837,851)]:
+ for n in range(lo,hi):
+  G=gram(n,d)
+  hits=[c for p in oldprimes if (c:=cert(G,p)) is not None]
+  ledger.append({'slope':f'{n+d}/{n}','n':n,'d':d,'certificates':hits})
 prior={'187/188':887773937,'839/838':159171641,'840/839':2316121}
 primes=list(s.primerange(20000,100000))
 results=[]

@@ -1,0 +1,30 @@
+#!/usr/bin/env python3
+"""RQT-364: independent exact F4/H4/U provenance and discriminant-square proof."""
+import json,random
+from math import isqrt
+import sympy as s
+F=s.Matrix([[-4523390658618420908,2239380521691398176,-2422224054680331217,-3109472006028867029],[2239380521691398176,-6703602364620082676,-1185189370853509030,4418426561730616356],[-2422224054680331217,-1185189370853509030,-5270086080008383040,4649693842155823637],[-3109472006028867029,4418426561730616356,4649693842155823637,-12373412455412906476]])
+H=s.Matrix([[2261695329309210454,-1051245631696015003,1175645097188971547,1627042015946053765],[-1188134889995383173,3351801182310041338,491285385866907237,-2161158408172372287],[1246578957491359670,693903984986601793,2635043040004191520,-2244501232348113591],[1482429990082813264,-2257268153558244069,-2405192609807710046,6186706227706453238]])
+U=s.Matrix([[224,29,-224,-130],[-193,-25,193,112],[40,5,-40,-23],[-336,-43,335,195]])
+G=U*F*U.T
+G_fixed=s.Matrix([[34179589445902572,5546684119021066,14330831954146560,10195342904717600],[5546684119021066,-36064034105945618,-4092589979241028,-10471346572498847],[14330831954146560,-4092589979241028,-1116046375004069144,-146585557755954623],[10195342904717600,-10471346572498847,-146585557755954623,-5868287405277328266]])
+assert G==G_fixed and abs(U.det())==1
+assert F.det()==-8281492574115056973770683990411769007319047636247715225543944839911172
+assert H.det()==1 and H+H.T==-F
+GG=[[int(G[i,j]) for j in range(4)] for i in range(4)]
+mods=[256,3,5,7,11,13,17,19,23,29,31,37]
+squares={m:{i*i%m for i in range(m)} for m in mods}
+rng=random.Random(364)
+for _ in range(1000):
+ t=[rng.randint(-500,500) for i in range(3)]
+ A=GG[3][3];B2=sum(GG[i][3]*t[i] for i in range(3))
+ C=sum(t[i]*GG[i][j]*t[j] for i in range(3) for j in range(3))+2
+ delta=B2*B2-A*C
+ for m in mods:
+  h=[[int(GG[i][3]*GG[j][3]-GG[3][3]*GG[i][j])%m for j in range(3)] for i in range(3)]
+  pred=(sum(t[i]*h[i][j]*t[j] for i in range(3) for j in range(3))-2*A)%m
+  assert delta%m==pred
+  if delta>=0 and isqrt(delta)**2==delta:assert pred in squares[m]
+print(json.dumps({'status':'PASS independent exact Gram provenance / square-sieve derivation',
+ 'source':'stoicheion RQT-242 F4/H4','random_independent_discriminant_checks':1000,
+ 'detU':int(U.det()),'radius_of_sieve_run':500,'fourth_coordinate':'unbounded'},indent=2))

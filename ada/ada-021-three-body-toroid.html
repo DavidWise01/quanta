@@ -1,0 +1,30 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>ADA-021 Three-Body Nested Toroid</title>
+<style>:root{color-scheme:dark}*{box-sizing:border-box}body{margin:0;background:#070f1e;color:#e0efff;font:15px system-ui}header{padding:16px 24px;border-bottom:1px solid #395466}h1{margin:0;color:#ffb368;font-size:25px}small{color:#98bdc9}.layout{display:grid;grid-template-columns:minmax(0,1fr) 320px;gap:16px;padding:16px}canvas{width:100%;height:auto;background:#091523;border:1px solid #345668;border-radius:12px}aside{background:#0e1e2c;border:1px solid #345668;border-radius:12px;padding:16px}button{background:#17364b;color:#dffbf7;border:1px solid #467181;border-radius:8px;padding:9px 15px;cursor:pointer}button:focus-visible{outline:2px solid #ffb368}pre{white-space:pre-wrap;font:12px/1.6 monospace;max-height:200px;overflow:auto;color:#82eedb}input{width:100%}.row{display:flex;gap:8px;flex-wrap:wrap} @media(max-width:800px){.layout{grid-template-columns:1fr}}</style>
+<header><h1>ADA-021 · Three-Body Nested Color Toroid</h1><small>360° / 3 = 120° · 6 nested samples per body · {{x,y,z}}² · constant box</small></header>
+<div class="layout"><canvas width="900" height="730" id="v" aria-label="Three-body toroidal nested chromatic geometry"></canvas><aside><b>Singlet focus · {s}</b><p>Three independently addressed 120° bodies around one torroid. Each body contains six nested visual samples, producing 18 address slots. This is a geometry fixture, not a verified quantum-chemical orbital.</p><p>Body focus: <strong id="bodyLabel">X / red</strong></p><input id="body" type="range" min="0" max="2" step="1" value="0"><p>Nested sample: <strong id="layerLabel">1 / 6</strong></p><input id="layer" type="range" min="0" max="5" step="1" value="0"><p>Balanced ternary operant</p><div class="row"><button data-u="-1">−1</button><button data-u="0">0</button><button data-u="1">+1</button><button id="reset">Reset fixture</button></div><p><strong id="readout"></strong></p><p><small>Fixed box identity. Local states belong to their individual body/layer slots. A step changes only the selected slot and appends a witness record. Coordinate readout: x²+y²+z² with body amplitude based on its selected ternary state.</small></p><pre id="trace">Origin · no witness yet.</pre><pre>{brace[box:constant(torroid:variable)]}
+{{WwwWwWWwMmmMmMMm}}
+{-1,[0,(+1)]}
+255 :::: 256 :::: 257–366
+1x3x6x9x{n}x9x6x3x1</pre></aside></div>
+<script>(()=>{'use strict';const canvas=document.querySelector('#v'),c=canvas.getContext('2d'),bodySlider=document.querySelector('#body'),layerSlider=document.querySelector('#layer'),bodyLabel=document.querySelector('#bodyLabel'),layerLabel=document.querySelector('#layerLabel'),readout=document.querySelector('#readout'),trace=document.querySelector('#trace');
+let body=0,layer=0,states=Array.from({length:3},()=>Array(6).fill(0)),records=[];
+const names=['X / red','Y / green','Z / blue'],col=['#ff6d73','#56e1af','#6095ff'];
+const clamp=v=>Math.max(-1,Math.min(1,v)),angle=b=>-Math.PI/2+b*2*Math.PI/3;
+function draw(){c.fillStyle='#091523';c.fillRect(0,0,900,730);const cx=450,cy=349;
+c.textAlign='left';c.fillStyle='#ffb368';c.font='bold 18px monospace';c.fillText('ADA :: {{x,y,z}}^2 :: TORROID',24,36);
+for(let l=0;l<6;l++){const r=100+l*43;c.beginPath();c.arc(cx,cy,r,0,Math.PI*2);c.strokeStyle='#244558';c.lineWidth=1.1;c.stroke()}
+for(let b=0;b<3;b++){
+ let a=angle(b),start=a-Math.PI/3,end=a+Math.PI/3;
+ c.beginPath();c.moveTo(cx,cy);c.arc(cx,cy,338,start,end);c.closePath();c.fillStyle=b===body?'rgba(255,183,100,.045)':'rgba(65,100,135,.02)';c.fill();c.strokeStyle='#395468';c.stroke();
+ for(let l=0;l<6;l++){const r=100+l*43,theta=a+(l-2.5)*.045,x=cx+r*Math.cos(theta),y=cy+r*Math.sin(theta),v=states[b][l];c.beginPath();c.arc(x,y,b===body&&l===layer?18:13,0,Math.PI*2);c.fillStyle='#142636';c.fill();c.lineWidth=b===body&&l===layer?4:2;c.strokeStyle=col[b];c.stroke();c.textAlign='center';c.font='bold 11px monospace';c.fillStyle='#edf7ff';c.fillText(v>0?'+1':v,x,y+4)}
+ const x=cx+362*Math.cos(a),y=cy+362*Math.sin(a);c.textAlign='center';c.font='bold 19px monospace';c.fillStyle=col[b];c.fillText(names[b].split(' ')[0],x,y);
+}
+c.beginPath();c.arc(cx,cy,60,0,Math.PI*2);c.fillStyle='#1b3a42';c.fill();c.strokeStyle='#7df5df';c.lineWidth=4;c.stroke();c.fillStyle='#7df5df';c.font='bold 27px monospace';c.textAlign='center';c.fillText('{s}',cx,cy+6);c.font='12px monospace';c.fillText('SINGLET',cx,cy+25);
+c.textAlign='left';c.fillStyle='#a6c0d0';c.fillText('3 bodies x 120°     6 nested samples / body     18 address slots',25,691);
+bodyLabel.textContent=names[body];layerLabel.textContent=(layer+1)+' / 6';
+const coords=states.map(row=>row.reduce((a,v)=>a+v,0));readout.textContent='{{x,y,z}}² = '+coords.map(v=>v*v).join(' + ')+' = '+coords.reduce((s,v)=>s+v*v,0)+' · '+records.length+' witnesses';
+trace.textContent=records.length?records.slice(-12).map(r=>r).join('\n'):'Origin · no witness yet.';
+}
+bodySlider.oninput=()=>{body=+bodySlider.value;draw()};layerSlider.oninput=()=>{layer=+layerSlider.value;draw()};
+document.querySelectorAll('[data-u]').forEach(btn=>btn.onclick=()=>{let u=+btn.dataset.u,prior=states[body][layer];states[body][layer]=clamp(prior+u);records.push(String(records.length+1).padStart(3,'0')+' '+names[body].split(' ')[0]+(layer+1)+' : '+prior+' '+(u>0?'+':'')+u+' -> '+states[body][layer]);draw()});
+document.querySelector('#reset').onclick=()=>{states=Array.from({length:3},()=>Array(6).fill(0));records=[];body=0;layer=0;bodySlider.value=0;layerSlider.value=0;draw()};draw()})();</script></html>

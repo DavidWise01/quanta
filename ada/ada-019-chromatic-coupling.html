@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ADA-019 · Chromatic Coupling Loom</title>
+<style>
+:root{color-scheme:dark}*{box-sizing:border-box}body{margin:0;background:#07101c;color:#dfedff;font:15px system-ui}header{padding:18px 22px;border-bottom:1px solid #2a465a;background:#0c1928}h1{margin:0;color:#ffb268;font-size:24px}small{color:#83aebc}.layout{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:16px;padding:16px}canvas{width:100%;background:radial-gradient(circle at center,#112e37,#050b17);border:1px solid #345266;border-radius:14px;touch-action:manipulation}aside{padding:17px;border:1px solid #345266;border-radius:14px;background:#0e1d2c}button,select{background:#1b3449;border:1px solid #427083;border-radius:7px;color:#e7f9ff;padding:10px;cursor:pointer}button:hover{border-color:#ffb268}button:focus-visible{outline:2px solid #ffb268}p{line-height:1.5}pre{white-space:pre-wrap;color:#83efdd;font-size:12px}#trace{max-height:175px;overflow:auto;background:#07101c;border-radius:6px;padding:9px}.controls{display:flex;flex-wrap:wrap;gap:7px}.stat{font-weight:700;color:#ffb268}@media(max-width:750px){.layout{grid-template-columns:1fr}}
+</style>
+<header><h1>ADA-019 · The Chromatic Coupling Loom</h1><small>{brace[box:constant(torroid:variable)]} · balanced ternary · fixed singlet · Canvas2D</small></header>
+<div class="layout"><main><canvas id="loom" width="960" height="690" aria-label="Fifteen chromatic chambers arranged around a central singlet"></canvas></main>
+<aside><strong>1 × {s} × 1</strong><p>15 chambers: 3 RGB + 6 intermediate + 6 ultraviolet-indexed. Each chamber represents one 8! domain; permutations are not enumerated.</p>
+<label for="focus">Focus chamber</label><p><select id="focus"></select></p>
+<p>Balanced ternary input</p><div class="controls"><button data-u="-1">−1</button><button data-u="0">0</button><button data-u="1">+1</button><button id="reset">Reset</button></div>
+<p><span class="stat" id="status">State 0 · Witnesses 0</span></p>
+<p><strong>Append-only witness trace (session)</strong></p><pre id="trace">Origin; no transitions recorded.</pre>
+<p><small>Rule: update focused chamber by clip(state + input, −1, +1); central singlet observes result. Opposite input can return to zero unless saturation occurred. No neural weights are retuned.</small></p>
+<pre>255 :::: [256] :::: 257–366
+{{r:8!::b:8!::g:8!}}
+(y::o::pu::gr::cy::mg)
+[ultraviolet × 6 × 8!]
+{-1,[0,(+1)]}</pre>
+</aside></div>
+<script>
+(()=>{'use strict';
+const cs=[
+ ['R','#fc5c68','primary'],['B','#548cff','primary'],['G','#49e5a0','primary'],
+ ['Y','#f4d655','middle'],['O','#ffa34b','middle'],['PU','#ad82ff','middle'],['GR','#b4bec8','middle'],['CY','#51ecf4','middle'],['MG','#fb69ca','middle'],
+ ['UV1','#b5a4ef','uv'],['UV2','#a88bdc','uv'],['UV3','#9b77cd','uv'],['UV4','#8963b8','uv'],['UV5','#7654a7','uv'],['UV6','#644397','uv']
+].map(([name,color,family],i)=>({name,color,family,i,value:0}));
+const canvas=document.getElementById('loom'),ctx=canvas.getContext('2d'),select=document.getElementById('focus'),trace=document.getElementById('trace'),status=document.getElementById('status');
+cs.forEach((c,i)=>{let option=document.createElement('option');option.value=i;option.textContent=c.name+' · '+c.family;select.appendChild(option)});
+let selected=0,records=[];select.onchange=()=>{selected=Number(select.value);draw()};
+const fmt=x=>x>0?'+1':String(x);
+function pos(c){const ring=c.family==='primary'?115:c.family==='middle'?205:290;const a=(c.family==='primary'?c.i/3:c.family==='middle'?(c.i-3)/6:(c.i-9)/6)*Math.PI*2-Math.PI/2;return {x:480+ring*Math.cos(a),y:345+ring*Math.sin(a)}}
+function draw(){
+ctx.clearRect(0,0,960,690);
+for(const rad of [115,205,290]){ctx.beginPath();ctx.arc(480,345,rad,0,Math.PI*2);ctx.strokeStyle='#2b4a5b';ctx.lineWidth=2;ctx.stroke()}
+cs.forEach(c=>{const p=pos(c);ctx.beginPath();ctx.moveTo(480,345);ctx.lineTo(p.x,p.y);ctx.strokeStyle=c.i===selected?'#ffb268':'#274252';ctx.lineWidth=c.i===selected?3:1;ctx.stroke()});
+cs.forEach(c=>{const p=pos(c);ctx.beginPath();ctx.arc(p.x,p.y,c.i===selected?29:25,0,Math.PI*2);ctx.fillStyle='#112435';ctx.fill();ctx.lineWidth=c.i===selected?4:2;ctx.strokeStyle=c.color;ctx.stroke();ctx.textAlign='center';ctx.font='bold 14px system-ui';ctx.fillStyle=c.color;ctx.fillText(c.name,p.x,p.y-2);ctx.font='12px monospace';ctx.fillStyle='#f0f6fa';ctx.fillText(fmt(c.value),p.x,p.y+15)});
+ctx.beginPath();ctx.arc(480,345,58,0,Math.PI*2);ctx.fillStyle='#1e3540';ctx.fill();ctx.lineWidth=4;ctx.strokeStyle='#81f5dc';ctx.stroke();
+ctx.textAlign='center';ctx.fillStyle='#81f5dc';ctx.font='bold 27px monospace';ctx.fillText('{s}',480,343);ctx.font='13px monospace';ctx.fillText(cs[selected].name+' = '+fmt(cs[selected].value),480,366);
+ctx.textAlign='left';ctx.font='15px monospace';ctx.fillStyle='#ffb268';ctx.fillText('ADA · 3 / 6 / 6',26,35);ctx.font='12px monospace';ctx.fillStyle='#9fb6c9';ctx.fillText('BOX CONSTANT  |  TORROID VARIABLE  |  WITNESS TRACE',26,58);
+status.textContent='Focus '+cs[selected].name+' = '+fmt(cs[selected].value)+' · Witnesses '+records.length;
+trace.textContent=records.length?records.map(r=>r.id.toString().padStart(3,'0')+' | '+r.label+' | '+fmt(r.before)+' '+fmt(r.input)+' → '+fmt(r.after)).join('\n'):'Origin; no transitions recorded.';
+}
+document.querySelectorAll('[data-u]').forEach(b=>b.onclick=()=>{const c=cs[selected],input=Number(b.dataset.u),before=c.value;c.value=Math.max(-1,Math.min(1,before+input));records.push({id:records.length+1,label:c.name,before,input,after:c.value});draw()});
+document.getElementById('reset').onclick=()=>{cs.forEach(c=>c.value=0);records=[];draw()};
+canvas.onclick=e=>{const rect=canvas.getBoundingClientRect(),x=(e.clientX-rect.left)*960/rect.width,y=(e.clientY-rect.top)*690/rect.height;const match=cs.find(c=>{const p=pos(c);return Math.hypot(x-p.x,y-p.y)<31});if(match){selected=match.i;select.value=selected;draw()}};
+draw();
+})();
+</script></html>

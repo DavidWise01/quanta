@@ -1,0 +1,1 @@
+{"ancestry":"synthetic:ada-owned","hash":"b773179a109bdbb7e39c61372f516732863ce6340e9c7ec00348e09b3a624bca","kind":"genesis","prev":"ADA-046-GENESIS","seq":0,"state":{"box":"constant:1311","closure":"27abc=1","manifold":"{[({s})]}","phase_fifths":0,"phi_fifths":0,"roles":["Josephson:-1","Mandelbrot:0","Juliet:+1"],"singlet":"{s}","step":0,"witness_count":1}}

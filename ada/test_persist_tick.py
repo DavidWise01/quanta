@@ -71,11 +71,13 @@ class PersistentTickTests(unittest.TestCase):
     def test_writer_workflow_scope_and_schedule(self):
         root = Path(__file__).resolve().parents[1]
         workflow = (root / ".github/workflows/ada-kernel-persist.yml").read_text()
-        self.assertIn("cron: '*/5 * * * *'", workflow)
+        self.assertIn("cron: '2-59/5 * * * *'", workflow)
         self.assertIn("contents: write", workflow)
         self.assertIn("persist-credentials: false", workflow)
         self.assertIn("cancel-in-progress: false", workflow)
         self.assertIn("persist_tick.py", workflow)
+        self.assertIn("GITHUB_STEP_SUMMARY", workflow)
+        self.assertIn("github.event_name", workflow)
         self.assertIn("git diff --cached --name-only", workflow)
         self.assertNotIn("git push --force", workflow)
 

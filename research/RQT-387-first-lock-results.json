@@ -1,0 +1,55 @@
+{
+  "RQT": 387,
+  "source": "frozen stoicheion RQT-242 F4/H4; RQT-256/257 first-stage rules",
+  "candidate_sha256": "2247dc33eb514ac60e8fe3a39c157f9dbe4b8781b5ad42501c1e5860f89eb6a4",
+  "norm": -2,
+  "root_parity": "0111",
+  "rational_moving_rank": {
+    "before": 4,
+    "after": 3
+  },
+  "GF2_moving_rank": {
+    "before": 2,
+    "after": 1
+  },
+  "GF2_order": {
+    "before": 3,
+    "after": 2
+  },
+  "GF2_successor_matrix": [
+    [
+      0,
+      0,
+      0,
+      1
+    ],
+    [
+      0,
+      1,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      1,
+      0
+    ],
+    [
+      1,
+      0,
+      0,
+      0
+    ]
+  ],
+  "first_stage": "PASS",
+  "remaining": [
+    "Find norm -2 root19 with lower Wall pairing zero",
+    "Find norm -2 root20 with remaining Wall pairings zero",
+    "Construct root21 from signed cofactors",
+    "Verify resulting complete 21-reflection word"
+  ],
+  "complete_word": "OPEN",
+  "storybook": "rqt387.html",
+  "JPG": "RQT-387-Does-The-Key-Fit.jpg (conversation attachment, not Git binary)"
+}

@@ -1,0 +1,50 @@
+{
+  "RQT": 392,
+  "date": "2026-11-15",
+  "chapter": "The CRT Corridor",
+  "source": "Frozen stoicheion F4/H4 and RQT-388 saturated integral root19 kernel",
+  "status": "PASS exact modular CRT sieve; root19 OPEN",
+  "modulus_16": {
+    "solutions": 768,
+    "total": 4096,
+    "coefficient_parity_classes": {
+      "110": 256,
+      "001": 256,
+      "011": 256
+    }
+  },
+  "modulus_3": {
+    "solutions": 18,
+    "total": 27,
+    "necessary_rule": "x + z is not divisible by 3"
+  },
+  "modulus_5": {
+    "solutions": 20,
+    "total": 125
+  },
+  "exact_CRT_combination": {
+    "modulus": 240,
+    "surviving_residue_triples": 276480,
+    "all_residue_triples": 13824000,
+    "surviving_fraction": "1/50",
+    "excluded_fraction": "49/50"
+  },
+  "example_coefficients": [
+    1,
+    49,
+    34
+  ],
+  "example_norm_congruent_minus2_mod240": true,
+  "example_exact_norm_minus2": false,
+  "global_exclusions_from_RQT389_390": [
+    "x=0",
+    "y=0",
+    "z=0"
+  ],
+  "finite_cylinder_from_RQT391": "Any actual root19 must max(|x|,|y|)>=10001; z unrestricted",
+  "root18": "first-stage PASS",
+  "root19": "OPEN",
+  "root20": "OPEN",
+  "root21": "conditional",
+  "21_word": "OPEN"
+}

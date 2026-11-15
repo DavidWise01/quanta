@@ -1,0 +1,13 @@
+{
+  "RQT": 397,
+  "date": "2026-11-15",
+  "chapter": "The Primitive Root Gate",
+  "global_invariant": "gcd(abs(x),abs(y),abs(z)) == 1 for any exact norm -2 vector",
+  "proof": "If d>1 divides coordinates, d^2 divides the integral norm -2, impossible.",
+  "target_prime_power_test": "NOT EXECUTED on full RQT-388 Gram",
+  "smoke_test": "Executed locally on unrelated diag(1,-1,-1) quadratic form; does not establish target counts",
+  "root19": "OPEN",
+  "root20": "OPEN",
+  "root21": "conditional",
+  "scope": "Global primitivity theorem plus reproducible local lifting verifier, not global exclusion"
+}

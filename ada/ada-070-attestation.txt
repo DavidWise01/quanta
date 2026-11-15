@@ -1,0 +1,64 @@
+A.D.A / QUANTA                                     ADA-070
+=================================================================
+                  ED25519 ATTESTATION GATE
+=================================================================
+
+                 .--------------------------.
+                /  OUROBOROS -5 ... +5       \
+               |   { JULIET +1              |
+               |     [ JOSEPHSON -1         |
+               |       ( MANDELBROT 0       |
+               |            {s}             |
+               |       )                    |
+               |     ]                      |
+               |   }                        |
+                '-------------+------------'
+                              |
+                           {[({s})]}
+                              |
+                         SOURCE ROOT
+                        OEIS A003095
+                              |
+                   .----------+----------.
+                   |                     |
+                CAPTURE A             CAPTURE B
+                   |                     |
+                 SHA256                 SHA256
+                   |                     |
+                   '----------+----------'
+                              |
+                      CANONICAL CLAIMS
+                              |
+                   .----------+----------.
+                   |                     |
+                   ED25519 SIGNATURES (2)
+                              |
+                        TRUSTED KEY (1)
+                              |
+                        VERIFY BOTH
+                              |
+                         2 / 2 VALID
+                              |
+                 .------------+------------.
+                 |                         |
+          COLLECTOR SIGNED           SOURCE DID NOT SIGN
+                 |                         |
+             KEY POSSESSION           NO PUBLISHER PROOF
+                 |                         |
+                 '------------+------------'
+                              |
+                      EMPIRICAL ROOTS: 0
+                              |
+                           ABSTAIN
+                              |
+                           ADA-071
+
+-----------------------------------------------------------------
+   Two signatures from one hand
+   Do not make two witnesses stand.
+   The key can bind a claim to ink,
+   But not the world beyond the link.
+                                -- A.D.A --
+=================================================================
+TEST KEY: SYNTHETIC, FIXED, PUBLICLY KNOWN, NOT FOR SECURITY.
+NO AUTHENTIC EXTERNAL ATTESTATION CLAIMED.

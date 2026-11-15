@@ -1,0 +1,94 @@
+{
+  "RQT": 391,
+  "chapter": "The Interior Search",
+  "date": "2026-11-15",
+  "status": "PASS exact 400-million-pair radius-10000 cylinder, root19 OPEN",
+  "original_frozen_lattice": "RQT-242 F4/H4, RQT-388 exact saturated reduced Wall kernel",
+  "search_type": "full 2-coordinate cylinder with z exactly solved, not bounded",
+  "x_range": [
+    -10000,
+    10000
+  ],
+  "y_range": [
+    -10000,
+    10000
+  ],
+  "excluded_zero_coefficient_plane_pairs": 40001,
+  "interior_pairs": 400000000,
+  "tested_moduli": [
+    256,
+    3,
+    5,
+    7,
+    11,
+    13,
+    17,
+    19,
+    23,
+    29,
+    31,
+    37,
+    41,
+    43,
+    47,
+    53,
+    59,
+    61
+  ],
+  "modular_rejected": 399991618,
+  "passed_modular": 8382,
+  "negative_exact_discriminant": 8372,
+  "nonnegative_exact_nonsquare": 10,
+  "perfect_square_exact_discriminant": 0,
+  "exact_integer_norm_minus_two_vectors": 0,
+  "ten_border_cases": [
+    [
+      -7715,
+      -4353
+    ],
+    [
+      -7120,
+      -4012
+    ],
+    [
+      -4702,
+      -2636
+    ],
+    [
+      -4241,
+      -2389
+    ],
+    [
+      -1548,
+      -872
+    ],
+    [
+      1548,
+      872
+    ],
+    [
+      4241,
+      2389
+    ],
+    [
+      4702,
+      2636
+    ],
+    [
+      7120,
+      4012
+    ],
+    [
+      7715,
+      4353
+    ]
+  ],
+  "independent_verifier": "PASS 10 borderline cases and 2000 sampled direct original F4 arithmetic checks",
+  "finite_necessary_bound_for_any_root19_in_fixed_basis": "max(abs(x),abs(y)) >= 10001, z unrestricted",
+  "not_global_nonexistence": true,
+  "root18": "first-stage accepted",
+  "root19": "OPEN",
+  "root20": "OPEN",
+  "root21": "conditional cofactor",
+  "full21reflectionword": "OPEN"
+}

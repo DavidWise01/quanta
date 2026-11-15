@@ -1,0 +1,58 @@
+{
+  "RQT": 406,
+  "date": "2026-11-15",
+  "status": "PASS target-specific primitive parity classification and exact Z2 constructions",
+  "source": "RQT-401 full candidate-successor restricted Gram",
+  "A_mod4": [
+    [
+      1,
+      0,
+      1
+    ],
+    [
+      0,
+      2,
+      3
+    ],
+    [
+      1,
+      3,
+      3
+    ]
+  ],
+  "allowed": [
+    "001",
+    "011",
+    "110"
+  ],
+  "excluded": [
+    "010",
+    "100",
+    "101",
+    "111"
+  ],
+  "families": {
+    "110": {
+      "y": 1,
+      "z": 2,
+      "D_mod8": 1,
+      "x_mod_2_to_64": "12640643517325232419"
+    },
+    "001": {
+      "y": 0,
+      "z": 1,
+      "D_mod8": 1,
+      "x_mod_2_to_64": "10783917623109408650"
+    },
+    "011": {
+      "y": 1,
+      "z": 1,
+      "D_mod8": 1,
+      "x_mod_2_to_64": "8284749223855128812"
+    }
+  },
+  "limitation": "2-adic solvability in every admissible parity class is not an ordinary integral root, and predecessor compatibility of candidate root18 remains unverified",
+  "root19": "OPEN",
+  "root20": "OPEN",
+  "root21": "conditional"
+}

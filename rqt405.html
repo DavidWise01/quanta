@@ -1,0 +1,30 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>RQT-405 | Isotropic Bridge Obstruction</title><style>:root{color-scheme:dark}body{margin:0;background:#080d1c;color:#defaff;font:18px/1.6 system-ui}main{max-width:1060px;margin:auto;padding:35px 20px}h1{color:#ffd18f;font-size:clamp(2.5rem,8vw,5rem)}h2{color:#8bffde}pre{overflow:auto;background:#071725;padding:22px;color:#98ffe9;font:clamp(10px,1.7vw,17px)/1.4 monospace}.panel{background:#101e37;border:1px solid #467f96;padding:24px;border-radius:17px;margin:20px 0}a{color:#92ffe9}</style><main><small>QUANTA / ORIGINAL F4 / RQT-405 / ASCII RESEARCH STORY</small><h1>The Isotropic Bridge Closes</h1><p>A finite seven-case parity certificate rules out ALL nonzero rational null vectors in the actual fixed candidate-successor rank-three form. This is not a proof that root19 is impossible.</p><pre>        RQT-405 :: THE ISOTROPIC BRIDGE
+       _________________________________
+      /    RQT-401   RANK 3   Q=2A    /|
+     /_______________________________/ |
+     |                               | |
+     |       Q(u) = 0 ?              | |
+     |           |                   | |
+     |    PRIMITIVE PARITY           | |
+     |    001 010 011 100           | |
+     |    101 110 111               | |
+     |           |                   | |
+     |       A(u) MOD 4             | |
+     |       3 2 3 1 2 3 2         | |
+     |           X                   | /
+     |____________X__________________|/
+                  |
+       RATIONAL NULL ROUTE CLOSED
+                  |
+          Q(v) = -2 ?
+                  |
+           ROOT 19 : OPEN</pre><div class="panel"><h2>Exact matrix and seven primitive parities</h2><pre>A=Q/2 (mod 4)
+[1 0 1]
+[0 2 3]
+[1 3 3]
+
+001 010 011 100 101 110 111
+ 3   2   3   1   2   3   2
+
+Q(u)=0 rational nonzero: IMPOSSIBLE
+Q(v)=-2 integer: STILL OPEN</pre><p><a href="research/rqt405-isotropic-obstruction.py">Exact verifier</a> · <a href="research/RQT-405-results.json">Certificate</a> · <a href="research/RQT-405-ISOTROPIC-BRIDGE.md">Ledger</a></p></div></main></html>

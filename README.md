@@ -10,6 +10,12 @@
 
 One nested manifold `{[({s})]}`, three mini-states, 2/5 internal and 3/5 external five-beat clock, 11-position ouroborus, spinor sign cycle, and the four separate return conditions. The Python engine uses exact symbolic π/φ counters, a SHA-256-linked JSONL event journal, a synthetic genesis entry, explicit inverse recovery, and replay verification. The committed journal starts with genesis; subsequent steps persist only if the ledger is explicitly committed to Git. There is **no unattended self-modification or background execution**. GitHub and Pages are mirrors of the same ancestral source, not independent witnesses. **No evidence of physical quantum chemistry is claimed.**
 
+### ADA five-minute read-only verification
+
+[ADA GitHub Actions workflow](./.github/workflows/ada-kernel-verify.yml) requests `*/5 * * * *` (UTC, every five minutes) and supports manual dispatch. The workflow has **contents: read only**, no retained checkout credentials, serialized execution, an 8-minute job timeout, pinned genesis verification, read-only replay, and scratch-ledger recovery/regression tests. A final SHA-256 comparison checks that the committed event ledger was not modified during execution.
+
+This is scheduled verification, **not autonomous source editing or generation advancement**. The committed ledger remains at its original genesis until explicitly updated. GitHub scheduled runs are best-effort and can be delayed or skipped. A configuration commit does not itself prove that a scheduled run completed: use the [Actions runs page](https://github.com/DavidWise01/quanta/actions/workflows/ada-kernel-verify.yml) to inspect status. Do not mistake GitHub and Pages mirrors for independent witnesses.
+
 ## Security status
 
 **Security audit: NOT APPROVED for sensitive/production data.** The QG-015 cryptographic prototype has high-priority findings for replay, claimed sender identity and weak-password handling. [Read the cryptographic audit](./research/QG-015-CRYPTOGRAPHIC-AUDIT.md) and [reproducible adversarial tests](./tests/cryptographic-audit.test.mjs).

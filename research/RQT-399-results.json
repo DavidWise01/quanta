@@ -1,0 +1,27 @@
+{
+  "RQT": 399,
+  "date": "2026-11-15",
+  "chapter": "The Infinite Lift",
+  "theorem": "A mod-p norm-minus-two residue with nonzero gradient 2Qv mod p admits exactly p^2 compatible lifts at every prime-power stage",
+  "status": "THEOREM + EXAMPLE TESTS PASSED; TARGET NOT EXECUTED",
+  "illustrative_examples": {
+    "diag(1,1,1)": {
+      "2": 24,
+      "3": 54,
+      "5": 500,
+      "7": 2744
+    },
+    "diag(1,-1,-1)": {
+      "2": 8,
+      "3": 54,
+      "5": 500,
+      "7": 2744
+    }
+  },
+  "example_odd_prime_constructive_chain_depth": 6,
+  "prime_2": "All mod-2 branches have vanishing gradient; separate singular analysis required",
+  "target": "RQT-388 full Gram not run",
+  "root19": "OPEN",
+  "root20": "OPEN",
+  "root21": "conditional"
+}

@@ -1,0 +1,75 @@
+{
+  "RQT": 407,
+  "date": "2026-11-15",
+  "status": "PASS exact local projection at modulus 2 through 256",
+  "source": "Full RQT-401 candidate-successor Gram; Q even; A=Q/2",
+  "levels": [
+    {
+      "power": 1,
+      "modulus": 2,
+      "triples": 4,
+      "xy_pairs": 4,
+      "rejected_xy_pairs": 0
+    },
+    {
+      "power": 2,
+      "modulus": 4,
+      "triples": 24,
+      "xy_pairs": 12,
+      "rejected_xy_pairs": 4
+    },
+    {
+      "power": 3,
+      "modulus": 8,
+      "triples": 96,
+      "xy_pairs": 40,
+      "rejected_xy_pairs": 24
+    },
+    {
+      "power": 4,
+      "modulus": 16,
+      "triples": 384,
+      "xy_pairs": 96,
+      "rejected_xy_pairs": 160
+    },
+    {
+      "power": 5,
+      "modulus": 32,
+      "triples": 1536,
+      "xy_pairs": 320,
+      "rejected_xy_pairs": 704
+    },
+    {
+      "power": 6,
+      "modulus": 64,
+      "triples": 6144,
+      "xy_pairs": 1024,
+      "rejected_xy_pairs": 3072
+    },
+    {
+      "power": 7,
+      "modulus": 128,
+      "triples": 24576,
+      "xy_pairs": 3840,
+      "rejected_xy_pairs": 12544
+    },
+    {
+      "power": 8,
+      "modulus": 256,
+      "triples": 98304,
+      "xy_pairs": 14336,
+      "rejected_xy_pairs": 51200
+    }
+  ],
+  "allowed_primitive_parity": [
+    "001",
+    "011",
+    "110"
+  ],
+  "mod256_excluded_percent": 78.125,
+  "scope": "Necessary finite modular condition; does not establish a global descent or integer root19",
+  "root18_position": "UNVERIFIED",
+  "root19": "OPEN",
+  "root20": "OPEN",
+  "root21": "conditional"
+}

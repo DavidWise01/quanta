@@ -1,0 +1,27 @@
+{
+  "RQT": 404,
+  "date": "2026-11-15",
+  "chapter": "Indefinite Ternary Bridge: Exact Discriminant Sieve",
+  "status": "PASS finite target-specific scan; ROOT19 OPEN",
+  "source": "RQT-401 full reduced Gram (actual RQT-386 candidate successor)",
+  "max_positive_y": 30000,
+  "pairs_tested": 6907699,
+  "nonnegative_discriminant": 6902493,
+  "cumulative_modular_square_filters": {
+    "11": 314279,
+    "13": 314279,
+    "17": 156570,
+    "19": 86354,
+    "23": 86354,
+    "63": 1320629,
+    "64": 2588464,
+    "65": 633910
+  },
+  "perfect_square_discriminants": 0,
+  "integral_roots": 0,
+  "scope": "No integer solutions for 1 <= |y| <= 30000 in the RQT-394 cone. Not an unbounded exclusion.",
+  "frozen_root18_ordering": "UNVERIFIED",
+  "root19": "OPEN",
+  "root20": "OPEN",
+  "root21": "conditional"
+}

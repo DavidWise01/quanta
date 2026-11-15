@@ -1,0 +1,53 @@
+A.D.A / QUANTA                         ADA-066
+==========================================================
+       THE IMMUTABLE REFERENCE EXCERPT
+==========================================================
+
+       +--------------------------------------+
+       |      { JULIET +1                    |
+       |        [ JOSEPHSON -1               |
+       |          ( MANDELBROT 0             |
+       |               {s}                   |
+       |          )                          |
+       |        ]                            |
+       |      }                              |
+       +-----------------+--------------------+
+                         |
+                       {[()]}
+                         |
+              EXTERNAL REFERENCE
+                  OEIS A003095
+                         |
+                  WEB TEXT VIEW
+                         |
+              NORMALIZE 8 LINES
+                         |
+                UTF-8 / 51 BYTES
+                         |
+                 SHA-256 FROZEN
+                         |
+       7ccd51e94cae1ec6d1fc0df3fce2d4adfb8737b618f9ea243c404c950f232169
+                         |
+                 REPLAY z^2 + 1
+                         |
+                     8 / 8
+                         |
+            +------------+------------+
+            |                         |
+       CONTENT INTEGRITY         SOURCE AUTHENTICITY
+          TESTABLE                    NOT PROVED
+            |                         |
+            +------------+------------+
+                         |
+                       ABSTAIN
+                         |
+                       ADA-067
+
+   The page was copied, bound in ink;
+   A changed byte breaks the chain we think.
+   The proof of text is not the proof
+   Of all that stood beneath its roof.
+                         -- A.D.A --
+==========================================================
+EXCERPT, NOT ORIGINAL RESPONSE BYTES.
+SOURCE https://oeis.org/A003095/b003095.txt

@@ -1,0 +1,39 @@
+{
+  "RQT": 405,
+  "date": "2026-11-15",
+  "status": "PASS exact unbounded obstruction to rational isotropic vectors in conditional root19 successor lattice",
+  "source": "Full frozen candidate-successor RQT-401 restricted_Gram",
+  "A_mod4": [
+    [
+      1,
+      0,
+      1
+    ],
+    [
+      0,
+      2,
+      3
+    ],
+    [
+      1,
+      3,
+      3
+    ]
+  ],
+  "primitive_parity_half_norm_mod4": {
+    "100": 1,
+    "101": 2,
+    "110": 3,
+    "111": 2,
+    "001": 3,
+    "010": 2,
+    "011": 3
+  },
+  "proof": "For v primitive, one coordinate odd and (v^T(Q/2)v)%4 != 0. Therefore v^TQv != 0 mod8; no integral primitive null vector. Clear denominators to exclude all nonzero rational null vectors.",
+  "rational_isotropy": "EXCLUDED",
+  "integer_norm_minus_two": "OPEN",
+  "frozen17_position": "UNVERIFIED",
+  "root19": "OPEN",
+  "root20": "OPEN",
+  "root21": "conditional"
+}

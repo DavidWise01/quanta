@@ -1,0 +1,23 @@
+{
+  "RQT": 396,
+  "status": "THEOREM from inherited RQT-388 modular class counts; verifier committed but not executed this turn",
+  "moduli": [
+    5,
+    7,
+    8,
+    9
+  ],
+  "survivors": {
+    "5": 20,
+    "7": 42,
+    "8": 192,
+    "9": 162
+  },
+  "combined_modulus": 2520,
+  "combined_survivor_residue_triples": 26127360,
+  "global_cone": "177065/100000 < x/y < 178600/100000",
+  "interpretation": "All CRT residue classes have arbitrarily large lifts satisfying open slope cone; no root19 existence proof",
+  "root19": "OPEN",
+  "root20": "OPEN",
+  "root21": "conditional"
+}

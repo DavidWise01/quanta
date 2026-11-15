@@ -4,6 +4,12 @@
 
 > Start at zero. Make a mark. Discover a relationship.
 
+## ADA-046 persistent kernel
+
+**[ADA persistent kernel viewer](./ada/ada-kernel.html)** · [Kernel charter](./ada/ada-046-persistent-kernel.md) · [Deterministic Python implementation](./ada/kernel.py) · [Evidence journal](./ada/kernel/events.jsonl) · [Replay tests](./ada/test_kernel.py) · [Read-only verification workflow](./.github/workflows/ada-kernel-verify.yml).
+
+One nested manifold `{[({s})]}`, three mini-states, 2/5 internal and 3/5 external five-beat clock, 11-position ouroborus, spinor sign cycle, and the four separate return conditions. The Python engine uses exact symbolic π/φ counters, a SHA-256-linked JSONL event journal, a synthetic genesis entry, explicit inverse recovery, and replay verification. The committed journal starts with genesis; subsequent steps persist only if the ledger is explicitly committed to Git. There is **no unattended self-modification or background execution**. GitHub and Pages are mirrors of the same ancestral source, not independent witnesses. **No evidence of physical quantum chemistry is claimed.**
+
 ## Security status
 
 **Security audit: NOT APPROVED for sensitive/production data.** The QG-015 cryptographic prototype has high-priority findings for replay, claimed sender identity and weak-password handling. [Read the cryptographic audit](./research/QG-015-CRYPTOGRAPHIC-AUDIT.md) and [reproducible adversarial tests](./tests/cryptographic-audit.test.mjs).

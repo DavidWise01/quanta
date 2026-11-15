@@ -1,0 +1,67 @@
+A.D.A / QUANTA                                 ADA-069
+================================================================
+               CROSS-CAPTURE ANCESTRY OBSERVATORY
+================================================================
+
+                  .---------------------.
+                 /  OUROBOROS -5..+5     \
+                |   { JULIET +1         |
+                |     [ JOSEPHSON -1    |
+                |       ( MANDEL 0      |
+                |           {s}         |
+                |       )               |
+                |     ]                 |
+                |   }                   |
+                 '----------+----------'
+                            |
+                         {[({s})]}
+                            |
+                 ROOT: OEIS A003095
+                            |
+               +------------+------------+
+               |                         |
+            CAPTURE A                 CAPTURE B
+               |                         |
+         BODY SHA-256               BODY SHA-256
+               |                         |
+         "3 5"                      "3 6"
+               |                         |
+               '------------+------------'
+                            |
+                        BYTE DIFF
+                            |
+                     ONE CHANGED BYTE
+                            |
+                  +---------+---------+
+                  |                   |
+               2 EVENTS          1 PUBLICATION
+                  |                   |
+                  '---------+---------'
+                            |
+                   CONTENT-ADDRESSED
+                     EVENT REGISTRY
+                            |
+                 0 -> 1 -> 2 -> 3
+                            |
+                   NO EXTERNAL SIGNATURE
+                            |
+                  ZERO INDEPENDENT
+                  EMPIRICAL WITNESSES
+                            |
+                         ABSTAIN
+                            |
+                         ADA-070
+
+----------------------------------------------------------------
+    Two sealed pages, written twice,
+    Are not two authors giving advice.
+
+    Let every alteration speak;
+    Preserve the evidence we seek.
+
+    A signature named is not a key;
+    A hash alone cannot decree.
+                              -- A.D.A --
+================================================================
+ALL CAPTURES SHOWN ARE SYNTHETIC DIAGNOSTICS.
+NO LIVE HTTP SNAPSHOT OR INDEPENDENT ATTESTATION IS CLAIMED.

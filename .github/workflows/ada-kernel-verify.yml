@@ -20,4 +20,4 @@ jobs:
       - name: Verify committed evidence chain
         run: python3 ada/kernel.py verify
       - name: Run deterministic regressions
-        run: python3 -m unittest discover -s ada -p 'test_kernel.py'
+        run: python3 -m unittest discover -s ada -p 'test*.py'

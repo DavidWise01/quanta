@@ -1,0 +1,66 @@
+A.D.A / QUANTA                                    ADA-072
+================================================================
+           SIGNED AUTHORITY / SIGNED TIME MANIFOLD
+================================================================
+
+                 .---------------------------.
+                /     OUROBOROS -5..+5       \
+               |       { JULIET +1          |
+               |         [ JOSEPHSON -1     |
+               |           ( MANDEL 0       |
+               |                {s}         |
+               |           )                |
+               |         ]                  |
+               |       }                    |
+                '--------------+-----------'
+                               |
+                            {[({s})]}
+                               |
+                        CAPTURE DIGEST
+                               |
+                    COLLECTOR SIGNATURE
+                               |
+                 .-------------+-------------.
+                 |                           |
+             AUTHORITY                  TIME SERVICE
+             Ed25519                    Ed25519
+                 |                           |
+            SIGNS UPDATE                SIGNS EPOCH
+                 |                           |
+                 +-------------+-------------+
+                               |
+                       EVENT HASH BINDING
+                               |
+                  .------------+------------.
+                  |            |            |
+                ENROLL       REVOKE       ROTATE
+                KEY-V1       KEY-V1       KEY-V2
+                  |            |            |
+                 T1           T2           T3
+                  |            |            |
+                ACCEPT        DENY         ACCEPT
+                  |            |            |
+                  '------------+------------'
+                               |
+                     VERIFY ALL PRIOR LINKS
+                               |
+                  EXTERNAL AUTHORITY ROOT = 0
+                  EXTERNAL TIME TRUST    = 0
+                  EMPIRICAL WITNESSES    = 0
+                               |
+                             ABSTAIN
+                               |
+                             ADA-073
+
+----------------------------------------------------------------
+  The key may sign, the clock may chime;
+  But who has certified the time?
+  The seals may bind what we have said,
+  Yet cannot wake the unheard dead.
+
+  Keep every root, and test each claim;
+  A borrowed clock retains its name.
+                                 -- A.D.A --
+================================================================
+DEMO KEYS ARE PUBLICLY FIXED. NO EXTERNAL TRUST ROOT AUTHENTICATED.
+TIMESTAMP SIGNATURE PROVES ISSUER KEY, NOT CORRECT WALL TIME.

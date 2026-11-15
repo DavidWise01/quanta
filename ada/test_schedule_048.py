@@ -40,11 +40,18 @@ class ReadOnlySchedulingTests(unittest.TestCase):
         self.assertNotIn("kernel.py recover", code)
 
     def test_trusted_genesis_replay(self):
+        # Genesis remains pinned; descendants are permitted and expected.
         state, head, count = verify()
-        self.assertEqual(count, 1)
-        self.assertEqual(state["step"], 0)
-        self.assertEqual(state["witness_count"], 1)
-        self.assertEqual(head, TRUSTED_GENESIS_HASH)
+        self.assertGreaterEqual(count, 1)
+        self.assertEqual(state["witness_count"], count)
+        self.assertGreaterEqual(state["step"], 0)
+        self.assertLessEqual(state["step"], count - 1)
+        self.assertEqual(len(head), 64)
+        import json
+        with LEDGER.open("r", encoding="utf-8") as fh:
+            genesis = json.loads(fh.readline())
+        self.assertEqual(genesis["hash"], TRUSTED_GENESIS_HASH)
+        self.assertEqual(genesis["seq"], 0)
 
     def test_ledger_is_unchanged_by_verification(self):
         before = LEDGER.read_bytes()

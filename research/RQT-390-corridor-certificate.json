@@ -1,0 +1,52 @@
+{
+  "RQT": 390,
+  "status": "PASS exact original F4 congruence",
+  "restricted_Gram_mod16": [
+    [
+      2,
+      8,
+      2
+    ],
+    [
+      8,
+      4,
+      6
+    ],
+    [
+      2,
+      6,
+      14
+    ]
+  ],
+  "z_equals_zero_half_norm_coefficients_mod8": {
+    "x_squared": 1,
+    "x_times_y": 0,
+    "y_squared": 2
+  },
+  "z_equals_zero_mod8_residues": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    6
+  ],
+  "required_half_norm_mod8": 7,
+  "z_equals_zero_all_64_residues_excluded": true,
+  "mod8_compatible_parities": {
+    "110": 32,
+    "001": 32,
+    "011": 32
+  },
+  "mod8_compatible_total": 96,
+  "RQT389_prior_global_exclusions": [
+    "x=0",
+    "y=0"
+  ],
+  "combined_global_necessary": "x!=0 and y!=0 and z!=0 in the frozen RQT-388 basis",
+  "root18": "FIRST-STAGE ACCEPTED",
+  "root19": "OPEN",
+  "root20": "OPEN",
+  "root21": "CONDITIONAL",
+  "scope": "Global exclusion of three coordinate hyperplanes only; does not exclude root19 elsewhere"
+}

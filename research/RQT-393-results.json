@@ -1,0 +1,61 @@
+{
+  "RQT": 393,
+  "status": "PASS: exact original F4 local prime-power census",
+  "generation": "9x9x9 around ||||",
+  "date": "2026-11-15",
+  "prime_power_norm_censuses": [
+    {
+      "modulus": 64,
+      "satisfying_triples": 12288,
+      "all_triples": 262144,
+      "valid_parities": [
+        "001",
+        "011",
+        "110"
+      ]
+    },
+    {
+      "modulus": 27,
+      "satisfying_triples": 1458,
+      "all_triples": 19683
+    },
+    {
+      "modulus": 25,
+      "satisfying_triples": 500,
+      "all_triples": 15625
+    }
+  ],
+  "CRT_modulus": 43200,
+  "CRT_admissible_coefficient_classes": 8957952000,
+  "CRT_total_coefficient_classes": 80621568000000,
+  "exact_fraction": "1/9000",
+  "previous_local_key": [
+    1,
+    49,
+    34
+  ],
+  "lifted_local_key": [
+    721,
+    49,
+    34
+  ],
+  "lifted_norm_plus_two_mod_43200": 0,
+  "is_exact_integer_norm_minus2": false,
+  "single_coordinate_lifts_for_old_key": {
+    "axis_0": [
+      3,
+      48,
+      93,
+      138
+    ],
+    "axis_1": [],
+    "axis_2": []
+  },
+  "source": "authentic frozen RQT-242 F4/H4; exact RQT-388 saturated rank-three reduced kernel",
+  "root18": "first-stage passed",
+  "root19": "OPEN",
+  "root20": "OPEN",
+  "root21": "conditional",
+  "full_21_reflection_word": "OPEN",
+  "critical_limitation": "Local congruence does not imply exact norm representation"
+}

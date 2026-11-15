@@ -1,0 +1,19 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>RQT-398 · The Singular Branch</title><style>:root{color-scheme:dark}body{margin:0;background:#071121;color:#dffaff;font:18px/1.6 system-ui}main{max-width:1100px;margin:auto;padding:40px 20px}h1{font-size:clamp(2.5rem,7vw,5rem);color:#ffc581}.panel{background:#101c36;border:1px solid #327d8b;border-radius:18px;padding:22px;margin:20px 0}pre{font:clamp(9px,1.75vw,17px)/1.35 monospace;overflow:auto;color:#7cf7e0;padding:14px;background:#081325}a{color:#91ffe9}h2{color:#8bffeb}</style><main><small>QUANTA · ORIGINAL F4 · RQT-398 · ASCII VISUAL</small><h1>The Singular Branch</h1><p>Not every modular solution lifts. Some regular branches continue, some singular branches blossom, and others terminate without excluding the whole lattice.</p><pre>                RQT-398 / SINGULAR BRANCH
+          _______________________________________
+         /        LATTICE: MOD p                 /|
+        /______________________________________/ |
+        |              (*)                     | |
+        |              /|\                     | |
+        |             / | \                    | |
+        |           /   |   \                  | /
+        |_________/_____|_____\________________|/
+                 |     |     |
+              REGULAR SINGULAR SINGULAR
+                 |     |     |
+              p^2 lifts 0     p^3 lifts
+                 |     X     |
+                 +-----+-----+
+                       |
+                  MOD p^2
+                       |
+               ROOT 19 : OPEN</pre><div class="panel"><h2>The exact lift equation</h2><pre>N(v + p*t)/p = N(v)/p + 2*(Qv).t  (mod p)</pre><p>Regular gradient: exactly p² surviving lifts. Singular with zero defect: all p³ survive. Singular with nonzero defect: none survive.</p><p>Illustrative independent brute-force test on Q=identity: p=2 → 24, p=3 → 54, p=5 → 500, p=7 → 2744 solutions modulo p².</p><p><strong>The frozen root19 target has not yet been checked. Root19 OPEN.</strong></p><p><a href="research/rqt398-singular-branches.py">Verifier</a> · <a href="research/RQT-398-results.json">Certificate</a> · <a href="research/RQT-398-THE-SINGULAR-BRANCH.md">Ledger</a></p></div></main></html>

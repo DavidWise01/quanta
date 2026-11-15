@@ -70,6 +70,7 @@ jobs:
           PYTHONDONTWRITEBYTECODE=1 python3 ada/persist_tick.py \
             --run-id "$ADA_RUN_ID" --source-revision "$ADA_SOURCE_SHA"
           PYTHONDONTWRITEBYTECODE=1 python3 ada/verify_readonly.py
+          PYTHONDONTWRITEBYTECODE=1 python3 ada/heartbeat_gate.py
       - name: Ensure only the ledger changed and commit append
         shell: bash
         env:

@@ -1,0 +1,23 @@
+name: ADA persistent kernel verification
+on:
+  push:
+    paths:
+      - 'ada/kernel.py'
+      - 'ada/test_kernel.py'
+      - 'ada/kernel/events.jsonl'
+      - '.github/workflows/ada-kernel-verify.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  replay:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Verify committed evidence chain
+        run: python3 ada/kernel.py verify
+      - name: Run deterministic regressions
+        run: python3 -m unittest discover -s ada -p 'test_kernel.py'

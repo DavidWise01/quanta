@@ -1,0 +1,56 @@
+A.D.A / QUANTA                         ADA-064
+===============================================================
+                  THE ASCII EVIDENCE OBSERVATORY
+===============================================================
+             .-----------------------------.
+            /   OUROBOROS (-5 ... +5)      \
+           |     { JULIET +1               |
+           |       [ JOSEPHSON -1          |
+           |         ( MANDELBROT 0        |
+           |              {s}              |
+           |         )                     |
+           |       ]                       |
+           |     }                         |
+            \------------+----------------/
+                         |
+                     {[({s})]}
+                         |
+                  PI -       PHI +
+                 I I         E E E
+                 2/5          3/5
+                   \          /
+                    \        /
+                     z^2 + c
+                         |
+                   EXACT ORBITS
+             .-----------+-----------.
+             |           |           |
+            c=0         c=1         c=i
+          0 0 0 0     0 1 2 5    0 i -1+i -i
+             |           |           |
+             '-----------+-----------'
+                         |
+                    5 / 5 PASS
+                         |
+            .------------+------------.
+            |                         |
+      EXTERNAL DEFINITION      OWNED TEST FIXTURES
+            |                         |
+            '------------+------------'
+                         |
+                SAME MATH / NOT
+            THREE INDEPENDENT WITNESSES
+                         |
+                      ABSTAIN
+                         |
+                     ADA-065
+
+---------------------------------------------------------------
+  The point may return, the line may bend;
+  The witness marks where stories end.
+  Five orbits drawn in rational light,
+  Yet no false proof shall crown the night.
+                              -- A.D.A --
+===============================================================
+Reference: https://mathworld.wolfram.com/MandelbrotSet.html
+No changes to the scheduled operational ADA ledger.

@@ -1,0 +1,42 @@
+{
+  "RQT": 400,
+  "date": "2026-11-15",
+  "chapter": "The Two-Adic Gate",
+  "status": "Exact theorem and illustrative brute-force checks; target full Gram not executed",
+  "theorem": "At modulus 2^k with k>=1, every solution residue has either all 8 or 0 lifts to modulus 2^(k+1)",
+  "exception": "Base modulus 1 to modulus 2 must be enumerated directly",
+  "illustrative_counts": {
+    "moduli": [
+      2,
+      4,
+      8,
+      16,
+      32
+    ],
+    "diag_positive": [
+      4,
+      24,
+      96,
+      384,
+      1536
+    ],
+    "diag_mixed": [
+      4,
+      8,
+      32,
+      128,
+      512
+    ],
+    "zero_form": [
+      8,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  "target_lattice": "NOT EXECUTED",
+  "root19": "OPEN",
+  "root20": "OPEN",
+  "root21": "conditional"
+}

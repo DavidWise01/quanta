@@ -1,0 +1,66 @@
+A.D.A / QUANTA                                 ADA-068
+================================================================
+                 THE RAW CAPTURE PROVENANCE GATE
+================================================================
+
+                   .---------------------.
+                  / OUROBOROS  -5..+5     \
+                 |    { JULIET +1        |
+                 |      [ JOSEPHSON -1   |
+                 |        ( MANDEL 0     |
+                 |            {s}        |
+                 |        )              |
+                 |      ]                |
+                 |    }                  |
+                  '----------+----------'
+                             |
+                          {[({s})]}
+                             |
+                    HTTPS EXACT URL
+                             |
+              +--------------+--------------+
+              |                             |
+          HTTP 200                    ERROR / REDIRECT
+              |                             |
+         READ RAW BYTES                    ABSTAIN
+              |
+     .--------+---------+---------.
+     |                  |         |
+   BODY               HEADERS    TIME
+   BYTES              FILTERED   UTC
+     |                  |         |
+     '--------+---------+---------'
+              |
+          SHA-256 PIN
+              |
+      CREATE-ONLY DIRECTORY
+           /          \
+     response.bin    manifest.json
+           \          /
+            VERIFY HASH
+                 |
+      +----------+-----------+
+      |                      |
+   BYTE MATCH            BYTE MISMATCH
+      |                      |
+  SOURCE ROOT:              FAIL
+  OEIS A003095
+      |
+   ONE PUBLICATION
+      |
+   ZERO AUTHENTICATED
+   EMPIRICAL WITNESSES
+      |
+     ABSTAIN
+      |
+    ADA-069
+
+----------------------------------------------------------------
+       A sealed response can show the trace,
+       Yet not prove all that left the place.
+       A repeated fetch is still one root;
+       Let source and copy never commute.
+                             -- A.D.A --
+================================================================
+LIVE RESPONSE NOT RETRIEVED IN THIS TURN (ACCESS BLOCKED).
+TEST CAPTURE = SYNTHETIC BYTES, NOT A SOURCE SNAPSHOT.

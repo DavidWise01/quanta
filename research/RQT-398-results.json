@@ -1,0 +1,42 @@
+{
+  "RQT": 398,
+  "date": "2026-11-15",
+  "chapter": "The Singular Branch Test",
+  "status": "Algorithm proven and illustrative brute-force cross-check passed; frozen target Gram not executed",
+  "theorem": "For N(v)=v^TQv+2, N(v+p*t)/p = N(v)/p + 2(Qv).t mod p when N(v) == 0 mod p",
+  "branch_counts": {
+    "regular": "p^2",
+    "singular_alive": "p^3",
+    "singular_dead": 0
+  },
+  "illustrative_identity_Q": [
+    {
+      "p": 2,
+      "mod_p": 4,
+      "mod_p2": 24,
+      "brute_force": 24
+    },
+    {
+      "p": 3,
+      "mod_p": 6,
+      "mod_p2": 54,
+      "brute_force": 54
+    },
+    {
+      "p": 5,
+      "mod_p": 20,
+      "mod_p2": 500,
+      "brute_force": 500
+    },
+    {
+      "p": 7,
+      "mod_p": 56,
+      "mod_p2": 2744,
+      "brute_force": 2744
+    }
+  ],
+  "target_root19": "OPEN",
+  "target_matrix_test": "NOT RUN",
+  "root20": "OPEN",
+  "root21": "conditional"
+}

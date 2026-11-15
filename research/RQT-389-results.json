@@ -1,0 +1,39 @@
+{
+  "RQT": 389,
+  "status": "PASS two global coordinate-plane exclusions",
+  "original_root18": "first-stage accepted",
+  "root19": "OPEN",
+  "root20": "OPEN",
+  "root21": "conditional",
+  "global_certificates": [
+    {
+      "excluded_plane": "x=0",
+      "minimum_half_norm_bits": 1090,
+      "global_conclusion": "No norm -2 vector with first reduced coordinate zero"
+    },
+    {
+      "excluded_plane": "y=0",
+      "minimum_half_norm_bits": 1088,
+      "global_conclusion": "No norm -2 vector with second reduced coordinate zero"
+    }
+  ],
+  "necessary_condition": "x != 0 and y != 0 in the frozen RQT-388 reduced kernel basis",
+  "local_shadow": {
+    "line": "(x,0,1)",
+    "discriminant_sign": "negative",
+    "two_adic": {
+      "modulus": "4294967296",
+      "root": "1127524804",
+      "root_count": 4
+    },
+    "three_adic": {
+      "modulus": "3486784401",
+      "root": "3157891116",
+      "root_count": 2
+    },
+    "global_solution": "none on this line; real discriminant negative"
+  },
+  "source_code": "research/rqt389-global-two-plane-exclusion.py",
+  "full_exact_certificate": "Regenerate using RQT-388 --out and RQT-389 --out; local conversation artifact RQT-389-exact-certificate.json",
+  "image": "RQT-389-The-Three-Dimensional-Forge.jpg; conversation image, not Git binary"
+}

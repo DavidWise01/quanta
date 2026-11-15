@@ -1,0 +1,31 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>RQT-400 · The Two-Adic Gate</title><style>:root{color-scheme:dark}body{background:#080d1e;color:#e6faff;margin:0;font:18px/1.6 system-ui}main{max-width:1060px;margin:auto;padding:36px 20px}h1{font-size:clamp(2.4rem,8vw,5rem);color:#ffca86}.card{background:#101f34;border:1px solid #3b8491;border-radius:18px;margin:20px 0;padding:22px}pre{white-space:pre;overflow:auto;background:#061427;color:#83ffe7;padding:15px;font:clamp(10px,1.6vw,17px)/1.4 monospace}a{color:#91ffec}h2{color:#78ffea}</style><main><small>QUANTA / ORIGINAL F4 / RQT-400 / ASCII ONLY</small><h1>The Two-Adic Gate</h1><p>A parent lattice residue at modulus 2^k either opens all eight children or opens none. No image files or canvas required.</p><pre>              RQT-400 | THE TWO-ADIC GATE
+           _________________________________
+          /        FROZEN RANK-3           /|
+         /_______________________________ / |
+         |                                | |
+         |        .---.---.---.           | |
+         |        |   |   |   |           | |
+         |        .---[*]---.             | |
+         |         \  |  /                | |
+         |          \ | /                 | |
+         |           \|/                  | /
+         |____________|___________________|/
+                      |
+                   MOD 2
+                      |
+                   MOD 4
+                      |
+              +-------+-------+
+              |               |
+            ALL 8             0
+              |               X
+            MOD 8
+              |
+            MOD 16
+              |
+            MOD 32
+              |
+          ROOT 19 : OPEN</pre><section class="card"><h2>Exact all-or-nothing rule</h2><pre>N(v+2^k t)-N(v) = 2^(k+1)(Qv)·t + 2^(2k)tᵀQt</pre><p>For k≥1, every lift has the same norm residue modulo 2^(k+1). First enumerate solutions modulo 2 directly; then lift to modulo 4, 8, 16, 32 and beyond.</p><h2>Illustrative checks</h2><pre>Modulus           2     4      8      16      32
+Q = I             4    24     96     384    1536
+Q = diag(1,-1,-1) 4     8     32     128     512
+Q = 0             8     0      0       0       0</pre><p>These are not frozen root19-lattice counts. <b>Root 19 remains OPEN.</b></p><p><a href="research/rqt400-two-adic.py">Exact verifier</a> · <a href="research/RQT-400-results.json">Result certificate</a> · <a href="research/RQT-400-THE-TWO-ADIC-GATE.md">Research ledger</a></p></section></main></html>

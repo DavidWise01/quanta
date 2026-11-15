@@ -1,0 +1,28 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>RQT-397 | The Primitive Root Gate</title><style>:root{color-scheme:dark}body{margin:0;background:#090d20;color:#e5fcff;font:18px/1.55 system-ui}main{max-width:1100px;margin:auto;padding:35px 20px}h1{font-size:clamp(2.4rem,8vw,5rem);color:#ffca8a}h2{color:#79fff0}.card{background:#101e36;border:1px solid #427c91;border-radius:17px;padding:22px;margin:20px 0}pre{overflow:auto;padding:15px;color:#93fcec;background:#070f1d;font:clamp(9px,1.7vw,17px)/1.4 monospace}a{color:#87fff4}</style><main><small>QUANTA / ORIGINAL F4 / RQT-397 / ASCII ONLY</small><h1>The Primitive Root Gate</h1><p>Any exact norm-minus-two vector has primitive integral coordinates. The next search tests prime-power lifts without mistaking local survivorship for a root.</p><pre>                RQT-397 : THE PRIMITIVE GATE
+        +--------------------------------------+
+       /    REDUCED RANK-THREE LATTICE        /|
+      /______________________________________/ |
+      |                                      | |
+      |     .------.------.------.           | |
+      |     |      |      |      |           | |
+      |     .------*------.------.           | |
+      |     |      |      |      |           | /
+      |_____.______.______.______.___________|/
+                        |
+                   NORM = -2
+                        |
+             gcd(|x|,|y|,|z|) = 1
+                        |
+                  PRIME LIFTS
+             +----------+----------+
+             |          |          |
+          2 -> 4     3 -> 9     5 -> 25
+             |          |          |
+             +----------+----------+
+                        |
+                 ANY ZERO LEVEL?
+                    /       \\
+                  YES       NO
+                   |         |
+             EXCLUDE ALL   ROOT 19
+               ROOT 19      OPEN</pre><section class="card"><h2>Exact proof</h2><p>For d=gcd(|x|,|y|,|z|), if d&gt;1 then d² divides rᵀF₄r = −2. No square d²&gt;1 divides 2. Hence d=1.</p><h2>Next arithmetic barrier</h2><p>Residue triples satisfying Q(v) ≡ −2 modulo p must lift to solutions modulo p², p³, and beyond. One completely empty modulus proves global impossibility; positive survivor counts cannot prove existence.</p><p><strong>Target prime-power experiment not yet executed; Root 19 OPEN.</strong></p><p><a href="research/rqt397-prime-power.py">Executable lifting test</a> · <a href="research/RQT-397-results.json">Certificate and scope</a> · <a href="research/RQT-397-THE-PRIMITIVE-GATE.md">Research ledger</a></p></section></main></html>

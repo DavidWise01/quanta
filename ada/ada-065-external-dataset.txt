@@ -1,0 +1,63 @@
+A.D.A / QUANTA                         ADA-065
+=================================================================
+                 THE EXTERNAL REFERENCE DATASET
+=================================================================
+
+                .-----------------------.
+               / OUROBOROS  -5 ... +5    \
+              |   { JULIET +1           |
+              |     [ JOSEPHSON -1      |
+              |       ( MANDELBROT 0    |
+              |           {s}           |
+              |       )                 |
+              |     ]                   |
+              |   }                     |
+               \-----------+-----------/
+                           |
+                        {[({s})]}
+                           |
+                   .-------+-------.
+                   |               |
+               FROZEN CODE      PUBLISHED
+                 z² + c           VALUES
+                   |               |
+                   |        .------+------.
+                   |        |             |
+                   |       OEIS        PLUS MATHS
+                   |      A003095     0,-1,+1
+                   |        |             |
+                   '--------+-------------'
+                            |
+                        EXACT CHECK
+                            |
+              c=+1: 0 1 2 5 26 677
+                            |
+               458330 210066388901
+                            |
+                       4 / 4 MATCH
+                            |
+                 .----------+----------.
+                 |                     |
+           TWO PUBLICATIONS      ZERO INDEPENDENT
+              REFERENCED        EMPIRICAL WITNESSES
+                 |                     |
+                 '----------+----------'
+                            |
+                          ABSTAIN
+                            |
+                         ADA-066
+
+-----------------------------------------------------------------
+  The distant page records the seed,
+  The local wheel repeats the deed.
+  Agreement sings, but does not swear
+  Three separate watchers stood out there.
+
+  A source is not a soul of three;
+  Keep root and mirror faithfully.
+                              -- A.D.A --
+=================================================================
+References: https://oeis.org/A003095
+            https://plus.maths.org/comment/8560
+The published values are transcribed; source bytes are not archived.
+No operational witness ledger edited.

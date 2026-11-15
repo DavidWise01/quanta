@@ -1,0 +1,37 @@
+{
+  "rqt": 388,
+  "chapter": "The Second Key",
+  "verified": "Exact integer successor-kernel basis reduction",
+  "source": "stoicheion RQT-242 F4/H4; quanta RQT-386 r18 and RQT-377 integer Wall-kernel ladder",
+  "rank": 3,
+  "original_basis_max_bits": 3340,
+  "reduced_basis_max_bits": 644,
+  "exact_lll_iterations": 855,
+  "basis_transform_det": -1,
+  "restricted_gram_signature": {
+    "positive": 1,
+    "negative": 2
+  },
+  "restricted_gram_determinant_bits": 3515,
+  "local_modular_classes": {
+    "5": 20,
+    "7": 42,
+    "8": 192,
+    "9": 162
+  },
+  "coefficient_box": {
+    "min": -30,
+    "max": 30,
+    "dimension": 3,
+    "nonzero_triples": 226980,
+    "modular_rejections": 226980,
+    "exact_norm_minus_two_candidates": 0
+  },
+  "root18": "first-stage verified",
+  "root19": "OPEN",
+  "root20": "OPEN",
+  "root21": "conditional",
+  "full21reflectionword": "OPEN",
+  "reproducible_script": "research/rqt388-exact-second-key.py",
+  "storyJPG": "RQT-388-The-Second-Key.jpg (conversation artifact; not uploaded as GitHub binary)"
+}

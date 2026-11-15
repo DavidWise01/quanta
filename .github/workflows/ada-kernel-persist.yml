@@ -1,0 +1,80 @@
+name: ADA append-only persistent iteration
+
+on:
+  schedule:
+    - cron: '*/5 * * * *'
+  workflow_dispatch:
+
+# One writer at a time. No force-push, no source rewrites.
+concurrency:
+  group: ada-persistent-ledger-writer
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  tick:
+    # Never advance from PRs, forks or arbitrary refs.
+    if: github.repository == 'DavidWise01/quanta' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout without cached credentials
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+      - name: Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Refresh default branch before writing
+        shell: bash
+        run: |
+          set -euo pipefail
+          git fetch origin main
+          git checkout -B main origin/main
+      - name: Verify pinned ancestry and tests
+        shell: bash
+        run: |
+          set -euo pipefail
+          PYTHONDONTWRITEBYTECODE=1 python3 ada/verify_readonly.py
+          PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover -s ada -p 'test*.py' -q
+      - name: Append one deterministic witness transition
+        shell: bash
+        env:
+          ADA_RUN_ID: ${{ github.run_id }}
+          ADA_SOURCE_SHA: ${{ github.sha }}
+        run: |
+          set -euo pipefail
+          PYTHONDONTWRITEBYTECODE=1 python3 ada/persist_tick.py \
+            --run-id "$ADA_RUN_ID" --source-revision "$ADA_SOURCE_SHA"
+          PYTHONDONTWRITEBYTECODE=1 python3 ada/verify_readonly.py
+      - name: Ensure only the ledger changed and commit append
+        shell: bash
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          git add -- ada/kernel/events.jsonl
+          if git diff --cached --quiet; then
+            echo "Existing run ID; no new event to commit."
+            exit 0
+          fi
+          test "$(git diff --cached --name-only)" = "ada/kernel/events.jsonl"
+          python3 - <<'PY'
+          import subprocess
+          old = subprocess.check_output(["git", "show", "HEAD:ada/kernel/events.jsonl"])
+          new = open("ada/kernel/events.jsonl", "rb").read()
+          assert new.startswith(old), "existing ledger prefix changed"
+          assert new.count(b"\n") == old.count(b"\n") + 1, "not exactly one new event"
+          PY
+          git config user.name "ada-kernel[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "ada: append scheduled witnessed tick"
+          # Ordinary fast-forward push only; concurrent external updates fail closed.
+          basic="$(printf 'x-access-token:%s' "$GH_TOKEN" | base64 -w0)"
+          git -c "http.extraheader=AUTHORIZATION: basic $basic" push origin HEAD:main

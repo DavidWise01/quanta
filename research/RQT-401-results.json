@@ -1,0 +1,27 @@
+{
+  "RQT": 401,
+  "date": "2026-11-15",
+  "status": "PASS target-specific reconstruction and local modular counts (executed in sandbox)",
+  "provenance": "Recreated from published RQT-386 candidate + RQT-377 Wall kernel + exact RQT-388 LLL reduction",
+  "conditionality": "RQT-386 candidate is not yet certified as reflection position 18 of frozen 17-prefix",
+  "reduced_basis_max_bits": 644,
+  "reduced_Gram_max_bits": 1353,
+  "modular_counts": {
+    "2": 8,
+    "4": 32,
+    "5": 20,
+    "7": 42,
+    "8": 192,
+    "9": 162,
+    "16": 768,
+    "32": 3072,
+    "64": 12288
+  },
+  "sha256_reduced_Gram": "5f4f49b1d75d60d61961b8a0aede915707f6c5cf11e1a9d7e71f1d3a7d83c809",
+  "sha256_reduced_basis": "da41505ffa2b358a8dc0057ef8bf28e97fcf21d3b388002fb078036939d5f547",
+  "sha256_root_candidate": "fc7f9ba6db869ec73759455730a3d770fc3b9febefcd449693b5b8af0f9a9fca",
+  "root19": "OPEN",
+  "root20": "OPEN",
+  "root21": "conditional",
+  "conclusion": "No complete two-adic obstruction through 64; finite local survivors are not integral roots"
+}

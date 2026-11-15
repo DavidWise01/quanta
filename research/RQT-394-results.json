@@ -1,0 +1,36 @@
+{
+  "RQT": 394,
+  "date": "2026-11-15",
+  "chapter": "The Real Cone",
+  "status": "PASS exact unbounded original F4 discriminant corridor; root19 OPEN",
+  "previous_root18": "first-stage rank/order accepted",
+  "target_root19": "exact r19.T F4 r19=-2 and r19.T H4 r18=0",
+  "fixed_coordinates": "RQT-388 reduced saturated rank-three kernel, coefficients (x,y,z)",
+  "third_coordinate": "unrestricted, solved via exact quadratic discriminant",
+  "discriminant": "D(x,y)=(Q02*x+Q12*y)^2-Q22*(Q00*x*x+2*Q01*x*y+Q11*y*y+2)",
+  "global_slope_necessary": {
+    "y_nonzero": true,
+    "left": "177065/100000",
+    "right": "178600/100000",
+    "strict_inequality": "177065/100000 < x/y < 178600/100000"
+  },
+  "integer_certificates": {
+    "discriminant_quadratic_in_x_concave": true,
+    "vertex_between_boundaries": true,
+    "both_boundary_discriminants_negative_for_abs_y_at_least_1": true,
+    "y_zero_nonzero_x_discriminant_negative": true,
+    "left_margin_bits": 2451,
+    "right_margin_bits": 2450
+  },
+  "non_integer_real_example": {
+    "x": 16,
+    "y": 9,
+    "discriminant_positive": true,
+    "perfect_square": false
+  },
+  "root19": "OPEN",
+  "root20": "OPEN",
+  "root21": "conditional",
+  "full_21_reflection_word": "OPEN",
+  "scope": "Global real necessary corridor, not exact integer root existence"
+}

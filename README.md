@@ -10,6 +10,12 @@
 
 One nested manifold `{[({s})]}`, three mini-states, 2/5 internal and 3/5 external five-beat clock, 11-position ouroborus, spinor sign cycle, and the four separate return conditions. The Python engine uses exact symbolic π/φ counters, a SHA-256-linked JSONL event journal, a synthetic genesis entry, explicit inverse recovery, and replay verification. The committed journal starts with genesis; subsequent steps persist only if the ledger is explicitly committed to Git. There is **no unattended self-modification or background execution**. GitHub and Pages are mirrors of the same ancestral source, not independent witnesses. **No evidence of physical quantum chemistry is claimed.**
 
+### ADA-049 append-only persistent iteration
+
+[Five-minute persistent writer](./.github/workflows/ada-kernel-persist.yml) · [Scheduled tick implementation](./ada/persist_tick.py) · [Append-only regression](./ada/test_persist_tick.py) · [Persistence contract](./ada/ada-049-autonomous-persistence.md) · [Live ledger source](./ada/kernel/events.jsonl).
+
+The separate scheduled writer requests `contents: write` only to commit **one validated ledger tick per successful run**. It retains pinned genesis, verifies the prior chain, rejects duplicate run IDs, allows only a one-line extension of `ada/kernel/events.jsonl`, and pushes without force. The existing verifier remains read-only. These commits are persistent state, **not autonomous changes to the model's code or scientifically verified quantum chemistry**. Check [writer Actions runs](https://github.com/DavidWise01/quanta/actions/workflows/ada-kernel-persist.yml) for actual execution and push status; GitHub scheduling and write permissions are subject to repository settings.
+
 ### ADA five-minute read-only verification
 
 [ADA GitHub Actions workflow](./.github/workflows/ada-kernel-verify.yml) requests `*/5 * * * *` (UTC, every five minutes) and supports manual dispatch. The workflow has **contents: read only**, no retained checkout credentials, serialized execution, an 8-minute job timeout, pinned genesis verification, read-only replay, and scratch-ledger recovery/regression tests. A final SHA-256 comparison checks that the committed event ledger was not modified during execution.

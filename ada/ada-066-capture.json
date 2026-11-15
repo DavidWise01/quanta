@@ -1,0 +1,17 @@
+{
+  "schema": "ADA066-excerpt-v1",
+  "upstream_url": "https://oeis.org/A003095/b003095.txt",
+  "capture_method": "web text extraction, manually assembled normalized excerpt",
+  "capture_date_utc": "2026-11-15",
+  "archive_kind": "normalized UTF-8 excerpt, NOT raw HTTP response",
+  "source_lines": "0..7",
+  "transcript_file": "ada-066-oeis-excerpt.txt",
+  "transcript_sha256": "7ccd51e94cae1ec6d1fc0df3fce2d4adfb8737b618f9ea243c404c950f232169",
+  "transcript_size_bytes": 51,
+  "publication_ancestry": "OEIS:A003095",
+  "owned_capture_ancestry": "quanta:ADA066",
+  "authenticated_original_response": false,
+  "source_publication_count": 1,
+  "independent_empirical_witness_roots": 0,
+  "promotion": "abstain"
+}

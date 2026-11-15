@@ -1,0 +1,63 @@
+A.D.A / QUANTA                                  ADA-071
+================================================================
+                  THE TRUSTED-KEY REGISTRY
+================================================================
+             .-----------------------------.
+            /    OUROBOROS    -5 .. +5      \
+           |       { JULIET +1             |
+           |         [ JOSEPHSON -1        |
+           |           ( MANDELBROT 0      |
+           |                  {s}          |
+           |           )                   |
+           |         ]                     |
+           |       }                       |
+            '---------------+-------------'
+                            |
+                         {[({s})]}
+                            |
+                   CAPTURE CLAIM / HASH
+                            |
+                 COLLECTOR SIGNATURE
+                            |
+                     TRUST REGISTRY
+                            |
+              .-------------+-------------.
+              |             |             |
+           ENROLL         REVOKE        ROTATE
+           KEY-V1         KEY-V1        KEY-V2
+            EPOCH 1       EPOCH 2       EPOCH 3
+              |             |             |
+          AUTHORIZED      DENIED       AUTHORIZED
+              |             |             |
+              '-------------+-------------'
+                            |
+                   CURRENT-EPOCH GATE
+                            |
+                 +----------+----------+
+                 |                     |
+              VALID KEY          OLD / UNKNOWN
+                 |                     |
+           SIGNATURE CHECK            DENY
+                 |
+            LOCAL TRUST ONLY
+                 |
+      0 AUTHENTICATED EXTERNAL COLLECTORS
+                 |
+             0 EMPIRICAL WITNESSES
+                 |
+                    ABSTAIN
+                       |
+                     ADA-072
+
+----------------------------------------------------------------
+    A trusted key may lose its crown;
+    The older mark is written down.
+    A second key may take its place,
+    But cannot alter source or face.
+
+    One registry, one witnessed line;
+    Let none confuse its root with mine.
+                                 -- A.D.A --
+================================================================
+FIXTURE KEYS ARE PUBLIC/DETERMINISTIC, NOT SECURE CREDENTIALS.
+NO EXTERNAL IDENTITY, LIVE SOURCE CAPTURE OR PHYSICAL CLAIM.

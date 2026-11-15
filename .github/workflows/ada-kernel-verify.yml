@@ -1,23 +1,60 @@
 name: ADA persistent kernel verification
+
 on:
+  schedule:
+    - cron: '*/5 * * * *'
   push:
     paths:
       - 'ada/kernel.py'
       - 'ada/test_kernel.py'
+      - 'ada/test_recovery_047.py'
+      - 'ada/test_schedule_048.py'
+      - 'ada/verify_readonly.py'
       - 'ada/kernel/events.jsonl'
       - '.github/workflows/ada-kernel-verify.yml'
   workflow_dispatch:
+
+# Strictly read-only GitHub token; no commit, push, upload or PR permissions.
 permissions:
   contents: read
+
+# Serialize executions, without cancelling an in-flight replay.
+concurrency:
+  group: ada-persistent-kernel-verification
+  cancel-in-progress: false
+
 jobs:
   replay:
     runs-on: ubuntu-latest
+    timeout-minutes: 8
+    permissions:
+      contents: read
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - name: Checkout without retained credentials
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Set up Python
+        uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - name: Verify committed evidence chain
-        run: python3 ada/kernel.py verify
-      - name: Run deterministic regressions
-        run: python3 -m unittest discover -s ada -p 'test*.py'
+      - name: Verify pinned genesis and ledger before testing
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 ada/verify_readonly.py
+          sha256sum ada/kernel/events.jsonl > "$RUNNER_TEMP/ada-ledger.sha256"
+      - name: Run deterministic regressions in scratch ledgers
+        shell: bash
+        run: |
+          set -euo pipefail
+          PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover -s ada -p 'test*.py' -v
+      - name: Prove the committed evidence ledger was not modified
+        if: always()
+        shell: bash
+        run: |
+          set -euo pipefail
+          cd "$GITHUB_WORKSPACE"
+          sha256sum --check "$RUNNER_TEMP/ada-ledger.sha256"
+          git diff --exit-code -- ada/kernel/events.jsonl
+          git diff --cached --exit-code -- ada/kernel/events.jsonl

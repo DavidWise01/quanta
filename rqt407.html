@@ -1,0 +1,23 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>RQT-407 — Three-Class Descent</title><style>:root{color-scheme:dark}body{margin:0;background:#081020;color:#defaff;font:18px/1.6 system-ui}main{max-width:1100px;margin:auto;padding:35px 20px}h1{color:#ffd08c;font-size:clamp(2.3rem,7vw,5rem)}h2{color:#8fffee}pre{white-space:pre;overflow:auto;background:#0a1829;color:#95ffe9;border-radius:16px;padding:18px;font:clamp(10px,1.6vw,17px)/1.3 monospace}table{border-collapse:collapse}td,th{padding:9px 15px;border-bottom:1px solid #3e7180}a{color:#8effef}.panel{padding:22px;border:1px solid #457889;background:#112135;border-radius:17px}</style><main><small>QUANTA / ORIGINAL F4 / RQT-407 / ASCII VISUAL</small><h1>Three-Class Integer Descent</h1><p>Exact projection of the inhomogeneous norm equation A(v)=-1 on the actual frozen candidate-successor Gram. No ordinary root found.</p><pre>            RQT-407 / THREE-CLASS DESCENT
+             __________________________
+            /  ACTUAL GRAM Q  / A=Q/2 /|
+           /_________________________/ |
+           |           |             | |
+           |       N(v)=-1           | |
+           |           |             | |
+           |  +--------+--------+    | |
+           |  |        |        |    | |
+           | 001      011      110   | |
+           |  |        |        |    | |
+           |  +--------+--------+    | |
+           |           |             | /
+           |______ MOD 256 __________|/
+                       |
+                 XY PROJECTION
+                 /           \\
+             14,336        51,200
+             SURVIVE       EXCLUDED
+                 |             X
+                z ?
+                 |
+            ROOT 19 OPEN</pre><div class="panel"><h2>Local sieve through modulus 256</h2><table><tr><th>Modulus</th><th>Triples</th><th>XY pairs</th></tr><tr><td>2</td><td>4</td><td>4</td></tr><tr><td>4</td><td>24</td><td>12</td></tr><tr><td>8</td><td>96</td><td>40</td></tr><tr><td>16</td><td>384</td><td>96</td></tr><tr><td>32</td><td>1,536</td><td>320</td></tr><tr><td>64</td><td>6,144</td><td>1,024</td></tr><tr><td>128</td><td>24,576</td><td>3,840</td></tr><tr><td>256</td><td>98,304</td><td>14,336</td></tr></table><p>At 256 exactly 78.125% of xy residues are excluded. This is a finite congruence filter applicable at any coordinate size, not a global proof of root19 nonexistence.</p><p><strong>Root19 OPEN · Root18 predecessor compatibility unverified.</strong></p><p><a href="research/rqt407-projected-sieve.py">Executable verifier</a> · <a href="research/RQT-407-results.json">Results</a> · <a href="research/RQT-407-THREE-CLASS-DESCENT.md">Research ledger</a></p></div></main></html>

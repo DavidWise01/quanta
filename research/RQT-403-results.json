@@ -1,0 +1,124 @@
+{
+  "RQT": 403,
+  "date": "2026-11-15",
+  "chapter": "The Global Integer Bridge",
+  "status": "TARGET-SPECIFIC FINITE SEARCH AND ODD-PRIME LOCAL SOLVABILITY; ROOT19 OPEN",
+  "source": "Full RQT-401 local Gram certificate reconstructed from RQT-386/RQT-388",
+  "odd_primes_tested": [
+    {
+      "prime": 3,
+      "solutions": 18,
+      "regular": 18,
+      "singular": 0
+    },
+    {
+      "prime": 5,
+      "solutions": 20,
+      "regular": 20,
+      "singular": 0
+    },
+    {
+      "prime": 7,
+      "solutions": 42,
+      "regular": 42,
+      "singular": 0
+    },
+    {
+      "prime": 11,
+      "solutions": 110,
+      "regular": 110,
+      "singular": 0
+    },
+    {
+      "prime": 13,
+      "solutions": 156,
+      "regular": 156,
+      "singular": 0
+    },
+    {
+      "prime": 17,
+      "solutions": 272,
+      "regular": 272,
+      "singular": 0
+    },
+    {
+      "prime": 19,
+      "solutions": 380,
+      "regular": 380,
+      "singular": 0
+    },
+    {
+      "prime": 23,
+      "solutions": 506,
+      "regular": 506,
+      "singular": 0
+    },
+    {
+      "prime": 29,
+      "solutions": 870,
+      "regular": 870,
+      "singular": 0
+    },
+    {
+      "prime": 31,
+      "solutions": 930,
+      "regular": 930,
+      "singular": 0
+    },
+    {
+      "prime": 37,
+      "solutions": 1406,
+      "regular": 1406,
+      "singular": 0
+    },
+    {
+      "prime": 41,
+      "solutions": 1722,
+      "regular": 1722,
+      "singular": 0
+    },
+    {
+      "prime": 43,
+      "solutions": 1806,
+      "regular": 1806,
+      "singular": 0
+    },
+    {
+      "prime": 47,
+      "solutions": 2162,
+      "regular": 2162,
+      "singular": 0
+    },
+    {
+      "prime": 53,
+      "solutions": 2862,
+      "regular": 2862,
+      "singular": 0
+    },
+    {
+      "prime": 59,
+      "solutions": 3540,
+      "regular": 3540,
+      "singular": 0
+    },
+    {
+      "prime": 61,
+      "solutions": 3660,
+      "regular": 3660,
+      "singular": 0
+    }
+  ],
+  "odd_prime_conclusion": "At each tested odd prime a regular residue solution exists, so a p-adic lift exists to all levels for that prime",
+  "cone_scan": {
+    "positive_y_min": 1,
+    "positive_y_max": 5000,
+    "pairs": 191908,
+    "nonnegative_discriminant": 191769,
+    "square_discriminants": 0,
+    "integral_z": 0
+  },
+  "limitations": "Finite cone scan does not exclude large integer solutions; 17 odd primes do not cover all odd primes; root18 compatibility with frozen predecessor unverified",
+  "root19": "OPEN",
+  "root20": "OPEN",
+  "root21": "conditional"
+}

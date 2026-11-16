@@ -1,0 +1,40 @@
+{
+  "RQT": 411,
+  "status": "PASS: exact classification against full locally saved RQT-401 Gram",
+  "date": "2026-11-15",
+  "f_bits": 1352,
+  "known_factor": 299,
+  "full_factorization": "NOT ESTABLISHED",
+  "theorem": "E=L²−fM, so modulo any divisor of f every E is automatically a quadratic residue; this modular square test filters no xy pair",
+  "crt_root_counts_across_299_squared_residue_pairs": {
+    "four": 78936,
+    "two": 10166,
+    "one": 299
+  },
+  "example": {
+    "xy": [
+      16,
+      9
+    ],
+    "L_mod299": 148,
+    "square_roots": [
+      125,
+      148,
+      151,
+      174
+    ],
+    "coherent_sign_roots": [
+      148,
+      151
+    ],
+    "mixed_sign_roots": [
+      125,
+      174
+    ],
+    "E_is_perfect_square": false
+  },
+  "root19": "OPEN",
+  "root18_position": "UNVERIFIED",
+  "root20": "OPEN",
+  "root21": "conditional"
+}

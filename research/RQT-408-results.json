@@ -1,0 +1,20 @@
+{
+  "RQT": 408,
+  "date": "2026-11-15",
+  "status": "PASS exact universal residue-pair lifts into real cone",
+  "cone": "177065/100000 < x/y < 178600/100000",
+  "modulus": 256,
+  "total_residue_pairs_lifted": 65536,
+  "admissible_RQT407_xy_pairs": 14336,
+  "excluded_RQT407_xy_pairs": 51200,
+  "uniform_y_interval": [
+    16896,
+    17151
+  ],
+  "construction": "y=16896+ry+256k; L=floor(177065*y/100000)+1; x=L+((rx-L) mod 256), k >=0",
+  "proof": "Cone interval width (178600-177065)*y/100000 exceeds 256 for every y>=16896, hence contains every x-residue modulo 256",
+  "root19": "OPEN",
+  "root20": "OPEN",
+  "root21": "conditional",
+  "scope": "Exact cone-modular compatibility; no global norm -2 integer witness"
+}

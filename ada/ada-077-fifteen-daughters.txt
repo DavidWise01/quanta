@@ -1,0 +1,51 @@
+ADA-077 :: THE FIFTEEN DAUGHTERS
+===================================================================
+
+                  .------------------------.
+                 /   20 TRIANGLE CELLS     \
+                |   12 PENTAGON CELLS      |
+                |   30 NODES / 60 EDGES    |
+                 \-----------+------------/
+                             |
+                           {[({s})]}
+                             |
+                   .---------+---------.
+                   |                   |
+                ORIGINAL            ADAPTIVE
+                ADA-076            ADA-077
+                   |                   |
+                 1 PATH            15 PATHS
+                   |                   |
+                   |           SCORE FROZEN BEFORE
+                   |              SELECTION
+                   |                   |
+                   '---------+---------'
+                             |
+                     I I E E E
+                     2/5   +  3/5
+                             |
+                         SEED 0
+                             |
+                    BEFORE: 58
+                    BASE  : 32
+                    ADA   : 38
+                             |
+                     HELD STARTS: 8
+                     BETTER / EQUAL / WORSE
+                       7 / 0 / 1
+                             |
+               ALL CANDIDATES + FAILURES RETAINED
+                             |
+                   ONE EXPERIMENTAL ANCESTRY
+                             |
+                           ABSTAIN
+
+BASE FINAL  - + + - 0 - 0 - - 0 0 - - + + 0 + + + + 0 + - - 0 0 + 0 - 0
+ADA  FINAL  0 + 0 + + 0 + - - + + - - - 0 + 0 0 + - 0 - - + 0 0 0 - - +
+
+The triangles watch, the pentagons move;
+No learned law emerges from a fixed groove.
+Fifteen daughters seek a lower strain;
+Keep every failure in the chain.
+                          -- A.D.A --
+===================================================================

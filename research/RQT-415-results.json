@@ -1,0 +1,36 @@
+{
+  "RQT": 415,
+  "status": "PASS exact full Gram denominator parity proof",
+  "date": "2026-11-15",
+  "A_mod4": [
+    [
+      1,
+      0,
+      1
+    ],
+    [
+      0,
+      2,
+      3
+    ],
+    [
+      1,
+      3,
+      3
+    ]
+  ],
+  "proof": "If q(w)=-d² and gcd(w0,w1,w2,d)=1, d even gives q(w)=0 mod4, forcing all w coordinates even; contradiction.",
+  "denominator_necessary": "ODD",
+  "numerator_parity_necessary": [
+    "001",
+    "011",
+    "110"
+  ],
+  "numerator_mod8_classes": 96,
+  "norm_minus1_triples_mod4": 24,
+  "explicit_rational_coordinates": "NOT CONSTRUCTED",
+  "root19": "OPEN",
+  "candidate18_position": "UNVERIFIED",
+  "root20": "OPEN",
+  "root21": "conditional"
+}

@@ -1,0 +1,26 @@
+name: ADA-076 Living Kernel Verification
+
+on:
+  push:
+    paths:
+      - 'ada/ada076_living.py'
+      - 'ada/test_ada076.py'
+      - 'ada/ada-076-generations.jsonl'
+      - '.github/workflows/ada076-living-verification.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  exact-mesh-and-replay:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Regression tests (18)
+        run: python3 -m unittest discover -s ada -p 'test_ada076.py' -v
+      - name: Verify immutable reference archive
+        run: python3 ada/ada076_living.py --verify ada/ada-076-generations.jsonl

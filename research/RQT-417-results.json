@@ -1,0 +1,55 @@
+{
+  "RQT": 417,
+  "date": "2026-11-16",
+  "status": "PASS exact denominator-unit symmetry on full RQT-401 candidate-successor Gram",
+  "result": [
+    {
+      "m": 4,
+      "d": [
+        1,
+        3,
+        5,
+        7
+      ],
+      "count": 24
+    },
+    {
+      "m": 8,
+      "d": [
+        1,
+        3,
+        5,
+        7
+      ],
+      "count": 96
+    },
+    {
+      "m": 9,
+      "d": [
+        1,
+        2,
+        4,
+        5,
+        7,
+        8
+      ],
+      "count": 162
+    },
+    {
+      "m": 11,
+      "d": [
+        1,
+        2,
+        3,
+        5,
+        7
+      ],
+      "count": 110
+    }
+  ],
+  "theorem": "When gcd(d,m)=1, w maps bijectively to d^-1 w and takes q(w)=-d^2 mod m to q(u)=-1 mod m",
+  "global_integer_root19": "OPEN",
+  "explicit_rational_witness": "NOT CONSTRUCTED",
+  "candidate_position18": "UNVERIFIED",
+  "limitation": "Congruence symmetry away from denominator primes cannot force d=1; not an integer nonexistence result"
+}

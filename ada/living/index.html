@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ADA-076 — Icosidodecahedral Living Kernel</title>
+<style>
+:root{color-scheme:dark;background:#091220;color:#cde9f1;font:15px/1.55 ui-monospace,Consolas,'Courier New',monospace}
+*{box-sizing:border-box}body{margin:0;padding:26px;max-width:1100px;margin:auto}h1{color:#ffbb78;font-size:clamp(20px,3vw,32px);margin:0 0 6px}p{color:#a6b8cd;margin:4px 0 18px}.toolbar{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-bottom:20px}button,input{font:inherit}button{color:#9af7d8;background:#132b37;border:1px solid #3f7f86;border-radius:7px;padding:9px 13px;cursor:pointer}button:hover{background:#214752}label{display:inline-flex;align-items:center;gap:10px}.columns{display:grid;grid-template-columns:1.4fr 1fr;gap:16px}@media(max-width:760px){.columns{grid-template-columns:1fr}}section{min-width:0;background:#0d2032;border:1px solid #284359;border-radius:10px;padding:16px}h2{font-size:16px;color:#ffc888;margin:0 0 10px}pre{font-size:13px;line-height:1.5;color:#90f2dc;margin:0;overflow-x:auto;min-height:280px}small{color:#b3a1d0}#status{color:#ffc888;min-height:25px}.footer{margin-top:18px;color:#a6b8cd}code{color:#86e0f9}
+</style></head><body><h1>A.D.A / 076 — Living Icosidodecahedron</h1>
+<p>30 vertices · 60 edges · 20 triangular cells · 12 pentagonal cells · balanced ternary · five-beat I I E E E</p>
+<div class="toolbar"><button id="run">Play</button><button id="step">Next tick</button><button id="five">+5 ticks</button><button id="reset">Reset</button><button id="export">Export trace JSON</button><label>Speed <input id="speed" type="range" min="1" max="10" value="5"></label></div>
+<div class="columns"><section><h2>ASCII living manifold</h2><pre id="screen" aria-live="polite"></pre></section><section><h2>Observation / evidence</h2><pre id="readout"></pre></section></div>
+<p class="footer" id="status"></p>
+<p><small>Experimental cellular state exchanger. Three positions in a face are local observations, <strong>not three independent source witnesses</strong>. Browser history is transient until exported. This is not a physics claim, an autonomous learning agent, or a GitHub ledger writer.</small></p>
+<script>
+'use strict';
+const topology={"edges":[[0,2],[0,4],[0,6],[0,7],[1,2],[1,3],[1,17],[1,18],[2,6],[2,17],[3,4],[3,18],[3,25],[4,7],[4,25],[5,6],[5,8],[5,10],[5,11],[6,10],[7,8],[7,27],[8,11],[8,27],[9,10],[9,12],[9,14],[9,15],[10,14],[11,12],[11,28],[12,15],[12,28],[13,14],[13,16],[13,17],[13,19],[14,17],[15,16],[15,29],[16,19],[16,29],[18,19],[18,26],[19,26],[20,21],[20,24],[20,25],[20,26],[21,22],[21,25],[21,27],[22,23],[22,27],[22,28],[23,24],[23,28],[23,29],[24,26],[24,29]],"triangles":[[20,21,25],[0,2,6],[3,4,25],[0,4,7],[21,22,27],[5,6,10],[7,8,27],[5,8,11],[22,23,28],[9,10,14],[11,12,28],[9,12,15],[23,24,29],[13,14,17],[15,16,29],[13,16,19],[20,24,26],[1,2,17],[18,19,26],[1,3,18]],"pentagons":[[0,2,1,3,4],[0,6,5,8,7],[5,10,9,12,11],[9,14,13,16,15],[1,17,13,19,18],[20,21,22,23,24],[2,6,10,14,17],[3,18,26,20,25],[4,7,27,21,25],[8,11,28,22,27],[12,15,29,23,28],[16,19,26,24,29]],"initial":[-1,0,1,-1,0,1,-1,0,1,-1,0,1,-1,0,1,-1,0,1,-1,0,1,-1,0,1,-1,0,1,-1,0,1]};
+const edges=topology.edges,triangles=topology.triangles,pentagons=topology.pentagons;
+let state=[...topology.initial],tick=0,history=[],timer=null;
+const edgeMeta=new Map();
+function id(a,b){return `${Math.min(a,b)},${Math.max(a,b)}`;}
+for(let t=0;t<triangles.length;t++){const f=triangles[t];for(const [a,b] of [[f[0],f[1]],[f[1],f[2]],[f[2],f[0]]])edgeMeta.set(id(a,b),{triangle:t});}
+for(let p=0;p<pentagons.length;p++){const f=pentagons[p];for(let k=0;k<5;k++){const e=edgeMeta.get(id(f[k],f[(k+1)%5]));if(!e)throw new Error('Invalid topology');e.pentagon=p;}}
+function energy(s){return edges.reduce((n,[a,b])=>n+Math.abs(s[a]-s[b]),0);}
+function pressure(s,ring){let n=0;for(let i=0;i<5;i++)n+=Math.abs(s[ring[i]]-s[ring[(i+1)%5]]);return n;}
+function advance(){const phase=['I','I','E','E','E'][tick%5],used=new Set(),moves=[];const before=energy(state);const begin=(tick*7)%60;for(let j=0;j<60&&moves.length<4;j++){const [a,b]=edges[(j+begin)%60];if(used.has(a)||used.has(b)||state[a]===state[b])continue;const context=edgeMeta.get(id(a,b));const tri=triangles[context.triangle],pent=pentagons[context.pentagon];const prior=energy(state),oldP=pressure(state,pent),wBefore=tri.map(k=>state[k]);[state[a],state[b]]=[state[b],state[a]];const delta=energy(state)-prior, pdelta=pressure(state,pent)-oldP;const ok=phase==='I'?delta<=0:delta<=2&&pdelta<=2;if(ok){used.add(a);used.add(b);moves.push({edge:[a,b],triangle:context.triangle,pentagon:context.pentagon,witnessBefore:wBefore,witnessAfter:tri.map(k=>state[k]),delta,pentagonDelta:pdelta});}else{[state[a],state[b]]=[state[b],state[a]];}}tick++;if(state.reduce((a,b)=>a+b,0)!==0)throw new Error('Conservation violated');history.push({tick,phase,state:[...state],moves,energyBefore:before,energyAfter:energy(state)});render();}
+function chart(s){const labels=v=>v===1?'+':v===-1?'-':'0';let out='     '+Array.from({length:10},(_,i)=>String(i).padStart(2,'0')).join(' ')+'\n';for(let row=0;row<3;row++){const lo=row*10;out+=`${String(lo).padStart(2,'0')} | `+s.slice(lo,lo+10).map(x=>' '+labels(x)).join(' ')+'\n';}return out;}
+function render(){const phase=['I','I','E','E','E'][tick%5],n=history.at(-1),last=n?.moves??[];const hist=[-1,0,1].map(v=>`${v}: ${state.filter(x=>x===v).length}`).join('   ');document.getElementById('screen').textContent=[
+'         .---------------------------.',
+'        /  20 TRIANGLES / 12 PENTAGONS \\',
+'       |         { [ ( {s} ) ] }       |',
+'       |       30 V / 60 E / chi=2    |',
+'        \\_____________________________/',
+'',chart(state),'',`GEN ${tick}  NEXT ${phase}  energy ${energy(state)}`,
+'Internal : I I | External : E E E',
+'', 'TRIANGLE WITNESSES = LOCAL GEOMETRY',
+'SOURCE ANCESTRY = ONE SYNTHETIC ROOT',
+'', '  ROOT -> OBSERVE -> ITERATE -> KEEP'
+].join('\n');document.getElementById('readout').textContent=[
+`Balanced ternary: ${hist}`,
+`Total: ${state.reduce((a,b)=>a+b,0)} (constant)`,
+`Euler: 30 - 60 + (20+12) = 2`,
+`Current pulse: ${phase}`,
+`Latest accepted swaps: ${last.length}`,
+`Recorded ticks: ${history.length}`,
+'', 'Latest moves:',
+...last.map(m=>`${String(m.edge[0]).padStart(2,'0')}<->${String(m.edge[1]).padStart(2,'0')} T${m.triangle} P${m.pentagon} dE=${m.delta}`),
+'', 'No externally authenticated witnesses.',
+'No scientific/physical promotion.'
+].join('\n');document.getElementById('status').textContent=`Iteration ${tick} • 5-beat phase ${phase} • Deterministic local state exchange • Source provenance: simulation`;}
+function stop(){if(timer!==null){clearInterval(timer);timer=null;}document.getElementById('run').textContent='Play';}
+document.getElementById('run').onclick=()=>{if(timer!==null){stop();return;}document.getElementById('run').textContent='Pause';timer=setInterval(advance,Math.round(900/Number(document.getElementById('speed').value)));};
+document.getElementById('step').onclick=()=>{stop();advance();};
+document.getElementById('five').onclick=()=>{stop();for(let i=0;i<5;i++)advance();};
+document.getElementById('reset').onclick=()=>{stop();state=[...topology.initial];tick=0;history=[];render();};
+document.getElementById('speed').oninput=()=>{if(timer!==null){stop();document.getElementById('run').click();}};
+document.getElementById('export').onclick=()=>{const data=JSON.stringify({version:'ADA076-browser-transient-v1',topology:'icosidodecahedron',sourceAncestry:'synthetic:quanta:ada076',genesis:topology.initial,ticks:history},null,2);const blob=new Blob([data],{type:'application/json'});const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download=`ada076-browser-${tick}-ticks.json`;a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);};
+render();
+</script></body></html>

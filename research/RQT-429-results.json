@@ -1,0 +1,19 @@
+{
+  "RQT": 429,
+  "date": "2026-11-16",
+  "basis": "RQT-428 T*V",
+  "shell_min_radius": 121,
+  "shell_max_radius": 124,
+  "primitive_triples": 1215360,
+  "nonpositive_N": 820,
+  "positive_N": 1214540,
+  "modular_square_survivors": 1026,
+  "exact_square_values": 0,
+  "verified_rational_witnesses": [],
+  "frozen_root18_compatibility": "UNVERIFIED",
+  "root19": "OPEN",
+  "root20": "OPEN",
+  "root21": "conditional",
+  "limitation": "The RQT-426 radius 120 used the T basis; these different coordinate bounds must not be merged.",
+  "positive_control": "Synthetic q0=-x²+y²+z² has q0(1,0,0)=-1; this is not a full original-form solver test."
+}

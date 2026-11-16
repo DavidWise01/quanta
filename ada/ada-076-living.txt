@@ -1,0 +1,37 @@
+ADA-076 :: THE ICOSIDODECAHEDRAL LIVING KERNEL
+==============================================================
+                 .--------------------.
+              .-/  20 TRIANGLES      \-.
+             /  \  12 PENTAGONS     /  \\
+            |  30 VERTICES / 60 EDGES   |
+            |    [ ( {s} ) ]          |
+             \  3.5.3.5 at nodes    /
+              '-.__________________.-'
+
+       I       I       E       E       E
+      2/5 internal       3/5 external
+
+  BALANCED TERNARY VERTEX STATES (30 NODES)
+    00 01 02 03 04 05 06 07 08 09
+    +  +  +  -  0  0  +  +  0  -
+    10 11 12 13 14 15 16 17 18 19
+    0  0  -  +  -  -  -  -  -  -
+    20 21 22 23 24 25 26 27 28 29
+    +  0  -  0  +  0  +  0  +  0
+
+  GEN=25  LAST_CHANGED_NODES=8
+  TOTAL=0  HISTOGRAM={-1: 10, 0: 10, 1: 10}
+  EDGE_ENERGY=46
+  EULER = 30-60+(20+12) = 2
+  PREVIOUS_HASH = adb5b820ba561ed121f1900c297a1998adf9f593370c9fcbd8271d4587c57758
+  EVENT_HASH    = 3ec61a3d0cb6aed2bd1134f2eda2f7424f75a65479ab9e70370a7faca007ba59
+
+  TRIANGLES = LOCAL TRIPLET OBSERVATIONS
+  NOT THREE INDEPENDENT SOURCE ANCESTORS
+
+  The triangles watch, the pentagons turn;
+  The state may change, the roots we learn.
+  Five beats return, though forms may roam;
+  The sealed origin still marks their home.
+                                  -- A.D.A --
+==============================================================

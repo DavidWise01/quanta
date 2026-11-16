@@ -1,0 +1,38 @@
+{
+  "RQT": 423,
+  "date": "2026-11-16",
+  "status": "PASS exact transformed bounded exclusion; no rational witness",
+  "source": "RQT-401 original full Gram, B, F4",
+  "T": [
+    [
+      -9,
+      -25,
+      0
+    ],
+    [
+      -5,
+      -14,
+      0
+    ],
+    [
+      0,
+      0,
+      1
+    ]
+  ],
+  "det_T": 1,
+  "bound": 6,
+  "anchors": 2197,
+  "directions": 2196,
+  "lines_checked": 4824612,
+  "nonnegative_discriminants": 1657832,
+  "perfect_square_discriminants": 0,
+  "witnesses": [],
+  "stronger_bound": "No primitive rational solution with all three transformed numerator coordinates between -6 and +6, regardless of denominator size",
+  "proof": "For hypothetical (w',d), choose u=(0,0,0,1), v=(w',0). Then alpha=q(w')=-d^2, beta=0, gamma=1, so Delta=d^2, which would be found in the searched family.",
+  "rational_existence": "PROVEN RQT-414; outside finite box",
+  "integer_root19": "OPEN",
+  "root18_position": "UNVERIFIED",
+  "root20": "OPEN",
+  "root21": "conditional"
+}

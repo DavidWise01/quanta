@@ -1,0 +1,18 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>RQT-409 · Square Compression</title><style>:root{color-scheme:dark}body{background:#091020;color:#e7fcff;margin:0;font:18px/1.55 system-ui}main{max-width:1060px;margin:auto;padding:38px 20px}h1{font-size:clamp(2.5rem,7vw,5rem);color:#ffd18f}pre{overflow:auto;color:#8fffe9;background:#071c2e;padding:20px;border:1px solid #368899;border-radius:15px;font:clamp(10px,1.7vw,18px)/1.45 monospace}a{color:#82ffeb}.card{border:1px solid #3f8899;border-radius:17px;background:#112137;padding:22px}</style><main><small>QUANTA / RQT-409 / ASCII PRIMARY</small><h1>The Square-Compression Gate</h1><p>The actual target-lattice discriminant compresses exactly: D=4E. The z coefficient of Q/2 is odd, so a square E mod 2^k is equivalent to a modular z solution.</p><pre>     RQT-409 :: SQUARE-COMPRESSION GATE
+      _______________________________
+     / ORIGINAL F4 / Q = 2A         /|
+    /______________________________/ |
+    |         D(x,y) = 4E          | |
+    |              |               | |
+    |          E = s^2 ?           | |
+    |           /      \\           | |
+    |         NO        YES        | |
+    |         X          |         | |
+    |                z INTEGER?    | |
+    |                   |          | /
+    |_____________ NORM -2? _______|/
+                    |
+                ROOT19 OPEN</pre><div class="card"><h2>Exact RQT-407 projection rediscovered</h2><pre>m       4    8    16    32     64     128     256
+pairs  12   40    96   320   1024    3840   14336
+
+E mod16 = 10 x² + 14xy + 3y² + 9</pre><p>All counts reproduced from the full Gram. Local survival is not a global integer root. Root19 OPEN.</p><p><a href="research/rqt409-square-compression.py">Verifier</a> · <a href="research/RQT-409-results.json">Exact certificate</a> · <a href="research/RQT-409-SQUARE-COMPRESSION.md">Ledger</a></p></div></main></html>

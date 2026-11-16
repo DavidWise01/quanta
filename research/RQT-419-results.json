@@ -1,0 +1,56 @@
+{
+  "RQT": 419,
+  "date": "2026-11-16",
+  "status": "PASS exact full Gram integral congruence",
+  "U": [
+    [
+      -9,
+      -25,
+      0,
+      0
+    ],
+    [
+      -5,
+      -14,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      1,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      1
+    ]
+  ],
+  "det_U": 1,
+  "score_before": 7054,
+  "score_after": 7016,
+  "score_definition": "sum of upper-triangular matrix entry bit lengths",
+  "inertia_before": [
+    2,
+    2
+  ],
+  "inertia_after": [
+    2,
+    2
+  ],
+  "positive_old_coordinate_vector": [
+    -25,
+    -14,
+    0,
+    0
+  ],
+  "positive_norm_verified": true,
+  "norm_equivalence": "q_new(t)=q_old(Ut) over Z4",
+  "explicit_rational_witness": "NOT FOUND",
+  "integer_root19": "OPEN",
+  "root18_predecessor": "UNVERIFIED",
+  "image_correction": "Generated JPG labels signature (1,3) incorrectly. Correct signature (2,2).",
+  "scope": "Exact integral basis equivalence, not root existence proof"
+}

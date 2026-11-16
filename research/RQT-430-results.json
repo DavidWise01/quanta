@@ -1,0 +1,32 @@
+{
+  "RQT": 430,
+  "date": "2026-11-16",
+  "source_Gram_sha256": "5f4f49b1d75d60d61961b8a0aede915707f6c5cf11e1a9d7e71f1d3a7d83c809",
+  "positive_control": "PASS exact synthetic Witt splitting",
+  "negative_control": "PASS invalid candidate rejected",
+  "synthetic_hyperbolic_pair": [
+    [
+      "0",
+      "-1"
+    ],
+    [
+      "-1",
+      "0"
+    ]
+  ],
+  "synthetic_orthogonal_binary": [
+    [
+      "1",
+      "0"
+    ],
+    [
+      "0",
+      "1"
+    ]
+  ],
+  "original_Q_backmap": "PASS B^T F4 B=Q",
+  "original_rational_witness": "NOT FOUND",
+  "root19": "OPEN",
+  "frozen_root18_position": "UNVERIFIED",
+  "limitation": "Witt splitting requires a supplied isotropic seed. It does not construct the original form's first rational point."
+}

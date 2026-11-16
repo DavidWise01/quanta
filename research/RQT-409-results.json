@@ -1,0 +1,34 @@
+{
+  "RQT": 409,
+  "date": "2026-11-15",
+  "status": "PASS exact full-Gram compressed discriminant and projected counts",
+  "D": "D(x,y)=4E(x,y)",
+  "E_mod16_coefficients": [
+    10,
+    14,
+    3,
+    9
+  ],
+  "E_parity_mod4": {
+    "10": 3,
+    "11": 0,
+    "00": 1,
+    "01": 0
+  },
+  "exact_xy_counts": {
+    "4": 12,
+    "8": 40,
+    "16": 96,
+    "32": 320,
+    "64": 1024,
+    "128": 3840,
+    "256": 14336
+  },
+  "equivalence": "(Q/2)22 is odd; E is square mod 2^k iff some z solves (Q/2)[x,y,z]=-1 mod 2^k",
+  "root19": "OPEN",
+  "root20": "OPEN",
+  "root21": "conditional",
+  "frozen_root18_position": "UNVERIFIED",
+  "source": "Local executed full RQT-401 reduced Gram",
+  "jpg": "Generated conversation artifact; not uploaded as GitHub binary"
+}

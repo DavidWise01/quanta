@@ -1,0 +1,15 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>RQT-428 Practical Reduction Gate</title><style>:root{color-scheme:dark}body{background:#081324;color:#eafcff;font:18px/1.6 system-ui;margin:0}main{max-width:1100px;margin:auto;padding:36px 20px}h1{color:#ffce92;font-size:clamp(2.4rem,7vw,4.6rem)}pre{overflow:auto;background:#0d243b;border:1px solid #46989b;color:#a1ffe5;padding:20px;border-radius:14px}a{color:#90ffe8}</style><main><small>QUANTA · RQT-428 · ASCII PRIMARY</small><h1>Practical Reduction Gate</h1><p>Exact integer shears preserve the full lattice. A k=-8 shear lowers the sum of absolute Gram entries, but not the bit score; a practical rational point remains unconstructed.</p><pre>       RQT-428 : PRACTICAL REDUCTION
+     +--------------------------------+
+     | A = Q/2                        |
+     |    |                           |
+     | C = T^T A T     det T = +1      |
+     |    |                           |
+     | D = V^T C V     det V = +1      |
+     |    |                           |
+     | 48 SMALL SHEARS               |
+     | 0 BIT-SCORE IMPROVEMENTS      |
+     | k = -8 REDUCES S              |
+     |    |                           |
+     | HEIGHT BOUND : 611 DIGITS     |
+     | ROOT 19 : OPEN                |
+     +--------------------------------+</pre><p>48 small elementary shears checked: 0 improve bit-length score. The theoretical height bound remains 611 decimal digits. Root19 OPEN.</p><p><a href="research/rqt428-reduction.py">Exact verifier</a> · <a href="research/RQT-428-results.json">Certificate</a> · <a href="research/RQT-428-PRACTICAL-REDUCTION.md">Ledger</a></p></main></html>

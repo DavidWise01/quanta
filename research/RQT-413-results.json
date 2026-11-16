@@ -1,0 +1,28 @@
+{
+  "RQT": 413,
+  "date": "2026-11-15",
+  "source": "RQT-401 full reduced Gram from RQT-386 candidate",
+  "status": "PASS exact all-finite-prime local solvability",
+  "gcd_nine_2x2_minors": 9,
+  "gcd_matrix_entries": 1,
+  "odd_prime_result": "For every odd prime other than 3, rank >= 2 mod p; a regular representation of -1 exists and Hensel lifts indefinitely",
+  "p3_regular_seed": [
+    0,
+    0,
+    1
+  ],
+  "p3_gradient_mod3": [
+    1,
+    0,
+    1
+  ],
+  "p3_verified_powers": 8,
+  "p2_discriminant_mod8": 1,
+  "p2_explicit_witness_mod65536": 55178,
+  "all_finite_primes_local_solvable": true,
+  "ordinary_integer_root19": "OPEN",
+  "original_frozen_root18_position": "UNVERIFIED",
+  "root20": "OPEN",
+  "root21": "conditional",
+  "caveat": "Local solutions at every finite prime do not prove an ordinary global integer vector"
+}

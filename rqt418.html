@@ -1,0 +1,24 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>RQT-418 — Four-Dimensional Smith Bridge</title><style>:root{color-scheme:dark}body{margin:0;background:#071020;color:#e6fbff;font:17px/1.55 system-ui}main{max-width:1060px;margin:auto;padding:36px 20px}h1{color:#ffd08d;font-size:clamp(2.4rem,7vw,4.9rem)}pre{overflow:auto;background:#0c1d34;border:1px solid #3895a0;color:#90ffeb;padding:23px;border-radius:16px;font:clamp(10px,1.6vw,17px)/1.35 monospace}a{color:#8cffea}.panel{border:1px solid #418c91;border-radius:17px;padding:20px;background:#102037}</style><main><small>QUANTA · ORIGINAL F4 · RQT-418 · ASCII RESEARCH</small><h1>The Four-Dimensional Smith Bridge</h1><p>The homogenized equation wᵀAw+d²=0 has exact Smith invariant factors 1, 1, 9, and |det(A)|/9, for a 3512-bit determinant.</p><pre>       RQT-418 : FOUR-DIMENSIONAL SMITH BRIDGE
+     +-----------------------------------------+
+     |        ORIGINAL F4 / RANK-THREE Q      |
+     +-------------------+---------------------+
+                         |
+                      A=Q/2
+                         |
+                  H=diag(A,1)
+                         |
+               SMITH INVARIANTS
+                  1 | 1 | 9 | N
+                         |
+              MOD 9 PRIMITIVE CHECK
+                    /          \
+                  3|d          3∤d
+                   |            |
+                216            162
+            primitive         per d
+               per d            |
+                    \          /
+                    RATIONAL?
+                    NOT YET
+                       |
+                  ROOT19 OPEN</pre><div class="panel"><h2>Exact caution</h2><p>Smith row-column equivalence does NOT diagonalize a quadratic form by congruence. These invariants alone neither prove an isotropic vector nor construct one. Rational existence remains established separately; integral root19 remains OPEN.</p><p>Mod9 audit: for each d divisible by 3, 216 primitive local w classes survive; hence denominator 3 cannot be excluded by this test.</p><p><a href="research/rqt418-smith-bridge.py">Executable verifier</a> · <a href="research/RQT-418-results.json">Exact result certificate</a> · <a href="research/RQT-418-SMITH-BRIDGE.md">Research ledger</a></p></div></main></html>

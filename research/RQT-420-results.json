@@ -1,0 +1,51 @@
+{
+  "RQT": 420,
+  "date": "2026-11-16",
+  "status": "PASS exact rational congruence/Witt-index structural theorem",
+  "source": "Saved full RQT-401 reduced Gram",
+  "H_signature": {
+    "positive": 2,
+    "negative": 2
+  },
+  "leading_minor_signs": [
+    -1,
+    -1,
+    1,
+    1
+  ],
+  "diagonal_signs": [
+    -1,
+    1,
+    -1,
+    1
+  ],
+  "diagonal_form": "diag(Delta1, Delta2/Delta1, Delta3/Delta2, 1)",
+  "rational_congruence_verified": true,
+  "numerator_bits": [
+    1088,
+    2161,
+    3509,
+    1
+  ],
+  "denominator_bits": [
+    1,
+    1088,
+    2158,
+    1
+  ],
+  "primitive_parity_mod4": {
+    "100": 1,
+    "101": 2,
+    "110": 3,
+    "111": 2,
+    "001": 3,
+    "010": 2,
+    "011": 3
+  },
+  "rational_Witt_index": 1,
+  "rational_isotropic_coordinates": "NOT CONSTRUCTED",
+  "root19": "OPEN",
+  "root18_predecessor": "UNVERIFIED",
+  "root20": "OPEN",
+  "root21": "conditional"
+}

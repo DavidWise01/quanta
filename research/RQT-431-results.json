@@ -1,0 +1,19 @@
+{
+  "RQT": 431,
+  "date": "2026-11-16",
+  "source_sha256": "5f4f49b1d75d60d61961b8a0aede915707f6c5cf11e1a9d7e71f1d3a7d83c809",
+  "status": "PASS exact equivalence and controls",
+  "D_bits": 1352,
+  "D_square": false,
+  "proof": "s=f*z+L, s²+f*d²=E0=L²-f*M; integrality z iff s≡L (mod |f|)",
+  "original_trial_vectors_checked": 5,
+  "original_trial_norm_zero": 0,
+  "synthetic_positive_control": "PASS",
+  "synthetic_negative_control": "PASS",
+  "rational_witness": "NOT CONSTRUCTED",
+  "root19": "OPEN",
+  "root18_frozen_ordering": "UNVERIFIED",
+  "root20": "OPEN",
+  "root21": "conditional",
+  "scope": "Not yet a generalized Pell solver; no root witness"
+}

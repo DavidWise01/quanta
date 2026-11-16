@@ -1,0 +1,22 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>RQT-425 Persistent 3-Adic Branch</title><style>:root{color-scheme:dark}body{margin:0;background:#081321;color:#eafaff;font:17px/1.6 system-ui}main{max-width:1100px;padding:36px 20px;margin:auto}h1{font-size:clamp(2.5rem,7vw,4.8rem);color:#ffc883}pre{background:#0b2234;color:#91ffeb;overflow:auto;padding:20px;border-radius:16px;font:clamp(10px,1.55vw,17px)/1.38 monospace}table{border-collapse:collapse}td,th{border-bottom:1px solid #3d6b7b;text-align:right;padding:10px 24px}a{color:#8bffe3}</style><main><small>QUANTA / ORIGINAL F4 / RQT-425 / ASCII PRIMARY</small><h1>The Persistent 3-Adic Branch</h1><p>The exact specialization w=(1,y,2), d=3k gives P_k(y) ≡ 2+y+k² (mod 3) with derivative 1. Thus a primitive 3-adic solution exists to every power of three, without producing a global integer root19.</p><pre>         RQT-425 : PERSISTENT 3-ADIC BRANCH
+       +------------------------------------+
+       | q(w) = -d², w=(1,y,2), d=3k       |
+       +------------------+-----------------+
+                          |
+            P_k(y)=2+y+k² (mod 3)
+                          |
+                P'_k(y)=1 (mod 3)
+                          |
+                  HENSEL LIFT
+               /                 \
+             d=3                 d=9
+               |                   |
+        9  : 216             9  : 216
+       27  : 972            27  : 1944
+       81  : 8748           81  : 17496
+      243  : 78732         243  : 157464
+               \                   /
+                 EVERY 3^n
+                      |
+              INTEGER ROOT 19?
+                    OPEN</pre><table><tr><th>Modulus</th><th>d=3</th><th>d=9</th></tr><tr><td>9</td><td>216</td><td>216</td></tr><tr><td>27</td><td>972</td><td>1,944</td></tr><tr><td>81</td><td>8,748</td><td>17,496</td></tr><tr><td>243</td><td>78,732</td><td>157,464</td></tr></table><p>Root19 OPEN · frozen root18 ordering UNVERIFIED. JPG generated as a separate downloadable artifact.</p><p><a href="research/rqt425-persistent3.py">Verifier</a> · <a href="research/RQT-425-results.json">Certificate</a> · <a href="research/RQT-425-PERSISTENT-3-ADIC-BRANCH.md">Ledger</a></p></main>

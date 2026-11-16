@@ -1,0 +1,22 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>RQT-412 — The Determinant Gate</title><style>:root{color-scheme:dark}body{background:#081021;color:#eafaff;margin:0;font:18px/1.55 system-ui}main{max-width:1080px;margin:auto;padding:36px 20px}h1{font-size:clamp(2.5rem,7vw,5rem);color:#ffcb85}pre{overflow:auto;color:#8ffff0;background:#091d2e;padding:24px;border:1px solid #438a94;border-radius:16px;font:clamp(10px,1.5vw,17px)/1.4 monospace}.card{background:#0f2034;padding:22px;border-radius:16px}a{color:#8effed}</style><main><small>QUANTA / ORIGINAL F4 / RQT-412 / ASCII ONLY</small><h1>The Determinant Gate</h1><p>Odd primes outside det(A) are automatically locally soluble. Two known determinant primes, 3 and 1129, admit exact regular roots, hence infinite p-adic lifts.</p><pre>          RQT-412 :: DETERMINANT GATE
+      +----------------------------------+
+      | ORIGINAL F4 / RANK-THREE Q       |
+      +----------------+-----------------+
+                       |
+                    A = Q/2
+                       |
+                    det(A)
+                 /           \
+            GOOD PRIMES    BAD PRIMES
+                 |           |
+          automatic       3  1129  ?
+          local lift      |   |    |
+                 |        +---+    |
+                 |        HENSEL  FACTOR
+                 +-----------+-----+
+                             |
+                         Z_p ROOTS
+                             |
+                       INTEGRAL ROOT?
+                             |
+                         ROOT19 OPEN</pre><div class="card"><h2>Actual target-lattice checks</h2><p>det(A) has 3,512 bits; v3(det A)=4 and v1129(det A)=1. Regular witness (0,0,1) lifts through 3^8. Regular witness (1,4,15) lifts through 1129^4.</p><p>The remaining determinant cofactor is not fully factored. No integral root19 has been found. <b>Root19 OPEN.</b></p><p><a href="research/rqt412-bad-prime.py">Reproducible verifier</a> · <a href="research/RQT-412-results.json">Certificate</a> · <a href="research/RQT-412-DETERMINANT-GATE.md">Ledger</a></p></div></main></html>

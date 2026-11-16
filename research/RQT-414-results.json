@@ -1,0 +1,30 @@
+{
+  "RQT": 414,
+  "date": "2026-11-15",
+  "status": "PASS exact hypotheses for rational Hasse–Minkowski theorem",
+  "matrix_nonsingular": true,
+  "real_negative_direction": true,
+  "gcd_2x2_minors": 9,
+  "p3_regular_seed": [
+    0,
+    0,
+    1
+  ],
+  "p2_discriminant_mod8": 1,
+  "primitive_parity_half_norm_mod4": {
+    "100": 1,
+    "101": 2,
+    "110": 3,
+    "111": 2,
+    "001": 3,
+    "010": 2,
+    "011": 3
+  },
+  "theorem": "The homogeneous quadratic q(v)+t² is soluble over R and every Q_p, hence over Q by Hasse–Minkowski. Since q is anisotropic over Q, t != 0, so q(v/t)=-1.",
+  "rational_solution_existence": "PROVEN",
+  "explicit_rational_coordinates": "NOT CONSTRUCTED",
+  "integral_root19": "OPEN",
+  "frozen_18th_reflection_compatibility": "UNVERIFIED",
+  "root20": "OPEN",
+  "root21": "conditional"
+}

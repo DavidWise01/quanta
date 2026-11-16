@@ -1,0 +1,12 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>RQT-410 · Integral Square Bridge</title><style>:root{color-scheme:dark}body{margin:0;background:#080e20;color:#e6fcff;font:18px/1.6 system-ui}main{margin:auto;max-width:1080px;padding:34px 20px}h1{color:#ffce88;font-size:clamp(2.5rem,7vw,5rem)}pre{color:#94ffe9;background:#081a2c;padding:25px;border-radius:14px;overflow:auto}a{color:#9bffe6}.panel{border:1px solid #398e95;background:#112438;padding:20px;border-radius:16px}</style><main><small>QUANTA / ORIGINAL F4 / RQT-410 / ASCII</small><h1>The Integral Square Bridge</h1><p>From a compressed discriminant square to a truly integral z, the square root must have a coherent sign modulo the full 1352-bit coefficient f.</p><pre>             E(x,y) = s²
+                  |
+               SQUARE?
+                /   \
+              NO    YES
+              X      |
+                 s ≡ ±L (mod f)?
+                       |
+                  z integer?
+                       |
+                   ROOT 19
+                     OPEN</pre><section class="panel"><h2>Exact theorem</h2><p>Let L=cx+ey, M=ax²+2bxy+dy²+1 and E=L²−fM for A=Q/2. A genuine integer z exists exactly when E is a nonnegative integer square and f divides one of s−L, s+L.</p><h2>Tested modular counterexample</h2><p>At (16,9), s=174 mod299 is a square root of E modulo299, with opposite signs at 13 and 23. Neither sign matches modulo299. This does not constitute an exact square or integer root.</p><p><a href="research/rqt410-integral-square.py">Executable verifier</a> · <a href="research/RQT-410-results.json">Certificate</a> · <a href="research/RQT-410-INTEGRAL-SQUARE-BRIDGE.md">Research ledger</a></p></section></main></html>

@@ -1,0 +1,57 @@
+{
+  "RQT": 432,
+  "date": "2026-11-16",
+  "status": "PASS synthetic positive and negative controls; original seed unconstructed",
+  "theorem": "If a valid seed (s,d) for fixed (x,y) satisfies s²-Dd²=E0 and s≡L mod D, any Pell-unit power (U,V)≡(1,0) mod 2D produces a descendant by s'=Us+DVd, d'=Vs+Ud preserving the norm, integral z and parity of d.",
+  "unit_order_reason": "Norm-one Pell units are invertible in the finite ring modulo 2D, hence have finite order.",
+  "positive_control": {
+    "A": "diag(1,1,-2)",
+    "x": 1,
+    "y": 0,
+    "D": 2,
+    "E0": 2,
+    "seed": [
+      -2,
+      1
+    ],
+    "unit": [
+      3,
+      2
+    ],
+    "period": 2,
+    "step_unit": [
+      17,
+      12
+    ],
+    "verified_generations": [
+      {
+        "s": -2,
+        "d": 1,
+        "z": 1
+      },
+      {
+        "s": -10,
+        "d": -7,
+        "z": 5
+      },
+      {
+        "s": -338,
+        "d": -239,
+        "z": 169
+      },
+      {
+        "s": -11482,
+        "d": -8119,
+        "z": 5741
+      }
+    ]
+  },
+  "invalid_seed_rejected": true,
+  "original_1352_bit_D": "Known from RQT-431; no original seed or Pell unit verified in this run",
+  "explicit_rational_witness": "NOT CONSTRUCTED",
+  "root19": "OPEN",
+  "root20": "OPEN",
+  "root21": "conditional",
+  "root18_predecessor": "UNVERIFIED",
+  "warning": "Conditional orbit generation is not a first-point solver. Each descendant must pass primitive and original F4 checks."
+}

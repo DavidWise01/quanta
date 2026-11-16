@@ -1,0 +1,41 @@
+{
+  "RQT": 424,
+  "date": "2026-11-16",
+  "status": "PASS exact target-specific prime-three singular denominator branch audit",
+  "source": "RQT-401 full restricted_Gram",
+  "A_mod27": [
+    [
+      8,
+      3,
+      14
+    ],
+    [
+      3,
+      0,
+      21
+    ],
+    [
+      14,
+      21,
+      2
+    ]
+  ],
+  "primitive_parent_classes_mod9": 216,
+  "mod27_parent_branches": {
+    "v3(d)=1": 36,
+    "v3(d)>=2": 72,
+    "dead_for_both": 108
+  },
+  "mod27_primitive_triples": {
+    "d=3": 972,
+    "d=9": 1944
+  },
+  "identity": "For x+z=3t, q(w)/9 = z²+zt+2t²+yz+2ty (mod 3)",
+  "method": "Exact integer enumeration of parent classes, 27 child lifts each, and direct enumeration of modulus-27 residue triples",
+  "scope": "Necessary congruence restriction at any size; not a rational or integral root witness",
+  "explicit_rational_witness": "NOT CONSTRUCTED",
+  "root18_position": "UNVERIFIED",
+  "root19": "OPEN",
+  "root20": "OPEN",
+  "root21": "conditional"
+}

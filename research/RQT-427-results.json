@@ -1,0 +1,18 @@
+{
+  "RQT": 427,
+  "date": "2026-11-16",
+  "status": "EXACT CASSELS BOUND VERIFIED ON ORIGINAL AND TRANSFORMED GRAM",
+  "source_sha256": "5f4f49b1d75d60d61961b8a0aede915707f6c5cf11e1a9d7e71f1d3a7d83c809",
+  "formula": "B=floor(sqrt((3*sum_ij abs(H_ij))^3))",
+  "coordinate_bound_digits": 611,
+  "bits": 2030,
+  "original_and_transformed": "both computed exactly; transformed bound slightly smaller",
+  "full_exact_bounds": "Emitted by rqt427-effective-height.py --out FULL.json",
+  "theorem_reference": "Cassels small-zero theorem, Fukshansky survey Theorem 1.1",
+  "explicit_rational_witness": "NOT CONSTRUCTED",
+  "integer_root19": "OPEN",
+  "candidate_root18_ordering": "UNVERIFIED",
+  "root20": "OPEN",
+  "root21": "conditional",
+  "scope": "Finite theoretical bound, not practical exhaustive computation"
+}

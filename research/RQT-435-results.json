@@ -1,0 +1,25 @@
+{
+  "RQT": 435,
+  "date": "2026-11-16",
+  "status": "PASS exact full-Gram search",
+  "source_SHA256": "5f4f49b1d75d60d61961b8a0aede915707f6c5cf11e1a9d7e71f1d3a7d83c809",
+  "theorem": "If 0<|d|<=|y|, E_d>=0 implies 177065/100000 < x/y < 178600/100000",
+  "bounds": "1<=y<=3000, odd 1<=d<=min(25,y)",
+  "counts": {
+    "cone_pairs": 69094,
+    "pair_denominator_cases": 898201,
+    "prime_exclusions": 98474,
+    "prime_survivors": 799727,
+    "square_modular_survivors": 3239,
+    "nonnegative": 3238,
+    "exact_squares": 0,
+    "integral_z": 0,
+    "primitive_witnesses": 0
+  },
+  "unsearched": "|d|>|y| or d>25",
+  "rational_witness": "OPEN",
+  "root19": "OPEN",
+  "root20": "OPEN",
+  "root21": "conditional",
+  "frozen_position18": "UNVERIFIED"
+}

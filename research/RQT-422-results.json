@@ -1,0 +1,22 @@
+{
+  "RQT": 422,
+  "date": "2026-11-16",
+  "status": "EXECUTED exact rational-line construction; no witness in finite family",
+  "source": "Full RQT-401 original F4, reduced kernel basis and Gram",
+  "bound": 4,
+  "anchors": 729,
+  "nonzero_directions": 728,
+  "planes_checked": 530712,
+  "nonnegative_discriminants": 9336,
+  "perfect_square_discriminants": 0,
+  "witnesses": [],
+  "theorem": "q(u+t v)=alpha t^2+2 beta t+gamma has a rational root iff beta^2-alpha gamma is a nonnegative integer square (alpha nonzero)",
+  "algorithm": "Clears denominators and normalizes a hypothetical witness; checks H-null and original F4 norm -2d²",
+  "rational_existence": "PROVEN previously by Hasse-Minkowski",
+  "explicit_rational_witness": "NOT CONSTRUCTED",
+  "integer_root19": "OPEN",
+  "root18_position": "UNVERIFIED",
+  "root20": "OPEN",
+  "root21": "conditional",
+  "scope": "Finite 729 × 728 two-plane line family, not a global nonexistence proof"
+}

@@ -1,0 +1,38 @@
+{
+  "RQT": 426,
+  "date": "2026-11-16",
+  "status": "PASS exact denominator-free primitive spatial numerator sieve",
+  "input": "Full RQT-401 Gram, kernel basis and original F4",
+  "T": [
+    [
+      -9,
+      -25,
+      0
+    ],
+    [
+      -5,
+      -14,
+      0
+    ],
+    [
+      0,
+      0,
+      1
+    ]
+  ],
+  "radius": 120,
+  "primitive_spatial_numerators": 11608130,
+  "positive_negative_norm": 11596542,
+  "modular_square_survivors": 45780,
+  "exact_square_values": 0,
+  "witnesses": [],
+  "denominator_bound": "NONE",
+  "lemma": "For primitive (w,d) with q(w)=-d², gcd(w)=1 because gcd(w) divides d.",
+  "proved_bound": "Any rational witness must have at least one transformed spatial numerator coordinate with magnitude >=121",
+  "completeness": "Progressively increasing radius is theoretically guaranteed to find a rational witness by RQT-414; no effective complexity bound.",
+  "explicit_rational_witness": "OPEN",
+  "integer_root19": "OPEN",
+  "root18_predecessor": "UNVERIFIED",
+  "root20": "OPEN",
+  "root21": "conditional"
+}

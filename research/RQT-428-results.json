@@ -1,0 +1,59 @@
+{
+  "RQT": 428,
+  "date": "2026-11-16",
+  "status": "PASS exact unimodular reduction and finite shear audit",
+  "T": [
+    [
+      -9,
+      -25,
+      0
+    ],
+    [
+      -5,
+      -14,
+      0
+    ],
+    [
+      0,
+      0,
+      1
+    ]
+  ],
+  "V": [
+    [
+      1,
+      0,
+      0
+    ],
+    [
+      0,
+      1,
+      -8
+    ],
+    [
+      0,
+      0,
+      1
+    ]
+  ],
+  "det_TV": 1,
+  "small_elementary_shears_tested": 48,
+  "bit_score_improvements": 0,
+  "three_dimensional_bit_scores": {
+    "original": 7053,
+    "RQT419": 7015,
+    "RQT428": 7015
+  },
+  "four_dimensional_scores": {
+    "original": 7054,
+    "RQT419": 7016,
+    "RQT428": 7016
+  },
+  "entry_sum_reduced_by_shear": true,
+  "cassels_bound_digits_before": 611,
+  "cassels_bound_digits_after": 611,
+  "explicit_rational_witness": "NOT CONSTRUCTED",
+  "root19": "OPEN",
+  "root18_ordering": "UNVERIFIED",
+  "scope": "No global optimality theorem. Exact matrix entry sum smaller, bit length score unchanged."
+}

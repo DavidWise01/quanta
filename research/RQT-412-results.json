@@ -1,0 +1,29 @@
+{
+  "RQT": 412,
+  "date": "2026-11-15",
+  "status": "PASS target-specific determinant prime analysis",
+  "A_determinant_bits": 3512,
+  "known_determinant_valuations": {
+    "3": 4,
+    "1129": 1
+  },
+  "seed_at_3": [
+    0,
+    0,
+    1
+  ],
+  "seed_at_1129": [
+    1,
+    4,
+    15
+  ],
+  "finite_lifts_3_power": 8,
+  "finite_lifts_1129_power": 4,
+  "infinite_lift": "Both regular seeds give p-adic lifts at all powers",
+  "good_prime_theorem": "Every odd p not dividing det(A) has a regular representation of -1 modulo p",
+  "remaining_cofactor": "NOT FULLY FACTORED",
+  "global_integer_root19": "OPEN",
+  "frozen_root18_position": "UNVERIFIED",
+  "root20": "OPEN",
+  "root21": "conditional"
+}

@@ -1,0 +1,17 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>RQT-415 · Odd Denominator Bridge</title><style>:root{color-scheme:dark}body{margin:0;background:#071121;color:#e7fcff;font:18px/1.55 system-ui}main{max-width:1050px;margin:auto;padding:36px 20px}h1{font-size:clamp(2.5rem,7vw,5rem);color:#ffcf90}pre{overflow:auto;color:#99ffe8;background:#101e34;border-radius:16px;padding:22px;font:clamp(10px,1.6vw,17px)/1.4 monospace}a{color:#90ffdf}.panel{background:#111e32;border:1px solid #368b9c;border-radius:15px;padding:23px}</style><main><small>QUANTA / RQT-415 / ASCII VISUAL</small><h1>The Odd Denominator Bridge</h1><p>Every reduced rational solution v=w/d to q(v)=-1 has odd denominator d, and numerator parity 001, 011, or 110. This is a global necessary theorem from the actual Gram matrix.</p><pre>        RQT-415 :: ODD DENOMINATOR BRIDGE
+           +-------------------------+
+           |     q(w) = -d^2        |
+           +------------+------------+
+                        |
+                 d even / odd
+                   /       \
+              EVEN         ODD
+                |           |
+           q(w)=0 mod4    allowed
+                |           |
+            w all even    001 011 110
+                |           |
+           NOT LOWEST    denominator 1?
+                X           |
+                          ROOT19
+                           OPEN</pre><div class="panel"><h2>Exact result</h2><p>If d is even, q(w)=-d² is 0 mod4; the full Gram's parity table forces all coordinates of w even, contradicting lowest terms.</p><p>Numerator classes: 24 solutions modulo 4, 96 modulo 8. These are modular classes, not integer root witnesses. Root19 OPEN.</p><p><a href="research/rqt415-odd-denominator.py">Verifier</a> · <a href="research/RQT-415-results.json">Certificate</a> · <a href="research/RQT-415-ODD-DENOMINATOR-BRIDGE.md">Research ledger</a></p></div></main></html>

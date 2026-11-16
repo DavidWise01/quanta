@@ -1,0 +1,24 @@
+{
+  "RQT": 410,
+  "date": "2026-11-15",
+  "status": "PASS exact target-matrix square-root sign coherence counterexample",
+  "theorem": "Given A=Q/2 and f=A22 odd, E=L^2-fM. Exact integer z exists iff E=s^2>=0 and f | (s-L) or f | (s+L).",
+  "f_bit_length": 1352,
+  "known_distinct_prime_factors": [
+    13,
+    23
+  ],
+  "test_xy": [
+    16,
+    9
+  ],
+  "L_mod13": 5,
+  "L_mod23": 10,
+  "mixed_sign_root_s_mod299": 174,
+  "check": "s^2 ≡ E mod 299, but s is neither L nor -L mod 299",
+  "example_exact_E_square": false,
+  "root19": "OPEN",
+  "root18_position": "UNVERIFIED",
+  "root20": "OPEN",
+  "root21": "conditional"
+}

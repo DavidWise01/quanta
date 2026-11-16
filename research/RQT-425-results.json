@@ -1,0 +1,47 @@
+{
+  "RQT": 425,
+  "date": "2026-11-16",
+  "status": "PASS exact target-specific finite counts and infinite 3-adic Hensel theorem",
+  "A_mod27": [
+    [
+      8,
+      3,
+      14
+    ],
+    [
+      3,
+      0,
+      21
+    ],
+    [
+      14,
+      21,
+      2
+    ]
+  ],
+  "specialization": "w=(1,y,2), d=3k",
+  "normalized_polynomial_mod3": "P_k(y) ≡ 2+y+k² (mod3)",
+  "derivative_mod3": 1,
+  "finite_primitive_numerator_counts": {
+    "3": {
+      "9": 216,
+      "27": 972,
+      "81": 8748,
+      "243": 78732
+    },
+    "9": {
+      "9": 216,
+      "27": 1944,
+      "81": 17496,
+      "243": 157464
+    }
+  },
+  "constructive_lift_depth": 12,
+  "theorem": "For every k in Z_3, a unique y in Z_3 solves q(1,y,2)=-(3k)² by Hensel's lemma",
+  "rational_coordinates": "NOT CONSTRUCTED",
+  "ordinary_integral_root19": "OPEN",
+  "candidate_root18_ordering": "UNVERIFIED",
+  "root20": "OPEN",
+  "root21": "conditional",
+  "scope": "Local 3-adic solvability does not give an integral global root"
+}

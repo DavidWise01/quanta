@@ -1,0 +1,58 @@
+{
+  "RQT": 418,
+  "date": "2026-11-16",
+  "status": "PASS executed exact Smith-invariant and mod9 audit against full RQT-401 Gram",
+  "homogenized_form": "H = diag(Q/2,1)",
+  "smith_invariant_factor_magnitudes": [
+    "1",
+    "1",
+    "9",
+    "abs(det(Q/2))/9"
+  ],
+  "determinant_bit_length": 3512,
+  "primitive_classes_mod9_by_d": {
+    "0": {
+      "all": 243,
+      "primitive_mod3": 216
+    },
+    "1": {
+      "all": 162,
+      "primitive_mod3": 162
+    },
+    "2": {
+      "all": 162,
+      "primitive_mod3": 162
+    },
+    "3": {
+      "all": 243,
+      "primitive_mod3": 216
+    },
+    "4": {
+      "all": 162,
+      "primitive_mod3": 162
+    },
+    "5": {
+      "all": 162,
+      "primitive_mod3": 162
+    },
+    "6": {
+      "all": 243,
+      "primitive_mod3": 216
+    },
+    "7": {
+      "all": 162,
+      "primitive_mod3": 162
+    },
+    "8": {
+      "all": 162,
+      "primitive_mod3": 162
+    }
+  },
+  "conclusion": "The 4D integer presentation has one small nontrivial elementary divisor 9; primitive modular solutions with 3|d persist. SNF is not a quadratic-form congruence and does not construct a rational or integral witness.",
+  "rational_existence": "PROVEN previously",
+  "explicit_rational_witness": "NOT CONSTRUCTED",
+  "integral_root19": "OPEN",
+  "candidate_root18_position": "UNVERIFIED",
+  "root20": "OPEN",
+  "root21": "conditional"
+}

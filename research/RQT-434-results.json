@@ -1,0 +1,26 @@
+{
+  "RQT": 434,
+  "date": "2026-11-16",
+  "status": "PASS exact two-corridor boundary and d=1 finite search",
+  "Gram_SHA256": "5f4f49b1d75d60d61961b8a0aede915707f6c5cf11e1a9d7e71f1d3a7d83c809",
+  "source": "RQT-401 full Gram with B^T F4 B=Q",
+  "identity": "E_d(x,y)=E_1(x,y)+(-f)*(d²-1), f=A22<0",
+  "scope": "RQT-394 slope cone applies to d=1 integral-root branch, NOT arbitrary rational denominators",
+  "search_y_positive_max": 3000,
+  "counts": {
+    "cone_pairs": 69094,
+    "excluded_p13": 4905,
+    "excluded_p23": 2873,
+    "excluded_union": 7575,
+    "prime_survivors": 61519,
+    "square_residue_mod256": 13486,
+    "nonnegative_discriminants": 13477,
+    "exact_squares": 0,
+    "integral_z": 0
+  },
+  "integer_root19": "OPEN",
+  "rational_witness": "OPEN",
+  "frozen_root18_predecessor": "UNVERIFIED",
+  "root20": "OPEN",
+  "root21": "conditional"
+}

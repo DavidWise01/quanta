@@ -1,0 +1,48 @@
+{
+  "RQT": 421,
+  "date": "2026-11-16",
+  "status": "PASS three exact arithmetic mappings; no witness found",
+  "Gram_SHA256": "5f4f49b1d75d60d61961b8a0aede915707f6c5cf11e1a9d7e71f1d3a7d83c809",
+  "backmap": "B^T F4 B = Q = 2A",
+  "congruence": "Hnew=U^T H U; det(U)=1",
+  "sample_vectors": [
+    [
+      1,
+      0,
+      0,
+      1
+    ],
+    [
+      0,
+      0,
+      1,
+      1
+    ],
+    [
+      1,
+      1,
+      0,
+      1
+    ],
+    [
+      2,
+      3,
+      4,
+      5
+    ],
+    [
+      16,
+      9,
+      1,
+      3
+    ]
+  ],
+  "number_isotropic": 0,
+  "independent_evidence_ancestors": 1,
+  "rational_existence": "PROVEN RQT-414",
+  "explicit_rational_witness": "NOT CONSTRUCTED",
+  "integer_root19": "OPEN",
+  "position18": "UNVERIFIED",
+  "root20": "OPEN",
+  "root21": "conditional"
+}

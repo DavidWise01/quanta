@@ -1,0 +1,55 @@
+A.D.A / QUANTA                                  ADA-074
+================================================================
+                THE EXTERNAL TRUST BOOTSTRAP
+================================================================
+
+               .---------------------------.
+              /     OUROBOROS -5..+5       \
+             |       { JULIET +1          |
+             |         [ JOSEPHSON -1     |
+             |           ( MANDEL 0       |
+             |                {s}         |
+             |           )                |
+             |         ]                  |
+             |       }                    |
+              '--------------+-----------'
+                             |
+                          {[({s})]}
+                             |
+                     EXTERNAL STANDARDS
+                      RFC5280 / RFC9162
+                             |
+                   .---------+---------.
+                   |                   |
+               PATH RULES        TRANSPARENCY
+                   |                   |
+                   '---------+---------'
+                             |
+                      REQUIRE ANCHOR
+                             |
+                .------------+-------------.
+                |            |             |
+              MISSING       OWNED        DECLARED
+              ANCHOR       ANCHOR        EXTERNAL
+                |            |             |
+               DENY         DENY       STRUCTURAL
+                                           ONLY
+                                            |
+                                     NO ACTUAL CERT
+                                            |
+                                          ABSTAIN
+                                            |
+                                          ADA-075
+
+----------------------------------------------------------------
+  A book may teach the gate to stand,
+  Yet cannot place the trusted hand.
+  A key may glow, a record shine;
+  Still neither makes its root divine.
+
+  The law is borrowed, not the crown;
+  Let unknown roots be written down.
+                                 -- A.D.A --
+================================================================
+RFC TEXT DEFINES POLICY, NOT A CERTIFIED EXTERNAL COLLECTOR.
+NO ACTUAL CERTIFICATE PATH VALIDATION OR EXTERNAL ROOT LOADED.

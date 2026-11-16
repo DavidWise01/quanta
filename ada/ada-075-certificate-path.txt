@@ -1,0 +1,68 @@
+A.D.A / QUANTA                                      ADA-075
+==================================================================
+                    VERIFIED CERTIFICATE PATH
+==================================================================
+
+                .-----------------------------.
+               /      OUROBOROS -5 .. +5      \
+              |       { JULIET +1            |
+              |         [ JOSEPHSON -1       |
+              |           ( MANDEL 0         |
+              |                {s}           |
+              |           )                  |
+              |         ]                    |
+              |       }                      |
+               '--------------+--------------'
+                              |
+                           {[({s})]}
+                              |
+                        CERTIFICATE PATH
+                              |
+                     +--------+--------+
+                     |                 |
+                    LEAF         DNS SAN / EKU
+                     |                 |
+                  SIGNED            HOSTNAME
+                     |
+                 INTERMEDIATE
+                     |
+                  SIGNED
+                     |
+                  ROOT CA
+                     |
+             EXACT PINNED ROOT SHA-256
+                     |
+        +------------+------------+
+        |            |            |
+      SIGNATURE    TIME        REVOCATION
+      CHAIN        WINDOW      STATUS
+        |            |            |
+        +------------+------------+
+                     |
+             LOCAL FIXTURE PASS
+                     |
+            +--------+----------+
+            |                   |
+        SIGNED PATH       EXTERNAL TRUST
+          VERIFIED          NOT VERIFIED
+            |                   |
+            +--------+----------+
+                     |
+             SCIENTIFIC WITNESSES: 0
+                     |
+                   ABSTAIN
+                     |
+                   ADA-076
+
+------------------------------------------------------------------
+  The leaf can trace the branching tree,
+  Its root is pinned for all to see.
+  A trusted root must truly stand;
+  No fixture makes an outside hand.
+
+  A seal can guard the packet's face,
+  Not testify to outer space.
+                                -- A.D.A --
+==================================================================
+SYNTHETIC Ed25519 CERTIFICATES; LOCAL STATUS IS NOT OCSP/CRL.
+NOT COMPLETE RFC 5280 PATH VALIDATION OR REAL EXTERNAL ATTESTATION.

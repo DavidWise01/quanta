@@ -1,0 +1,25 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>RQT-413 — The Minor Gate</title><style>:root{color-scheme:dark}body{margin:0;background:#081323;color:#e8faff;font:18px/1.55 system-ui}main{max-width:1080px;margin:auto;padding:34px 20px}h1{color:#ffd39b;font-size:clamp(2.5rem,8vw,5rem)}pre{overflow:auto;background:#071b29;color:#a2ffe4;border:1px solid #468394;padding:20px;border-radius:15px;font:clamp(10px,1.5vw,17px)/1.4 monospace}a{color:#92ffe8}.panel{background:#0e2237;padding:23px;border:1px solid #368898;border-radius:17px}</style><main><small>QUANTA / ORIGINAL F4 / RQT-413 / ASCII STORY</small><h1>The Minor Gate — All Odd Primes</h1><p>For the actual conditional root-19 successor lattice, the gcd of all nine 2x2 minors is exactly 9. Every odd prime except 3 therefore has rank at least 2; p=3 has a separately verified regular seed. Combined with the proven 2-adic gate, all finite-prime local obstructions are cleared.</p><pre>           RQT-413 : THE MINOR GATE
+      +-----------------------------------+
+      | A = Q/2   target A(v) = -1       |
+      |                                   |
+      | gcd(all nine 2 x 2 minors) = 9  |
+      |                 |                 |
+      |           +-----+-----+           |
+      |           |           |           |
+      |         p != 3       p = 3        |
+      |        rank >= 2    (0,0,1)       |
+      |           |          |            |
+      |      binary form   regular        |
+      |           +-----+----+            |
+      |                 |                 |
+      |             HENSEL              |
+      |                 |                 |
+      |      +----------+----------+      |
+      |      |   p = 2: D = 1 mod 8 |      |
+      +------+---------------------+------+
+                     |
+          LOCAL ROOT AT EVERY PRIME
+                     |
+             INTEGER ROOT 19?
+                     |
+                    OPEN</pre><div class="panel"><h2>Exact theorem, conditional target</h2><p>A rank-at-least-two ternary form over an odd finite field represents -1 regularly and has a p-adic lift. The exceptional prime 3 uses v=(0,0,1), gradient (1,0,1); the 2-adic construction has discriminant 1 mod8.</p><p>Global integral root19 remains OPEN. The source candidate is not yet certified as the eighteenth frozen reflection.</p><p><a href="research/rqt413-minor-gate.py">Verifier</a> · <a href="research/RQT-413-results.json">Certificate</a> · <a href="research/RQT-413-THE-MINOR-GATE.md">Ledger</a></p></div></main></html>

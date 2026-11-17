@@ -1,0 +1,12 @@
+// ADA-122 .dlw — AION four-domain scaffold; deterministic synthetic regime shift.
+export const architecture={A:["advance","project","reserve"],I:["perceive","estimate","select"],O:["witness","compare","preserve"],N:["reconcile","persist","iterate"]};
+export function forecast(q,d,p){const a=Array(26).fill(0);for(const [o,w] of [[2*d,(1-p)**2],[-2*d,p*(1-p)],[0,p]])a[(q+o+26)%26]+=w;return a;}
+export function run(seed,shift=true){let x=seed>>>0,q=0,d=1,flips=0,n=0,fast=.08,hold=0;const ledger=[],memsistor=[],scores=[],ring=[],stats={count:0,cumulative:0,scaffold:0,alarms:0};for(let t=0;t<208;t++){let flip=0;if(t){x=(Math.imul(x,1664525)+1013904223)>>>0;const p=shift&&t>=104?.45:.08;flip=Number(x/4294967296<p);if(flip)d=-d;q=(q+d+26)%26;flips+=flip;n++;fast=.15*flip+.85*fast;}
+const slow=(1.6+flips)/(20+n);const alarm=t>0&&Math.abs(fast-slow)>.12;if(alarm){hold=8;stats.alarms++;}else hold=Math.max(0,hold-1);const selected=hold?fast:slow;const matured=t>=2?ledger[t-2]:null;
+if(matured){const loss=a=>a.reduce((s,v,i)=>s+(v-Number(i===q))**2,0);const row={target:t,actual:q,cumulative:loss(matured.baseline),scaffold:loss(matured.prediction)};scores.push(row);stats.count++;stats.cumulative+=row.cumulative;stats.scaffold+=row.scaffold;}
+ring.push({t,q,d,fast,slow,hold});if(ring.length>3)ring.shift();
+const rec=Object.freeze({issued:t,target:t+2,source:q,alarm,mode:hold?"OTF":"JIT",prediction:Object.freeze(forecast(q,d,selected)),baseline:Object.freeze(forecast(q,d,slow))});ledger.push(rec);memsistor.push(Object.freeze({tick:t,flip,alarm,score:matured?scores[scores.length-1]:null}));}
+return {seed,shift,stats,ledger,scores,ring,memsistor};}
+export function test(){const groups=[];for(const shift of [false,true]){const cases=Array.from({length:64},(_,i)=>run(3000+i,shift));for(const r of cases){if(r.ring.length!==3||r.memsistor.length!==208||r.stats.count!==206||JSON.stringify(r)!==JSON.stringify(run(r.seed,shift)))throw Error("replay");if(r.ledger.some(f=>f.target-f.issued!==2||Math.abs(f.prediction.reduce((a,b)=>a+b,0)-1)>1e-10))throw Error("forecast");}const sum=k=>cases.reduce((s,r)=>s+r.stats[k],0);groups.push({shift,count:sum("count"),cumulative:sum("cumulative"),scaffold:sum("scaffold"),alarms:sum("alarms"),wins:cases.filter(r=>r.stats.scaffold<r.stats.cumulative).length});}return {groups,fixture:run(3000,true)};}
+
+console.log(JSON.stringify(test(),null,2));

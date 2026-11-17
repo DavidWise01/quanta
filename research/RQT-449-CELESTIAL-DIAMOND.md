@@ -1,0 +1,5 @@
+# RQT-449 — Celestial Integer Diamond
+Architecture: {{ 9xJx9 || 9xAx9 || 9xNx9 || 9xEx9 || }}
+For E(x,y)=alpha*x²+2Kxy+gamma*y²+delta, translations by nine commute and the mixed finite difference is exactly 162K. Fourth corner = E(x+9,y)+E(x,y+9)-E(x,y)+162K. This is a discrete arithmetic analogy to EVD-004 (https://arxiv.org/abs/2105.03516), not equivalence to celestial holography or an Einstein field equation. The arithmetic identity checks share one source ancestry. Shifted corners need not be feasible root candidates.
+Executed on frozen Gram 5f4f49b1d75d60d61961b8a0aede915707f6c5cf11e1a9d7e71f1d3a7d83c809; B^T F4 B checked. d=1, y=10101..11000: 145647 feasible x, all with 0<=E<f², 145647 diamond checks, 291294 exact z substitutions, zero hits. The scan is exhaustive for that tile. No global nonexistence claim. Root18 positional compatibility unverified; root19 OPEN.
+Next: generate a modular shadow of the diamond residual and test residue-class rejection before large-integer norm evaluation.

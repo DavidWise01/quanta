@@ -1,0 +1,28 @@
+{
+  "RQT": 437,
+  "date": "2026-11-16",
+  "status": "PASS exact zero-plane exclusion and variable-width cone",
+  "sha256": "5f4f49b1d75d60d61961b8a0aede915707f6c5cf11e1a9d7e71f1d3a7d83c809",
+  "original_backmap": "PASS",
+  "y_zero_theorem": "When y=0, modulo 11 forces z=d=0 mod11 because -3=8 is nonsquare. Then modulo 121, a=88 mod121 forces x=0 mod11. Primitive solutions impossible.",
+  "coefficients_mod11": {
+    "a": 0,
+    "c": 0,
+    "f": 3
+  },
+  "a_mod121": 88,
+  "expanded_cone": "(alpha*x+K*y)^2 <= (K^2-alpha*gamma)*y^2-alpha*delta*d^2, alpha=c^2-fa<0,K=ce-fb,gamma=e^2-fg,delta=-f>0",
+  "sample_extreme": {
+    "x": 0,
+    "y": 1,
+    "d": "2^600",
+    "real_discriminant_positive": true,
+    "discriminant_square": false
+  },
+  "global_rational_witness": "OPEN",
+  "integral_root19": "OPEN",
+  "root18_ordering": "UNVERIFIED",
+  "root20": "OPEN",
+  "root21": "conditional",
+  "scope": "Necessary real cone only; no global integral witness"
+}

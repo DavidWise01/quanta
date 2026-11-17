@@ -1,0 +1,31 @@
+{
+  "RQT": 445,
+  "sha256": "5f4f49b1d75d60d61961b8a0aede915707f6c5cf11e1a9d7e71f1d3a7d83c809",
+  "controls": {
+    "tests": 106050,
+    "mixed_sign_conflicts": 1214
+  },
+  "tile": {
+    "y": [
+      737,
+      768
+    ],
+    "odd_d": [
+      1,
+      767
+    ],
+    "counts": {
+      "pairs": 12288,
+      "feasible_x": 141696,
+      "prime_rejected": 14976,
+      "base": 324,
+      "coupled": 201,
+      "exact_squares": 0,
+      "global_sign_survivors": 0,
+      "witnesses": 0
+    },
+    "hits": []
+  },
+  "root19": "OPEN",
+  "prefix18": "UNVERIFIED"
+}

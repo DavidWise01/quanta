@@ -1,0 +1,37 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width"><title>ADA-112</title><style>body{background:#09121c;color:#d9eeed;font:16px monospace;max-width:800px;margin:40px auto;padding:16px}h1{color:#ffc07a}pre{color:#81e8cf;background:#122732;padding:20px;line-height:1.7}button,select{padding:10px;font:inherit}a{color:#81e8cf}</style><h1>ADA-112 · Persist Through Resist</h1><p>[ {n}^n (s) {n}^n ] · 9 vector points · .dlw</p><select id="mode"><option value="routed">Singlet routed</option><option value="local">Local resistance</option><option value="fixed">Fixed circulation</option></select> <button id="step">Next generation</button> <button id="reset">Reset</button><pre id="view"></pre><p>Exact integer transfers on a connected nine-node graph. Local resistance can stall; singlet routing repairs that limitation. Synthetic model, not physical QCD or the ADA-077 engine. One generation is a sweep in local/fixed mode and at most one routed packet in routed mode.</p><a href="../living-077/">Earlier ADA-077 replay</a><script type="module">// ADA-112 .dlw. Run with node ada112.mjs
+export function run(mode="routed", initial=[9,3,0,6,2,1,8,4,3],steps=100){
+ let q=initial.slice(), history=[q.slice()],moves=0;
+ const edges=[],adj=Array.from({length:9},()=>[]);
+ for(let f=0;f<3;f++)for(let k=0;k<3;k++){
+  edges.push([3*k+f,3*((k+(f===1?2:1))%3)+f],[3*k+f,3*k+(f+1)%3]);
+ }
+ for(const [i,j] of edges){adj[i].push(j);adj[j].push(i);}
+ const total=q.reduce((a,b)=>a+b,0);
+ const energy=()=>q.reduce((a,b)=>a+(9*b-total)**2,0);
+ function move(i,j){if(q[i]>0){q[i]--;q[j]++;moves++;}}
+ for(let t=0;t<steps;t++){
+  if(mode==="routed"){
+   const i=q.indexOf(Math.max(...q)),j=q.indexOf(Math.min(...q));
+   if(q[i]-q[j]>=2){
+    const parent=Array(9).fill(-1),queue=[i];parent[i]=i;
+    for(let k=0;k<queue.length;k++)for(const v of adj[queue[k]])if(parent[v]<0){parent[v]=queue[k];queue.push(v);}
+    const path=[j];while(path[0]!==i)path.unshift(parent[path[0]]);
+    for(let k=0;k<path.length-1;k++)move(path[k],path[k+1]);
+   }
+  }else for(const [i,j] of edges){
+   if(mode==="fixed")move(i,j);
+   else if(q[i]-q[j]>=2)move(i,j);else if(q[j]-q[i]>=2)move(j,i);
+  }
+  if(q.some(x=>x<0)||q.reduce((a,b)=>a+b,0)!==total)throw Error("conservation");
+  history.push(q.slice());
+ }
+ return {initial,final:q,total,moves,energy:energy(),history};
+}
+export function test(){
+ const modes=["fixed","local","routed"],results=Object.fromEntries(modes.map(m=>[m,run(m)]));
+ const corners=Array.from({length:9},(_,i)=>{const q=Array(9).fill(0);q[i]=36;return Object.fromEntries(modes.map(m=>[m,run(m,q).energy]));});
+ if(results.routed.energy!==0||corners.some(c=>c.routed!==0))throw Error("routed");
+ return {results,corners};
+}
+
+let t=0;const el=id=>document.getElementById(id);function draw(){const r=run(el('mode').value,undefined,t),q=r.final;el('view').textContent='       OCHRE  EMERALD TEAL\n'+[0,1,2].map(k=>' G'+k+'    '+q.slice(k*3,k*3+3).map(v=>String(v).padStart(4)).join('    ')).join('\n')+'\n\n           (( S ))\nGeneration '+t+' | Sum '+r.total+' | Moves '+r.moves+' | Scaled deviation '+r.energy;}el('step').onclick=()=>{t++;draw()};el('reset').onclick=()=>{t=0;draw()};el('mode').onchange=draw;draw();</script></html>

@@ -1,0 +1,38 @@
+{
+  "RQT": 450,
+  "sha256": "5f4f49b1d75d60d61961b8a0aede915707f6c5cf11e1a9d7e71f1d3a7d83c809",
+  "y": [
+    11001,
+    12000
+  ],
+  "d": 1,
+  "mods": [
+    9,
+    8,
+    5,
+    7,
+    11,
+    13,
+    17
+  ],
+  "survivors": [
+    78400,
+    9798,
+    1569,
+    192,
+    16,
+    3,
+    0
+  ],
+  "controls": 1012,
+  "totals": {
+    "J": 176397,
+    "A": 352794,
+    "N": 0,
+    "E": 0
+  },
+  "hits": [],
+  "root19": "OPEN",
+  "prefix18": "UNVERIFIED",
+  "note": "Summary; later moduli zero; full lane counts emitted by verifier."
+}

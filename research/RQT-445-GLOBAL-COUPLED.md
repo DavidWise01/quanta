@@ -1,0 +1,5 @@
+# RQT-445 — Global Coupled Kernel
+
+Given a true nonnegative integer square E=t², each factor m of |f| permits a sign set S_m={sigma in {-1,+1}: sigma*t=L mod m}. For a collection whose lcm is |f|, intersection of all sign sets equals the sign set modulo |f|. Example f=15, L=4, E=1, C=1: modulo 3 requires +1 and modulo 5 requires -1; neither works globally. Exhaustive controls over f=1..100, t=0..20, L=0..f-1: 106050 tested and 1214 nonempty-local but empty-global sign intersections. Original Gram SHA verified. New disjoint tile y=737..768, odd d=1..767: 141696 feasible x, 324 baseline survivors, 201 local coupled survivors, zero exact squares. Consequently the actual tile has no sign-test inputs; synthetic controls test that gate. Cumulative frontier y=1..768, odd d=1..767, all x,z. No global nonexistence claim; root18 prefix unverified.
+
+JPG corrections: 201 precedes global sign intersection, and cumulative y ends at 768, not 736. Original F4 norm must equal -2d². Next: constructive first point or sign-independent congruence compression.

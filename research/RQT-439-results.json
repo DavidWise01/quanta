@@ -1,0 +1,68 @@
+{
+  "RQT": 439,
+  "date": "2026-11-16",
+  "sha256": "5f4f49b1d75d60d61961b8a0aede915707f6c5cf11e1a9d7e71f1d3a7d83c809",
+  "tiles": [
+    {
+      "tile": "denominator",
+      "y": [
+        1,
+        256
+      ],
+      "d": [
+        257,
+        511
+      ],
+      "counts": {
+        "pairs": 32768,
+        "empty": 3968,
+        "x": 64512,
+        "prime_rejected": 7552,
+        "modular_survivors": 213,
+        "squares": 0,
+        "witnesses": 0
+      },
+      "hits": []
+    },
+    {
+      "tile": "numerator",
+      "y": [
+        257,
+        512
+      ],
+      "d": [
+        1,
+        511
+      ],
+      "counts": {
+        "pairs": 65536,
+        "empty": 0,
+        "x": 386560,
+        "prime_rejected": 43008,
+        "modular_survivors": 1335,
+        "squares": 0,
+        "witnesses": 0
+      },
+      "hits": []
+    }
+  ],
+  "combined_with": "RQT-438",
+  "complete_rectangle": {
+    "positive_y": [
+      1,
+      512
+    ],
+    "positive_odd_d": [
+      1,
+      511
+    ],
+    "pairs": 131072,
+    "feasible_x": 515584,
+    "exact_squares": 0
+  },
+  "scope": "All x,z for bounded y,d. No claim about remaining heights.",
+  "root19": "OPEN",
+  "root18_position": "UNVERIFIED",
+  "root20": "OPEN",
+  "root21": "conditional"
+}

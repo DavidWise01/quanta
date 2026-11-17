@@ -1,0 +1,5 @@
+# EVD-004 — Celestial diamond algebra
+Source: Pasterski, Puhm, Trevisani, https://arxiv.org/abs/2105.03516 ; Pasterski lectures https://doi.org/10.1140/epjc/s10052-021-09846-7 eqs 4.25–4.26.
+For positive integers k,l choose h=(1-k)/2, hbar=(1-l)/2. D=partial_z^k, Dbar=partial_zbar^l. The four weights are (h,hbar), (h+k,hbar), (h,hbar+l), (h+k,hbar+l). Delta=h+hbar, J=h-hbar. The two middle vertices are related by the weight-level shadow map (h,hbar)->(1-h,1-hbar). On smooth functions mixed derivatives commute. This does not assert independent witnesses or equality of arbitrary quantum operators.
+Example k=l=2: top (Delta,J)=(-1,0), sides (1,+2),(1,-2), bottom (3,0). Toy polynomial z^2*zbar^2 yields common descendant 4. A finite polynomial illustration, not a physical graviton wavefunction.
+Geometric comparison: null ray q=(1+u²+v²,2u,2v,1-u²-v²) has Minkowski norm zero; projectivized future null cone is S². This is not a Euclidean 4D-to-3D tesseract projection. Compare explicit mappings before claiming equivalence. Suggested JANE test: a 9x9 matrix of (k,l) in 1..9; verify commuting descendant paths and shadow weight involution.

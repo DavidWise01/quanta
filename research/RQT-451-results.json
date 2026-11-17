@@ -1,0 +1,19 @@
+{
+  "RQT": 451,
+  "sha256": "5f4f49b1d75d60d61961b8a0aede915707f6c5cf11e1a9d7e71f1d3a7d83c809",
+  "primitive_even_d_impossible": true,
+  "z0_mod8_residues": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    6
+  ],
+  "certified_equal_height": "348449143727040986586495598010130648530944",
+  "z_abs_upper_bound": "681060/1000000 (rounded up)",
+  "max_equal_height_this_bound": "511628033026068308599022734238291158057050",
+  "root19": "OPEN",
+  "prefix18": "UNVERIFIED",
+  "note": "Summary; executable emits exact ratio."
+}

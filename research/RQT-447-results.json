@@ -1,0 +1,20 @@
+{
+  "RQT": 447,
+  "sha256": "5f4f49b1d75d60d61961b8a0aede915707f6c5cf11e1a9d7e71f1d3a7d83c809",
+  "controls": 45384,
+  "y": [
+    3001,
+    10000
+  ],
+  "d": 1,
+  "counts": {
+    "pairs": 7000,
+    "feasible_x": 697951,
+    "zero_quotient": 697951,
+    "coordinate_tests": 1395902,
+    "witnesses": 0
+  },
+  "hits": [],
+  "root19": "OPEN",
+  "prefix18": "UNVERIFIED"
+}

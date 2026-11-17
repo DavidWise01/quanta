@@ -1,0 +1,62 @@
+{
+  "experiment": "ADA-118",
+  "watermark": ".dlw",
+  "lineage": "ADA-117B",
+  "source": "inf-+inf",
+  "shadow": "(inf) - + [inf]",
+  "geometry": "{brace,abc[box,bca(torroid,cab)]}",
+  "shifts": [
+    1,
+    -1,
+    3,
+    -3,
+    5,
+    -5,
+    7,
+    -7
+  ],
+  "addresses": 208,
+  "inverse": 208,
+  "cycles": 8,
+  "periods": [
+    26,
+    26,
+    26,
+    26,
+    26,
+    26,
+    26,
+    26
+  ],
+  "reachable": 208,
+  "clockTests": [
+    {
+      "tick": "0",
+      "phase": "abc"
+    },
+    {
+      "tick": "431999",
+      "phase": "abc"
+    },
+    {
+      "tick": "432000",
+      "phase": "bca"
+    },
+    {
+      "tick": "863999",
+      "phase": "bca"
+    },
+    {
+      "tick": "864000",
+      "phase": "cab"
+    },
+    {
+      "tick": "1295999",
+      "phase": "cab"
+    },
+    {
+      "tick": "1296000",
+      "phase": "abc"
+    }
+  ]
+}

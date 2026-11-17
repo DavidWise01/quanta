@@ -1,0 +1,18 @@
+{
+  "RQT": 448,
+  "architecture": "{{ 9xJx9 || 9xAx9 || 9xNx9 || 9xEx9 || }}",
+  "sha256": "5f4f49b1d75d60d61961b8a0aede915707f6c5cf11e1a9d7e71f1d3a7d83c809",
+  "y": [
+    10001,
+    10100
+  ],
+  "d": 1,
+  "positive_control_hits": 112,
+  "feasible_x": 15414,
+  "coordinate_tests": 30828,
+  "fallback": 0,
+  "hits": [],
+  "root19": "OPEN",
+  "prefix18": "UNVERIFIED",
+  "lane_matrices": "Emitted by executable verifier; full matrices retained in downloadable certificate."
+}

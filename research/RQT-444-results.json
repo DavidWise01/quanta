@@ -1,0 +1,27 @@
+{
+  "RQT": 444,
+  "sha256": "5f4f49b1d75d60d61961b8a0aede915707f6c5cf11e1a9d7e71f1d3a7d83c809",
+  "controls": 1936,
+  "tile": {
+    "y": [
+      705,
+      736
+    ],
+    "odd_d": [
+      1,
+      767
+    ],
+    "counts": {
+      "pairs": 12288,
+      "feasible_x": 135168,
+      "prime_rejected": 14976,
+      "base": 393,
+      "coupled": 269,
+      "exact_squares": 0,
+      "witnesses": 0
+    },
+    "hits": []
+  },
+  "root19": "OPEN",
+  "prefix18": "UNVERIFIED"
+}

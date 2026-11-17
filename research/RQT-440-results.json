@@ -1,0 +1,44 @@
+{
+  "RQT": 440,
+  "date": "2026-11-16",
+  "status": "PASS exact lossless precomputed square-residue masks and frontier regression",
+  "source_sha256": "5f4f49b1d75d60d61961b8a0aede915707f6c5cf11e1a9d7e71f1d3a7d83c809",
+  "masks": [
+    16,
+    9,
+    25
+  ],
+  "mask_true_cell_counts": {
+    "9": 729,
+    "16": 1024,
+    "25": 5725
+  },
+  "tiles": [
+    {
+      "name": "RQT-438",
+      "integer_x": 64512,
+      "old": 223,
+      "extended": 154
+    },
+    {
+      "name": "RQT-439 A",
+      "integer_x": 64512,
+      "old": 213,
+      "extended": 143
+    },
+    {
+      "name": "RQT-439 B",
+      "integer_x": 386560,
+      "old": 1335,
+      "extended": 954
+    }
+  ],
+  "total_interval_x": 515584,
+  "old_modular_survivors": 1771,
+  "new_modular_survivors": 1251,
+  "newly_rejected": 520,
+  "exact_squares": 0,
+  "root19": "OPEN",
+  "root18_position": "UNVERIFIED",
+  "scope": "Bounded y=1..512, positive odd d=1..511; no claim of global nonexistence."
+}

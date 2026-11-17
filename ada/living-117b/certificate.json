@@ -1,0 +1,424 @@
+{
+  "experiment": "ADA-117B",
+  "watermark": ".dlw",
+  "lineage": "ADA-117A",
+  "checks": 45,
+  "rotations": 1296000,
+  "cases": [
+    {
+      "boundary": "432000",
+      "rows": [
+        {
+          "tick": "431998",
+          "expected": "accept",
+          "got": "accept"
+        },
+        {
+          "tick": "432000",
+          "expected": "gap",
+          "got": "gap"
+        },
+        {
+          "tick": "431998",
+          "expected": "stale",
+          "got": "stale"
+        },
+        {
+          "tick": "431999",
+          "expected": "hold",
+          "got": "hold"
+        },
+        {
+          "tick": "431999",
+          "expected": "accept",
+          "got": "accept"
+        },
+        {
+          "tick": "432000",
+          "expected": "accept",
+          "got": "accept"
+        },
+        {
+          "tick": "431999",
+          "expected": "stale",
+          "got": "stale"
+        },
+        {
+          "tick": "432001",
+          "expected": "accept",
+          "got": "accept"
+        }
+      ],
+      "ledger": [
+        {
+          "node": 7,
+          "tick": "431998",
+          "revolution": "0",
+          "degree": 119,
+          "minute": 59,
+          "arcsecond": 58,
+          "orientation": "abc"
+        },
+        {
+          "node": 8,
+          "tick": "431999",
+          "revolution": "0",
+          "degree": 119,
+          "minute": 59,
+          "arcsecond": 59,
+          "orientation": "abc"
+        },
+        {
+          "node": 0,
+          "tick": "432000",
+          "revolution": "0",
+          "degree": 120,
+          "minute": 0,
+          "arcsecond": 0,
+          "orientation": "bca"
+        },
+        {
+          "node": 1,
+          "tick": "432001",
+          "revolution": "0",
+          "degree": 120,
+          "minute": 0,
+          "arcsecond": 1,
+          "orientation": "bca"
+        }
+      ]
+    },
+    {
+      "boundary": "864000",
+      "rows": [
+        {
+          "tick": "863998",
+          "expected": "accept",
+          "got": "accept"
+        },
+        {
+          "tick": "864000",
+          "expected": "gap",
+          "got": "gap"
+        },
+        {
+          "tick": "863998",
+          "expected": "stale",
+          "got": "stale"
+        },
+        {
+          "tick": "863999",
+          "expected": "hold",
+          "got": "hold"
+        },
+        {
+          "tick": "863999",
+          "expected": "accept",
+          "got": "accept"
+        },
+        {
+          "tick": "864000",
+          "expected": "accept",
+          "got": "accept"
+        },
+        {
+          "tick": "863999",
+          "expected": "stale",
+          "got": "stale"
+        },
+        {
+          "tick": "864001",
+          "expected": "accept",
+          "got": "accept"
+        }
+      ],
+      "ledger": [
+        {
+          "node": 7,
+          "tick": "863998",
+          "revolution": "0",
+          "degree": 239,
+          "minute": 59,
+          "arcsecond": 58,
+          "orientation": "bca"
+        },
+        {
+          "node": 8,
+          "tick": "863999",
+          "revolution": "0",
+          "degree": 239,
+          "minute": 59,
+          "arcsecond": 59,
+          "orientation": "bca"
+        },
+        {
+          "node": 0,
+          "tick": "864000",
+          "revolution": "0",
+          "degree": 240,
+          "minute": 0,
+          "arcsecond": 0,
+          "orientation": "cab"
+        },
+        {
+          "node": 1,
+          "tick": "864001",
+          "revolution": "0",
+          "degree": 240,
+          "minute": 0,
+          "arcsecond": 1,
+          "orientation": "cab"
+        }
+      ]
+    },
+    {
+      "boundary": "1296000",
+      "rows": [
+        {
+          "tick": "1295998",
+          "expected": "accept",
+          "got": "accept"
+        },
+        {
+          "tick": "1296000",
+          "expected": "gap",
+          "got": "gap"
+        },
+        {
+          "tick": "1295998",
+          "expected": "stale",
+          "got": "stale"
+        },
+        {
+          "tick": "1295999",
+          "expected": "hold",
+          "got": "hold"
+        },
+        {
+          "tick": "1295999",
+          "expected": "accept",
+          "got": "accept"
+        },
+        {
+          "tick": "1296000",
+          "expected": "accept",
+          "got": "accept"
+        },
+        {
+          "tick": "1295999",
+          "expected": "stale",
+          "got": "stale"
+        },
+        {
+          "tick": "1296001",
+          "expected": "accept",
+          "got": "accept"
+        }
+      ],
+      "ledger": [
+        {
+          "node": 7,
+          "tick": "1295998",
+          "revolution": "0",
+          "degree": 359,
+          "minute": 59,
+          "arcsecond": 58,
+          "orientation": "cab"
+        },
+        {
+          "node": 8,
+          "tick": "1295999",
+          "revolution": "0",
+          "degree": 359,
+          "minute": 59,
+          "arcsecond": 59,
+          "orientation": "cab"
+        },
+        {
+          "node": 0,
+          "tick": "1296000",
+          "revolution": "1",
+          "degree": 0,
+          "minute": 0,
+          "arcsecond": 0,
+          "orientation": "abc"
+        },
+        {
+          "node": 1,
+          "tick": "1296001",
+          "revolution": "1",
+          "degree": 0,
+          "minute": 0,
+          "arcsecond": 1,
+          "orientation": "abc"
+        }
+      ]
+    },
+    {
+      "boundary": "2592000",
+      "rows": [
+        {
+          "tick": "2591998",
+          "expected": "accept",
+          "got": "accept"
+        },
+        {
+          "tick": "2592000",
+          "expected": "gap",
+          "got": "gap"
+        },
+        {
+          "tick": "2591998",
+          "expected": "stale",
+          "got": "stale"
+        },
+        {
+          "tick": "2591999",
+          "expected": "hold",
+          "got": "hold"
+        },
+        {
+          "tick": "2591999",
+          "expected": "accept",
+          "got": "accept"
+        },
+        {
+          "tick": "2592000",
+          "expected": "accept",
+          "got": "accept"
+        },
+        {
+          "tick": "2591999",
+          "expected": "stale",
+          "got": "stale"
+        },
+        {
+          "tick": "2592001",
+          "expected": "accept",
+          "got": "accept"
+        }
+      ],
+      "ledger": [
+        {
+          "node": 7,
+          "tick": "2591998",
+          "revolution": "1",
+          "degree": 359,
+          "minute": 59,
+          "arcsecond": 58,
+          "orientation": "cab"
+        },
+        {
+          "node": 8,
+          "tick": "2591999",
+          "revolution": "1",
+          "degree": 359,
+          "minute": 59,
+          "arcsecond": 59,
+          "orientation": "cab"
+        },
+        {
+          "node": 0,
+          "tick": "2592000",
+          "revolution": "2",
+          "degree": 0,
+          "minute": 0,
+          "arcsecond": 0,
+          "orientation": "abc"
+        },
+        {
+          "node": 1,
+          "tick": "2592001",
+          "revolution": "2",
+          "degree": 0,
+          "minute": 0,
+          "arcsecond": 1,
+          "orientation": "abc"
+        }
+      ]
+    },
+    {
+      "boundary": "11673330234144326928000",
+      "rows": [
+        {
+          "tick": "11673330234144326927998",
+          "expected": "accept",
+          "got": "accept"
+        },
+        {
+          "tick": "11673330234144326928000",
+          "expected": "gap",
+          "got": "gap"
+        },
+        {
+          "tick": "11673330234144326927998",
+          "expected": "stale",
+          "got": "stale"
+        },
+        {
+          "tick": "11673330234144326927999",
+          "expected": "hold",
+          "got": "hold"
+        },
+        {
+          "tick": "11673330234144326927999",
+          "expected": "accept",
+          "got": "accept"
+        },
+        {
+          "tick": "11673330234144326928000",
+          "expected": "accept",
+          "got": "accept"
+        },
+        {
+          "tick": "11673330234144326927999",
+          "expected": "stale",
+          "got": "stale"
+        },
+        {
+          "tick": "11673330234144326928001",
+          "expected": "accept",
+          "got": "accept"
+        }
+      ],
+      "ledger": [
+        {
+          "node": 7,
+          "tick": "11673330234144326927998",
+          "revolution": "9007199254740992",
+          "degree": 359,
+          "minute": 59,
+          "arcsecond": 58,
+          "orientation": "cab"
+        },
+        {
+          "node": 8,
+          "tick": "11673330234144326927999",
+          "revolution": "9007199254740992",
+          "degree": 359,
+          "minute": 59,
+          "arcsecond": 59,
+          "orientation": "cab"
+        },
+        {
+          "node": 0,
+          "tick": "11673330234144326928000",
+          "revolution": "9007199254740993",
+          "degree": 0,
+          "minute": 0,
+          "arcsecond": 0,
+          "orientation": "abc"
+        },
+        {
+          "node": 1,
+          "tick": "11673330234144326928001",
+          "revolution": "9007199254740993",
+          "degree": 0,
+          "minute": 0,
+          "arcsecond": 1,
+          "orientation": "abc"
+        }
+      ]
+    }
+  ]
+}

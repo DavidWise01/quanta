@@ -1,0 +1,42 @@
+{
+  "experiment": "ADA-119",
+  "watermark": ".dlw",
+  "lineage": "ADA-118",
+  "userNotation": "2^3=8x3>24<r8!,b8!,g8!> + 26 > AaaA - ZzzZ = 40 bits",
+  "candidateLayout": [
+    24,
+    5,
+    11
+  ],
+  "checks": 416,
+  "labels": [
+    "AaaA",
+    "BbbB",
+    "CccC",
+    "DddD",
+    "EeeE",
+    "FffF",
+    "GggG",
+    "HhhH",
+    "IiiI",
+    "JjjJ",
+    "KkkK",
+    "LllL",
+    "MmmM",
+    "NnnN",
+    "OooO",
+    "PppP",
+    "QqqQ",
+    "RrrR",
+    "SssS",
+    "TttT",
+    "UuuU",
+    "VvvV",
+    "WwwW",
+    "XxxX",
+    "YyyY",
+    "ZzzZ"
+  ],
+  "maxWord": "ffffffcfff",
+  "width": 40
+}

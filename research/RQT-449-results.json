@@ -1,0 +1,20 @@
+{
+  "RQT": 449,
+  "sha256": "5f4f49b1d75d60d61961b8a0aede915707f6c5cf11e1a9d7e71f1d3a7d83c809",
+  "y": [
+    10101,
+    11000
+  ],
+  "d": 1,
+  "diamonds": 145647,
+  "totals": {
+    "J": 145647,
+    "A": 145647,
+    "N": 291294,
+    "E": 0
+  },
+  "hits": [],
+  "root19": "OPEN",
+  "prefix18": "UNVERIFIED",
+  "note": "Summary; full lane matrices emitted by verifier."
+}

@@ -1,0 +1,17 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>RQT-437 Zero-Plane Closure</title><style>:root{color-scheme:dark}body{margin:0;background:#081222;color:#e8faff;font:18px/1.55 system-ui}main{max-width:1080px;margin:auto;padding:32px 20px}h1{font-size:clamp(2.4rem,7vw,4.7rem);color:#ffd28f}pre{overflow:auto;background:#11263b;color:#a0ffe8;padding:22px;border-radius:16px}a{color:#92ffe6}</style><main><small>QUANTA / ORIGINAL F4 / RQT-437 / ASCII</small><h1>Zero-Plane Closure and Extreme-Denominator Cone</h1><p>Exact 11-adic proof: a primitive rational witness cannot have y=0. For the complementary region, an exact denominator-dependent expanding-cone inequality replaces the fixed slope corridor.</p><pre>        RQT-437 : ZERO-PLANE + EXTREME CONE
+          q(x,y,z) = -d²
+                 |
+        +--------+---------+
+        |                  |
+       y=0               y!=0
+        |                  |
+      mod 11         EXPANDING CONE
+      11|z,d        discriminant >=0
+        |                  |
+      mod 121        exact square?
+      11|x                |
+        |              integral z?
+   NOT PRIMITIVE          |
+        X            ORIGINAL F4
+                             |
+                         ROOT19 OPEN</pre><p>Matrix: A=Q/2. Mod11: a=c=0,f=3; modulo121: a=88. Therefore 11 divides x,z,d when y=0, contradicting primitivity.</p><p>Expanding cone: (alpha*x+K*y)² ≤ (K²-alpha*gamma)y²-alpha*delta*d². No integer root19 has been found.</p><p><a href="research/rqt437-zero-plane.py">Executable verifier</a> · <a href="research/RQT-437-results.json">Certificate</a> · <a href="research/RQT-437-ZERO-PLANE-AND-EXTREME-CONE.md">Research ledger</a></p></main></html>

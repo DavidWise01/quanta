@@ -1,0 +1,22 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>RQT-438 | Exact Integer-Interval Gate</title><style>:root{color-scheme:dark}body{background:#081322;color:#e9faff;margin:0;font:18px/1.5 system-ui}main{max-width:1050px;margin:auto;padding:34px 20px}h1{font-size:clamp(2.2rem,6vw,4.5rem);color:#ffd08c}pre{background:#11263b;color:#a2ffeb;padding:22px;overflow:auto;border-radius:16px}a{color:#9dffe7}</style><main><small>QUANTA / RQT-438 / ASCII PRIMARY</small><h1>The Exact Integer-Interval Gate</h1><p>All possible x for fixed y and odd d are produced by one exact integer-square-root interval. No old fixed slope exclusion is used.</p><pre>         RQT-438 : EXACT INTEGER INTERVAL
+                    y!=0
+                     |
+                  odd d>0
+                     |
+       R=(K²-alpha*gamma)y²-alpha*delta*d²
+                     |
+             R<0 ? REJECT
+                     |
+                 h=isqrt(R)
+                     |
+            x_min <= x <= x_max
+                     |
+                 p=13 / p=23
+                     |
+                 E_d square?
+                     |
+                  integral z?
+                     |
+                 ORIGINAL F4
+                     |
+                 ROOT19 OPEN</pre><p>32,768 (y,d) cases, 64,512 real-feasible x values, 223 modular-square survivors and <strong>zero exact squares</strong>. Result from the full frozen Gram. Root19 OPEN.</p><p><a href="research/rqt438-exact-interval.py">Exact verifier</a> · <a href="research/RQT-438-results.json">Certificate</a> · <a href="research/RQT-438-EXACT-INTEGER-INTERVAL.md">Research ledger</a></p><p>Standalone JPG with embedded-image HTML is available in the conversation.</p></main></html>

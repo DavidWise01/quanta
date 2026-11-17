@@ -1,0 +1,41 @@
+{
+  "name": "Anticipatory Inference and Observation Nexus",
+  "status": "owner approved acronym",
+  "primitive": "A.I.O.N.",
+  "geometry": "{brace,abc[box,bca(torroid,cab)]}",
+  "vector": "[ {n}^{n} (s) {n}^{n} ]",
+  "source": "inf-+inf",
+  "shadow": "(inf) - + [inf]",
+  "domains": {
+    "A": [
+      "advance",
+      "project",
+      "reserve"
+    ],
+    "I": [
+      "perceive",
+      "estimate",
+      "select"
+    ],
+    "O": [
+      "witness",
+      "compare",
+      "preserve"
+    ],
+    "N": [
+      "reconcile",
+      "persist",
+      "iterate"
+    ]
+  },
+  "engines": {
+    "JIT": "causal branch prediction",
+    "OTF": "change-sensitive prediction",
+    "PRESIST": "three sampled seconds rolling state",
+    "MEMSISTOR": "append-only experience ledger"
+  },
+  "horizon": 2,
+  "clock": "one simulated arcsecond per second; convention",
+  "bits": 40,
+  "bitPacking": "provisional"
+}

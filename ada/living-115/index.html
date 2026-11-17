@@ -1,0 +1,45 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width"><title>ADA-115 Recoverable shadow</title><style>body{background:#09121c;color:#d9eeed;font:16px monospace;max-width:850px;margin:40px auto;padding:16px}h1{color:#ffc07a}pre{background:#122732;color:#81e8cf;padding:22px;line-height:1.8}button,select{padding:10px;font:inherit}a{color:#81e8cf}</style><h1>ADA-115 · Recoverable visible source</h1><p>inf - + inf → (inf) - + [inf] → [ {n}^n (s) {n}^n ] · .dlw</p><select id="mode"><option value="fault">Loss, delay, duplication</option><option value="partition">Total link failure</option><option value="clean">Reliable links</option></select> <button id="step">Next epoch</button> <button id="reset">Reset</button><pre id="view"></pre><p>Seeded simulation; assumes reliable barrier manifests and atomic resource transfers. Retries bounded at 40 rounds. Not a production consensus protocol.</p><a href="../living-114/canonical-shadow-114d.md">Canonical lineage</a><script type="module">// ADA-115 .dlw — Hegemon visible source: (inf) - + [inf]
+// Reliable barrier manifest assumed; unreliable observation links.
+export function run(initial=[9,3,0,6,2,1,8,4,3],seed=115,mode="fault"){
+ const q=initial.slice(),n=9,adj=Array.from({length:n},()=>[]);
+ for(let i=0;i<n;i++)for(const j of [3*Math.floor(i/3)+(i%3+1)%3,3*((Math.floor(i/3)+1)%3)+i%3]){adj[i].push(j);adj[j].push(i);}
+ const total=q.reduce((a,b)=>a+b,0),energy=()=>q.reduce((a,b)=>a+(9*b-total)**2,0);
+ const views=q.map((v,i)=>new Map([[i,{id:i,version:0,value:v}]])),versions=Array(n).fill(0);
+ let messages=0,lost=0,delayed=0,duplicates=0,stale=0,retries=0,epochs=0,moves=0,round=0,queue=[],blocked=false;
+ const history=[q.slice()],events=[];
+ function rng(){seed=(Math.imul(seed,1664525)+1013904223)>>>0;return seed/4294967296;}
+ function send(i,j,v){messages++;let p=rng();if(mode==="partition"||mode==="fault"&&p<.25){lost++;return;}
+ let delay=mode==="fault"&&p<.50?3:1;if(delay>1)delayed++;
+ queue.push({j,v,due:round+delay});if(mode==="fault"&&rng()<.2){duplicates++;queue.push({j,v,due:round+delay+1});}}
+ function receive(j,v){const prev=views[j].get(v.id);if(prev&&prev.version>=v.version){stale++;return;}views[j].set(v.id,v);}
+ function reconcile(ids){
+ for(let attempt=0;attempt<=40;attempt++){
+  if(views.every(w=>ids.every(i=>w.get(i)?.version===versions[i])))return true;
+  if(attempt===40)return false;
+  if(attempt>0)retries++;
+  for(let i=0;i<n;i++)for(const j of adj[i])for(const k of ids){const v=views[i].get(k);if(v?.version===versions[k])send(i,j,v);}
+  round++;
+  const ready=queue.filter(p=>p.due<=round);queue=queue.filter(p=>p.due>round);
+  for(const p of ready)receive(p.j,p.v);
+ }return false;
+ }
+ if(!reconcile([...q.keys()]))blocked=true;
+ while(!blocked){
+  const decisions=views.map(w=>{const a=[...w.values()].sort((a,b)=>b.value-a.value||a.id-b.id),b=[...w.values()].sort((a,b)=>a.value-b.value||a.id-b.id);return [a[0].id,b[0].id,a[0].value-b[0].value];});
+  const [s,d,g]=decisions[0];if(decisions.some(v=>v.join()!=decisions[0].join()))throw Error("disagreement");
+  if(g<2)break;
+  const parent=Array(n).fill(-1),bfs=[s];parent[s]=s;
+  for(let k=0;k<bfs.length;k++)for(const v of [...adj[bfs[k]].sort((a,b)=>a-b)])if(parent[v]<0){parent[v]=bfs[k];bfs.push(v);}
+  const path=[d];while(path[0]!==s)path.unshift(parent[path[0]]);
+  const before=energy(),start=messages;
+  for(let k=0;k<path.length-1;k++){if(q[path[k]]<=0)throw Error("negative");q[path[k]]--;q[path[k+1]]++;moves++;}
+  if(q.reduce((a,b)=>a+b,0)!==total||energy()>=before)throw Error("invariant");
+  for(const i of [s,d])views[i].set(i,{id:i,version:++versions[i],value:q[i]});
+  epochs++;history.push(q.slice());
+  blocked=!reconcile([s,d]);events.push({epoch:epochs,path,before,after:energy(),attempted:messages-start,confirmed:!blocked});
+ }
+ return {initial,final:q,total,energy:energy(),epochs,moves,messages,lost,delayed,duplicates,stale,retries,round,blocked,history,events};
+}
+export function test(){const fixture=run(),corners=Array.from({length:9},(_,i)=>run(Array.from({length:9},(_,j)=>i===j?36:0),115+i));let seed=113;const random=[];for(let k=0;k<64;k++){const q=Array(9).fill(0);for(let j=0;j<36;j++){seed=(Math.imul(seed,1664525)+1013904223)>>>0;q[seed%9]++;}random.push(run(q,200+k));}const partition=run(undefined,115,"partition");if(!partition.blocked||partition.moves!==0||[fixture,...corners,...random].some(r=>r.energy!==0||r.blocked))throw Error("recovery");return {fixture,corners,random,partition};}
+
+let t=0,r=run();const el=id=>document.getElementById(id);function draw(){const q=r.history[t];el('view').textContent='      OCHRE EMERALD TEAL\n'+[0,1,2].map(k=>' G'+k+'   '+q.slice(k*3,k*3+3).join('     ')).join('\n')+'\n\n          (( S ))\nEpoch '+t+' / '+r.epochs+' | Sum '+r.total+'\n'+(t?'Route '+r.events[t-1].path.join(' → ')+' | confirmed '+r.events[t-1].confirmed:'Bootstrap')+'\n'+(t===r.epochs?'Final: '+(r.blocked?'BLOCKED':'BALANCED')+' | Lost '+r.lost+' | delayed '+r.delayed+' | duplicates '+r.duplicates:'');}el('step').onclick=()=>{t=Math.min(t+1,r.epochs);draw()};el('reset').onclick=()=>{t=0;draw()};el('mode').onchange=()=>{r=run(undefined,115,el('mode').value);t=0;draw()};draw();</script></html>

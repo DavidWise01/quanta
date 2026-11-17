@@ -1,0 +1,57 @@
+{
+  "RQT": 442,
+  "sha256": "5f4f49b1d75d60d61961b8a0aede915707f6c5cf11e1a9d7e71f1d3a7d83c809",
+  "finite_residue_tests": 12458,
+  "tiles": [
+    {
+      "tile": "regression",
+      "y": [
+        1,
+        512
+      ],
+      "odd_d": [
+        1,
+        767
+      ],
+      "counts": {
+        "pairs": 196608,
+        "feasible_x": 773376,
+        "prime_rejected": 87168,
+        "base": 1854,
+        "finite": 1262,
+        "local2": 1254,
+        "local3": 1231,
+        "local5": 1230,
+        "exact_squares": 0,
+        "witnesses": 0
+      },
+      "hits": []
+    },
+    {
+      "tile": "new_numerator",
+      "y": [
+        513,
+        640
+      ],
+      "odd_d": [
+        1,
+        767
+      ],
+      "counts": {
+        "pairs": 49152,
+        "feasible_x": 435456,
+        "prime_rejected": 47616,
+        "base": 1182,
+        "finite": 793,
+        "local2": 791,
+        "local3": 779,
+        "local5": 778,
+        "exact_squares": 0,
+        "witnesses": 0
+      },
+      "hits": []
+    }
+  ],
+  "root19": "OPEN",
+  "prefix18": "UNVERIFIED"
+}

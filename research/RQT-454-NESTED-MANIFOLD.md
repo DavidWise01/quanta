@@ -1,0 +1,4 @@
+# RQT-454 — Nested manifold topology
+Canonical user notation: `{ upper upper [ upper ( central ) ] }^repeat as needed`.
+J carrier: `9x9x9x9x{{j}}9x9x9x9x`.
+Interpretation for implementation (proposed): brace = enclosing generation, two outer upper layers, box = invariant boundary with inner upper layer, torroid = variable central state around singlet j. Repeat by wrapping prior generation, not duplicating the singlet. At depth 0 state is j; at depth n+1 M(n+1)={ U1 U2 [ U3 ( M(n) ) ] }. Each flank retains four radix-nine address digits per generation; do not infer physical chemical orbitals or particle counts. Use sparse paths rather than materializing the Cartesian product. Frozen Gram and Pell equations unchanged. No numerical root search executed in this topology-only correction. Root19 OPEN; prefix18 UNVERIFIED.

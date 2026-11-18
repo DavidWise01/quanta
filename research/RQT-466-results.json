@@ -1,0 +1,79 @@
+{
+  "RQT": 466,
+  "sha256": "5f4f49b1d75d60d61961b8a0aede915707f6c5cf11e1a9d7e71f1d3a7d83c809",
+  "prior_verified": 3765,
+  "initial": 2087,
+  "ramified": [
+    {
+      "p": 2,
+      "tests": 2087,
+      "excluded": []
+    },
+    {
+      "p": 19,
+      "tests": 2087,
+      "excluded": []
+    },
+    {
+      "p": 9781,
+      "tests": 2087,
+      "excluded": []
+    },
+    {
+      "p": 290533,
+      "tests": 2087,
+      "excluded": []
+    }
+  ],
+  "norm_controls": 1440,
+  "projection": [
+    {
+      "m": 128,
+      "allowed": 96,
+      "excluded": []
+    },
+    {
+      "m": 81,
+      "allowed": 81,
+      "excluded": []
+    }
+  ],
+  "new_primes": 270015,
+  "new_blocked_count": 105,
+  "remaining": 1982,
+  "first_survivors": [
+    3,
+    7,
+    9,
+    10,
+    13,
+    14,
+    17,
+    19,
+    22,
+    23,
+    29,
+    30,
+    37,
+    38,
+    41,
+    42,
+    43,
+    49,
+    51,
+    54,
+    57,
+    59,
+    61,
+    62,
+    63,
+    65,
+    70,
+    73,
+    74,
+    75
+  ],
+  "root19": "OPEN",
+  "prefix18": "UNVERIFIED",
+  "note": "Summary; full certificate produced locally. Run rqt465.py to regenerate its complete blocked map first."
+}

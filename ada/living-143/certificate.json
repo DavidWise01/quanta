@@ -1,0 +1,467 @@
+{
+  "experiment": "ADA-143",
+  "watermark": ".dlw",
+  "lineage": "ADA-142",
+  "results": [
+    {
+      "seedRange": [
+        41000,
+        41063
+      ],
+      "records": 424,
+      "capacity": 8,
+      "decisions": 96,
+      "heals": 32,
+      "legitimate": 32,
+      "active": 8,
+      "archiveKeys": 16,
+      "dormant": 8,
+      "generational": {
+        "exact": 16,
+        "family": 0,
+        "novel": 16,
+        "learned": 16,
+        "evicted": 24,
+        "accepted": 456,
+        "duplicates": 32,
+        "conflicts": 32,
+        "comparisons": 92,
+        "recalled": 16,
+        "archiveChecks": 32,
+        "recallFailures": 0
+      },
+      "baseline": {
+        "exact": 0,
+        "family": 0,
+        "novel": 32,
+        "learned": 32,
+        "evicted": 24,
+        "accepted": 456,
+        "duplicates": 32,
+        "conflicts": 32,
+        "comparisons": 220
+      },
+      "stages": [
+        {
+          "phase": "learn",
+          "generational": {
+            "exact": 0,
+            "family": 0,
+            "novel": 8,
+            "learned": 8,
+            "evicted": 0,
+            "accepted": 8,
+            "duplicates": 8,
+            "conflicts": 8,
+            "comparisons": 28,
+            "recalled": 0,
+            "archiveChecks": 8,
+            "recallFailures": 0
+          },
+          "baseline": {
+            "exact": 0,
+            "family": 0,
+            "novel": 8,
+            "learned": 8,
+            "evicted": 0,
+            "accepted": 8,
+            "duplicates": 8,
+            "conflicts": 8,
+            "comparisons": 28
+          }
+        },
+        {
+          "phase": "displace",
+          "generational": {
+            "exact": 0,
+            "family": 0,
+            "novel": 8,
+            "learned": 8,
+            "evicted": 8,
+            "accepted": 8,
+            "duplicates": 8,
+            "conflicts": 8,
+            "comparisons": 64,
+            "recalled": 0,
+            "archiveChecks": 8,
+            "recallFailures": 0
+          },
+          "baseline": {
+            "exact": 0,
+            "family": 0,
+            "novel": 8,
+            "learned": 8,
+            "evicted": 8,
+            "accepted": 8,
+            "duplicates": 8,
+            "conflicts": 8,
+            "comparisons": 64
+          }
+        },
+        {
+          "phase": "return-old",
+          "generational": {
+            "exact": 8,
+            "family": 0,
+            "novel": 0,
+            "learned": 0,
+            "evicted": 8,
+            "accepted": 8,
+            "duplicates": 8,
+            "conflicts": 8,
+            "comparisons": 0,
+            "recalled": 8,
+            "archiveChecks": 8,
+            "recallFailures": 0
+          },
+          "baseline": {
+            "exact": 0,
+            "family": 0,
+            "novel": 8,
+            "learned": 8,
+            "evicted": 8,
+            "accepted": 8,
+            "duplicates": 8,
+            "conflicts": 8,
+            "comparisons": 64
+          }
+        },
+        {
+          "phase": "return-new",
+          "generational": {
+            "exact": 8,
+            "family": 0,
+            "novel": 0,
+            "learned": 0,
+            "evicted": 8,
+            "accepted": 8,
+            "duplicates": 8,
+            "conflicts": 8,
+            "comparisons": 0,
+            "recalled": 8,
+            "archiveChecks": 8,
+            "recallFailures": 0
+          },
+          "baseline": {
+            "exact": 0,
+            "family": 0,
+            "novel": 8,
+            "learned": 8,
+            "evicted": 8,
+            "accepted": 8,
+            "duplicates": 8,
+            "conflicts": 8,
+            "comparisons": 64
+          }
+        }
+      ]
+    },
+    {
+      "seedRange": [
+        42000,
+        42063
+      ],
+      "records": 437,
+      "capacity": 8,
+      "decisions": 96,
+      "heals": 32,
+      "legitimate": 32,
+      "active": 8,
+      "archiveKeys": 16,
+      "dormant": 8,
+      "generational": {
+        "exact": 16,
+        "family": 0,
+        "novel": 16,
+        "learned": 16,
+        "evicted": 24,
+        "accepted": 469,
+        "duplicates": 32,
+        "conflicts": 32,
+        "comparisons": 92,
+        "recalled": 16,
+        "archiveChecks": 32,
+        "recallFailures": 0
+      },
+      "baseline": {
+        "exact": 0,
+        "family": 0,
+        "novel": 32,
+        "learned": 32,
+        "evicted": 24,
+        "accepted": 469,
+        "duplicates": 32,
+        "conflicts": 32,
+        "comparisons": 220
+      },
+      "stages": [
+        {
+          "phase": "learn",
+          "generational": {
+            "exact": 0,
+            "family": 0,
+            "novel": 8,
+            "learned": 8,
+            "evicted": 0,
+            "accepted": 8,
+            "duplicates": 8,
+            "conflicts": 8,
+            "comparisons": 28,
+            "recalled": 0,
+            "archiveChecks": 8,
+            "recallFailures": 0
+          },
+          "baseline": {
+            "exact": 0,
+            "family": 0,
+            "novel": 8,
+            "learned": 8,
+            "evicted": 0,
+            "accepted": 8,
+            "duplicates": 8,
+            "conflicts": 8,
+            "comparisons": 28
+          }
+        },
+        {
+          "phase": "displace",
+          "generational": {
+            "exact": 0,
+            "family": 0,
+            "novel": 8,
+            "learned": 8,
+            "evicted": 8,
+            "accepted": 8,
+            "duplicates": 8,
+            "conflicts": 8,
+            "comparisons": 64,
+            "recalled": 0,
+            "archiveChecks": 8,
+            "recallFailures": 0
+          },
+          "baseline": {
+            "exact": 0,
+            "family": 0,
+            "novel": 8,
+            "learned": 8,
+            "evicted": 8,
+            "accepted": 8,
+            "duplicates": 8,
+            "conflicts": 8,
+            "comparisons": 64
+          }
+        },
+        {
+          "phase": "return-old",
+          "generational": {
+            "exact": 8,
+            "family": 0,
+            "novel": 0,
+            "learned": 0,
+            "evicted": 8,
+            "accepted": 8,
+            "duplicates": 8,
+            "conflicts": 8,
+            "comparisons": 0,
+            "recalled": 8,
+            "archiveChecks": 8,
+            "recallFailures": 0
+          },
+          "baseline": {
+            "exact": 0,
+            "family": 0,
+            "novel": 8,
+            "learned": 8,
+            "evicted": 8,
+            "accepted": 8,
+            "duplicates": 8,
+            "conflicts": 8,
+            "comparisons": 64
+          }
+        },
+        {
+          "phase": "return-new",
+          "generational": {
+            "exact": 8,
+            "family": 0,
+            "novel": 0,
+            "learned": 0,
+            "evicted": 8,
+            "accepted": 8,
+            "duplicates": 8,
+            "conflicts": 8,
+            "comparisons": 0,
+            "recalled": 8,
+            "archiveChecks": 8,
+            "recallFailures": 0
+          },
+          "baseline": {
+            "exact": 0,
+            "family": 0,
+            "novel": 8,
+            "learned": 8,
+            "evicted": 8,
+            "accepted": 8,
+            "duplicates": 8,
+            "conflicts": 8,
+            "comparisons": 64
+          }
+        }
+      ]
+    },
+    {
+      "seedRange": [
+        43000,
+        43063
+      ],
+      "records": 436,
+      "capacity": 8,
+      "decisions": 96,
+      "heals": 32,
+      "legitimate": 32,
+      "active": 8,
+      "archiveKeys": 16,
+      "dormant": 8,
+      "generational": {
+        "exact": 16,
+        "family": 0,
+        "novel": 16,
+        "learned": 16,
+        "evicted": 24,
+        "accepted": 468,
+        "duplicates": 32,
+        "conflicts": 32,
+        "comparisons": 92,
+        "recalled": 16,
+        "archiveChecks": 32,
+        "recallFailures": 0
+      },
+      "baseline": {
+        "exact": 0,
+        "family": 0,
+        "novel": 32,
+        "learned": 32,
+        "evicted": 24,
+        "accepted": 468,
+        "duplicates": 32,
+        "conflicts": 32,
+        "comparisons": 220
+      },
+      "stages": [
+        {
+          "phase": "learn",
+          "generational": {
+            "exact": 0,
+            "family": 0,
+            "novel": 8,
+            "learned": 8,
+            "evicted": 0,
+            "accepted": 8,
+            "duplicates": 8,
+            "conflicts": 8,
+            "comparisons": 28,
+            "recalled": 0,
+            "archiveChecks": 8,
+            "recallFailures": 0
+          },
+          "baseline": {
+            "exact": 0,
+            "family": 0,
+            "novel": 8,
+            "learned": 8,
+            "evicted": 0,
+            "accepted": 8,
+            "duplicates": 8,
+            "conflicts": 8,
+            "comparisons": 28
+          }
+        },
+        {
+          "phase": "displace",
+          "generational": {
+            "exact": 0,
+            "family": 0,
+            "novel": 8,
+            "learned": 8,
+            "evicted": 8,
+            "accepted": 8,
+            "duplicates": 8,
+            "conflicts": 8,
+            "comparisons": 64,
+            "recalled": 0,
+            "archiveChecks": 8,
+            "recallFailures": 0
+          },
+          "baseline": {
+            "exact": 0,
+            "family": 0,
+            "novel": 8,
+            "learned": 8,
+            "evicted": 8,
+            "accepted": 8,
+            "duplicates": 8,
+            "conflicts": 8,
+            "comparisons": 64
+          }
+        },
+        {
+          "phase": "return-old",
+          "generational": {
+            "exact": 8,
+            "family": 0,
+            "novel": 0,
+            "learned": 0,
+            "evicted": 8,
+            "accepted": 8,
+            "duplicates": 8,
+            "conflicts": 8,
+            "comparisons": 0,
+            "recalled": 8,
+            "archiveChecks": 8,
+            "recallFailures": 0
+          },
+          "baseline": {
+            "exact": 0,
+            "family": 0,
+            "novel": 8,
+            "learned": 8,
+            "evicted": 8,
+            "accepted": 8,
+            "duplicates": 8,
+            "conflicts": 8,
+            "comparisons": 64
+          }
+        },
+        {
+          "phase": "return-new",
+          "generational": {
+            "exact": 8,
+            "family": 0,
+            "novel": 0,
+            "learned": 0,
+            "evicted": 8,
+            "accepted": 8,
+            "duplicates": 8,
+            "conflicts": 8,
+            "comparisons": 0,
+            "recalled": 8,
+            "archiveChecks": 8,
+            "recallFailures": 0
+          },
+          "baseline": {
+            "exact": 0,
+            "family": 0,
+            "novel": 8,
+            "learned": 8,
+            "evicted": 8,
+            "accepted": 8,
+            "duplicates": 8,
+            "conflicts": 8,
+            "comparisons": 64
+          }
+        }
+      ]
+    }
+  ],
+  "limitations": "Archive exact mask lookup only; no approximate dormant recall. Active prototype limit eight; archive metadata unbounded and retains copies of recalled masks. Scripted resistance; comparison counts exclude map lookup, archive scanning, ledger and memory costs. Operational admission view only."
+}

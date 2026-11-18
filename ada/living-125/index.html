@@ -1,0 +1,42 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width"><title>AION 125</title><style>body{background:#09121c;color:#d9eeed;font:16px monospace;max-width:850px;margin:30px auto;padding:16px}h1{color:#ffc07a}pre{background:#122732;padding:22px;color:#81e8cf}button,select{padding:10px;font:inherit}meter{width:100%}a{color:#81e8cf}</style><h1>A.I.O.N. 125 · Nested selector</h1><p>One Hegemon · (inf) - + [inf] · PB208 · .dlw</p><select id="scenario"><option>stable</option><option>shift</option><option>recover</option><option>novel</option></select> <button id="next">Advance</button><button id="reset">Reset</button><p>Nine-model weight <meter id="weight" min="0" max="1"></meter></p><pre id="out"></pre><p>Both banks are evaluated every tick. Only matured losses update the selector. No computational savings claimed. Model phase clock, not physical future access.</p><a href="../living-124/">ADA-124</a><script type="module">// ADA-125 .dlw — causal nested selector, full-compute reference.
+// Parent implementations embedded below; novel scenario added to ADA-123.
+// ADA-123 .dlw — evidence gated AION, synthetic task; 1 tick = 1 simulated second.
+function forecastTwo(q,d,p){const a=Array(26).fill(0);for(const [o,w] of [[2*d,(1-p)**2],[-2*d,p*(1-p)],[0,p]])a[(q+o+26)%26]+=w;return a;}
+function two(seed,scenario="shift"){let x=seed>>>0,q=0,d=1,w=0.02,mode="JIT",switches=0;const ledger=[],scores=[],memsistor=[],presist=[];let loss=0,otf=0;for(let t=0;t<208;t++){let flip=0;if(t){x=(Math.imul(x,1664525)+1013904223)>>>0;const p=scenario==="novel"? (t<70?.14:t<140?.60:.28):scenario==="shift"&&t>=104||scenario==="recover"&&t>=69&&t<139?.45:.08;flip=Number(x/4294967296<p);if(flip)d=-d;q=(q+d+26)%26;const prior=w*.985+(1-w)*.015;const a=prior*(flip?.45:.55),b=(1-prior)*(flip?.08:.92);w=a/(a+b);}
+const before=mode;if(w>=.8)mode="OTF";else if(w<=.2)mode="JIT";if(before!==mode)switches++;otf+=Number(mode==="OTF");
+const predicted=(1-w)*.08+w*.45; // mixture of rate regimes, forecast marginalizes over a fixed regime for two ticks
+const low=forecastTwo(q,d,.08),high=forecastTwo(q,d,.45),prediction=Object.freeze(low.map((v,i)=>(1-w)*v+w*high[i]));
+if(t>=2){const f=ledger[t-2],err=f.prediction.reduce((a,v,i)=>a+(v-Number(i===q))**2,0);loss+=err;scores.push({issued:f.issued,target:t,actual:q,loss:err});}
+const rec=Object.freeze({issued:t,target:t+2,q,w,mode,predicted,prediction});ledger.push(rec);presist.push({t,q,w,mode});if(presist.length>3)presist.shift();memsistor.push({t,flip,mode,posterior:w});}
+return {seed,scenario,count:scores.length,loss,switches,otf,ledger,scores,presist,memsistor};}
+
+// ADA-124 .dlw — nine predictive manifestations, one AION nexus.
+const rates=[.02,.08,.14,.20,.28,.36,.45,.60,.80];
+function forecast(q,d,p){const a=Array(26).fill(0);for(const [o,w] of [[2*d,(1-p)**2],[-2*d,p*(1-p)],[0,p]])a[(q+o+26)%26]+=w;return a;}
+function nine(seed,scenario="shift"){let x=seed>>>0,q=0,d=1,w=rates.map((_,i)=>i===1?.84:.02),loss=0,reactivations=0;const ledger=[],scores=[],memsistor=[],presist=[];let status=w.map(v=>v>=.15?"active":v<.03?"retired":"reserve");for(let t=0;t<208;t++){let flip=0;if(t){x=(Math.imul(x,1664525)+1013904223)>>>0;const p=scenario==="novel"? (t<70?.14:t<140?.60:.28):scenario==="shift"&&t>=104||scenario==="recover"&&t>=69&&t<139?.45:.08;flip=Number(x/4294967296<p);if(flip)d=-d;q=(q+d+26)%26;const u=w.map((v,i)=>(.985*v+.015/9)*(flip?rates[i]:1-rates[i]));const z=u.reduce((a,b)=>a+b,0);w=u.map(v=>v/z);}
+const next=w.map(v=>v>=.15?"active":v<.03?"retired":"reserve");reactivations+=next.filter((v,i)=>v==="active"&&status[i]==="retired").length;status=next;
+const prediction=Array(26).fill(0);for(let m=0;m<9;m++){const a=forecast(q,d,rates[m]);for(let j=0;j<26;j++)prediction[j]+=w[m]*a[j];}
+if(t>=2){const f=ledger[t-2],err=f.prediction.reduce((a,v,i)=>a+(v-Number(i===q))**2,0);loss+=err;scores.push({issued:f.issued,target:t,actual:q,loss:err});}
+const rec=Object.freeze({issued:t,target:t+2,q,weights:Object.freeze(w.slice()),status:Object.freeze(status.slice()),prediction:Object.freeze(prediction)});ledger.push(rec);presist.push({t,q,weights:w.slice()});if(presist.length>3)presist.shift();memsistor.push({t,flip,weights:w.slice(),status:status.slice()});}
+return {seed,scenario,count:scores.length,loss,reactivations,ledger,scores,presist,memsistor};}
+
+export function run(seed,scenario="shift"){
+ const a=two(seed,scenario),b=nine(seed,scenario),ledger=[],scores=[],memory=[],presist=[];
+ let w=.5,loss=0,l2=0,l9=0,hardLoss=0,mode="hold",switches=0;
+ for(let t=0;t<208;t++){
+ const q=a.ledger[t].q;if(q!==b.ledger[t].q)throw Error("world mismatch");
+ if(t>=2){const f=ledger[t-2],err=v=>v.reduce((s,z,i)=>s+(z-Number(i===q))**2,0);
+ const e2=err(f.two),e9=err(f.nine),em=err(f.prediction),eh=err(f.hard);
+ loss+=em;l2+=e2;l9+=e9;hardLoss+=eh;
+ scores.push({issued:t-2,target:t,actual:q,two:e2,nine:e9,mixture:em,hard:eh});
+ const prior=.99*w+.005;const u=prior*Math.exp(-2*e9),v=(1-prior)*Math.exp(-2*e2);w=u/(u+v);}
+ const old=mode;mode=w>=.65?"nine":w<=.35?"two":"hold";switches+=Number(mode!==old);
+ const p2=a.ledger[t].prediction.slice(),p9=b.ledger[t].prediction.slice();
+ const prediction=p2.map((v,i)=>(1-w)*v+w*p9[i]),hard=(w>=.5?p9:p2).slice();
+ const rec=Object.freeze({issued:t,target:t+2,q,weightNine:w,mode,two:Object.freeze(p2),nine:Object.freeze(p9),prediction:Object.freeze(prediction),hard:Object.freeze(hard)});
+ ledger.push(rec);memory.push(Object.freeze({t,weightNine:w,mode,scored:t>=2?t-2:null}));presist.push({t,q,w,mode});if(presist.length>3)presist.shift();}
+ return {seed,scenario,count:scores.length,loss,l2,l9,hardLoss,switches,ledger,scores,memory,presist};
+}
+export function test(){const groups=[];for(const scenario of ["stable","shift","recover","novel"]){const cases=Array.from({length:64},(_,i)=>run(6000+i,scenario));for(const r of cases){if(r.count!==206||JSON.stringify(r)!==JSON.stringify(run(r.seed,scenario))||r.ledger.some(f=>f.target-f.issued!==2||Math.abs(f.prediction.reduce((a,b)=>a+b,0)-1)>1e-10))throw Error("invariant");}const sum=k=>cases.reduce((s,r)=>s+r[k],0);groups.push({scenario,count:sum("count"),loss:sum("loss"),two:sum("l2"),nine:sum("l9"),hard:sum("hardLoss"),winsTwo:cases.filter(r=>r.loss<r.l2).length,winsNine:cases.filter(r=>r.loss<r.l9).length,winsBoth:cases.filter(r=>r.loss<Math.min(r.l2,r.l9)).length});}return {groups,fixture:run(6000,"novel")};}
+
+let t=0,r=run(6000,"stable");const e=id=>document.getElementById(id);function draw(){const f=r.ledger[t];e("weight").value=f.weightNine;e("out").textContent="PB "+t+" arcsec | target "+f.target+"\n2-model "+(100*(1-f.weightNine)).toFixed(1)+"% | 9-model "+(100*f.weightNine).toFixed(1)+"%\nMode "+f.mode+" | present "+f.q+"\nMatured error "+(t>=2?r.scores[t-2].mixture.toFixed(4):"pending");}e("next").onclick=()=>{t=Math.min(207,t+1);draw()};e("reset").onclick=()=>{t=0;draw()};e("scenario").onchange=()=>{t=0;r=run(6000,e("scenario").value);draw()};draw();</script></html>

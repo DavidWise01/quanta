@@ -1,0 +1,51 @@
+{
+  "RQT": 473,
+  "sha256": "5f4f49b1d75d60d61961b8a0aede915707f6c5cf11e1a9d7e71f1d3a7d83c809",
+  "directions": 2881,
+  "rows": [
+    {
+      "k": 1,
+      "start_bits": 1213,
+      "end_bits": 1210,
+      "lines": 5762,
+      "checks": 38768,
+      "accepted": 1,
+      "stagnated": true,
+      "z": 3
+    },
+    {
+      "k": 2,
+      "start_bits": 1247,
+      "end_bits": 1245,
+      "lines": 5762,
+      "checks": 46096,
+      "accepted": 1,
+      "stagnated": true,
+      "z": 3
+    },
+    {
+      "k": 4,
+      "start_bits": 1412,
+      "end_bits": 1412,
+      "lines": 2881,
+      "checks": 23048,
+      "accepted": 0,
+      "stagnated": true,
+      "z": 3
+    },
+    {
+      "k": 8,
+      "start_bits": 1756,
+      "end_bits": 1732,
+      "lines": 20167,
+      "checks": 161336,
+      "accepted": 6,
+      "stagnated": true,
+      "z": 3
+    }
+  ],
+  "hits": [],
+  "root19": "OPEN",
+  "prefix18": "UNVERIFIED",
+  "note": "Full RQT-472 input and full RQT-473 output with exact vectors are local artifacts; this is a summary."
+}

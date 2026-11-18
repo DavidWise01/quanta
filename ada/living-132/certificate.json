@@ -1,0 +1,537 @@
+{
+  "experiment": "ADA-132",
+  "watermark": ".dlw",
+  "lineage": "ADA-131",
+  "calibrationSeeds": [
+    16000,
+    16031
+  ],
+  "testSeeds": [
+    17000,
+    17063
+  ],
+  "calibration": [
+    {
+      "gate": 1,
+      "cost": 733347,
+      "hits": 169,
+      "eligible": 202,
+      "pairHits": 23,
+      "pairBuilds": 79,
+      "pairEvictions": 78,
+      "baseEvictions": 20
+    },
+    {
+      "gate": 3,
+      "cost": 719253,
+      "hits": 214,
+      "eligible": 202,
+      "pairHits": 25,
+      "pairBuilds": 50,
+      "pairEvictions": 49,
+      "baseEvictions": 21
+    },
+    {
+      "gate": 5,
+      "cost": 704106,
+      "hits": 254,
+      "eligible": 202,
+      "pairHits": 25,
+      "pairBuilds": 33,
+      "pairEvictions": 32,
+      "baseEvictions": 20
+    },
+    {
+      "gate": 8,
+      "cost": 693333,
+      "hits": 283,
+      "eligible": 202,
+      "pairHits": 24,
+      "pairBuilds": 23,
+      "pairEvictions": 22,
+      "baseEvictions": 19
+    },
+    {
+      "gate": 13,
+      "cost": 688149,
+      "hits": 307,
+      "eligible": 202,
+      "pairHits": 20,
+      "pairBuilds": 13,
+      "pairEvictions": 12,
+      "baseEvictions": 19
+    }
+  ],
+  "gate": 13,
+  "reference": {
+    "gate": 0,
+    "cost": 1353645,
+    "hits": 830,
+    "eligible": 0,
+    "pairHits": 0,
+    "pairBuilds": 0,
+    "pairEvictions": 0,
+    "baseEvictions": 47
+  },
+  "tests": [
+    {
+      "gate": 1,
+      "cost": 1511109,
+      "hits": 355,
+      "eligible": 468,
+      "pairHits": 27,
+      "pairBuilds": 189,
+      "pairEvictions": 188,
+      "baseEvictions": 58
+    },
+    {
+      "gate": 3,
+      "cost": 1478790,
+      "hits": 433,
+      "eligible": 468,
+      "pairHits": 27,
+      "pairBuilds": 156,
+      "pairEvictions": 155,
+      "baseEvictions": 55
+    },
+    {
+      "gate": 5,
+      "cost": 1453275,
+      "hits": 491,
+      "eligible": 468,
+      "pairHits": 33,
+      "pairBuilds": 123,
+      "pairEvictions": 122,
+      "baseEvictions": 54
+    },
+    {
+      "gate": 8,
+      "cost": 1423710,
+      "hits": 573,
+      "eligible": 468,
+      "pairHits": 41,
+      "pairBuilds": 75,
+      "pairEvictions": 74,
+      "baseEvictions": 55
+    },
+    {
+      "gate": 13,
+      "cost": 1395522,
+      "hits": 650,
+      "eligible": 468,
+      "pairHits": 35,
+      "pairBuilds": 45,
+      "pairEvictions": 44,
+      "baseEvictions": 52
+    }
+  ],
+  "delta": 2.220446049250313e-16,
+  "events": [
+    {
+      "clock": 232,
+      "key": "000000000000000000000000",
+      "event": "compose",
+      "parents": [
+        "000000000000",
+        "000000000000"
+      ]
+    },
+    {
+      "clock": 247,
+      "key": "000000000000000000000000",
+      "event": "compose",
+      "parents": [
+        "000000000000",
+        "000000000000"
+      ]
+    },
+    {
+      "clock": 273,
+      "key": "000000000000000000000000",
+      "event": "compose",
+      "parents": [
+        "000000000000",
+        "000000000000"
+      ]
+    },
+    {
+      "clock": 308,
+      "key": "000000000000000000000000",
+      "event": "compose",
+      "parents": [
+        "000000000000",
+        "000000000000"
+      ]
+    },
+    {
+      "clock": 371,
+      "key": "000000000000000000000000",
+      "event": "compose",
+      "parents": [
+        "000000000000",
+        "000000000000"
+      ]
+    },
+    {
+      "clock": 390,
+      "key": "000000000000000000000000",
+      "event": "compose",
+      "parents": [
+        "000000000000",
+        "000000000000"
+      ]
+    },
+    {
+      "clock": 446,
+      "key": "000000000000000000000000",
+      "event": "compose",
+      "parents": [
+        "000000000000",
+        "000000000000"
+      ]
+    },
+    {
+      "clock": 469,
+      "key": "000000000000000000000000",
+      "event": "compose",
+      "parents": [
+        "000000000000",
+        "000000000000"
+      ]
+    },
+    {
+      "clock": 536,
+      "key": "000000000000000000000000",
+      "event": "compose",
+      "parents": [
+        "000000000000",
+        "000000000000"
+      ]
+    },
+    {
+      "clock": 576,
+      "key": "000000000000000000000000",
+      "event": "compose",
+      "parents": [
+        "000000000000",
+        "000000000000"
+      ]
+    },
+    {
+      "clock": 589,
+      "key": "000000000000000000000000",
+      "event": "compose",
+      "parents": [
+        "000000000000",
+        "000000000000"
+      ]
+    },
+    {
+      "clock": 597,
+      "key": "000000000000000000000000",
+      "event": "compose",
+      "parents": [
+        "000000000000",
+        "000000000000"
+      ]
+    },
+    {
+      "clock": 610,
+      "key": "000000000000000000000000",
+      "event": "compose",
+      "parents": [
+        "000000000000",
+        "000000000000"
+      ]
+    },
+    {
+      "clock": 628,
+      "key": "000000000000000000000000",
+      "event": "compose",
+      "parents": [
+        "000000000000",
+        "000000000000"
+      ]
+    },
+    {
+      "clock": 684,
+      "key": "000000000000000000000000",
+      "event": "compose",
+      "parents": [
+        "000000000000",
+        "000000000000"
+      ]
+    },
+    {
+      "clock": 692,
+      "key": "000000000000010000000000",
+      "event": "compose",
+      "parents": [
+        "000000000000",
+        "010000000000"
+      ]
+    },
+    {
+      "clock": 708,
+      "key": "000000000000000000000000",
+      "event": "compose",
+      "parents": [
+        "000000000000",
+        "000000000000"
+      ]
+    },
+    {
+      "clock": 720,
+      "key": "000000000000000000000000",
+      "event": "compose",
+      "parents": [
+        "000000000000",
+        "000000000000"
+      ]
+    },
+    {
+      "clock": 727,
+      "key": "000000000000000000001000",
+      "event": "compose",
+      "parents": [
+        "000000000000",
+        "000000001000"
+      ]
+    },
+    {
+      "clock": 730,
+      "key": "000000000000000000000000",
+      "event": "compose",
+      "parents": [
+        "000000000000",
+        "000000000000"
+      ]
+    },
+    {
+      "clock": 777,
+      "key": "000000000000000000000000",
+      "event": "compose",
+      "parents": [
+        "000000000000",
+        "000000000000"
+      ]
+    },
+    {
+      "clock": 796,
+      "key": "000000000000000000001000",
+      "event": "compose",
+      "parents": [
+        "000000000000",
+        "000000001000"
+      ]
+    },
+    {
+      "clock": 806,
+      "key": "000000000000000000000000",
+      "event": "compose",
+      "parents": [
+        "000000000000",
+        "000000000000"
+      ]
+    },
+    {
+      "clock": 831,
+      "key": "000000000000000000001000",
+      "event": "compose",
+      "parents": [
+        "000000000000",
+        "000000001000"
+      ]
+    },
+    {
+      "clock": 842,
+      "key": "000000000000000000000000",
+      "event": "compose",
+      "parents": [
+        "000000000000",
+        "000000000000"
+      ]
+    },
+    {
+      "clock": 849,
+      "key": "000000100000000000000000",
+      "event": "compose",
+      "parents": [
+        "000000100000",
+        "000000000000"
+      ]
+    },
+    {
+      "clock": 849,
+      "key": "000000000000000000000000",
+      "event": "compose",
+      "parents": [
+        "000000000000",
+        "000000000000"
+      ]
+    },
+    {
+      "clock": 854,
+      "key": "000000000000000000001000",
+      "event": "compose",
+      "parents": [
+        "000000000000",
+        "000000001000"
+      ]
+    },
+    {
+      "clock": 862,
+      "key": "000000000000000000000000",
+      "event": "compose",
+      "parents": [
+        "000000000000",
+        "000000000000"
+      ]
+    },
+    {
+      "clock": 909,
+      "key": "000000100000000000000000",
+      "event": "compose",
+      "parents": [
+        "000000100000",
+        "000000000000"
+      ]
+    },
+    {
+      "clock": 915,
+      "key": "000000000000000000000000",
+      "event": "compose",
+      "parents": [
+        "000000000000",
+        "000000000000"
+      ]
+    },
+    {
+      "clock": 917,
+      "key": "000000000000000000001000",
+      "event": "compose",
+      "parents": [
+        "000000000000",
+        "000000001000"
+      ]
+    },
+    {
+      "clock": 924,
+      "key": "000000000000000000000000",
+      "event": "compose",
+      "parents": [
+        "000000000000",
+        "000000000000"
+      ]
+    },
+    {
+      "clock": 932,
+      "key": "000000000000000000000000",
+      "event": "compose",
+      "parents": [
+        "000000000000",
+        "000000000000"
+      ]
+    },
+    {
+      "clock": 957,
+      "key": "000000000000000000000000",
+      "event": "compose",
+      "parents": [
+        "000000000000",
+        "000000000000"
+      ]
+    },
+    {
+      "clock": 973,
+      "key": "000000000001000000000000",
+      "event": "compose",
+      "parents": [
+        "000000000001",
+        "000000000000"
+      ]
+    },
+    {
+      "clock": 973,
+      "key": "000000000000000000001000",
+      "event": "compose",
+      "parents": [
+        "000000000000",
+        "000000001000"
+      ]
+    },
+    {
+      "clock": 973,
+      "key": "000000000001000000000000",
+      "event": "compose",
+      "parents": [
+        "000000000001",
+        "000000000000"
+      ]
+    },
+    {
+      "clock": 973,
+      "key": "000000000000000000000000",
+      "event": "compose",
+      "parents": [
+        "000000000000",
+        "000000000000"
+      ]
+    },
+    {
+      "clock": 981,
+      "key": "000000100000000000000000",
+      "event": "compose",
+      "parents": [
+        "000000100000",
+        "000000000000"
+      ]
+    },
+    {
+      "clock": 990,
+      "key": "000000000000000000001000",
+      "event": "compose",
+      "parents": [
+        "000000000000",
+        "000000001000"
+      ]
+    },
+    {
+      "clock": 1048,
+      "key": "000000000000000000000000",
+      "event": "compose",
+      "parents": [
+        "000000000000",
+        "000000000000"
+      ]
+    },
+    {
+      "clock": 1058,
+      "key": "000000000000000000001000",
+      "event": "compose",
+      "parents": [
+        "000000000000",
+        "000000001000"
+      ]
+    },
+    {
+      "clock": 1062,
+      "key": "000001000000000000000000",
+      "event": "compose",
+      "parents": [
+        "000001000000",
+        "000000000000"
+      ]
+    },
+    {
+      "clock": 1077,
+      "key": "000000000000000000001000",
+      "event": "compose",
+      "parents": [
+        "000000000000",
+        "000000001000"
+      ]
+    }
+  ],
+  "assumptions": "Shared eight matrix slots; 24-observation pairs constructed only from resident 12-observation parents; pair metadata not bounded by matrix budget; multiplication terms include construction but exclude lookup and metadata. Cache shared across ordered scenarios."
+}

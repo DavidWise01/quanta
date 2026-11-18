@@ -1,0 +1,215 @@
+{
+  "experiment": "ADA-142",
+  "watermark": ".dlw",
+  "lineage": "ADA-141",
+  "results": [
+    {
+      "seedRange": [
+        38000,
+        38063
+      ],
+      "records": 451,
+      "capacity": 8,
+      "radius": 1,
+      "decisions": 168,
+      "heals": 24,
+      "legitimate": 24,
+      "stats": {
+        "exact": 0,
+        "family": 8,
+        "novel": 16,
+        "learned": 16,
+        "evicted": 8,
+        "accepted": 475,
+        "duplicates": 120,
+        "conflicts": 24,
+        "comparisons": 156
+      },
+      "stages": [
+        {
+          "phase": "training",
+          "delta": {
+            "exact": 0,
+            "family": 0,
+            "novel": 8,
+            "learned": 8,
+            "evicted": 0,
+            "accepted": 8,
+            "duplicates": 40,
+            "conflicts": 8,
+            "comparisons": 28
+          }
+        },
+        {
+          "phase": "near",
+          "delta": {
+            "exact": 0,
+            "family": 8,
+            "novel": 0,
+            "learned": 0,
+            "evicted": 0,
+            "accepted": 8,
+            "duplicates": 40,
+            "conflicts": 8,
+            "comparisons": 64
+          }
+        },
+        {
+          "phase": "distant",
+          "delta": {
+            "exact": 0,
+            "family": 0,
+            "novel": 8,
+            "learned": 8,
+            "evicted": 8,
+            "accepted": 8,
+            "duplicates": 40,
+            "conflicts": 8,
+            "comparisons": 64
+          }
+        }
+      ],
+      "activeFamilies": 8,
+      "finalVersion": 49
+    },
+    {
+      "seedRange": [
+        39000,
+        39063
+      ],
+      "records": 442,
+      "capacity": 8,
+      "radius": 1,
+      "decisions": 168,
+      "heals": 24,
+      "legitimate": 24,
+      "stats": {
+        "exact": 0,
+        "family": 8,
+        "novel": 16,
+        "learned": 16,
+        "evicted": 8,
+        "accepted": 466,
+        "duplicates": 120,
+        "conflicts": 24,
+        "comparisons": 156
+      },
+      "stages": [
+        {
+          "phase": "training",
+          "delta": {
+            "exact": 0,
+            "family": 0,
+            "novel": 8,
+            "learned": 8,
+            "evicted": 0,
+            "accepted": 8,
+            "duplicates": 40,
+            "conflicts": 8,
+            "comparisons": 28
+          }
+        },
+        {
+          "phase": "near",
+          "delta": {
+            "exact": 0,
+            "family": 8,
+            "novel": 0,
+            "learned": 0,
+            "evicted": 0,
+            "accepted": 8,
+            "duplicates": 40,
+            "conflicts": 8,
+            "comparisons": 64
+          }
+        },
+        {
+          "phase": "distant",
+          "delta": {
+            "exact": 0,
+            "family": 0,
+            "novel": 8,
+            "learned": 8,
+            "evicted": 8,
+            "accepted": 8,
+            "duplicates": 40,
+            "conflicts": 8,
+            "comparisons": 64
+          }
+        }
+      ],
+      "activeFamilies": 8,
+      "finalVersion": 49
+    },
+    {
+      "seedRange": [
+        40000,
+        40063
+      ],
+      "records": 387,
+      "capacity": 8,
+      "radius": 1,
+      "decisions": 168,
+      "heals": 24,
+      "legitimate": 24,
+      "stats": {
+        "exact": 0,
+        "family": 8,
+        "novel": 16,
+        "learned": 16,
+        "evicted": 8,
+        "accepted": 411,
+        "duplicates": 120,
+        "conflicts": 24,
+        "comparisons": 156
+      },
+      "stages": [
+        {
+          "phase": "training",
+          "delta": {
+            "exact": 0,
+            "family": 0,
+            "novel": 8,
+            "learned": 8,
+            "evicted": 0,
+            "accepted": 8,
+            "duplicates": 40,
+            "conflicts": 8,
+            "comparisons": 28
+          }
+        },
+        {
+          "phase": "near",
+          "delta": {
+            "exact": 0,
+            "family": 8,
+            "novel": 0,
+            "learned": 0,
+            "evicted": 0,
+            "accepted": 8,
+            "duplicates": 40,
+            "conflicts": 8,
+            "comparisons": 64
+          }
+        },
+        {
+          "phase": "distant",
+          "delta": {
+            "exact": 0,
+            "family": 0,
+            "novel": 8,
+            "learned": 8,
+            "evicted": 8,
+            "accepted": 8,
+            "duplicates": 40,
+            "conflicts": 8,
+            "comparisons": 64
+          }
+        }
+      ],
+      "activeFamilies": 8,
+      "finalVersion": 49
+    }
+  ],
+  "limitations": "Eight LRU family prototypes, Hamming radius one. Family matches diagnostic only; exact event identity and payload determine quarantine. Scripted training/near/distant masks, not independent real attacks. Only classifier prototypes bounded; evidence and variant stores unbounded. No physical runtime benefit claimed."
+}

@@ -1,0 +1,1212 @@
+{
+  "experiment": "ADA-131",
+  "watermark": ".dlw",
+  "lineage": "ADA-130",
+  "calibrationSeeds": [
+    14000,
+    14031
+  ],
+  "testSeeds": [
+    15000,
+    15063
+  ],
+  "calibration": [
+    {
+      "policy": "lfu",
+      "lease": 64,
+      "cost": 690849,
+      "groups": [
+        {
+          "scenario": "stable",
+          "cost": 171234
+        },
+        {
+          "scenario": "shift",
+          "cost": 163701
+        },
+        {
+          "scenario": "recover",
+          "cost": 179010
+        },
+        {
+          "scenario": "novel",
+          "cost": 176904
+        }
+      ],
+      "hits": 341,
+      "evictions": 18,
+      "resurrections": 6,
+      "promoted": 10,
+      "thrived": 12
+    },
+    {
+      "policy": "permanent",
+      "lease": 64,
+      "cost": 690849,
+      "groups": [
+        {
+          "scenario": "stable",
+          "cost": 171234
+        },
+        {
+          "scenario": "shift",
+          "cost": 163701
+        },
+        {
+          "scenario": "recover",
+          "cost": 179010
+        },
+        {
+          "scenario": "novel",
+          "cost": 176904
+        }
+      ],
+      "hits": 341,
+      "evictions": 18,
+      "resurrections": 6,
+      "promoted": 10,
+      "thrived": 12
+    },
+    {
+      "policy": "lease",
+      "lease": 16,
+      "cost": 717822,
+      "groups": [
+        {
+          "scenario": "stable",
+          "cost": 175122
+        },
+        {
+          "scenario": "shift",
+          "cost": 170019
+        },
+        {
+          "scenario": "recover",
+          "cost": 195048
+        },
+        {
+          "scenario": "novel",
+          "cost": 177633
+        }
+      ],
+      "hits": 307,
+      "evictions": 25,
+      "resurrections": 13,
+      "promoted": 10,
+      "thrived": 12
+    },
+    {
+      "policy": "lease",
+      "lease": 32,
+      "cost": 707130,
+      "groups": [
+        {
+          "scenario": "stable",
+          "cost": 175122
+        },
+        {
+          "scenario": "shift",
+          "cost": 166860
+        },
+        {
+          "scenario": "recover",
+          "cost": 186786
+        },
+        {
+          "scenario": "novel",
+          "cost": 178362
+        }
+      ],
+      "hits": 318,
+      "evictions": 22,
+      "resurrections": 10,
+      "promoted": 10,
+      "thrived": 12
+    },
+    {
+      "policy": "lease",
+      "lease": 64,
+      "cost": 695709,
+      "groups": [
+        {
+          "scenario": "stable",
+          "cost": 171720
+        },
+        {
+          "scenario": "shift",
+          "cost": 170019
+        },
+        {
+          "scenario": "recover",
+          "cost": 179253
+        },
+        {
+          "scenario": "novel",
+          "cost": 174717
+        }
+      ],
+      "hits": 332,
+      "evictions": 19,
+      "resurrections": 7,
+      "promoted": 10,
+      "thrived": 12
+    },
+    {
+      "policy": "lease",
+      "lease": 128,
+      "cost": 692307,
+      "groups": [
+        {
+          "scenario": "stable",
+          "cost": 171720
+        },
+        {
+          "scenario": "shift",
+          "cost": 166617
+        },
+        {
+          "scenario": "recover",
+          "cost": 179253
+        },
+        {
+          "scenario": "novel",
+          "cost": 174717
+        }
+      ],
+      "hits": 335,
+      "evictions": 18,
+      "resurrections": 6,
+      "promoted": 10,
+      "thrived": 12
+    }
+  ],
+  "selected": {
+    "policy": "permanent",
+    "lease": 64
+  },
+  "tests": [
+    {
+      "forward": {
+        "policy": "lfu",
+        "lease": 64,
+        "cost": 1374408,
+        "groups": [
+          {
+            "scenario": "stable",
+            "cost": 333072
+          },
+          {
+            "scenario": "shift",
+            "cost": 341091
+          },
+          {
+            "scenario": "recover",
+            "cost": 334530
+          },
+          {
+            "scenario": "novel",
+            "cost": 365715
+          }
+        ],
+        "hits": 737,
+        "evictions": 47,
+        "resurrections": 34,
+        "promoted": 14,
+        "thrived": 18
+      },
+      "reverse": {
+        "policy": "lfu",
+        "lease": 64,
+        "cost": 1386558,
+        "groups": [
+          {
+            "scenario": "novel",
+            "cost": 356481
+          },
+          {
+            "scenario": "recover",
+            "cost": 356157
+          },
+          {
+            "scenario": "shift",
+            "cost": 347895
+          },
+          {
+            "scenario": "stable",
+            "cost": 326025
+          }
+        ],
+        "hits": 720,
+        "evictions": 50,
+        "resurrections": 37,
+        "promoted": 14,
+        "thrived": 18
+      }
+    },
+    {
+      "forward": {
+        "policy": "permanent",
+        "lease": 64,
+        "cost": 1374408,
+        "groups": [
+          {
+            "scenario": "stable",
+            "cost": 333072
+          },
+          {
+            "scenario": "shift",
+            "cost": 341091
+          },
+          {
+            "scenario": "recover",
+            "cost": 334530
+          },
+          {
+            "scenario": "novel",
+            "cost": 365715
+          }
+        ],
+        "hits": 737,
+        "evictions": 47,
+        "resurrections": 34,
+        "promoted": 14,
+        "thrived": 18
+      },
+      "reverse": {
+        "policy": "permanent",
+        "lease": 64,
+        "cost": 1386558,
+        "groups": [
+          {
+            "scenario": "novel",
+            "cost": 356481
+          },
+          {
+            "scenario": "recover",
+            "cost": 356157
+          },
+          {
+            "scenario": "shift",
+            "cost": 347895
+          },
+          {
+            "scenario": "stable",
+            "cost": 326025
+          }
+        ],
+        "hits": 720,
+        "evictions": 50,
+        "resurrections": 37,
+        "promoted": 14,
+        "thrived": 18
+      }
+    },
+    {
+      "forward": {
+        "policy": "lease",
+        "lease": 16,
+        "cost": 1390689,
+        "groups": [
+          {
+            "scenario": "stable",
+            "cost": 329427
+          },
+          {
+            "scenario": "shift",
+            "cost": 355185
+          },
+          {
+            "scenario": "recover",
+            "cost": 338175
+          },
+          {
+            "scenario": "novel",
+            "cost": 367902
+          }
+        ],
+        "hits": 714,
+        "evictions": 51,
+        "resurrections": 38,
+        "promoted": 14,
+        "thrived": 18
+      },
+      "reverse": {
+        "policy": "lease",
+        "lease": 16,
+        "cost": 1397250,
+        "groups": [
+          {
+            "scenario": "novel",
+            "cost": 356481
+          },
+          {
+            "scenario": "recover",
+            "cost": 346680
+          },
+          {
+            "scenario": "shift",
+            "cost": 356643
+          },
+          {
+            "scenario": "stable",
+            "cost": 337446
+          }
+        ],
+        "hits": 709,
+        "evictions": 53,
+        "resurrections": 40,
+        "promoted": 14,
+        "thrived": 18
+      }
+    },
+    {
+      "forward": {
+        "policy": "lease",
+        "lease": 32,
+        "cost": 1386801,
+        "groups": [
+          {
+            "scenario": "stable",
+            "cost": 329427
+          },
+          {
+            "scenario": "shift",
+            "cost": 355185
+          },
+          {
+            "scenario": "recover",
+            "cost": 337689
+          },
+          {
+            "scenario": "novel",
+            "cost": 364500
+          }
+        ],
+        "hits": 719,
+        "evictions": 50,
+        "resurrections": 37,
+        "promoted": 14,
+        "thrived": 18
+      },
+      "reverse": {
+        "policy": "lease",
+        "lease": 32,
+        "cost": 1397736,
+        "groups": [
+          {
+            "scenario": "novel",
+            "cost": 356481
+          },
+          {
+            "scenario": "recover",
+            "cost": 346680
+          },
+          {
+            "scenario": "shift",
+            "cost": 361017
+          },
+          {
+            "scenario": "stable",
+            "cost": 333558
+          }
+        ],
+        "hits": 707,
+        "evictions": 53,
+        "resurrections": 40,
+        "promoted": 14,
+        "thrived": 18
+      }
+    },
+    {
+      "forward": {
+        "policy": "lease",
+        "lease": 64,
+        "cost": 1382670,
+        "groups": [
+          {
+            "scenario": "stable",
+            "cost": 326268
+          },
+          {
+            "scenario": "shift",
+            "cost": 354456
+          },
+          {
+            "scenario": "recover",
+            "cost": 334044
+          },
+          {
+            "scenario": "novel",
+            "cost": 367902
+          }
+        ],
+        "hits": 725,
+        "evictions": 49,
+        "resurrections": 36,
+        "promoted": 14,
+        "thrived": 18
+      },
+      "reverse": {
+        "policy": "lease",
+        "lease": 64,
+        "cost": 1387287,
+        "groups": [
+          {
+            "scenario": "novel",
+            "cost": 356481
+          },
+          {
+            "scenario": "recover",
+            "cost": 349353
+          },
+          {
+            "scenario": "shift",
+            "cost": 357858
+          },
+          {
+            "scenario": "stable",
+            "cost": 323595
+          }
+        ],
+        "hits": 717,
+        "evictions": 50,
+        "resurrections": 37,
+        "promoted": 14,
+        "thrived": 18
+      }
+    },
+    {
+      "forward": {
+        "policy": "lease",
+        "lease": 128,
+        "cost": 1383642,
+        "groups": [
+          {
+            "scenario": "stable",
+            "cost": 329184
+          },
+          {
+            "scenario": "shift",
+            "cost": 351783
+          },
+          {
+            "scenario": "recover",
+            "cost": 337446
+          },
+          {
+            "scenario": "novel",
+            "cost": 365229
+          }
+        ],
+        "hits": 721,
+        "evictions": 49,
+        "resurrections": 36,
+        "promoted": 14,
+        "thrived": 18
+      },
+      "reverse": {
+        "policy": "lease",
+        "lease": 128,
+        "cost": 1381698,
+        "groups": [
+          {
+            "scenario": "novel",
+            "cost": 356481
+          },
+          {
+            "scenario": "recover",
+            "cost": 351540
+          },
+          {
+            "scenario": "shift",
+            "cost": 338904
+          },
+          {
+            "scenario": "stable",
+            "cost": 334773
+          }
+        ],
+        "hits": 729,
+        "evictions": 49,
+        "resurrections": 36,
+        "promoted": 14,
+        "thrived": 18
+      }
+    }
+  ],
+  "delta": 0,
+  "verifiedRuns": 256,
+  "events": [
+    {
+      "clock": 10,
+      "key": "000000000000",
+      "event": "compile"
+    },
+    {
+      "clock": 14,
+      "key": "000000000000",
+      "event": "thrive"
+    },
+    {
+      "clock": 28,
+      "key": "000000000000",
+      "event": "promote"
+    },
+    {
+      "clock": 64,
+      "key": "010000000000",
+      "event": "compile"
+    },
+    {
+      "clock": 75,
+      "key": "001000000000",
+      "event": "compile"
+    },
+    {
+      "clock": 85,
+      "key": "010000000000",
+      "event": "thrive"
+    },
+    {
+      "clock": 98,
+      "key": "000000000001",
+      "event": "compile"
+    },
+    {
+      "clock": 110,
+      "key": "000001000000",
+      "event": "compile"
+    },
+    {
+      "clock": 114,
+      "key": "000000000010",
+      "event": "compile"
+    },
+    {
+      "clock": 128,
+      "key": "000010000000",
+      "event": "compile"
+    },
+    {
+      "clock": 147,
+      "key": "000000010000",
+      "event": "compile"
+    },
+    {
+      "clock": 155,
+      "key": "000000000010",
+      "event": "archive"
+    },
+    {
+      "clock": 155,
+      "key": "000000000100",
+      "event": "compile"
+    },
+    {
+      "clock": 160,
+      "key": "000010000000",
+      "event": "archive"
+    },
+    {
+      "clock": 160,
+      "key": "000000001000",
+      "event": "compile"
+    },
+    {
+      "clock": 165,
+      "key": "000001000000",
+      "event": "thrive"
+    },
+    {
+      "clock": 174,
+      "key": "000000010000",
+      "event": "thrive"
+    },
+    {
+      "clock": 193,
+      "key": "001000000000",
+      "event": "thrive"
+    },
+    {
+      "clock": 199,
+      "key": "000000000100",
+      "event": "thrive"
+    },
+    {
+      "clock": 206,
+      "key": "000000010000",
+      "event": "promote"
+    },
+    {
+      "clock": 220,
+      "key": "000000000001",
+      "event": "archive"
+    },
+    {
+      "clock": 220,
+      "key": "000000100000",
+      "event": "compile"
+    },
+    {
+      "clock": 227,
+      "key": "000000001000",
+      "event": "archive"
+    },
+    {
+      "clock": 227,
+      "key": "100000000000",
+      "event": "compile"
+    },
+    {
+      "clock": 233,
+      "key": "000000100000",
+      "event": "thrive"
+    },
+    {
+      "clock": 234,
+      "key": "000010000000",
+      "event": "thrive"
+    },
+    {
+      "clock": 242,
+      "key": "000000001000",
+      "event": "thrive"
+    },
+    {
+      "clock": 259,
+      "key": "000000000010",
+      "event": "thrive"
+    },
+    {
+      "clock": 260,
+      "key": "000000100000",
+      "event": "promote"
+    },
+    {
+      "clock": 262,
+      "key": "100000000000",
+      "event": "thrive"
+    },
+    {
+      "clock": 277,
+      "key": "001000000000",
+      "event": "archive"
+    },
+    {
+      "clock": 277,
+      "key": "000010000000",
+      "event": "reconstruct"
+    },
+    {
+      "clock": 280,
+      "key": "010000000000",
+      "event": "promote"
+    },
+    {
+      "clock": 283,
+      "key": "100000000000",
+      "event": "archive"
+    },
+    {
+      "clock": 283,
+      "key": "000100000000",
+      "event": "compile"
+    },
+    {
+      "clock": 299,
+      "key": "000000000100",
+      "event": "promote"
+    },
+    {
+      "clock": 307,
+      "key": "000100000000",
+      "event": "archive"
+    },
+    {
+      "clock": 307,
+      "key": "000000000010",
+      "event": "reconstruct"
+    },
+    {
+      "clock": 308,
+      "key": "000000000001",
+      "event": "thrive"
+    },
+    {
+      "clock": 319,
+      "key": "000100000000",
+      "event": "thrive"
+    },
+    {
+      "clock": 320,
+      "key": "000000000010",
+      "event": "archive"
+    },
+    {
+      "clock": 320,
+      "key": "010000000010",
+      "event": "compile"
+    },
+    {
+      "clock": 324,
+      "key": "010000000010",
+      "event": "archive"
+    },
+    {
+      "clock": 324,
+      "key": "000000001000",
+      "event": "reconstruct"
+    },
+    {
+      "clock": 335,
+      "key": "000000001000",
+      "event": "promote"
+    },
+    {
+      "clock": 351,
+      "key": "000010000000",
+      "event": "promote"
+    },
+    {
+      "clock": 363,
+      "key": "000001000000",
+      "event": "archive"
+    },
+    {
+      "clock": 363,
+      "key": "000100000000",
+      "event": "reconstruct"
+    },
+    {
+      "clock": 393,
+      "key": "000100000000",
+      "event": "archive"
+    },
+    {
+      "clock": 393,
+      "key": "000000000001",
+      "event": "reconstruct"
+    },
+    {
+      "clock": 403,
+      "key": "000000000010",
+      "event": "promote"
+    },
+    {
+      "clock": 417,
+      "key": "000000000001",
+      "event": "promote"
+    },
+    {
+      "clock": 430,
+      "key": "000001000000",
+      "event": "promote"
+    },
+    {
+      "clock": 447,
+      "key": "000000000001",
+      "event": "archive"
+    },
+    {
+      "clock": 447,
+      "key": "000000000010",
+      "event": "reconstruct"
+    },
+    {
+      "clock": 463,
+      "key": "000100000000",
+      "event": "promote"
+    },
+    {
+      "clock": 467,
+      "key": "000000100000",
+      "event": "archive"
+    },
+    {
+      "clock": 467,
+      "key": "000001000000",
+      "event": "reconstruct"
+    },
+    {
+      "clock": 470,
+      "key": "001000000000",
+      "event": "promote"
+    },
+    {
+      "clock": 470,
+      "key": "000010000000",
+      "event": "archive"
+    },
+    {
+      "clock": 470,
+      "key": "001000000000",
+      "event": "reconstruct"
+    },
+    {
+      "clock": 478,
+      "key": "100000000000",
+      "event": "promote"
+    },
+    {
+      "clock": 478,
+      "key": "001000000000",
+      "event": "archive"
+    },
+    {
+      "clock": 478,
+      "key": "100000000000",
+      "event": "reconstruct"
+    },
+    {
+      "clock": 488,
+      "key": "100000000000",
+      "event": "archive"
+    },
+    {
+      "clock": 488,
+      "key": "000100000000",
+      "event": "reconstruct"
+    },
+    {
+      "clock": 492,
+      "key": "000100000000",
+      "event": "archive"
+    },
+    {
+      "clock": 492,
+      "key": "001000000010",
+      "event": "compile"
+    },
+    {
+      "clock": 548,
+      "key": "001000000010",
+      "event": "archive"
+    },
+    {
+      "clock": 548,
+      "key": "010000001000",
+      "event": "compile"
+    },
+    {
+      "clock": 551,
+      "key": "010000001000",
+      "event": "archive"
+    },
+    {
+      "clock": 551,
+      "key": "100000001000",
+      "event": "compile"
+    },
+    {
+      "clock": 553,
+      "key": "100000001000",
+      "event": "archive"
+    },
+    {
+      "clock": 553,
+      "key": "000000000001",
+      "event": "reconstruct"
+    },
+    {
+      "clock": 560,
+      "key": "000000000001",
+      "event": "archive"
+    },
+    {
+      "clock": 560,
+      "key": "001000000000",
+      "event": "reconstruct"
+    },
+    {
+      "clock": 635,
+      "key": "001000000000",
+      "event": "archive"
+    },
+    {
+      "clock": 635,
+      "key": "000010000000",
+      "event": "reconstruct"
+    },
+    {
+      "clock": 636,
+      "key": "010000000010",
+      "event": "thrive"
+    },
+    {
+      "clock": 666,
+      "key": "000010000000",
+      "event": "archive"
+    },
+    {
+      "clock": 666,
+      "key": "000000100000",
+      "event": "reconstruct"
+    },
+    {
+      "clock": 690,
+      "key": "000000100000",
+      "event": "archive"
+    },
+    {
+      "clock": 690,
+      "key": "000000000001",
+      "event": "reconstruct"
+    },
+    {
+      "clock": 698,
+      "key": "000000000010",
+      "event": "archive"
+    },
+    {
+      "clock": 698,
+      "key": "000100000000",
+      "event": "reconstruct"
+    },
+    {
+      "clock": 705,
+      "key": "000100000000",
+      "event": "archive"
+    },
+    {
+      "clock": 705,
+      "key": "100000000000",
+      "event": "reconstruct"
+    },
+    {
+      "clock": 745,
+      "key": "010000001000",
+      "event": "thrive"
+    },
+    {
+      "clock": 752,
+      "key": "100000000000",
+      "event": "archive"
+    },
+    {
+      "clock": 752,
+      "key": "000000000101",
+      "event": "compile"
+    },
+    {
+      "clock": 774,
+      "key": "000000000101",
+      "event": "archive"
+    },
+    {
+      "clock": 774,
+      "key": "001000000000",
+      "event": "reconstruct"
+    },
+    {
+      "clock": 798,
+      "key": "000000000001",
+      "event": "archive"
+    },
+    {
+      "clock": 798,
+      "key": "000000000010",
+      "event": "reconstruct"
+    },
+    {
+      "clock": 837,
+      "key": "001000000000",
+      "event": "archive"
+    },
+    {
+      "clock": 837,
+      "key": "010000001000",
+      "event": "reconstruct"
+    },
+    {
+      "clock": 846,
+      "key": "000000000101",
+      "event": "thrive"
+    },
+    {
+      "clock": 870,
+      "key": "100000001000",
+      "event": "thrive"
+    },
+    {
+      "clock": 892,
+      "key": "010000001000",
+      "event": "archive"
+    },
+    {
+      "clock": 892,
+      "key": "000010000001",
+      "event": "compile"
+    },
+    {
+      "clock": 895,
+      "key": "000010000001",
+      "event": "archive"
+    },
+    {
+      "clock": 895,
+      "key": "100000000000",
+      "event": "reconstruct"
+    },
+    {
+      "clock": 898,
+      "key": "100000000000",
+      "event": "archive"
+    },
+    {
+      "clock": 898,
+      "key": "000010000000",
+      "event": "reconstruct"
+    },
+    {
+      "clock": 900,
+      "key": "000010000000",
+      "event": "archive"
+    },
+    {
+      "clock": 900,
+      "key": "000000100000",
+      "event": "reconstruct"
+    },
+    {
+      "clock": 905,
+      "key": "000000100000",
+      "event": "archive"
+    },
+    {
+      "clock": 905,
+      "key": "000100000000",
+      "event": "reconstruct"
+    },
+    {
+      "clock": 925,
+      "key": "000100000000",
+      "event": "archive"
+    },
+    {
+      "clock": 925,
+      "key": "000100000010",
+      "event": "compile"
+    },
+    {
+      "clock": 935,
+      "key": "001000000010",
+      "event": "thrive"
+    },
+    {
+      "clock": 980,
+      "key": "000100000010",
+      "event": "archive"
+    },
+    {
+      "clock": 980,
+      "key": "000000000011",
+      "event": "compile"
+    },
+    {
+      "clock": 989,
+      "key": "000000000011",
+      "event": "archive"
+    },
+    {
+      "clock": 989,
+      "key": "000000000001",
+      "event": "reconstruct"
+    },
+    {
+      "clock": 1030,
+      "key": "000000000001",
+      "event": "archive"
+    },
+    {
+      "clock": 1030,
+      "key": "100000000000",
+      "event": "reconstruct"
+    },
+    {
+      "clock": 1032,
+      "key": "100000000000",
+      "event": "archive"
+    },
+    {
+      "clock": 1032,
+      "key": "000100000000",
+      "event": "reconstruct"
+    },
+    {
+      "clock": 1047,
+      "key": "000100000000",
+      "event": "archive"
+    },
+    {
+      "clock": 1047,
+      "key": "001000000000",
+      "event": "reconstruct"
+    },
+    {
+      "clock": 1050,
+      "key": "001000000000",
+      "event": "archive"
+    },
+    {
+      "clock": 1050,
+      "key": "000010000000",
+      "event": "reconstruct"
+    },
+    {
+      "clock": 1062,
+      "key": "000010000000",
+      "event": "archive"
+    },
+    {
+      "clock": 1062,
+      "key": "000000000101",
+      "event": "reconstruct"
+    },
+    {
+      "clock": 1096,
+      "key": "010000001000",
+      "event": "promote"
+    },
+    {
+      "clock": 1097,
+      "key": "000000000101",
+      "event": "archive"
+    },
+    {
+      "clock": 1097,
+      "key": "001000000010",
+      "event": "reconstruct"
+    },
+    {
+      "clock": 1100,
+      "key": "001000000010",
+      "event": "archive"
+    },
+    {
+      "clock": 1100,
+      "key": "000000000001",
+      "event": "reconstruct"
+    },
+    {
+      "clock": 1116,
+      "key": "000000000001",
+      "event": "archive"
+    },
+    {
+      "clock": 1116,
+      "key": "000000100000",
+      "event": "reconstruct"
+    },
+    {
+      "clock": 1126,
+      "key": "000000100000",
+      "event": "archive"
+    },
+    {
+      "clock": 1126,
+      "key": "100000001000",
+      "event": "reconstruct"
+    }
+  ],
+  "assumptions": "Eight matrix slots; promotion at lifetime encounter 8 and 13; protection is eviction priority not immunity; leases measured in block lookups, not seconds; test orders share cache within each order only; multiply terms exclude metadata overhead."
+}

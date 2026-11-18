@@ -1,0 +1,61 @@
+{
+  "RQT": 474,
+  "sha256": "5f4f49b1d75d60d61961b8a0aede915707f6c5cf11e1a9d7e71f1d3a7d83c809",
+  "directions": 40,
+  "z": 3,
+  "d": 1,
+  "rows": [
+    {
+      "k": 1,
+      "start_bits": 1210,
+      "end_bits": 1204,
+      "lines": 3240,
+      "checks": 25920,
+      "controls": 3240,
+      "square_discriminants": 0,
+      "uphill_record_improvements": 4,
+      "l": -25,
+      "intermediate_bits": 1222
+    },
+    {
+      "k": 2,
+      "start_bits": 1245,
+      "end_bits": 1243,
+      "lines": 3240,
+      "checks": 25920,
+      "controls": 3240,
+      "square_discriminants": 0,
+      "uphill_record_improvements": 4,
+      "l": 1,
+      "intermediate_bits": 1256
+    },
+    {
+      "k": 4,
+      "start_bits": 1412,
+      "end_bits": 1409,
+      "lines": 3240,
+      "checks": 25920,
+      "controls": 3240,
+      "square_discriminants": 0,
+      "uphill_record_improvements": 1,
+      "l": -26,
+      "intermediate_bits": 1431
+    },
+    {
+      "k": 8,
+      "start_bits": 1732,
+      "end_bits": 1724,
+      "lines": 3240,
+      "checks": 25920,
+      "controls": 3240,
+      "square_discriminants": 0,
+      "uphill_record_improvements": 4,
+      "l": -12,
+      "intermediate_bits": 1742
+    }
+  ],
+  "hits": [],
+  "root19": "OPEN",
+  "prefix18": "UNVERIFIED",
+  "note": "Summary; exact vectors and executable retained locally."
+}

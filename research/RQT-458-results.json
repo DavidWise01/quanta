@@ -1,0 +1,31 @@
+{
+  "RQT": 458,
+  "sha256": "5f4f49b1d75d60d61961b8a0aede915707f6c5cf11e1a9d7e71f1d3a7d83c809",
+  "prime": 5,
+  "regular_seeds": 20,
+  "rows": [
+    {
+      "k": 8,
+      "modulus_bits": 38,
+      "seeds": 4,
+      "tests": 160,
+      "min_scaled_abs_norm_bits": 38,
+      "nontrivial_bits": 1077,
+      "primitive_nontrivial_bits": 1077,
+      "pure_d": 4
+    },
+    {
+      "k": 32,
+      "modulus_bits": 149,
+      "seeds": 4,
+      "tests": 160,
+      "min_scaled_abs_norm_bits": 149,
+      "nontrivial_bits": 1077,
+      "primitive_nontrivial_bits": 1077,
+      "pure_d": 4
+    }
+  ],
+  "hits": [],
+  "root19": "OPEN",
+  "prefix18": "UNVERIFIED"
+}

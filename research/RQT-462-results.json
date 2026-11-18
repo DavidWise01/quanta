@@ -1,0 +1,55 @@
+{
+  "RQT": 462,
+  "sha256": "5f4f49b1d75d60d61961b8a0aede915707f6c5cf11e1a9d7e71f1d3a7d83c809",
+  "z": 3,
+  "d": 1,
+  "controls": 81,
+  "ideal_affine_index_bits": 2159,
+  "basis": [
+    [
+      -16,
+      -9
+    ],
+    [
+      -9,
+      -5
+    ]
+  ],
+  "reduction_steps": 4,
+  "before_bits": [
+    1088,
+    1089,
+    1090
+  ],
+  "after_bits": [
+    1080,
+    1080,
+    1081
+  ],
+  "center_shift": [
+    "61011999348678430336219115518657518582507",
+    "20487467819424781433008597513782549215113"
+  ],
+  "original_shift": [
+    "-1160579199953677918276583225922563240256129",
+    "-651545333235229780191015027236830413318128"
+  ],
+  "original_shift_bits": [
+    140,
+    139
+  ],
+  "row_range": [
+    -3280,
+    3280
+  ],
+  "counts": {
+    "rows": 6561,
+    "real_rows": 6561,
+    "exact_squares": 0,
+    "integral_candidates": 0
+  },
+  "hits": [],
+  "root19": "OPEN",
+  "prefix18": "UNVERIFIED",
+  "note": "Summary; full local certificate also stores exact affine index."
+}

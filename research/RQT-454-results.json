@@ -1,0 +1,37 @@
+{
+  "RQT": 454,
+  "sha256": "5f4f49b1d75d60d61961b8a0aede915707f6c5cf11e1a9d7e71f1d3a7d83c809",
+  "stages": {
+    "J": 100000,
+    "A": 100000,
+    "N": 100000,
+    "E": 100000
+  },
+  "full_norm_controls": 512,
+  "D_bits": 2161,
+  "target_bits": 4602,
+  "convergent_norm_bound_bits": 1082,
+  "target_outside_all_ordinary_convergents": true,
+  "unit_index": null,
+  "min_norm_bits": 1064,
+  "chain_sha256": "4b7c6be5a24480fd503a812e12168be18036004c72e10d870d5e2d91ee6d4c27",
+  "last_address": [
+    [
+      [
+        0,
+        0,
+        1,
+        6
+      ],
+      [
+        2,
+        1,
+        5,
+        0
+      ]
+    ]
+  ],
+  "root19": "OPEN",
+  "prefix18": "UNVERIFIED",
+  "note": "Summary: full checkpoint emitted by executable."
+}

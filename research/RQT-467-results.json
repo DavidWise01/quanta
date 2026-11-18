@@ -1,0 +1,38 @@
+{
+  "RQT": 467,
+  "sha256": "5f4f49b1d75d60d61961b8a0aede915707f6c5cf11e1a9d7e71f1d3a7d83c809",
+  "controls": 58,
+  "prime_gates": [
+    {
+      "p": 19,
+      "zero_class_allowed": true,
+      "nonzero_classes_regular": 18,
+      "excluded_multiples_up_to_6561": 0,
+      "excluded_multiples_up_to_59049": 0
+    },
+    {
+      "p": 9781,
+      "zero_class_allowed": false,
+      "nonzero_classes_regular": 9780,
+      "excluded_multiples_up_to_6561": 0,
+      "excluded_multiples_up_to_59049": 6
+    },
+    {
+      "p": 290533,
+      "zero_class_allowed": false,
+      "nonzero_classes_regular": 290532,
+      "excluded_multiples_up_to_6561": 0,
+      "excluded_multiples_up_to_59049": 0
+    },
+    {
+      "p": 11,
+      "all_classes_regular": true
+    },
+    {
+      "p": 180497,
+      "all_classes_regular": true
+    }
+  ],
+  "root19": "OPEN",
+  "prefix18": "UNVERIFIED"
+}

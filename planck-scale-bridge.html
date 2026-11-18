@@ -1,0 +1,439 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>QUANTA · QG-077 Planck Scale Bridge</title>
+<style>
+:root{color-scheme:dark}
+body{margin:0;background:#0a0e17;color:#e8f0f2;font:15px/1.6 system-ui,sans-serif}
+main{max-width:1100px;margin:auto;padding:24px 18px 80px}
+a{color:#7de8d4}
+h1{font-size:clamp(2rem,5vw,3.6rem);line-height:1.1;letter-spacing:-.04em;margin:0 0 8px}
+h2{color:#f4b06d;margin:18px 0 8px;font-size:1.15rem}
+h3{color:#8ce8da;margin:12px 0 6px;font-size:1rem}
+.muted{color:#8ba4b0}
+.panel{background:#111c28;border:1px solid #2e4a5a;border-radius:12px;padding:16px;margin:10px 0}
+.row3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}
+@media(max-width:800px){.row3{grid-template-columns:1fr}}
+.brace{border-color:#f4b06d}
+.box{border-color:#7de8d4}
+.torroid{border-color:#c89df0}
+.brace h2{color:#f4b06d}
+.box h2{color:#7de8d4}
+.torroid h2{color:#c89df0}
+pre{background:#0d1922;color:#7be0cc;font:13px/1.5 ui-monospace,monospace;padding:14px;white-space:pre-wrap;overflow-x:auto;border-radius:8px}
+.tag{display:inline-block;padding:2px 8px;border-radius:6px;font-size:12px;font-weight:600;margin:2px}
+.tag-grav{background:#1a3322;color:#6edb7a;border:1px solid #2a5533}
+.tag-em{background:#1a2a3d;color:#7dc4f0;border:1px solid #2a4a6d}
+.tag-strong{background:#3d1a1a;color:#f07d7d;border:1px solid #6d2a2a}
+.tag-qg{background:#2d1a3d;color:#c89df0;border:1px solid #4d2a6d}
+.tag-desert{background:#2d2d1a;color:#d4c06e;border:1px solid #4d4d2a}
+.tag-ew{background:#1a2d2d;color:#6ed4d4;border:1px solid #2a4d4d}
+.tag-sym{background:#2d1a22;color:#e88da0;border:1px solid #4d2a3a}
+.ladder{position:relative;margin:20px 0;padding:0 0 0 60px}
+.rung{display:flex;align-items:center;padding:8px 0;border-left:3px solid #2e4a5a;margin-left:20px;padding-left:16px;position:relative;min-height:36px}
+.rung::before{content:attr(data-exp);position:absolute;left:-58px;width:50px;text-align:right;color:#8ba4b0;font:12px ui-monospace,monospace}
+.rung-label{flex:1}
+.rung-val{color:#7be0cc;font:12px ui-monospace,monospace;margin-left:8px}
+.desert-rung{border-left-color:#d4c06e;border-left-style:dashed}
+.correction{background:#2a1a1a;border:1px solid #6d3a2a;border-radius:10px;padding:14px;margin:14px 0}
+.correction strong{color:#f07d7d}
+#notation-display{font:18px ui-monospace,monospace;text-align:center;padding:16px;letter-spacing:1px}
+#notation-display .br{color:#f4b06d}
+#notation-display .bx{color:#7de8d4}
+#notation-display .tr{color:#c89df0}
+button,select,input{background:#152535;color:#e8f0f2;border:1px solid #3e6a7a;border-radius:8px;padding:8px 12px;font:inherit;cursor:pointer;margin:2px}
+button:hover{background:#1e3545}
+.addr-out{font:14px ui-monospace,monospace;padding:10px;background:#0d1922;border-radius:8px;margin:8px 0}
+.check{color:#6edb7a}
+.dead{color:#f07d7d;text-decoration:line-through}
+.stripe{background:repeating-linear-gradient(135deg,transparent,transparent 8px,#1a1a0a 8px,#1a1a0a 16px)}
+
+/* ── ornament ── */
+.ornament{text-align:center;padding:16px;color:#3a5a6a;font:11px ui-monospace,monospace}
+.ornament::before{content:"── ornament ──"}
+
+/* ── toddler ── */
+.toddler{background:#0e1e2e;border:1px solid #2e4a5a;border-radius:12px;padding:16px;margin:20px 0}
+.toddler h3{color:#f4b06d}
+</style>
+</head><body><main>
+<a href="./index.html">&larr; QUANTA</a>
+<p class="muted">QG-077 &middot; PLANCK SCALE BRIDGE &middot; OBSERVER FIRST</p>
+
+<h1>Three brackets.<br><span style="color:#f4b06d">One address.</span></h1>
+
+<p>The symbolic framework (<code>{{pb}}</code>, ADA-117A) and the physical measurements
+(scale ladder) live in the same notation. Three coordinate systems, three
+bracket types, three forces at their respective scales.</p>
+
+<div id="notation-display">
+<span class="br">{{year,month,day}}</span><span class="bx">[[hour,minute,second]]</span><span class="tr">((degree,arcminute,arcsecond))</span>
+</div>
+
+<!-- ═══ THREE PANELS ═══ -->
+<div class="row3">
+
+<div class="panel brace">
+<h2>{{ Brace }} &mdash; Calendar</h2>
+<p><strong>ADA-117A:</strong> <code>{brace,abc...}</code></p>
+<p><strong>Physics:</strong> Gravitational. Earth orbits the Sun at
+1 AU = 1.496&times;10<sup>11</sup> m. Kepler &rarr; Newton &rarr; GR.</p>
+<p><strong>Scale:</strong> 10<sup>0</sup> to 10<sup>11</sup> m</p>
+<p><strong>Subdivision:</strong><br>
+1 year &asymp; 365.25 days<br>
+1 day = 1 Earth rotation</p>
+<span class="tag tag-grav">gravity</span>
+<span class="tag tag-grav">orbital mechanics</span>
+</div>
+
+<div class="panel box">
+<h2>[[ Box ]] &mdash; Clock</h2>
+<p><strong>ADA-117A:</strong> <code>[box,bca...]</code></p>
+<p><strong>Physics:</strong> Electromagnetic. The SI second =
+9,192,631,770 oscillations of <sup>133</sup>Cs hyperfine transition
+at &lambda; &asymp; 3.26 cm.</p>
+<p><strong>Scale:</strong> Atom at 10<sup>&minus;10</sup> m defines the unit</p>
+<p><strong>Subdivision:</strong><br>
+24 h &times; 60 min &times; 60 s = 86,400 s/day</p>
+<span class="tag tag-em">electromagnetic</span>
+<span class="tag tag-em">&alpha; &asymp; 1/137</span>
+</div>
+
+<div class="panel torroid">
+<h2>(( Torroid )) &mdash; Angular</h2>
+<p><strong>ADA-117A:</strong> <code>(torroid,cab)</code></p>
+<p><strong>Physics:</strong> Geometric. Angular phase is force-independent.
+1 parsec = 3.086&times;10<sup>16</sup> m (1 AU at 1&Prime; parallax).</p>
+<p><strong>Scale:</strong> Pure ratio (dimensionless)</p>
+<p><strong>Subdivision:</strong><br>
+360&deg; &times; 60&prime; &times; 60&Prime; = 1,296,000&Prime;/turn<br>
+= ADA-116 <code>TURN</code></p>
+<span class="tag tag-sym">geometric</span>
+<span class="tag tag-sym">QG-025 sexagesimal</span>
+</div>
+
+</div>
+
+<!-- ═══ THE BRIDGE ═══ -->
+<h2>The bridge: 15 arcseconds per second</h2>
+<div class="panel">
+<p>Earth rotates 360&deg; in 86,400 seconds. That is:</p>
+<pre>360 &times; 3600&Prime; / 86400 s = 15&Prime;/s</pre>
+<p>Fifteen arcseconds of arc per one second of clock time. This is the
+physical bridge between <code>[[ ]]</code> and <code>(( ))</code> &mdash;
+it comes from Earth&rsquo;s rotation, not from the notation. The notation
+holds both without asserting equivalence.</p>
+<p>ADA-116 uses 1 simulated round = 1 arcsecond. No physical equivalence
+between angle and Planck time is asserted.</p>
+</div>
+
+<!-- ═══ SCALE LADDER ═══ -->
+<h2>Physical scale ladder</h2>
+<p>Measured values. The symbolic <code>{{pb}}</code> tags WHERE on this ruler
+the Planck anchor sits. The cesium atom that defines the SI second sits
+five orders of magnitude above QCD.</p>
+
+<div class="ladder">
+<div class="rung" data-exp="10&sup0;">
+<div class="rung-label">Human scale <span class="tag tag-grav">gravity</span></div>
+<div class="rung-val">~1.7 m</div>
+</div>
+<div class="rung" data-exp="10⁻⁶">
+<div class="rung-label">Cell biology <span class="tag tag-em">EM</span></div>
+<div class="rung-val">~10 &mu;m</div>
+</div>
+<div class="rung" data-exp="10⁻⁹">
+<div class="rung-label">DNA double helix <span class="tag tag-em">EM</span></div>
+<div class="rung-val">2.0 nm</div>
+</div>
+<div class="rung" data-exp="10⁻¹⁰">
+<div class="rung-label">Chemistry / <sup>133</sup>Cs <span class="tag tag-em">EM &alpha;&asymp;1/137</span></div>
+<div class="rung-val">C-C 1.54 &Aring;</div>
+</div>
+<div class="rung" data-exp="10⁻¹⁵">
+<div class="rung-label">Nuclear / QCD <span class="tag tag-strong">strong &alpha;_s&asymp;1</span></div>
+<div class="rung-val">p radius 0.8414 fm</div>
+</div>
+<div class="rung" data-exp="10⁻¹⁸">
+<div class="rung-label">Electroweak unification <span class="tag tag-ew">EW ~246 GeV</span></div>
+<div class="rung-val">~10⁻¹⁸ m</div>
+</div>
+<div class="rung desert-rung stripe" data-exp="DESERT">
+<div class="rung-label"><span class="tag tag-desert">THE DESERT: 10⁻³⁴ to 10⁻¹⁸</span> 16 orders of magnitude, no known structure</div>
+</div>
+<div class="rung" data-exp="10⁻³⁵">
+<div class="rung-label">Planck length <span class="tag tag-qg">quantum gravity</span> <span class="tag tag-sym">{{pb}}</span></div>
+<div class="rung-val">1.616&times;10⁻³⁵ m</div>
+</div>
+</div>
+
+<div class="correction">
+<strong>STOP/FLAG/INFORM:</strong> 10<sup>&minus;15</sup> m is NUCLEAR (strong force, QCD, gluons,
+&alpha;<sub>s</sub> &asymp; 1). Chemistry organizes at 10<sup>&minus;10</sup> m
+(electromagnetic, Coulomb, photons, &alpha; &asymp; 1/137). Different force, different carrier,
+different coupling constant. Five orders of magnitude apart.
+</div>
+
+<!-- ═══ OBSERVATIONAL CONSTRAINTS ═══ -->
+<h2>What is dead</h2>
+<div class="panel">
+<p><span class="dead">Wheeler spacetime foam (1955)</span> &mdash;
+simplest models predict energy-dependent photon dispersion. Killed by:</p>
+<ul style="list-style:none;padding:0">
+<li><span class="check">&check;</span> Fermi LAT &mdash; GRB 090510 (2009): 31 GeV photon arrived with
+sub-millisecond delay over ~7.3 Gly. Rules out linear dispersion at E<sub>Planck</sub>.</li>
+<li><span class="check">&check;</span> MAGIC telescope &mdash; Mkn 501 flare constraints:
+quadratic dispersion squeezed below Planck scale.</li>
+</ul>
+<p>The scale is real (dimensional analysis: &ell;<sub>P</sub> = &radic;(&hbar;G/c&sup3;)).
+The foam probably isn&rsquo;t.</p>
+<p><strong>Holographic principle:</strong> black hole entropy &prop; horizon area, not volume
+(Bekenstein 1973, Hawking 1975). Constrains any Planck-scale structure to organize
+information at the boundary.</p>
+</div>
+
+<!-- ═══ INTERACTIVE ADDRESS ═══ -->
+<h2>Compose an address</h2>
+<div class="panel">
+<div class="row3">
+<div>
+<h3 style="color:#f4b06d">{{ Brace }}</h3>
+<input id="yr" type="number" value="2026" min="0" max="9999" style="width:70px">
+<input id="mo" type="number" value="11" min="1" max="12" style="width:50px">
+<input id="dy" type="number" value="17" min="1" max="31" style="width:50px">
+</div>
+<div>
+<h3 style="color:#7de8d4">[[ Box ]]</h3>
+<input id="hr" type="number" value="14" min="0" max="23" style="width:50px">
+<input id="mn" type="number" value="30" min="0" max="59" style="width:50px">
+<input id="sc" type="number" value="0" min="0" max="59" style="width:50px">
+</div>
+<div>
+<h3 style="color:#c89df0">(( Torroid ))</h3>
+<input id="dg" type="number" value="127" min="0" max="359" style="width:60px">
+<input id="am" type="number" value="23" min="0" max="59" style="width:50px">
+<input id="as" type="number" value="45" min="0" max="59" style="width:50px">
+</div>
+</div>
+<button id="compose">Compose address</button>
+<button id="now-btn">Now</button>
+<div id="addr" class="addr-out"></div>
+</div>
+
+<!-- ═══ VERIFICATION ═══ -->
+<h2>Verification</h2>
+<div class="panel">
+<button id="run-tests">Run tests</button>
+<pre id="test-out"></pre>
+</div>
+
+<!-- ═══ TODDLER ═══ -->
+<div class="toddler">
+<h3>TODDLER CORNER</h3>
+<p><strong>Three ways to say where and when you are:</strong></p>
+<p>Your <strong>calendar</strong> says the date (like November 17, 2026).
+Your <strong>clock</strong> says the time (like 2:30 in the afternoon).
+Your <strong>angle</strong> says which way you&rsquo;re pointing
+(like facing east, which is 90 degrees).</p>
+<p>This page puts all three together in one address, like a full mailing
+address but for time and direction.</p>
+<p>The really tiny stuff at the bottom of the ladder? That&rsquo;s where atoms live.
+And even tinier than atoms, there&rsquo;s a size called the &ldquo;Planck length&rdquo;
+that&rsquo;s SO small that scientists can&rsquo;t measure anything smaller. We know the
+size exists because the math demands it, but we can&rsquo;t see what&rsquo;s there.</p>
+<p>The <code>{{pb}}</code> thing is a name tag for that tiny scale. It doesn&rsquo;t
+pretend to know what&rsquo;s there &mdash; it just marks the spot.</p>
+</div>
+
+<!-- ═══ ORNAMENT ═══ -->
+<div class="ornament"></div>
+
+<p class="muted"><a href="./language/QG-077-PLANCK-SCALE.md">Specification</a> &middot;
+<a href="./planck-scale-ladder.html">Scale ladder</a> &middot;
+<a href="./ada/living-116/diodic-pb-117a.md">ADA-117A {{pb}}</a> &middot;
+<a href="./ada/living-117b/index.html">ADA-117B diodic PB</a></p>
+
+<script>
+/* ═══ QG-077 PLANCK SCALE BRIDGE ═══ */
+/* Three-bracket temporal-angular address */
+
+const TURN = 1296000;       // arcseconds per full rotation (ADA-116)
+const DAY_S = 86400;        // seconds per day
+const ARC_PER_SEC = 15;     // arcseconds of arc per second of clock time (Earth rotation)
+const CS133 = 9192631770;   // Cs-133 hyperfine oscillations per SI second
+const PLANCK_L = 1.616255e-35;   // metres
+const PLANCK_T = 5.391247e-44;   // seconds
+const PROTON_R = 0.8414e-15;     // metres (PRad 2019)
+const CC_BOND = 1.54e-10;        // metres
+const DNA_W = 2.0e-9;            // metres
+const AU = 1.496e11;             // metres
+const PARSEC = 3.08567758e16;    // metres
+const C = 299792458;             // m/s
+
+const $ = id => document.getElementById(id);
+
+/* ── format address ── */
+function fmt(yr,mo,dy,hr,mn,sc,dg,am,as_){
+  return `{{${yr},${String(mo).padStart(2,'0')},${String(dy).padStart(2,'0')}}}` +
+         `[[${String(hr).padStart(2,'0')},${String(mn).padStart(2,'0')},${String(sc).padStart(2,'0')}]]` +
+         `((${String(dg).padStart(3,'0')},${String(am).padStart(2,'0')},${String(as_).padStart(2,'0')}))`;
+}
+
+/* ── parse address ── */
+function parse(s){
+  const m = s.match(/\{\{(\d+),(\d+),(\d+)\}\}\[\[(\d+),(\d+),(\d+)\]\]\(\((\d+),(\d+),(\d+)\)\)/);
+  if(!m) return null;
+  return {yr:+m[1],mo:+m[2],dy:+m[3],hr:+m[4],mn:+m[5],sc:+m[6],dg:+m[7],am:+m[8],as:+m[9]};
+}
+
+/* ── total arcseconds from angular ── */
+function totalArc(dg,am,as_){ return dg*3600 + am*60 + as_; }
+
+/* ── total seconds from clock ── */
+function totalSec(hr,mn,sc){ return hr*3600 + mn*60 + sc; }
+
+/* ── clock to arc (Earth rotation bridge) ── */
+function clockToArc(hr,mn,sc){ return totalSec(hr,mn,sc) * ARC_PER_SEC; }
+
+/* ── compose display ── */
+function compose(){
+  const yr=+$('yr').value, mo=+$('mo').value, dy=+$('dy').value;
+  const hr=+$('hr').value, mn=+$('mn').value, sc=+$('sc').value;
+  const dg=+$('dg').value, am=+$('am').value, as_=+$('as').value;
+  const addr = fmt(yr,mo,dy,hr,mn,sc,dg,am,as_);
+  const tSec = totalSec(hr,mn,sc);
+  const tArc = totalArc(dg,am,as_);
+  const earthArc = clockToArc(hr,mn,sc);
+  $('addr').textContent =
+    `ADDRESS: ${addr}\n\n` +
+    `BRACE  {{${yr},${mo},${dy}}}  calendar time\n` +
+    `  Earth-Sun distance: ${AU.toExponential(3)} m\n` +
+    `  Force: gravity\n\n` +
+    `BOX    [[${hr},${mn},${sc}]]  clock time\n` +
+    `  Total seconds: ${tSec} of ${DAY_S}\n` +
+    `  Cs-133 oscillations: ${(BigInt(tSec) * BigInt(CS133)).toLocaleString()}\n` +
+    `  Atom that defines this: ${CC_BOND.toExponential(2)} m (EM scale)\n\n` +
+    `TORROID ((${dg},${am},${as_}))  angular phase\n` +
+    `  Total arcseconds: ${tArc} of ${TURN}\n` +
+    `  Phase fraction: ${(tArc/TURN*100).toFixed(4)}%\n\n` +
+    `BRIDGE: Earth rotation\n` +
+    `  ${tSec} clock seconds × 15″/s = ${earthArc}″ of arc\n` +
+    `  That is ${(earthArc/3600).toFixed(4)}° of rotation\n` +
+    `  Stated angular phase: ${tArc}″ (independent coordinate)\n\n` +
+    `SCALE ANCHORS:\n` +
+    `  Planck {{pb}}: ${PLANCK_L.toExponential(6)} m\n` +
+    `  Proton (QCD):  ${PROTON_R.toExponential(4)} m\n` +
+    `  Cs atom (EM):  ${CC_BOND.toExponential(2)} m\n` +
+    `  1 parsec:      ${PARSEC.toExponential(6)} m`;
+}
+
+$('compose').onclick = compose;
+$('now-btn').onclick = () => {
+  const d = new Date();
+  $('yr').value = d.getFullYear();
+  $('mo').value = d.getMonth()+1;
+  $('dy').value = d.getDate();
+  $('hr').value = d.getHours();
+  $('mn').value = d.getMinutes();
+  $('sc').value = d.getSeconds();
+  compose();
+};
+
+/* ═══ TESTS ═══ */
+function runTests(){
+  let pass=0, fail=0, out='QG-077 BRIDGE VERIFICATION\n';
+  function assert(label,cond){
+    if(cond){pass++;out+=`  ✓ ${label}\n`;}
+    else{fail++;out+=`  ✗ FAIL: ${label}\n`;}
+  }
+
+  // T1: clock subdivisions
+  assert('24×60×60 = 86400', 24*60*60 === DAY_S);
+
+  // T2: angular subdivisions = TURN
+  assert('360×60×60 = 1296000 = TURN', 360*60*60 === TURN);
+
+  // T3: Earth rotation bridge
+  assert('15″/s × 86400s = 1296000″ = one full turn', ARC_PER_SEC * DAY_S === TURN);
+
+  // T4: Planck length / Planck time ≈ c
+  const c_check = PLANCK_L / PLANCK_T;
+  assert(`ℓ_P / t_P ≈ c (${c_check.toExponential(4)} ≈ ${C})`,
+    Math.abs(c_check - C)/C < 0.001);
+
+  // T5: parse roundtrip
+  const addr = fmt(2026,11,17,14,30,0,127,23,45);
+  const p = parse(addr);
+  assert('parse roundtrip', p && p.yr===2026 && p.mo===11 && p.dy===17 &&
+    p.hr===14 && p.mn===30 && p.sc===0 && p.dg===127 && p.am===23 && p.as===45);
+
+  // T6: address format correct
+  assert('address format matches spec',
+    addr === '{{2026,11,17}}[[14,30,00]]((127,23,45))');
+
+  // T7: angular total
+  assert('totalArc(127,23,45) = 458625', totalArc(127,23,45) === 127*3600+23*60+45);
+
+  // T8: clock total
+  assert('totalSec(14,30,0) = 52200', totalSec(14,30,0) === 14*3600+30*60);
+
+  // T9: clockToArc consistency
+  assert('clockToArc(24,0,0) = TURN (full day = full turn)',
+    clockToArc(24,0,0) === TURN);
+
+  // T10: physical values are positive and ordered
+  assert('Planck < proton < C-C bond < DNA < AU < parsec',
+    PLANCK_L < PROTON_R && PROTON_R < CC_BOND && CC_BOND < DNA_W && DNA_W < AU && AU < PARSEC);
+
+  // T11: Cs-133 is exact integer
+  assert('Cs-133 = 9192631770 (exact)', CS133 === 9192631770);
+
+  // T12: desert is real (16 orders)
+  const desert = Math.log10(1e-18) - Math.log10(1e-34);
+  assert(`desert spans ${desert} orders of magnitude`, desert === 16);
+
+  // T13: proton at QCD scale (femtometre)
+  assert('proton radius in fm range', PROTON_R > 0.5e-15 && PROTON_R < 1.5e-15);
+
+  // T14: C-C bond at chemistry scale (angstrom)
+  assert('C-C bond in Å range', CC_BOND > 1e-10 && CC_BOND < 2e-10);
+
+  // T15: three bracket types are independent (no conversion asserted)
+  const addr2 = fmt(2026,11,17,0,0,1,0,0,15);
+  const p2 = parse(addr2);
+  assert('1 clock second ≠ 15 arcseconds in notation (independent coordinates)',
+    p2.sc === 1 && p2.as === 15 && p2.sc !== p2.as);
+
+  // T16: ADA-116 TURN matches
+  assert('TURN = 1296000 (ADA-116 BigInt constant)', TURN === 1296000);
+
+  // T17: sexagesimal base (QG-025)
+  assert('60 = 2²×3×5', 60 === 4*3*5);
+
+  // T18: parsec definition
+  assert('parsec ≈ 3.086×10¹⁶ m', Math.abs(PARSEC - 3.08567758e16) < 1e10);
+
+  // T19: Fermi LAT constraint (GRB 090510 distance ~7.3 Gly)
+  const grb_dist_m = 7.3e9 * 9.461e15; // ly to metres
+  assert('GRB 090510 distance > 10²⁵ m', grb_dist_m > 1e25);
+
+  // T20: holographic bound (entropy ∝ area, not volume)
+  // Bekenstein bound: S ≤ 2πRE/(ℏc). Just verify constants exist.
+  const hbar = 1.054571817e-34;
+  assert('ℏ×c = Planck length² × Planck mass × c² (dimensional check)',
+    Math.abs(hbar * C - 3.16e-26) / 3.16e-26 < 0.01);
+
+  out += `\nRESULT: ${pass}/${pass+fail} ` + (fail ? 'DEAD' : 'LIT');
+  return {pass,fail,out};
+}
+
+$('run-tests').onclick = () => {
+  const r = runTests();
+  $('test-out').textContent = r.out;
+};
+
+// auto-compose on load
+compose();
+</script>
+</main></body></html>

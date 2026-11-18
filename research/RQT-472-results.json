@@ -1,0 +1,51 @@
+{
+  "RQT": 472,
+  "sha256": "5f4f49b1d75d60d61961b8a0aede915707f6c5cf11e1a9d7e71f1d3a7d83c809",
+  "directions": 289,
+  "rows": [
+    {
+      "k": 1,
+      "old_bits": 1289,
+      "new_bits": 1213,
+      "reflections": 289,
+      "integral_reflections": 0,
+      "lines": 289,
+      "sieve_survivors": 0,
+      "best_z": 3
+    },
+    {
+      "k": 2,
+      "old_bits": 1408,
+      "new_bits": 1247,
+      "reflections": 289,
+      "integral_reflections": 0,
+      "lines": 289,
+      "sieve_survivors": 0,
+      "best_z": 3
+    },
+    {
+      "k": 4,
+      "old_bits": 1745,
+      "new_bits": 1412,
+      "reflections": 289,
+      "integral_reflections": 0,
+      "lines": 289,
+      "sieve_survivors": 0,
+      "best_z": 3
+    },
+    {
+      "k": 8,
+      "old_bits": 2428,
+      "new_bits": 1756,
+      "reflections": 289,
+      "integral_reflections": 0,
+      "lines": 289,
+      "sieve_survivors": 0,
+      "best_z": 3
+    }
+  ],
+  "hits": [],
+  "root19": "OPEN",
+  "prefix18": "UNVERIFIED",
+  "note": "Summary; exact vectors and source in local artifacts."
+}

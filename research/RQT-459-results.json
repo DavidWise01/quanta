@@ -1,0 +1,106 @@
+{
+  "RQT": 459,
+  "sha256": "5f4f49b1d75d60d61961b8a0aede915707f6c5cf11e1a9d7e71f1d3a7d83c809",
+  "prime": 5,
+  "regular_seeds": 20,
+  "rows": [
+    {
+      "exponent": 0,
+      "d1": 0,
+      "zero_d": 0,
+      "best_vector": [
+        "25",
+        "14",
+        "0",
+        "69876"
+      ],
+      "k": 8,
+      "modulus_bits": 38,
+      "seeds": 2,
+      "tests": 80,
+      "min_scaled_abs_norm_bits": 38,
+      "nontrivial_bits": 1077,
+      "primitive_nontrivial_bits": 1077,
+      "pure_d": 2
+    },
+    {
+      "exponent": 512,
+      "d1": 0,
+      "zero_d": 0,
+      "best_vector": [
+        "25",
+        "14",
+        "0",
+        "69876"
+      ],
+      "k": 8,
+      "modulus_bits": 38,
+      "seeds": 2,
+      "tests": 80,
+      "min_scaled_abs_norm_bits": 38,
+      "nontrivial_bits": 1077,
+      "primitive_nontrivial_bits": 1077,
+      "pure_d": 2
+    },
+    {
+      "exponent": 1024,
+      "d1": 0,
+      "zero_d": 0,
+      "best_vector": [
+        "25",
+        "14",
+        "0",
+        "69876"
+      ],
+      "k": 8,
+      "modulus_bits": 38,
+      "seeds": 2,
+      "tests": 80,
+      "min_scaled_abs_norm_bits": 38,
+      "nontrivial_bits": 1077,
+      "primitive_nontrivial_bits": 1077,
+      "pure_d": 2
+    },
+    {
+      "exponent": 1080,
+      "d1": 1,
+      "zero_d": 0,
+      "best_vector": [
+        "535",
+        "302",
+        "0",
+        "-28"
+      ],
+      "k": 8,
+      "modulus_bits": 38,
+      "seeds": 2,
+      "tests": 80,
+      "min_scaled_abs_norm_bits": 1086,
+      "nontrivial_bits": 1086,
+      "primitive_nontrivial_bits": 1086,
+      "pure_d": 0
+    },
+    {
+      "exponent": 1152,
+      "d1": 18,
+      "zero_d": 8,
+      "best_vector": [
+        "-8054",
+        "-4510",
+        "0",
+        "1"
+      ],
+      "k": 8,
+      "modulus_bits": 38,
+      "seeds": 2,
+      "tests": 80,
+      "min_scaled_abs_norm_bits": 1092,
+      "nontrivial_bits": 1092,
+      "primitive_nontrivial_bits": 1092,
+      "pure_d": 0
+    }
+  ],
+  "hits": [],
+  "root19": "OPEN",
+  "prefix18": "UNVERIFIED"
+}

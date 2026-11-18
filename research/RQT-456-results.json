@@ -1,0 +1,82 @@
+{
+  "RQT": 456,
+  "sha256": "5f4f49b1d75d60d61961b8a0aede915707f6c5cf11e1a9d7e71f1d3a7d83c809",
+  "directions": 44,
+  "distinct_bases": 14,
+  "searched_bases": 9,
+  "best": {
+    "v": [
+      25,
+      14,
+      0
+    ],
+    "U": [
+      [
+        -25,
+        -14,
+        0
+      ],
+      [
+        -384,
+        -215,
+        0
+      ],
+      [
+        "-386859733317892639425527741974187746751990",
+        "-217181777745076593397005009078943471106013",
+        1
+      ]
+    ],
+    "steps": 5,
+    "bits": [
+      [
+        1077,
+        1075,
+        1075
+      ],
+      [
+        1075,
+        1085,
+        1082
+      ],
+      [
+        1075,
+        1082,
+        1352
+      ]
+    ],
+    "score": 6746
+  },
+  "baseline_score": 6750,
+  "mods": [
+    8,
+    9,
+    5,
+    7,
+    11,
+    13,
+    17,
+    19,
+    23,
+    29,
+    31
+  ],
+  "counts": [
+    270899,
+    48906,
+    11036,
+    1664,
+    222,
+    24,
+    2,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "hits": [],
+  "root19": "OPEN",
+  "prefix18": "UNVERIFIED",
+  "note": "Summary. Full 14 basis records emitted by verifier. Large integers represented as strings in summary."
+}

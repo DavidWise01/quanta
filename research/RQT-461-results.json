@@ -1,0 +1,55 @@
+{
+  "RQT": 461,
+  "sha256": "5f4f49b1d75d60d61961b8a0aede915707f6c5cf11e1a9d7e71f1d3a7d83c809",
+  "identity_controls": 729,
+  "old_D_bits": 2161,
+  "reduced_D_bits": 2158,
+  "target_bits": 4600,
+  "ideal_index_bits": 1088,
+  "factors": {
+    "a": {
+      "factors": [
+        [
+          11,
+          1
+        ],
+        [
+          180497,
+          1
+        ]
+      ],
+      "cofactor_bits": 1067
+    },
+    "H": {
+      "factors": [
+        [
+          2,
+          1
+        ],
+        [
+          19,
+          1
+        ],
+        [
+          9781,
+          1
+        ],
+        [
+          290533,
+          1
+        ]
+      ],
+      "cofactor_bits": 2121
+    },
+    "N_over_a": {
+      "factors": [],
+      "cofactor_bits": 3512
+    }
+  },
+  "primes_screened": 78498,
+  "inert_primes": 39261,
+  "blockers_z3": [],
+  "root19": "OPEN",
+  "prefix18": "UNVERIFIED",
+  "note": "Summary; executable emits full ideal index and residue."
+}

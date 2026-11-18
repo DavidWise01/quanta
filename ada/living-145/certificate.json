@@ -1,0 +1,389 @@
+{
+  "experiment": "ADA-145",
+  "watermark": ".dlw",
+  "lineage": "ADA-144",
+  "results": [
+    {
+      "seedRange": [
+        47000,
+        47095
+      ],
+      "keys": 1026,
+      "queries": 1540,
+      "levels": [
+        {
+          "radius": 1,
+          "matches": 344,
+          "misses": 1196,
+          "adaptive": 179682,
+          "fixed": 196731,
+          "oracle": 1580040,
+          "adaptiveCells": 7016,
+          "fixedCells": 7700,
+          "depths": [
+            171,
+            1369,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "radius": 2,
+          "matches": 538,
+          "misses": 1002,
+          "adaptive": 383426,
+          "fixed": 458386,
+          "oracle": 1580040,
+          "adaptiveCells": 16584,
+          "fixedCells": 20020,
+          "depths": [
+            171,
+            173,
+            1196,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "radius": 3,
+          "matches": 798,
+          "misses": 742,
+          "adaptive": 578882,
+          "fixed": 759267,
+          "oracle": 1580040,
+          "adaptiveCells": 28608,
+          "fixedCells": 38500,
+          "depths": [
+            171,
+            173,
+            194,
+            1002,
+            0,
+            0
+          ]
+        },
+        {
+          "radius": 4,
+          "matches": 1240,
+          "misses": 300,
+          "adaptive": 712438,
+          "fixed": 1035459,
+          "oracle": 1580040,
+          "adaptiveCells": 40480,
+          "fixedCells": 63140,
+          "depths": [
+            171,
+            173,
+            194,
+            260,
+            742,
+            0
+          ]
+        },
+        {
+          "radius": 5,
+          "matches": 1524,
+          "misses": 16,
+          "adaptive": 755455,
+          "fixed": 1253122,
+          "oracle": 1580040,
+          "adaptiveCells": 46480,
+          "fixedCells": 93940,
+          "depths": [
+            171,
+            173,
+            194,
+            260,
+            442,
+            300
+          ]
+        }
+      ],
+      "operational": {
+        "records": 680,
+        "support": 156,
+        "decisions": 48,
+        "heals": 24,
+        "active": 4,
+        "stats": {
+          "exact": 0,
+          "family": 20,
+          "novel": 4,
+          "learned": 4,
+          "evicted": 0,
+          "accepted": 704,
+          "duplicates": 0,
+          "conflicts": 24,
+          "comparisons": 0,
+          "recalled": 0,
+          "approximateRecall": 0,
+          "oracleChecks": 0
+        },
+        "cost": {
+          "comparisons": 50,
+          "probes": 916,
+          "depth": 88,
+          "queries": 24
+        }
+      }
+    },
+    {
+      "seedRange": [
+        48000,
+        48095
+      ],
+      "keys": 1026,
+      "queries": 1540,
+      "levels": [
+        {
+          "radius": 1,
+          "matches": 344,
+          "misses": 1196,
+          "adaptive": 172855,
+          "fixed": 189117,
+          "oracle": 1580040,
+          "adaptiveCells": 7016,
+          "fixedCells": 7700,
+          "depths": [
+            171,
+            1369,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "radius": 2,
+          "matches": 533,
+          "misses": 1007,
+          "adaptive": 369897,
+          "fixed": 443210,
+          "oracle": 1580040,
+          "adaptiveCells": 16584,
+          "fixedCells": 20020,
+          "depths": [
+            171,
+            173,
+            1196,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "radius": 3,
+          "matches": 793,
+          "misses": 747,
+          "adaptive": 561736,
+          "fixed": 738289,
+          "oracle": 1580040,
+          "adaptiveCells": 28668,
+          "fixedCells": 38500,
+          "depths": [
+            171,
+            173,
+            189,
+            1007,
+            0,
+            0
+          ]
+        },
+        {
+          "radius": 4,
+          "matches": 1237,
+          "misses": 303,
+          "adaptive": 694965,
+          "fixed": 1013990,
+          "oracle": 1580040,
+          "adaptiveCells": 40620,
+          "fixedCells": 63140,
+          "depths": [
+            171,
+            173,
+            189,
+            260,
+            747,
+            0
+          ]
+        },
+        {
+          "radius": 5,
+          "matches": 1524,
+          "misses": 16,
+          "adaptive": 739597,
+          "fixed": 1237421,
+          "oracle": 1580040,
+          "adaptiveCells": 46680,
+          "fixedCells": 93940,
+          "depths": [
+            171,
+            173,
+            189,
+            260,
+            444,
+            303
+          ]
+        }
+      ],
+      "operational": {
+        "records": 649,
+        "support": 152,
+        "decisions": 48,
+        "heals": 24,
+        "active": 4,
+        "stats": {
+          "exact": 0,
+          "family": 20,
+          "novel": 4,
+          "learned": 4,
+          "evicted": 0,
+          "accepted": 673,
+          "duplicates": 0,
+          "conflicts": 24,
+          "comparisons": 0,
+          "recalled": 0,
+          "approximateRecall": 0,
+          "oracleChecks": 0
+        },
+        "cost": {
+          "comparisons": 40,
+          "probes": 852,
+          "depth": 84,
+          "queries": 24
+        }
+      }
+    },
+    {
+      "seedRange": [
+        49000,
+        49095
+      ],
+      "keys": 1026,
+      "queries": 1540,
+      "levels": [
+        {
+          "radius": 1,
+          "matches": 347,
+          "misses": 1193,
+          "adaptive": 176067,
+          "fixed": 193196,
+          "oracle": 1580040,
+          "adaptiveCells": 7016,
+          "fixedCells": 7700,
+          "depths": [
+            171,
+            1369,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "radius": 2,
+          "matches": 537,
+          "misses": 1003,
+          "adaptive": 376685,
+          "fixed": 452415,
+          "oracle": 1580040,
+          "adaptiveCells": 16560,
+          "fixedCells": 20020,
+          "depths": [
+            171,
+            176,
+            1193,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "radius": 3,
+          "matches": 786,
+          "misses": 754,
+          "adaptive": 571861,
+          "fixed": 752063,
+          "oracle": 1580040,
+          "adaptiveCells": 28596,
+          "fixedCells": 38500,
+          "depths": [
+            171,
+            176,
+            190,
+            1003,
+            0,
+            0
+          ]
+        },
+        {
+          "radius": 4,
+          "matches": 1221,
+          "misses": 319,
+          "adaptive": 708318,
+          "fixed": 1030245,
+          "oracle": 1580040,
+          "adaptiveCells": 40660,
+          "fixedCells": 63140,
+          "depths": [
+            171,
+            176,
+            190,
+            249,
+            754,
+            0
+          ]
+        },
+        {
+          "radius": 5,
+          "matches": 1531,
+          "misses": 9,
+          "adaptive": 754480,
+          "fixed": 1251621,
+          "oracle": 1580040,
+          "adaptiveCells": 47040,
+          "fixedCells": 93940,
+          "depths": [
+            171,
+            176,
+            190,
+            249,
+            435,
+            319
+          ]
+        }
+      ],
+      "operational": {
+        "records": 675,
+        "support": 157,
+        "decisions": 48,
+        "heals": 24,
+        "active": 5,
+        "stats": {
+          "exact": 0,
+          "family": 19,
+          "novel": 5,
+          "learned": 5,
+          "evicted": 0,
+          "accepted": 699,
+          "duplicates": 0,
+          "conflicts": 24,
+          "comparisons": 0,
+          "recalled": 0,
+          "approximateRecall": 0,
+          "oracleChecks": 0
+        },
+        "cost": {
+          "comparisons": 58,
+          "probes": 928,
+          "depth": 89,
+          "queries": 24
+        }
+      }
+    }
+  ],
+  "limitations": "Adaptive stopping proves nearest match within chosen maximum radius, not global similarity beyond it. Radius five operational choice; diagnostic only. Logical toroidal buckets, not physical geometry. Comparison counts exclude coordinate calculation, buckets and memory; exhaustive oracle executed separately for validation. Synthetic queries, unbounded archive."
+}

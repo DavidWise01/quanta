@@ -1,0 +1,503 @@
+{
+  "experiment": "ADA-130",
+  "watermark": ".dlw",
+  "lineage": "ADA-129",
+  "calibrationSeeds": [
+    12000,
+    12031
+  ],
+  "testSeeds": [
+    13000,
+    13063
+  ],
+  "calibration": [
+    {
+      "policy": "fifo",
+      "capacity": 8,
+      "cost": 702945,
+      "hits": 391,
+      "evictions": 28,
+      "resurrections": 18,
+      "compiled": 36,
+      "entries": 8
+    },
+    {
+      "policy": "lru",
+      "capacity": 8,
+      "cost": 688851,
+      "hits": 405,
+      "evictions": 24,
+      "resurrections": 14,
+      "compiled": 32,
+      "entries": 8
+    },
+    {
+      "policy": "lfu",
+      "capacity": 8,
+      "cost": 686421,
+      "hits": 415,
+      "evictions": 24,
+      "resurrections": 14,
+      "compiled": 32,
+      "entries": 8
+    }
+  ],
+  "policy": "lfu",
+  "test": [
+    {
+      "policy": "fifo",
+      "capacity": 8,
+      "cost": 1390284,
+      "hits": 753,
+      "evictions": 54,
+      "resurrections": 40,
+      "compiled": 62,
+      "entries": 8
+    },
+    {
+      "policy": "lru",
+      "capacity": 8,
+      "cost": 1345572,
+      "hits": 816,
+      "evictions": 43,
+      "resurrections": 29,
+      "compiled": 51,
+      "entries": 8
+    },
+    {
+      "policy": "lfu",
+      "capacity": 8,
+      "cost": 1322001,
+      "hits": 847,
+      "evictions": 37,
+      "resurrections": 23,
+      "compiled": 45,
+      "entries": 8
+    }
+  ],
+  "reference": {
+    "policy": "fifo",
+    "capacity": 64,
+    "cost": 1226745,
+    "hits": 986,
+    "evictions": 0,
+    "resurrections": 0,
+    "compiled": 22,
+    "entries": 22
+  },
+  "delta": 2.220446049250313e-16,
+  "verifiedRuns": 256,
+  "events": [
+    {
+      "clock": 6,
+      "key": "000000000000",
+      "event": "compile"
+    },
+    {
+      "clock": 69,
+      "key": "000000000010",
+      "event": "compile"
+    },
+    {
+      "clock": 88,
+      "key": "001000000000",
+      "event": "compile"
+    },
+    {
+      "clock": 95,
+      "key": "000010000000",
+      "event": "compile"
+    },
+    {
+      "clock": 137,
+      "key": "000000000001",
+      "event": "compile"
+    },
+    {
+      "clock": 140,
+      "key": "000000010000",
+      "event": "compile"
+    },
+    {
+      "clock": 141,
+      "key": "000100000000",
+      "event": "compile"
+    },
+    {
+      "clock": 147,
+      "key": "000000100000",
+      "event": "compile"
+    },
+    {
+      "clock": 160,
+      "key": "000000000001",
+      "event": "archive"
+    },
+    {
+      "clock": 160,
+      "key": "000000001000",
+      "event": "compile"
+    },
+    {
+      "clock": 178,
+      "key": "000100000000",
+      "event": "archive"
+    },
+    {
+      "clock": 178,
+      "key": "000000000100",
+      "event": "compile"
+    },
+    {
+      "clock": 265,
+      "key": "000000000100",
+      "event": "archive"
+    },
+    {
+      "clock": 265,
+      "key": "000001000000",
+      "event": "compile"
+    },
+    {
+      "clock": 274,
+      "key": "000001000000",
+      "event": "archive"
+    },
+    {
+      "clock": 274,
+      "key": "000000000001",
+      "event": "reconstruct"
+    },
+    {
+      "clock": 309,
+      "key": "000000000001",
+      "event": "archive"
+    },
+    {
+      "clock": 309,
+      "key": "010000000100",
+      "event": "compile"
+    },
+    {
+      "clock": 347,
+      "key": "010000000100",
+      "event": "archive"
+    },
+    {
+      "clock": 347,
+      "key": "100000000000",
+      "event": "compile"
+    },
+    {
+      "clock": 352,
+      "key": "100000000000",
+      "event": "archive"
+    },
+    {
+      "clock": 352,
+      "key": "000000000100",
+      "event": "reconstruct"
+    },
+    {
+      "clock": 363,
+      "key": "000000100000",
+      "event": "archive"
+    },
+    {
+      "clock": 363,
+      "key": "000000001001",
+      "event": "compile"
+    },
+    {
+      "clock": 369,
+      "key": "000000001001",
+      "event": "archive"
+    },
+    {
+      "clock": 369,
+      "key": "010000000000",
+      "event": "compile"
+    },
+    {
+      "clock": 379,
+      "key": "010000000000",
+      "event": "archive"
+    },
+    {
+      "clock": 379,
+      "key": "000100000000",
+      "event": "reconstruct"
+    },
+    {
+      "clock": 424,
+      "key": "000100000000",
+      "event": "archive"
+    },
+    {
+      "clock": 424,
+      "key": "100000000000",
+      "event": "reconstruct"
+    },
+    {
+      "clock": 429,
+      "key": "100000000000",
+      "event": "archive"
+    },
+    {
+      "clock": 429,
+      "key": "000000100000",
+      "event": "reconstruct"
+    },
+    {
+      "clock": 519,
+      "key": "000000000100",
+      "event": "archive"
+    },
+    {
+      "clock": 519,
+      "key": "000001000000",
+      "event": "reconstruct"
+    },
+    {
+      "clock": 552,
+      "key": "000001000000",
+      "event": "archive"
+    },
+    {
+      "clock": 552,
+      "key": "000000000001",
+      "event": "reconstruct"
+    },
+    {
+      "clock": 596,
+      "key": "000000000001",
+      "event": "archive"
+    },
+    {
+      "clock": 596,
+      "key": "100000000000",
+      "event": "reconstruct"
+    },
+    {
+      "clock": 624,
+      "key": "100000000000",
+      "event": "archive"
+    },
+    {
+      "clock": 624,
+      "key": "010000000000",
+      "event": "reconstruct"
+    },
+    {
+      "clock": 662,
+      "key": "010000000000",
+      "event": "archive"
+    },
+    {
+      "clock": 662,
+      "key": "000100000000",
+      "event": "reconstruct"
+    },
+    {
+      "clock": 686,
+      "key": "000100000000",
+      "event": "archive"
+    },
+    {
+      "clock": 686,
+      "key": "000000000100",
+      "event": "reconstruct"
+    },
+    {
+      "clock": 749,
+      "key": "000000000100",
+      "event": "archive"
+    },
+    {
+      "clock": 749,
+      "key": "100000000000",
+      "event": "reconstruct"
+    },
+    {
+      "clock": 758,
+      "key": "100000000000",
+      "event": "archive"
+    },
+    {
+      "clock": 758,
+      "key": "100000001000",
+      "event": "compile"
+    },
+    {
+      "clock": 831,
+      "key": "100000001000",
+      "event": "archive"
+    },
+    {
+      "clock": 831,
+      "key": "100000000100",
+      "event": "compile"
+    },
+    {
+      "clock": 857,
+      "key": "100000000100",
+      "event": "archive"
+    },
+    {
+      "clock": 857,
+      "key": "000100000100",
+      "event": "compile"
+    },
+    {
+      "clock": 882,
+      "key": "000100000100",
+      "event": "archive"
+    },
+    {
+      "clock": 882,
+      "key": "000000000001",
+      "event": "reconstruct"
+    },
+    {
+      "clock": 888,
+      "key": "000000000001",
+      "event": "archive"
+    },
+    {
+      "clock": 888,
+      "key": "000000000100",
+      "event": "reconstruct"
+    },
+    {
+      "clock": 915,
+      "key": "000000000100",
+      "event": "archive"
+    },
+    {
+      "clock": 915,
+      "key": "010000000000",
+      "event": "reconstruct"
+    },
+    {
+      "clock": 919,
+      "key": "010000000000",
+      "event": "archive"
+    },
+    {
+      "clock": 919,
+      "key": "000001000000",
+      "event": "reconstruct"
+    },
+    {
+      "clock": 977,
+      "key": "000001000000",
+      "event": "archive"
+    },
+    {
+      "clock": 977,
+      "key": "000000000001",
+      "event": "reconstruct"
+    },
+    {
+      "clock": 993,
+      "key": "000000000001",
+      "event": "archive"
+    },
+    {
+      "clock": 993,
+      "key": "100000000000",
+      "event": "reconstruct"
+    },
+    {
+      "clock": 1000,
+      "key": "100000000000",
+      "event": "archive"
+    },
+    {
+      "clock": 1000,
+      "key": "000000001001",
+      "event": "reconstruct"
+    },
+    {
+      "clock": 1002,
+      "key": "000000001001",
+      "event": "archive"
+    },
+    {
+      "clock": 1002,
+      "key": "010000000001",
+      "event": "compile"
+    },
+    {
+      "clock": 1015,
+      "key": "010000000001",
+      "event": "archive"
+    },
+    {
+      "clock": 1015,
+      "key": "000000000101",
+      "event": "compile"
+    },
+    {
+      "clock": 1093,
+      "key": "000000000101",
+      "event": "archive"
+    },
+    {
+      "clock": 1093,
+      "key": "000100000000",
+      "event": "reconstruct"
+    },
+    {
+      "clock": 1115,
+      "key": "000100000000",
+      "event": "archive"
+    },
+    {
+      "clock": 1115,
+      "key": "000000010001",
+      "event": "compile"
+    },
+    {
+      "clock": 1116,
+      "key": "000000010001",
+      "event": "archive"
+    },
+    {
+      "clock": 1116,
+      "key": "100000000000",
+      "event": "reconstruct"
+    },
+    {
+      "clock": 1142,
+      "key": "100000000000",
+      "event": "archive"
+    },
+    {
+      "clock": 1142,
+      "key": "010000000000",
+      "event": "reconstruct"
+    },
+    {
+      "clock": 1145,
+      "key": "010000000000",
+      "event": "archive"
+    },
+    {
+      "clock": 1145,
+      "key": "000100000001",
+      "event": "compile"
+    },
+    {
+      "clock": 1181,
+      "key": "000100000001",
+      "event": "archive"
+    },
+    {
+      "clock": 1181,
+      "key": "000000000001",
+      "event": "reconstruct"
+    }
+  ],
+  "assumptions": "8 matrix slots vs 64; 4096 counters each for recurrence, total and recency; archive metadata remains; only matrix payload reduction, not total memory; cost counts multiplication terms only."
+}

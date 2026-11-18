@@ -1,0 +1,290 @@
+{
+  "experiment": "ADA-141",
+  "watermark": ".dlw",
+  "lineage": "ADA-140",
+  "results": [
+    {
+      "seedRange": [
+        35000,
+        35063
+      ],
+      "records": 441,
+      "deliveries": 254,
+      "checks": 254,
+      "heals": 12,
+      "stats": {
+        "accept": 442,
+        "attenuate": 240,
+        "reject": 13,
+        "novelConflicts": 7,
+        "knownPatterns": 6
+      },
+      "baselineVariantChecks": 695,
+      "immuneVariantChecks": 455,
+      "finalVersion": 25,
+      "steps": [
+        {
+          "injury": 1,
+          "pattern": 0,
+          "version": 3,
+          "support": 34
+        },
+        {
+          "injury": 2,
+          "pattern": 0,
+          "version": 5,
+          "support": 34
+        },
+        {
+          "injury": 3,
+          "pattern": 0,
+          "version": 7,
+          "support": 34
+        },
+        {
+          "injury": 4,
+          "pattern": 0,
+          "version": 9,
+          "support": 34
+        },
+        {
+          "injury": 5,
+          "pattern": 0,
+          "version": 11,
+          "support": 34
+        },
+        {
+          "injury": 6,
+          "pattern": 0,
+          "version": 13,
+          "support": 34
+        },
+        {
+          "injury": 7,
+          "pattern": 2,
+          "version": 15,
+          "support": 34
+        },
+        {
+          "injury": 8,
+          "pattern": 3,
+          "version": 17,
+          "support": 34
+        },
+        {
+          "injury": 9,
+          "pattern": 4,
+          "version": 19,
+          "support": 34
+        },
+        {
+          "injury": 10,
+          "pattern": 5,
+          "version": 21,
+          "support": 34
+        },
+        {
+          "injury": 11,
+          "pattern": 1,
+          "version": 23,
+          "support": 34
+        },
+        {
+          "injury": 12,
+          "pattern": 2,
+          "version": 25,
+          "support": 34
+        }
+      ]
+    },
+    {
+      "seedRange": [
+        36000,
+        36063
+      ],
+      "records": 385,
+      "deliveries": 254,
+      "checks": 254,
+      "heals": 12,
+      "stats": {
+        "accept": 386,
+        "attenuate": 240,
+        "reject": 13,
+        "novelConflicts": 7,
+        "knownPatterns": 6
+      },
+      "baselineVariantChecks": 639,
+      "immuneVariantChecks": 399,
+      "finalVersion": 25,
+      "steps": [
+        {
+          "injury": 1,
+          "pattern": 0,
+          "version": 3,
+          "support": 34
+        },
+        {
+          "injury": 2,
+          "pattern": 0,
+          "version": 5,
+          "support": 34
+        },
+        {
+          "injury": 3,
+          "pattern": 0,
+          "version": 7,
+          "support": 34
+        },
+        {
+          "injury": 4,
+          "pattern": 0,
+          "version": 9,
+          "support": 34
+        },
+        {
+          "injury": 5,
+          "pattern": 0,
+          "version": 11,
+          "support": 34
+        },
+        {
+          "injury": 6,
+          "pattern": 0,
+          "version": 13,
+          "support": 34
+        },
+        {
+          "injury": 7,
+          "pattern": 2,
+          "version": 15,
+          "support": 34
+        },
+        {
+          "injury": 8,
+          "pattern": 3,
+          "version": 17,
+          "support": 34
+        },
+        {
+          "injury": 9,
+          "pattern": 4,
+          "version": 19,
+          "support": 34
+        },
+        {
+          "injury": 10,
+          "pattern": 5,
+          "version": 21,
+          "support": 34
+        },
+        {
+          "injury": 11,
+          "pattern": 1,
+          "version": 23,
+          "support": 34
+        },
+        {
+          "injury": 12,
+          "pattern": 2,
+          "version": 25,
+          "support": 34
+        }
+      ]
+    },
+    {
+      "seedRange": [
+        37000,
+        37063
+      ],
+      "records": 423,
+      "deliveries": 254,
+      "checks": 254,
+      "heals": 12,
+      "stats": {
+        "accept": 424,
+        "attenuate": 240,
+        "reject": 13,
+        "novelConflicts": 7,
+        "knownPatterns": 6
+      },
+      "baselineVariantChecks": 677,
+      "immuneVariantChecks": 437,
+      "finalVersion": 25,
+      "steps": [
+        {
+          "injury": 1,
+          "pattern": 0,
+          "version": 3,
+          "support": 34
+        },
+        {
+          "injury": 2,
+          "pattern": 0,
+          "version": 5,
+          "support": 34
+        },
+        {
+          "injury": 3,
+          "pattern": 0,
+          "version": 7,
+          "support": 34
+        },
+        {
+          "injury": 4,
+          "pattern": 0,
+          "version": 9,
+          "support": 34
+        },
+        {
+          "injury": 5,
+          "pattern": 0,
+          "version": 11,
+          "support": 34
+        },
+        {
+          "injury": 6,
+          "pattern": 0,
+          "version": 13,
+          "support": 34
+        },
+        {
+          "injury": 7,
+          "pattern": 2,
+          "version": 15,
+          "support": 34
+        },
+        {
+          "injury": 8,
+          "pattern": 3,
+          "version": 17,
+          "support": 34
+        },
+        {
+          "injury": 9,
+          "pattern": 4,
+          "version": 19,
+          "support": 34
+        },
+        {
+          "injury": 10,
+          "pattern": 5,
+          "version": 21,
+          "support": 34
+        },
+        {
+          "injury": 11,
+          "pattern": 1,
+          "version": 23,
+          "support": 34
+        },
+        {
+          "injury": 12,
+          "pattern": 2,
+          "version": 25,
+          "support": 34
+        }
+      ]
+    }
+  ],
+  "limitations": "Exact identity+payload repeat filter; pattern recognition diagnostic only, no automatic trust verdict. Reject means quarantine conflicting evidence, not erase. Counts variant checks avoided, not runtime savings; fingerprint lookup and metadata costs excluded. Operational view only; synthetic source, no authentication."
+}

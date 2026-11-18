@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Scale Ladder</title>
+<style>
+:root{--bg:#1a1812;--fg:#d4c9a8;--dim:#6b6248;--line:#3d362a;--accent:#c4956a;
+--nuclear:#e85d3a;--em:#4a9eff;--gravity:#8b5cf6;--strong:#e85d3a;--weak:#f59e0b;
+--qg:#c084fc;--desert:#2a2318;--foam:#1a0a2e}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font-family:'Courier New',monospace;
+min-height:100vh;overflow-x:hidden}
+.wrap{max-width:960px;margin:0 auto;padding:20px}
+h1{color:var(--accent);font-size:20px;margin-bottom:4px}
+.sub{color:var(--dim);font-size:12px;margin-bottom:20px}
+
+/* ── SCALE COLUMN ── */
+.scale{position:relative;margin:20px 0 20px 160px;border-left:3px solid var(--line);min-height:2000px}
+.tick{position:absolute;left:-3px;width:100%}
+.tick .power{position:absolute;left:-150px;width:140px;text-align:right;
+font-size:13px;color:var(--dim);top:-8px}
+.tick .bar{width:20px;height:3px;background:var(--line);display:inline-block}
+.tick .label{margin-left:28px;font-size:13px;position:absolute;top:-9px;white-space:nowrap}
+.tick .detail{margin-left:28px;font-size:11px;color:var(--dim);position:absolute;top:8px;
+max-width:500px;line-height:1.4}
+
+/* force regime bands */
+.regime{position:absolute;left:24px;right:20px;border-radius:4px;padding:6px 10px;
+font-size:11px;font-weight:bold;opacity:0.15;border:1px solid}
+.regime:hover{opacity:0.9;z-index:10}
+.regime .rtag{font-size:10px;font-weight:normal;opacity:0.8;display:block;margin-top:2px}
+
+/* desert band */
+.desert-band{position:absolute;left:-3px;right:20px;background:var(--desert);
+border:1px dashed #4a3d2a;border-left:3px solid #4a3d2a;opacity:0.6}
+.desert-label{position:absolute;left:50%;transform:translateX(-50%) rotate(-90deg);
+color:#7a6a4a;font-size:11px;white-space:nowrap;letter-spacing:2px}
+
+/* flag markers */
+.flag{font-weight:bold}
+.flag-nuclear{color:var(--nuclear)}
+.flag-em{color:var(--em)}
+.flag-qg{color:var(--qg)}
+.flag-strong{color:var(--strong)}
+.flag-weak{color:var(--weak)}
+.flag-gravity{color:var(--gravity)}
+.flag-chem{color:#22d3ee}
+.flag-dead{color:#ef4444;text-decoration:line-through;text-decoration-color:#ef4444}
+
+/* foam box */
+.foam-box{background:var(--foam);border:2px solid #6d28d9;border-radius:8px;
+padding:16px;margin:30px 0}
+.foam-box h3{color:#a78bfa;margin-bottom:8px;font-size:15px}
+
+/* legend */
+.legend{display:flex;flex-wrap:wrap;gap:12px;margin:16px 0;padding:12px;
+background:#0d0c08;border-radius:6px;border:1px solid var(--line)}
+.leg-item{display:flex;align-items:center;gap:6px;font-size:12px}
+.leg-dot{width:10px;height:10px;border-radius:50%;display:inline-block}
+
+/* force table */
+.ftable{width:100%;border-collapse:collapse;margin:16px 0;font-size:12px}
+.ftable th{text-align:left;padding:6px 8px;border-bottom:2px solid var(--line);color:var(--accent)}
+.ftable td{padding:5px 8px;border-bottom:1px solid #2a2318;vertical-align:top}
+.ftable tr:hover{background:#1f1c14}
+
+/* toddler */
+.toddler{background:#1a1f12;border:1px solid #3a4a2a;border-radius:6px;padding:12px;
+margin:20px 0;font-size:12px;line-height:1.6}
+.toddler h3{color:#86efac;font-size:14px;margin-bottom:6px}
+
+/* ornament */
+.ornament{text-align:center;color:var(--dim);font-size:10px;margin:20px 0;opacity:0.4}
+</style>
+</head><body>
+<div class="wrap">
+<h1>SCALE LADDER: PLANCK TO HUMAN</h1>
+<div class="sub">Real measured values · force regimes · the desert · the foam question</div>
+
+<!-- LEGEND -->
+<div class="legend">
+<div class="leg-item"><span class="leg-dot" style="background:var(--qg)"></span> Quantum gravity (unknown)</div>
+<div class="leg-item"><span class="leg-dot" style="background:var(--strong)"></span> Strong / QCD</div>
+<div class="leg-item"><span class="leg-dot" style="background:var(--weak)"></span> Weak / electroweak</div>
+<div class="leg-item"><span class="leg-dot" style="background:var(--em)"></span> Electromagnetic</div>
+<div class="leg-item"><span class="leg-dot" style="background:var(--gravity)"></span> Gravity (classical)</div>
+<div class="leg-item"><span class="leg-dot" style="background:#22d3ee"></span> Chemistry (EM bonds)</div>
+</div>
+
+<!-- FORCE TABLE -->
+<table class="ftable">
+<tr><th>Scale (m)</th><th>Name</th><th>Force</th><th>What organizes</th><th>Measured?</th></tr>
+<tr><td class="flag-qg">10⁻³⁵</td><td>Planck length</td><td>Quantum gravity</td><td>Spacetime structure (foam?)</td><td>No — 10²⁰× below collider reach</td></tr>
+<tr><td style="color:var(--dim)">10⁻³⁴ to 10⁻¹⁹</td><td colspan="3" style="color:#7a6a4a">THE DESERT — no known structure organizes here — 16 orders of magnitude empty</td><td>—</td></tr>
+<tr><td class="flag-weak">10⁻¹⁸</td><td>Attometer</td><td>Electroweak</td><td>W±/Z⁰ bosons, Higgs field</td><td>Yes — LHC reaches here</td></tr>
+<tr><td class="flag-nuclear">10⁻¹⁵</td><td>Femtometer</td><td><b>STRONG (QCD)</b></td><td>Protons, neutrons, nuclei</td><td>Yes — e⁻ scattering since 1950s</td></tr>
+<tr><td style="color:var(--dim)">10⁻¹²</td><td>Picometer</td><td>EM (Coulomb)</td><td>Inner electron shells, X-ray λ</td><td>Yes — X-ray diffraction</td></tr>
+<tr><td class="flag-chem">10⁻¹⁰</td><td>Ångström</td><td><b>ELECTROMAGNETIC</b></td><td><b>CHEMISTRY — bonds, orbitals, molecules</b></td><td>Yes — crystallography, STM</td></tr>
+<tr><td style="color:#22d3ee">10⁻⁹</td><td>Nanometer</td><td>EM + vdW + H-bond</td><td>Proteins, DNA width (2nm), lipid bilayers</td><td>Yes — cryo-EM, AFM</td></tr>
+<tr><td style="color:var(--dim)">10⁻⁷</td><td>100 nm</td><td>EM</td><td>Visible light wavelength (380-700nm)</td><td>Yes — spectroscopy</td></tr>
+<tr><td style="color:var(--dim)">10⁻⁶</td><td>Micrometer</td><td>EM + entropy</td><td>Cells, bacteria, organelles</td><td>Yes — optical microscopy</td></tr>
+<tr><td style="color:var(--dim)">10⁻³</td><td>Millimeter</td><td>EM + gravity</td><td>Visible structure, insect scale</td><td>Yes — ruler</td></tr>
+<tr><td class="flag-gravity">10⁰</td><td>Meter</td><td>Gravity + EM</td><td>Human scale — gravity wins here</td><td>Yes — you</td></tr>
+</table>
+
+<!-- KEY CORRECTION -->
+<div style="background:#1a0a0a;border:2px solid #7f1d1d;border-radius:6px;padding:12px;margin:16px 0">
+<div style="color:#ef4444;font-weight:bold;font-size:14px">⚠ THE CORRECTION: 10⁻¹⁵ ≠ CHEMISTRY</div>
+<div style="font-size:12px;margin-top:6px;line-height:1.6">
+<b style="color:var(--nuclear)">10⁻¹⁵ m (femtometer)</b> — <b>Nuclear</b>. The <b>strong force</b> (QCD) confines quarks into protons and neutrons. Carrier: gluons. Coupling constant: α_s ≈ 1 (strong coupling). Proton charge radius: <b>0.8414 ± 0.0019 fm</b> (2019 PRad measurement).<br><br>
+<b style="color:#22d3ee">10⁻¹⁰ m (ångström)</b> — <b>Chemistry</b>. The <b>electromagnetic force</b> (Coulomb + exchange) binds electrons to nuclei, makes orbitals, makes bonds. Carrier: photons. Coupling constant: α ≈ 1/137 (weak coupling). C–C bond: <b>1.54 Å</b>. C=C: <b>1.34 Å</b>. O–H: <b>0.96 Å</b>.<br><br>
+Gap between them: <b>5 orders of magnitude</b>. Different force, different carrier, different coupling, different physics entirely. The strong force doesn't make molecules. The electromagnetic force doesn't confine quarks.
+</div>
+</div>
+
+<!-- VISUAL SCALE LADDER -->
+<div style="position:relative;margin:30px 0">
+<h3 style="color:var(--accent);font-size:14px;margin-bottom:12px">VISUAL SCALE (each row = 1 order of magnitude)</h3>
+<div id="ladder"></div>
+</div>
+
+<!-- FOAM BOX -->
+<div class="foam-box">
+<h3>THE PLANCK FOAM QUESTION</h3>
+<div style="font-size:12px;line-height:1.6">
+<b>Claim:</b> At 10⁻³⁵ m, spacetime itself fluctuates — topology changes, virtual wormholes, "foam."<br>
+<b>Argument FOR:</b> Heisenberg + GR. ΔE·Δt ≥ ℏ/2 at Planck time gives ΔE ~ E_Planck ≈ 1.22 × 10¹⁹ GeV.<br>
+That energy in a Planck volume makes a black hole. The metric cannot be smooth.<br><br>
+<b>Argument AGAINST (measured):</b><br>
+· Fermi LAT (2009): GRB 090510 photons from z=0.9 (7.3 Gly). No energy-dependent dispersion.<br>
+· Constraint: M_QG > 1.2 × E_Planck for linear dispersion (n=1 model DEAD).<br>
+· MAGIC (2020): Confirmed. Mrk 501 flare. Same result.<br>
+· Simplest foam models predict Δv/c ~ (E/E_P)^n · (L/l_P). Ruled out for n=1, constrained for n=2.<br><br>
+<b>Status:</b><br>
+· <span class="flag-dead">Wheeler foam (1955 picture, bubbling topology)</span> — simplest versions observationally dead.<br>
+· Structure at Planck scale — almost certain (dimensional analysis demands it).<br>
+· What that structure IS — unknown. Holographic principle says d.o.f. ∝ area, not volume.<br>
+· The desert (10⁻³⁵ to 10⁻¹⁸) means no experiment can probe between Planck and LHC.
+</div>
+</div>
+
+<!-- TODDLER VERSION -->
+<div class="toddler">
+<h3>PLAIN VERSION (the toddler corner)</h3>
+Imagine a ruler that goes from REALLY REALLY tiny to your height.<br><br>
+At the very bottom (10⁻³⁵): things are so small that space itself might be bumpy, like the surface of a sponge.
+But when scientists looked really carefully at light from far-away explosions, the light traveled perfectly smooth.
+So the "sponge" idea is probably wrong. Something is there, but it's not a sponge.<br><br>
+In the middle (10⁻¹⁵): this is where the bits inside atoms live — protons and neutrons. They're held together by the STRONG force, like super-strong glue.<br><br>
+A bit higher (10⁻¹⁰): this is where atoms hold hands to make molecules. That's CHEMISTRY. It uses a different, weaker "glue" — the electromagnetic force. This is where water, sugar, DNA, and everything you can touch gets built.<br><br>
+<b>The strong glue makes the pieces. The electromagnetic glue makes them hold hands. Different glue, different job.</b><br><br>
+Between the sponge and the glue? NOTHING. For 16 steps of the ruler, nothing organizes at all. That empty stretch is called the desert.
+</div>
+
+<!-- ornament -->
+<div class="ornament">── ORNAMENT: earth-tone feng shui scale · chi flows small→large · command position at human scale ──</div>
+
+</div><!-- /wrap -->
+
+<script>
+// Build the visual ladder
+(function(){
+var el=document.getElementById('ladder');
+var scales=[
+{p:-35,name:'Planck length',val:'1.616×10⁻³⁵ m',force:'quantum gravity',color:'#c084fc',
+ note:'ℏG/c³ collide. Foam question lives here.'},
+{p:-34,name:'',val:'',force:'',color:'#4a3d2a',note:''},
+{p:-33,name:'',val:'',force:'THE',color:'#4a3d2a',note:''},
+{p:-30,name:'',val:'',force:'DESERT',color:'#4a3d2a',note:'16 orders of magnitude — nothing organizes'},
+{p:-25,name:'',val:'',force:'',color:'#4a3d2a',note:'no known physics, no structure, no particles'},
+{p:-20,name:'',val:'',force:'',color:'#4a3d2a',note:''},
+{p:-18,name:'LHC resolution',val:'~10⁻¹⁸ m',force:'electroweak',color:'#f59e0b',
+ note:'Current collider reach. W±, Z⁰, Higgs confirmed here.'},
+{p:-15,name:'Femtometer (NUCLEAR)',val:'proton r = 0.8414 fm',force:'STRONG (QCD)',color:'#e85d3a',
+ note:'Quarks confined by gluons. α_s ≈ 1. NOT chemistry.'},
+{p:-12,name:'Picometer',val:'inner e⁻ orbitals',force:'EM (Coulomb)',color:'#4a9eff',
+ note:'X-ray wavelengths. Transition zone.'},
+{p:-10,name:'Ångström (CHEMISTRY)',val:'C–C = 1.54 Å, O–H = 0.96 Å',force:'ELECTROMAGNETIC',color:'#22d3ee',
+ note:'Bonds, orbitals, molecules. α ≈ 1/137. THIS is chemistry.'},
+{p:-9,name:'Nanometer',val:'DNA width = 2 nm',force:'EM + vdW + H-bond',color:'#22d3ee',
+ note:'Proteins fold. Lipids assemble. Life begins organizing.'},
+{p:-7,name:'Visible light λ',val:'380–700 nm',force:'EM',color:'#4a9eff',
+ note:'The window our eyes evolved for.'},
+{p:-6,name:'Micrometer',val:'cell ~10 μm',force:'EM + entropy',color:'#4a9eff',
+ note:'Bacteria, mitochondria, organelles.'},
+{p:-3,name:'Millimeter',val:'',force:'EM + gravity',color:'#8b8b8b',
+ note:'Visible to the naked eye.'},
+{p:0,name:'Meter (HUMAN)',val:'your body',force:'gravity dominates',color:'#8b5cf6',
+ note:'Gravity finally wins. EM still holds you together.'}
+];
+
+var html='';
+var totalH=36; // powers from -35 to 0 = 36 steps
+var rowH=52;
+for(var i=0;i<scales.length;i++){
+  var s=scales[i];
+  var isDes=s.color==='#4a3d2a';
+  var bg=isDes?'#1a1812':'#0d0c08';
+  var border=isDes?'1px dashed #3d362a':'1px solid #2a2318';
+  html+='<div style="display:flex;align-items:center;gap:0;border-bottom:'+border+';background:'+bg+';min-height:'+rowH+'px;padding:4px 0">';
+  // power label
+  html+='<div style="width:60px;text-align:right;padding-right:10px;font-size:12px;color:'+s.color+'">10<sup>'+s.p+'</sup></div>';
+  // tick
+  html+='<div style="width:3px;min-height:'+rowH+'px;background:'+(isDes?'#3d362a':s.color)+'"></div>';
+  // content
+  html+='<div style="padding:4px 12px;flex:1">';
+  if(s.name){
+    html+='<div style="font-size:13px;color:'+s.color+';font-weight:bold">'+s.name;
+    if(s.force) html+=' <span style="font-size:11px;color:var(--dim);font-weight:normal">[ '+s.force+' ]</span>';
+    html+='</div>';
+  }
+  if(s.val) html+='<div style="font-size:11px;color:#9a9070">'+s.val+'</div>';
+  if(s.note) html+='<div style="font-size:11px;color:'+(isDes?'#5a4d3a':'#7a7258')+'">'+s.note+'</div>';
+  html+='</div></div>';
+}
+el.innerHTML=html;
+})();
+</script>
+</body></html>

@@ -1,0 +1,101 @@
+{
+  "experiment": "ADA-140",
+  "watermark": ".dlw",
+  "lineage": "ADA-139",
+  "results": [
+    {
+      "seedRange": [
+        32000,
+        32063
+      ],
+      "records": 416,
+      "available": 84,
+      "initialReserve": 50,
+      "damaged": 33,
+      "restored": 34,
+      "firstReplacement": "[\"ADA-synthetic-v1\",\"shift\",32039,40,63]",
+      "firstScan": 35,
+      "secondScan": 36,
+      "finalVersion": 5,
+      "exhausted": {
+        "restored": false,
+        "scanned": 84,
+        "available": 33
+      },
+      "checks": {
+        "withdraw": true,
+        "restore": true,
+        "prefix": true,
+        "duplicate": true,
+        "order": true,
+        "exhaustion": true,
+        "secondHealing": true,
+        "cleanRebuild": true,
+        "unrelated": true
+      }
+    },
+    {
+      "seedRange": [
+        33000,
+        33063
+      ],
+      "records": 381,
+      "available": 84,
+      "initialReserve": 50,
+      "damaged": 33,
+      "restored": 34,
+      "firstReplacement": "[\"ADA-synthetic-v1\",\"shift\",33040,72,95]",
+      "firstScan": 35,
+      "secondScan": 36,
+      "finalVersion": 5,
+      "exhausted": {
+        "restored": false,
+        "scanned": 84,
+        "available": 33
+      },
+      "checks": {
+        "withdraw": true,
+        "restore": true,
+        "prefix": true,
+        "duplicate": true,
+        "order": true,
+        "exhaustion": true,
+        "secondHealing": true,
+        "cleanRebuild": true,
+        "unrelated": true
+      }
+    },
+    {
+      "seedRange": [
+        34000,
+        34063
+      ],
+      "records": 406,
+      "available": 100,
+      "initialReserve": 66,
+      "damaged": 33,
+      "restored": 34,
+      "firstReplacement": "[\"ADA-synthetic-v1\",\"shift\",34012,72,95]",
+      "firstScan": 35,
+      "secondScan": 36,
+      "finalVersion": 5,
+      "exhausted": {
+        "restored": false,
+        "scanned": 100,
+        "available": 33
+      },
+      "checks": {
+        "withdraw": true,
+        "restore": true,
+        "prefix": true,
+        "duplicate": true,
+        "order": true,
+        "exhaustion": true,
+        "secondHealing": true,
+        "cleanRebuild": true,
+        "unrelated": true
+      }
+    }
+  ],
+  "limitations": "Fixed threshold 34; deterministic lexicographic event IDs; reserves already observed, not independent source roots. Admission view only, not live matrix cache. No contradiction adjudication or durable tamper-proof storage."
+}

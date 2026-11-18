@@ -1,0 +1,134 @@
+{
+  "experiment": "ADA-144",
+  "watermark": ".dlw",
+  "lineage": "ADA-143",
+  "results": [
+    {
+      "seedRange": [
+        44000,
+        44095
+      ],
+      "records": 667,
+      "supportPool": 166,
+      "decisions": 48,
+      "heals": 24,
+      "legitimate": 24,
+      "active": 8,
+      "stats": {
+        "exact": 0,
+        "family": 8,
+        "novel": 16,
+        "learned": 16,
+        "evicted": 16,
+        "accepted": 691,
+        "duplicates": 0,
+        "conflicts": 24,
+        "comparisons": 0,
+        "recalled": 8,
+        "approximateRecall": 8,
+        "oracleChecks": 24
+      },
+      "operational": {
+        "keys": 16,
+        "comparisons": 72,
+        "exhaustive": 248,
+        "cellProbes": 120
+      },
+      "stress": {
+        "keys": 1026,
+        "queries": 3078,
+        "matches": 2054,
+        "comparisons": 392762,
+        "exhaustive": 3158028,
+        "cellProbes": 15390,
+        "nonempty": 83,
+        "maxBucket": 63
+      }
+    },
+    {
+      "seedRange": [
+        45000,
+        45095
+      ],
+      "records": 559,
+      "supportPool": 99,
+      "decisions": 48,
+      "heals": 24,
+      "legitimate": 24,
+      "active": 8,
+      "stats": {
+        "exact": 0,
+        "family": 8,
+        "novel": 16,
+        "learned": 16,
+        "evicted": 16,
+        "accepted": 583,
+        "duplicates": 0,
+        "conflicts": 24,
+        "comparisons": 0,
+        "recalled": 8,
+        "approximateRecall": 8,
+        "oracleChecks": 24
+      },
+      "operational": {
+        "keys": 16,
+        "comparisons": 72,
+        "exhaustive": 248,
+        "cellProbes": 120
+      },
+      "stress": {
+        "keys": 1026,
+        "queries": 3078,
+        "matches": 2057,
+        "comparisons": 383169,
+        "exhaustive": 3158028,
+        "cellProbes": 15390,
+        "nonempty": 87,
+        "maxBucket": 51
+      }
+    },
+    {
+      "seedRange": [
+        46000,
+        46095
+      ],
+      "records": 644,
+      "supportPool": 142,
+      "decisions": 48,
+      "heals": 24,
+      "legitimate": 24,
+      "active": 8,
+      "stats": {
+        "exact": 0,
+        "family": 8,
+        "novel": 16,
+        "learned": 16,
+        "evicted": 16,
+        "accepted": 668,
+        "duplicates": 0,
+        "conflicts": 24,
+        "comparisons": 0,
+        "recalled": 8,
+        "approximateRecall": 8,
+        "oracleChecks": 24
+      },
+      "operational": {
+        "keys": 16,
+        "comparisons": 72,
+        "exhaustive": 248,
+        "cellProbes": 120
+      },
+      "stress": {
+        "keys": 1026,
+        "queries": 3078,
+        "matches": 2054,
+        "comparisons": 373517,
+        "exhaustive": 3158028,
+        "cellProbes": 15390,
+        "nonempty": 87,
+        "maxBucket": 52
+      }
+    }
+  ],
+  "limitations": "144 logical buckets not physical tesseract or bounded archive. Half-weight modulo 12 ensures radius-one candidate completeness; collisions verified by full Hamming distance. Oracle executed in validation, optional in production. Comparison counts exclude bucket operations, memory, and runtime. Scripted synthetic tests; admission view only. Initial 64 seeds per scenario insufficient for reserve stress; expanded all to 96."
+}

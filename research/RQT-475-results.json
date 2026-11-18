@@ -1,0 +1,82 @@
+{
+  "RQT": 475,
+  "sha256": "5f4f49b1d75d60d61961b8a0aede915707f6c5cf11e1a9d7e71f1d3a7d83c809",
+  "rows": [
+    {
+      "z": 3,
+      "best_bits": 1201,
+      "controls": 12,
+      "rows": 6561,
+      "checks": 52488,
+      "squares": 0
+    },
+    {
+      "z": 7,
+      "best_bits": 1197,
+      "controls": 12,
+      "rows": 6561,
+      "checks": 52488,
+      "squares": 0
+    },
+    {
+      "z": 9,
+      "best_bits": 1206,
+      "controls": 10,
+      "rows": 6561,
+      "checks": 52488,
+      "squares": 0
+    },
+    {
+      "z": 10,
+      "best_bits": 1206,
+      "controls": 11,
+      "rows": 6561,
+      "checks": 52488,
+      "squares": 0
+    },
+    {
+      "z": 13,
+      "best_bits": 1207,
+      "controls": 12,
+      "rows": 6561,
+      "checks": 52488,
+      "squares": 0
+    },
+    {
+      "z": 14,
+      "best_bits": 1199,
+      "controls": 14,
+      "rows": 6561,
+      "checks": 52488,
+      "squares": 0
+    },
+    {
+      "z": 17,
+      "best_bits": 1205,
+      "controls": 16,
+      "rows": 6561,
+      "checks": 52488,
+      "squares": 0
+    },
+    {
+      "z": 19,
+      "best_bits": 1207,
+      "controls": 8,
+      "rows": 6561,
+      "checks": 52488,
+      "squares": 0
+    },
+    {
+      "z": 22,
+      "best_bits": 1208,
+      "controls": 17,
+      "rows": 6561,
+      "checks": 52488,
+      "squares": 0
+    }
+  ],
+  "hits": [],
+  "root19": "OPEN",
+  "prefix18": "UNVERIFIED",
+  "note": "Summary; exact vectors in local certificate."
+}

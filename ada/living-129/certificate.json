@@ -1,0 +1,451 @@
+{
+  "experiment": "ADA-129",
+  "watermark": ".dlw",
+  "lineage": [
+    "ADA-127",
+    "ADA-128"
+  ],
+  "calibrationSeeds": [
+    10000,
+    10031
+  ],
+  "testSeeds": [
+    11000,
+    11063
+  ],
+  "calibration": [
+    {
+      "gate": 1,
+      "terms": 765396,
+      "groups": [
+        {
+          "scenario": "stable",
+          "scalar": 29745,
+          "matrix": 262,
+          "build": 78732,
+          "cost": 189189,
+          "loss": 1761.4110251830164
+        },
+        {
+          "scenario": "shift",
+          "scalar": 44019,
+          "matrix": 141,
+          "build": 52488,
+          "cost": 195966,
+          "loss": 3205.257451372278
+        },
+        {
+          "scenario": "recover",
+          "scalar": 43245,
+          "matrix": 137,
+          "build": 37908,
+          "cost": 178740,
+          "loss": 2862.638668412308
+        },
+        {
+          "scenario": "novel",
+          "scalar": 54180,
+          "matrix": 49,
+          "build": 34992,
+          "cost": 201501,
+          "loss": 3781.10329632823
+        }
+      ],
+      "hits": 519,
+      "misses": 70,
+      "bypasses": 0,
+      "evictions": 6,
+      "entries": 64
+    },
+    {
+      "gate": 2,
+      "terms": 653616,
+      "groups": [
+        {
+          "scenario": "stable",
+          "scalar": 32661,
+          "matrix": 235,
+          "build": 52488,
+          "cost": 169506,
+          "loss": 1761.4110251830164
+        },
+        {
+          "scenario": "shift",
+          "scalar": 45963,
+          "matrix": 123,
+          "build": 17496,
+          "cost": 165348,
+          "loss": 3205.257451372278
+        },
+        {
+          "scenario": "recover",
+          "scalar": 44649,
+          "matrix": 124,
+          "build": 2916,
+          "cost": 146907,
+          "loss": 2862.638668412308
+        },
+        {
+          "scenario": "novel",
+          "scalar": 55260,
+          "matrix": 39,
+          "build": 2916,
+          "cost": 171855,
+          "loss": 3781.10329632823
+        }
+      ],
+      "hits": 495,
+      "misses": 94,
+      "bypasses": 68,
+      "evictions": 0,
+      "entries": 26
+    },
+    {
+      "gate": 3,
+      "terms": 645354,
+      "groups": [
+        {
+          "scenario": "stable",
+          "scalar": 34605,
+          "matrix": 217,
+          "build": 37908,
+          "cost": 159300,
+          "loss": 1761.4110251830164
+        },
+        {
+          "scenario": "shift",
+          "scalar": 46611,
+          "matrix": 117,
+          "build": 8748,
+          "cost": 158058,
+          "loss": 3205.257451372278
+        },
+        {
+          "scenario": "recover",
+          "scalar": 44757,
+          "matrix": 123,
+          "build": 14580,
+          "cost": 158814,
+          "loss": 2862.638668412308
+        },
+        {
+          "scenario": "novel",
+          "scalar": 55368,
+          "matrix": 38,
+          "build": 0,
+          "cost": 169182,
+          "loss": 3781.10329632823
+        }
+      ],
+      "hits": 474,
+      "misses": 115,
+      "bypasses": 94,
+      "evictions": 0,
+      "entries": 21
+    },
+    {
+      "gate": 5,
+      "terms": 634176,
+      "groups": [
+        {
+          "scenario": "stable",
+          "scalar": 37413,
+          "matrix": 191,
+          "build": 37908,
+          "cost": 165618,
+          "loss": 1761.4110251830164
+        },
+        {
+          "scenario": "shift",
+          "scalar": 47043,
+          "matrix": 113,
+          "build": 0,
+          "cost": 150282,
+          "loss": 3205.257451372278
+        },
+        {
+          "scenario": "recover",
+          "scalar": 45405,
+          "matrix": 117,
+          "build": 2916,
+          "cost": 148608,
+          "loss": 2862.638668412308
+        },
+        {
+          "scenario": "novel",
+          "scalar": 55584,
+          "matrix": 36,
+          "build": 0,
+          "cost": 169668,
+          "loss": 3781.10329632823
+        }
+      ],
+      "hits": 443,
+      "misses": 146,
+      "bypasses": 132,
+      "evictions": 0,
+      "entries": 14
+    },
+    {
+      "gate": 8,
+      "terms": 641223,
+      "groups": [
+        {
+          "scenario": "stable",
+          "scalar": 41517,
+          "matrix": 153,
+          "build": 32076,
+          "cost": 169020,
+          "loss": 1761.4110251830164
+        },
+        {
+          "scenario": "shift",
+          "scalar": 47151,
+          "matrix": 112,
+          "build": 5832,
+          "cost": 156357,
+          "loss": 3205.257451372278
+        },
+        {
+          "scenario": "recover",
+          "scalar": 45621,
+          "matrix": 115,
+          "build": 0,
+          "cost": 146178,
+          "loss": 2862.638668412308
+        },
+        {
+          "scenario": "novel",
+          "scalar": 55584,
+          "matrix": 36,
+          "build": 0,
+          "cost": 169668,
+          "loss": 3781.10329632823
+        }
+      ],
+      "hits": 403,
+      "misses": 186,
+      "bypasses": 173,
+      "evictions": 0,
+      "entries": 13
+    },
+    {
+      "gate": 13,
+      "terms": 657018,
+      "groups": [
+        {
+          "scenario": "stable",
+          "scalar": 44865,
+          "matrix": 122,
+          "build": 5832,
+          "cost": 150309,
+          "loss": 1761.4110251830164
+        },
+        {
+          "scenario": "shift",
+          "scalar": 50067,
+          "matrix": 85,
+          "build": 17496,
+          "cost": 174582,
+          "loss": 3205.257451372278
+        },
+        {
+          "scenario": "recover",
+          "scalar": 46269,
+          "matrix": 109,
+          "build": 11664,
+          "cost": 159300,
+          "loss": 2862.638668412308
+        },
+        {
+          "scenario": "novel",
+          "scalar": 55692,
+          "matrix": 35,
+          "build": 2916,
+          "cost": 172827,
+          "loss": 3781.10329632823
+        }
+      ],
+      "hits": 338,
+      "misses": 251,
+      "bypasses": 238,
+      "evictions": 0,
+      "entries": 13
+    },
+    {
+      "gate": 21,
+      "terms": 656046,
+      "groups": [
+        {
+          "scenario": "stable",
+          "scalar": 45837,
+          "matrix": 113,
+          "build": 2916,
+          "cost": 149580,
+          "loss": 1761.4110251830164
+        },
+        {
+          "scenario": "shift",
+          "scalar": 52767,
+          "matrix": 60,
+          "build": 2916,
+          "cost": 166077,
+          "loss": 3205.257451372278
+        },
+        {
+          "scenario": "recover",
+          "scalar": 50157,
+          "matrix": 73,
+          "build": 8748,
+          "cost": 165132,
+          "loss": 2862.638668412308
+        },
+        {
+          "scenario": "novel",
+          "scalar": 56772,
+          "matrix": 25,
+          "build": 2916,
+          "cost": 175257,
+          "loss": 3781.10329632823
+        }
+      ],
+      "hits": 265,
+      "misses": 324,
+      "bypasses": 318,
+      "evictions": 0,
+      "entries": 6
+    }
+  ],
+  "gate": 5,
+  "evals": [
+    {
+      "terms": 1306746,
+      "groups": [
+        {
+          "scenario": "stable",
+          "scalar": 89487,
+          "matrix": 352,
+          "build": 0,
+          "cost": 296973,
+          "loss": 3749.2563496725065
+        },
+        {
+          "scenario": "shift",
+          "scalar": 104760,
+          "matrix": 178,
+          "build": 0,
+          "cost": 328698,
+          "loss": 6332.756806538671
+        },
+        {
+          "scenario": "recover",
+          "scalar": 103491,
+          "matrix": 167,
+          "build": 0,
+          "cost": 324000,
+          "loss": 5856.6506139654175
+        },
+        {
+          "scenario": "novel",
+          "scalar": 116298,
+          "matrix": 38,
+          "build": 0,
+          "cost": 351972,
+          "loss": 7554.4836888494265
+        }
+      ],
+      "hits": 0,
+      "misses": 0,
+      "bypasses": 0,
+      "evictions": 0,
+      "entries": 0
+    },
+    {
+      "terms": 1494990,
+      "groups": [
+        {
+          "scenario": "stable",
+          "scalar": 62550,
+          "matrix": 495,
+          "build": 93312,
+          "cost": 321057,
+          "loss": 3749.2563496725065
+        },
+        {
+          "scenario": "shift",
+          "scalar": 87192,
+          "matrix": 288,
+          "build": 93312,
+          "cost": 378216,
+          "loss": 6332.756806538671
+        },
+        {
+          "scenario": "recover",
+          "scalar": 87498,
+          "matrix": 264,
+          "build": 116640,
+          "cost": 400518,
+          "loss": 5856.6506139654175
+        },
+        {
+          "scenario": "novel",
+          "scalar": 107514,
+          "matrix": 105,
+          "build": 64152,
+          "cost": 395199,
+          "loss": 7554.4836888494265
+        }
+      ],
+      "hits": 1026,
+      "misses": 126,
+      "bypasses": 0,
+      "evictions": 62,
+      "entries": 64
+    },
+    {
+      "terms": 1234251,
+      "groups": [
+        {
+          "scenario": "stable",
+          "scalar": 72162,
+          "matrix": 406,
+          "build": 37908,
+          "cost": 287280,
+          "loss": 3749.2563496725065
+        },
+        {
+          "scenario": "shift",
+          "scalar": 92484,
+          "matrix": 239,
+          "build": 8748,
+          "cost": 305559,
+          "loss": 6332.756806538671
+        },
+        {
+          "scenario": "recover",
+          "scalar": 90198,
+          "matrix": 239,
+          "build": 11664,
+          "cost": 301617,
+          "loss": 5856.6506139654175
+        },
+        {
+          "scenario": "novel",
+          "scalar": 110106,
+          "matrix": 81,
+          "build": 2916,
+          "cost": 339795,
+          "loss": 7554.4836888494265
+        }
+      ],
+      "hits": 944,
+      "misses": 208,
+      "bypasses": 187,
+      "evictions": 0,
+      "entries": 21
+    }
+  ],
+  "delta": 4.440892098500626e-16,
+  "cost": "3 per scalar model update, 81 per matrix application, 243 per compiled observation, including ADA-127 precompute; excludes other operations",
+  "memory": "4096 uint32 recurrence counters; 64 FIFO operators; resets count on compile"
+}

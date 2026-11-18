@@ -1,0 +1,81 @@
+{
+  "experiment": "ADA-128",
+  "watermark": ".dlw",
+  "lineage": "ADA-127",
+  "seedRange": [
+    9000,
+    9063
+  ],
+  "blockLength": 12,
+  "capacity": 64,
+  "policy": "FIFO; cache shared across runs in group order; exact ordered keys",
+  "groups": [
+    {
+      "scenario": "stable",
+      "runs": 64,
+      "rawTokens": 12843,
+      "encodedTokens": 6925,
+      "scalarUpdates": 57483,
+      "matrixApplications": 538,
+      "priorScalar": 87885,
+      "priorMatrix": 359,
+      "hits": 503,
+      "misses": 35,
+      "evictions": 0,
+      "buildTerms": 102060,
+      "multiplyTerms": 318087,
+      "priorMultiplyTerms": 292734
+    },
+    {
+      "scenario": "shift",
+      "runs": 64,
+      "rawTokens": 13125,
+      "encodedTokens": 9638,
+      "scalarUpdates": 83889,
+      "matrixApplications": 317,
+      "priorScalar": 103644,
+      "priorMatrix": 190,
+      "hits": 263,
+      "misses": 54,
+      "evictions": 25,
+      "buildTerms": 157464,
+      "multiplyTerms": 434808,
+      "priorMultiplyTerms": 326322
+    },
+    {
+      "scenario": "recover",
+      "runs": 64,
+      "rawTokens": 12843,
+      "encodedTokens": 9521,
+      "scalarUpdates": 82971,
+      "matrixApplications": 302,
+      "priorScalar": 102789,
+      "priorMatrix": 167,
+      "hits": 261,
+      "misses": 41,
+      "evictions": 41,
+      "buildTerms": 119556,
+      "multiplyTerms": 392931,
+      "priorMultiplyTerms": 321894
+    },
+    {
+      "scenario": "novel",
+      "runs": 64,
+      "rawTokens": 13200,
+      "encodedTokens": 12276,
+      "scalarUpdates": 109728,
+      "matrixApplications": 84,
+      "priorScalar": 117540,
+      "priorMatrix": 17,
+      "hits": 50,
+      "misses": 34,
+      "evictions": 34,
+      "buildTerms": 99144,
+      "multiplyTerms": 435132,
+      "priorMultiplyTerms": 353997
+    }
+  ],
+  "maxDelta": 4.440892098500626e-16,
+  "priorPrecompute": 5103,
+  "limitations": "Multiplication term count only; includes cache construction, excludes other arithmetic, key scan and memory overhead. Raw evidence retained. Numerical equivalence not bit identity."
+}

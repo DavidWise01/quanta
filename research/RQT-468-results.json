@@ -1,0 +1,46 @@
+{
+  "RQT": 468,
+  "sha256": "5f4f49b1d75d60d61961b8a0aede915707f6c5cf11e1a9d7e71f1d3a7d83c809",
+  "z": 3,
+  "d": 1,
+  "primes": [
+    19,
+    9781,
+    290533,
+    11,
+    180497
+  ],
+  "rows": [
+    {
+      "k": 1,
+      "modulus_bits": 57,
+      "unique": 81,
+      "crt_controls": 405,
+      "min_scaled_residual_bits": 1298
+    },
+    {
+      "k": 2,
+      "modulus_bits": 114,
+      "unique": 81,
+      "crt_controls": 405,
+      "min_scaled_residual_bits": 1242
+    },
+    {
+      "k": 4,
+      "modulus_bits": 227,
+      "unique": 81,
+      "crt_controls": 405,
+      "min_scaled_residual_bits": 1298
+    },
+    {
+      "k": 8,
+      "modulus_bits": 453,
+      "unique": 81,
+      "crt_controls": 405,
+      "min_scaled_residual_bits": 1526
+    }
+  ],
+  "hits": [],
+  "root19": "OPEN",
+  "prefix18": "UNVERIFIED"
+}

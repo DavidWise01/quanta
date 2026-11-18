@@ -1,0 +1,400 @@
+{
+  "experiment": "ADA-133",
+  "watermark": ".dlw",
+  "lineage": [
+    "ADA-131",
+    "ADA-132"
+  ],
+  "calibrationSeeds": [
+    18000,
+    18031
+  ],
+  "testSeeds": [
+    19000,
+    19063
+  ],
+  "calibration": [
+    {
+      "g": 13,
+      "l": 32,
+      "cost": 682695,
+      "groups": [
+        {
+          "scenario": "stable",
+          "cost": 169236
+        },
+        {
+          "scenario": "shift",
+          "cost": 167157
+        },
+        {
+          "scenario": "recover",
+          "cost": 170451
+        },
+        {
+          "scenario": "novel",
+          "cost": 175851
+        }
+      ],
+      "hits": 23,
+      "builds": 1,
+      "evictions": 1,
+      "baseEvictions": 18,
+      "eligible": 215,
+      "graduates": 1,
+      "nursery": 53
+    },
+    {
+      "g": 13,
+      "l": 64,
+      "cost": 682209,
+      "groups": [
+        {
+          "scenario": "stable",
+          "cost": 169236
+        },
+        {
+          "scenario": "shift",
+          "cost": 167157
+        },
+        {
+          "scenario": "recover",
+          "cost": 169479
+        },
+        {
+          "scenario": "novel",
+          "cost": 176337
+        }
+      ],
+      "hits": 35,
+      "builds": 1,
+      "evictions": 0,
+      "baseEvictions": 19,
+      "eligible": 215,
+      "graduates": 1,
+      "nursery": 53
+    },
+    {
+      "g": 13,
+      "l": 128,
+      "cost": 682209,
+      "groups": [
+        {
+          "scenario": "stable",
+          "cost": 169236
+        },
+        {
+          "scenario": "shift",
+          "cost": 167157
+        },
+        {
+          "scenario": "recover",
+          "cost": 169479
+        },
+        {
+          "scenario": "novel",
+          "cost": 176337
+        }
+      ],
+      "hits": 35,
+      "builds": 1,
+      "evictions": 0,
+      "baseEvictions": 19,
+      "eligible": 215,
+      "graduates": 1,
+      "nursery": 53
+    },
+    {
+      "g": 21,
+      "l": 32,
+      "cost": 676539,
+      "groups": [
+        {
+          "scenario": "stable",
+          "cost": 168912
+        },
+        {
+          "scenario": "shift",
+          "cost": 163998
+        },
+        {
+          "scenario": "recover",
+          "cost": 167778
+        },
+        {
+          "scenario": "novel",
+          "cost": 175851
+        }
+      ],
+      "hits": 15,
+      "builds": 1,
+      "evictions": 1,
+      "baseEvictions": 16,
+      "eligible": 215,
+      "graduates": 1,
+      "nursery": 53
+    },
+    {
+      "g": 21,
+      "l": 64,
+      "cost": 676053,
+      "groups": [
+        {
+          "scenario": "stable",
+          "cost": 168912
+        },
+        {
+          "scenario": "shift",
+          "cost": 163998
+        },
+        {
+          "scenario": "recover",
+          "cost": 166806
+        },
+        {
+          "scenario": "novel",
+          "cost": 176337
+        }
+      ],
+      "hits": 27,
+      "builds": 1,
+      "evictions": 0,
+      "baseEvictions": 17,
+      "eligible": 215,
+      "graduates": 1,
+      "nursery": 53
+    },
+    {
+      "g": 21,
+      "l": 128,
+      "cost": 676053,
+      "groups": [
+        {
+          "scenario": "stable",
+          "cost": 168912
+        },
+        {
+          "scenario": "shift",
+          "cost": 163998
+        },
+        {
+          "scenario": "recover",
+          "cost": 166806
+        },
+        {
+          "scenario": "novel",
+          "cost": 176337
+        }
+      ],
+      "hits": 27,
+      "builds": 1,
+      "evictions": 0,
+      "baseEvictions": 17,
+      "eligible": 215,
+      "graduates": 1,
+      "nursery": 53
+    },
+    {
+      "g": 34,
+      "l": 32,
+      "cost": 673704,
+      "groups": [
+        {
+          "scenario": "stable",
+          "cost": 168507
+        },
+        {
+          "scenario": "shift",
+          "cost": 161568
+        },
+        {
+          "scenario": "recover",
+          "cost": 167778
+        },
+        {
+          "scenario": "novel",
+          "cost": 175851
+        }
+      ],
+      "hits": 2,
+      "builds": 1,
+      "evictions": 1,
+      "baseEvictions": 15,
+      "eligible": 215,
+      "graduates": 1,
+      "nursery": 53
+    },
+    {
+      "g": 34,
+      "l": 64,
+      "cost": 673218,
+      "groups": [
+        {
+          "scenario": "stable",
+          "cost": 168507
+        },
+        {
+          "scenario": "shift",
+          "cost": 161568
+        },
+        {
+          "scenario": "recover",
+          "cost": 166806
+        },
+        {
+          "scenario": "novel",
+          "cost": 176337
+        }
+      ],
+      "hits": 14,
+      "builds": 1,
+      "evictions": 0,
+      "baseEvictions": 16,
+      "eligible": 215,
+      "graduates": 1,
+      "nursery": 53
+    },
+    {
+      "g": 34,
+      "l": 128,
+      "cost": 673218,
+      "groups": [
+        {
+          "scenario": "stable",
+          "cost": 168507
+        },
+        {
+          "scenario": "shift",
+          "cost": 161568
+        },
+        {
+          "scenario": "recover",
+          "cost": 166806
+        },
+        {
+          "scenario": "novel",
+          "cost": 176337
+        }
+      ],
+      "hits": 14,
+      "builds": 1,
+      "evictions": 0,
+      "baseEvictions": 16,
+      "eligible": 215,
+      "graduates": 1,
+      "nursery": 53
+    }
+  ],
+  "selected": {
+    "gate": 34,
+    "lease": 64
+  },
+  "tests": [
+    {
+      "g": 13,
+      "l": 64,
+      "cost": 1327482,
+      "groups": [
+        {
+          "scenario": "stable",
+          "cost": 326970
+        },
+        {
+          "scenario": "shift",
+          "cost": 323622
+        },
+        {
+          "scenario": "recover",
+          "cost": 333288
+        },
+        {
+          "scenario": "novel",
+          "cost": 343602
+        }
+      ],
+      "hits": 0,
+      "builds": 0,
+      "evictions": 0,
+      "baseEvictions": 36,
+      "eligible": 0,
+      "graduates": 0,
+      "nursery": 0
+    },
+    {
+      "g": 13,
+      "l": 64,
+      "cost": 1369197,
+      "groups": [
+        {
+          "scenario": "stable",
+          "cost": 335232
+        },
+        {
+          "scenario": "shift",
+          "cost": 334557
+        },
+        {
+          "scenario": "recover",
+          "cost": 349650
+        },
+        {
+          "scenario": "novel",
+          "cost": 349758
+        }
+      ],
+      "hits": 54,
+      "builds": 52,
+      "evictions": 52,
+      "baseEvictions": 39,
+      "eligible": 396,
+      "graduates": 0,
+      "nursery": 0
+    },
+    {
+      "g": 34,
+      "l": 64,
+      "cost": 1358262,
+      "groups": [
+        {
+          "scenario": "stable",
+          "cost": 334260
+        },
+        {
+          "scenario": "shift",
+          "cost": 336339
+        },
+        {
+          "scenario": "recover",
+          "cost": 339930
+        },
+        {
+          "scenario": "novel",
+          "cost": 347733
+        }
+      ],
+      "hits": 69,
+      "builds": 1,
+      "evictions": 0,
+      "baseEvictions": 46,
+      "eligible": 396,
+      "graduates": 1,
+      "nursery": 79
+    }
+  ],
+  "delta": 2.220446049250313e-16,
+  "graduates": [
+    {
+      "clock": 286,
+      "key": "000000000000000000000000",
+      "event": "graduate",
+      "parents": [
+        "000000000000",
+        "000000000000"
+      ],
+      "count": 34,
+      "eligible": 33,
+      "seeds": 23
+    }
+  ],
+  "assumptions": "Witness roles share one synthetic source. Integrity check finite nonnegative entries; end-to-end equivalence checked separately. Past eligible encounters are proxy not guaranteed future reuse. One child slot within eight total matrices; metadata not bounded. Costs multiplication terms only."
+}

@@ -1,0 +1,257 @@
+{
+  "experiment": "ADA-139",
+  "watermark": ".dlw",
+  "lineage": "ADA-138",
+  "results": [
+    {
+      "seedRange": [
+        29000,
+        29063
+      ],
+      "records": 471,
+      "distinctKeys": 97,
+      "key": "000000000000000000000000",
+      "available": 88,
+      "before": {
+        "graduation": 1,
+        "operator": "ACTIVE",
+        "recurrence": 34,
+        "unrelated": "000000000000000000000100"
+      },
+      "after": {
+        "graduation": 0,
+        "operator": null,
+        "recurrence": 33,
+        "unrelated": "000000000000000000000100"
+      },
+      "versions": {
+        "recurrence": 2,
+        "graduation": 2,
+        "operator": 2,
+        "unrelated": 1
+      },
+      "eventsAfter": [
+        {
+          "kind": "observe",
+          "id": "[\"ADA-synthetic-v1\",\"stable\",29000,136,159]",
+          "bits": "100000000000000000000000",
+          "route": "W3"
+        },
+        {
+          "kind": "quarantine",
+          "id": "[\"ADA-synthetic-v1\",\"stable\",29000,136,159]"
+        },
+        {
+          "kind": "withdraw",
+          "id": "recurrence",
+          "version": 1
+        },
+        {
+          "kind": "withdraw",
+          "id": "graduation",
+          "version": 1
+        },
+        {
+          "kind": "withdraw",
+          "id": "operator",
+          "version": 1
+        },
+        {
+          "kind": "state",
+          "id": "recurrence",
+          "version": 2,
+          "result": 33
+        },
+        {
+          "kind": "state",
+          "id": "graduation",
+          "version": 2,
+          "result": 0
+        },
+        {
+          "kind": "state",
+          "id": "operator",
+          "version": 2,
+          "result": null
+        }
+      ],
+      "oldLength": 475,
+      "ledgerLength": 484,
+      "sourceDelta": 2.220446049250313e-16,
+      "checks": {
+        "prefixPreserved": true,
+        "duplicateIdempotent": true,
+        "reverseEquivalent": true,
+        "cleanRebuildEquivalent": true,
+        "unrelatedUntouched": true
+      }
+    },
+    {
+      "seedRange": [
+        30000,
+        30063
+      ],
+      "records": 407,
+      "distinctKeys": 98,
+      "key": "000000000000000000000000",
+      "available": 76,
+      "before": {
+        "graduation": 1,
+        "operator": "ACTIVE",
+        "recurrence": 34,
+        "unrelated": "000001000000000000000000"
+      },
+      "after": {
+        "graduation": 0,
+        "operator": null,
+        "recurrence": 33,
+        "unrelated": "000001000000000000000000"
+      },
+      "versions": {
+        "recurrence": 2,
+        "graduation": 2,
+        "operator": 2,
+        "unrelated": 1
+      },
+      "eventsAfter": [
+        {
+          "kind": "observe",
+          "id": "[\"ADA-synthetic-v1\",\"stable\",30001,136,159]",
+          "bits": "100000000000000000000000",
+          "route": "W3"
+        },
+        {
+          "kind": "quarantine",
+          "id": "[\"ADA-synthetic-v1\",\"stable\",30001,136,159]"
+        },
+        {
+          "kind": "withdraw",
+          "id": "recurrence",
+          "version": 1
+        },
+        {
+          "kind": "withdraw",
+          "id": "graduation",
+          "version": 1
+        },
+        {
+          "kind": "withdraw",
+          "id": "operator",
+          "version": 1
+        },
+        {
+          "kind": "state",
+          "id": "recurrence",
+          "version": 2,
+          "result": 33
+        },
+        {
+          "kind": "state",
+          "id": "graduation",
+          "version": 2,
+          "result": 0
+        },
+        {
+          "kind": "state",
+          "id": "operator",
+          "version": 2,
+          "result": null
+        }
+      ],
+      "oldLength": 411,
+      "ledgerLength": 420,
+      "sourceDelta": 2.220446049250313e-16,
+      "checks": {
+        "prefixPreserved": true,
+        "duplicateIdempotent": true,
+        "reverseEquivalent": true,
+        "cleanRebuildEquivalent": true,
+        "unrelatedUntouched": true
+      }
+    },
+    {
+      "seedRange": [
+        31000,
+        31063
+      ],
+      "records": 421,
+      "distinctKeys": 89,
+      "key": "000000000000000000000000",
+      "available": 100,
+      "before": {
+        "graduation": 1,
+        "operator": "ACTIVE",
+        "recurrence": 34,
+        "unrelated": "000001000000000000000000"
+      },
+      "after": {
+        "graduation": 0,
+        "operator": null,
+        "recurrence": 33,
+        "unrelated": "000001000000000000000000"
+      },
+      "versions": {
+        "recurrence": 2,
+        "graduation": 2,
+        "operator": 2,
+        "unrelated": 1
+      },
+      "eventsAfter": [
+        {
+          "kind": "observe",
+          "id": "[\"ADA-synthetic-v1\",\"stable\",31001,8,31]",
+          "bits": "100000000000000000000000",
+          "route": "W3"
+        },
+        {
+          "kind": "quarantine",
+          "id": "[\"ADA-synthetic-v1\",\"stable\",31001,8,31]"
+        },
+        {
+          "kind": "withdraw",
+          "id": "recurrence",
+          "version": 1
+        },
+        {
+          "kind": "withdraw",
+          "id": "graduation",
+          "version": 1
+        },
+        {
+          "kind": "withdraw",
+          "id": "operator",
+          "version": 1
+        },
+        {
+          "kind": "state",
+          "id": "recurrence",
+          "version": 2,
+          "result": 33
+        },
+        {
+          "kind": "state",
+          "id": "graduation",
+          "version": 2,
+          "result": 0
+        },
+        {
+          "kind": "state",
+          "id": "operator",
+          "version": 2,
+          "result": null
+        }
+      ],
+      "oldLength": 425,
+      "ledgerLength": 434,
+      "sourceDelta": 2.220446049250313e-16,
+      "checks": {
+        "prefixPreserved": true,
+        "duplicateIdempotent": true,
+        "reverseEquivalent": true,
+        "cleanRebuildEquivalent": true,
+        "unrelatedUntouched": true
+      }
+    }
+  ],
+  "limitations": "Operational admission view test, not actual Uplus matrix cache revocation. Fixed 34-event support set; no replacement support search. Synthetic contradiction, no truth adjudication. Append-only by API convention and frozen entries, not durable external tamper proof."
+}

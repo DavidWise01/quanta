@@ -1,0 +1,936 @@
+{
+  "experiment": "ADA-134",
+  "watermark": ".dlw",
+  "lineage": [
+    "ADA-131",
+    "ADA-133"
+  ],
+  "calibrationSeeds": [
+    20000,
+    20031
+  ],
+  "testSeeds": [
+    21000,
+    21063
+  ],
+  "calibration": [
+    {
+      "margin": 0.25,
+      "lease": 64,
+      "cost": 678996,
+      "groups": [
+        {
+          "scenario": "stable",
+          "cost": 177579
+        },
+        {
+          "scenario": "shift",
+          "cost": 158868
+        },
+        {
+          "scenario": "recover",
+          "cost": 161055
+        },
+        {
+          "scenario": "novel",
+          "cost": 181494
+        }
+      ],
+      "graduates": 0,
+      "denials": 17,
+      "hits": 0,
+      "evictions": 19,
+      "childEvictions": 0
+    },
+    {
+      "margin": 0.25,
+      "lease": 128,
+      "cost": 678996,
+      "groups": [
+        {
+          "scenario": "stable",
+          "cost": 177579
+        },
+        {
+          "scenario": "shift",
+          "cost": 158868
+        },
+        {
+          "scenario": "recover",
+          "cost": 161055
+        },
+        {
+          "scenario": "novel",
+          "cost": 181494
+        }
+      ],
+      "graduates": 0,
+      "denials": 17,
+      "hits": 0,
+      "evictions": 19,
+      "childEvictions": 0
+    },
+    {
+      "margin": 0.25,
+      "lease": 256,
+      "cost": 682236,
+      "groups": [
+        {
+          "scenario": "stable",
+          "cost": 177579
+        },
+        {
+          "scenario": "shift",
+          "cost": 159354
+        },
+        {
+          "scenario": "recover",
+          "cost": 161136
+        },
+        {
+          "scenario": "novel",
+          "cost": 184167
+        }
+      ],
+      "graduates": 1,
+      "denials": 0,
+      "hits": 16,
+      "evictions": 21,
+      "childEvictions": 0
+    },
+    {
+      "margin": 0.5,
+      "lease": 64,
+      "cost": 678996,
+      "groups": [
+        {
+          "scenario": "stable",
+          "cost": 177579
+        },
+        {
+          "scenario": "shift",
+          "cost": 158868
+        },
+        {
+          "scenario": "recover",
+          "cost": 161055
+        },
+        {
+          "scenario": "novel",
+          "cost": 181494
+        }
+      ],
+      "graduates": 0,
+      "denials": 17,
+      "hits": 0,
+      "evictions": 19,
+      "childEvictions": 0
+    },
+    {
+      "margin": 0.5,
+      "lease": 128,
+      "cost": 678996,
+      "groups": [
+        {
+          "scenario": "stable",
+          "cost": 177579
+        },
+        {
+          "scenario": "shift",
+          "cost": 158868
+        },
+        {
+          "scenario": "recover",
+          "cost": 161055
+        },
+        {
+          "scenario": "novel",
+          "cost": 181494
+        }
+      ],
+      "graduates": 0,
+      "denials": 17,
+      "hits": 0,
+      "evictions": 19,
+      "childEvictions": 0
+    },
+    {
+      "margin": 0.5,
+      "lease": 256,
+      "cost": 678996,
+      "groups": [
+        {
+          "scenario": "stable",
+          "cost": 177579
+        },
+        {
+          "scenario": "shift",
+          "cost": 158868
+        },
+        {
+          "scenario": "recover",
+          "cost": 161055
+        },
+        {
+          "scenario": "novel",
+          "cost": 181494
+        }
+      ],
+      "graduates": 0,
+      "denials": 17,
+      "hits": 0,
+      "evictions": 19,
+      "childEvictions": 0
+    },
+    {
+      "margin": 1,
+      "lease": 64,
+      "cost": 678996,
+      "groups": [
+        {
+          "scenario": "stable",
+          "cost": 177579
+        },
+        {
+          "scenario": "shift",
+          "cost": 158868
+        },
+        {
+          "scenario": "recover",
+          "cost": 161055
+        },
+        {
+          "scenario": "novel",
+          "cost": 181494
+        }
+      ],
+      "graduates": 0,
+      "denials": 17,
+      "hits": 0,
+      "evictions": 19,
+      "childEvictions": 0
+    },
+    {
+      "margin": 1,
+      "lease": 128,
+      "cost": 678996,
+      "groups": [
+        {
+          "scenario": "stable",
+          "cost": 177579
+        },
+        {
+          "scenario": "shift",
+          "cost": 158868
+        },
+        {
+          "scenario": "recover",
+          "cost": 161055
+        },
+        {
+          "scenario": "novel",
+          "cost": 181494
+        }
+      ],
+      "graduates": 0,
+      "denials": 17,
+      "hits": 0,
+      "evictions": 19,
+      "childEvictions": 0
+    },
+    {
+      "margin": 1,
+      "lease": 256,
+      "cost": 678996,
+      "groups": [
+        {
+          "scenario": "stable",
+          "cost": 177579
+        },
+        {
+          "scenario": "shift",
+          "cost": 158868
+        },
+        {
+          "scenario": "recover",
+          "cost": 161055
+        },
+        {
+          "scenario": "novel",
+          "cost": 181494
+        }
+      ],
+      "graduates": 0,
+      "denials": 17,
+      "hits": 0,
+      "evictions": 19,
+      "childEvictions": 0
+    },
+    {
+      "margin": 1.5,
+      "lease": 64,
+      "cost": 678996,
+      "groups": [
+        {
+          "scenario": "stable",
+          "cost": 177579
+        },
+        {
+          "scenario": "shift",
+          "cost": 158868
+        },
+        {
+          "scenario": "recover",
+          "cost": 161055
+        },
+        {
+          "scenario": "novel",
+          "cost": 181494
+        }
+      ],
+      "graduates": 0,
+      "denials": 17,
+      "hits": 0,
+      "evictions": 19,
+      "childEvictions": 0
+    },
+    {
+      "margin": 1.5,
+      "lease": 128,
+      "cost": 678996,
+      "groups": [
+        {
+          "scenario": "stable",
+          "cost": 177579
+        },
+        {
+          "scenario": "shift",
+          "cost": 158868
+        },
+        {
+          "scenario": "recover",
+          "cost": 161055
+        },
+        {
+          "scenario": "novel",
+          "cost": 181494
+        }
+      ],
+      "graduates": 0,
+      "denials": 17,
+      "hits": 0,
+      "evictions": 19,
+      "childEvictions": 0
+    },
+    {
+      "margin": 1.5,
+      "lease": 256,
+      "cost": 678996,
+      "groups": [
+        {
+          "scenario": "stable",
+          "cost": 177579
+        },
+        {
+          "scenario": "shift",
+          "cost": 158868
+        },
+        {
+          "scenario": "recover",
+          "cost": 161055
+        },
+        {
+          "scenario": "novel",
+          "cost": 181494
+        }
+      ],
+      "graduates": 0,
+      "denials": 17,
+      "hits": 0,
+      "evictions": 19,
+      "childEvictions": 0
+    }
+  ],
+  "selected": {
+    "margin": 1.5,
+    "lease": 256
+  },
+  "tests": [
+    {
+      "forward": {
+        "margin": 1.5,
+        "lease": 256,
+        "cost": 1357641,
+        "groups": [
+          {
+            "scenario": "stable",
+            "cost": 322839
+          },
+          {
+            "scenario": "shift",
+            "cost": 339012
+          },
+          {
+            "scenario": "recover",
+            "cost": 332559
+          },
+          {
+            "scenario": "novel",
+            "cost": 363231
+          }
+        ],
+        "graduates": 0,
+        "denials": 0,
+        "hits": 0,
+        "evictions": 48,
+        "childEvictions": 0
+      },
+      "reverse": {
+        "margin": 1.5,
+        "lease": 256,
+        "cost": 1373922,
+        "groups": [
+          {
+            "scenario": "novel",
+            "cost": 374409
+          },
+          {
+            "scenario": "recover",
+            "cost": 336933
+          },
+          {
+            "scenario": "shift",
+            "cost": 351162
+          },
+          {
+            "scenario": "stable",
+            "cost": 311418
+          }
+        ],
+        "graduates": 0,
+        "denials": 0,
+        "hits": 0,
+        "evictions": 52,
+        "childEvictions": 0
+      }
+    },
+    {
+      "forward": {
+        "margin": 1.5,
+        "lease": 256,
+        "cost": 1379187,
+        "groups": [
+          {
+            "scenario": "stable",
+            "cost": 323406
+          },
+          {
+            "scenario": "shift",
+            "cost": 349866
+          },
+          {
+            "scenario": "recover",
+            "cost": 339120
+          },
+          {
+            "scenario": "novel",
+            "cost": 366795
+          }
+        ],
+        "graduates": 1,
+        "denials": 0,
+        "hits": 33,
+        "evictions": 55,
+        "childEvictions": 0
+      },
+      "reverse": {
+        "margin": 1.5,
+        "lease": 256,
+        "cost": 1394739,
+        "groups": [
+          {
+            "scenario": "novel",
+            "cost": 374409
+          },
+          {
+            "scenario": "recover",
+            "cost": 336933
+          },
+          {
+            "scenario": "shift",
+            "cost": 351162
+          },
+          {
+            "scenario": "stable",
+            "cost": 332235
+          }
+        ],
+        "graduates": 1,
+        "denials": 0,
+        "hits": 33,
+        "evictions": 59,
+        "childEvictions": 0
+      }
+    },
+    {
+      "forward": {
+        "margin": 1.5,
+        "lease": 256,
+        "cost": 1357641,
+        "groups": [
+          {
+            "scenario": "stable",
+            "cost": 322839
+          },
+          {
+            "scenario": "shift",
+            "cost": 339012
+          },
+          {
+            "scenario": "recover",
+            "cost": 332559
+          },
+          {
+            "scenario": "novel",
+            "cost": 363231
+          }
+        ],
+        "graduates": 0,
+        "denials": 34,
+        "hits": 0,
+        "evictions": 48,
+        "childEvictions": 0
+      },
+      "reverse": {
+        "margin": 1.5,
+        "lease": 256,
+        "cost": 1373922,
+        "groups": [
+          {
+            "scenario": "novel",
+            "cost": 374409
+          },
+          {
+            "scenario": "recover",
+            "cost": 336933
+          },
+          {
+            "scenario": "shift",
+            "cost": 351162
+          },
+          {
+            "scenario": "stable",
+            "cost": 311418
+          }
+        ],
+        "graduates": 0,
+        "denials": 34,
+        "hits": 0,
+        "evictions": 52,
+        "childEvictions": 0
+      }
+    }
+  ],
+  "canonical133": {
+    "forward": {
+      "margin": 1,
+      "lease": 64,
+      "cost": 1361853,
+      "groups": [
+        {
+          "scenario": "stable",
+          "cost": 323406
+        },
+        {
+          "scenario": "shift",
+          "cost": 342657
+        },
+        {
+          "scenario": "recover",
+          "cost": 332559
+        },
+        {
+          "scenario": "novel",
+          "cost": 363231
+        }
+      ],
+      "graduates": 1,
+      "denials": 0,
+      "hits": 4,
+      "evictions": 49,
+      "childEvictions": 1
+    },
+    "reverse": {
+      "margin": 1,
+      "lease": 64,
+      "cost": 1394739,
+      "groups": [
+        {
+          "scenario": "novel",
+          "cost": 374409
+        },
+        {
+          "scenario": "recover",
+          "cost": 336933
+        },
+        {
+          "scenario": "shift",
+          "cost": 351162
+        },
+        {
+          "scenario": "stable",
+          "cost": 332235
+        }
+      ],
+      "graduates": 1,
+      "denials": 0,
+      "hits": 33,
+      "evictions": 59,
+      "childEvictions": 0
+    }
+  },
+  "delta": 0,
+  "decisions": [
+    {
+      "clock": 434,
+      "key": "000000000000000000000000",
+      "victim": "000001000000",
+      "futureUses": 19.64651162790698,
+      "victimUses": 9.43778801843318,
+      "gross": 1591.3674418604653,
+      "required": 8907.573732718894,
+      "admit": false
+    },
+    {
+      "clock": 453,
+      "key": "000000000000000000000000",
+      "victim": "010000000000",
+      "futureUses": 19.385300668151448,
+      "victimUses": 9.041942604856512,
+      "gross": 1570.2093541202673,
+      "required": 8763.288079470198,
+      "admit": false
+    },
+    {
+      "clock": 462,
+      "key": "000000000000000000000000",
+      "victim": "000000001000",
+      "futureUses": 19.563318777292576,
+      "victimUses": 9.41991341991342,
+      "gross": 1584.6288209606987,
+      "required": 8901.058441558442,
+      "admit": false
+    },
+    {
+      "clock": 504,
+      "key": "000000000000000000000000",
+      "victim": "100000000000",
+      "futureUses": 18.432,
+      "victimUses": 5.079365079365079,
+      "gross": 1492.992,
+      "required": 7318.928571428571,
+      "admit": false
+    },
+    {
+      "clock": 514,
+      "key": "000000000000000000000000",
+      "victim": "000100000000",
+      "futureUses": 18.572549019607845,
+      "victimUses": 7.968871595330739,
+      "gross": 1504.3764705882354,
+      "required": 8372.153696498055,
+      "admit": false
+    },
+    {
+      "clock": 597,
+      "key": "000000000000000000000000",
+      "victim": "000001000000",
+      "futureUses": 16.404721753794266,
+      "victimUses": 9.00502512562814,
+      "gross": 1328.7824620573356,
+      "required": 8749.831658291458,
+      "admit": false
+    },
+    {
+      "clock": 608,
+      "key": "000000000000000000000000",
+      "victim": "000000000001",
+      "futureUses": 16.52980132450331,
+      "victimUses": 11.368421052631579,
+      "gross": 1338.9139072847681,
+      "required": 9611.28947368421,
+      "admit": false
+    },
+    {
+      "clock": 626,
+      "key": "000000000000000000000000",
+      "victim": "000100000000",
+      "futureUses": 16.463022508038584,
+      "victimUses": 8.996805111821086,
+      "gross": 1333.5048231511253,
+      "required": 8746.835463258785,
+      "admit": false
+    },
+    {
+      "clock": 634,
+      "key": "000000000000000000000000",
+      "victim": "000100000000",
+      "futureUses": 16.66031746031746,
+      "victimUses": 8.883280757097792,
+      "gross": 1349.4857142857145,
+      "required": 8705.455835962144,
+      "admit": false
+    },
+    {
+      "clock": 638,
+      "key": "000000000000000000000000",
+      "victim": "000100000000",
+      "futureUses": 16.958990536277604,
+      "victimUses": 8.827586206896552,
+      "gross": 1373.678233438486,
+      "required": 8685.155172413793,
+      "admit": false
+    },
+    {
+      "clock": 651,
+      "key": "000000000000000000000000",
+      "victim": "001000000000",
+      "futureUses": 17.013910355486864,
+      "victimUses": 7.864823348694316,
+      "gross": 1378.126738794436,
+      "required": 8334.228110599079,
+      "admit": false
+    },
+    {
+      "clock": 690,
+      "key": "000000000000000000000000",
+      "victim": "000100000001",
+      "futureUses": 16.419825072886297,
+      "victimUses": 1.855072463768116,
+      "gross": 1330.0058309037902,
+      "required": 6143.673913043478,
+      "admit": false
+    },
+    {
+      "clock": 697,
+      "key": "000000000000000000000000",
+      "victim": "000100000001",
+      "futureUses": 16.623376623376622,
+      "victimUses": 1.836441893830703,
+      "gross": 1346.4935064935064,
+      "required": 6136.883070301291,
+      "admit": false
+    },
+    {
+      "clock": 709,
+      "key": "000000000000000000000000",
+      "victim": "000100000001",
+      "futureUses": 16.70354609929078,
+      "victimUses": 1.8053596614950636,
+      "gross": 1352.9872340425532,
+      "required": 6125.553596614951,
+      "admit": false
+    },
+    {
+      "clock": 737,
+      "key": "000000000000000000000000",
+      "victim": "001000000000",
+      "futureUses": 16.414733969986358,
+      "victimUses": 8.683853459972863,
+      "gross": 1329.593451568895,
+      "required": 8632.764586160109,
+      "admit": false
+    },
+    {
+      "clock": 753,
+      "key": "000000000000000000000000",
+      "victim": "001000000000",
+      "futureUses": 16.405874499332445,
+      "victimUses": 8.49933598937583,
+      "gross": 1328.875834445928,
+      "required": 8565.50796812749,
+      "admit": false
+    },
+    {
+      "clock": 799,
+      "key": "000000000000000000000000",
+      "victim": "000000100000",
+      "futureUses": 15.778616352201258,
+      "victimUses": 7.048811013767209,
+      "gross": 1278.067924528302,
+      "required": 8036.791614518148,
+      "admit": false
+    },
+    {
+      "clock": 807,
+      "key": "000000000000000000000000",
+      "victim": "000000100000",
+      "futureUses": 15.940224159402241,
+      "victimUses": 6.978934324659232,
+      "gross": 1291.1581569115815,
+      "required": 8011.321561338291,
+      "admit": false
+    },
+    {
+      "clock": 878,
+      "key": "000000000000000000000000",
+      "victim": "000100000000",
+      "futureUses": 14.938215102974828,
+      "victimUses": 8.455580865603645,
+      "gross": 1209.995423340961,
+      "required": 8549.55922551253,
+      "admit": false
+    },
+    {
+      "clock": 882,
+      "key": "000000000000000000000000",
+      "victim": "000100000000",
+      "futureUses": 15.161731207289295,
+      "victimUses": 8.417233560090702,
+      "gross": 1228.1002277904329,
+      "required": 8535.58163265306,
+      "admit": false
+    },
+    {
+      "clock": 911,
+      "key": "000000000000000000000000",
+      "victim": "000000000001",
+      "futureUses": 14.959206174200661,
+      "victimUses": 10.11635565312843,
+      "gross": 1211.6957001102535,
+      "required": 9154.911635565313,
+      "admit": false
+    },
+    {
+      "clock": 914,
+      "key": "000000000000000000000000",
+      "victim": "000000000001",
+      "futureUses": 15.19120879120879,
+      "victimUses": 10.083150984682714,
+      "gross": 1230.487912087912,
+      "required": 9142.80853391685,
+      "admit": false
+    },
+    {
+      "clock": 921,
+      "key": "000000000000000000000000",
+      "victim": "000000000001",
+      "futureUses": 15.354416575790621,
+      "victimUses": 10.006514657980455,
+      "gross": 1243.7077426390404,
+      "required": 9114.874592833876,
+      "admit": false
+    },
+    {
+      "clock": 923,
+      "key": "000000000000000000000000",
+      "victim": "000000000001",
+      "futureUses": 15.59956474428727,
+      "victimUses": 9.984832069339111,
+      "gross": 1263.5647442872687,
+      "required": 9106.971289274106,
+      "admit": false
+    },
+    {
+      "clock": 983,
+      "key": "000000000000000000000000",
+      "victim": "000001000000",
+      "futureUses": 14.905005107252299,
+      "victimUses": 9.375381485249237,
+      "gross": 1207.3054136874362,
+      "required": 8884.826551373348,
+      "admit": false
+    },
+    {
+      "clock": 988,
+      "key": "000000000000000000000000",
+      "victim": "000001000000",
+      "futureUses": 15.089430894308943,
+      "victimUses": 9.327935222672064,
+      "gross": 1222.2439024390244,
+      "required": 8867.532388663967,
+      "admit": false
+    },
+    {
+      "clock": 997,
+      "key": "000000000000000000000000",
+      "victim": "000001000000",
+      "futureUses": 15.210473313192347,
+      "victimUses": 9.243731193580743,
+      "gross": 1232.04833836858,
+      "required": 8836.84002006018,
+      "admit": false
+    },
+    {
+      "clock": 1030,
+      "key": "000000000000000000000000",
+      "victim": "000000000100",
+      "futureUses": 14.970760233918128,
+      "victimUses": 10.438834951456311,
+      "gross": 1212.6315789473683,
+      "required": 9272.455339805827,
+      "admit": false
+    },
+    {
+      "clock": 1044,
+      "key": "000000000000000000000000",
+      "victim": "100000010000",
+      "futureUses": 15.015384615384615,
+      "victimUses": 1.2260536398467432,
+      "gross": 1216.246153846154,
+      "required": 5914.396551724138,
+      "admit": false
+    },
+    {
+      "clock": 1052,
+      "key": "000000000000000000000000",
+      "victim": "100000010000",
+      "futureUses": 15.145038167938932,
+      "victimUses": 1.2167300380228137,
+      "gross": 1226.7480916030534,
+      "required": 5910.998098859315,
+      "admit": false
+    },
+    {
+      "clock": 1062,
+      "key": "000000000000000000000000",
+      "victim": "001000000000",
+      "futureUses": 15.243856332703213,
+      "victimUses": 9.160075329566855,
+      "gross": 1234.7523629489604,
+      "required": 8806.347457627118,
+      "admit": false
+    },
+    {
+      "clock": 1069,
+      "key": "000000000000000000000000",
+      "victim": "000000100000",
+      "futureUses": 15.384037558685446,
+      "victimUses": 6.944808231992516,
+      "gross": 1246.107042253521,
+      "required": 7998.882600561272,
+      "admit": false
+    },
+    {
+      "clock": 1094,
+      "key": "000000000000000000000000",
+      "victim": "000000100000",
+      "futureUses": 15.26605504587156,
+      "victimUses": 7.020109689213894,
+      "gross": 1236.5504587155965,
+      "required": 8026.329981718464,
+      "admit": false
+    },
+    {
+      "clock": 1195,
+      "key": "000000000000000000000000",
+      "victim": "001000000000",
+      "futureUses": 14.18639798488665,
+      "victimUses": 9.211715481171549,
+      "gross": 1149.0982367758186,
+      "required": 8825.170292887029,
+      "admit": false
+    }
+  ],
+  "assumptions": "Estimate gross savings from historical eligible pair frequency over lease; charge displaced parent reconstruction plus expected extra scalar arithmetic. Proxy not measured future opportunity cost. Eight shared matrix slots; metadata unbounded; multiplication terms only. Same synthetic source."
+}

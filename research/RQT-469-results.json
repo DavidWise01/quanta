@@ -1,0 +1,67 @@
+{
+  "RQT": 469,
+  "sha256": "5f4f49b1d75d60d61961b8a0aede915707f6c5cf11e1a9d7e71f1d3a7d83c809",
+  "z": 3,
+  "d": 1,
+  "rows": [
+    {
+      "k": 1,
+      "modulus_bits": 57,
+      "cosets": 81,
+      "complete_rows": 6561,
+      "real_rows": 6561,
+      "exact_squares": 0,
+      "coordinate_controls": 26244,
+      "integral_hits": 0,
+      "baseline_bits": 1355,
+      "optimized_bits": 1255,
+      "baseline_scaled_bits": 1298,
+      "optimized_scaled_bits": 1198
+    },
+    {
+      "k": 2,
+      "modulus_bits": 114,
+      "cosets": 81,
+      "complete_rows": 6561,
+      "real_rows": 6561,
+      "exact_squares": 0,
+      "coordinate_controls": 26244,
+      "integral_hits": 0,
+      "baseline_bits": 1355,
+      "optimized_bits": 1317,
+      "baseline_scaled_bits": 1242,
+      "optimized_scaled_bits": 1204
+    },
+    {
+      "k": 4,
+      "modulus_bits": 227,
+      "cosets": 81,
+      "complete_rows": 6561,
+      "real_rows": 6561,
+      "exact_squares": 0,
+      "coordinate_controls": 26244,
+      "integral_hits": 0,
+      "baseline_bits": 1525,
+      "optimized_bits": 1518,
+      "baseline_scaled_bits": 1298,
+      "optimized_scaled_bits": 1292
+    },
+    {
+      "k": 8,
+      "modulus_bits": 453,
+      "cosets": 81,
+      "complete_rows": 6561,
+      "real_rows": 6561,
+      "exact_squares": 0,
+      "coordinate_controls": 26244,
+      "integral_hits": 0,
+      "baseline_bits": 1978,
+      "optimized_bits": 1975,
+      "baseline_scaled_bits": 1526,
+      "optimized_scaled_bits": 1522
+    }
+  ],
+  "hits": [],
+  "root19": "OPEN",
+  "prefix18": "UNVERIFIED"
+}

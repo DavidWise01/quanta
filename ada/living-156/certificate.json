@@ -1,0 +1,494 @@
+{
+  "experiment": "ADA-156",
+  "watermark": ".dlw",
+  "lineage": "ADA-155",
+  "results": [
+    {
+      "seed": 80000,
+      "primary": {
+        "threshold": 0.995,
+        "trials": 2400,
+        "steps": 16796,
+        "baseline": {
+          "threshold": 0.995,
+          "n": 2400,
+          "selected": 625,
+          "correct": 622,
+          "wrong": 3,
+          "unknownAccepted": 2,
+          "spent": 21313,
+          "requests": 14396,
+          "evaluations": 277911,
+          "precision": 0.9952,
+          "coverage": 0.2604166666666667,
+          "decisionChecks": 83757,
+          "stops": {
+            "budget": 1775,
+            "confidence": 625
+          },
+          "lowGainFinishes": 433,
+          "lowGainCorrect": 432,
+          "completionOpportunities": 673,
+          "proxy": 26871.22
+        },
+        "adaptive": {
+          "threshold": 0.995,
+          "n": 2400,
+          "selected": 625,
+          "correct": 622,
+          "wrong": 3,
+          "unknownAccepted": 2,
+          "spent": 21313,
+          "requests": 14396,
+          "evaluations": 277911,
+          "precision": 0.9952,
+          "coverage": 0.2604166666666667,
+          "decisionChecks": 83757,
+          "stops": {
+            "budget": 1775,
+            "confidence": 625
+          },
+          "lowGainFinishes": 433,
+          "lowGainCorrect": 432,
+          "completionOpportunities": 673,
+          "proxy": 26871.22
+        },
+        "oldVisits": 71145216,
+        "spectralVisits": 4299776,
+        "oldAdds": 35353043,
+        "spectralAdds": 51345372
+      },
+      "fallback": {
+        "threshold": 0.9,
+        "trials": 256,
+        "steps": 1386,
+        "baseline": {
+          "threshold": 0.9,
+          "n": 256,
+          "selected": 145,
+          "correct": 132,
+          "wrong": 13,
+          "unknownAccepted": 10,
+          "spent": 1596,
+          "requests": 1130,
+          "evaluations": 22390,
+          "precision": 0.9103448275862069,
+          "coverage": 0.56640625,
+          "decisionChecks": 11241,
+          "stops": {
+            "budget": 111,
+            "confidence": 145
+          },
+          "lowGainFinishes": 1,
+          "lowGainCorrect": 1,
+          "completionOpportunities": 146,
+          "proxy": 2043.8
+        },
+        "adaptive": {
+          "threshold": 0.9,
+          "n": 256,
+          "selected": 145,
+          "correct": 132,
+          "wrong": 13,
+          "unknownAccepted": 10,
+          "spent": 1596,
+          "requests": 1130,
+          "evaluations": 22390,
+          "precision": 0.9103448275862069,
+          "coverage": 0.56640625,
+          "decisionChecks": 11241,
+          "stops": {
+            "budget": 111,
+            "confidence": 145
+          },
+          "lowGainFinishes": 1,
+          "lowGainCorrect": 1,
+          "completionOpportunities": 146,
+          "proxy": 2043.8
+        },
+        "oldVisits": 5731840,
+        "spectralVisits": 354816,
+        "oldAdds": 2848861,
+        "spectralAdds": 4237002
+      },
+      "boundary": {
+        "threshold": 0.98,
+        "trials": 256,
+        "steps": 1569,
+        "baseline": {
+          "threshold": 0.98,
+          "n": 256,
+          "selected": 109,
+          "correct": 106,
+          "wrong": 3,
+          "unknownAccepted": 2,
+          "spent": 1952,
+          "requests": 1313,
+          "evaluations": 25868,
+          "precision": 0.9724770642201835,
+          "coverage": 0.42578125,
+          "decisionChecks": 11071,
+          "stops": {
+            "confidence": 109,
+            "budget": 147
+          },
+          "lowGainFinishes": 30,
+          "lowGainCorrect": 28,
+          "completionOpportunities": 110,
+          "proxy": 2469.36
+        },
+        "adaptive": {
+          "threshold": 0.98,
+          "n": 256,
+          "selected": 109,
+          "correct": 106,
+          "wrong": 3,
+          "unknownAccepted": 2,
+          "spent": 1952,
+          "requests": 1313,
+          "evaluations": 25868,
+          "precision": 0.9724770642201835,
+          "coverage": 0.42578125,
+          "decisionChecks": 11071,
+          "stops": {
+            "confidence": 109,
+            "budget": 147
+          },
+          "lowGainFinishes": 30,
+          "lowGainCorrect": 28,
+          "completionOpportunities": 110,
+          "proxy": 2469.36
+        },
+        "oldVisits": 6622208,
+        "spectralVisits": 401664,
+        "oldAdds": 3291685,
+        "spectralAdds": 4796433
+      }
+    },
+    {
+      "seed": 81001,
+      "primary": {
+        "threshold": 0.995,
+        "trials": 2400,
+        "steps": 16838,
+        "baseline": {
+          "threshold": 0.995,
+          "n": 2400,
+          "selected": 630,
+          "correct": 629,
+          "wrong": 1,
+          "unknownAccepted": 1,
+          "spent": 21390,
+          "requests": 14438,
+          "evaluations": 278798,
+          "precision": 0.9984126984126984,
+          "coverage": 0.2625,
+          "decisionChecks": 86427,
+          "stops": {
+            "budget": 1770,
+            "confidence": 630
+          },
+          "lowGainFinishes": 430,
+          "lowGainCorrect": 429,
+          "completionOpportunities": 691,
+          "proxy": 26965.96
+        },
+        "adaptive": {
+          "threshold": 0.995,
+          "n": 2400,
+          "selected": 630,
+          "correct": 629,
+          "wrong": 1,
+          "unknownAccepted": 1,
+          "spent": 21390,
+          "requests": 14438,
+          "evaluations": 278798,
+          "precision": 0.9984126984126984,
+          "coverage": 0.2625,
+          "decisionChecks": 86427,
+          "stops": {
+            "budget": 1770,
+            "confidence": 630
+          },
+          "lowGainFinishes": 430,
+          "lowGainCorrect": 429,
+          "completionOpportunities": 691,
+          "proxy": 26965.96
+        },
+        "oldVisits": 71372288,
+        "spectralVisits": 4310528,
+        "oldAdds": 35229469,
+        "spectralAdds": 51204358
+      },
+      "fallback": {
+        "threshold": 0.9,
+        "trials": 256,
+        "steps": 1338,
+        "baseline": {
+          "threshold": 0.9,
+          "n": 256,
+          "selected": 151,
+          "correct": 139,
+          "wrong": 12,
+          "unknownAccepted": 7,
+          "spent": 1544,
+          "requests": 1082,
+          "evaluations": 21538,
+          "precision": 0.9205298013245033,
+          "coverage": 0.58984375,
+          "decisionChecks": 11412,
+          "stops": {
+            "budget": 105,
+            "confidence": 151
+          },
+          "lowGainFinishes": 0,
+          "lowGainCorrect": 0,
+          "completionOpportunities": 152,
+          "proxy": 1974.76
+        },
+        "adaptive": {
+          "threshold": 0.9,
+          "n": 256,
+          "selected": 151,
+          "correct": 139,
+          "wrong": 12,
+          "unknownAccepted": 7,
+          "spent": 1544,
+          "requests": 1082,
+          "evaluations": 21538,
+          "precision": 0.9205298013245033,
+          "coverage": 0.58984375,
+          "decisionChecks": 11412,
+          "stops": {
+            "budget": 105,
+            "confidence": 151
+          },
+          "lowGainFinishes": 0,
+          "lowGainCorrect": 0,
+          "completionOpportunities": 152,
+          "proxy": 1974.76
+        },
+        "oldVisits": 5513728,
+        "spectralVisits": 342528,
+        "oldAdds": 2723041,
+        "spectralAdds": 4068858
+      },
+      "boundary": {
+        "threshold": 0.98,
+        "trials": 256,
+        "steps": 1648,
+        "baseline": {
+          "threshold": 0.98,
+          "n": 256,
+          "selected": 97,
+          "correct": 95,
+          "wrong": 2,
+          "unknownAccepted": 2,
+          "spent": 1999,
+          "requests": 1392,
+          "evaluations": 27042,
+          "precision": 0.979381443298969,
+          "coverage": 0.37890625,
+          "decisionChecks": 11005,
+          "stops": {
+            "confidence": 97,
+            "budget": 159
+          },
+          "lowGainFinishes": 20,
+          "lowGainCorrect": 20,
+          "completionOpportunities": 101,
+          "proxy": 2539.84
+        },
+        "adaptive": {
+          "threshold": 0.98,
+          "n": 256,
+          "selected": 97,
+          "correct": 95,
+          "wrong": 2,
+          "unknownAccepted": 2,
+          "spent": 1999,
+          "requests": 1392,
+          "evaluations": 27042,
+          "precision": 0.979381443298969,
+          "coverage": 0.37890625,
+          "decisionChecks": 11005,
+          "stops": {
+            "confidence": 97,
+            "budget": 159
+          },
+          "lowGainFinishes": 20,
+          "lowGainCorrect": 20,
+          "completionOpportunities": 101,
+          "proxy": 2539.84
+        },
+        "oldVisits": 6922752,
+        "spectralVisits": 421888,
+        "oldAdds": 3417040,
+        "spectralAdds": 5011568
+      }
+    },
+    {
+      "seed": 82002,
+      "primary": {
+        "threshold": 0.995,
+        "trials": 2400,
+        "steps": 16518,
+        "baseline": {
+          "threshold": 0.995,
+          "n": 2400,
+          "selected": 682,
+          "correct": 682,
+          "wrong": 0,
+          "unknownAccepted": 0,
+          "spent": 21054,
+          "requests": 14118,
+          "evaluations": 273432,
+          "precision": 1,
+          "coverage": 0.2841666666666667,
+          "decisionChecks": 85706,
+          "stops": {
+            "budget": 1718,
+            "confidence": 682
+          },
+          "lowGainFinishes": 453,
+          "lowGainCorrect": 453,
+          "completionOpportunities": 732,
+          "proxy": 26522.64
+        },
+        "adaptive": {
+          "threshold": 0.995,
+          "n": 2400,
+          "selected": 682,
+          "correct": 682,
+          "wrong": 0,
+          "unknownAccepted": 0,
+          "spent": 21054,
+          "requests": 14118,
+          "evaluations": 273432,
+          "precision": 1,
+          "coverage": 0.2841666666666667,
+          "decisionChecks": 85706,
+          "stops": {
+            "budget": 1718,
+            "confidence": 682
+          },
+          "lowGainFinishes": 453,
+          "lowGainCorrect": 453,
+          "completionOpportunities": 732,
+          "proxy": 26522.64
+        },
+        "oldVisits": 69998592,
+        "spectralVisits": 4228608,
+        "oldAdds": 35714674,
+        "spectralAdds": 51668304
+      },
+      "fallback": {
+        "threshold": 0.9,
+        "trials": 256,
+        "steps": 1338,
+        "baseline": {
+          "threshold": 0.9,
+          "n": 256,
+          "selected": 148,
+          "correct": 137,
+          "wrong": 11,
+          "unknownAccepted": 7,
+          "spent": 1554,
+          "requests": 1082,
+          "evaluations": 21441,
+          "precision": 0.9256756756756757,
+          "coverage": 0.578125,
+          "decisionChecks": 10212,
+          "stops": {
+            "budget": 108,
+            "confidence": 148
+          },
+          "lowGainFinishes": 0,
+          "lowGainCorrect": 0,
+          "completionOpportunities": 145,
+          "proxy": 1982.82
+        },
+        "adaptive": {
+          "threshold": 0.9,
+          "n": 256,
+          "selected": 148,
+          "correct": 137,
+          "wrong": 11,
+          "unknownAccepted": 7,
+          "spent": 1554,
+          "requests": 1082,
+          "evaluations": 21441,
+          "precision": 0.9256756756756757,
+          "coverage": 0.578125,
+          "decisionChecks": 10212,
+          "stops": {
+            "budget": 108,
+            "confidence": 148
+          },
+          "lowGainFinishes": 0,
+          "lowGainCorrect": 0,
+          "completionOpportunities": 145,
+          "proxy": 1982.82
+        },
+        "oldVisits": 5488896,
+        "spectralVisits": 342528,
+        "oldAdds": 2801322,
+        "spectralAdds": 4185264
+      },
+      "boundary": {
+        "threshold": 0.98,
+        "trials": 256,
+        "steps": 1570,
+        "baseline": {
+          "threshold": 0.98,
+          "n": 256,
+          "selected": 114,
+          "correct": 114,
+          "wrong": 0,
+          "unknownAccepted": 0,
+          "spent": 1922,
+          "requests": 1314,
+          "evaluations": 25795,
+          "precision": 1,
+          "coverage": 0.4453125,
+          "decisionChecks": 11212,
+          "stops": {
+            "confidence": 114,
+            "budget": 142
+          },
+          "lowGainFinishes": 25,
+          "lowGainCorrect": 25,
+          "completionOpportunities": 118,
+          "proxy": 2437.9
+        },
+        "adaptive": {
+          "threshold": 0.98,
+          "n": 256,
+          "selected": 114,
+          "correct": 114,
+          "wrong": 0,
+          "unknownAccepted": 0,
+          "spent": 1922,
+          "requests": 1314,
+          "evaluations": 25795,
+          "precision": 1,
+          "coverage": 0.4453125,
+          "decisionChecks": 11212,
+          "stops": {
+            "confidence": 114,
+            "budget": 142
+          },
+          "lowGainFinishes": 25,
+          "lowGainCorrect": 25,
+          "completionOpportunities": 118,
+          "proxy": 2437.9
+        },
+        "oldVisits": 6603520,
+        "spectralVisits": 401920,
+        "oldAdds": 3368509,
+        "spectralAdds": 4910960
+      }
+    }
+  ],
+  "limitations": "Marginals contain known-family mass only; unknown contribution added per query as before. All 24 marginals computed even for unavailable/used channels and terminal states. Precomputed sparse bit positions per trial; preprocessing and memory overhead excluded from traversal counts. Actual additions counted separately; no wall-clock or energy claim. Synthetic same-root observations, inherited ten-unit budget."
+}

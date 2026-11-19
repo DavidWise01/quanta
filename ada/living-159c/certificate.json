@@ -1,0 +1,349 @@
+{
+  "version": "ADA-159C",
+  "lineage": "ADA-159B",
+  "watermark": ".dlw",
+  "width": 42,
+  "gate": "00 11 [ 24 /|\\ 42 ] 11 00",
+  "frame": [
+    {
+      "name": "vector",
+      "hand": 1,
+      "offset": 0
+    },
+    {
+      "name": "voxel",
+      "hand": -1,
+      "offset": 2
+    },
+    {
+      "name": "vogel",
+      "hand": 1,
+      "offset": 4
+    }
+  ],
+  "rule": "Four local pushes +x and four local pulls -(x+1.025 arcseconds), signed by frame handedness. x latched each global eight-tick cycle. Three layers independent state, synchronized clock.",
+  "limitations": "Handedness and offsets are proposed design choices; no physical force, mass or energy claims. Payload remains separate from circulation fields, chrome and coordinate semantics unresolved. Visualization exaggerates angles.",
+  "tests": {
+    "cases": 112,
+    "cycleNet": [
+      -4100,
+      4100,
+      -4100
+    ],
+    "events": 24,
+    "ledger": [
+      {
+        "tick": 1,
+        "x": 1000,
+        "layers": [
+          {
+            "name": "|V| vector",
+            "hand": 1,
+            "phase": 0,
+            "angle": 1000,
+            "net": 1000,
+            "push": 1,
+            "pull": 0,
+            "p": 0,
+            "delta": 1000
+          },
+          {
+            "name": "[] voxel",
+            "hand": -1,
+            "phase": 2,
+            "angle": 431999000,
+            "net": -1000,
+            "push": 1,
+            "pull": 0,
+            "p": 2,
+            "delta": -1000
+          },
+          {
+            "name": "{[()]} vogel",
+            "hand": 1,
+            "phase": 4,
+            "angle": 863997975,
+            "net": -2025,
+            "push": 0,
+            "pull": 1,
+            "p": 4,
+            "delta": -2025
+          }
+        ]
+      },
+      {
+        "tick": 2,
+        "x": 1000,
+        "layers": [
+          {
+            "name": "|V| vector",
+            "hand": 1,
+            "phase": 0,
+            "angle": 2000,
+            "net": 2000,
+            "push": 2,
+            "pull": 0,
+            "p": 1,
+            "delta": 1000
+          },
+          {
+            "name": "[] voxel",
+            "hand": -1,
+            "phase": 2,
+            "angle": 431998000,
+            "net": -2000,
+            "push": 2,
+            "pull": 0,
+            "p": 3,
+            "delta": -1000
+          },
+          {
+            "name": "{[()]} vogel",
+            "hand": 1,
+            "phase": 4,
+            "angle": 863995950,
+            "net": -4050,
+            "push": 0,
+            "pull": 2,
+            "p": 5,
+            "delta": -2025
+          }
+        ]
+      },
+      {
+        "tick": 3,
+        "x": 1000,
+        "layers": [
+          {
+            "name": "|V| vector",
+            "hand": 1,
+            "phase": 0,
+            "angle": 3000,
+            "net": 3000,
+            "push": 3,
+            "pull": 0,
+            "p": 2,
+            "delta": 1000
+          },
+          {
+            "name": "[] voxel",
+            "hand": -1,
+            "phase": 2,
+            "angle": 432000025,
+            "net": 25,
+            "push": 2,
+            "pull": 1,
+            "p": 4,
+            "delta": 2025
+          },
+          {
+            "name": "{[()]} vogel",
+            "hand": 1,
+            "phase": 4,
+            "angle": 863993925,
+            "net": -6075,
+            "push": 0,
+            "pull": 3,
+            "p": 6,
+            "delta": -2025
+          }
+        ]
+      },
+      {
+        "tick": 4,
+        "x": 1000,
+        "layers": [
+          {
+            "name": "|V| vector",
+            "hand": 1,
+            "phase": 0,
+            "angle": 4000,
+            "net": 4000,
+            "push": 4,
+            "pull": 0,
+            "p": 3,
+            "delta": 1000
+          },
+          {
+            "name": "[] voxel",
+            "hand": -1,
+            "phase": 2,
+            "angle": 432002050,
+            "net": 2050,
+            "push": 2,
+            "pull": 2,
+            "p": 5,
+            "delta": 2025
+          },
+          {
+            "name": "{[()]} vogel",
+            "hand": 1,
+            "phase": 4,
+            "angle": 863991900,
+            "net": -8100,
+            "push": 0,
+            "pull": 4,
+            "p": 7,
+            "delta": -2025
+          }
+        ]
+      },
+      {
+        "tick": 5,
+        "x": 1000,
+        "layers": [
+          {
+            "name": "|V| vector",
+            "hand": 1,
+            "phase": 0,
+            "angle": 1975,
+            "net": 1975,
+            "push": 4,
+            "pull": 1,
+            "p": 4,
+            "delta": -2025
+          },
+          {
+            "name": "[] voxel",
+            "hand": -1,
+            "phase": 2,
+            "angle": 432004075,
+            "net": 4075,
+            "push": 2,
+            "pull": 3,
+            "p": 6,
+            "delta": 2025
+          },
+          {
+            "name": "{[()]} vogel",
+            "hand": 1,
+            "phase": 4,
+            "angle": 863992900,
+            "net": -7100,
+            "push": 1,
+            "pull": 4,
+            "p": 0,
+            "delta": 1000
+          }
+        ]
+      },
+      {
+        "tick": 6,
+        "x": 1000,
+        "layers": [
+          {
+            "name": "|V| vector",
+            "hand": 1,
+            "phase": 0,
+            "angle": 1295999950,
+            "net": -50,
+            "push": 4,
+            "pull": 2,
+            "p": 5,
+            "delta": -2025
+          },
+          {
+            "name": "[] voxel",
+            "hand": -1,
+            "phase": 2,
+            "angle": 432006100,
+            "net": 6100,
+            "push": 2,
+            "pull": 4,
+            "p": 7,
+            "delta": 2025
+          },
+          {
+            "name": "{[()]} vogel",
+            "hand": 1,
+            "phase": 4,
+            "angle": 863993900,
+            "net": -6100,
+            "push": 2,
+            "pull": 4,
+            "p": 1,
+            "delta": 1000
+          }
+        ]
+      },
+      {
+        "tick": 7,
+        "x": 1000,
+        "layers": [
+          {
+            "name": "|V| vector",
+            "hand": 1,
+            "phase": 0,
+            "angle": 1295997925,
+            "net": -2075,
+            "push": 4,
+            "pull": 3,
+            "p": 6,
+            "delta": -2025
+          },
+          {
+            "name": "[] voxel",
+            "hand": -1,
+            "phase": 2,
+            "angle": 432005100,
+            "net": 5100,
+            "push": 3,
+            "pull": 4,
+            "p": 0,
+            "delta": -1000
+          },
+          {
+            "name": "{[()]} vogel",
+            "hand": 1,
+            "phase": 4,
+            "angle": 863994900,
+            "net": -5100,
+            "push": 3,
+            "pull": 4,
+            "p": 2,
+            "delta": 1000
+          }
+        ]
+      },
+      {
+        "tick": 8,
+        "x": 1000,
+        "layers": [
+          {
+            "name": "|V| vector",
+            "hand": 1,
+            "phase": 0,
+            "angle": 1295995900,
+            "net": -4100,
+            "push": 4,
+            "pull": 4,
+            "p": 7,
+            "delta": -2025
+          },
+          {
+            "name": "[] voxel",
+            "hand": -1,
+            "phase": 2,
+            "angle": 432004100,
+            "net": 4100,
+            "push": 4,
+            "pull": 4,
+            "p": 1,
+            "delta": -1000
+          },
+          {
+            "name": "{[()]} vogel",
+            "hand": 1,
+            "phase": 4,
+            "angle": 863995900,
+            "net": -4100,
+            "push": 4,
+            "pull": 4,
+            "p": 3,
+            "delta": 1000
+          }
+        ]
+      }
+    ]
+  }
+}

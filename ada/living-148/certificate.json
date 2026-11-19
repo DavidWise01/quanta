@@ -1,0 +1,848 @@
+{
+  "experiment": "ADA-148",
+  "watermark": ".dlw",
+  "lineage": "ADA-147",
+  "results": [
+    {
+      "seed": 56000,
+      "keys": 256,
+      "calibration": {
+        "threshold": 0.995,
+        "variance": {
+          "threshold": 0.995,
+          "budget": 5,
+          "n": 1800,
+          "selected": 712,
+          "correct": 711,
+          "wrong": 1,
+          "unknownAccepted": 0,
+          "requests": 7819,
+          "initial": 9,
+          "precision": 0.9985955056179775,
+          "coverage": 0.39555555555555555
+        },
+        "information": {
+          "threshold": 0.995,
+          "budget": 5,
+          "n": 1800,
+          "selected": 712,
+          "correct": 711,
+          "wrong": 1,
+          "unknownAccepted": 0,
+          "requests": 7819,
+          "initial": 9,
+          "precision": 0.9985955056179775,
+          "coverage": 0.39555555555555555
+        }
+      },
+      "options": [
+        {
+          "threshold": 0.95,
+          "variance": {
+            "threshold": 0.95,
+            "budget": 5,
+            "n": 1800,
+            "selected": 951,
+            "correct": 913,
+            "wrong": 38,
+            "unknownAccepted": 23,
+            "requests": 6127,
+            "initial": 153,
+            "precision": 0.9600420609884333,
+            "coverage": 0.5283333333333333
+          },
+          "information": {
+            "threshold": 0.95,
+            "budget": 5,
+            "n": 1800,
+            "selected": 951,
+            "correct": 913,
+            "wrong": 38,
+            "unknownAccepted": 23,
+            "requests": 6127,
+            "initial": 153,
+            "precision": 0.9600420609884333,
+            "coverage": 0.5283333333333333
+          }
+        },
+        {
+          "threshold": 0.97,
+          "variance": {
+            "threshold": 0.97,
+            "budget": 5,
+            "n": 1800,
+            "selected": 903,
+            "correct": 880,
+            "wrong": 23,
+            "unknownAccepted": 15,
+            "requests": 6472,
+            "initial": 103,
+            "precision": 0.9745293466223699,
+            "coverage": 0.5016666666666667
+          },
+          "information": {
+            "threshold": 0.97,
+            "budget": 5,
+            "n": 1800,
+            "selected": 903,
+            "correct": 880,
+            "wrong": 23,
+            "unknownAccepted": 15,
+            "requests": 6472,
+            "initial": 103,
+            "precision": 0.9745293466223699,
+            "coverage": 0.5016666666666667
+          }
+        },
+        {
+          "threshold": 0.98,
+          "variance": {
+            "threshold": 0.98,
+            "budget": 5,
+            "n": 1800,
+            "selected": 830,
+            "correct": 820,
+            "wrong": 10,
+            "unknownAccepted": 4,
+            "requests": 7049,
+            "initial": 49,
+            "precision": 0.9879518072289156,
+            "coverage": 0.46111111111111114
+          },
+          "information": {
+            "threshold": 0.98,
+            "budget": 5,
+            "n": 1800,
+            "selected": 830,
+            "correct": 820,
+            "wrong": 10,
+            "unknownAccepted": 4,
+            "requests": 7049,
+            "initial": 49,
+            "precision": 0.9879518072289156,
+            "coverage": 0.46111111111111114
+          }
+        },
+        {
+          "threshold": 0.985,
+          "variance": {
+            "threshold": 0.985,
+            "budget": 5,
+            "n": 1800,
+            "selected": 810,
+            "correct": 801,
+            "wrong": 9,
+            "unknownAccepted": 3,
+            "requests": 7114,
+            "initial": 43,
+            "precision": 0.9888888888888889,
+            "coverage": 0.45
+          },
+          "information": {
+            "threshold": 0.985,
+            "budget": 5,
+            "n": 1800,
+            "selected": 810,
+            "correct": 801,
+            "wrong": 9,
+            "unknownAccepted": 3,
+            "requests": 7114,
+            "initial": 43,
+            "precision": 0.9888888888888889,
+            "coverage": 0.45
+          }
+        },
+        {
+          "threshold": 0.99,
+          "variance": {
+            "threshold": 0.99,
+            "budget": 5,
+            "n": 1800,
+            "selected": 805,
+            "correct": 796,
+            "wrong": 9,
+            "unknownAccepted": 3,
+            "requests": 7154,
+            "initial": 39,
+            "precision": 0.9888198757763975,
+            "coverage": 0.44722222222222224
+          },
+          "information": {
+            "threshold": 0.99,
+            "budget": 5,
+            "n": 1800,
+            "selected": 805,
+            "correct": 796,
+            "wrong": 9,
+            "unknownAccepted": 3,
+            "requests": 7154,
+            "initial": 39,
+            "precision": 0.9888198757763975,
+            "coverage": 0.44722222222222224
+          }
+        },
+        {
+          "threshold": 0.995,
+          "variance": {
+            "threshold": 0.995,
+            "budget": 5,
+            "n": 1800,
+            "selected": 712,
+            "correct": 711,
+            "wrong": 1,
+            "unknownAccepted": 0,
+            "requests": 7819,
+            "initial": 9,
+            "precision": 0.9985955056179775,
+            "coverage": 0.39555555555555555
+          },
+          "information": {
+            "threshold": 0.995,
+            "budget": 5,
+            "n": 1800,
+            "selected": 712,
+            "correct": 711,
+            "wrong": 1,
+            "unknownAccepted": 0,
+            "requests": 7819,
+            "initial": 9,
+            "precision": 0.9985955056179775,
+            "coverage": 0.39555555555555555
+          }
+        },
+        {
+          "threshold": 0.999,
+          "variance": {
+            "threshold": 0.999,
+            "budget": 5,
+            "n": 1800,
+            "selected": 402,
+            "correct": 401,
+            "wrong": 1,
+            "unknownAccepted": 0,
+            "requests": 8674,
+            "initial": 0,
+            "precision": 0.9975124378109452,
+            "coverage": 0.22333333333333333
+          },
+          "information": {
+            "threshold": 0.999,
+            "budget": 5,
+            "n": 1800,
+            "selected": 402,
+            "correct": 401,
+            "wrong": 1,
+            "unknownAccepted": 0,
+            "requests": 8674,
+            "initial": 0,
+            "precision": 0.9975124378109452,
+            "coverage": 0.22333333333333333
+          }
+        }
+      ],
+      "same": 3600,
+      "results": {
+        "targeted": {
+          "threshold": 0.995,
+          "budget": 5,
+          "n": 3600,
+          "selected": 1425,
+          "correct": 1423,
+          "wrong": 2,
+          "unknownAccepted": 1,
+          "requests": 15632,
+          "evaluations": 346692,
+          "precision": 0.9985964912280701,
+          "coverage": 0.3958333333333333
+        },
+        "information": {
+          "threshold": 0.995,
+          "budget": 5,
+          "n": 3600,
+          "selected": 1425,
+          "correct": 1423,
+          "wrong": 2,
+          "unknownAccepted": 1,
+          "requests": 15632,
+          "evaluations": 346692,
+          "precision": 0.9985964912280701,
+          "coverage": 0.3958333333333333
+        },
+        "random": {
+          "threshold": 0.995,
+          "budget": 5,
+          "n": 3600,
+          "selected": 210,
+          "correct": 210,
+          "wrong": 0,
+          "unknownAccepted": 0,
+          "requests": 17482,
+          "evaluations": 0,
+          "precision": 1,
+          "coverage": 0.058333333333333334
+        }
+      }
+    },
+    {
+      "seed": 57000,
+      "keys": 256,
+      "calibration": {
+        "threshold": 0.98,
+        "variance": {
+          "threshold": 0.98,
+          "budget": 5,
+          "n": 1800,
+          "selected": 825,
+          "correct": 818,
+          "wrong": 7,
+          "unknownAccepted": 4,
+          "requests": 6973,
+          "initial": 68,
+          "precision": 0.9915151515151515,
+          "coverage": 0.4583333333333333
+        },
+        "information": {
+          "threshold": 0.98,
+          "budget": 5,
+          "n": 1800,
+          "selected": 825,
+          "correct": 818,
+          "wrong": 7,
+          "unknownAccepted": 4,
+          "requests": 6973,
+          "initial": 68,
+          "precision": 0.9915151515151515,
+          "coverage": 0.4583333333333333
+        }
+      },
+      "options": [
+        {
+          "threshold": 0.95,
+          "variance": {
+            "threshold": 0.95,
+            "budget": 5,
+            "n": 1800,
+            "selected": 928,
+            "correct": 903,
+            "wrong": 25,
+            "unknownAccepted": 14,
+            "requests": 6153,
+            "initial": 185,
+            "precision": 0.9730603448275862,
+            "coverage": 0.5155555555555555
+          },
+          "information": {
+            "threshold": 0.95,
+            "budget": 5,
+            "n": 1800,
+            "selected": 928,
+            "correct": 903,
+            "wrong": 25,
+            "unknownAccepted": 14,
+            "requests": 6153,
+            "initial": 185,
+            "precision": 0.9730603448275862,
+            "coverage": 0.5155555555555555
+          }
+        },
+        {
+          "threshold": 0.97,
+          "variance": {
+            "threshold": 0.97,
+            "budget": 5,
+            "n": 1800,
+            "selected": 893,
+            "correct": 878,
+            "wrong": 15,
+            "unknownAccepted": 9,
+            "requests": 6436,
+            "initial": 129,
+            "precision": 0.9832026875699889,
+            "coverage": 0.4961111111111111
+          },
+          "information": {
+            "threshold": 0.97,
+            "budget": 5,
+            "n": 1800,
+            "selected": 893,
+            "correct": 878,
+            "wrong": 15,
+            "unknownAccepted": 9,
+            "requests": 6436,
+            "initial": 129,
+            "precision": 0.9832026875699889,
+            "coverage": 0.4961111111111111
+          }
+        },
+        {
+          "threshold": 0.98,
+          "variance": {
+            "threshold": 0.98,
+            "budget": 5,
+            "n": 1800,
+            "selected": 825,
+            "correct": 818,
+            "wrong": 7,
+            "unknownAccepted": 4,
+            "requests": 6973,
+            "initial": 68,
+            "precision": 0.9915151515151515,
+            "coverage": 0.4583333333333333
+          },
+          "information": {
+            "threshold": 0.98,
+            "budget": 5,
+            "n": 1800,
+            "selected": 825,
+            "correct": 818,
+            "wrong": 7,
+            "unknownAccepted": 4,
+            "requests": 6973,
+            "initial": 68,
+            "precision": 0.9915151515151515,
+            "coverage": 0.4583333333333333
+          }
+        },
+        {
+          "threshold": 0.985,
+          "variance": {
+            "threshold": 0.985,
+            "budget": 5,
+            "n": 1800,
+            "selected": 800,
+            "correct": 793,
+            "wrong": 7,
+            "unknownAccepted": 4,
+            "requests": 7024,
+            "initial": 65,
+            "precision": 0.99125,
+            "coverage": 0.4444444444444444
+          },
+          "information": {
+            "threshold": 0.985,
+            "budget": 5,
+            "n": 1800,
+            "selected": 800,
+            "correct": 793,
+            "wrong": 7,
+            "unknownAccepted": 4,
+            "requests": 7024,
+            "initial": 65,
+            "precision": 0.99125,
+            "coverage": 0.4444444444444444
+          }
+        },
+        {
+          "threshold": 0.99,
+          "variance": {
+            "threshold": 0.99,
+            "budget": 5,
+            "n": 1800,
+            "selected": 794,
+            "correct": 787,
+            "wrong": 7,
+            "unknownAccepted": 4,
+            "requests": 7055,
+            "initial": 64,
+            "precision": 0.9911838790931989,
+            "coverage": 0.4411111111111111
+          },
+          "information": {
+            "threshold": 0.99,
+            "budget": 5,
+            "n": 1800,
+            "selected": 794,
+            "correct": 787,
+            "wrong": 7,
+            "unknownAccepted": 4,
+            "requests": 7055,
+            "initial": 64,
+            "precision": 0.9911838790931989,
+            "coverage": 0.4411111111111111
+          }
+        },
+        {
+          "threshold": 0.995,
+          "variance": {
+            "threshold": 0.995,
+            "budget": 5,
+            "n": 1800,
+            "selected": 720,
+            "correct": 717,
+            "wrong": 3,
+            "unknownAccepted": 1,
+            "requests": 7744,
+            "initial": 18,
+            "precision": 0.9958333333333333,
+            "coverage": 0.4
+          },
+          "information": {
+            "threshold": 0.995,
+            "budget": 5,
+            "n": 1800,
+            "selected": 720,
+            "correct": 717,
+            "wrong": 3,
+            "unknownAccepted": 1,
+            "requests": 7744,
+            "initial": 18,
+            "precision": 0.9958333333333333,
+            "coverage": 0.4
+          }
+        },
+        {
+          "threshold": 0.999,
+          "variance": {
+            "threshold": 0.999,
+            "budget": 5,
+            "n": 1800,
+            "selected": 420,
+            "correct": 420,
+            "wrong": 0,
+            "unknownAccepted": 0,
+            "requests": 8575,
+            "initial": 0,
+            "precision": 1,
+            "coverage": 0.23333333333333334
+          },
+          "information": {
+            "threshold": 0.999,
+            "budget": 5,
+            "n": 1800,
+            "selected": 420,
+            "correct": 420,
+            "wrong": 0,
+            "unknownAccepted": 0,
+            "requests": 8575,
+            "initial": 0,
+            "precision": 1,
+            "coverage": 0.23333333333333334
+          }
+        }
+      ],
+      "same": 3600,
+      "results": {
+        "targeted": {
+          "threshold": 0.98,
+          "budget": 5,
+          "n": 3600,
+          "selected": 1656,
+          "correct": 1644,
+          "wrong": 12,
+          "unknownAccepted": 7,
+          "requests": 14029,
+          "evaluations": 312240,
+          "precision": 0.9927536231884058,
+          "coverage": 0.46
+        },
+        "information": {
+          "threshold": 0.98,
+          "budget": 5,
+          "n": 3600,
+          "selected": 1656,
+          "correct": 1644,
+          "wrong": 12,
+          "unknownAccepted": 7,
+          "requests": 14029,
+          "evaluations": 312240,
+          "precision": 0.9927536231884058,
+          "coverage": 0.46
+        },
+        "random": {
+          "threshold": 0.98,
+          "budget": 5,
+          "n": 3600,
+          "selected": 566,
+          "correct": 561,
+          "wrong": 5,
+          "unknownAccepted": 3,
+          "requests": 16608,
+          "evaluations": 0,
+          "precision": 0.991166077738516,
+          "coverage": 0.15722222222222224
+        }
+      }
+    },
+    {
+      "seed": 58000,
+      "keys": 256,
+      "calibration": {
+        "threshold": 0.98,
+        "variance": {
+          "threshold": 0.98,
+          "budget": 5,
+          "n": 1800,
+          "selected": 829,
+          "correct": 823,
+          "wrong": 6,
+          "unknownAccepted": 2,
+          "requests": 6937,
+          "initial": 72,
+          "precision": 0.9927623642943305,
+          "coverage": 0.46055555555555555
+        },
+        "information": {
+          "threshold": 0.98,
+          "budget": 5,
+          "n": 1800,
+          "selected": 829,
+          "correct": 823,
+          "wrong": 6,
+          "unknownAccepted": 2,
+          "requests": 6937,
+          "initial": 72,
+          "precision": 0.9927623642943305,
+          "coverage": 0.46055555555555555
+        }
+      },
+      "options": [
+        {
+          "threshold": 0.95,
+          "variance": {
+            "threshold": 0.95,
+            "budget": 5,
+            "n": 1800,
+            "selected": 940,
+            "correct": 911,
+            "wrong": 29,
+            "unknownAccepted": 20,
+            "requests": 6078,
+            "initial": 197,
+            "precision": 0.9691489361702128,
+            "coverage": 0.5222222222222223
+          },
+          "information": {
+            "threshold": 0.95,
+            "budget": 5,
+            "n": 1800,
+            "selected": 940,
+            "correct": 911,
+            "wrong": 29,
+            "unknownAccepted": 20,
+            "requests": 6078,
+            "initial": 197,
+            "precision": 0.9691489361702128,
+            "coverage": 0.5222222222222223
+          }
+        },
+        {
+          "threshold": 0.97,
+          "variance": {
+            "threshold": 0.97,
+            "budget": 5,
+            "n": 1800,
+            "selected": 904,
+            "correct": 886,
+            "wrong": 18,
+            "unknownAccepted": 12,
+            "requests": 6411,
+            "initial": 128,
+            "precision": 0.9800884955752213,
+            "coverage": 0.5022222222222222
+          },
+          "information": {
+            "threshold": 0.97,
+            "budget": 5,
+            "n": 1800,
+            "selected": 904,
+            "correct": 886,
+            "wrong": 18,
+            "unknownAccepted": 12,
+            "requests": 6411,
+            "initial": 128,
+            "precision": 0.9800884955752213,
+            "coverage": 0.5022222222222222
+          }
+        },
+        {
+          "threshold": 0.98,
+          "variance": {
+            "threshold": 0.98,
+            "budget": 5,
+            "n": 1800,
+            "selected": 829,
+            "correct": 823,
+            "wrong": 6,
+            "unknownAccepted": 2,
+            "requests": 6937,
+            "initial": 72,
+            "precision": 0.9927623642943305,
+            "coverage": 0.46055555555555555
+          },
+          "information": {
+            "threshold": 0.98,
+            "budget": 5,
+            "n": 1800,
+            "selected": 829,
+            "correct": 823,
+            "wrong": 6,
+            "unknownAccepted": 2,
+            "requests": 6937,
+            "initial": 72,
+            "precision": 0.9927623642943305,
+            "coverage": 0.46055555555555555
+          }
+        },
+        {
+          "threshold": 0.985,
+          "variance": {
+            "threshold": 0.985,
+            "budget": 5,
+            "n": 1800,
+            "selected": 803,
+            "correct": 799,
+            "wrong": 4,
+            "unknownAccepted": 1,
+            "requests": 7008,
+            "initial": 63,
+            "precision": 0.9950186799501868,
+            "coverage": 0.4461111111111111
+          },
+          "information": {
+            "threshold": 0.985,
+            "budget": 5,
+            "n": 1800,
+            "selected": 803,
+            "correct": 799,
+            "wrong": 4,
+            "unknownAccepted": 1,
+            "requests": 7008,
+            "initial": 63,
+            "precision": 0.9950186799501868,
+            "coverage": 0.4461111111111111
+          }
+        },
+        {
+          "threshold": 0.99,
+          "variance": {
+            "threshold": 0.99,
+            "budget": 5,
+            "n": 1800,
+            "selected": 797,
+            "correct": 793,
+            "wrong": 4,
+            "unknownAccepted": 1,
+            "requests": 7043,
+            "initial": 52,
+            "precision": 0.9949811794228356,
+            "coverage": 0.44277777777777777
+          },
+          "information": {
+            "threshold": 0.99,
+            "budget": 5,
+            "n": 1800,
+            "selected": 797,
+            "correct": 793,
+            "wrong": 4,
+            "unknownAccepted": 1,
+            "requests": 7043,
+            "initial": 52,
+            "precision": 0.9949811794228356,
+            "coverage": 0.44277777777777777
+          }
+        },
+        {
+          "threshold": 0.995,
+          "variance": {
+            "threshold": 0.995,
+            "budget": 5,
+            "n": 1800,
+            "selected": 708,
+            "correct": 707,
+            "wrong": 1,
+            "unknownAccepted": 0,
+            "requests": 7736,
+            "initial": 15,
+            "precision": 0.998587570621469,
+            "coverage": 0.3933333333333333
+          },
+          "information": {
+            "threshold": 0.995,
+            "budget": 5,
+            "n": 1800,
+            "selected": 708,
+            "correct": 707,
+            "wrong": 1,
+            "unknownAccepted": 0,
+            "requests": 7736,
+            "initial": 15,
+            "precision": 0.998587570621469,
+            "coverage": 0.3933333333333333
+          }
+        },
+        {
+          "threshold": 0.999,
+          "variance": {
+            "threshold": 0.999,
+            "budget": 5,
+            "n": 1800,
+            "selected": 402,
+            "correct": 402,
+            "wrong": 0,
+            "unknownAccepted": 0,
+            "requests": 8600,
+            "initial": 0,
+            "precision": 1,
+            "coverage": 0.22333333333333333
+          },
+          "information": {
+            "threshold": 0.999,
+            "budget": 5,
+            "n": 1800,
+            "selected": 402,
+            "correct": 402,
+            "wrong": 0,
+            "unknownAccepted": 0,
+            "requests": 8600,
+            "initial": 0,
+            "precision": 1,
+            "coverage": 0.22333333333333333
+          }
+        }
+      ],
+      "same": 3600,
+      "results": {
+        "targeted": {
+          "threshold": 0.98,
+          "budget": 5,
+          "n": 3600,
+          "selected": 1672,
+          "correct": 1656,
+          "wrong": 16,
+          "unknownAccepted": 10,
+          "requests": 13988,
+          "evaluations": 311348,
+          "precision": 0.9904306220095693,
+          "coverage": 0.46444444444444444
+        },
+        "information": {
+          "threshold": 0.98,
+          "budget": 5,
+          "n": 3600,
+          "selected": 1672,
+          "correct": 1656,
+          "wrong": 16,
+          "unknownAccepted": 10,
+          "requests": 13988,
+          "evaluations": 311348,
+          "precision": 0.9904306220095693,
+          "coverage": 0.46444444444444444
+        },
+        "random": {
+          "threshold": 0.98,
+          "budget": 5,
+          "n": 3600,
+          "selected": 538,
+          "correct": 527,
+          "wrong": 11,
+          "unknownAccepted": 8,
+          "requests": 16641,
+          "evaluations": 0,
+          "precision": 0.9795539033457249,
+          "coverage": 0.14944444444444444
+        }
+      }
+    }
+  ],
+  "limitations": "Uniform independent bit noise and symmetric unknown model imply identical inquiry ranking analytically; floating point ties may differ. No heterogeneous costs or reliability yet. Shared synthetic source, not independent witnesses. Test policy stops actual trace at threshold. Calibration target 99% empirical not guarantee; fallback highest threshold if no eligible. No runtime benefit asserted."
+}

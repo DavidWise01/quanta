@@ -1,0 +1,1496 @@
+{
+  "experiment": "ADA-149",
+  "watermark": ".dlw",
+  "lineage": "ADA-148",
+  "results": [
+    {
+      "seed": 59000,
+      "channels": [
+        {
+          "cost": 4,
+          "error": 0.08
+        },
+        {
+          "cost": 1,
+          "error": 0.12
+        },
+        {
+          "cost": 3,
+          "error": 0.04
+        },
+        {
+          "cost": 2,
+          "error": 0.18
+        },
+        {
+          "cost": 1,
+          "error": 0.25
+        },
+        {
+          "cost": 2,
+          "error": 0.02
+        },
+        {
+          "cost": 4,
+          "error": 0.12
+        },
+        {
+          "cost": 1,
+          "error": 0.04
+        },
+        {
+          "cost": 3,
+          "error": 0.18
+        },
+        {
+          "cost": 2,
+          "error": 0.25
+        },
+        {
+          "cost": 1,
+          "error": 0.02
+        },
+        {
+          "cost": 2,
+          "error": 0.08
+        },
+        {
+          "cost": 4,
+          "error": 0.04
+        },
+        {
+          "cost": 1,
+          "error": 0.18
+        },
+        {
+          "cost": 3,
+          "error": 0.25
+        },
+        {
+          "cost": 2,
+          "error": 0.02
+        },
+        {
+          "cost": 1,
+          "error": 0.08
+        },
+        {
+          "cost": 2,
+          "error": 0.12
+        },
+        {
+          "cost": 4,
+          "error": 0.18
+        },
+        {
+          "cost": 1,
+          "error": 0.25
+        },
+        {
+          "cost": 3,
+          "error": 0.02
+        },
+        {
+          "cost": 2,
+          "error": 0.08
+        },
+        {
+          "cost": 1,
+          "error": 0.12
+        },
+        {
+          "cost": 2,
+          "error": 0.04
+        }
+      ],
+      "calibration": {
+        "threshold": 0.99,
+        "scores": [
+          {
+            "threshold": 0.99,
+            "n": 1800,
+            "selected": 542,
+            "correct": 541,
+            "wrong": 1,
+            "unknownAccepted": 0,
+            "spent": 15543,
+            "requests": 7846,
+            "evaluations": 155902,
+            "precision": 0.9981549815498155,
+            "coverage": 0.3011111111111111
+          },
+          {
+            "threshold": 0.99,
+            "n": 1800,
+            "selected": 577,
+            "correct": 575,
+            "wrong": 2,
+            "unknownAccepted": 1,
+            "spent": 15455,
+            "requests": 7647,
+            "evaluations": 152795,
+            "precision": 0.9965337954939342,
+            "coverage": 0.32055555555555554
+          },
+          {
+            "threshold": 0.99,
+            "n": 1800,
+            "selected": 605,
+            "correct": 601,
+            "wrong": 4,
+            "unknownAccepted": 1,
+            "spent": 15125,
+            "requests": 10298,
+            "evaluations": 199456,
+            "precision": 0.9933884297520661,
+            "coverage": 0.33611111111111114
+          }
+        ]
+      },
+      "options": [
+        {
+          "threshold": 0.95,
+          "scores": [
+            {
+              "threshold": 0.95,
+              "n": 1800,
+              "selected": 778,
+              "correct": 760,
+              "wrong": 18,
+              "unknownAccepted": 8,
+              "spent": 13383,
+              "requests": 6720,
+              "evaluations": 134609,
+              "precision": 0.9768637532133676,
+              "coverage": 0.43222222222222223
+            },
+            {
+              "threshold": 0.95,
+              "n": 1800,
+              "selected": 837,
+              "correct": 813,
+              "wrong": 24,
+              "unknownAccepted": 12,
+              "spent": 13030,
+              "requests": 6397,
+              "evaluations": 129392,
+              "precision": 0.9713261648745519,
+              "coverage": 0.465
+            },
+            {
+              "threshold": 0.95,
+              "n": 1800,
+              "selected": 881,
+              "correct": 853,
+              "wrong": 28,
+              "unknownAccepted": 13,
+              "spent": 12528,
+              "requests": 8703,
+              "evaluations": 170528,
+              "precision": 0.9682179341657208,
+              "coverage": 0.48944444444444446
+            }
+          ]
+        },
+        {
+          "threshold": 0.97,
+          "scores": [
+            {
+              "threshold": 0.97,
+              "n": 1800,
+              "selected": 706,
+              "correct": 696,
+              "wrong": 10,
+              "unknownAccepted": 5,
+              "spent": 14216,
+              "requests": 7146,
+              "evaluations": 143044,
+              "precision": 0.9858356940509915,
+              "coverage": 0.39222222222222225
+            },
+            {
+              "threshold": 0.97,
+              "n": 1800,
+              "selected": 765,
+              "correct": 750,
+              "wrong": 15,
+              "unknownAccepted": 10,
+              "spent": 13882,
+              "requests": 6823,
+              "evaluations": 137817,
+              "precision": 0.9803921568627451,
+              "coverage": 0.425
+            },
+            {
+              "threshold": 0.97,
+              "n": 1800,
+              "selected": 804,
+              "correct": 789,
+              "wrong": 15,
+              "unknownAccepted": 9,
+              "spent": 13439,
+              "requests": 9263,
+              "evaluations": 181238,
+              "precision": 0.9813432835820896,
+              "coverage": 0.44666666666666666
+            }
+          ]
+        },
+        {
+          "threshold": 0.98,
+          "scores": [
+            {
+              "threshold": 0.98,
+              "n": 1800,
+              "selected": 645,
+              "correct": 640,
+              "wrong": 5,
+              "unknownAccepted": 1,
+              "spent": 14900,
+              "requests": 7501,
+              "evaluations": 149951,
+              "precision": 0.9922480620155039,
+              "coverage": 0.35833333333333334
+            },
+            {
+              "threshold": 0.98,
+              "n": 1800,
+              "selected": 682,
+              "correct": 677,
+              "wrong": 5,
+              "unknownAccepted": 2,
+              "spent": 14861,
+              "requests": 7323,
+              "evaluations": 147467,
+              "precision": 0.9926686217008798,
+              "coverage": 0.3788888888888889
+            },
+            {
+              "threshold": 0.98,
+              "n": 1800,
+              "selected": 730,
+              "correct": 721,
+              "wrong": 9,
+              "unknownAccepted": 5,
+              "spent": 14305,
+              "requests": 9805,
+              "evaluations": 191219,
+              "precision": 0.9876712328767123,
+              "coverage": 0.40555555555555556
+            }
+          ]
+        },
+        {
+          "threshold": 0.985,
+          "scores": [
+            {
+              "threshold": 0.985,
+              "n": 1800,
+              "selected": 602,
+              "correct": 598,
+              "wrong": 4,
+              "unknownAccepted": 1,
+              "spent": 15164,
+              "requests": 7645,
+              "evaluations": 152373,
+              "precision": 0.9933554817275747,
+              "coverage": 0.33444444444444443
+            },
+            {
+              "threshold": 0.985,
+              "n": 1800,
+              "selected": 635,
+              "correct": 630,
+              "wrong": 5,
+              "unknownAccepted": 2,
+              "spent": 15192,
+              "requests": 7504,
+              "evaluations": 150522,
+              "precision": 0.9921259842519685,
+              "coverage": 0.3527777777777778
+            },
+            {
+              "threshold": 0.985,
+              "n": 1800,
+              "selected": 676,
+              "correct": 668,
+              "wrong": 8,
+              "unknownAccepted": 4,
+              "spent": 14762,
+              "requests": 10078,
+              "evaluations": 195877,
+              "precision": 0.9881656804733728,
+              "coverage": 0.37555555555555553
+            }
+          ]
+        },
+        {
+          "threshold": 0.99,
+          "scores": [
+            {
+              "threshold": 0.99,
+              "n": 1800,
+              "selected": 542,
+              "correct": 541,
+              "wrong": 1,
+              "unknownAccepted": 0,
+              "spent": 15543,
+              "requests": 7846,
+              "evaluations": 155902,
+              "precision": 0.9981549815498155,
+              "coverage": 0.3011111111111111
+            },
+            {
+              "threshold": 0.99,
+              "n": 1800,
+              "selected": 577,
+              "correct": 575,
+              "wrong": 2,
+              "unknownAccepted": 1,
+              "spent": 15455,
+              "requests": 7647,
+              "evaluations": 152795,
+              "precision": 0.9965337954939342,
+              "coverage": 0.32055555555555554
+            },
+            {
+              "threshold": 0.99,
+              "n": 1800,
+              "selected": 605,
+              "correct": 601,
+              "wrong": 4,
+              "unknownAccepted": 1,
+              "spent": 15125,
+              "requests": 10298,
+              "evaluations": 199456,
+              "precision": 0.9933884297520661,
+              "coverage": 0.33611111111111114
+            }
+          ]
+        },
+        {
+          "threshold": 0.995,
+          "scores": [
+            {
+              "threshold": 0.995,
+              "n": 1800,
+              "selected": 435,
+              "correct": 435,
+              "wrong": 0,
+              "unknownAccepted": 0,
+              "spent": 16289,
+              "requests": 8253,
+              "evaluations": 163370,
+              "precision": 1,
+              "coverage": 0.24166666666666667
+            },
+            {
+              "threshold": 0.995,
+              "n": 1800,
+              "selected": 447,
+              "correct": 446,
+              "wrong": 1,
+              "unknownAccepted": 1,
+              "spent": 16452,
+              "requests": 8187,
+              "evaluations": 162514,
+              "precision": 0.9977628635346756,
+              "coverage": 0.24833333333333332
+            },
+            {
+              "threshold": 0.995,
+              "n": 1800,
+              "selected": 471,
+              "correct": 470,
+              "wrong": 1,
+              "unknownAccepted": 1,
+              "spent": 16144,
+              "requests": 10968,
+              "evaluations": 211023,
+              "precision": 0.9978768577494692,
+              "coverage": 0.26166666666666666
+            }
+          ]
+        },
+        {
+          "threshold": 0.999,
+          "scores": [
+            {
+              "threshold": 0.999,
+              "n": 1800,
+              "selected": 126,
+              "correct": 126,
+              "wrong": 0,
+              "unknownAccepted": 0,
+              "spent": 17717,
+              "requests": 9057,
+              "evaluations": 176070,
+              "precision": 1,
+              "coverage": 0.07
+            },
+            {
+              "threshold": 0.999,
+              "n": 1800,
+              "selected": 139,
+              "correct": 139,
+              "wrong": 0,
+              "unknownAccepted": 0,
+              "spent": 17666,
+              "requests": 8842,
+              "evaluations": 172964,
+              "precision": 1,
+              "coverage": 0.07722222222222222
+            },
+            {
+              "threshold": 0.999,
+              "n": 1800,
+              "selected": 166,
+              "correct": 166,
+              "wrong": 0,
+              "unknownAccepted": 0,
+              "spent": 17538,
+              "requests": 11910,
+              "evaluations": 225678,
+              "precision": 1,
+              "coverage": 0.09222222222222222
+            }
+          ]
+        }
+      ],
+      "results": {
+        "variance": {
+          "threshold": 0.99,
+          "n": 3600,
+          "selected": 1068,
+          "correct": 1065,
+          "wrong": 3,
+          "unknownAccepted": 1,
+          "spent": 31024,
+          "requests": 15558,
+          "evaluations": 309270,
+          "precision": 0.9971910112359551,
+          "coverage": 0.2966666666666667
+        },
+        "information": {
+          "threshold": 0.99,
+          "n": 3600,
+          "selected": 1168,
+          "correct": 1161,
+          "wrong": 7,
+          "unknownAccepted": 4,
+          "spent": 30577,
+          "requests": 15056,
+          "evaluations": 301360,
+          "precision": 0.9940068493150684,
+          "coverage": 0.3244444444444444
+        },
+        "value": {
+          "threshold": 0.99,
+          "n": 3600,
+          "selected": 1176,
+          "correct": 1171,
+          "wrong": 5,
+          "unknownAccepted": 3,
+          "spent": 30256,
+          "requests": 20460,
+          "evaluations": 397030,
+          "precision": 0.9957482993197279,
+          "coverage": 0.32666666666666666
+        }
+      }
+    },
+    {
+      "seed": 60001,
+      "channels": [
+        {
+          "cost": 2,
+          "error": 0.02
+        },
+        {
+          "cost": 4,
+          "error": 0.08
+        },
+        {
+          "cost": 1,
+          "error": 0.12
+        },
+        {
+          "cost": 3,
+          "error": 0.04
+        },
+        {
+          "cost": 2,
+          "error": 0.18
+        },
+        {
+          "cost": 1,
+          "error": 0.25
+        },
+        {
+          "cost": 2,
+          "error": 0.08
+        },
+        {
+          "cost": 4,
+          "error": 0.12
+        },
+        {
+          "cost": 1,
+          "error": 0.04
+        },
+        {
+          "cost": 3,
+          "error": 0.18
+        },
+        {
+          "cost": 2,
+          "error": 0.25
+        },
+        {
+          "cost": 1,
+          "error": 0.02
+        },
+        {
+          "cost": 2,
+          "error": 0.12
+        },
+        {
+          "cost": 4,
+          "error": 0.04
+        },
+        {
+          "cost": 1,
+          "error": 0.18
+        },
+        {
+          "cost": 3,
+          "error": 0.25
+        },
+        {
+          "cost": 2,
+          "error": 0.02
+        },
+        {
+          "cost": 1,
+          "error": 0.08
+        },
+        {
+          "cost": 2,
+          "error": 0.04
+        },
+        {
+          "cost": 4,
+          "error": 0.18
+        },
+        {
+          "cost": 1,
+          "error": 0.25
+        },
+        {
+          "cost": 3,
+          "error": 0.02
+        },
+        {
+          "cost": 2,
+          "error": 0.08
+        },
+        {
+          "cost": 1,
+          "error": 0.12
+        }
+      ],
+      "calibration": {
+        "threshold": 0.995,
+        "scores": [
+          {
+            "threshold": 0.995,
+            "n": 1800,
+            "selected": 448,
+            "correct": 448,
+            "wrong": 0,
+            "unknownAccepted": 0,
+            "spent": 16240,
+            "requests": 8234,
+            "evaluations": 162894,
+            "precision": 1,
+            "coverage": 0.24888888888888888
+          },
+          {
+            "threshold": 0.995,
+            "n": 1800,
+            "selected": 466,
+            "correct": 462,
+            "wrong": 4,
+            "unknownAccepted": 4,
+            "spent": 16317,
+            "requests": 8074,
+            "evaluations": 160511,
+            "precision": 0.9914163090128756,
+            "coverage": 0.2588888888888889
+          },
+          {
+            "threshold": 0.995,
+            "n": 1800,
+            "selected": 486,
+            "correct": 483,
+            "wrong": 3,
+            "unknownAccepted": 3,
+            "spent": 16035,
+            "requests": 10891,
+            "evaluations": 210024,
+            "precision": 0.9938271604938271,
+            "coverage": 0.27
+          }
+        ]
+      },
+      "options": [
+        {
+          "threshold": 0.95,
+          "scores": [
+            {
+              "threshold": 0.95,
+              "n": 1800,
+              "selected": 806,
+              "correct": 781,
+              "wrong": 25,
+              "unknownAccepted": 18,
+              "spent": 13161,
+              "requests": 6625,
+              "evaluations": 132898,
+              "precision": 0.9689826302729528,
+              "coverage": 0.4477777777777778
+            },
+            {
+              "threshold": 0.95,
+              "n": 1800,
+              "selected": 879,
+              "correct": 853,
+              "wrong": 26,
+              "unknownAccepted": 16,
+              "spent": 12700,
+              "requests": 6224,
+              "evaluations": 126194,
+              "precision": 0.9704209328782708,
+              "coverage": 0.48833333333333334
+            },
+            {
+              "threshold": 0.95,
+              "n": 1800,
+              "selected": 905,
+              "correct": 872,
+              "wrong": 33,
+              "unknownAccepted": 23,
+              "spent": 12164,
+              "requests": 8447,
+              "evaluations": 165950,
+              "precision": 0.96353591160221,
+              "coverage": 0.5027777777777778
+            }
+          ]
+        },
+        {
+          "threshold": 0.97,
+          "scores": [
+            {
+              "threshold": 0.97,
+              "n": 1800,
+              "selected": 732,
+              "correct": 718,
+              "wrong": 14,
+              "unknownAccepted": 12,
+              "spent": 13992,
+              "requests": 7049,
+              "evaluations": 141134,
+              "precision": 0.9808743169398907,
+              "coverage": 0.4066666666666667
+            },
+            {
+              "threshold": 0.97,
+              "n": 1800,
+              "selected": 818,
+              "correct": 802,
+              "wrong": 16,
+              "unknownAccepted": 12,
+              "spent": 13572,
+              "requests": 6658,
+              "evaluations": 134796,
+              "precision": 0.980440097799511,
+              "coverage": 0.45444444444444443
+            },
+            {
+              "threshold": 0.97,
+              "n": 1800,
+              "selected": 835,
+              "correct": 817,
+              "wrong": 18,
+              "unknownAccepted": 13,
+              "spent": 13092,
+              "requests": 9025,
+              "evaluations": 177291,
+              "precision": 0.9784431137724551,
+              "coverage": 0.4638888888888889
+            }
+          ]
+        },
+        {
+          "threshold": 0.98,
+          "scores": [
+            {
+              "threshold": 0.98,
+              "n": 1800,
+              "selected": 679,
+              "correct": 670,
+              "wrong": 9,
+              "unknownAccepted": 8,
+              "spent": 14624,
+              "requests": 7379,
+              "evaluations": 147509,
+              "precision": 0.9867452135493373,
+              "coverage": 0.37722222222222224
+            },
+            {
+              "threshold": 0.98,
+              "n": 1800,
+              "selected": 703,
+              "correct": 694,
+              "wrong": 9,
+              "unknownAccepted": 7,
+              "spent": 14627,
+              "requests": 7179,
+              "evaluations": 144775,
+              "precision": 0.9871977240398293,
+              "coverage": 0.39055555555555554
+            },
+            {
+              "threshold": 0.98,
+              "n": 1800,
+              "selected": 758,
+              "correct": 746,
+              "wrong": 12,
+              "unknownAccepted": 8,
+              "spent": 14063,
+              "requests": 9624,
+              "evaluations": 188471,
+              "precision": 0.9841688654353562,
+              "coverage": 0.4211111111111111
+            }
+          ]
+        },
+        {
+          "threshold": 0.985,
+          "scores": [
+            {
+              "threshold": 0.985,
+              "n": 1800,
+              "selected": 630,
+              "correct": 625,
+              "wrong": 5,
+              "unknownAccepted": 4,
+              "spent": 14879,
+              "requests": 7519,
+              "evaluations": 150010,
+              "precision": 0.9920634920634921,
+              "coverage": 0.35
+            },
+            {
+              "threshold": 0.985,
+              "n": 1800,
+              "selected": 647,
+              "correct": 641,
+              "wrong": 6,
+              "unknownAccepted": 4,
+              "spent": 15025,
+              "requests": 7371,
+              "evaluations": 148165,
+              "precision": 0.990726429675425,
+              "coverage": 0.35944444444444446
+            },
+            {
+              "threshold": 0.985,
+              "n": 1800,
+              "selected": 702,
+              "correct": 692,
+              "wrong": 10,
+              "unknownAccepted": 7,
+              "spent": 14559,
+              "requests": 9928,
+              "evaluations": 193784,
+              "precision": 0.9857549857549858,
+              "coverage": 0.39
+            }
+          ]
+        },
+        {
+          "threshold": 0.99,
+          "scores": [
+            {
+              "threshold": 0.99,
+              "n": 1800,
+              "selected": 576,
+              "correct": 573,
+              "wrong": 3,
+              "unknownAccepted": 3,
+              "spent": 15310,
+              "requests": 7744,
+              "evaluations": 153998,
+              "precision": 0.9947916666666666,
+              "coverage": 0.32
+            },
+            {
+              "threshold": 0.99,
+              "n": 1800,
+              "selected": 593,
+              "correct": 588,
+              "wrong": 5,
+              "unknownAccepted": 4,
+              "spent": 15267,
+              "requests": 7501,
+              "evaluations": 150309,
+              "precision": 0.9915682967959528,
+              "coverage": 0.32944444444444443
+            },
+            {
+              "threshold": 0.99,
+              "n": 1800,
+              "selected": 630,
+              "correct": 622,
+              "wrong": 8,
+              "unknownAccepted": 7,
+              "spent": 15003,
+              "requests": 10206,
+              "evaluations": 198138,
+              "precision": 0.9873015873015873,
+              "coverage": 0.35
+            }
+          ]
+        },
+        {
+          "threshold": 0.995,
+          "scores": [
+            {
+              "threshold": 0.995,
+              "n": 1800,
+              "selected": 448,
+              "correct": 448,
+              "wrong": 0,
+              "unknownAccepted": 0,
+              "spent": 16240,
+              "requests": 8234,
+              "evaluations": 162894,
+              "precision": 1,
+              "coverage": 0.24888888888888888
+            },
+            {
+              "threshold": 0.995,
+              "n": 1800,
+              "selected": 466,
+              "correct": 462,
+              "wrong": 4,
+              "unknownAccepted": 4,
+              "spent": 16317,
+              "requests": 8074,
+              "evaluations": 160511,
+              "precision": 0.9914163090128756,
+              "coverage": 0.2588888888888889
+            },
+            {
+              "threshold": 0.995,
+              "n": 1800,
+              "selected": 486,
+              "correct": 483,
+              "wrong": 3,
+              "unknownAccepted": 3,
+              "spent": 16035,
+              "requests": 10891,
+              "evaluations": 210024,
+              "precision": 0.9938271604938271,
+              "coverage": 0.27
+            }
+          ]
+        },
+        {
+          "threshold": 0.999,
+          "scores": [
+            {
+              "threshold": 0.999,
+              "n": 1800,
+              "selected": 129,
+              "correct": 129,
+              "wrong": 0,
+              "unknownAccepted": 0,
+              "spent": 17699,
+              "requests": 9062,
+              "evaluations": 176214,
+              "precision": 1,
+              "coverage": 0.07166666666666667
+            },
+            {
+              "threshold": 0.999,
+              "n": 1800,
+              "selected": 145,
+              "correct": 145,
+              "wrong": 0,
+              "unknownAccepted": 0,
+              "spent": 17665,
+              "requests": 8824,
+              "evaluations": 172515,
+              "precision": 1,
+              "coverage": 0.08055555555555556
+            },
+            {
+              "threshold": 0.999,
+              "n": 1800,
+              "selected": 164,
+              "correct": 164,
+              "wrong": 0,
+              "unknownAccepted": 0,
+              "spent": 17529,
+              "requests": 11898,
+              "evaluations": 225894,
+              "precision": 1,
+              "coverage": 0.09111111111111111
+            }
+          ]
+        }
+      ],
+      "results": {
+        "variance": {
+          "threshold": 0.995,
+          "n": 3600,
+          "selected": 857,
+          "correct": 856,
+          "wrong": 1,
+          "unknownAccepted": 0,
+          "spent": 32711,
+          "requests": 16575,
+          "evaluations": 327908,
+          "precision": 0.9988331388564761,
+          "coverage": 0.23805555555555555
+        },
+        "information": {
+          "threshold": 0.995,
+          "n": 3600,
+          "selected": 868,
+          "correct": 865,
+          "wrong": 3,
+          "unknownAccepted": 1,
+          "spent": 32872,
+          "requests": 16278,
+          "evaluations": 323916,
+          "precision": 0.9965437788018433,
+          "coverage": 0.2411111111111111
+        },
+        "value": {
+          "threshold": 0.995,
+          "n": 3600,
+          "selected": 898,
+          "correct": 895,
+          "wrong": 3,
+          "unknownAccepted": 2,
+          "spent": 32274,
+          "requests": 21913,
+          "evaluations": 422597,
+          "precision": 0.9966592427616926,
+          "coverage": 0.24944444444444444
+        }
+      }
+    },
+    {
+      "seed": 61002,
+      "channels": [
+        {
+          "cost": 1,
+          "error": 0.25
+        },
+        {
+          "cost": 2,
+          "error": 0.02
+        },
+        {
+          "cost": 4,
+          "error": 0.08
+        },
+        {
+          "cost": 1,
+          "error": 0.12
+        },
+        {
+          "cost": 3,
+          "error": 0.04
+        },
+        {
+          "cost": 2,
+          "error": 0.18
+        },
+        {
+          "cost": 1,
+          "error": 0.02
+        },
+        {
+          "cost": 2,
+          "error": 0.08
+        },
+        {
+          "cost": 4,
+          "error": 0.12
+        },
+        {
+          "cost": 1,
+          "error": 0.04
+        },
+        {
+          "cost": 3,
+          "error": 0.18
+        },
+        {
+          "cost": 2,
+          "error": 0.25
+        },
+        {
+          "cost": 1,
+          "error": 0.08
+        },
+        {
+          "cost": 2,
+          "error": 0.12
+        },
+        {
+          "cost": 4,
+          "error": 0.04
+        },
+        {
+          "cost": 1,
+          "error": 0.18
+        },
+        {
+          "cost": 3,
+          "error": 0.25
+        },
+        {
+          "cost": 2,
+          "error": 0.02
+        },
+        {
+          "cost": 1,
+          "error": 0.12
+        },
+        {
+          "cost": 2,
+          "error": 0.04
+        },
+        {
+          "cost": 4,
+          "error": 0.18
+        },
+        {
+          "cost": 1,
+          "error": 0.25
+        },
+        {
+          "cost": 3,
+          "error": 0.02
+        },
+        {
+          "cost": 2,
+          "error": 0.08
+        }
+      ],
+      "calibration": {
+        "threshold": 0.995,
+        "scores": [
+          {
+            "threshold": 0.995,
+            "n": 1800,
+            "selected": 415,
+            "correct": 412,
+            "wrong": 3,
+            "unknownAccepted": 2,
+            "spent": 16308,
+            "requests": 8251,
+            "evaluations": 163103,
+            "precision": 0.9927710843373494,
+            "coverage": 0.23055555555555557
+          },
+          {
+            "threshold": 0.995,
+            "n": 1800,
+            "selected": 443,
+            "correct": 440,
+            "wrong": 3,
+            "unknownAccepted": 2,
+            "spent": 16431,
+            "requests": 8194,
+            "evaluations": 162417,
+            "precision": 0.9932279909706546,
+            "coverage": 0.2461111111111111
+          },
+          {
+            "threshold": 0.995,
+            "n": 1800,
+            "selected": 460,
+            "correct": 459,
+            "wrong": 1,
+            "unknownAccepted": 1,
+            "spent": 16148,
+            "requests": 10996,
+            "evaluations": 211899,
+            "precision": 0.9978260869565218,
+            "coverage": 0.25555555555555554
+          }
+        ]
+      },
+      "options": [
+        {
+          "threshold": 0.95,
+          "scores": [
+            {
+              "threshold": 0.95,
+              "n": 1800,
+              "selected": 782,
+              "correct": 762,
+              "wrong": 20,
+              "unknownAccepted": 11,
+              "spent": 13391,
+              "requests": 6715,
+              "evaluations": 134454,
+              "precision": 0.9744245524296675,
+              "coverage": 0.43444444444444447
+            },
+            {
+              "threshold": 0.95,
+              "n": 1800,
+              "selected": 848,
+              "correct": 833,
+              "wrong": 15,
+              "unknownAccepted": 9,
+              "spent": 13009,
+              "requests": 6430,
+              "evaluations": 129815,
+              "precision": 0.9823113207547169,
+              "coverage": 0.4711111111111111
+            },
+            {
+              "threshold": 0.95,
+              "n": 1800,
+              "selected": 888,
+              "correct": 869,
+              "wrong": 19,
+              "unknownAccepted": 11,
+              "spent": 12555,
+              "requests": 8735,
+              "evaluations": 171311,
+              "precision": 0.9786036036036037,
+              "coverage": 0.49333333333333335
+            }
+          ]
+        },
+        {
+          "threshold": 0.97,
+          "scores": [
+            {
+              "threshold": 0.97,
+              "n": 1800,
+              "selected": 716,
+              "correct": 705,
+              "wrong": 11,
+              "unknownAccepted": 8,
+              "spent": 14153,
+              "requests": 7096,
+              "evaluations": 141978,
+              "precision": 0.9846368715083799,
+              "coverage": 0.3977777777777778
+            },
+            {
+              "threshold": 0.97,
+              "n": 1800,
+              "selected": 766,
+              "correct": 755,
+              "wrong": 11,
+              "unknownAccepted": 8,
+              "spent": 13818,
+              "requests": 6844,
+              "evaluations": 137812,
+              "precision": 0.9856396866840731,
+              "coverage": 0.4255555555555556
+            },
+            {
+              "threshold": 0.97,
+              "n": 1800,
+              "selected": 804,
+              "correct": 789,
+              "wrong": 15,
+              "unknownAccepted": 10,
+              "spent": 13324,
+              "requests": 9231,
+              "evaluations": 180536,
+              "precision": 0.9813432835820896,
+              "coverage": 0.44666666666666666
+            }
+          ]
+        },
+        {
+          "threshold": 0.98,
+          "scores": [
+            {
+              "threshold": 0.98,
+              "n": 1800,
+              "selected": 642,
+              "correct": 635,
+              "wrong": 7,
+              "unknownAccepted": 4,
+              "spent": 14880,
+              "requests": 7470,
+              "evaluations": 149197,
+              "precision": 0.9890965732087228,
+              "coverage": 0.3566666666666667
+            },
+            {
+              "threshold": 0.98,
+              "n": 1800,
+              "selected": 681,
+              "correct": 676,
+              "wrong": 5,
+              "unknownAccepted": 3,
+              "spent": 14781,
+              "requests": 7332,
+              "evaluations": 147210,
+              "precision": 0.9926578560939795,
+              "coverage": 0.37833333333333335
+            },
+            {
+              "threshold": 0.98,
+              "n": 1800,
+              "selected": 724,
+              "correct": 717,
+              "wrong": 7,
+              "unknownAccepted": 5,
+              "spent": 14230,
+              "requests": 9777,
+              "evaluations": 190920,
+              "precision": 0.9903314917127072,
+              "coverage": 0.4022222222222222
+            }
+          ]
+        },
+        {
+          "threshold": 0.985,
+          "scores": [
+            {
+              "threshold": 0.985,
+              "n": 1800,
+              "selected": 599,
+              "correct": 592,
+              "wrong": 7,
+              "unknownAccepted": 4,
+              "spent": 15137,
+              "requests": 7606,
+              "evaluations": 151480,
+              "precision": 0.988313856427379,
+              "coverage": 0.3327777777777778
+            },
+            {
+              "threshold": 0.985,
+              "n": 1800,
+              "selected": 638,
+              "correct": 634,
+              "wrong": 4,
+              "unknownAccepted": 2,
+              "spent": 15127,
+              "requests": 7511,
+              "evaluations": 150287,
+              "precision": 0.9937304075235109,
+              "coverage": 0.35444444444444445
+            },
+            {
+              "threshold": 0.985,
+              "n": 1800,
+              "selected": 668,
+              "correct": 663,
+              "wrong": 5,
+              "unknownAccepted": 4,
+              "spent": 14707,
+              "requests": 10070,
+              "evaluations": 195999,
+              "precision": 0.9925149700598802,
+              "coverage": 0.3711111111111111
+            }
+          ]
+        },
+        {
+          "threshold": 0.99,
+          "scores": [
+            {
+              "threshold": 0.99,
+              "n": 1800,
+              "selected": 520,
+              "correct": 514,
+              "wrong": 6,
+              "unknownAccepted": 3,
+              "spent": 15531,
+              "requests": 7836,
+              "evaluations": 155493,
+              "precision": 0.9884615384615385,
+              "coverage": 0.28888888888888886
+            },
+            {
+              "threshold": 0.99,
+              "n": 1800,
+              "selected": 572,
+              "correct": 569,
+              "wrong": 3,
+              "unknownAccepted": 2,
+              "spent": 15398,
+              "requests": 7651,
+              "evaluations": 152682,
+              "precision": 0.9947552447552448,
+              "coverage": 0.31777777777777777
+            },
+            {
+              "threshold": 0.99,
+              "n": 1800,
+              "selected": 593,
+              "correct": 591,
+              "wrong": 2,
+              "unknownAccepted": 2,
+              "spent": 15130,
+              "requests": 10326,
+              "evaluations": 200154,
+              "precision": 0.9966273187183811,
+              "coverage": 0.32944444444444443
+            }
+          ]
+        },
+        {
+          "threshold": 0.995,
+          "scores": [
+            {
+              "threshold": 0.995,
+              "n": 1800,
+              "selected": 415,
+              "correct": 412,
+              "wrong": 3,
+              "unknownAccepted": 2,
+              "spent": 16308,
+              "requests": 8251,
+              "evaluations": 163103,
+              "precision": 0.9927710843373494,
+              "coverage": 0.23055555555555557
+            },
+            {
+              "threshold": 0.995,
+              "n": 1800,
+              "selected": 443,
+              "correct": 440,
+              "wrong": 3,
+              "unknownAccepted": 2,
+              "spent": 16431,
+              "requests": 8194,
+              "evaluations": 162417,
+              "precision": 0.9932279909706546,
+              "coverage": 0.2461111111111111
+            },
+            {
+              "threshold": 0.995,
+              "n": 1800,
+              "selected": 460,
+              "correct": 459,
+              "wrong": 1,
+              "unknownAccepted": 1,
+              "spent": 16148,
+              "requests": 10996,
+              "evaluations": 211899,
+              "precision": 0.9978260869565218,
+              "coverage": 0.25555555555555554
+            }
+          ]
+        },
+        {
+          "threshold": 0.999,
+          "scores": [
+            {
+              "threshold": 0.999,
+              "n": 1800,
+              "selected": 129,
+              "correct": 128,
+              "wrong": 1,
+              "unknownAccepted": 1,
+              "spent": 17684,
+              "requests": 9014,
+              "evaluations": 175271,
+              "precision": 0.9922480620155039,
+              "coverage": 0.07166666666666667
+            },
+            {
+              "threshold": 0.999,
+              "n": 1800,
+              "selected": 155,
+              "correct": 154,
+              "wrong": 1,
+              "unknownAccepted": 1,
+              "spent": 17626,
+              "requests": 8856,
+              "evaluations": 173049,
+              "precision": 0.9935483870967742,
+              "coverage": 0.08611111111111111
+            },
+            {
+              "threshold": 0.999,
+              "n": 1800,
+              "selected": 171,
+              "correct": 171,
+              "wrong": 0,
+              "unknownAccepted": 0,
+              "spent": 17492,
+              "requests": 11887,
+              "evaluations": 225852,
+              "precision": 1,
+              "coverage": 0.095
+            }
+          ]
+        }
+      ],
+      "results": {
+        "variance": {
+          "threshold": 0.995,
+          "n": 3600,
+          "selected": 882,
+          "correct": 882,
+          "wrong": 0,
+          "unknownAccepted": 0,
+          "spent": 32617,
+          "requests": 16460,
+          "evaluations": 326003,
+          "precision": 1,
+          "coverage": 0.245
+        },
+        "information": {
+          "threshold": 0.995,
+          "n": 3600,
+          "selected": 874,
+          "correct": 872,
+          "wrong": 2,
+          "unknownAccepted": 1,
+          "spent": 32869,
+          "requests": 16323,
+          "evaluations": 324535,
+          "precision": 0.9977116704805492,
+          "coverage": 0.2427777777777778
+        },
+        "value": {
+          "threshold": 0.995,
+          "n": 3600,
+          "selected": 935,
+          "correct": 932,
+          "wrong": 3,
+          "unknownAccepted": 1,
+          "spent": 32224,
+          "requests": 21848,
+          "evaluations": 421743,
+          "precision": 0.9967914438502674,
+          "coverage": 0.25972222222222224
+        }
+      }
+    }
+  ],
+  "limitations": "Synthetic known channel costs and noise, ten abstract cost units per trial. Bayesian likelihood matches generator; no real-world reliability calibration. Greedy information/cost not globally optimal. Calibration common 99% empirical target, fallback highest threshold if no eligible. Evaluation count excludes actual CPU costs; simulated observations share one root."
+}

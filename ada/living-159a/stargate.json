@@ -1,0 +1,34 @@
+{
+  "version": "ADA-159A",
+  "watermark": ".dlw",
+  "lineage": "ADA-158",
+  "width": 42,
+  "spectrum": {
+    "width": 24,
+    "order": [
+      "r8!",
+      "b8!",
+      "g8!"
+    ]
+  },
+  "chrome": {
+    "width": 9,
+    "semantics": "quantum chrome dynamics; individual assignments pending"
+  },
+  "singlet": {
+    "width": 1,
+    "implicit": true
+  },
+  "coordinates": {
+    "width": 8,
+    "notation": "{{w,x,y:z}}^2",
+    "encoding": "pending"
+  },
+  "stargate": "00 11 [ 24 /|\\ 42 ] 11 00",
+  "framing": "Width of framing symbols excluded from 42-bit payload; physical serialization not yet specified",
+  "status": "structural specification; no physical quantum claim",
+  "tests": {
+    "roundTrips": 4140
+  },
+  "packing": "Proposed LSB layout: spectrum 0–23, chrome 24–32, singlet 33, coordinates 34–41; implicit singlet reserved as logical bit, not settled serialization."
+}

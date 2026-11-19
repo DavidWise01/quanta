@@ -1,0 +1,127 @@
+{
+  "RQT": 485,
+  "sha256": "5f4f49b1d75d60d61961b8a0aede915707f6c5cf11e1a9d7e71f1d3a7d83c809",
+  "steps_per_slope": 81,
+  "rows": [
+    {
+      "slope": [
+        1,
+        3
+      ],
+      "sign": 1,
+      "tests": 264,
+      "negative": 0,
+      "squares": 0,
+      "max_lambda_bits": 133,
+      "max_j_bits": 1349,
+      "min_balance_bits": 3369
+    },
+    {
+      "slope": [
+        3,
+        1
+      ],
+      "sign": 1,
+      "tests": 254,
+      "negative": 0,
+      "squares": 0,
+      "max_lambda_bits": 134,
+      "max_j_bits": 1348,
+      "min_balance_bits": 3366
+    },
+    {
+      "slope": [
+        3,
+        2
+      ],
+      "sign": 1,
+      "tests": 276,
+      "negative": 0,
+      "squares": 0,
+      "max_lambda_bits": 139,
+      "max_j_bits": 1355,
+      "min_balance_bits": 3368
+    },
+    {
+      "slope": [
+        5,
+        1
+      ],
+      "sign": 1,
+      "tests": 234,
+      "negative": 0,
+      "squares": 0,
+      "max_lambda_bits": 124,
+      "max_j_bits": 1338,
+      "min_balance_bits": 3367
+    },
+    {
+      "slope": [
+        5,
+        2
+      ],
+      "sign": 1,
+      "tests": 250,
+      "negative": 0,
+      "squares": 0,
+      "max_lambda_bits": 127,
+      "max_j_bits": 1342,
+      "min_balance_bits": 3369
+    },
+    {
+      "slope": [
+        5,
+        6
+      ],
+      "sign": 1,
+      "tests": 257,
+      "negative": 0,
+      "squares": 0,
+      "max_lambda_bits": 128,
+      "max_j_bits": 1345,
+      "min_balance_bits": 3371
+    },
+    {
+      "slope": [
+        1,
+        7
+      ],
+      "sign": 1,
+      "tests": 256,
+      "negative": 0,
+      "squares": 0,
+      "max_lambda_bits": 136,
+      "max_j_bits": 1353,
+      "min_balance_bits": 3369
+    },
+    {
+      "slope": [
+        7,
+        5
+      ],
+      "sign": 1,
+      "tests": 273,
+      "negative": 0,
+      "squares": 0,
+      "max_lambda_bits": 133,
+      "max_j_bits": 1350,
+      "min_balance_bits": 3370
+    },
+    {
+      "slope": [
+        7,
+        6
+      ],
+      "sign": 1,
+      "tests": 261,
+      "negative": 0,
+      "squares": 0,
+      "max_lambda_bits": 138,
+      "max_j_bits": 1355,
+      "min_balance_bits": 3369
+    }
+  ],
+  "hits": [],
+  "root19": "OPEN",
+  "prefix18": "UNVERIFIED"
+}

@@ -1,0 +1,24 @@
+{
+  "RQT": 480,
+  "sha256": "5f4f49b1d75d60d61961b8a0aede915707f6c5cf11e1a9d7e71f1d3a7d83c809",
+  "prime_limit": 5000000,
+  "primes_screened": 348513,
+  "factors": [
+    [
+      1129,
+      1
+    ]
+  ],
+  "cofactor_bits": 3496,
+  "cofactor_square": false,
+  "cofactor_probable_prime": false,
+  "det_bits": 3506,
+  "det_nonsquare_certificate": [
+    3,
+    2
+  ],
+  "witt_index_upper_bound": 1,
+  "root19": "OPEN",
+  "prefix18": "UNVERIFIED",
+  "note": "Summary; verifier emits exact cofactor."
+}

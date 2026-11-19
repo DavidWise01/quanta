@@ -1,0 +1,431 @@
+{
+  "experiment": "ADA-151",
+  "watermark": ".dlw",
+  "lineage": "ADA-150",
+  "results": [
+    {
+      "seed": 65000,
+      "threshold": 0.995,
+      "validation": {
+        "value": {
+          "threshold": 0.995,
+          "n": 900,
+          "selected": 239,
+          "correct": 238,
+          "wrong": 1,
+          "unknownAccepted": 1,
+          "spent": 8022,
+          "requests": 5450,
+          "evaluations": 105316,
+          "precision": 0.99581589958159,
+          "coverage": 0.26555555555555554,
+          "decisionChecks": 0,
+          "stops": {
+            "budget": 661,
+            "confidence": 239
+          },
+          "lowGainFinishes": 175,
+          "lowGainCorrect": 174,
+          "completionOpportunities": 0,
+          "proxy": 10128.32
+        },
+        "hybrid": {
+          "threshold": 0.995,
+          "n": 900,
+          "selected": 237,
+          "correct": 236,
+          "wrong": 1,
+          "unknownAccepted": 1,
+          "spent": 7967,
+          "requests": 5382,
+          "evaluations": 103954,
+          "precision": 0.9957805907172996,
+          "coverage": 0.2633333333333333,
+          "decisionChecks": 53224448,
+          "stops": {
+            "budget": 663,
+            "confidence": 237
+          },
+          "lowGainFinishes": 163,
+          "lowGainCorrect": 162,
+          "completionOpportunities": 263,
+          "proxy": 10046.08
+        },
+        "myopic": {
+          "threshold": 0.995,
+          "n": 900,
+          "selected": 32,
+          "correct": 32,
+          "wrong": 0,
+          "unknownAccepted": 0,
+          "spent": 40,
+          "requests": 29,
+          "evaluations": 21525,
+          "precision": 1,
+          "coverage": 0.035555555555555556,
+          "decisionChecks": 11020800,
+          "stops": {
+            "no-immediate-completion": 868,
+            "confidence": 32
+          },
+          "lowGainFinishes": 20,
+          "lowGainCorrect": 20,
+          "completionOpportunities": 29,
+          "proxy": 470.5
+        }
+      },
+      "results": {
+        "value": {
+          "threshold": 0.995,
+          "n": 2400,
+          "selected": 625,
+          "correct": 623,
+          "wrong": 2,
+          "unknownAccepted": 2,
+          "spent": 21473,
+          "requests": 14629,
+          "evaluations": 281993,
+          "precision": 0.9968,
+          "coverage": 0.2604166666666667,
+          "decisionChecks": 0,
+          "stops": {
+            "budget": 1775,
+            "confidence": 625
+          },
+          "lowGainFinishes": 450,
+          "lowGainCorrect": 449,
+          "completionOpportunities": 0,
+          "proxy": 27112.86
+        },
+        "hybrid": {
+          "threshold": 0.995,
+          "n": 2400,
+          "selected": 656,
+          "correct": 654,
+          "wrong": 2,
+          "unknownAccepted": 2,
+          "spent": 21239,
+          "requests": 14336,
+          "evaluations": 276861,
+          "precision": 0.9969512195121951,
+          "coverage": 0.2733333333333333,
+          "decisionChecks": 141752832,
+          "stops": {
+            "budget": 1744,
+            "confidence": 656
+          },
+          "lowGainFinishes": 452,
+          "lowGainCorrect": 450,
+          "completionOpportunities": 715,
+          "proxy": 26776.22
+        },
+        "myopic": {
+          "threshold": 0.995,
+          "n": 2400,
+          "selected": 79,
+          "correct": 78,
+          "wrong": 1,
+          "unknownAccepted": 1,
+          "spent": 99,
+          "requests": 72,
+          "evaluations": 57427,
+          "precision": 0.9873417721518988,
+          "coverage": 0.032916666666666664,
+          "decisionChecks": 29402624,
+          "stops": {
+            "no-immediate-completion": 2321,
+            "confidence": 79
+          },
+          "lowGainFinishes": 41,
+          "lowGainCorrect": 40,
+          "completionOpportunities": 72,
+          "proxy": 1247.54
+        }
+      },
+      "baselineChecks": 2400
+    },
+    {
+      "seed": 66001,
+      "threshold": 0.995,
+      "validation": {
+        "value": {
+          "threshold": 0.995,
+          "n": 900,
+          "selected": 221,
+          "correct": 221,
+          "wrong": 0,
+          "unknownAccepted": 0,
+          "spent": 8075,
+          "requests": 5457,
+          "evaluations": 105211,
+          "precision": 1,
+          "coverage": 0.24555555555555555,
+          "decisionChecks": 0,
+          "stops": {
+            "budget": 679,
+            "confidence": 221
+          },
+          "lowGainFinishes": 153,
+          "lowGainCorrect": 153,
+          "completionOpportunities": 0,
+          "proxy": 10179.220000000001
+        },
+        "hybrid": {
+          "threshold": 0.995,
+          "n": 900,
+          "selected": 240,
+          "correct": 240,
+          "wrong": 0,
+          "unknownAccepted": 0,
+          "spent": 7977,
+          "requests": 5343,
+          "evaluations": 103356,
+          "precision": 1,
+          "coverage": 0.26666666666666666,
+          "decisionChecks": 52918272,
+          "stops": {
+            "budget": 660,
+            "confidence": 240
+          },
+          "lowGainFinishes": 162,
+          "lowGainCorrect": 162,
+          "completionOpportunities": 262,
+          "proxy": 10044.119999999999
+        },
+        "myopic": {
+          "threshold": 0.995,
+          "n": 900,
+          "selected": 35,
+          "correct": 35,
+          "wrong": 0,
+          "unknownAccepted": 0,
+          "spent": 54,
+          "requests": 32,
+          "evaluations": 21526,
+          "precision": 1,
+          "coverage": 0.03888888888888889,
+          "decisionChecks": 11021312,
+          "stops": {
+            "no-immediate-completion": 865,
+            "confidence": 35
+          },
+          "lowGainFinishes": 15,
+          "lowGainCorrect": 15,
+          "completionOpportunities": 32,
+          "proxy": 484.52
+        }
+      },
+      "results": {
+        "value": {
+          "threshold": 0.995,
+          "n": 2400,
+          "selected": 600,
+          "correct": 597,
+          "wrong": 3,
+          "unknownAccepted": 3,
+          "spent": 21475,
+          "requests": 14467,
+          "evaluations": 278806,
+          "precision": 0.995,
+          "coverage": 0.25,
+          "decisionChecks": 0,
+          "stops": {
+            "budget": 1800,
+            "confidence": 600
+          },
+          "lowGainFinishes": 397,
+          "lowGainCorrect": 394,
+          "completionOpportunities": 0,
+          "proxy": 27051.12
+        },
+        "hybrid": {
+          "threshold": 0.995,
+          "n": 2400,
+          "selected": 607,
+          "correct": 604,
+          "wrong": 3,
+          "unknownAccepted": 2,
+          "spent": 21381,
+          "requests": 14306,
+          "evaluations": 275901,
+          "precision": 0.9950576606260296,
+          "coverage": 0.2529166666666667,
+          "decisionChecks": 141261312,
+          "stops": {
+            "budget": 1793,
+            "confidence": 607
+          },
+          "lowGainFinishes": 375,
+          "lowGainCorrect": 372,
+          "completionOpportunities": 676,
+          "proxy": 26899.02
+        },
+        "myopic": {
+          "threshold": 0.995,
+          "n": 2400,
+          "selected": 96,
+          "correct": 96,
+          "wrong": 0,
+          "unknownAccepted": 0,
+          "spent": 113,
+          "requests": 78,
+          "evaluations": 57161,
+          "precision": 1,
+          "coverage": 0.04,
+          "decisionChecks": 29266432,
+          "stops": {
+            "no-immediate-completion": 2304,
+            "confidence": 96
+          },
+          "lowGainFinishes": 43,
+          "lowGainCorrect": 43,
+          "completionOpportunities": 78,
+          "proxy": 1256.22
+        }
+      },
+      "baselineChecks": 2400
+    },
+    {
+      "seed": 67002,
+      "threshold": 0.995,
+      "validation": {
+        "value": {
+          "threshold": 0.995,
+          "n": 900,
+          "selected": 230,
+          "correct": 230,
+          "wrong": 0,
+          "unknownAccepted": 0,
+          "spent": 8057,
+          "requests": 5488,
+          "evaluations": 105508,
+          "precision": 1,
+          "coverage": 0.25555555555555554,
+          "decisionChecks": 0,
+          "stops": {
+            "budget": 670,
+            "confidence": 230
+          },
+          "lowGainFinishes": 156,
+          "lowGainCorrect": 156,
+          "completionOpportunities": 0,
+          "proxy": 10167.16
+        },
+        "hybrid": {
+          "threshold": 0.995,
+          "n": 900,
+          "selected": 236,
+          "correct": 235,
+          "wrong": 1,
+          "unknownAccepted": 1,
+          "spent": 7975,
+          "requests": 5379,
+          "evaluations": 103661,
+          "precision": 0.9957627118644068,
+          "coverage": 0.26222222222222225,
+          "decisionChecks": 53074432,
+          "stops": {
+            "budget": 664,
+            "confidence": 236
+          },
+          "lowGainFinishes": 156,
+          "lowGainCorrect": 155,
+          "completionOpportunities": 256,
+          "proxy": 10048.220000000001
+        },
+        "myopic": {
+          "threshold": 0.995,
+          "n": 900,
+          "selected": 35,
+          "correct": 35,
+          "wrong": 0,
+          "unknownAccepted": 0,
+          "spent": 42,
+          "requests": 24,
+          "evaluations": 21335,
+          "precision": 1,
+          "coverage": 0.03888888888888889,
+          "decisionChecks": 10923520,
+          "stops": {
+            "no-immediate-completion": 865,
+            "confidence": 35
+          },
+          "lowGainFinishes": 12,
+          "lowGainCorrect": 12,
+          "completionOpportunities": 24,
+          "proxy": 468.7
+        }
+      },
+      "results": {
+        "value": {
+          "threshold": 0.995,
+          "n": 2400,
+          "selected": 579,
+          "correct": 579,
+          "wrong": 0,
+          "unknownAccepted": 0,
+          "spent": 21683,
+          "requests": 14705,
+          "evaluations": 282999,
+          "precision": 1,
+          "coverage": 0.24125,
+          "decisionChecks": 0,
+          "stops": {
+            "budget": 1821,
+            "confidence": 579
+          },
+          "lowGainFinishes": 407,
+          "lowGainCorrect": 407,
+          "completionOpportunities": 0,
+          "proxy": 27342.98
+        },
+        "hybrid": {
+          "threshold": 0.995,
+          "n": 2400,
+          "selected": 598,
+          "correct": 598,
+          "wrong": 0,
+          "unknownAccepted": 0,
+          "spent": 21484,
+          "requests": 14479,
+          "evaluations": 279043,
+          "precision": 1,
+          "coverage": 0.24916666666666668,
+          "decisionChecks": 142870016,
+          "stops": {
+            "budget": 1802,
+            "confidence": 598
+          },
+          "lowGainFinishes": 393,
+          "lowGainCorrect": 393,
+          "completionOpportunities": 662,
+          "proxy": 27064.86
+        },
+        "myopic": {
+          "threshold": 0.995,
+          "n": 2400,
+          "selected": 77,
+          "correct": 77,
+          "wrong": 0,
+          "unknownAccepted": 0,
+          "spent": 133,
+          "requests": 71,
+          "evaluations": 57449,
+          "precision": 1,
+          "coverage": 0.03208333333333333,
+          "decisionChecks": 29413888,
+          "stops": {
+            "no-immediate-completion": 2323,
+            "confidence": 77
+          },
+          "lowGainFinishes": 34,
+          "lowGainCorrect": 34,
+          "completionOpportunities": 71,
+          "proxy": 1281.98
+        }
+      },
+      "baselineChecks": 2400
+    }
+  ],
+  "limitations": "Known synthetic noise/cost, fixed .995 confidence and ten-unit budget inherited. One-step expected correct qualified-selection mass per cost; hybrid falls back to information/cost when no immediate opportunity; myopic stops. No tuning on holdout. Extra decision max comparisons counted separately; proxy excludes extra per-prototype decision checks and CPU costs. Not global planning or real-world uncertainty guarantee. Simulated common-root observations."
+}

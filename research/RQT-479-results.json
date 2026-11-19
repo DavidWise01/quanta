@@ -1,0 +1,75 @@
+{
+  "RQT": 479,
+  "sha256": "5f4f49b1d75d60d61961b8a0aede915707f6c5cf11e1a9d7e71f1d3a7d83c809",
+  "p": 1129,
+  "det_valuation": 1,
+  "det_unit": 968,
+  "radical": [
+    1,
+    836,
+    538,
+    0
+  ],
+  "radical_norm_unit": 881,
+  "minor_mod_p": 910,
+  "rows": [
+    {
+      "z": 3,
+      "base": 1130,
+      "lifts": 27,
+      "best_bits": 1355
+    },
+    {
+      "z": 7,
+      "base": 1130,
+      "lifts": 27,
+      "best_bits": 1357
+    },
+    {
+      "z": 9,
+      "base": 1130,
+      "lifts": 27,
+      "best_bits": 1358
+    },
+    {
+      "z": 10,
+      "base": 1130,
+      "lifts": 27,
+      "best_bits": 1358
+    },
+    {
+      "z": 13,
+      "base": 1130,
+      "lifts": 27,
+      "best_bits": 1359
+    },
+    {
+      "z": 14,
+      "base": 1130,
+      "lifts": 27,
+      "best_bits": 1359
+    },
+    {
+      "z": 17,
+      "base": 1130,
+      "lifts": 27,
+      "best_bits": 1360
+    },
+    {
+      "z": 19,
+      "base": 1130,
+      "lifts": 27,
+      "best_bits": 1360
+    },
+    {
+      "z": 22,
+      "base": 1130,
+      "lifts": 27,
+      "best_bits": 1361
+    }
+  ],
+  "base_tests": 11471769,
+  "hits": [],
+  "root19": "OPEN",
+  "prefix18": "UNVERIFIED"
+}

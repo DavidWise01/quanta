@@ -1,0 +1,164 @@
+{
+  "experiment": "ADA-152",
+  "watermark": ".dlw",
+  "lineage": "ADA-151",
+  "results": [
+    {
+      "seed": 68000,
+      "checks": 2400,
+      "steps": 16805,
+      "baseline": {
+        "threshold": 0.995,
+        "n": 2400,
+        "selected": 597,
+        "correct": 596,
+        "wrong": 1,
+        "unknownAccepted": 1,
+        "spent": 21438,
+        "requests": 14405,
+        "evaluations": 278060,
+        "precision": 0.998324958123953,
+        "coverage": 0.24875,
+        "decisionChecks": 142366720,
+        "stops": {
+          "budget": 1803,
+          "confidence": 597
+        },
+        "lowGainFinishes": 399,
+        "lowGainCorrect": 398,
+        "completionOpportunities": 644,
+        "proxy": 26999.2
+      },
+      "adaptive": {
+        "threshold": 0.995,
+        "n": 2400,
+        "selected": 597,
+        "correct": 596,
+        "wrong": 1,
+        "unknownAccepted": 1,
+        "spent": 21438,
+        "requests": 14405,
+        "evaluations": 278060,
+        "precision": 0.998324958123953,
+        "coverage": 0.24875,
+        "decisionChecks": 40633344,
+        "stops": {
+          "budget": 1803,
+          "confidence": 597
+        },
+        "lowGainFinishes": 399,
+        "lowGainCorrect": 398,
+        "completionOpportunities": 644,
+        "proxy": 26999.2
+      },
+      "boundChecks": 556120,
+      "prunedBranches": 397396,
+      "netComparisonProxy": 41189464
+    },
+    {
+      "seed": 69001,
+      "checks": 2400,
+      "steps": 16644,
+      "baseline": {
+        "threshold": 0.995,
+        "n": 2400,
+        "selected": 650,
+        "correct": 646,
+        "wrong": 4,
+        "unknownAccepted": 4,
+        "spent": 21270,
+        "requests": 14244,
+        "evaluations": 275871,
+        "precision": 0.9938461538461538,
+        "coverage": 0.2708333333333333,
+        "decisionChecks": 141245952,
+        "stops": {
+          "budget": 1750,
+          "confidence": 650
+        },
+        "lowGainFinishes": 446,
+        "lowGainCorrect": 443,
+        "completionOpportunities": 710,
+        "proxy": 26787.42
+      },
+      "adaptive": {
+        "threshold": 0.995,
+        "n": 2400,
+        "selected": 650,
+        "correct": 646,
+        "wrong": 4,
+        "unknownAccepted": 4,
+        "spent": 21270,
+        "requests": 14244,
+        "evaluations": 275871,
+        "precision": 0.9938461538461538,
+        "coverage": 0.2708333333333333,
+        "decisionChecks": 40467456,
+        "stops": {
+          "budget": 1750,
+          "confidence": 650
+        },
+        "lowGainFinishes": 446,
+        "lowGainCorrect": 443,
+        "completionOpportunities": 710,
+        "proxy": 26787.42
+      },
+      "boundChecks": 551742,
+      "prunedBranches": 393666,
+      "netComparisonProxy": 41019198
+    },
+    {
+      "seed": 70002,
+      "checks": 2400,
+      "steps": 16557,
+      "baseline": {
+        "threshold": 0.995,
+        "n": 2400,
+        "selected": 670,
+        "correct": 669,
+        "wrong": 1,
+        "unknownAccepted": 1,
+        "spent": 21032,
+        "requests": 14157,
+        "evaluations": 274384,
+        "precision": 0.9985074626865672,
+        "coverage": 0.2791666666666667,
+        "decisionChecks": 140484608,
+        "stops": {
+          "budget": 1730,
+          "confidence": 670
+        },
+        "lowGainFinishes": 466,
+        "lowGainCorrect": 466,
+        "completionOpportunities": 735,
+        "proxy": 26519.68
+      },
+      "adaptive": {
+        "threshold": 0.995,
+        "n": 2400,
+        "selected": 670,
+        "correct": 669,
+        "wrong": 1,
+        "unknownAccepted": 1,
+        "spent": 21032,
+        "requests": 14157,
+        "evaluations": 274384,
+        "precision": 0.9985074626865672,
+        "coverage": 0.2791666666666667,
+        "decisionChecks": 40257792,
+        "stops": {
+          "budget": 1730,
+          "confidence": 670
+        },
+        "lowGainFinishes": 466,
+        "lowGainCorrect": 466,
+        "completionOpportunities": 735,
+        "proxy": 26519.68
+      },
+      "boundChecks": 548768,
+      "prunedBranches": 391511,
+      "netComparisonProxy": 40806560
+    }
+  ],
+  "limitations": "Exact branch bound assumes binary symmetric channels with error <= .5; model inherited .02–.25. Confidence .995, budget ten. Counts only decision maximum comparisons and bound tests, not complete runtime, posterior calculation, separate loops, memory or physical energy. No tuning; synthetic same-root observations. Path equivalence checked on fresh trials."
+}

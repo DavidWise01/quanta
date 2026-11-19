@@ -1,0 +1,88 @@
+{
+  "RQT": 477,
+  "sha256": "5f4f49b1d75d60d61961b8a0aede915707f6c5cf11e1a9d7e71f1d3a7d83c809",
+  "parent_scores": [
+    7054,
+    6754,
+    6750,
+    6756
+  ],
+  "records": [
+    {
+      "depth": 1,
+      "branch": 0,
+      "score": 6754,
+      "best_bits": 1083,
+      "integer_candidates": 0,
+      "tests": 40
+    },
+    {
+      "depth": 1,
+      "branch": 1,
+      "score": 6769,
+      "best_bits": 1088,
+      "integer_candidates": 1,
+      "tests": 40
+    },
+    {
+      "depth": 1,
+      "branch": 2,
+      "score": 6758,
+      "best_bits": 1082,
+      "integer_candidates": 0,
+      "tests": 40
+    },
+    {
+      "depth": 2,
+      "branch": 0,
+      "score": 6750,
+      "best_bits": 1081,
+      "integer_candidates": 0,
+      "tests": 40
+    },
+    {
+      "depth": 2,
+      "branch": 1,
+      "score": 6770,
+      "best_bits": 1077,
+      "integer_candidates": 1,
+      "tests": 40
+    },
+    {
+      "depth": 2,
+      "branch": 2,
+      "score": 6777,
+      "best_bits": 1081,
+      "integer_candidates": 0,
+      "tests": 40
+    },
+    {
+      "depth": 3,
+      "branch": 0,
+      "score": 6771,
+      "best_bits": 1077,
+      "integer_candidates": 0,
+      "tests": 40
+    },
+    {
+      "depth": 3,
+      "branch": 1,
+      "score": 6756,
+      "best_bits": 1083,
+      "integer_candidates": 0,
+      "tests": 40
+    },
+    {
+      "depth": 3,
+      "branch": 2,
+      "score": 6780,
+      "best_bits": 1090,
+      "integer_candidates": 0,
+      "tests": 40
+    }
+  ],
+  "hits": [],
+  "root19": "OPEN",
+  "prefix18": "UNVERIFIED",
+  "note": "Summary; full rational maps and exact vectors in local certificate."
+}

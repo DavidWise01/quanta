@@ -1,0 +1,97 @@
+{
+  "RQT": 476,
+  "sha256": "5f4f49b1d75d60d61961b8a0aede915707f6c5cf11e1a9d7e71f1d3a7d83c809",
+  "prime": 19,
+  "graph_planes": 36,
+  "selected_planes": 4,
+  "rows": [
+    {
+      "plane": 0,
+      "k": 2,
+      "modulus_bits": 9,
+      "tests": 40,
+      "primitive_residual_bits": 1083
+    },
+    {
+      "plane": 0,
+      "k": 4,
+      "modulus_bits": 17,
+      "tests": 40,
+      "primitive_residual_bits": 1086
+    },
+    {
+      "plane": 0,
+      "k": 8,
+      "modulus_bits": 34,
+      "tests": 40,
+      "primitive_residual_bits": 1108
+    },
+    {
+      "plane": 1,
+      "k": 2,
+      "modulus_bits": 9,
+      "tests": 40,
+      "primitive_residual_bits": 1088
+    },
+    {
+      "plane": 1,
+      "k": 4,
+      "modulus_bits": 17,
+      "tests": 40,
+      "primitive_residual_bits": 1089
+    },
+    {
+      "plane": 1,
+      "k": 8,
+      "modulus_bits": 34,
+      "tests": 40,
+      "primitive_residual_bits": 1106
+    },
+    {
+      "plane": 2,
+      "k": 2,
+      "modulus_bits": 9,
+      "tests": 40,
+      "primitive_residual_bits": 1082
+    },
+    {
+      "plane": 2,
+      "k": 4,
+      "modulus_bits": 17,
+      "tests": 40,
+      "primitive_residual_bits": 1084
+    },
+    {
+      "plane": 2,
+      "k": 8,
+      "modulus_bits": 34,
+      "tests": 40,
+      "primitive_residual_bits": 1107
+    },
+    {
+      "plane": 3,
+      "k": 2,
+      "modulus_bits": 9,
+      "tests": 40,
+      "primitive_residual_bits": 1087
+    },
+    {
+      "plane": 3,
+      "k": 4,
+      "modulus_bits": 17,
+      "tests": 40,
+      "primitive_residual_bits": 1089
+    },
+    {
+      "plane": 3,
+      "k": 8,
+      "modulus_bits": 34,
+      "tests": 40,
+      "primitive_residual_bits": 1113
+    }
+  ],
+  "hits": [],
+  "root19": "OPEN",
+  "prefix18": "UNVERIFIED",
+  "note": "Summary; executable regenerates full plane list and exact vectors."
+}

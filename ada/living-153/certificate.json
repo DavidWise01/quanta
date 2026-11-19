@@ -1,0 +1,176 @@
+{
+  "experiment": "ADA-153",
+  "watermark": ".dlw",
+  "lineage": "ADA-152",
+  "results": [
+    {
+      "seed": 71000,
+      "checks": 2400,
+      "steps": 16768,
+      "baseline": {
+        "threshold": 0.995,
+        "n": 2400,
+        "selected": 614,
+        "correct": 614,
+        "wrong": 0,
+        "unknownAccepted": 0,
+        "spent": 21336,
+        "requests": 14368,
+        "evaluations": 277696,
+        "precision": 1,
+        "coverage": 0.25583333333333336,
+        "decisionChecks": 40135680,
+        "stops": {
+          "budget": 1786,
+          "confidence": 614
+        },
+        "lowGainFinishes": 417,
+        "lowGainCorrect": 417,
+        "completionOpportunities": 682,
+        "proxy": 26889.92
+      },
+      "adaptive": {
+        "threshold": 0.995,
+        "n": 2400,
+        "selected": 614,
+        "correct": 614,
+        "wrong": 0,
+        "unknownAccepted": 0,
+        "spent": 21336,
+        "requests": 14368,
+        "evaluations": 277696,
+        "precision": 1,
+        "coverage": 0.25583333333333336,
+        "decisionChecks": 85201,
+        "stops": {
+          "budget": 1786,
+          "confidence": 614
+        },
+        "lowGainFinishes": 417,
+        "lowGainCorrect": 417,
+        "completionOpportunities": 682,
+        "proxy": 26889.92
+      },
+      "boundChecks": 555392,
+      "filterChecks": 3678208,
+      "survivorSum": 4295,
+      "filterRounds": 14368,
+      "maxSurvivors": 1,
+      "baselineProxy": 40691072,
+      "dominanceProxy": 4318801
+    },
+    {
+      "seed": 72001,
+      "checks": 2400,
+      "steps": 16668,
+      "baseline": {
+        "threshold": 0.995,
+        "n": 2400,
+        "selected": 653,
+        "correct": 651,
+        "wrong": 2,
+        "unknownAccepted": 1,
+        "spent": 21106,
+        "requests": 14268,
+        "evaluations": 275374,
+        "precision": 0.996937212863706,
+        "coverage": 0.27208333333333334,
+        "decisionChecks": 40521472,
+        "stops": {
+          "budget": 1747,
+          "confidence": 653
+        },
+        "lowGainFinishes": 455,
+        "lowGainCorrect": 453,
+        "completionOpportunities": 706,
+        "proxy": 26613.48
+      },
+      "adaptive": {
+        "threshold": 0.995,
+        "n": 2400,
+        "selected": 653,
+        "correct": 651,
+        "wrong": 2,
+        "unknownAccepted": 1,
+        "spent": 21106,
+        "requests": 14268,
+        "evaluations": 275374,
+        "precision": 0.996937212863706,
+        "coverage": 0.27208333333333334,
+        "decisionChecks": 86161,
+        "stops": {
+          "budget": 1747,
+          "confidence": 653
+        },
+        "lowGainFinishes": 455,
+        "lowGainCorrect": 453,
+        "completionOpportunities": 706,
+        "proxy": 26613.48
+      },
+      "boundChecks": 550748,
+      "filterChecks": 3652608,
+      "survivorSum": 4284,
+      "filterRounds": 14268,
+      "maxSurvivors": 1,
+      "baselineProxy": 41072220,
+      "dominanceProxy": 4289517
+    },
+    {
+      "seed": 73002,
+      "checks": 2400,
+      "steps": 16724,
+      "baseline": {
+        "threshold": 0.995,
+        "n": 2400,
+        "selected": 619,
+        "correct": 614,
+        "wrong": 5,
+        "unknownAccepted": 3,
+        "spent": 21379,
+        "requests": 14324,
+        "evaluations": 277164,
+        "precision": 0.9919224555735057,
+        "coverage": 0.2579166666666667,
+        "decisionChecks": 40474112,
+        "stops": {
+          "budget": 1781,
+          "confidence": 619
+        },
+        "lowGainFinishes": 410,
+        "lowGainCorrect": 407,
+        "completionOpportunities": 691,
+        "proxy": 26922.28
+      },
+      "adaptive": {
+        "threshold": 0.995,
+        "n": 2400,
+        "selected": 619,
+        "correct": 614,
+        "wrong": 5,
+        "unknownAccepted": 3,
+        "spent": 21379,
+        "requests": 14324,
+        "evaluations": 277164,
+        "precision": 0.9919224555735057,
+        "coverage": 0.2579166666666667,
+        "decisionChecks": 84905,
+        "stops": {
+          "budget": 1781,
+          "confidence": 619
+        },
+        "lowGainFinishes": 410,
+        "lowGainCorrect": 407,
+        "completionOpportunities": 691,
+        "proxy": 26922.28
+      },
+      "boundChecks": 554328,
+      "filterChecks": 3666944,
+      "survivorSum": 4239,
+      "filterRounds": 14324,
+      "maxSurvivors": 1,
+      "baselineProxy": 41028440,
+      "dominanceProxy": 4306177
+    }
+  ],
+  "limitations": "Necessary posterior floor assumes symmetric binary channel with error <= .5, all alternatives likelihood >= e, including unknown. Conservative 1e-12 guard on floor. Full posterior and information calculations unchanged. Counts include individual filter comparisons, bound checks, and decision maximum comparisons; exclude other arithmetic, scan overhead and wall-clock energy. Synthetic same-root observations. No tuning."
+}

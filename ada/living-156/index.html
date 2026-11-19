@@ -1,0 +1,575 @@
+<!doctype html><meta charset="utf-8"><meta name="viewport" content="width=device-width"><title>AION 156</title><style>body{background:#09121c;color:#d9eeed;font:16px monospace;max-width:900px;margin:30px auto;padding:16px}h1{color:#ffc07a}pre{background:#122732;padding:22px;color:#81e8cf}button{padding:10px;font:inherit}#s{display:flex;gap:4px;height:100px;align-items:end}#s i{flex:1}</style><h1>A.I.O.N. 156 · Carried spectrum</h1><p>R8 / B8 / G8 · PB208 · .dlw</p><button id="go">Verify carried spectrum</button><div id="s"></div><pre id="out"></pre><script type="module">// ADA-138 .dlw — exact evidence identity and conflict quarantine.
+// Event identity includes model lineage, scenario, seed, and ordered observation interval.
+export class Memsistor{
+ constructor(){this.events=new Map();this.attempts=0;this.duplicates=0;this.conflicts=0;}
+ ingest(e){this.attempts++;const id=JSON.stringify([e.root,e.scenario,e.seed,e.start,e.end]);const p=this.events.get(id);
+ if(!p){this.events.set(id,{payloads:new Set([e.bits]),routes:new Set([e.route])});return;}
+ p.routes.add(e.route);if(p.payloads.has(e.bits)){this.duplicates++;return;}p.payloads.add(e.bits);this.conflicts++;}
+ snapshot(){const keys=new Map();let valid=0,quarantined=0;for(const [id,p] of this.events){if(p.payloads.size!==1){quarantined++;continue;}valid++;const bits=[...p.payloads][0];keys.set(bits,(keys.get(bits)||0)+1);}return {valid,quarantined,keys:[...keys].sort((a,b)=>a[0].localeCompare(b[0])),attempts:this.attempts,duplicates:this.duplicates,conflicts:this.conflicts,roots:new Set([...this.events.keys()].map(k=>JSON.parse(k)[0])).size};}
+}
+// ADA-135 .dlw — antistrophic paired counterfactual evaluation.
+// Parent engines namespaced; same observed seeded world, no future labels used for routing.
+const Uminus=(()=>{// ADA-131 .dlw — generational protection with expiring leases.
+const rates=[.02,.08,.14,.20,.28,.36,.45,.60,.80];
+function forecast(q,d,p){const a=Array(26).fill(0);for(const [o,w] of [[2*d,(1-p)**2],[-2*d,p*(1-p)],[0,p]])a[(q+o+26)%26]+=w;return a;}
+// Unnormalized Bayesian update is linear. Cache powers of the zero-observation
+// matrix; its normalization can be postponed until the end of a run.
+function buildCache(gate=5,capacity=8,policy="permanent",lease=64){return {gate,capacity,policy,lease,seen:new Uint32Array(4096),total:new Uint32Array(4096),last:new Uint32Array(4096),clock:0,blocks:new Map(),hits:0,misses:0,evictions:0,buildTerms:0,bypasses:0,archived:new Set(),resurrections:0,events:[]};}
+function getBlock(key,c){
+ const id=parseInt(key,2);c.clock++;c.total[id]++;c.last[id]=c.clock;if(c.total[id]===8||c.total[id]===13)c.events.push({clock:c.clock,key,event:c.total[id]===8?"thrive":"promote"});if(c.blocks.has(key)){c.hits++;return c.blocks.get(key);}
+ c.misses++;
+ if(++c.seen[id]<c.gate){c.bypasses++;return null;}
+ c.seen[id]=0;
+ let M=rates.map((_,i)=>rates.map((_,j)=>Number(i===j)));
+ // Exploit diagonal plus rank-one structure: 2 products per matrix entry plus 1 likelihood product.
+ for(const b of key){const sums=M[0].map((_,j)=>M.reduce((s,row)=>s+row[j],0));M=M.map((row,i)=>row.map((v,j)=>(.985*v+.015/9*sums[j])*(b==="1"?rates[i]:1-rates[i])));c.buildTerms+=243;}
+ if(c.blocks.size===c.capacity){let victim=c.blocks.keys().next().value;if(c.policy!=="fifo"){const rank=id=>c.policy==="lfu"?0:c.policy==="permanent"?(c.total[id]>=13?2:c.total[id]>=8?1:0):c.clock-c.last[id]>c.lease?0:c.total[id]>=13?2:c.total[id]>=8?1:0;for(const k of c.blocks.keys()){const a=parseInt(k,2),b=parseInt(victim,2),ra=rank(a),rb=rank(b);if(ra<rb||ra===rb&&(c.policy==="lease"?c.last[a]<c.last[b]:c.total[a]<c.total[b]||c.total[a]===c.total[b]&&c.last[a]<c.last[b]))victim=k;}}c.blocks.delete(victim);c.evictions++;c.archived.add(victim);c.events.push({clock:c.clock,key:victim,event:"archive"});}
+ if(c.archived.has(key)){c.resurrections++;c.events.push({clock:c.clock,key,event:"reconstruct"});}else c.events.push({clock:c.clock,key,event:"compile"});
+ c.blocks.set(key,M);return M;
+}
+function run(seed,scenario="shift",cache=buildCache()){
+ let x=seed>>>0,q=0,d=1,w=.02,bank=rates.map((_,i)=>i===1?.84:.02),cursor=0,fast=.08,awake=0,loss=0,forecasts=0,updates=0,wakes=0,was=false;
+ let scalarUpdates=0,matrixMultiplies=0,rawTokens=0,encodedTokens=0;const flips=[0],ledger=[],scores=[],presist=[],memory=[];
+ for(let t=0;t<208;t++){
+ if(t){x=(Math.imul(x,1664525)+1013904223)>>>0;const p=scenario==="novel"?(t<70?.14:t<140?.60:.28):scenario==="shift"&&t>=104||scenario==="recover"&&t>=69&&t<139?.45:.08;const flip=Number(x/4294967296<p);flips.push(flip);if(flip)d=-d;q=(q+d+26)%26;fast=.12*flip+.88*fast;const prior=w*.985+(1-w)*.015,a=prior*(flip?.45:.55),b=(1-prior)*(flip?.08:.92);w=a/(a+b);updates+=2;}
+ // Wake on ambiguous regime, mismatch, or periodic probe; stay awake for 8 ticks.
+ const trigger=t%32===0||Math.abs(fast-((1-w)*.08+w*.45))>.12||(w>=.25&&w<=.75);
+ if(trigger)awake=8;else awake=Math.max(0,awake-1);
+ const active=awake>0;if(active&&!was)wakes++;was=active;
+ const lo=forecast(q,d,.08),hi=forecast(q,d,.45);forecasts+=2;
+ let prediction=lo.map((v,i)=>(1-w)*v+w*hi[i]);
+ if(active){
+ // Replay missed observations only on wake; no nine-model updates or forecasts during sleep.
+ while(cursor<t){
+ const length=t-cursor>=12?12:1;rawTokens+=length;encodedTokens++;
+ if(length===12){
+ const key=flips.slice(cursor+1,cursor+13).join("");
+ const M=getBlock(key,cache);
+ if(M){bank=M.map(row=>row.reduce((s,v,i)=>s+v*bank[i],0));matrixMultiplies++;const z=bank.reduce((a,b)=>a+b,0);bank=bank.map(v=>v/z);}else for(const bit of key){const u=bank.map((v,i)=>(.985*v+.015/9)*(bit==="1"?rates[i]:1-rates[i])),z=u.reduce((a,b)=>a+b,0);bank=u.map(v=>v/z);scalarUpdates+=9;}
+ }else{
+ const flip=flips[cursor+1],u=bank.map((v,i)=>(.985*v+.015/9)*(flip?rates[i]:1-rates[i])),z=u.reduce((a,b)=>a+b,0);bank=u.map(v=>v/z);scalarUpdates+=9;
+ }
+ cursor+=length;updates+=9*length;
+ }
+ const p9=Array(26).fill(0);for(let m=0;m<9;m++){const a=forecast(q,d,rates[m]);forecasts++;for(let j=0;j<26;j++)p9[j]+=bank[m]*a[j];}prediction=prediction.map((v,i)=>(v+p9[i])/2);
+ }
+ if(t>=2){const f=ledger[t-2],e=f.prediction.reduce((a,v,i)=>a+(v-Number(i===q))**2,0);loss+=e;scores.push({issued:t-2,target:t,actual:q,loss:e});}
+ ledger.push(Object.freeze({issued:t,target:t+2,q,active,cursor,forecasts,updates,prediction:Object.freeze(prediction)}));memory.push({t,flip:flips[t],active,cursor});presist.push({t,q,w,active});if(presist.length>3)presist.shift();
+ }
+ return {seed,scenario,count:scores.length,loss,forecasts,updates,wakes,scalarUpdates,matrixMultiplies,rawTokens,encodedTokens,sleepTicks:ledger.filter(f=>!f.active).length,ledger,scores,presist,memory};
+}
+;return {run,buildCache};})();
+const Uplus=(()=>{// ADA-133 .dlw — probation, economic admission and protected descendant lease.
+const rates=[.02,.08,.14,.20,.28,.36,.45,.60,.80];
+function forecast(q,d,p){const a=Array(26).fill(0);for(const [o,w] of [[2*d,(1-p)**2],[-2*d,p*(1-p)],[0,p]])a[(q+o+26)%26]+=w;return a;}
+// Unnormalized Bayesian update is linear. Cache powers of the zero-observation
+// matrix; its normalization can be postponed until the end of a run.
+function buildCache(gate=5,capacity=8,policy="permanent",lease=64,composeGate=34,leaseChild=64){return {leaseChild,nursery:new Map(),childLast:new Map(),graduates:0,integrityChecks:0,gate,capacity,policy,lease,composeGate,pairs:new Map(),composed:new Map(),pairHits:0,pairBuilds:0,pairEligible:0,pairEvictions:0,seen:new Uint32Array(4096),total:new Uint32Array(4096),last:new Uint32Array(4096),clock:0,blocks:new Map(),hits:0,misses:0,evictions:0,buildTerms:0,bypasses:0,archived:new Set(),resurrections:0,events:[]};}
+function getBlock(key,c){
+ const id=parseInt(key,2);c.clock++;c.total[id]++;c.last[id]=c.clock;if(c.total[id]===8||c.total[id]===13)c.events.push({clock:c.clock,key,event:c.total[id]===8?"thrive":"promote"});if(c.blocks.has(key)){c.hits++;return c.blocks.get(key);}
+ c.misses++;
+ if(++c.seen[id]<c.gate){c.bypasses++;return null;}
+ c.seen[id]=0;
+ let M=rates.map((_,i)=>rates.map((_,j)=>Number(i===j)));
+ // Exploit diagonal plus rank-one structure: 2 products per matrix entry plus 1 likelihood product.
+ for(const b of key){const sums=M[0].map((_,j)=>M.reduce((s,row)=>s+row[j],0));M=M.map((row,i)=>row.map((v,j)=>(.985*v+.015/9*sums[j])*(b==="1"?rates[i]:1-rates[i])));c.buildTerms+=243;}
+ if(c.blocks.size+c.composed.size===c.capacity&&c.composed.size){const child=[...c.composed.keys()].find(k=>c.clock-c.childLast.get(k)>c.leaseChild);if(child){c.composed.delete(child);c.pairEvictions++;}else{let victim=[...c.blocks.keys()].sort((x,y)=>c.total[parseInt(x,2)]-c.total[parseInt(y,2)]||c.last[parseInt(x,2)]-c.last[parseInt(y,2)])[0];c.blocks.delete(victim);c.archived.add(victim);c.evictions++;}}
+ if(c.blocks.size===c.capacity){let victim=c.blocks.keys().next().value;if(c.policy!=="fifo"){const rank=id=>c.policy==="lfu"?0:c.policy==="permanent"?(c.total[id]>=13?2:c.total[id]>=8?1:0):c.clock-c.last[id]>c.lease?0:c.total[id]>=13?2:c.total[id]>=8?1:0;for(const k of c.blocks.keys()){const a=parseInt(k,2),b=parseInt(victim,2),ra=rank(a),rb=rank(b);if(ra<rb||ra===rb&&(c.policy==="lease"?c.last[a]<c.last[b]:c.total[a]<c.total[b]||c.total[a]===c.total[b]&&c.last[a]<c.last[b]))victim=k;}}c.blocks.delete(victim);c.evictions++;c.archived.add(victim);c.events.push({clock:c.clock,key:victim,event:"archive"});}
+ if(c.archived.has(key)){c.resurrections++;c.events.push({clock:c.clock,key,event:"reconstruct"});}else c.events.push({clock:c.clock,key,event:"compile"});
+ c.blocks.set(key,M);return M;
+}
+function run(seed,scenario="shift",cache=buildCache()){
+ let x=seed>>>0,q=0,d=1,w=.02,bank=rates.map((_,i)=>i===1?.84:.02),cursor=0,fast=.08,awake=0,loss=0,forecasts=0,updates=0,wakes=0,was=false;
+ let scalarUpdates=0,matrixMultiplies=0,rawTokens=0,encodedTokens=0;const flips=[0],ledger=[],scores=[],presist=[],memory=[];
+ for(let t=0;t<208;t++){
+ if(t){x=(Math.imul(x,1664525)+1013904223)>>>0;const p=scenario==="novel"?(t<70?.14:t<140?.60:.28):scenario==="shift"&&t>=104||scenario==="recover"&&t>=69&&t<139?.45:.08;const flip=Number(x/4294967296<p);flips.push(flip);if(flip)d=-d;q=(q+d+26)%26;fast=.12*flip+.88*fast;const prior=w*.985+(1-w)*.015,a=prior*(flip?.45:.55),b=(1-prior)*(flip?.08:.92);w=a/(a+b);updates+=2;}
+ // Wake on ambiguous regime, mismatch, or periodic probe; stay awake for 8 ticks.
+ const trigger=t%32===0||Math.abs(fast-((1-w)*.08+w*.45))>.12||(w>=.25&&w<=.75);
+ if(trigger)awake=8;else awake=Math.max(0,awake-1);
+ const active=awake>0;if(active&&!was)wakes++;was=active;
+ const lo=forecast(q,d,.08),hi=forecast(q,d,.45);forecasts+=2;
+ let prediction=lo.map((v,i)=>(1-w)*v+w*hi[i]);
+ if(active){
+ // Replay missed observations only on wake; no nine-model updates or forecasts during sleep.
+ while(cursor<t){
+ if(t-cursor>=24){
+ const key=flips.slice(cursor+1,cursor+25).join(""),a=key.slice(0,12),b=key.slice(12);
+ cPair: {
+ const c=cache;c.pairEligible++;
+ let M=c.composed.get(key);
+ if(M){c.pairHits++;c.childLast.set(key,c.clock);}
+ else{
+ const n=c.nursery.get(key)||{count:0,eligible:0,seeds:new Set(),first:c.clock};
+ n.count++;n.seeds.add(seed);if(c.blocks.has(a)&&c.blocks.has(b))n.eligible++;c.nursery.set(key,n);
+ // Witness roles: ordered parents, recurrence across distinct runs, expected economics.
+ // 729 construction terms / 81 saved terms = nine uses to break even.
+ if(n.count<c.composeGate||n.seeds.size<3||n.eligible<10||!c.blocks.has(a)||!c.blocks.has(b))break cPair;
+ // At most one child slot; don't displace a recently used child.
+ if(c.composed.size&&[...c.composed.keys()].some(k=>c.clock-c.childLast.get(k)<=c.leaseChild))break cPair;
+ const A=c.blocks.get(a),B=c.blocks.get(b);
+ M=B.map(row=>A[0].map((_,j)=>row.reduce((s,v,k)=>s+v*A[k][j],0)));c.buildTerms+=729;c.pairBuilds++;if(M.some(row=>row.some(v=>!Number.isFinite(v)||v<0)))throw Error('integrity');c.integrityChecks++;
+ if(c.blocks.size+c.composed.size>=c.capacity){if(c.composed.size){c.composed.delete(c.composed.keys().next().value);c.pairEvictions++;}else{let victim=[...c.blocks.keys()].sort((x,y)=>c.total[parseInt(x,2)]-c.total[parseInt(y,2)]||c.last[parseInt(x,2)]-c.last[parseInt(y,2)])[0];c.blocks.delete(victim);c.archived.add(victim);c.evictions++;}}
+ c.composed.set(key,M);c.childLast.set(key,c.clock);c.graduates++;c.events.push({clock:c.clock,key,event:'graduate',parents:[a,b],count:n.count,eligible:n.eligible,seeds:n.seeds.size});n.count=0;n.eligible=0;n.seeds.clear();
+ }
+ bank=M.map(row=>row.reduce((s,v,i)=>s+v*bank[i],0));const z=bank.reduce((a,b)=>a+b,0);bank=bank.map(v=>v/z);matrixMultiplies++;rawTokens+=24;encodedTokens++;cursor+=24;updates+=216;continue;
+ }
+ }
+ const length=t-cursor>=12?12:1;rawTokens+=length;encodedTokens++;
+ if(length===12){
+ const key=flips.slice(cursor+1,cursor+13).join("");
+ const M=getBlock(key,cache);
+ if(M){bank=M.map(row=>row.reduce((s,v,i)=>s+v*bank[i],0));matrixMultiplies++;const z=bank.reduce((a,b)=>a+b,0);bank=bank.map(v=>v/z);}else for(const bit of key){const u=bank.map((v,i)=>(.985*v+.015/9)*(bit==="1"?rates[i]:1-rates[i])),z=u.reduce((a,b)=>a+b,0);bank=u.map(v=>v/z);scalarUpdates+=9;}
+ }else{
+ const flip=flips[cursor+1],u=bank.map((v,i)=>(.985*v+.015/9)*(flip?rates[i]:1-rates[i])),z=u.reduce((a,b)=>a+b,0);bank=u.map(v=>v/z);scalarUpdates+=9;
+ }
+ cursor+=length;updates+=9*length;
+ }
+ const p9=Array(26).fill(0);for(let m=0;m<9;m++){const a=forecast(q,d,rates[m]);forecasts++;for(let j=0;j<26;j++)p9[j]+=bank[m]*a[j];}prediction=prediction.map((v,i)=>(v+p9[i])/2);
+ }
+ if(t>=2){const f=ledger[t-2],e=f.prediction.reduce((a,v,i)=>a+(v-Number(i===q))**2,0);loss+=e;scores.push({issued:t-2,target:t,actual:q,loss:e});}
+ ledger.push(Object.freeze({issued:t,target:t+2,q,active,cursor,forecasts,updates,prediction:Object.freeze(prediction)}));memory.push({t,flip:flips[t],active,cursor});presist.push({t,q,w,active});if(presist.length>3)presist.shift();
+ }
+ return {seed,scenario,count:scores.length,loss,forecasts,updates,wakes,scalarUpdates,matrixMultiplies,rawTokens,encodedTokens,sleepTicks:ledger.filter(f=>!f.active).length,ledger,scores,presist,memory};
+}
+;return {run,buildCache};})();
+
+
+
+function ancestralExperiment(start=28000,n=64,order=["stable","shift","recover","novel"]){
+ const A=Uminus.buildCache(),B=Uplus.buildCache(),m=new Memsistor(),seen=new Set(),history=[],records=[],imported=new Map();let primary=0,extra=0,delta=0,probes=0,last=-Infinity,lastCost=0,uniqueImports=0;
+ // Shadow records its own candidate encounters using the same source event identity.
+ for(const scenario of order)for(let i=0;i<n;i++){
+ const seed=start+i,ba=A.buildTerms,x=Uminus.run(seed,scenario,A),minus=3*x.scalarUpdates+81*x.matrixMultiplies+A.buildTerms-ba;primary+=minus;
+ const raw=x.memory.map(v=>v.flip);let cursor=0;const batch=[];
+ for(const f of x.ledger){if(!f.active)continue;while(cursor<f.cursor){if(f.cursor-cursor>=24){const e=Object.freeze({root:"ADA-synthetic-v1",scenario,seed,start:cursor+1,end:cursor+24,bits:raw.slice(cursor+1,cursor+25).join(""),route:"primary"});batch.push(e);records.push(e);m.ingest(e);}cursor+=f.cursor-cursor>=12?12:1;}}
+ const k=history.length,admit=(k-last>=4||lastCost>0&&Math.abs(minus-lastCost)/lastCost>.25)&&extra+68000<=.15*primary;let plus=null;
+ if(admit){
+ // Import only completed earlier runs, never the current trial into its own nursery.
+ // Shadow-local recurrence for the current trial is allowed; prior counts are refreshed from exact IDs.
+ for(const e of records){if(e.scenario===scenario&&e.seed===seed)continue;const id=JSON.stringify([e.root,e.scenario,e.seed,e.start,e.end]);if(seen.has(id))continue;seen.add(id);let r=imported.get(e.bits);if(!r){r={count:0,seeds:new Set()};imported.set(e.bits,r);}r.count++;r.seeds.add(e.seed);uniqueImports++;}
+ for(const [key,v] of imported){let r=B.nursery.get(key);if(!r){r={count:0,eligible:0,seeds:new Set(),first:B.clock};B.nursery.set(key,r);}r.count=v.count;r.seeds=new Set(v.seeds);}
+ const bb=B.buildTerms,y=Uplus.run(seed,scenario,B);plus=3*y.scalarUpdates+81*y.matrixMultiplies+B.buildTerms-bb;extra+=plus;probes++;last=k;
+ if(plus>68000||x.updates!==y.updates||x.forecasts!==y.forecasts)throw Error("invariant");
+ for(let t=0;t<208;t++){if(raw[t]!==y.memory[t].flip)throw Error("ancestry");for(let j=0;j<26;j++)delta=Math.max(delta,Math.abs(x.ledger[t].prediction[j]-y.ledger[t].prediction[j]));}
+ }
+ history.push({seed,scenario,minus,plus});lastCost=minus;
+ }
+ const clean=m.snapshot(),repeated=new Memsistor(),reverse=new Memsistor(),conflict=new Memsistor();
+ for(const e of records)for(const route of ["W1","W2","W3"])repeated.ingest({...e,route});
+ for(const e of [...records].reverse())for(const route of ["W3","W1","W2"])reverse.ingest({...e,route});
+ for(const e of records)conflict.ingest(e);
+ const bad={...records[0],bits:(records[0].bits[0]==="0"?"1":"0")+records[0].bits.slice(1),route:"W3"};conflict.ingest(bad);conflict.ingest(bad);
+ const same=(a,b)=>JSON.stringify(a.keys)===JSON.stringify(b.keys)&&a.valid===b.valid;
+ if(!same(clean,repeated.snapshot())||!same(clean,reverse.snapshot())||conflict.snapshot().quarantined!==1||delta>1e-12||extra>.15*primary)throw Error("verification");
+ return {primary,extra,probes,delta,graduates:B.graduates,descendantHits:B.pairHits,uniqueImports,clean,repeated:repeated.snapshot(),reverse:reverse.snapshot(),conflict:conflict.snapshot(),records,history};
+}
+
+// ADA-139 .dlw — dependency-aware append-only correction.
+const eid=e=>JSON.stringify([e.root,e.scenario,e.seed,e.start,e.end]);
+export class Correctable{
+ constructor(){this.ledger=[];this.variants=new Map();this.nodes=new Map();this.reverse=new Map();this.active=new Map();this.versions=new Map();}
+ append(e){this.ledger.push(Object.freeze({...e}));}
+ ingest(e){const id=eid(e);this.append({kind:"observe",id,bits:e.bits,route:e.route});let v=this.variants.get(id);if(!v){v=new Set();this.variants.set(id,v);}const was=v.size;v.add(e.bits);if(was===1&&v.size>1){this.append({kind:"quarantine",id});this.repair(id);}return id;}
+ add(id,deps,op){if(this.nodes.has(id)||this.variants.has(id)||deps.some(d=>!this.nodes.has(d)&&!this.variants.has(d)))throw Error("invalid DAG");this.nodes.set(id,{deps:[...deps],op});for(const d of deps){if(!this.reverse.has(d))this.reverse.set(d,new Set());this.reverse.get(d).add(id);}this.compute(id);}
+ value(id){if(this.variants.has(id)){const v=this.variants.get(id);return v.size===1?[...v][0]:null;}return this.active.get(id)??null;}
+ compute(id){const n=this.nodes.get(id),args=n.deps.map(d=>this.value(d));let result=null;if(n.op==="count")result=args.filter(v=>v!==null).length;else if(n.op==="gate")result=args[0]>=34?1:0;else if(n.op==="execute")result=args[0]===1?"ACTIVE":null;else if(n.op==="concat"&&args.every(v=>v!==null))result=args.join("");const version=(this.versions.get(id)||0)+1;this.versions.set(id,version);this.active.set(id,result);this.append({kind:"state",id,version,result});}
+ repair(root){const affected=new Set(),visit=id=>{for(const child of this.reverse.get(id)||[]){if(!affected.has(child)){affected.add(child);visit(child);}}};visit(root);for(const id of this.nodes.keys())if(affected.has(id)){this.append({kind:"withdraw",id,version:this.versions.get(id)});this.active.delete(id);}for(const id of this.nodes.keys())if(affected.has(id))this.compute(id);}
+}
+
+// ADA-140 .dlw — replacement support, explicit revalidation and restoration.
+export class Healing extends Correctable{
+ heal(id,pool,key,threshold=34){
+ const node=this.nodes.get(id);if(!node||node.op!=="count")throw Error("support node");
+ const selected=node.deps.filter(d=>this.value(d)===key),prior=new Set(selected);
+ let scanned=0;for(const d of pool){if(selected.length>=threshold)break;scanned++;if(!prior.has(d)&&this.value(d)===key){selected.push(d);prior.add(d);}}
+ if(selected.length<threshold){this.append({kind:"reserve-exhausted",id,available:selected.length});return {restored:false,scanned,available:selected.length};}
+ const previous=[...node.deps];for(const d of previous)this.reverse.get(d)?.delete(id);
+ node.deps=selected;for(const d of selected){if(!this.reverse.has(d))this.reverse.set(d,new Set());this.reverse.get(d).add(id);}
+ this.append({kind:"rebind",id,previous:Object.freeze(previous),replacement:Object.freeze([...selected])});
+ this.append({kind:"withdraw",id,version:this.versions.get(id)});this.active.delete(id);
+ this.compute(id);this.repair(id);
+ return {restored:true,scanned,available:selected.length};
+ }
+}
+
+// ADA-141 .dlw — immune memory: recognize exact repeat, never suppress novel evidence.
+export class Immune extends Healing{
+ constructor(){super();this.fingerprints=new Set();this.stats={accept:0,attenuate:0,reject:0,novelConflicts:0,knownPatterns:0};this.patterns=new Set();}
+ ingest(e){const id=eid(e),v=this.variants.get(id),f=JSON.stringify([id,e.bits]);
+ if(this.fingerprints.has(f)){this.stats.attenuate++;this.append({kind:"repeat-transmission",id,bits:e.bits,route:e.route});return id;}
+ this.fingerprints.add(f);
+ if(v&&v.size&&!v.has(e.bits)){const prior=[...v][0],pattern=prior.length===e.bits.length?[...prior].map((b,i)=>b===e.bits[i]?"0":"1").join(""):"length-change";
+ if(this.patterns.has(pattern))this.stats.knownPatterns++;else this.stats.novelConflicts++;
+ this.patterns.add(pattern);this.stats.reject++;this.append({kind:"conflict-fingerprint",id,pattern});}
+ else this.stats.accept++;
+ return super.ingest(e);
+ }
+}
+
+// ADA-142 .dlw — bounded resistance families; recognition never decides truth.
+export class Antibody extends Healing{
+ constructor(capacity=8,radius=1){super();this.capacity=capacity;this.radius=radius;this.families=[];this.clock=0;this.stats={exact:0,family:0,novel:0,learned:0,evicted:0,accepted:0,duplicates:0,conflicts:0,comparisons:0};}
+ classify(mask,learn=true){this.clock++;let best=null,distance=Infinity;for(const f of this.families){let d=0;for(let i=0;i<mask.length;i++)d+=Number(mask[i]!==f.mask[i]);this.stats.comparisons++;if(d<distance){distance=d;best=f;}}
+ if(best&&distance<=this.radius){this.stats[distance===0?"exact":"family"]++;best.hits++;best.last=this.clock;return distance===0?"exact":"family";}
+ this.stats.novel++;if(learn){if(this.families.length===this.capacity){this.families.sort((a,b)=>a.last-b.last);this.families.shift();this.stats.evicted++;}this.families.push({mask,hits:1,last:this.clock});this.stats.learned++;}return "novel";}
+ ingest(e){const id=eid(e),v=this.variants.get(id);
+ if(v?.has(e.bits)){this.stats.duplicates++;this.append({kind:"repeat-transmission",id,bits:e.bits,route:e.route});return id;}
+ if(v?.size){this.stats.conflicts++;const prior=[...v][0];const mask=prior.length===e.bits.length?[...prior].map((x,i)=>x===e.bits[i]?"0":"1").join(""):null;
+ if(mask&&mask.length===24){const match=this.classify(mask);this.append({kind:"antibody",id,mask,match});}}
+ else this.stats.accepted++;
+ return super.ingest(e);}
+}
+const maskAt=positions=>Array.from({length:24},(_,i)=>positions.includes(i)?"1":"0").join("");
+const flip=(s,m)=>[...s].map((v,i)=>m[i]==="1"?(v==="0"?"1":"0"):v).join("");
+
+// ADA-143 .dlw — archive-backed antibody recall.
+export class Generational extends Antibody{
+ constructor(capacity=8,radius=1){super(capacity,radius);this.archive=new Map();this.stats.recalled=0;this.stats.archiveChecks=0;this.stats.recallFailures=0;}
+ classify(mask,learn=true){
+ // Exact archived lookup before the active similarity scan; no truth authority.
+ const cached=this.archive.get(mask);
+ if(cached&&!this.families.some(f=>f.mask===mask)){
+ this.clock++;this.stats.archiveChecks++;this.stats.recalled++;
+ if(this.families.length===this.capacity){this.families.sort((a,b)=>a.last-b.last);const v=this.families.shift();this.archive.set(v.mask,Object.freeze({...v}));this.stats.evicted++;this.append({kind:"archive-antibody",mask:v.mask});}
+ this.families.push({...cached,last:this.clock,hits:cached.hits+1});this.stats.exact++;this.append({kind:"recall-antibody",mask,ancestry:cached.mask});return "exact";
+ }
+ this.stats.archiveChecks++;
+ const previous=new Map(this.families.map(f=>[f.mask,{...f}]));
+ const result=super.classify(mask,learn);
+ for(const [k,v] of previous)if(!this.families.some(f=>f.mask===k)){this.archive.set(k,Object.freeze(v));this.append({kind:"archive-antibody",mask:k});}
+ return result;
+ }
+}
+
+// ADA-144 .dlw — 12x12 modular weight index, verified radius-one recall.
+const weight=s=>[...s].reduce((n,b)=>n+Number(b==="1"),0);
+const coords=s=>[weight(s.slice(0,12))%12,weight(s.slice(12))%12];
+const dist=(a,b)=>[...a].reduce((n,v,i)=>n+Number(v!==b[i]),0);
+export class ImmuneIndex{
+ constructor(){this.cells=Array.from({length:144},()=>new Set());this.keys=new Set();this.probes=0;this.comparisons=0;this.exhaustiveComparisons=0;}
+ add(s){if(!/^[01]{24}$/.test(s))throw Error("mask");if(this.keys.has(s))return;this.keys.add(s);const [a,b]=coords(s);this.cells[12*a+b].add(s);}
+ search(s,exhaustive=false){const [a,b]=coords(s);let candidates;if(exhaustive)candidates=this.keys;else{candidates=new Set();for(const [dx,dy] of [[0,0],[1,0],[-1,0],[0,1],[0,-1]]){this.probes++;for(const k of this.cells[12*((a+dx+12)%12)+(b+dy+12)%12])candidates.add(k);}}
+ let best=null,d=2;for(const k of candidates){if(exhaustive)this.exhaustiveComparisons++;else this.comparisons++;const t=dist(k,s);if(t<=1&&(t<d||t===d&&(best===null||k<best))){best=k;d=t;}}return best===null?null:{mask:best,distance:d};}
+}
+export class Tesseract extends Antibody{
+ constructor(verify=false){super(8,1);this.index=new ImmuneIndex();this.archive=new Map();this.verify=verify;this.stats.recalled=0;this.stats.approximateRecall=0;this.stats.oracleChecks=0;}
+ classify(mask,learn=true){this.clock++;const hit=this.index.search(mask);if(this.verify){const oracle=this.index.search(mask,true);this.stats.oracleChecks++;if(JSON.stringify(hit)!==JSON.stringify(oracle))throw Error("index mismatch");}
+ if(hit){let f=this.families.find(x=>x.mask===hit.mask);if(!f){this.stats.recalled++;this.stats.approximateRecall+=Number(hit.distance===1);f={...this.archive.get(hit.mask)};this.place(f);this.append({kind:"indexed-recall",mask,prototype:hit.mask,distance:hit.distance});}f.hits++;f.last=this.clock;this.stats[hit.distance===0?"exact":"family"]++;return hit.distance===0?"exact":"family";}
+ this.stats.novel++;if(learn){this.index.add(mask);this.place({mask,hits:1,last:this.clock});this.stats.learned++;}return "novel";}
+ place(f){if(this.families.length===8){this.families.sort((a,b)=>a.last-b.last);const v=this.families.shift();this.archive.set(v.mask,Object.freeze({...v}));this.stats.evicted++;}this.families.push(f);}
+}
+
+// ADA-145 .dlw — adaptive antistrophic immune field, radius 0..5.
+export class Field extends ImmuneIndex{
+ searchField(s,R=5,mode="adaptive"){
+ if(!/^[01]{24}$/.test(s)||!Number.isInteger(R)||R<0||R>5)throw Error("domain");
+ const [a,b]=coords(s);let best=null,d=R+1,comparisons=0,probes=0,depth=0;
+ const consider=k=>{comparisons++;const t=dist(k,s);if(t<=R&&(t<d||t===d&&(best===null||k<best))){best=k;d=t;}};
+ if(mode==="exhaustive"){for(const k of this.keys)consider(k);depth=R;}
+ else{
+ for(let r=0;r<=R;r++){depth=r;for(let dx=-r;dx<=r;dx++){const dy=r-Math.abs(dx);for(const y of dy===0?[0]:[-dy,dy]){probes++;for(const k of this.cells[12*((a+dx+12)%12)+(b+y+12)%12])consider(k);}}
+ // Every unvisited cell has toroidal L1 distance > r, a lower bound on Hamming distance.
+ // Finish ties by scanning the whole ring before stopping.
+ if(mode==="adaptive"&&d<=r)break;
+ }}
+ return {hit:best===null?null:{mask:best,distance:d},comparisons,probes,depth};
+ }
+}
+export class AdaptiveTesseract extends Tesseract{
+ constructor(radius=5){super(false);this.index=new Field();this.radius=radius;this.fieldCost={comparisons:0,probes:0,depth:0,queries:0};}
+ classify(mask,learn=true){this.clock++;const q=this.index.searchField(mask,this.radius),hit=q.hit;for(const k of ["comparisons","probes","depth"])this.fieldCost[k]+=q[k];this.fieldCost.queries++;
+ if(hit){let f=this.families.find(x=>x.mask===hit.mask);if(!f){this.stats.recalled++;this.stats.approximateRecall+=Number(hit.distance>0);f={...this.archive.get(hit.mask)};this.place(f);this.append({kind:"field-recall",mask,prototype:hit.mask,distance:hit.distance});}f.hits++;f.last=this.clock;this.stats[hit.distance===0?"exact":"family"]++;return hit.distance===0?"exact":"family";}
+ this.stats.novel++;if(learn){this.index.add(mask);this.place({mask,hits:1,last:this.clock});this.stats.learned++;}return "novel";}
+}
+
+// ADA-146 .dlw — selective classification of synthetic family provenance.
+export class ConfidenceField extends Field{
+ rank(s,R=5){const [a,b]=coords(s);let best=null,second=null,comparisons=0,probes=0;const cmp=(x,y)=>x.distance-y.distance||x.mask.localeCompare(y.mask);
+ for(let r=0;r<=R;r++)for(let dx=-r;dx<=r;dx++){const dy=r-Math.abs(dx);for(const y of dy===0?[0]:[-dy,dy]){probes++;for(const k of this.cells[12*((a+dx+12)%12)+(b+y+12)%12]){comparisons++;const d=dist(k,s);if(d>R)continue;const hit={mask:k,distance:d};if(!best||cmp(hit,best)<0){second=best;best=hit;}else if(!second||cmp(hit,second)<0)second=hit;}}}
+ return {best,second,gap:best?(second?second.distance:R+1)-best.distance:0,comparisons,probes};}
+}
+function data(seed,idx,n){let x=seed>>>0;const next=()=>{x=(Math.imul(x,1664525)+1013904223)>>>0;return x;};const keys=[...idx.keys],rows=[];
+ for(let j=0;j<n;j++){const known=j%3!==0;let truth=null,q;if(known){truth=keys[(next()>>>8)%keys.length];const p=new Set(),d=(next()>>>16)%7;while(p.size<d)p.add((next()>>>8)%24);q=flip(truth,maskAt([...p]));}else q=(next()&0xffffff).toString(2).padStart(24,"0");
+ const f=idx.rank(q);rows.push({q,truth,best:f.best,gap:f.gap,comparisons:f.comparisons,correct:f.best!==null&&f.best.mask===truth});}return rows;}
+function score(rows,r,g){let selected=0,correct=0,wrong=0,unknownAccepted=0,known=0,unknown=0;for(const x of rows){known+=Number(x.truth!==null);unknown+=Number(x.truth===null);if(x.best&&x.best.distance<=r&&x.gap>=g){selected++;correct+=Number(x.correct);wrong+=Number(!x.correct);unknownAccepted+=Number(x.truth===null);}}return {r,g,n:rows.length,known,unknown,selected,correct,wrong,unknownAccepted,precision:selected?correct/selected:0,coverage:selected/rows.length,knownRecall:correct/known};}
+
+// ADA-147 .dlw — active inquiry with noisy, simulated bit observations.
+function trials(seed,keys,n){let x=seed>>>0;const rng=()=>{x=(Math.imul(x,1664525)+1013904223)>>>0;return x/4294967296;};const rows=[];
+ for(let j=0;j<n;j++){const known=j%3!==0,truth=known?keys[Math.floor(rng()*keys.length)]:null,latent=truth??Array.from({length:24},()=>rng()<.5?"0":"1").join("");const q=[...latent].map(b=>rng()<.18?(b==="0"?"1":"0"):b).join("");const follow=[...latent].map(b=>rng()<.05?(b==="0"?"1":"0"):b).join("");const order=Array.from({length:24},(_,i)=>i);for(let i=23;i>0;i--){const k=Math.floor(rng()*(i+1));[order[i],order[k]]=[order[k],order[i]];}rows.push({truth,q,follow,order});}return rows;}
+function posterior(keys,q){const logs=keys.map(k=>{const d=dist(k,q);return Math.log(2/3/keys.length)+d*Math.log(.18)+(24-d)*Math.log(.82);});logs.push(Math.log(1/3)-24*Math.log(2));let m=Math.max(...logs),w=logs.map(v=>Math.exp(v-m)),z=w.reduce((a,b)=>a+b);return w.map(v=>v/z);}
+function trace(keys,row,mode,max=5){let p=posterior(keys,row.q),used=new Set(),out=[];for(let t=0;t<=max;t++){let top=0;for(let i=1;i<keys.length;i++)if(p[i]>p[top])top=i;out.push({mask:keys[top],confidence:p[top],correct:keys[top]===row.truth,unknown:row.truth===null});if(t===max)break;
+ let bit=-1,best=-1;
+ if(mode==="random")bit=row.order[t];else for(let b=0;b<24;b++){if(used.has(b))continue;let one=0;for(let i=0;i<keys.length;i++)if(keys[i][b]==="1")one+=p[i]; // Unknown posterior uses conditional latent bit given first observation.
+ const unknownOne=row.q[b]==="1"?.82:.18;one+=p[keys.length]*unknownOne;const v=one*(1-one);if(v>best){best=v;bit=b;}}
+ used.add(bit);const obs=row.follow[bit];for(let i=0;i<keys.length;i++)p[i]*=keys[i][bit]===obs?.95:.05;const u=row.q[bit]===obs?.82:.18;p[keys.length]*=.05+.9*u;const z=p.reduce((a,b)=>a+b);p=p.map(v=>v/z);out[t].request=bit;out[t].response=obs;
+ }return out;}
+function evaluate(rows,paths,threshold,budget){let selected=0,correct=0,wrong=0,unknownAccepted=0,requests=0,initial=0;for(let j=0;j<rows.length;j++){const path=paths[j];let t=0;while(t<budget&&path[t].confidence<threshold)t++;requests+=t;const f=path[t];if(f.confidence>=threshold){selected++;correct+=Number(f.correct);wrong+=Number(!f.correct);unknownAccepted+=Number(f.unknown);initial+=Number(t===0);}}return {threshold,budget,n:rows.length,selected,correct,wrong,unknownAccepted,requests,initial,precision:selected?correct/selected:0,coverage:selected/rows.length};}
+
+// ADA-148 .dlw — expected information about family identity, not merely bit uncertainty.
+const H=p=>p<=0||p>=1?0:-p*Math.log2(p)-(1-p)*Math.log2(1-p);
+export function informationTrace(keys,row,mode,max=5,threshold=1){
+ let p=posterior(keys,row.q),used=new Set(),out=[],evaluations=0;
+ for(let t=0;t<=max;t++){
+ let top=0;for(let i=1;i<keys.length;i++)if(p[i]>p[top])top=i;
+ out.push({mask:keys[top],confidence:p[top],correct:keys[top]===row.truth,unknown:row.truth===null,evaluations});
+ if(t===max||p[top]>=threshold)break;
+ let bit=-1,best=-Infinity,info=0;
+ if(mode==="random")bit=row.order[t];else for(let b=0;b<24;b++){if(used.has(b))continue;
+ let one=0;for(let i=0;i<keys.length;i++)if(keys[i][b]==="1")one+=p[i];
+ const u=row.q[b]==="1"?.82:.18,unknown=p[keys.length],m=one+unknown*u;
+ const gain=H(.05+.9*m)-(1-unknown)*H(.05)-unknown*H(.05+.9*u);
+ const value=mode==="information"?gain:m*(1-m);evaluations++;
+ if(value>best){best=value;bit=b;info=gain;}}
+ used.add(bit);const obs=row.follow[bit];for(let i=0;i<keys.length;i++)p[i]*=keys[i][bit]===obs?.95:.05;const u=row.q[bit]===obs?.82:.18;p[keys.length]*=.05+.9*u;const z=p.reduce((a,b)=>a+b);p=p.map(v=>v/z);out[t].request=bit;out[t].response=obs;out[t].gain=info;
+ }return out;}
+function runPolicy(keys,rows,mode,threshold,budget){let selected=0,correct=0,wrong=0,unknownAccepted=0,requests=0,evaluations=0;const ledger=[];for(const row of rows){const path=informationTrace(keys,row,mode,budget,threshold),f=path.at(-1);requests+=path.length-1;evaluations+=f.evaluations;if(f.confidence>=threshold){selected++;correct+=Number(f.correct);wrong+=Number(!f.correct);unknownAccepted+=Number(f.unknown);}ledger.push({q:row.q,truth:row.truth,path});}return {threshold,budget,n:rows.length,selected,correct,wrong,unknownAccepted,requests,evaluations,precision:selected?correct/selected:0,coverage:selected/rows.length,ledger};}
+
+// ADA-149 .dlw — heterogeneous inquiry reliability and price.
+const prices=[1,2,4,1,3,2],errors=[.25,.02,.08,.12,.04,.18];
+function channels(seed){return Array.from({length:24},(_,j)=>({cost:prices[(j+seed)%6],error:errors[(j+Math.floor(j/6)+seed)%6]}));}
+function world(seed,keys,n,ch){let x=seed>>>0;const rng=()=>{x=(Math.imul(x,1664525)+1013904223)>>>0;return x/4294967296;};const rows=[];
+ for(let j=0;j<n;j++){const truth=j%3!==0?keys[Math.floor(rng()*keys.length)]:null,latent=truth??Array.from({length:24},()=>rng()<.5?"0":"1").join("");const q=[...latent].map(b=>rng()<.18?(b==="0"?"1":"0"):b).join("");const follow=[...latent].map((b,i)=>rng()<ch[i].error?(b==="0"?"1":"0"):b).join("");rows.push({truth,q,follow});}return rows;}
+export function inquiry(keys,row,ch,mode,threshold=1,budget=10){
+ let p=posterior(keys,row.q),used=new Set(),spent=0,path=[],evaluations=0;
+ while(true){let top=0;for(let i=1;i<keys.length;i++)if(p[i]>p[top])top=i;
+ const state={mask:keys[top],confidence:p[top],correct:keys[top]===row.truth,unknown:row.truth===null,spent,evaluations};path.push(state);if(state.confidence>=threshold)break;
+ let bit=-1,best=-Infinity,chosenGain=0;
+ for(let j=0;j<24;j++){const {cost,error:e}=ch[j];if(used.has(j)||spent+cost>budget)continue;
+ let one=0;for(let i=0;i<keys.length;i++)if(keys[i][j]==="1")one+=p[i];
+ const u=row.q[j]==="1"?.82:.18,unknown=p[keys.length],m=one+unknown*u;
+ const gain=H(e+(1-2*e)*m)-(1-unknown)*H(e)-unknown*H(e+(1-2*e)*u);
+ const value=mode==="variance"?m*(1-m):mode==="information"?gain:gain/cost;evaluations++;
+ if(value>best){best=value;bit=j;chosenGain=gain;}}
+ if(bit<0)break;used.add(bit);const {cost,error:e}=ch[bit],obs=row.follow[bit];spent+=cost;
+ for(let i=0;i<keys.length;i++)p[i]*=keys[i][bit]===obs?1-e:e;const u=row.q[bit]===obs?.82:.18;p[keys.length]*=e+(1-2*e)*u;const z=p.reduce((a,b)=>a+b);p=p.map(v=>v/z);Object.assign(state,{request:bit,response:obs,cost,error:e,gain:chosenGain});
+ }return path;}
+function measure(paths,t){let selected=0,correct=0,wrong=0,unknownAccepted=0,spent=0,requests=0,evaluations=0;for(const path of paths){let i=0;while(i<path.length-1&&path[i].confidence<t)i++;const f=path[i];spent+=f.spent;requests+=i;evaluations+=f.evaluations;if(f.confidence>=t){selected++;correct+=Number(f.correct);wrong+=Number(!f.correct);unknownAccepted+=Number(f.unknown);}}return {threshold:t,n:paths.length,selected,correct,wrong,unknownAccepted,spent,requests,evaluations,precision:selected?correct/selected:0,coverage:selected/paths.length};}
+
+// ADA-150 .dlw — marginal stopping, explicit computation price.
+export function marginal(keys,row,ch,lambda,mu,threshold=.995,budget=10){
+ let p=posterior(keys,row.q),used=new Set(),spent=0,path=[],evaluations=0;
+ while(true){let top=0;for(let i=1;i<keys.length;i++)if(p[i]>p[top])top=i;
+ const state={confidence:p[top],mask:keys[top],correct:keys[top]===row.truth,unknown:row.truth===null,spent,evaluations};path.push(state);
+ if(state.confidence>=threshold){state.stop="confidence";break;}
+ const available=ch.map((c,j)=>j).filter(j=>!used.has(j)&&spent+ch[j].cost<=budget);
+ if(!available.length){state.stop="budget";break;}
+ // Upper bound on mutual information: H(family) and one binary answer.
+ // Avoid even the candidate scan if no question can pay its minimum price.
+ const entropy=p.reduce((s,v)=>s-(v>0?v*Math.log2(v):0),0);
+ const floor=lambda*Math.min(...available.map(j=>ch[j].cost))+mu*available.length;
+ if(Math.min(1,entropy)<=floor){state.stop="bound";break;}
+ let bit=-1,best=-Infinity,gainBest=0;
+ for(const j of available){const {cost,error:e}=ch[j];let one=0;for(let i=0;i<keys.length;i++)if(keys[i][j]==="1")one+=p[i];
+ const u=row.q[j]==="1"?.82:.18,unknown=p[keys.length],m=one+unknown*u;
+ const gain=H(e+(1-2*e)*m)-(1-unknown)*H(e)-unknown*H(e+(1-2*e)*u);
+ const value=gain/cost;evaluations++;
+ if(gain>lambda*cost+mu*available.length&&value>best){best=value;bit=j;gainBest=gain;}}
+ if(bit<0){state.evaluations=evaluations;state.stop="marginal";break;}
+ used.add(bit);const {cost,error:e}=ch[bit],obs=row.follow[bit];spent+=cost;
+ for(let i=0;i<keys.length;i++)p[i]*=keys[i][bit]===obs?1-e:e;const u=row.q[bit]===obs?.82:.18;p[keys.length]*=e+(1-2*e)*u;const z=p.reduce((a,b)=>a+b);p=p.map(v=>v/z);Object.assign(state,{request:bit,response:obs,cost,error:e,gain:gainBest});
+ }return path;}
+function summarize(paths,t){const v=measure(paths,t),stops={};for(const p of paths){const s=p.at(-1).stop;stops[s]=(stops[s]||0)+1;}return {...v,stops,proxy:v.spent+.02*v.evaluations};}
+
+// ADA-151 .dlw — decision completion utility, not entropy alone.
+// Expected probability of a correct, confidence-qualified selection after one answer.
+export function completion(keys,row,ch,mode="hybrid",threshold=.995,budget=10){
+ let p=posterior(keys,row.q),used=new Set(),spent=0,path=[],evaluations=0,decisionChecks=0;
+ while(true){let top=0;for(let i=1;i<keys.length;i++)if(p[i]>p[top])top=i;
+ const state={confidence:p[top],mask:keys[top],correct:keys[top]===row.truth,unknown:row.truth===null,spent,evaluations,decisionChecks};path.push(state);
+ if(state.confidence>=threshold){state.stop="confidence";break;}
+ let bit=-1,best=-Infinity,bestInfo=-Infinity,chosenGain=0,chosenUtility=0;
+ for(let j=0;j<24;j++){const {cost,error:e}=ch[j];if(used.has(j)||spent+cost>budget)continue;
+ let one=0,m0=0,m1=0;
+ for(let i=0;i<keys.length;i++){const b=keys[i][j]==="1";if(b)one+=p[i];if(mode!=="value"){m0=Math.max(m0,p[i]*(b?e:1-e));m1=Math.max(m1,p[i]*(b?1-e:e));decisionChecks+=2;}}
+ const u=row.q[j]==="1"?.82:.18,unknown=p[keys.length],m=one+unknown*u,z1=e+(1-2*e)*m,z0=1-z1;
+ const gain=H(z1)-(1-unknown)*H(e)-unknown*H(e+(1-2*e)*u);
+ const utility=mode==="value"?0:(m0>=threshold*z0?m0:0)+(m1>=threshold*z1?m1:0);
+ const info=gain/cost,value=mode==="value"?info:utility/cost;
+ evaluations++;
+ if(value>best||(value===best&&info>bestInfo)){best=value;bestInfo=info;bit=j;chosenGain=gain;chosenUtility=utility;}}
+ state.evaluations=evaluations;state.decisionChecks=decisionChecks;
+ if(bit<0){state.stop="budget";break;}
+ if(mode==="myopic"&&chosenUtility===0){state.stop="no-immediate-completion";break;}
+ used.add(bit);const {cost,error:e}=ch[bit],obs=row.follow[bit];spent+=cost;
+ for(let i=0;i<keys.length;i++)p[i]*=keys[i][bit]===obs?1-e:e;const u=row.q[bit]===obs?.82:.18;p[keys.length]*=e+(1-2*e)*u;const z=p.reduce((a,b)=>a+b);p=p.map(v=>v/z);
+ Object.assign(state,{request:bit,response:obs,cost,error:e,gain:chosenGain,utility:chosenUtility});
+ }return path;}
+function outcome(paths,t){const v=measure(paths,t),stops={};let lowGainFinishes=0,lowGainCorrect=0,decisionChecks=0,completionOpportunities=0;
+ for(const p of paths){const f=p.at(-1);stops[f.stop]=(stops[f.stop]||0)+1;decisionChecks+=f.decisionChecks;completionOpportunities+=p.filter(s=>s.request!==undefined&&s.utility>0).length;if(f.confidence>=t&&p.length>1&&p.at(-2).gain<.02){lowGainFinishes++;lowGainCorrect+=Number(f.correct);}}
+ return {...v,decisionChecks,stops,lowGainFinishes,lowGainCorrect,completionOpportunities,proxy:v.spent+.02*v.evaluations};}
+
+// ADA-152 .dlw — exact completion pruning using maximum posterior mass.
+export function anticipatory(keys,row,ch,threshold=.995,budget=10){
+ let p=posterior(keys,row.q),used=new Set(),spent=0,path=[],evaluations=0,decisionChecks=0,boundChecks=0,prunedBranches=0;
+ while(true){let top=0;for(let i=1;i<keys.length;i++)if(p[i]>p[top])top=i;
+ const state={confidence:p[top],mask:keys[top],correct:keys[top]===row.truth,unknown:row.truth===null,spent,evaluations,decisionChecks,boundChecks,prunedBranches};path.push(state);
+ if(state.confidence>=threshold){state.stop="confidence";break;}
+ let bit=-1,best=-Infinity,bestInfo=-Infinity,chosenGain=0,chosenUtility=0;
+ for(let j=0;j<24;j++){const {cost,error:e}=ch[j];if(used.has(j)||spent+cost>budget)continue;
+ let one=0;for(let i=0;i<keys.length;i++)if(keys[i][j]==="1")one+=p[i];
+ const u=row.q[j]==="1"?.82:.18,unknown=p[keys.length],m=one+unknown*u,z1=e+(1-2*e)*m,z0=1-z1;
+ const gain=H(z1)-(1-unknown)*H(e)-unknown*H(e+(1-2*e)*u);
+ // Every known hypothesis joint mass is at most p[top]*(1-e).
+ const upper=p[top]*(1-e),need0=upper>=threshold*z0,need1=upper>=threshold*z1;
+ boundChecks+=2;prunedBranches+=Number(!need0)+Number(!need1);
+ let m0=0,m1=0;
+ if(need0||need1)for(let i=0;i<keys.length;i++){const b=keys[i][j]==="1";if(need0){m0=Math.max(m0,p[i]*(b?e:1-e));decisionChecks++;}if(need1){m1=Math.max(m1,p[i]*(b?1-e:e));decisionChecks++;}}
+ const utility=(m0>=threshold*z0?m0:0)+(m1>=threshold*z1?m1:0),info=gain/cost,value=utility/cost;evaluations++;
+ if(value>best||(value===best&&info>bestInfo)){best=value;bestInfo=info;bit=j;chosenGain=gain;chosenUtility=utility;}}
+ state.evaluations=evaluations;state.decisionChecks=decisionChecks;state.boundChecks=boundChecks;state.prunedBranches=prunedBranches;
+ if(bit<0){state.stop="budget";break;}
+ used.add(bit);const {cost,error:e}=ch[bit],obs=row.follow[bit];spent+=cost;
+ for(let i=0;i<keys.length;i++)p[i]*=keys[i][bit]===obs?1-e:e;const u=row.q[bit]===obs?.82:.18;p[keys.length]*=e+(1-2*e)*u;const z=p.reduce((a,b)=>a+b);p=p.map(v=>v/z);
+ Object.assign(state,{request:bit,response:obs,cost,error:e,gain:chosenGain,utility:chosenUtility});
+ }return path;}
+
+// ADA-153 .dlw — dominance pruning; full posterior remains intact.
+export function dominance(keys,row,ch,threshold=.995,budget=10){
+ let p=posterior(keys,row.q),used=new Set(),spent=0,path=[],evaluations=0,decisionChecks=0,boundChecks=0,filterChecks=0,prunedBranches=0,survivorSum=0,filterRounds=0,maxSurvivors=0;
+ while(true){let top=0;for(let i=1;i<keys.length;i++)if(p[i]>p[top])top=i;
+ const state={confidence:p[top],mask:keys[top],correct:keys[top]===row.truth,unknown:row.truth===null,spent,evaluations,decisionChecks,boundChecks,filterChecks,prunedBranches,survivorSum,filterRounds,maxSurvivors};path.push(state);
+ if(state.confidence>=threshold){state.stop="confidence";break;}
+ const available=ch.map((c,j)=>j).filter(j=>!used.has(j)&&spent+ch[j].cost<=budget);
+ if(!available.length){state.stop="budget";break;}
+ // Even the best possible answer has likelihood <= 1-e and every alternative >= e.
+ // Necessary prior mass to reach threshold: tau*e / ((1-tau)*(1-e)+tau*e).
+ const eMin=Math.min(...available.map(j=>ch[j].error));
+ const floor=threshold*eMin/((1-threshold)*(1-eMin)+threshold*eMin);
+ const survivors=[];for(let i=0;i<keys.length;i++){filterChecks++;if(p[i]>=floor-1e-12)survivors.push(i);}
+ survivorSum+=survivors.length;filterRounds++;maxSurvivors=Math.max(maxSurvivors,survivors.length);
+ let bit=-1,best=-Infinity,bestInfo=-Infinity,chosenGain=0,chosenUtility=0;
+ for(const j of available){const {cost,error:e}=ch[j];let one=0;for(let i=0;i<keys.length;i++)if(keys[i][j]==="1")one+=p[i];
+ const u=row.q[j]==="1"?.82:.18,unknown=p[keys.length],m=one+unknown*u,z1=e+(1-2*e)*m,z0=1-z1;
+ const gain=H(z1)-(1-unknown)*H(e)-unknown*H(e+(1-2*e)*u);
+ const upper=p[top]*(1-e),need0=upper>=threshold*z0,need1=upper>=threshold*z1;
+ boundChecks+=2;prunedBranches+=Number(!need0)+Number(!need1);
+ let m0=0,m1=0;
+ if(need0||need1)for(const i of survivors){const b=keys[i][j]==="1";if(need0){m0=Math.max(m0,p[i]*(b?e:1-e));decisionChecks++;}if(need1){m1=Math.max(m1,p[i]*(b?1-e:e));decisionChecks++;}}
+ const utility=(m0>=threshold*z0?m0:0)+(m1>=threshold*z1?m1:0),info=gain/cost,value=utility/cost;evaluations++;
+ if(value>best||(value===best&&info>bestInfo)){best=value;bestInfo=info;bit=j;chosenGain=gain;chosenUtility=utility;}}
+ Object.assign(state,{evaluations,decisionChecks,boundChecks,filterChecks,prunedBranches,survivorSum,filterRounds,maxSurvivors});
+ if(bit<0){state.stop="budget";break;}
+ used.add(bit);const {cost,error:e}=ch[bit],obs=row.follow[bit];spent+=cost;
+ for(let i=0;i<keys.length;i++)p[i]*=keys[i][bit]===obs?1-e:e;const u=row.q[bit]===obs?.82:.18;p[keys.length]*=e+(1-2*e)*u;const z=p.reduce((a,b)=>a+b);p=p.map(v=>v/z);
+ Object.assign(state,{request:bit,response:obs,cost,error:e,gain:chosenGain,utility:chosenUtility,survivors:survivors.length,floor});
+ }return path;}
+
+// ADA-154 .dlw — direct singlet with guarded general fallback.
+export function directSinglet(keys,row,ch,threshold=.995,budget=10){
+ let p=posterior(keys,row.q),used=new Set(),spent=0,path=[],evaluations=0,decisionChecks=0,boundChecks=0,filterChecks=0,prunedBranches=0,survivorSum=0,filterRounds=0,maxSurvivors=0;
+ while(true){let top=0;for(let i=1;i<keys.length;i++)if(p[i]>p[top])top=i;
+ const state={confidence:p[top],mask:keys[top],correct:keys[top]===row.truth,unknown:row.truth===null,spent,evaluations,decisionChecks,boundChecks,filterChecks,prunedBranches,survivorSum,filterRounds,maxSurvivors};path.push(state);
+ if(state.confidence>=threshold){state.stop="confidence";break;}
+ const available=ch.map((c,j)=>j).filter(j=>!used.has(j)&&spent+ch[j].cost<=budget);
+ if(!available.length){state.stop="budget";break;}
+ // Even the best possible answer has likelihood <= 1-e and every alternative >= e.
+ // Necessary prior mass to reach threshold: tau*e / ((1-tau)*(1-e)+tau*e).
+ const eMin=Math.min(...available.map(j=>ch[j].error));
+ const floor=threshold*eMin/((1-threshold)*(1-eMin)+threshold*eMin);
+ const survivors=[];filterChecks++;if(floor-1e-12>0.5){filterChecks++;if(p[top]>=floor-1e-12)survivors.push(top);}else{for(let i=0;i<keys.length;i++){filterChecks++;if(p[i]>=floor-1e-12)survivors.push(i);}}
+ survivorSum+=survivors.length;filterRounds++;maxSurvivors=Math.max(maxSurvivors,survivors.length);
+ let bit=-1,best=-Infinity,bestInfo=-Infinity,chosenGain=0,chosenUtility=0;
+ for(const j of available){const {cost,error:e}=ch[j];let one=0;for(let i=0;i<keys.length;i++)if(keys[i][j]==="1")one+=p[i];
+ const u=row.q[j]==="1"?.82:.18,unknown=p[keys.length],m=one+unknown*u,z1=e+(1-2*e)*m,z0=1-z1;
+ const gain=H(z1)-(1-unknown)*H(e)-unknown*H(e+(1-2*e)*u);
+ const upper=p[top]*(1-e),need0=upper>=threshold*z0,need1=upper>=threshold*z1;
+ boundChecks+=2;prunedBranches+=Number(!need0)+Number(!need1);
+ let m0=0,m1=0;
+ if(need0||need1)for(const i of survivors){const b=keys[i][j]==="1";if(need0){m0=Math.max(m0,p[i]*(b?e:1-e));decisionChecks++;}if(need1){m1=Math.max(m1,p[i]*(b?1-e:e));decisionChecks++;}}
+ const utility=(m0>=threshold*z0?m0:0)+(m1>=threshold*z1?m1:0),info=gain/cost,value=utility/cost;evaluations++;
+ if(value>best||(value===best&&info>bestInfo)){best=value;bestInfo=info;bit=j;chosenGain=gain;chosenUtility=utility;}}
+ Object.assign(state,{evaluations,decisionChecks,boundChecks,filterChecks,prunedBranches,survivorSum,filterRounds,maxSurvivors});
+ if(bit<0){state.stop="budget";break;}
+ used.add(bit);const {cost,error:e}=ch[bit],obs=row.follow[bit];spent+=cost;
+ for(let i=0;i<keys.length;i++)p[i]*=keys[i][bit]===obs?1-e:e;const u=row.q[bit]===obs?.82:.18;p[keys.length]*=e+(1-2*e)*u;const z=p.reduce((a,b)=>a+b);p=p.map(v=>v/z);
+ Object.assign(state,{request:bit,response:obs,cost,error:e,gain:chosenGain,utility:chosenUtility,survivors:survivors.length,floor});
+ }return path;}
+
+
+// ADA-155 .dlw — carry the normalized maximum during normalization.
+export function carriedSinglet(keys,row,ch,threshold=.995,budget=10){
+ let p=posterior(keys,row.q),top=0,carriedChecks=0,removedVisits=0,correctionChecks=0,used=new Set(),spent=0,path=[],evaluations=0,decisionChecks=0,boundChecks=0,filterChecks=0,prunedBranches=0,survivorSum=0,filterRounds=0,maxSurvivors=0;
+ for(let i=1;i<keys.length;i++){carriedChecks++;if(p[i]>p[top])top=i;} 
+ while(true){
+ const state={confidence:p[top],mask:keys[top],correct:keys[top]===row.truth,unknown:row.truth===null,spent,evaluations,decisionChecks,boundChecks,filterChecks,prunedBranches,survivorSum,filterRounds,maxSurvivors,carriedChecks,removedVisits,correctionChecks};path.push(state);
+ if(state.confidence>=threshold){state.stop="confidence";break;}
+ const available=ch.map((c,j)=>j).filter(j=>!used.has(j)&&spent+ch[j].cost<=budget);
+ if(!available.length){state.stop="budget";break;}
+ // Even the best possible answer has likelihood <= 1-e and every alternative >= e.
+ // Necessary prior mass to reach threshold: tau*e / ((1-tau)*(1-e)+tau*e).
+ const eMin=Math.min(...available.map(j=>ch[j].error));
+ const floor=threshold*eMin/((1-threshold)*(1-eMin)+threshold*eMin);
+ const survivors=[];filterChecks++;if(floor-1e-12>0.5){filterChecks++;if(p[top]>=floor-1e-12)survivors.push(top);}else{for(let i=0;i<keys.length;i++){filterChecks++;if(p[i]>=floor-1e-12)survivors.push(i);}}
+ survivorSum+=survivors.length;filterRounds++;maxSurvivors=Math.max(maxSurvivors,survivors.length);
+ let bit=-1,best=-Infinity,bestInfo=-Infinity,chosenGain=0,chosenUtility=0;
+ for(const j of available){const {cost,error:e}=ch[j];let one=0;for(let i=0;i<keys.length;i++)if(keys[i][j]==="1")one+=p[i];
+ const u=row.q[j]==="1"?.82:.18,unknown=p[keys.length],m=one+unknown*u,z1=e+(1-2*e)*m,z0=1-z1;
+ const gain=H(z1)-(1-unknown)*H(e)-unknown*H(e+(1-2*e)*u);
+ const upper=p[top]*(1-e),need0=upper>=threshold*z0,need1=upper>=threshold*z1;
+ boundChecks+=2;prunedBranches+=Number(!need0)+Number(!need1);
+ let m0=0,m1=0;
+ if(need0||need1)for(const i of survivors){const b=keys[i][j]==="1";if(need0){m0=Math.max(m0,p[i]*(b?e:1-e));decisionChecks++;}if(need1){m1=Math.max(m1,p[i]*(b?1-e:e));decisionChecks++;}}
+ const utility=(m0>=threshold*z0?m0:0)+(m1>=threshold*z1?m1:0),info=gain/cost,value=utility/cost;evaluations++;
+ if(value>best||(value===best&&info>bestInfo)){best=value;bestInfo=info;bit=j;chosenGain=gain;chosenUtility=utility;}}
+ Object.assign(state,{evaluations,decisionChecks,boundChecks,filterChecks,prunedBranches,survivorSum,filterRounds,maxSurvivors});
+ if(bit<0){state.stop="budget";break;}
+ used.add(bit);const {cost,error:e}=ch[bit],obs=row.follow[bit];spent+=cost;
+ // Fuse normalization and maximum scan, preserving normalized floating point tie ordering.
+ for(let i=0;i<keys.length;i++)p[i]*=keys[i][bit]===obs?1-e:e;
+ const u=row.q[bit]===obs?.82:.18;p[keys.length]*=e+(1-2*e)*u;const z=p.reduce((a,b)=>a+b);
+ top=0;let maxNorm=-Infinity;p=p.map((v,i)=>{const q=v/z;if(i===0)maxNorm=q;else if(i<keys.length){carriedChecks++;if(q>maxNorm){top=i;maxNorm=q;}}return q;});
+ removedVisits+=keys.length-1;
+ Object.assign(state,{request:bit,response:obs,cost,error:e,gain:chosenGain,utility:chosenUtility,survivors:survivors.length,floor});
+ }return path;}
+
+
+
+// ADA-156 .dlw — R8/B8/G8 marginal spectrum, exact order of additions preserved.
+export function spectralSinglet(keys,row,ch,threshold=.995,budget=10){
+ let p=posterior(keys,row.q),top=0,carriedChecks=0,removedVisits=0,correctionChecks=0,used=new Set(),spent=0,path=[],evaluations=0,decisionChecks=0,boundChecks=0,filterChecks=0,prunedBranches=0,survivorSum=0,filterRounds=0,maxSurvivors=0;
+ const ones=keys.map(k=>Array.from(k,(b,j)=>b==='1'?j:-1).filter(j=>j>=0));let spectrum=Array(24).fill(0),spectralAdds=0,spectralVisits=0,avoidedVisits=0;for(let i=0;i<keys.length;i++){spectralVisits++;for(const j of ones[i]){spectrum[j]+=p[i];spectralAdds++;}if(i>0){carriedChecks++;if(p[i]>p[top])top=i;}} 
+ while(true){
+ const state={confidence:p[top],mask:keys[top],correct:keys[top]===row.truth,unknown:row.truth===null,spent,evaluations,decisionChecks,boundChecks,filterChecks,prunedBranches,survivorSum,filterRounds,maxSurvivors,carriedChecks,removedVisits,correctionChecks,spectralAdds,spectralVisits,avoidedVisits,spectrum:[...spectrum]};path.push(state);
+ if(state.confidence>=threshold){state.stop="confidence";break;}
+ const available=ch.map((c,j)=>j).filter(j=>!used.has(j)&&spent+ch[j].cost<=budget);
+ if(!available.length){state.stop="budget";break;}
+ // Even the best possible answer has likelihood <= 1-e and every alternative >= e.
+ // Necessary prior mass to reach threshold: tau*e / ((1-tau)*(1-e)+tau*e).
+ const eMin=Math.min(...available.map(j=>ch[j].error));
+ const floor=threshold*eMin/((1-threshold)*(1-eMin)+threshold*eMin);
+ const survivors=[];filterChecks++;if(floor-1e-12>0.5){filterChecks++;if(p[top]>=floor-1e-12)survivors.push(top);}else{for(let i=0;i<keys.length;i++){filterChecks++;if(p[i]>=floor-1e-12)survivors.push(i);}}
+ survivorSum+=survivors.length;filterRounds++;maxSurvivors=Math.max(maxSurvivors,survivors.length);
+ let bit=-1,best=-Infinity,bestInfo=-Infinity,chosenGain=0,chosenUtility=0;
+ for(const j of available){const {cost,error:e}=ch[j];const one=spectrum[j];avoidedVisits+=keys.length;
+ const u=row.q[j]==="1"?.82:.18,unknown=p[keys.length],m=one+unknown*u,z1=e+(1-2*e)*m,z0=1-z1;
+ const gain=H(z1)-(1-unknown)*H(e)-unknown*H(e+(1-2*e)*u);
+ const upper=p[top]*(1-e),need0=upper>=threshold*z0,need1=upper>=threshold*z1;
+ boundChecks+=2;prunedBranches+=Number(!need0)+Number(!need1);
+ let m0=0,m1=0;
+ if(need0||need1)for(const i of survivors){const b=keys[i][j]==="1";if(need0){m0=Math.max(m0,p[i]*(b?e:1-e));decisionChecks++;}if(need1){m1=Math.max(m1,p[i]*(b?1-e:e));decisionChecks++;}}
+ const utility=(m0>=threshold*z0?m0:0)+(m1>=threshold*z1?m1:0),info=gain/cost,value=utility/cost;evaluations++;
+ if(value>best||(value===best&&info>bestInfo)){best=value;bestInfo=info;bit=j;chosenGain=gain;chosenUtility=utility;}}
+ Object.assign(state,{evaluations,decisionChecks,boundChecks,filterChecks,prunedBranches,survivorSum,filterRounds,maxSurvivors,avoidedVisits});
+ if(bit<0){state.stop="budget";break;}
+ used.add(bit);const {cost,error:e}=ch[bit],obs=row.follow[bit];spent+=cost;
+ // Fuse normalization and maximum scan, preserving normalized floating point tie ordering.
+ for(let i=0;i<keys.length;i++)p[i]*=keys[i][bit]===obs?1-e:e;
+ const u=row.q[bit]===obs?.82:.18;p[keys.length]*=e+(1-2*e)*u;const z=p.reduce((a,b)=>a+b);
+ top=0;spectrum=Array(24).fill(0);let maxNorm=-Infinity;p=p.map((v,i)=>{const q=v/z;if(i<keys.length){spectralVisits++;for(const j of ones[i]){spectrum[j]+=q;spectralAdds++;}if(i===0)maxNorm=q;else{carriedChecks++;if(q>maxNorm){top=i;maxNorm=q;}}}return q;});
+ removedVisits+=keys.length-1;
+ Object.assign(state,{request:bit,response:obs,cost,error:e,gain:chosenGain,utility:chosenUtility,survivors:survivors.length,floor});
+ }return path;}
+
+
+
+export function experiment(seed=80000){
+ let x=seed>>>0;const set=new Set();while(set.size<256){x=(Math.imul(x,1664525)+1013904223)>>>0;set.add((x&0xffffff).toString(2).padStart(24,"0"));}const keys=[...set],ch=channels(seed),test=world(seed+200000,keys,2400,ch);
+ function compare(rows,t){const base=[],fast=[];let steps=0;
+ for(const r of rows){const b=carriedSinglet(keys,r,ch,t),a=spectralSinglet(keys,r,ch,t);if(a.length!==b.length)throw Error("length");for(let j=0;j<a.length;j++){for(const k of ["confidence","mask","spent","request","response","gain","utility","stop","evaluations","boundChecks","prunedBranches","decisionChecks","survivors","floor","filterChecks"])if(a[j][k]!==b[j][k])throw Error("path "+k);steps++;}if(a.at(-1).spent>10)throw Error("budget");base.push(b);fast.push(a);}
+ const sum=k=>fast.reduce((s,v)=>s+v.at(-1)[k],0),baseline=outcome(base,t),adaptive=outcome(fast,t);
+ const oldVisits=baseline.evaluations*keys.length,oldOneCount=keys.map(k=>Array.from(k,b=>Number(b==="1")));let oldAdds=0;for(const p of base){const used=new Set();for(const v of p){if(v.request===undefined)break;for(let j=0;j<24;j++)if(!used.has(j)&&v.spent+ch[j].cost<=10)for(let i=0;i<keys.length;i++)oldAdds+=oldOneCount[i][j];used.add(v.request);}}
+ if(sum("avoidedVisits")!==oldVisits||sum("spectralVisits")!==steps*keys.length)throw Error("accounting");
+ return {threshold:t,trials:rows.length,steps,baseline,adaptive,oldVisits,spectralVisits:sum("spectralVisits"),oldAdds,spectralAdds:sum("spectralAdds"),sample:fast.slice(0,32)};}
+ return {seed,primary:compare(test,.995),fallback:compare(test.slice(0,256),.90),boundary:compare(test.slice(256,512),.98)};}
+
+document.getElementById("go").onclick=()=>{const r=experiment();const v=r.primary.sample[0].at(-1).spectrum;document.getElementById("s").innerHTML=v.map((p,i)=>`<i title="${i}: ${p}" style="height:${p*100}%;background:${["#f45c61","#4aa3ff","#35d39a"][Math.floor(i/8)]}"></i>`).join("");for(const k of ["primary","fallback","boundary"])delete r[k].sample;document.getElementById("out").textContent=JSON.stringify(r,null,2);};</script>

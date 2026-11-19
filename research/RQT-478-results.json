@@ -1,0 +1,92 @@
+{
+  "RQT": 478,
+  "sha256": "5f4f49b1d75d60d61961b8a0aede915707f6c5cf11e1a9d7e71f1d3a7d83c809",
+  "det_before_bits": 3512,
+  "det_after_bits": 3506,
+  "det_ratio": 81,
+  "old_mod3": [
+    [
+      2,
+      0,
+      2,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      2,
+      0,
+      2,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      1
+    ]
+  ],
+  "new_mod3": [
+    [
+      2,
+      1,
+      1,
+      0
+    ],
+    [
+      1,
+      0,
+      1,
+      0
+    ],
+    [
+      1,
+      1,
+      1,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      1
+    ]
+  ],
+  "P": [
+    [
+      "1",
+      "0",
+      "0",
+      "0"
+    ],
+    [
+      "0",
+      "1/3",
+      "0",
+      "0"
+    ],
+    [
+      "1/3",
+      "0",
+      "-1/3",
+      "0"
+    ],
+    [
+      "0",
+      "0",
+      "0",
+      "1"
+    ]
+  ],
+  "tests": 6859,
+  "integral_original": 931,
+  "best_bits": 1084,
+  "hits": [],
+  "root19": "OPEN",
+  "prefix18": "UNVERIFIED",
+  "note": "Summary; exact K emitted by verifier. Membership count includes zero spatial vector; best residual excludes it."
+}

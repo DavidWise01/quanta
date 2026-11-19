@@ -1,0 +1,24 @@
+{
+  "version": "ADA-159B",
+  "lineage": "ADA-159A",
+  "watermark": ".dlw",
+  "width": 42,
+  "gate": "00 11 [ 24 /|\\ 42 ] 11 00",
+  "layers": [
+    "|V| vector",
+    "() torroid / circulation",
+    "[] voxel",
+    "{[()]} vogel"
+  ],
+  "phase": "Each of 3 operational layers receives 4 push events and 4 pull events; synchronized demonstration, not 24 payload bits.",
+  "unit": "integer milliarcseconds; x is adjustable baseline; offset 1025 = 1.025 arcseconds",
+  "sign": "push +x; pull -(x+1.025 arcseconds); net -4.100 arcseconds per layer per cycle",
+  "render": "3D perspective projected canvas; angular displacement exaggerated for visibility, not physical tornado simulation; Vogel is a user-defined composite and spiral rendering is a provisional interpretation",
+  "tests": {
+    "cases": 49,
+    "netMilliarcseconds": -4100,
+    "phases": 8,
+    "layers": 3,
+    "layerEvents": 24
+  }
+}

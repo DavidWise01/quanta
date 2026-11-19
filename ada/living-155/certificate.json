@@ -1,0 +1,485 @@
+{
+  "experiment": "ADA-155",
+  "watermark": ".dlw",
+  "lineage": "ADA-154",
+  "results": [
+    {
+      "seed": 77000,
+      "primary": {
+        "threshold": 0.995,
+        "trials": 2400,
+        "steps": 16674,
+        "baseline": {
+          "threshold": 0.995,
+          "n": 2400,
+          "selected": 633,
+          "correct": 632,
+          "wrong": 1,
+          "unknownAccepted": 0,
+          "spent": 21374,
+          "requests": 14274,
+          "evaluations": 276441,
+          "precision": 0.9984202211690363,
+          "coverage": 0.26375,
+          "decisionChecks": 87564,
+          "stops": {
+            "budget": 1767,
+            "confidence": 633
+          },
+          "lowGainFinishes": 440,
+          "lowGainCorrect": 439,
+          "completionOpportunities": 696,
+          "proxy": 26902.82
+        },
+        "adaptive": {
+          "threshold": 0.995,
+          "n": 2400,
+          "selected": 633,
+          "correct": 632,
+          "wrong": 1,
+          "unknownAccepted": 0,
+          "spent": 21374,
+          "requests": 14274,
+          "evaluations": 276441,
+          "precision": 0.9984202211690363,
+          "coverage": 0.26375,
+          "decisionChecks": 87564,
+          "stops": {
+            "budget": 1767,
+            "confidence": 633
+          },
+          "lowGainFinishes": 440,
+          "lowGainCorrect": 439,
+          "completionOpportunities": 696,
+          "proxy": 26902.82
+        },
+        "maximumComparisons": 4251870,
+        "removedStandaloneVisits": 3639870,
+        "initialStandaloneVisits": 612000
+      },
+      "fallback": {
+        "threshold": 0.9,
+        "trials": 256,
+        "steps": 1295,
+        "baseline": {
+          "threshold": 0.9,
+          "n": 256,
+          "selected": 158,
+          "correct": 140,
+          "wrong": 18,
+          "unknownAccepted": 11,
+          "spent": 1483,
+          "requests": 1039,
+          "evaluations": 20627,
+          "precision": 0.8860759493670886,
+          "coverage": 0.6171875,
+          "decisionChecks": 11289,
+          "stops": {
+            "budget": 98,
+            "confidence": 158
+          },
+          "lowGainFinishes": 1,
+          "lowGainCorrect": 1,
+          "completionOpportunities": 160,
+          "proxy": 1895.54
+        },
+        "adaptive": {
+          "threshold": 0.9,
+          "n": 256,
+          "selected": 158,
+          "correct": 140,
+          "wrong": 18,
+          "unknownAccepted": 11,
+          "spent": 1483,
+          "requests": 1039,
+          "evaluations": 20627,
+          "precision": 0.8860759493670886,
+          "coverage": 0.6171875,
+          "decisionChecks": 11289,
+          "stops": {
+            "budget": 98,
+            "confidence": 158
+          },
+          "lowGainFinishes": 1,
+          "lowGainCorrect": 1,
+          "completionOpportunities": 160,
+          "proxy": 1895.54
+        },
+        "maximumComparisons": 330225,
+        "removedStandaloneVisits": 264945,
+        "initialStandaloneVisits": 65280
+      },
+      "boundary": {
+        "threshold": 0.98,
+        "trials": 256,
+        "steps": 1560,
+        "baseline": {
+          "threshold": 0.98,
+          "n": 256,
+          "selected": 109,
+          "correct": 106,
+          "wrong": 3,
+          "unknownAccepted": 1,
+          "spent": 1944,
+          "requests": 1304,
+          "evaluations": 25626,
+          "precision": 0.9724770642201835,
+          "coverage": 0.42578125,
+          "decisionChecks": 10685,
+          "stops": {
+            "confidence": 109,
+            "budget": 147
+          },
+          "lowGainFinishes": 21,
+          "lowGainCorrect": 20,
+          "completionOpportunities": 116,
+          "proxy": 2456.52
+        },
+        "adaptive": {
+          "threshold": 0.98,
+          "n": 256,
+          "selected": 109,
+          "correct": 106,
+          "wrong": 3,
+          "unknownAccepted": 1,
+          "spent": 1944,
+          "requests": 1304,
+          "evaluations": 25626,
+          "precision": 0.9724770642201835,
+          "coverage": 0.42578125,
+          "decisionChecks": 10685,
+          "stops": {
+            "confidence": 109,
+            "budget": 147
+          },
+          "lowGainFinishes": 21,
+          "lowGainCorrect": 20,
+          "completionOpportunities": 116,
+          "proxy": 2456.52
+        },
+        "maximumComparisons": 397800,
+        "removedStandaloneVisits": 332520,
+        "initialStandaloneVisits": 65280
+      }
+    },
+    {
+      "seed": 78001,
+      "primary": {
+        "threshold": 0.995,
+        "trials": 2400,
+        "steps": 16668,
+        "baseline": {
+          "threshold": 0.995,
+          "n": 2400,
+          "selected": 640,
+          "correct": 639,
+          "wrong": 1,
+          "unknownAccepted": 1,
+          "spent": 21242,
+          "requests": 14268,
+          "evaluations": 275826,
+          "precision": 0.9984375,
+          "coverage": 0.26666666666666666,
+          "decisionChecks": 84226,
+          "stops": {
+            "budget": 1760,
+            "confidence": 640
+          },
+          "lowGainFinishes": 396,
+          "lowGainCorrect": 395,
+          "completionOpportunities": 684,
+          "proxy": 26758.52
+        },
+        "adaptive": {
+          "threshold": 0.995,
+          "n": 2400,
+          "selected": 640,
+          "correct": 639,
+          "wrong": 1,
+          "unknownAccepted": 1,
+          "spent": 21242,
+          "requests": 14268,
+          "evaluations": 275826,
+          "precision": 0.9984375,
+          "coverage": 0.26666666666666666,
+          "decisionChecks": 84226,
+          "stops": {
+            "budget": 1760,
+            "confidence": 640
+          },
+          "lowGainFinishes": 396,
+          "lowGainCorrect": 395,
+          "completionOpportunities": 684,
+          "proxy": 26758.52
+        },
+        "maximumComparisons": 4250340,
+        "removedStandaloneVisits": 3638340,
+        "initialStandaloneVisits": 612000
+      },
+      "fallback": {
+        "threshold": 0.9,
+        "trials": 256,
+        "steps": 1345,
+        "baseline": {
+          "threshold": 0.9,
+          "n": 256,
+          "selected": 145,
+          "correct": 134,
+          "wrong": 11,
+          "unknownAccepted": 7,
+          "spent": 1523,
+          "requests": 1089,
+          "evaluations": 21507,
+          "precision": 0.9241379310344827,
+          "coverage": 0.56640625,
+          "decisionChecks": 11200,
+          "stops": {
+            "budget": 111,
+            "confidence": 145
+          },
+          "lowGainFinishes": 1,
+          "lowGainCorrect": 1,
+          "completionOpportunities": 156,
+          "proxy": 1953.1399999999999
+        },
+        "adaptive": {
+          "threshold": 0.9,
+          "n": 256,
+          "selected": 145,
+          "correct": 134,
+          "wrong": 11,
+          "unknownAccepted": 7,
+          "spent": 1523,
+          "requests": 1089,
+          "evaluations": 21507,
+          "precision": 0.9241379310344827,
+          "coverage": 0.56640625,
+          "decisionChecks": 11200,
+          "stops": {
+            "budget": 111,
+            "confidence": 145
+          },
+          "lowGainFinishes": 1,
+          "lowGainCorrect": 1,
+          "completionOpportunities": 156,
+          "proxy": 1953.1399999999999
+        },
+        "maximumComparisons": 342975,
+        "removedStandaloneVisits": 277695,
+        "initialStandaloneVisits": 65280
+      },
+      "boundary": {
+        "threshold": 0.98,
+        "trials": 256,
+        "steps": 1561,
+        "baseline": {
+          "threshold": 0.98,
+          "n": 256,
+          "selected": 107,
+          "correct": 106,
+          "wrong": 1,
+          "unknownAccepted": 1,
+          "spent": 1901,
+          "requests": 1305,
+          "evaluations": 25479,
+          "precision": 0.9906542056074766,
+          "coverage": 0.41796875,
+          "decisionChecks": 9984,
+          "stops": {
+            "budget": 149,
+            "confidence": 107
+          },
+          "lowGainFinishes": 20,
+          "lowGainCorrect": 19,
+          "completionOpportunities": 104,
+          "proxy": 2410.58
+        },
+        "adaptive": {
+          "threshold": 0.98,
+          "n": 256,
+          "selected": 107,
+          "correct": 106,
+          "wrong": 1,
+          "unknownAccepted": 1,
+          "spent": 1901,
+          "requests": 1305,
+          "evaluations": 25479,
+          "precision": 0.9906542056074766,
+          "coverage": 0.41796875,
+          "decisionChecks": 9984,
+          "stops": {
+            "budget": 149,
+            "confidence": 107
+          },
+          "lowGainFinishes": 20,
+          "lowGainCorrect": 19,
+          "completionOpportunities": 104,
+          "proxy": 2410.58
+        },
+        "maximumComparisons": 398055,
+        "removedStandaloneVisits": 332775,
+        "initialStandaloneVisits": 65280
+      }
+    },
+    {
+      "seed": 79002,
+      "primary": {
+        "threshold": 0.995,
+        "trials": 2400,
+        "steps": 16693,
+        "baseline": {
+          "threshold": 0.995,
+          "n": 2400,
+          "selected": 634,
+          "correct": 631,
+          "wrong": 3,
+          "unknownAccepted": 2,
+          "spent": 21207,
+          "requests": 14293,
+          "evaluations": 276619,
+          "precision": 0.9952681388012619,
+          "coverage": 0.26416666666666666,
+          "decisionChecks": 86007,
+          "stops": {
+            "budget": 1766,
+            "confidence": 634
+          },
+          "lowGainFinishes": 415,
+          "lowGainCorrect": 413,
+          "completionOpportunities": 690,
+          "proxy": 26739.38
+        },
+        "adaptive": {
+          "threshold": 0.995,
+          "n": 2400,
+          "selected": 634,
+          "correct": 631,
+          "wrong": 3,
+          "unknownAccepted": 2,
+          "spent": 21207,
+          "requests": 14293,
+          "evaluations": 276619,
+          "precision": 0.9952681388012619,
+          "coverage": 0.26416666666666666,
+          "decisionChecks": 86007,
+          "stops": {
+            "budget": 1766,
+            "confidence": 634
+          },
+          "lowGainFinishes": 415,
+          "lowGainCorrect": 413,
+          "completionOpportunities": 690,
+          "proxy": 26739.38
+        },
+        "maximumComparisons": 4256715,
+        "removedStandaloneVisits": 3644715,
+        "initialStandaloneVisits": 612000
+      },
+      "fallback": {
+        "threshold": 0.9,
+        "trials": 256,
+        "steps": 1373,
+        "baseline": {
+          "threshold": 0.9,
+          "n": 256,
+          "selected": 146,
+          "correct": 136,
+          "wrong": 10,
+          "unknownAccepted": 6,
+          "spent": 1560,
+          "requests": 1117,
+          "evaluations": 22064,
+          "precision": 0.9315068493150684,
+          "coverage": 0.5703125,
+          "decisionChecks": 11827,
+          "stops": {
+            "budget": 110,
+            "confidence": 146
+          },
+          "lowGainFinishes": 0,
+          "lowGainCorrect": 0,
+          "completionOpportunities": 155,
+          "proxy": 2001.28
+        },
+        "adaptive": {
+          "threshold": 0.9,
+          "n": 256,
+          "selected": 146,
+          "correct": 136,
+          "wrong": 10,
+          "unknownAccepted": 6,
+          "spent": 1560,
+          "requests": 1117,
+          "evaluations": 22064,
+          "precision": 0.9315068493150684,
+          "coverage": 0.5703125,
+          "decisionChecks": 11827,
+          "stops": {
+            "budget": 110,
+            "confidence": 146
+          },
+          "lowGainFinishes": 0,
+          "lowGainCorrect": 0,
+          "completionOpportunities": 155,
+          "proxy": 2001.28
+        },
+        "maximumComparisons": 350115,
+        "removedStandaloneVisits": 284835,
+        "initialStandaloneVisits": 65280
+      },
+      "boundary": {
+        "threshold": 0.98,
+        "trials": 256,
+        "steps": 1607,
+        "baseline": {
+          "threshold": 0.98,
+          "n": 256,
+          "selected": 105,
+          "correct": 104,
+          "wrong": 1,
+          "unknownAccepted": 1,
+          "spent": 1963,
+          "requests": 1351,
+          "evaluations": 26476,
+          "precision": 0.9904761904761905,
+          "coverage": 0.41015625,
+          "decisionChecks": 10489,
+          "stops": {
+            "budget": 151,
+            "confidence": 105
+          },
+          "lowGainFinishes": 25,
+          "lowGainCorrect": 25,
+          "completionOpportunities": 112,
+          "proxy": 2492.52
+        },
+        "adaptive": {
+          "threshold": 0.98,
+          "n": 256,
+          "selected": 105,
+          "correct": 104,
+          "wrong": 1,
+          "unknownAccepted": 1,
+          "spent": 1963,
+          "requests": 1351,
+          "evaluations": 26476,
+          "precision": 0.9904761904761905,
+          "coverage": 0.41015625,
+          "decisionChecks": 10489,
+          "stops": {
+            "budget": 151,
+            "confidence": 105
+          },
+          "lowGainFinishes": 25,
+          "lowGainCorrect": 25,
+          "completionOpportunities": 112,
+          "proxy": 2492.52
+        },
+        "maximumComparisons": 409785,
+        "removedStandaloneVisits": 344505,
+        "initialStandaloneVisits": 65280
+      }
+    }
+  ],
+  "limitations": "Fusion removes standalone maximum traversal after each update; maximum comparisons themselves unchanged. Initial posterior maximum still scanned. Normalized values compared in original order to preserve floating-point ties; unknown hypothesis excluded from known-family maximum as before. No wall-clock or energy claim. Synthetic same-root observations; inherited ten-unit budget."
+}

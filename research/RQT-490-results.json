@@ -1,0 +1,85 @@
+{
+  "RQT": 490,
+  "sha256": "5f4f49b1d75d60d61961b8a0aede915707f6c5cf11e1a9d7e71f1d3a7d83c809",
+  "reductions": 18,
+  "visits": 1116,
+  "nonzero_scaling_checks": 900,
+  "integral": 0,
+  "hits": [],
+  "weights": [
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      1
+    ],
+    [
+      1,
+      1
+    ],
+    [
+      1,
+      9
+    ],
+    [
+      1,
+      81
+    ],
+    [
+      9,
+      1
+    ]
+  ],
+  "rows": [
+    {
+      "slope": [
+        1,
+        3
+      ],
+      "bits": [
+        4590,
+        2350,
+        4589,
+        4584,
+        4577,
+        4590
+      ],
+      "offaxis_normalized_error_upper_power": -885
+    },
+    {
+      "slope": [
+        1,
+        7
+      ],
+      "bits": [
+        4592,
+        2351,
+        4591,
+        4586,
+        4580,
+        4592
+      ],
+      "offaxis_normalized_error_upper_power": -884
+    },
+    {
+      "slope": [
+        3,
+        1
+      ],
+      "bits": [
+        4587,
+        2345,
+        4586,
+        4581,
+        4574,
+        4587
+      ],
+      "offaxis_normalized_error_upper_power": -893
+    }
+  ],
+  "root19": "OPEN",
+  "prefix18": "UNVERIFIED",
+  "note": "Summary; full exact residual fractions emitted by verifier."
+}

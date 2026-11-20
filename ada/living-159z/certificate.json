@@ -1,0 +1,301 @@
+{
+  "version": "ADA-159Z",
+  "lineage": "ADA-159Y",
+  "watermark": ".dlw",
+  "tests": {
+    "checks": 2800,
+    "births": 1405,
+    "rows": [
+      {
+        "input": 0,
+        "resistance": 0,
+        "nodes": 1,
+        "viable": 1,
+        "emergent": 1,
+        "reserve": 13,
+        "spent": 0,
+        "overflow": 0
+      },
+      {
+        "input": 0,
+        "resistance": 1,
+        "nodes": 1,
+        "viable": 0,
+        "emergent": 0,
+        "reserve": 0,
+        "spent": 13,
+        "overflow": 0
+      },
+      {
+        "input": 0,
+        "resistance": 2,
+        "nodes": 1,
+        "viable": 0,
+        "emergent": 0,
+        "reserve": 0,
+        "spent": 13,
+        "overflow": 0
+      },
+      {
+        "input": 0,
+        "resistance": 5,
+        "nodes": 1,
+        "viable": 0,
+        "emergent": 0,
+        "reserve": 0,
+        "spent": 13,
+        "overflow": 0
+      },
+      {
+        "input": 2,
+        "resistance": 0,
+        "nodes": 26,
+        "viable": 26,
+        "emergent": 1,
+        "reserve": 213,
+        "spent": 0,
+        "overflow": 0
+      },
+      {
+        "input": 2,
+        "resistance": 1,
+        "nodes": 2,
+        "viable": 2,
+        "emergent": 1,
+        "reserve": 21,
+        "spent": 192,
+        "overflow": 0
+      },
+      {
+        "input": 2,
+        "resistance": 2,
+        "nodes": 1,
+        "viable": 1,
+        "emergent": 1,
+        "reserve": 13,
+        "spent": 200,
+        "overflow": 0
+      },
+      {
+        "input": 2,
+        "resistance": 5,
+        "nodes": 1,
+        "viable": 0,
+        "emergent": 0,
+        "reserve": 0,
+        "spent": 213,
+        "overflow": 0
+      },
+      {
+        "input": 5,
+        "resistance": 0,
+        "nodes": 63,
+        "viable": 63,
+        "emergent": 1,
+        "reserve": 513,
+        "spent": 0,
+        "overflow": 0
+      },
+      {
+        "input": 5,
+        "resistance": 1,
+        "nodes": 5,
+        "viable": 5,
+        "emergent": 1,
+        "reserve": 42,
+        "spent": 471,
+        "overflow": 0
+      },
+      {
+        "input": 5,
+        "resistance": 2,
+        "nodes": 3,
+        "viable": 2,
+        "emergent": 1,
+        "reserve": 22,
+        "spent": 491,
+        "overflow": 0
+      },
+      {
+        "input": 5,
+        "resistance": 5,
+        "nodes": 1,
+        "viable": 1,
+        "emergent": 1,
+        "reserve": 13,
+        "spent": 500,
+        "overflow": 0
+      },
+      {
+        "input": 8,
+        "resistance": 0,
+        "nodes": 101,
+        "viable": 101,
+        "emergent": 1,
+        "reserve": 813,
+        "spent": 0,
+        "overflow": 0
+      },
+      {
+        "input": 8,
+        "resistance": 1,
+        "nodes": 8,
+        "viable": 7,
+        "emergent": 1,
+        "reserve": 63,
+        "spent": 750,
+        "overflow": 0
+      },
+      {
+        "input": 8,
+        "resistance": 2,
+        "nodes": 4,
+        "viable": 3,
+        "emergent": 1,
+        "reserve": 33,
+        "spent": 780,
+        "overflow": 0
+      },
+      {
+        "input": 8,
+        "resistance": 5,
+        "nodes": 2,
+        "viable": 1,
+        "emergent": 1,
+        "reserve": 16,
+        "spent": 797,
+        "overflow": 0
+      },
+      {
+        "input": 13,
+        "resistance": 0,
+        "nodes": 101,
+        "viable": 101,
+        "emergent": 1,
+        "reserve": 834,
+        "spent": 0,
+        "overflow": 479
+      },
+      {
+        "input": 13,
+        "resistance": 1,
+        "nodes": 101,
+        "viable": 9,
+        "emergent": 1,
+        "reserve": 81,
+        "spent": 1232,
+        "overflow": 0
+      },
+      {
+        "input": 13,
+        "resistance": 2,
+        "nodes": 101,
+        "viable": 4,
+        "emergent": 1,
+        "reserve": 42,
+        "spent": 1271,
+        "overflow": 0
+      },
+      {
+        "input": 13,
+        "resistance": 5,
+        "nodes": 101,
+        "viable": 2,
+        "emergent": 1,
+        "reserve": 24,
+        "spent": 1289,
+        "overflow": 0
+      },
+      {
+        "input": 21,
+        "resistance": 0,
+        "nodes": 101,
+        "viable": 101,
+        "emergent": 1,
+        "reserve": 834,
+        "spent": 0,
+        "overflow": 1279
+      },
+      {
+        "input": 21,
+        "resistance": 1,
+        "nodes": 101,
+        "viable": 17,
+        "emergent": 1,
+        "reserve": 145,
+        "spent": 1899,
+        "overflow": 69
+      },
+      {
+        "input": 21,
+        "resistance": 2,
+        "nodes": 101,
+        "viable": 8,
+        "emergent": 1,
+        "reserve": 74,
+        "spent": 2013,
+        "overflow": 26
+      },
+      {
+        "input": 21,
+        "resistance": 5,
+        "nodes": 101,
+        "viable": 3,
+        "emergent": 1,
+        "reserve": 35,
+        "spent": 2078,
+        "overflow": 0
+      },
+      {
+        "input": 34,
+        "resistance": 0,
+        "nodes": 101,
+        "viable": 101,
+        "emergent": 1,
+        "reserve": 834,
+        "spent": 0,
+        "overflow": 2579
+      },
+      {
+        "input": 34,
+        "resistance": 1,
+        "nodes": 101,
+        "viable": 26,
+        "emergent": 1,
+        "reserve": 217,
+        "spent": 2565,
+        "overflow": 631
+      },
+      {
+        "input": 34,
+        "resistance": 2,
+        "nodes": 101,
+        "viable": 13,
+        "emergent": 1,
+        "reserve": 114,
+        "spent": 2878,
+        "overflow": 421
+      },
+      {
+        "input": 34,
+        "resistance": 5,
+        "nodes": 101,
+        "viable": 6,
+        "emergent": 1,
+        "reserve": 57,
+        "spent": 3301,
+        "overflow": 55
+      }
+    ],
+    "cap": 128,
+    "thresholds": [
+      5,
+      8,
+      13,
+      21,
+      34
+    ]
+  },
+  "model": "Sparse nested addresses; parent transfers 8 only at reserve >=21, retains >=13 immediately after birth. Root-only ingress, resistance cost, overflow cap34, support from surplus. Dormant nodes retained. Deterministic ordering.",
+  "limits": "Thresholds and cap128 chosen for experiment. 34 is reserve cap and collective marker, not verified collective behavior. No physical or conscious emergence claim. Browser and Pages unverified."
+}

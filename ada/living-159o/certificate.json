@@ -1,0 +1,35 @@
+{
+  "version": "ADA-159O",
+  "lineage": "ADA-159N",
+  "watermark": ".dlw",
+  "canonical": "{outerbound,brace\\tornado[innerbound(chaos/tornado)]}",
+  "topology": "M(u+2π,s)=M(u,-s); M(u+4π,s)=M(u,s). One half-twist, one boundary, two-lap off-center return.",
+  "tests": {
+    "original": {
+      "samples": 4608,
+      "minEyeClearance": 0.6887999999999999,
+      "maxClosureError": 3.819268059394923e-14,
+      "eye": [
+        0,
+        0,
+        0
+      ],
+      "streams": 12,
+      "width": 42
+    },
+    "samples": 7680,
+    "swapError": 4.100316822212988e-15,
+    "doubleError": 6.258313009193178e-15,
+    "minClearance": 1.3402907632801508,
+    "minOneLap": 0.41279999999999906,
+    "maxCenterError": 3.707317959809365e-15,
+    "eye": [
+      0,
+      0,
+      0
+    ],
+    "halfTwists": 1,
+    "edgeLaps": 2
+  },
+  "limitations": "Prescribed kinematic surface overlaid on toroidal streams, not a Navier–Stokes or plasma solution. No coupling to fluid velocity or forces. Closure tested at fixed animation time; moving geometry is not a stationary material trajectory. Eye fixed by construction."
+}

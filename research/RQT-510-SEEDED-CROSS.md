@@ -1,0 +1,3 @@
+# RQT-510 — Seeded Cross
+Canonical geometry: {inf brace [ inf contain ( inf construct \mix/\match/ ) ] }^{n}.
+Frozen Gram SHA256 5f4f49b1d75d60d61961b8a0aede915707f6c5cf11e1a9d7e71f1d3a7d83c809 verified. Original Wall kernel identity verified. Seed (1000000,562337), directions U=(16,9), V=(7,4), determinant 1. Recursive eight-direction expansion with displacements 1,2,4,...256, union retained and deduplicated; complete transformed square of radius 511 inclusive. 1046529 distinct positions, 206 modular survivors all nonnegative, 0 squares, 0 integral roots. d=1, solve for z. Bounded shifted square only; not global exclusion. Root19 OPEN; predecessor18 UNVERIFIED. Next: seed at survivors and diversify across boundary directions.

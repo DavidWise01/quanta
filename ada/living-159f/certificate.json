@@ -1,0 +1,1206 @@
+{
+  "version": "ADA-159F",
+  "lineage": "ADA-159E",
+  "watermark": ".dlw",
+  "width": 42,
+  "gate": "00 11 [ 24 /|\\ 42 ] 11 00",
+  "policy": "Each pair receives its own available capacity first. Remaining capacity distributed by largest unmet absolute error, ties by vector/voxel/vogel index. Shared cap 3075 milliarcseconds per tick, default. No carryover. Previous-tick observations.",
+  "limitations": "Assumes transferable actuation, recipient can exceed local cap, no transfer loss or delay, ideal measurements. Angular corrections are symbolic not physical power. No payload encoding changes.",
+  "tests": {
+    "ticks": 4346,
+    "pairs": 13038,
+    "bitChecks": 42,
+    "impulses": 16,
+    "random": 4096,
+    "cases": [
+      {
+        "dist": [
+          4100,
+          0,
+          0
+        ],
+        "cap": 512,
+        "shared": 3,
+        "local": 9
+      },
+      {
+        "dist": [
+          4100,
+          0,
+          0
+        ],
+        "cap": 1025,
+        "shared": 2,
+        "local": 4
+      },
+      {
+        "dist": [
+          4100,
+          0,
+          0
+        ],
+        "cap": 2050,
+        "shared": 1,
+        "local": 2
+      },
+      {
+        "dist": [
+          4100,
+          -4100,
+          4100
+        ],
+        "cap": 512,
+        "shared": 9,
+        "local": 9
+      },
+      {
+        "dist": [
+          4100,
+          -4100,
+          4100
+        ],
+        "cap": 1025,
+        "shared": 4,
+        "local": 4
+      },
+      {
+        "dist": [
+          4100,
+          -4100,
+          4100
+        ],
+        "cap": 2050,
+        "shared": 2,
+        "local": 2
+      },
+      {
+        "dist": [
+          0,
+          -1026,
+          0
+        ],
+        "cap": 512,
+        "shared": 1,
+        "local": 3
+      },
+      {
+        "dist": [
+          0,
+          -1026,
+          0
+        ],
+        "cap": 1025,
+        "shared": 1,
+        "local": 2
+      },
+      {
+        "dist": [
+          0,
+          -1026,
+          0
+        ],
+        "cap": 2050,
+        "shared": 1,
+        "local": 1
+      },
+      {
+        "dist": [
+          1,
+          2,
+          -3
+        ],
+        "cap": 1,
+        "shared": 2,
+        "local": 3
+      },
+      {
+        "dist": [
+          1,
+          2,
+          -3
+        ],
+        "cap": 512,
+        "shared": 1,
+        "local": 1
+      },
+      {
+        "dist": [
+          1,
+          2,
+          -3
+        ],
+        "cap": 1025,
+        "shared": 1,
+        "local": 1
+      },
+      {
+        "dist": [
+          1,
+          2,
+          -3
+        ],
+        "cap": 2050,
+        "shared": 1,
+        "local": 1
+      },
+      {
+        "dist": [
+          10000,
+          0,
+          -512
+        ],
+        "cap": 512,
+        "shared": 7,
+        "local": 20
+      },
+      {
+        "dist": [
+          10000,
+          0,
+          -512
+        ],
+        "cap": 1025,
+        "shared": 4,
+        "local": 10
+      },
+      {
+        "dist": [
+          10000,
+          0,
+          -512
+        ],
+        "cap": 2050,
+        "shared": 2,
+        "local": 5
+      }
+    ],
+    "scenarios": [
+      {
+        "dist": [
+          2050,
+          0,
+          0
+        ],
+        "shared": 2050,
+        "local": 33825,
+        "trace": [
+          {
+            "tick": 1,
+            "shared": 2050,
+            "local": 2050
+          },
+          {
+            "tick": 2,
+            "shared": 2050,
+            "local": 3075
+          },
+          {
+            "tick": 3,
+            "shared": 2050,
+            "local": 4100
+          },
+          {
+            "tick": 4,
+            "shared": 2050,
+            "local": 5125
+          },
+          {
+            "tick": 5,
+            "shared": 2050,
+            "local": 6150
+          },
+          {
+            "tick": 6,
+            "shared": 2050,
+            "local": 7175
+          },
+          {
+            "tick": 7,
+            "shared": 2050,
+            "local": 8200
+          },
+          {
+            "tick": 8,
+            "shared": 2050,
+            "local": 9225
+          },
+          {
+            "tick": 9,
+            "shared": 2050,
+            "local": 10250
+          },
+          {
+            "tick": 10,
+            "shared": 2050,
+            "local": 11275
+          },
+          {
+            "tick": 11,
+            "shared": 2050,
+            "local": 12300
+          },
+          {
+            "tick": 12,
+            "shared": 2050,
+            "local": 13325
+          },
+          {
+            "tick": 13,
+            "shared": 2050,
+            "local": 14350
+          },
+          {
+            "tick": 14,
+            "shared": 2050,
+            "local": 15375
+          },
+          {
+            "tick": 15,
+            "shared": 2050,
+            "local": 16400
+          },
+          {
+            "tick": 16,
+            "shared": 2050,
+            "local": 17425
+          },
+          {
+            "tick": 17,
+            "shared": 2050,
+            "local": 18450
+          },
+          {
+            "tick": 18,
+            "shared": 2050,
+            "local": 19475
+          },
+          {
+            "tick": 19,
+            "shared": 2050,
+            "local": 20500
+          },
+          {
+            "tick": 20,
+            "shared": 2050,
+            "local": 21525
+          },
+          {
+            "tick": 21,
+            "shared": 2050,
+            "local": 22550
+          },
+          {
+            "tick": 22,
+            "shared": 2050,
+            "local": 23575
+          },
+          {
+            "tick": 23,
+            "shared": 2050,
+            "local": 24600
+          },
+          {
+            "tick": 24,
+            "shared": 2050,
+            "local": 25625
+          },
+          {
+            "tick": 25,
+            "shared": 2050,
+            "local": 26650
+          },
+          {
+            "tick": 26,
+            "shared": 2050,
+            "local": 27675
+          },
+          {
+            "tick": 27,
+            "shared": 2050,
+            "local": 28700
+          },
+          {
+            "tick": 28,
+            "shared": 2050,
+            "local": 29725
+          },
+          {
+            "tick": 29,
+            "shared": 2050,
+            "local": 30750
+          },
+          {
+            "tick": 30,
+            "shared": 2050,
+            "local": 31775
+          },
+          {
+            "tick": 31,
+            "shared": 2050,
+            "local": 32800
+          },
+          {
+            "tick": 32,
+            "shared": 2050,
+            "local": 33825
+          }
+        ]
+      },
+      {
+        "dist": [
+          3075,
+          0,
+          0
+        ],
+        "shared": 3075,
+        "local": 66625,
+        "trace": [
+          {
+            "tick": 1,
+            "shared": 3075,
+            "local": 3075
+          },
+          {
+            "tick": 2,
+            "shared": 3075,
+            "local": 5125
+          },
+          {
+            "tick": 3,
+            "shared": 3075,
+            "local": 7175
+          },
+          {
+            "tick": 4,
+            "shared": 3075,
+            "local": 9225
+          },
+          {
+            "tick": 5,
+            "shared": 3075,
+            "local": 11275
+          },
+          {
+            "tick": 6,
+            "shared": 3075,
+            "local": 13325
+          },
+          {
+            "tick": 7,
+            "shared": 3075,
+            "local": 15375
+          },
+          {
+            "tick": 8,
+            "shared": 3075,
+            "local": 17425
+          },
+          {
+            "tick": 9,
+            "shared": 3075,
+            "local": 19475
+          },
+          {
+            "tick": 10,
+            "shared": 3075,
+            "local": 21525
+          },
+          {
+            "tick": 11,
+            "shared": 3075,
+            "local": 23575
+          },
+          {
+            "tick": 12,
+            "shared": 3075,
+            "local": 25625
+          },
+          {
+            "tick": 13,
+            "shared": 3075,
+            "local": 27675
+          },
+          {
+            "tick": 14,
+            "shared": 3075,
+            "local": 29725
+          },
+          {
+            "tick": 15,
+            "shared": 3075,
+            "local": 31775
+          },
+          {
+            "tick": 16,
+            "shared": 3075,
+            "local": 33825
+          },
+          {
+            "tick": 17,
+            "shared": 3075,
+            "local": 35875
+          },
+          {
+            "tick": 18,
+            "shared": 3075,
+            "local": 37925
+          },
+          {
+            "tick": 19,
+            "shared": 3075,
+            "local": 39975
+          },
+          {
+            "tick": 20,
+            "shared": 3075,
+            "local": 42025
+          },
+          {
+            "tick": 21,
+            "shared": 3075,
+            "local": 44075
+          },
+          {
+            "tick": 22,
+            "shared": 3075,
+            "local": 46125
+          },
+          {
+            "tick": 23,
+            "shared": 3075,
+            "local": 48175
+          },
+          {
+            "tick": 24,
+            "shared": 3075,
+            "local": 50225
+          },
+          {
+            "tick": 25,
+            "shared": 3075,
+            "local": 52275
+          },
+          {
+            "tick": 26,
+            "shared": 3075,
+            "local": 54325
+          },
+          {
+            "tick": 27,
+            "shared": 3075,
+            "local": 56375
+          },
+          {
+            "tick": 28,
+            "shared": 3075,
+            "local": 58425
+          },
+          {
+            "tick": 29,
+            "shared": 3075,
+            "local": 60475
+          },
+          {
+            "tick": 30,
+            "shared": 3075,
+            "local": 62525
+          },
+          {
+            "tick": 31,
+            "shared": 3075,
+            "local": 64575
+          },
+          {
+            "tick": 32,
+            "shared": 3075,
+            "local": 66625
+          }
+        ]
+      },
+      {
+        "dist": [
+          4100,
+          0,
+          0
+        ],
+        "shared": 35875,
+        "local": 99425,
+        "trace": [
+          {
+            "tick": 1,
+            "shared": 4100,
+            "local": 4100
+          },
+          {
+            "tick": 2,
+            "shared": 5125,
+            "local": 7175
+          },
+          {
+            "tick": 3,
+            "shared": 6150,
+            "local": 10250
+          },
+          {
+            "tick": 4,
+            "shared": 7175,
+            "local": 13325
+          },
+          {
+            "tick": 5,
+            "shared": 8200,
+            "local": 16400
+          },
+          {
+            "tick": 6,
+            "shared": 9225,
+            "local": 19475
+          },
+          {
+            "tick": 7,
+            "shared": 10250,
+            "local": 22550
+          },
+          {
+            "tick": 8,
+            "shared": 11275,
+            "local": 25625
+          },
+          {
+            "tick": 9,
+            "shared": 12300,
+            "local": 28700
+          },
+          {
+            "tick": 10,
+            "shared": 13325,
+            "local": 31775
+          },
+          {
+            "tick": 11,
+            "shared": 14350,
+            "local": 34850
+          },
+          {
+            "tick": 12,
+            "shared": 15375,
+            "local": 37925
+          },
+          {
+            "tick": 13,
+            "shared": 16400,
+            "local": 41000
+          },
+          {
+            "tick": 14,
+            "shared": 17425,
+            "local": 44075
+          },
+          {
+            "tick": 15,
+            "shared": 18450,
+            "local": 47150
+          },
+          {
+            "tick": 16,
+            "shared": 19475,
+            "local": 50225
+          },
+          {
+            "tick": 17,
+            "shared": 20500,
+            "local": 53300
+          },
+          {
+            "tick": 18,
+            "shared": 21525,
+            "local": 56375
+          },
+          {
+            "tick": 19,
+            "shared": 22550,
+            "local": 59450
+          },
+          {
+            "tick": 20,
+            "shared": 23575,
+            "local": 62525
+          },
+          {
+            "tick": 21,
+            "shared": 24600,
+            "local": 65600
+          },
+          {
+            "tick": 22,
+            "shared": 25625,
+            "local": 68675
+          },
+          {
+            "tick": 23,
+            "shared": 26650,
+            "local": 71750
+          },
+          {
+            "tick": 24,
+            "shared": 27675,
+            "local": 74825
+          },
+          {
+            "tick": 25,
+            "shared": 28700,
+            "local": 77900
+          },
+          {
+            "tick": 26,
+            "shared": 29725,
+            "local": 80975
+          },
+          {
+            "tick": 27,
+            "shared": 30750,
+            "local": 84050
+          },
+          {
+            "tick": 28,
+            "shared": 31775,
+            "local": 87125
+          },
+          {
+            "tick": 29,
+            "shared": 32800,
+            "local": 90200
+          },
+          {
+            "tick": 30,
+            "shared": 33825,
+            "local": 93275
+          },
+          {
+            "tick": 31,
+            "shared": 34850,
+            "local": 96350
+          },
+          {
+            "tick": 32,
+            "shared": 35875,
+            "local": 99425
+          }
+        ]
+      },
+      {
+        "dist": [
+          1025,
+          -1025,
+          1025
+        ],
+        "shared": 3075,
+        "local": 3075,
+        "trace": [
+          {
+            "tick": 1,
+            "shared": 3075,
+            "local": 3075
+          },
+          {
+            "tick": 2,
+            "shared": 3075,
+            "local": 3075
+          },
+          {
+            "tick": 3,
+            "shared": 3075,
+            "local": 3075
+          },
+          {
+            "tick": 4,
+            "shared": 3075,
+            "local": 3075
+          },
+          {
+            "tick": 5,
+            "shared": 3075,
+            "local": 3075
+          },
+          {
+            "tick": 6,
+            "shared": 3075,
+            "local": 3075
+          },
+          {
+            "tick": 7,
+            "shared": 3075,
+            "local": 3075
+          },
+          {
+            "tick": 8,
+            "shared": 3075,
+            "local": 3075
+          },
+          {
+            "tick": 9,
+            "shared": 3075,
+            "local": 3075
+          },
+          {
+            "tick": 10,
+            "shared": 3075,
+            "local": 3075
+          },
+          {
+            "tick": 11,
+            "shared": 3075,
+            "local": 3075
+          },
+          {
+            "tick": 12,
+            "shared": 3075,
+            "local": 3075
+          },
+          {
+            "tick": 13,
+            "shared": 3075,
+            "local": 3075
+          },
+          {
+            "tick": 14,
+            "shared": 3075,
+            "local": 3075
+          },
+          {
+            "tick": 15,
+            "shared": 3075,
+            "local": 3075
+          },
+          {
+            "tick": 16,
+            "shared": 3075,
+            "local": 3075
+          },
+          {
+            "tick": 17,
+            "shared": 3075,
+            "local": 3075
+          },
+          {
+            "tick": 18,
+            "shared": 3075,
+            "local": 3075
+          },
+          {
+            "tick": 19,
+            "shared": 3075,
+            "local": 3075
+          },
+          {
+            "tick": 20,
+            "shared": 3075,
+            "local": 3075
+          },
+          {
+            "tick": 21,
+            "shared": 3075,
+            "local": 3075
+          },
+          {
+            "tick": 22,
+            "shared": 3075,
+            "local": 3075
+          },
+          {
+            "tick": 23,
+            "shared": 3075,
+            "local": 3075
+          },
+          {
+            "tick": 24,
+            "shared": 3075,
+            "local": 3075
+          },
+          {
+            "tick": 25,
+            "shared": 3075,
+            "local": 3075
+          },
+          {
+            "tick": 26,
+            "shared": 3075,
+            "local": 3075
+          },
+          {
+            "tick": 27,
+            "shared": 3075,
+            "local": 3075
+          },
+          {
+            "tick": 28,
+            "shared": 3075,
+            "local": 3075
+          },
+          {
+            "tick": 29,
+            "shared": 3075,
+            "local": 3075
+          },
+          {
+            "tick": 30,
+            "shared": 3075,
+            "local": 3075
+          },
+          {
+            "tick": 31,
+            "shared": 3075,
+            "local": 3075
+          },
+          {
+            "tick": 32,
+            "shared": 3075,
+            "local": 3075
+          }
+        ]
+      },
+      {
+        "dist": [
+          2050,
+          -2050,
+          0
+        ],
+        "shared": 35875,
+        "local": 67650,
+        "trace": [
+          {
+            "tick": 1,
+            "shared": 4100,
+            "local": 4100
+          },
+          {
+            "tick": 2,
+            "shared": 5125,
+            "local": 6150
+          },
+          {
+            "tick": 3,
+            "shared": 6150,
+            "local": 8200
+          },
+          {
+            "tick": 4,
+            "shared": 7175,
+            "local": 10250
+          },
+          {
+            "tick": 5,
+            "shared": 8200,
+            "local": 12300
+          },
+          {
+            "tick": 6,
+            "shared": 9225,
+            "local": 14350
+          },
+          {
+            "tick": 7,
+            "shared": 10250,
+            "local": 16400
+          },
+          {
+            "tick": 8,
+            "shared": 11275,
+            "local": 18450
+          },
+          {
+            "tick": 9,
+            "shared": 12300,
+            "local": 20500
+          },
+          {
+            "tick": 10,
+            "shared": 13325,
+            "local": 22550
+          },
+          {
+            "tick": 11,
+            "shared": 14350,
+            "local": 24600
+          },
+          {
+            "tick": 12,
+            "shared": 15375,
+            "local": 26650
+          },
+          {
+            "tick": 13,
+            "shared": 16400,
+            "local": 28700
+          },
+          {
+            "tick": 14,
+            "shared": 17425,
+            "local": 30750
+          },
+          {
+            "tick": 15,
+            "shared": 18450,
+            "local": 32800
+          },
+          {
+            "tick": 16,
+            "shared": 19475,
+            "local": 34850
+          },
+          {
+            "tick": 17,
+            "shared": 20500,
+            "local": 36900
+          },
+          {
+            "tick": 18,
+            "shared": 21525,
+            "local": 38950
+          },
+          {
+            "tick": 19,
+            "shared": 22550,
+            "local": 41000
+          },
+          {
+            "tick": 20,
+            "shared": 23575,
+            "local": 43050
+          },
+          {
+            "tick": 21,
+            "shared": 24600,
+            "local": 45100
+          },
+          {
+            "tick": 22,
+            "shared": 25625,
+            "local": 47150
+          },
+          {
+            "tick": 23,
+            "shared": 26650,
+            "local": 49200
+          },
+          {
+            "tick": 24,
+            "shared": 27675,
+            "local": 51250
+          },
+          {
+            "tick": 25,
+            "shared": 28700,
+            "local": 53300
+          },
+          {
+            "tick": 26,
+            "shared": 29725,
+            "local": 55350
+          },
+          {
+            "tick": 27,
+            "shared": 30750,
+            "local": 57400
+          },
+          {
+            "tick": 28,
+            "shared": 31775,
+            "local": 59450
+          },
+          {
+            "tick": 29,
+            "shared": 32800,
+            "local": 61500
+          },
+          {
+            "tick": 30,
+            "shared": 33825,
+            "local": 63550
+          },
+          {
+            "tick": 31,
+            "shared": 34850,
+            "local": 65600
+          },
+          {
+            "tick": 32,
+            "shared": 35875,
+            "local": 67650
+          }
+        ]
+      },
+      {
+        "dist": [
+          512,
+          -1025,
+          1538
+        ],
+        "shared": 3075,
+        "local": 18978,
+        "trace": [
+          {
+            "tick": 1,
+            "shared": 3075,
+            "local": 3075
+          },
+          {
+            "tick": 2,
+            "shared": 3075,
+            "local": 3588
+          },
+          {
+            "tick": 3,
+            "shared": 3075,
+            "local": 4101
+          },
+          {
+            "tick": 4,
+            "shared": 3075,
+            "local": 4614
+          },
+          {
+            "tick": 5,
+            "shared": 3075,
+            "local": 5127
+          },
+          {
+            "tick": 6,
+            "shared": 3075,
+            "local": 5640
+          },
+          {
+            "tick": 7,
+            "shared": 3075,
+            "local": 6153
+          },
+          {
+            "tick": 8,
+            "shared": 3075,
+            "local": 6666
+          },
+          {
+            "tick": 9,
+            "shared": 3075,
+            "local": 7179
+          },
+          {
+            "tick": 10,
+            "shared": 3075,
+            "local": 7692
+          },
+          {
+            "tick": 11,
+            "shared": 3075,
+            "local": 8205
+          },
+          {
+            "tick": 12,
+            "shared": 3075,
+            "local": 8718
+          },
+          {
+            "tick": 13,
+            "shared": 3075,
+            "local": 9231
+          },
+          {
+            "tick": 14,
+            "shared": 3075,
+            "local": 9744
+          },
+          {
+            "tick": 15,
+            "shared": 3075,
+            "local": 10257
+          },
+          {
+            "tick": 16,
+            "shared": 3075,
+            "local": 10770
+          },
+          {
+            "tick": 17,
+            "shared": 3075,
+            "local": 11283
+          },
+          {
+            "tick": 18,
+            "shared": 3075,
+            "local": 11796
+          },
+          {
+            "tick": 19,
+            "shared": 3075,
+            "local": 12309
+          },
+          {
+            "tick": 20,
+            "shared": 3075,
+            "local": 12822
+          },
+          {
+            "tick": 21,
+            "shared": 3075,
+            "local": 13335
+          },
+          {
+            "tick": 22,
+            "shared": 3075,
+            "local": 13848
+          },
+          {
+            "tick": 23,
+            "shared": 3075,
+            "local": 14361
+          },
+          {
+            "tick": 24,
+            "shared": 3075,
+            "local": 14874
+          },
+          {
+            "tick": 25,
+            "shared": 3075,
+            "local": 15387
+          },
+          {
+            "tick": 26,
+            "shared": 3075,
+            "local": 15900
+          },
+          {
+            "tick": 27,
+            "shared": 3075,
+            "local": 16413
+          },
+          {
+            "tick": 28,
+            "shared": 3075,
+            "local": 16926
+          },
+          {
+            "tick": 29,
+            "shared": 3075,
+            "local": 17439
+          },
+          {
+            "tick": 30,
+            "shared": 3075,
+            "local": 17952
+          },
+          {
+            "tick": 31,
+            "shared": 3075,
+            "local": 18465
+          },
+          {
+            "tick": 32,
+            "shared": 3075,
+            "local": 18978
+          }
+        ]
+      }
+    ]
+  }
+}

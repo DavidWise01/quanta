@@ -1,0 +1,60 @@
+{
+  "version": "ADA-159M",
+  "watermark": ".dlw",
+  "seeds": [
+    159,
+    16001,
+    17003,
+    18007,
+    19009,
+    20011
+  ],
+  "ticks": 34080,
+  "pairChecks": 102240,
+  "rotationChecks": 162,
+  "payloadChecks": 252,
+  "issued": 1978,
+  "completed": 1960,
+  "shadowTransitions": 51336,
+  "withheld": 59,
+  "randomScenarios": 384,
+  "structuredScenarios": 42,
+  "policyOrder": [
+    "mobius",
+    "unanimous",
+    "reactive",
+    "anticipatory",
+    "twoTick",
+    "priorSeeSaw"
+  ],
+  "originalSeedSums": [
+    101932183,
+    101958242,
+    101976951,
+    100780132,
+    101953973,
+    101928347
+  ],
+  "freshSeedSums": [
+    103866857,
+    103862812,
+    103897493,
+    102733420,
+    103848200,
+    103866857
+  ],
+  "allSums": [
+    205799040,
+    205821054,
+    205874444,
+    203513552,
+    205802173,
+    205795204
+  ],
+  "meanWeights": [
+    7.197183098591549,
+    7.234741784037559,
+    7.187793427230047
+  ],
+  "fullCertificateSha": "4d77ba5b4bf068985cf5ef1df8aece914004955e"
+}

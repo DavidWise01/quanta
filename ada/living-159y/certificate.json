@@ -1,0 +1,64 @@
+{
+  "version": "ADA-159Y",
+  "lineage": "ADA-159X",
+  "watermark": ".dlw",
+  "model": "Cartesian product of base cyclic Hamiltonian route, reflected mixed traversal with BigInt address and inverse; even radix gives cyclic closure. A recursive edge changes one nested base coordinate by one cyclic step. Not literal spatial containment physics.",
+  "tests": {
+    "baseVertices": 2106,
+    "checks": 3341,
+    "edges": 3341,
+    "rows": [
+      {
+        "n": 1,
+        "capacity": "2106",
+        "tested": 233,
+        "closure": true
+      },
+      {
+        "n": 2,
+        "capacity": "4435236",
+        "tested": 267,
+        "closure": true
+      },
+      {
+        "n": 3,
+        "capacity": "9340607016",
+        "tested": 274,
+        "closure": true
+      },
+      {
+        "n": 5,
+        "capacity": "41427796499215776",
+        "tested": 288,
+        "closure": true
+      },
+      {
+        "n": 8,
+        "capacity": "386960766637995115803484416",
+        "tested": 309,
+        "closure": true
+      },
+      {
+        "n": 13,
+        "capacity": "16030931893459386905244771295273472237346816",
+        "tested": 344,
+        "closure": true
+      },
+      {
+        "n": 32,
+        "capacity": "22421658786826051815923943975515490369414875184925144254200672143727743518315720884231187017910445865435136",
+        "tested": 477,
+        "closure": true
+      },
+      {
+        "n": 128,
+        "capacity": "252738239927297182020863691594016007482260059202855267161656820094293316179081604409374171558115156475031967202074968836585242693124788003988566154400374677903827143551358937104794337502985276455114034001081829575807964935991043275742265028496692077350247813456580733674654086210942889445157076464934061094184090987879538425618249503679183101606185487268266722628294520878633929396540597470684423176829159624992876768595542016",
+        "tested": 1149,
+        "closure": true
+      }
+    ],
+    "allocatedVertexArray": 2106,
+    "proof": "Reflected blocks reverse lower-order path on odd outer digits; adjacent blocks differ only in outer digit. Even radix closes outer wrap with lower digits equal. Induction from cyclic base."
+  },
+  "limitations": "Sampled boundary and pseudorandom checks, plus constructive induction, not exhaustive enumeration beyond base. Depth cap 128 in engine, 13 in UI. Browser/Pages unverified."
+}

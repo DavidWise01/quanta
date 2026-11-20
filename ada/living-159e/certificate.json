@@ -1,0 +1,1779 @@
+{
+  "version": "ADA-159E",
+  "lineage": "ADA-159D",
+  "watermark": ".dlw",
+  "width": 42,
+  "gate": "00 11 [ 24 /|\\ 42 ] 11 00",
+  "controller": "Prior-tick pair error; opposing mirror receives clipped correction, default 1025 milliarcseconds per pair per tick. Disturbance applied to A. Nominal four pushes/four pulls retained; correction is separate additive action.",
+  "invariant": "e_next=e+disturbance-clip(e,-cap,cap); finite impulse recovery ceil(abs(e)/cap) quiet ticks when cap>0; overload accumulates",
+  "limitations": "Perfect error measurement and actuation assumed, one-tick delay, no physical force or power model; correction cap chosen provisionally; dynamic registers separate from 42-bit payload.",
+  "tests": {
+    "ticks": 506,
+    "pairs": 1518,
+    "impulses": 50,
+    "overloads": 2,
+    "bitChecks": 42,
+    "sample": [
+      {
+        "tick": 1,
+        "errors": [
+          0,
+          0,
+          0
+        ],
+        "commands": [
+          0,
+          0,
+          0
+        ],
+        "dist": [
+          0,
+          0,
+          0
+        ],
+        "layers": [
+          {
+            "name": "vector",
+            "hand": 1,
+            "phase": 0,
+            "side": 1,
+            "angle": 1000,
+            "net": 1000,
+            "push": 1,
+            "pull": 0,
+            "travel": 1000,
+            "p": 0,
+            "delta": 1000,
+            "nominal": 1000,
+            "adjustment": 0
+          },
+          {
+            "name": "voxel",
+            "hand": -1,
+            "phase": 2,
+            "side": 1,
+            "angle": 431999000,
+            "net": -1000,
+            "push": 1,
+            "pull": 0,
+            "travel": 1000,
+            "p": 2,
+            "delta": -1000,
+            "nominal": -1000,
+            "adjustment": 0
+          },
+          {
+            "name": "vogel",
+            "hand": 1,
+            "phase": 4,
+            "side": 1,
+            "angle": 863997975,
+            "net": -2025,
+            "push": 0,
+            "pull": 1,
+            "travel": 2025,
+            "p": 4,
+            "delta": -2025,
+            "nominal": -2025,
+            "adjustment": 0
+          },
+          {
+            "name": "vector",
+            "hand": -1,
+            "phase": 0,
+            "side": -1,
+            "angle": 1295999000,
+            "net": -1000,
+            "push": 1,
+            "pull": 0,
+            "travel": 1000,
+            "p": 0,
+            "delta": -1000,
+            "nominal": -1000,
+            "adjustment": 0
+          },
+          {
+            "name": "voxel",
+            "hand": 1,
+            "phase": 2,
+            "side": -1,
+            "angle": 864001000,
+            "net": 1000,
+            "push": 1,
+            "pull": 0,
+            "travel": 1000,
+            "p": 2,
+            "delta": 1000,
+            "nominal": 1000,
+            "adjustment": 0
+          },
+          {
+            "name": "vogel",
+            "hand": -1,
+            "phase": 4,
+            "side": -1,
+            "angle": 432002025,
+            "net": 2025,
+            "push": 0,
+            "pull": 1,
+            "travel": 2025,
+            "p": 4,
+            "delta": 2025,
+            "nominal": 2025,
+            "adjustment": 0
+          }
+        ]
+      },
+      {
+        "tick": 2,
+        "errors": [
+          0,
+          0,
+          0
+        ],
+        "commands": [
+          0,
+          0,
+          0
+        ],
+        "dist": [
+          0,
+          0,
+          0
+        ],
+        "layers": [
+          {
+            "name": "vector",
+            "hand": 1,
+            "phase": 0,
+            "side": 1,
+            "angle": 2000,
+            "net": 2000,
+            "push": 2,
+            "pull": 0,
+            "travel": 2000,
+            "p": 1,
+            "delta": 1000,
+            "nominal": 1000,
+            "adjustment": 0
+          },
+          {
+            "name": "voxel",
+            "hand": -1,
+            "phase": 2,
+            "side": 1,
+            "angle": 431998000,
+            "net": -2000,
+            "push": 2,
+            "pull": 0,
+            "travel": 2000,
+            "p": 3,
+            "delta": -1000,
+            "nominal": -1000,
+            "adjustment": 0
+          },
+          {
+            "name": "vogel",
+            "hand": 1,
+            "phase": 4,
+            "side": 1,
+            "angle": 863995950,
+            "net": -4050,
+            "push": 0,
+            "pull": 2,
+            "travel": 4050,
+            "p": 5,
+            "delta": -2025,
+            "nominal": -2025,
+            "adjustment": 0
+          },
+          {
+            "name": "vector",
+            "hand": -1,
+            "phase": 0,
+            "side": -1,
+            "angle": 1295998000,
+            "net": -2000,
+            "push": 2,
+            "pull": 0,
+            "travel": 2000,
+            "p": 1,
+            "delta": -1000,
+            "nominal": -1000,
+            "adjustment": 0
+          },
+          {
+            "name": "voxel",
+            "hand": 1,
+            "phase": 2,
+            "side": -1,
+            "angle": 864002000,
+            "net": 2000,
+            "push": 2,
+            "pull": 0,
+            "travel": 2000,
+            "p": 3,
+            "delta": 1000,
+            "nominal": 1000,
+            "adjustment": 0
+          },
+          {
+            "name": "vogel",
+            "hand": -1,
+            "phase": 4,
+            "side": -1,
+            "angle": 432004050,
+            "net": 4050,
+            "push": 0,
+            "pull": 2,
+            "travel": 4050,
+            "p": 5,
+            "delta": 2025,
+            "nominal": 2025,
+            "adjustment": 0
+          }
+        ]
+      },
+      {
+        "tick": 3,
+        "errors": [
+          4100,
+          0,
+          0
+        ],
+        "commands": [
+          0,
+          0,
+          0
+        ],
+        "dist": [
+          4100,
+          0,
+          0
+        ],
+        "layers": [
+          {
+            "name": "vector",
+            "hand": 1,
+            "phase": 0,
+            "side": 1,
+            "angle": 7100,
+            "net": 7100,
+            "push": 3,
+            "pull": 0,
+            "travel": 7100,
+            "p": 2,
+            "delta": 5100,
+            "nominal": 1000,
+            "adjustment": 4100
+          },
+          {
+            "name": "voxel",
+            "hand": -1,
+            "phase": 2,
+            "side": 1,
+            "angle": 432000025,
+            "net": 25,
+            "push": 2,
+            "pull": 1,
+            "travel": 4025,
+            "p": 4,
+            "delta": 2025,
+            "nominal": 2025,
+            "adjustment": 0
+          },
+          {
+            "name": "vogel",
+            "hand": 1,
+            "phase": 4,
+            "side": 1,
+            "angle": 863993925,
+            "net": -6075,
+            "push": 0,
+            "pull": 3,
+            "travel": 6075,
+            "p": 6,
+            "delta": -2025,
+            "nominal": -2025,
+            "adjustment": 0
+          },
+          {
+            "name": "vector",
+            "hand": -1,
+            "phase": 0,
+            "side": -1,
+            "angle": 1295997000,
+            "net": -3000,
+            "push": 3,
+            "pull": 0,
+            "travel": 3000,
+            "p": 2,
+            "delta": -1000,
+            "nominal": -1000,
+            "adjustment": 0
+          },
+          {
+            "name": "voxel",
+            "hand": 1,
+            "phase": 2,
+            "side": -1,
+            "angle": 863999975,
+            "net": -25,
+            "push": 2,
+            "pull": 1,
+            "travel": 4025,
+            "p": 4,
+            "delta": -2025,
+            "nominal": -2025,
+            "adjustment": 0
+          },
+          {
+            "name": "vogel",
+            "hand": -1,
+            "phase": 4,
+            "side": -1,
+            "angle": 432006075,
+            "net": 6075,
+            "push": 0,
+            "pull": 3,
+            "travel": 6075,
+            "p": 6,
+            "delta": 2025,
+            "nominal": 2025,
+            "adjustment": 0
+          }
+        ]
+      },
+      {
+        "tick": 4,
+        "errors": [
+          3075,
+          0,
+          0
+        ],
+        "commands": [
+          -1025,
+          0,
+          0
+        ],
+        "dist": [
+          0,
+          0,
+          0
+        ],
+        "layers": [
+          {
+            "name": "vector",
+            "hand": 1,
+            "phase": 0,
+            "side": 1,
+            "angle": 8100,
+            "net": 8100,
+            "push": 4,
+            "pull": 0,
+            "travel": 8100,
+            "p": 3,
+            "delta": 1000,
+            "nominal": 1000,
+            "adjustment": 0
+          },
+          {
+            "name": "voxel",
+            "hand": -1,
+            "phase": 2,
+            "side": 1,
+            "angle": 432002050,
+            "net": 2050,
+            "push": 2,
+            "pull": 2,
+            "travel": 6050,
+            "p": 5,
+            "delta": 2025,
+            "nominal": 2025,
+            "adjustment": 0
+          },
+          {
+            "name": "vogel",
+            "hand": 1,
+            "phase": 4,
+            "side": 1,
+            "angle": 863991900,
+            "net": -8100,
+            "push": 0,
+            "pull": 4,
+            "travel": 8100,
+            "p": 7,
+            "delta": -2025,
+            "nominal": -2025,
+            "adjustment": 0
+          },
+          {
+            "name": "vector",
+            "hand": -1,
+            "phase": 0,
+            "side": -1,
+            "angle": 1295994975,
+            "net": -5025,
+            "push": 4,
+            "pull": 0,
+            "travel": 5025,
+            "p": 3,
+            "delta": -2025,
+            "nominal": -1000,
+            "adjustment": -1025
+          },
+          {
+            "name": "voxel",
+            "hand": 1,
+            "phase": 2,
+            "side": -1,
+            "angle": 863997950,
+            "net": -2050,
+            "push": 2,
+            "pull": 2,
+            "travel": 6050,
+            "p": 5,
+            "delta": -2025,
+            "nominal": -2025,
+            "adjustment": 0
+          },
+          {
+            "name": "vogel",
+            "hand": -1,
+            "phase": 4,
+            "side": -1,
+            "angle": 432008100,
+            "net": 8100,
+            "push": 0,
+            "pull": 4,
+            "travel": 8100,
+            "p": 7,
+            "delta": 2025,
+            "nominal": 2025,
+            "adjustment": 0
+          }
+        ]
+      },
+      {
+        "tick": 5,
+        "errors": [
+          2050,
+          0,
+          0
+        ],
+        "commands": [
+          -1025,
+          0,
+          0
+        ],
+        "dist": [
+          0,
+          0,
+          0
+        ],
+        "layers": [
+          {
+            "name": "vector",
+            "hand": 1,
+            "phase": 0,
+            "side": 1,
+            "angle": 6075,
+            "net": 6075,
+            "push": 4,
+            "pull": 1,
+            "travel": 10125,
+            "p": 4,
+            "delta": -2025,
+            "nominal": -2025,
+            "adjustment": 0
+          },
+          {
+            "name": "voxel",
+            "hand": -1,
+            "phase": 2,
+            "side": 1,
+            "angle": 432004075,
+            "net": 4075,
+            "push": 2,
+            "pull": 3,
+            "travel": 8075,
+            "p": 6,
+            "delta": 2025,
+            "nominal": 2025,
+            "adjustment": 0
+          },
+          {
+            "name": "vogel",
+            "hand": 1,
+            "phase": 4,
+            "side": 1,
+            "angle": 863992900,
+            "net": -7100,
+            "push": 1,
+            "pull": 4,
+            "travel": 9100,
+            "p": 0,
+            "delta": 1000,
+            "nominal": 1000,
+            "adjustment": 0
+          },
+          {
+            "name": "vector",
+            "hand": -1,
+            "phase": 0,
+            "side": -1,
+            "angle": 1295995975,
+            "net": -4025,
+            "push": 4,
+            "pull": 1,
+            "travel": 6025,
+            "p": 4,
+            "delta": 1000,
+            "nominal": 2025,
+            "adjustment": -1025
+          },
+          {
+            "name": "voxel",
+            "hand": 1,
+            "phase": 2,
+            "side": -1,
+            "angle": 863995925,
+            "net": -4075,
+            "push": 2,
+            "pull": 3,
+            "travel": 8075,
+            "p": 6,
+            "delta": -2025,
+            "nominal": -2025,
+            "adjustment": 0
+          },
+          {
+            "name": "vogel",
+            "hand": -1,
+            "phase": 4,
+            "side": -1,
+            "angle": 432007100,
+            "net": 7100,
+            "push": 1,
+            "pull": 4,
+            "travel": 9100,
+            "p": 0,
+            "delta": -1000,
+            "nominal": -1000,
+            "adjustment": 0
+          }
+        ]
+      },
+      {
+        "tick": 6,
+        "errors": [
+          1025,
+          0,
+          0
+        ],
+        "commands": [
+          -1025,
+          0,
+          0
+        ],
+        "dist": [
+          0,
+          0,
+          0
+        ],
+        "layers": [
+          {
+            "name": "vector",
+            "hand": 1,
+            "phase": 0,
+            "side": 1,
+            "angle": 4050,
+            "net": 4050,
+            "push": 4,
+            "pull": 2,
+            "travel": 12150,
+            "p": 5,
+            "delta": -2025,
+            "nominal": -2025,
+            "adjustment": 0
+          },
+          {
+            "name": "voxel",
+            "hand": -1,
+            "phase": 2,
+            "side": 1,
+            "angle": 432006100,
+            "net": 6100,
+            "push": 2,
+            "pull": 4,
+            "travel": 10100,
+            "p": 7,
+            "delta": 2025,
+            "nominal": 2025,
+            "adjustment": 0
+          },
+          {
+            "name": "vogel",
+            "hand": 1,
+            "phase": 4,
+            "side": 1,
+            "angle": 863993900,
+            "net": -6100,
+            "push": 2,
+            "pull": 4,
+            "travel": 10100,
+            "p": 1,
+            "delta": 1000,
+            "nominal": 1000,
+            "adjustment": 0
+          },
+          {
+            "name": "vector",
+            "hand": -1,
+            "phase": 0,
+            "side": -1,
+            "angle": 1295996975,
+            "net": -3025,
+            "push": 4,
+            "pull": 2,
+            "travel": 7025,
+            "p": 5,
+            "delta": 1000,
+            "nominal": 2025,
+            "adjustment": -1025
+          },
+          {
+            "name": "voxel",
+            "hand": 1,
+            "phase": 2,
+            "side": -1,
+            "angle": 863993900,
+            "net": -6100,
+            "push": 2,
+            "pull": 4,
+            "travel": 10100,
+            "p": 7,
+            "delta": -2025,
+            "nominal": -2025,
+            "adjustment": 0
+          },
+          {
+            "name": "vogel",
+            "hand": -1,
+            "phase": 4,
+            "side": -1,
+            "angle": 432006100,
+            "net": 6100,
+            "push": 2,
+            "pull": 4,
+            "travel": 10100,
+            "p": 1,
+            "delta": -1000,
+            "nominal": -1000,
+            "adjustment": 0
+          }
+        ]
+      },
+      {
+        "tick": 7,
+        "errors": [
+          0,
+          0,
+          0
+        ],
+        "commands": [
+          -1025,
+          0,
+          0
+        ],
+        "dist": [
+          0,
+          0,
+          0
+        ],
+        "layers": [
+          {
+            "name": "vector",
+            "hand": 1,
+            "phase": 0,
+            "side": 1,
+            "angle": 2025,
+            "net": 2025,
+            "push": 4,
+            "pull": 3,
+            "travel": 14175,
+            "p": 6,
+            "delta": -2025,
+            "nominal": -2025,
+            "adjustment": 0
+          },
+          {
+            "name": "voxel",
+            "hand": -1,
+            "phase": 2,
+            "side": 1,
+            "angle": 432005100,
+            "net": 5100,
+            "push": 3,
+            "pull": 4,
+            "travel": 11100,
+            "p": 0,
+            "delta": -1000,
+            "nominal": -1000,
+            "adjustment": 0
+          },
+          {
+            "name": "vogel",
+            "hand": 1,
+            "phase": 4,
+            "side": 1,
+            "angle": 863994900,
+            "net": -5100,
+            "push": 3,
+            "pull": 4,
+            "travel": 11100,
+            "p": 2,
+            "delta": 1000,
+            "nominal": 1000,
+            "adjustment": 0
+          },
+          {
+            "name": "vector",
+            "hand": -1,
+            "phase": 0,
+            "side": -1,
+            "angle": 1295997975,
+            "net": -2025,
+            "push": 4,
+            "pull": 3,
+            "travel": 8025,
+            "p": 6,
+            "delta": 1000,
+            "nominal": 2025,
+            "adjustment": -1025
+          },
+          {
+            "name": "voxel",
+            "hand": 1,
+            "phase": 2,
+            "side": -1,
+            "angle": 863994900,
+            "net": -5100,
+            "push": 3,
+            "pull": 4,
+            "travel": 11100,
+            "p": 0,
+            "delta": 1000,
+            "nominal": 1000,
+            "adjustment": 0
+          },
+          {
+            "name": "vogel",
+            "hand": -1,
+            "phase": 4,
+            "side": -1,
+            "angle": 432005100,
+            "net": 5100,
+            "push": 3,
+            "pull": 4,
+            "travel": 11100,
+            "p": 2,
+            "delta": -1000,
+            "nominal": -1000,
+            "adjustment": 0
+          }
+        ]
+      },
+      {
+        "tick": 8,
+        "errors": [
+          0,
+          0,
+          0
+        ],
+        "commands": [
+          0,
+          0,
+          0
+        ],
+        "dist": [
+          0,
+          0,
+          0
+        ],
+        "layers": [
+          {
+            "name": "vector",
+            "hand": 1,
+            "phase": 0,
+            "side": 1,
+            "angle": 0,
+            "net": 0,
+            "push": 4,
+            "pull": 4,
+            "travel": 16200,
+            "p": 7,
+            "delta": -2025,
+            "nominal": -2025,
+            "adjustment": 0
+          },
+          {
+            "name": "voxel",
+            "hand": -1,
+            "phase": 2,
+            "side": 1,
+            "angle": 432004100,
+            "net": 4100,
+            "push": 4,
+            "pull": 4,
+            "travel": 12100,
+            "p": 1,
+            "delta": -1000,
+            "nominal": -1000,
+            "adjustment": 0
+          },
+          {
+            "name": "vogel",
+            "hand": 1,
+            "phase": 4,
+            "side": 1,
+            "angle": 863995900,
+            "net": -4100,
+            "push": 4,
+            "pull": 4,
+            "travel": 12100,
+            "p": 3,
+            "delta": 1000,
+            "nominal": 1000,
+            "adjustment": 0
+          },
+          {
+            "name": "vector",
+            "hand": -1,
+            "phase": 0,
+            "side": -1,
+            "angle": 0,
+            "net": 0,
+            "push": 4,
+            "pull": 4,
+            "travel": 10050,
+            "p": 7,
+            "delta": 2025,
+            "nominal": 2025,
+            "adjustment": 0
+          },
+          {
+            "name": "voxel",
+            "hand": 1,
+            "phase": 2,
+            "side": -1,
+            "angle": 863995900,
+            "net": -4100,
+            "push": 4,
+            "pull": 4,
+            "travel": 12100,
+            "p": 1,
+            "delta": 1000,
+            "nominal": 1000,
+            "adjustment": 0
+          },
+          {
+            "name": "vogel",
+            "hand": -1,
+            "phase": 4,
+            "side": -1,
+            "angle": 432004100,
+            "net": 4100,
+            "push": 4,
+            "pull": 4,
+            "travel": 12100,
+            "p": 3,
+            "delta": -1000,
+            "nominal": -1000,
+            "adjustment": 0
+          }
+        ]
+      },
+      {
+        "tick": 9,
+        "errors": [
+          0,
+          0,
+          0
+        ],
+        "commands": [
+          0,
+          0,
+          0
+        ],
+        "dist": [
+          0,
+          0,
+          0
+        ],
+        "layers": [
+          {
+            "name": "vector",
+            "hand": 1,
+            "phase": 0,
+            "side": 1,
+            "angle": 1000,
+            "net": 1000,
+            "push": 5,
+            "pull": 4,
+            "travel": 17200,
+            "p": 0,
+            "delta": 1000,
+            "nominal": 1000,
+            "adjustment": 0
+          },
+          {
+            "name": "voxel",
+            "hand": -1,
+            "phase": 2,
+            "side": 1,
+            "angle": 432003100,
+            "net": 3100,
+            "push": 5,
+            "pull": 4,
+            "travel": 13100,
+            "p": 2,
+            "delta": -1000,
+            "nominal": -1000,
+            "adjustment": 0
+          },
+          {
+            "name": "vogel",
+            "hand": 1,
+            "phase": 4,
+            "side": 1,
+            "angle": 863993875,
+            "net": -6125,
+            "push": 4,
+            "pull": 5,
+            "travel": 14125,
+            "p": 4,
+            "delta": -2025,
+            "nominal": -2025,
+            "adjustment": 0
+          },
+          {
+            "name": "vector",
+            "hand": -1,
+            "phase": 0,
+            "side": -1,
+            "angle": 1295999000,
+            "net": -1000,
+            "push": 5,
+            "pull": 4,
+            "travel": 11050,
+            "p": 0,
+            "delta": -1000,
+            "nominal": -1000,
+            "adjustment": 0
+          },
+          {
+            "name": "voxel",
+            "hand": 1,
+            "phase": 2,
+            "side": -1,
+            "angle": 863996900,
+            "net": -3100,
+            "push": 5,
+            "pull": 4,
+            "travel": 13100,
+            "p": 2,
+            "delta": 1000,
+            "nominal": 1000,
+            "adjustment": 0
+          },
+          {
+            "name": "vogel",
+            "hand": -1,
+            "phase": 4,
+            "side": -1,
+            "angle": 432006125,
+            "net": 6125,
+            "push": 4,
+            "pull": 5,
+            "travel": 14125,
+            "p": 4,
+            "delta": 2025,
+            "nominal": 2025,
+            "adjustment": 0
+          }
+        ]
+      },
+      {
+        "tick": 10,
+        "errors": [
+          0,
+          0,
+          0
+        ],
+        "commands": [
+          0,
+          0,
+          0
+        ],
+        "dist": [
+          0,
+          0,
+          0
+        ],
+        "layers": [
+          {
+            "name": "vector",
+            "hand": 1,
+            "phase": 0,
+            "side": 1,
+            "angle": 2000,
+            "net": 2000,
+            "push": 6,
+            "pull": 4,
+            "travel": 18200,
+            "p": 1,
+            "delta": 1000,
+            "nominal": 1000,
+            "adjustment": 0
+          },
+          {
+            "name": "voxel",
+            "hand": -1,
+            "phase": 2,
+            "side": 1,
+            "angle": 432002100,
+            "net": 2100,
+            "push": 6,
+            "pull": 4,
+            "travel": 14100,
+            "p": 3,
+            "delta": -1000,
+            "nominal": -1000,
+            "adjustment": 0
+          },
+          {
+            "name": "vogel",
+            "hand": 1,
+            "phase": 4,
+            "side": 1,
+            "angle": 863991850,
+            "net": -8150,
+            "push": 4,
+            "pull": 6,
+            "travel": 16150,
+            "p": 5,
+            "delta": -2025,
+            "nominal": -2025,
+            "adjustment": 0
+          },
+          {
+            "name": "vector",
+            "hand": -1,
+            "phase": 0,
+            "side": -1,
+            "angle": 1295998000,
+            "net": -2000,
+            "push": 6,
+            "pull": 4,
+            "travel": 12050,
+            "p": 1,
+            "delta": -1000,
+            "nominal": -1000,
+            "adjustment": 0
+          },
+          {
+            "name": "voxel",
+            "hand": 1,
+            "phase": 2,
+            "side": -1,
+            "angle": 863997900,
+            "net": -2100,
+            "push": 6,
+            "pull": 4,
+            "travel": 14100,
+            "p": 3,
+            "delta": 1000,
+            "nominal": 1000,
+            "adjustment": 0
+          },
+          {
+            "name": "vogel",
+            "hand": -1,
+            "phase": 4,
+            "side": -1,
+            "angle": 432008150,
+            "net": 8150,
+            "push": 4,
+            "pull": 6,
+            "travel": 16150,
+            "p": 5,
+            "delta": 2025,
+            "nominal": 2025,
+            "adjustment": 0
+          }
+        ]
+      },
+      {
+        "tick": 11,
+        "errors": [
+          0,
+          0,
+          0
+        ],
+        "commands": [
+          0,
+          0,
+          0
+        ],
+        "dist": [
+          0,
+          0,
+          0
+        ],
+        "layers": [
+          {
+            "name": "vector",
+            "hand": 1,
+            "phase": 0,
+            "side": 1,
+            "angle": 3000,
+            "net": 3000,
+            "push": 7,
+            "pull": 4,
+            "travel": 19200,
+            "p": 2,
+            "delta": 1000,
+            "nominal": 1000,
+            "adjustment": 0
+          },
+          {
+            "name": "voxel",
+            "hand": -1,
+            "phase": 2,
+            "side": 1,
+            "angle": 432004125,
+            "net": 4125,
+            "push": 6,
+            "pull": 5,
+            "travel": 16125,
+            "p": 4,
+            "delta": 2025,
+            "nominal": 2025,
+            "adjustment": 0
+          },
+          {
+            "name": "vogel",
+            "hand": 1,
+            "phase": 4,
+            "side": 1,
+            "angle": 863989825,
+            "net": -10175,
+            "push": 4,
+            "pull": 7,
+            "travel": 18175,
+            "p": 6,
+            "delta": -2025,
+            "nominal": -2025,
+            "adjustment": 0
+          },
+          {
+            "name": "vector",
+            "hand": -1,
+            "phase": 0,
+            "side": -1,
+            "angle": 1295997000,
+            "net": -3000,
+            "push": 7,
+            "pull": 4,
+            "travel": 13050,
+            "p": 2,
+            "delta": -1000,
+            "nominal": -1000,
+            "adjustment": 0
+          },
+          {
+            "name": "voxel",
+            "hand": 1,
+            "phase": 2,
+            "side": -1,
+            "angle": 863995875,
+            "net": -4125,
+            "push": 6,
+            "pull": 5,
+            "travel": 16125,
+            "p": 4,
+            "delta": -2025,
+            "nominal": -2025,
+            "adjustment": 0
+          },
+          {
+            "name": "vogel",
+            "hand": -1,
+            "phase": 4,
+            "side": -1,
+            "angle": 432010175,
+            "net": 10175,
+            "push": 4,
+            "pull": 7,
+            "travel": 18175,
+            "p": 6,
+            "delta": 2025,
+            "nominal": 2025,
+            "adjustment": 0
+          }
+        ]
+      },
+      {
+        "tick": 12,
+        "errors": [
+          0,
+          0,
+          0
+        ],
+        "commands": [
+          0,
+          0,
+          0
+        ],
+        "dist": [
+          0,
+          0,
+          0
+        ],
+        "layers": [
+          {
+            "name": "vector",
+            "hand": 1,
+            "phase": 0,
+            "side": 1,
+            "angle": 4000,
+            "net": 4000,
+            "push": 8,
+            "pull": 4,
+            "travel": 20200,
+            "p": 3,
+            "delta": 1000,
+            "nominal": 1000,
+            "adjustment": 0
+          },
+          {
+            "name": "voxel",
+            "hand": -1,
+            "phase": 2,
+            "side": 1,
+            "angle": 432006150,
+            "net": 6150,
+            "push": 6,
+            "pull": 6,
+            "travel": 18150,
+            "p": 5,
+            "delta": 2025,
+            "nominal": 2025,
+            "adjustment": 0
+          },
+          {
+            "name": "vogel",
+            "hand": 1,
+            "phase": 4,
+            "side": 1,
+            "angle": 863987800,
+            "net": -12200,
+            "push": 4,
+            "pull": 8,
+            "travel": 20200,
+            "p": 7,
+            "delta": -2025,
+            "nominal": -2025,
+            "adjustment": 0
+          },
+          {
+            "name": "vector",
+            "hand": -1,
+            "phase": 0,
+            "side": -1,
+            "angle": 1295996000,
+            "net": -4000,
+            "push": 8,
+            "pull": 4,
+            "travel": 14050,
+            "p": 3,
+            "delta": -1000,
+            "nominal": -1000,
+            "adjustment": 0
+          },
+          {
+            "name": "voxel",
+            "hand": 1,
+            "phase": 2,
+            "side": -1,
+            "angle": 863993850,
+            "net": -6150,
+            "push": 6,
+            "pull": 6,
+            "travel": 18150,
+            "p": 5,
+            "delta": -2025,
+            "nominal": -2025,
+            "adjustment": 0
+          },
+          {
+            "name": "vogel",
+            "hand": -1,
+            "phase": 4,
+            "side": -1,
+            "angle": 432012200,
+            "net": 12200,
+            "push": 4,
+            "pull": 8,
+            "travel": 20200,
+            "p": 7,
+            "delta": 2025,
+            "nominal": 2025,
+            "adjustment": 0
+          }
+        ]
+      },
+      {
+        "tick": 13,
+        "errors": [
+          0,
+          0,
+          0
+        ],
+        "commands": [
+          0,
+          0,
+          0
+        ],
+        "dist": [
+          0,
+          0,
+          0
+        ],
+        "layers": [
+          {
+            "name": "vector",
+            "hand": 1,
+            "phase": 0,
+            "side": 1,
+            "angle": 1975,
+            "net": 1975,
+            "push": 8,
+            "pull": 5,
+            "travel": 22225,
+            "p": 4,
+            "delta": -2025,
+            "nominal": -2025,
+            "adjustment": 0
+          },
+          {
+            "name": "voxel",
+            "hand": -1,
+            "phase": 2,
+            "side": 1,
+            "angle": 432008175,
+            "net": 8175,
+            "push": 6,
+            "pull": 7,
+            "travel": 20175,
+            "p": 6,
+            "delta": 2025,
+            "nominal": 2025,
+            "adjustment": 0
+          },
+          {
+            "name": "vogel",
+            "hand": 1,
+            "phase": 4,
+            "side": 1,
+            "angle": 863988800,
+            "net": -11200,
+            "push": 5,
+            "pull": 8,
+            "travel": 21200,
+            "p": 0,
+            "delta": 1000,
+            "nominal": 1000,
+            "adjustment": 0
+          },
+          {
+            "name": "vector",
+            "hand": -1,
+            "phase": 0,
+            "side": -1,
+            "angle": 1295998025,
+            "net": -1975,
+            "push": 8,
+            "pull": 5,
+            "travel": 16075,
+            "p": 4,
+            "delta": 2025,
+            "nominal": 2025,
+            "adjustment": 0
+          },
+          {
+            "name": "voxel",
+            "hand": 1,
+            "phase": 2,
+            "side": -1,
+            "angle": 863991825,
+            "net": -8175,
+            "push": 6,
+            "pull": 7,
+            "travel": 20175,
+            "p": 6,
+            "delta": -2025,
+            "nominal": -2025,
+            "adjustment": 0
+          },
+          {
+            "name": "vogel",
+            "hand": -1,
+            "phase": 4,
+            "side": -1,
+            "angle": 432011200,
+            "net": 11200,
+            "push": 5,
+            "pull": 8,
+            "travel": 21200,
+            "p": 0,
+            "delta": -1000,
+            "nominal": -1000,
+            "adjustment": 0
+          }
+        ]
+      },
+      {
+        "tick": 14,
+        "errors": [
+          0,
+          0,
+          0
+        ],
+        "commands": [
+          0,
+          0,
+          0
+        ],
+        "dist": [
+          0,
+          0,
+          0
+        ],
+        "layers": [
+          {
+            "name": "vector",
+            "hand": 1,
+            "phase": 0,
+            "side": 1,
+            "angle": 1295999950,
+            "net": -50,
+            "push": 8,
+            "pull": 6,
+            "travel": 24250,
+            "p": 5,
+            "delta": -2025,
+            "nominal": -2025,
+            "adjustment": 0
+          },
+          {
+            "name": "voxel",
+            "hand": -1,
+            "phase": 2,
+            "side": 1,
+            "angle": 432010200,
+            "net": 10200,
+            "push": 6,
+            "pull": 8,
+            "travel": 22200,
+            "p": 7,
+            "delta": 2025,
+            "nominal": 2025,
+            "adjustment": 0
+          },
+          {
+            "name": "vogel",
+            "hand": 1,
+            "phase": 4,
+            "side": 1,
+            "angle": 863989800,
+            "net": -10200,
+            "push": 6,
+            "pull": 8,
+            "travel": 22200,
+            "p": 1,
+            "delta": 1000,
+            "nominal": 1000,
+            "adjustment": 0
+          },
+          {
+            "name": "vector",
+            "hand": -1,
+            "phase": 0,
+            "side": -1,
+            "angle": 50,
+            "net": 50,
+            "push": 8,
+            "pull": 6,
+            "travel": 18100,
+            "p": 5,
+            "delta": 2025,
+            "nominal": 2025,
+            "adjustment": 0
+          },
+          {
+            "name": "voxel",
+            "hand": 1,
+            "phase": 2,
+            "side": -1,
+            "angle": 863989800,
+            "net": -10200,
+            "push": 6,
+            "pull": 8,
+            "travel": 22200,
+            "p": 7,
+            "delta": -2025,
+            "nominal": -2025,
+            "adjustment": 0
+          },
+          {
+            "name": "vogel",
+            "hand": -1,
+            "phase": 4,
+            "side": -1,
+            "angle": 432010200,
+            "net": 10200,
+            "push": 6,
+            "pull": 8,
+            "travel": 22200,
+            "p": 1,
+            "delta": -1000,
+            "nominal": -1000,
+            "adjustment": 0
+          }
+        ]
+      },
+      {
+        "tick": 15,
+        "errors": [
+          0,
+          0,
+          0
+        ],
+        "commands": [
+          0,
+          0,
+          0
+        ],
+        "dist": [
+          0,
+          0,
+          0
+        ],
+        "layers": [
+          {
+            "name": "vector",
+            "hand": 1,
+            "phase": 0,
+            "side": 1,
+            "angle": 1295997925,
+            "net": -2075,
+            "push": 8,
+            "pull": 7,
+            "travel": 26275,
+            "p": 6,
+            "delta": -2025,
+            "nominal": -2025,
+            "adjustment": 0
+          },
+          {
+            "name": "voxel",
+            "hand": -1,
+            "phase": 2,
+            "side": 1,
+            "angle": 432009200,
+            "net": 9200,
+            "push": 7,
+            "pull": 8,
+            "travel": 23200,
+            "p": 0,
+            "delta": -1000,
+            "nominal": -1000,
+            "adjustment": 0
+          },
+          {
+            "name": "vogel",
+            "hand": 1,
+            "phase": 4,
+            "side": 1,
+            "angle": 863990800,
+            "net": -9200,
+            "push": 7,
+            "pull": 8,
+            "travel": 23200,
+            "p": 2,
+            "delta": 1000,
+            "nominal": 1000,
+            "adjustment": 0
+          },
+          {
+            "name": "vector",
+            "hand": -1,
+            "phase": 0,
+            "side": -1,
+            "angle": 2075,
+            "net": 2075,
+            "push": 8,
+            "pull": 7,
+            "travel": 20125,
+            "p": 6,
+            "delta": 2025,
+            "nominal": 2025,
+            "adjustment": 0
+          },
+          {
+            "name": "voxel",
+            "hand": 1,
+            "phase": 2,
+            "side": -1,
+            "angle": 863990800,
+            "net": -9200,
+            "push": 7,
+            "pull": 8,
+            "travel": 23200,
+            "p": 0,
+            "delta": 1000,
+            "nominal": 1000,
+            "adjustment": 0
+          },
+          {
+            "name": "vogel",
+            "hand": -1,
+            "phase": 4,
+            "side": -1,
+            "angle": 432009200,
+            "net": 9200,
+            "push": 7,
+            "pull": 8,
+            "travel": 23200,
+            "p": 2,
+            "delta": -1000,
+            "nominal": -1000,
+            "adjustment": 0
+          }
+        ]
+      },
+      {
+        "tick": 16,
+        "errors": [
+          0,
+          0,
+          0
+        ],
+        "commands": [
+          0,
+          0,
+          0
+        ],
+        "dist": [
+          0,
+          0,
+          0
+        ],
+        "layers": [
+          {
+            "name": "vector",
+            "hand": 1,
+            "phase": 0,
+            "side": 1,
+            "angle": 1295995900,
+            "net": -4100,
+            "push": 8,
+            "pull": 8,
+            "travel": 28300,
+            "p": 7,
+            "delta": -2025,
+            "nominal": -2025,
+            "adjustment": 0
+          },
+          {
+            "name": "voxel",
+            "hand": -1,
+            "phase": 2,
+            "side": 1,
+            "angle": 432008200,
+            "net": 8200,
+            "push": 8,
+            "pull": 8,
+            "travel": 24200,
+            "p": 1,
+            "delta": -1000,
+            "nominal": -1000,
+            "adjustment": 0
+          },
+          {
+            "name": "vogel",
+            "hand": 1,
+            "phase": 4,
+            "side": 1,
+            "angle": 863991800,
+            "net": -8200,
+            "push": 8,
+            "pull": 8,
+            "travel": 24200,
+            "p": 3,
+            "delta": 1000,
+            "nominal": 1000,
+            "adjustment": 0
+          },
+          {
+            "name": "vector",
+            "hand": -1,
+            "phase": 0,
+            "side": -1,
+            "angle": 4100,
+            "net": 4100,
+            "push": 8,
+            "pull": 8,
+            "travel": 22150,
+            "p": 7,
+            "delta": 2025,
+            "nominal": 2025,
+            "adjustment": 0
+          },
+          {
+            "name": "voxel",
+            "hand": 1,
+            "phase": 2,
+            "side": -1,
+            "angle": 863991800,
+            "net": -8200,
+            "push": 8,
+            "pull": 8,
+            "travel": 24200,
+            "p": 1,
+            "delta": 1000,
+            "nominal": 1000,
+            "adjustment": 0
+          },
+          {
+            "name": "vogel",
+            "hand": -1,
+            "phase": 4,
+            "side": -1,
+            "angle": 432008200,
+            "net": 8200,
+            "push": 8,
+            "pull": 8,
+            "travel": 24200,
+            "p": 3,
+            "delta": -1000,
+            "nominal": -1000,
+            "adjustment": 0
+          }
+        ]
+      }
+    ]
+  }
+}

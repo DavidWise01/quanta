@@ -1,0 +1,60 @@
+{
+  "version": "ADA-159P",
+  "lineage": "ADA-159O",
+  "watermark": ".dlw",
+  "canonical": "\\r8!\\b8!\\g8! | . | /g8!/b8!/r8!",
+  "width": 42,
+  "fields": {
+    "spectrum": 24,
+    "chrome": 9,
+    "implicit": 1,
+    "pairedCoordinates": 8
+  },
+  "tests": {
+    "inherited": {
+      "original": {
+        "samples": 4608,
+        "minEyeClearance": 0.6887999999999999,
+        "maxClosureError": 3.819268059394923e-14,
+        "eye": [
+          0,
+          0,
+          0
+        ],
+        "streams": 12,
+        "width": 42
+      },
+      "samples": 7680,
+      "swapError": 4.100316822212988e-15,
+      "doubleError": 6.258313009193178e-15,
+      "minClearance": 1.3402907632801508,
+      "minOneLap": 0.41279999999999906,
+      "maxCenterError": 3.707317959809365e-15,
+      "eye": [
+        0,
+        0,
+        0
+      ],
+      "halfTwists": 1,
+      "edgeLaps": 2
+    },
+    "samples": 3072,
+    "maxMirror": 0,
+    "minSurfaceClearance": 0.5843999999999998,
+    "eye": [
+      0,
+      0,
+      0
+    ],
+    "width": 42,
+    "channelOrder": [
+      "r8!",
+      "b8!",
+      "g8!",
+      "g8!",
+      "b8!",
+      "r8!"
+    ]
+  },
+  "limitations": "Dot-first conceptual geometry, not semiconductor quantum mechanics. Mirrored channels are prescribed geometric inversion, direction labels symbolic. Chrome is a visual material. No physical plasma solver."
+}

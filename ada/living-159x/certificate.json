@@ -1,0 +1,105 @@
+{
+  "version": "ADA-159X",
+  "lineage": "ADA-159W",
+  "watermark": ".dlw",
+  "model": "One Hamiltonian cycle on periodic 27×13×6 lattice. Cut the same edge incident to (27,13) on each plane, traverse alternating orders, join endpoints vertically, including periodic Z5→Z0. Phase clock is separate.",
+  "tests": {
+    "vertices": 2106,
+    "edges": 2106,
+    "transfers": [
+      {
+        "edge": 350,
+        "from": [
+          26,
+          13,
+          0
+        ],
+        "to": [
+          26,
+          13,
+          1
+        ]
+      },
+      {
+        "edge": 701,
+        "from": [
+          27,
+          13,
+          1
+        ],
+        "to": [
+          27,
+          13,
+          2
+        ]
+      },
+      {
+        "edge": 1052,
+        "from": [
+          26,
+          13,
+          2
+        ],
+        "to": [
+          26,
+          13,
+          3
+        ]
+      },
+      {
+        "edge": 1403,
+        "from": [
+          27,
+          13,
+          3
+        ],
+        "to": [
+          27,
+          13,
+          4
+        ]
+      },
+      {
+        "edge": 1754,
+        "from": [
+          26,
+          13,
+          4
+        ],
+        "to": [
+          26,
+          13,
+          5
+        ]
+      },
+      {
+        "edge": 2105,
+        "from": [
+          27,
+          13,
+          5
+        ],
+        "to": [
+          27,
+          13,
+          0
+        ]
+      }
+    ],
+    "origin": [
+      27,
+      13,
+      0
+    ],
+    "closure": [
+      27,
+      13,
+      0
+    ],
+    "xyEdges": 2100,
+    "pairedCycles": 3,
+    "periodicZ": true,
+    "orientation": "alternating planar traversal; three paired reversals; not proof of nonorientable manifold"
+  },
+  "limitations": "Periodic Z wrap is assumed; alternating path reversal is not a topological Möbius proof. Two transfer columns, only one at Fibonacci anchor; no physical plasma or consciousness claim. Browser and Pages unverified."
+}

@@ -1,0 +1,46 @@
+{
+  "version": "ADA-159R.1",
+  "lineage": "ADA-159R",
+  "watermark": ".dlw",
+  "correction": "RMS accumulator previously multiplied residual by object; now squares scalar residual and explicitly rejects nonfinite results. Existing prior checkpoint preserved. Viscosity input resets flow clock.",
+  "model": "Exact decaying shifted ABC Beltrami periodic flow with stagnation at origin. Pressure=-|u|²/2. Midpoint advection for tracer visualization.",
+  "tests": {
+    "rows": [
+      {
+        "h": 0.1,
+        "n": 2187,
+        "max": 0.000050623072973753294,
+        "rms": 0.000035388655379822224,
+        "div": 0
+      },
+      {
+        "h": 0.05,
+        "n": 2187,
+        "max": 0.000012658928581471569,
+        "rms": 0.00000884937311414564,
+        "div": 0
+      },
+      {
+        "h": 0.025,
+        "n": 2187,
+        "max": 0.0000031649296995489487,
+        "rms": 0.0000022124813770464387,
+        "div": 0
+      },
+      {
+        "h": 0.0125,
+        "n": 2187,
+        "max": 7.912447949747773e-7,
+        "rms": 5.531289641845988e-7,
+        "div": 0
+      }
+    ],
+    "eye": 1.9229626863835638e-16,
+    "energyAt0": 1.5,
+    "energyAt2": 1.3572561270539394,
+    "nu": 0.025,
+    "domain": "periodic cube [-pi,pi]^3",
+    "sampleCount": 8748
+  },
+  "limitations": "Exact special solution evaluated directly, not general PDE solver or singularity proof. Decorative shells are not walls. Browser rendering and Pages deployment unverified."
+}

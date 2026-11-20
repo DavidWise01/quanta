@@ -1,0 +1,49 @@
+{
+  "version": "ADA-159R",
+  "lineage": "ADA-159Q",
+  "watermark": ".dlw",
+  "model": "Exact unforced decaying ABC Beltrami solution, shifted by -pi/4 on all axes to give stagnation at origin. Density one, periodic domain. Pressure=-|u|²/2. Centered finite differences check independent PDE residual; midpoint integration for visualization.",
+  "tests": {
+    "rows": [
+      {
+        "h": 0.1,
+        "n": 2187,
+        "max": 0.000050623072973753294,
+        "rms": null,
+        "div": 0
+      },
+      {
+        "h": 0.05,
+        "n": 2187,
+        "max": 0.000012658928581471569,
+        "rms": null,
+        "div": 0
+      },
+      {
+        "h": 0.025,
+        "n": 2187,
+        "max": 0.0000031649296995489487,
+        "rms": null,
+        "div": 0
+      },
+      {
+        "h": 0.0125,
+        "n": 2187,
+        "max": 7.912447949747773e-7,
+        "rms": null,
+        "div": 0
+      }
+    ],
+    "eye": 1.9229626863835638e-16,
+    "energyAt0": 1.5,
+    "energyAt2": 1.3572561270539394,
+    "nu": 0.025,
+    "domain": "periodic cube [-pi,pi]^3",
+    "sampleCount": 8748
+  },
+  "limitations": "Exact special solution, not general numerical Navier–Stokes solver or singularity proof. Noble geometry is overlay, not flow boundary. Eye stagnation does not guarantee neighborhood stability or plasma dynamics. Browser rendering untested.",
+  "references": [
+    "https://openai.com/index/navier-stokes-solution/",
+    "https://www.claymath.org/news/navier-stokes-announcement/"
+  ]
+}

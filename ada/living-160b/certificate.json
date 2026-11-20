@@ -1,0 +1,376 @@
+{
+  "version": "ADA-160B",
+  "lineage": "ADA-160A",
+  "watermark": ".dlw",
+  "tests": {
+    "checks": 2520,
+    "table": [
+      {
+        "input": 0,
+        "resistance": 0,
+        "base": {
+          "allocated": 1,
+          "viable": 1
+        },
+        "cold": {
+          "allocated": 1,
+          "viable": 1,
+          "hibernations": 0,
+          "reactivations": 0
+        }
+      },
+      {
+        "input": 0,
+        "resistance": 1,
+        "base": {
+          "allocated": 1,
+          "viable": 0
+        },
+        "cold": {
+          "allocated": 1,
+          "viable": 0,
+          "hibernations": 1,
+          "reactivations": 0
+        }
+      },
+      {
+        "input": 0,
+        "resistance": 2,
+        "base": {
+          "allocated": 1,
+          "viable": 0
+        },
+        "cold": {
+          "allocated": 1,
+          "viable": 0,
+          "hibernations": 1,
+          "reactivations": 0
+        }
+      },
+      {
+        "input": 0,
+        "resistance": 4,
+        "base": {
+          "allocated": 1,
+          "viable": 0
+        },
+        "cold": {
+          "allocated": 1,
+          "viable": 0,
+          "hibernations": 1,
+          "reactivations": 0
+        }
+      },
+      {
+        "input": 2,
+        "resistance": 0,
+        "base": {
+          "allocated": 26,
+          "viable": 26
+        },
+        "cold": {
+          "allocated": 26,
+          "viable": 26,
+          "hibernations": 0,
+          "reactivations": 0
+        }
+      },
+      {
+        "input": 2,
+        "resistance": 1,
+        "base": {
+          "allocated": 2,
+          "viable": 2
+        },
+        "cold": {
+          "allocated": 2,
+          "viable": 2,
+          "hibernations": 0,
+          "reactivations": 0
+        }
+      },
+      {
+        "input": 2,
+        "resistance": 2,
+        "base": {
+          "allocated": 1,
+          "viable": 1
+        },
+        "cold": {
+          "allocated": 1,
+          "viable": 1,
+          "hibernations": 0,
+          "reactivations": 0
+        }
+      },
+      {
+        "input": 2,
+        "resistance": 4,
+        "base": {
+          "allocated": 1,
+          "viable": 0
+        },
+        "cold": {
+          "allocated": 1,
+          "viable": 1,
+          "hibernations": 1,
+          "reactivations": 0
+        }
+      },
+      {
+        "input": 5,
+        "resistance": 0,
+        "base": {
+          "allocated": 63,
+          "viable": 63
+        },
+        "cold": {
+          "allocated": 63,
+          "viable": 63,
+          "hibernations": 0,
+          "reactivations": 0
+        }
+      },
+      {
+        "input": 5,
+        "resistance": 1,
+        "base": {
+          "allocated": 5,
+          "viable": 5
+        },
+        "cold": {
+          "allocated": 5,
+          "viable": 5,
+          "hibernations": 0,
+          "reactivations": 0
+        }
+      },
+      {
+        "input": 5,
+        "resistance": 2,
+        "base": {
+          "allocated": 2,
+          "viable": 2
+        },
+        "cold": {
+          "allocated": 2,
+          "viable": 2,
+          "hibernations": 0,
+          "reactivations": 0
+        }
+      },
+      {
+        "input": 5,
+        "resistance": 4,
+        "base": {
+          "allocated": 1,
+          "viable": 1
+        },
+        "cold": {
+          "allocated": 1,
+          "viable": 1,
+          "hibernations": 0,
+          "reactivations": 0
+        }
+      },
+      {
+        "input": 8,
+        "resistance": 0,
+        "base": {
+          "allocated": 97,
+          "viable": 97
+        },
+        "cold": {
+          "allocated": 97,
+          "viable": 97,
+          "hibernations": 0,
+          "reactivations": 0
+        }
+      },
+      {
+        "input": 8,
+        "resistance": 1,
+        "base": {
+          "allocated": 8,
+          "viable": 8
+        },
+        "cold": {
+          "allocated": 8,
+          "viable": 8,
+          "hibernations": 0,
+          "reactivations": 0
+        }
+      },
+      {
+        "input": 8,
+        "resistance": 2,
+        "base": {
+          "allocated": 4,
+          "viable": 4
+        },
+        "cold": {
+          "allocated": 4,
+          "viable": 4,
+          "hibernations": 0,
+          "reactivations": 0
+        }
+      },
+      {
+        "input": 8,
+        "resistance": 4,
+        "base": {
+          "allocated": 1,
+          "viable": 1
+        },
+        "cold": {
+          "allocated": 1,
+          "viable": 1,
+          "hibernations": 0,
+          "reactivations": 0
+        }
+      },
+      {
+        "input": 13,
+        "resistance": 0,
+        "base": {
+          "allocated": 97,
+          "viable": 97
+        },
+        "cold": {
+          "allocated": 97,
+          "viable": 97,
+          "hibernations": 0,
+          "reactivations": 0
+        }
+      },
+      {
+        "input": 13,
+        "resistance": 1,
+        "base": {
+          "allocated": 13,
+          "viable": 13
+        },
+        "cold": {
+          "allocated": 13,
+          "viable": 13,
+          "hibernations": 0,
+          "reactivations": 0
+        }
+      },
+      {
+        "input": 13,
+        "resistance": 2,
+        "base": {
+          "allocated": 6,
+          "viable": 6
+        },
+        "cold": {
+          "allocated": 6,
+          "viable": 6,
+          "hibernations": 0,
+          "reactivations": 0
+        }
+      },
+      {
+        "input": 13,
+        "resistance": 4,
+        "base": {
+          "allocated": 2,
+          "viable": 2
+        },
+        "cold": {
+          "allocated": 2,
+          "viable": 2,
+          "hibernations": 0,
+          "reactivations": 0
+        }
+      },
+      {
+        "input": 21,
+        "resistance": 0,
+        "base": {
+          "allocated": 97,
+          "viable": 97
+        },
+        "cold": {
+          "allocated": 97,
+          "viable": 97,
+          "hibernations": 0,
+          "reactivations": 0
+        }
+      },
+      {
+        "input": 21,
+        "resistance": 1,
+        "base": {
+          "allocated": 21,
+          "viable": 21
+        },
+        "cold": {
+          "allocated": 21,
+          "viable": 21,
+          "hibernations": 0,
+          "reactivations": 0
+        }
+      },
+      {
+        "input": 21,
+        "resistance": 2,
+        "base": {
+          "allocated": 10,
+          "viable": 10
+        },
+        "cold": {
+          "allocated": 10,
+          "viable": 10,
+          "hibernations": 0,
+          "reactivations": 0
+        }
+      },
+      {
+        "input": 21,
+        "resistance": 4,
+        "base": {
+          "allocated": 4,
+          "viable": 4
+        },
+        "cold": {
+          "allocated": 4,
+          "viable": 4,
+          "hibernations": 0,
+          "reactivations": 0
+        }
+      }
+    ],
+    "shock": [
+      {
+        "tick": 40,
+        "baseAllocated": 13,
+        "baseViable": 13,
+        "coldAllocated": 13,
+        "coldViable": 13,
+        "mode": "flight"
+      },
+      {
+        "tick": 70,
+        "baseAllocated": 13,
+        "baseViable": 0,
+        "coldAllocated": 13,
+        "coldViable": 4,
+        "mode": "hide"
+      },
+      {
+        "tick": 120,
+        "baseAllocated": 13,
+        "baseViable": 5,
+        "coldAllocated": 13,
+        "coldViable": 13,
+        "mode": "flight"
+      }
+    ],
+    "hibernations": 2,
+    "reactivations": 2
+  },
+  "model": "Five-cycle sliding low-ingress/high-resistance envelope; hide reduces maintenance to one eighth, freezes reproduction and preserves addresses, transfer to low-energy nodes; wake after five suitable cycles; four labeled operants (flight means resource reallocation, fight means normal maintenance). Matched predecessor baseline.",
+  "limitations": "1/8 dormant maintenance and five-cycle hysteresis are modeling assumptions. Current implementation supports allocations from root rather than physical movement. Surviving address != viable energy and != consciousness. Chrome browser visuals and Pages not verified."
+}

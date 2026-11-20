@@ -1,0 +1,98 @@
+{
+  "version": "ADA-159W",
+  "lineage": "ADA-159V",
+  "watermark": ".dlw",
+  "interpretation": "x=2y+1, y=0..13; six Z layers grouped into three pairs. Hamilton cycle on periodic 27×13 grid is separate from 14-phase diagonal, which is not itself Hamiltonian. Six independent planar cycles, not yet one 3D cycle. Fibonacci marks at y=1,2,3,5,8,13. Reset after endpoint.",
+  "tests": {
+    "hamiltonVertices": 351,
+    "hamiltonEdges": 351,
+    "stackVertices": 2106,
+    "phaseSteps": 84,
+    "pairedCycles": 3,
+    "endpoints": [
+      {
+        "x": 27,
+        "y": 13,
+        "z": 0,
+        "copy": 0,
+        "reset": true,
+        "fibonacci": true
+      },
+      {
+        "x": 27,
+        "y": 13,
+        "z": 1,
+        "copy": 0,
+        "reset": true,
+        "fibonacci": true
+      },
+      {
+        "x": 27,
+        "y": 13,
+        "z": 2,
+        "copy": 1,
+        "reset": true,
+        "fibonacci": true
+      },
+      {
+        "x": 27,
+        "y": 13,
+        "z": 3,
+        "copy": 1,
+        "reset": true,
+        "fibonacci": true
+      },
+      {
+        "x": 27,
+        "y": 13,
+        "z": 4,
+        "copy": 2,
+        "reset": true,
+        "fibonacci": true
+      },
+      {
+        "x": 27,
+        "y": 13,
+        "z": 5,
+        "copy": 2,
+        "reset": true,
+        "fibonacci": true
+      }
+    ],
+    "fibonacci": [
+      {
+        "x": 3,
+        "y": 1
+      },
+      {
+        "x": 5,
+        "y": 2
+      },
+      {
+        "x": 7,
+        "y": 3
+      },
+      {
+        "x": 11,
+        "y": 5
+      },
+      {
+        "x": 17,
+        "y": 8
+      },
+      {
+        "x": 27,
+        "y": 13
+      }
+    ],
+    "reset": {
+      "x": 1,
+      "y": 0,
+      "z": 0,
+      "copy": 0,
+      "reset": false,
+      "fibonacci": false
+    }
+  },
+  "limitations": "Chosen phase origin, paired Z convention, periodic boundary, and stage clock are modeling assumptions. Nursery protection not yet changed. Browser/Pages unverified."
+}

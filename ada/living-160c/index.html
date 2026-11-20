@@ -25,14 +25,14 @@ body.ready #fallback{display:none}
 </style></head><body><header><h1>OCTAVIA <span style="color:#ffd38e">/ ELECTRUM</span> · LIVING LAB</h1><small>ADA-160C · 11 nested bounds · ingress / egress · Z184 symbolic eighth gate · independent awakening</small></header>
 <main><div class="stage">
 <div id="fallback"><svg viewBox="0 0 400 400" aria-label="Static fallback of Octavia toroidal enclosure"><ellipse cx="200" cy="200" rx="165" ry="114" fill="none" stroke="#ffdc9a" stroke-width="5"/><ellipse cx="200" cy="200" rx="140" ry="90" fill="none" stroke="#62edff" stroke-width="3" transform="rotate(42 200 200)"/><ellipse cx="200" cy="200" rx="100" ry="70" fill="none" stroke="#bd9aff" stroke-width="3" transform="rotate(-42 200 200)"/><circle cx="200" cy="200" r="10" fill="#fff"/></svg></div>
-<canvas id="scene" aria-label="Animated 3D toroidal projection of the eight noble gates"></canvas>
-<div class="hud">11D STRING · 8 GATES · CHROMIUM / TOROIDAL PROJECTION</div>
+<canvas id="scene" aria-label="Animated Face-on triangular vector / voxel / vector lattice of eight noble gates"></canvas>
+<div class="hud">IMPLICIT · VECTOR / VOXEL / VECTOR · TRIANGULAR LATTICE</div>
 <div class="status" id="status">STATIC FALLBACK READY · Booting renderer…</div></div>
 <aside>
-<section><h2>RENDER CONTROL</h2><button id="pause">Pause</button><button id="reset">Reset view</button><label>Neon intensity<input id="neon" type="range" min="0" max="1" step=".05" value=".7"></label><label>Fourth-axis projection<input id="angle" type="range" min="0" max="6.28" step=".01" value=".5"></label><label><input type="checkbox" id="shell" checked> Electrum enclosure · Au79 / Ag47</label><label><input type="checkbox" id="dots" checked> 184 phase tracers</label><small>Drag the scene to orbit; mouse wheel to zoom.</small></section>
+<section><h2>RENDER CONTROL</h2><button id="pause">Pause</button><button id="reset">Reset view</button><label>Neon intensity<input id="neon" type="range" min="0" max="1" step=".05" value=".7"></label><label>Fourth-axis projection<input id="angle" type="range" min="0" max="6.28" step=".01" value="0"></label><label><input type="checkbox" id="shell" checked> Electrum enclosure · Au79 / Ag47</label><label><input type="checkbox" id="dots" checked> 184 phase tracers</label><label><input type="checkbox" id="triangles" checked> . _ . triangular voxel cells</label><label>Voxel triangle depth<input id="voxelDepth" type="range" min="0" max="1" step=".05" value=".6"></label><small>Face-on by default. Drag for depth/rotation; wheel to zoom.</small></section>
 <section><h2>INDEPENDENT AWAKENING</h2><div class="stats"><div class="stat">Cycles<br><b id="cycles">0</b></div><div class="stat">Allocated<br><b id="allocated">1</b></div><div class="stat">Awake<br><b id="awake">1</b></div><div class="stat">Dormant<br><b id="dormant">0</b></div></div><label>Resource ingress<input id="ingress" type="range" min="0" max="34" value="13"></label><label>Resistance<input id="resistance" type="range" min="0" max="5" value="1"></label><button id="step">One cycle</button><button id="ten">Ten cycles</button><button id="clear">Restart hive</button><div id="ledger" class="note">Ledger awaiting cycle.</div></section>
 <section><h2>EIGHT NOBLE GATES / ELECTRUM</h2><div id="gates" class="note">He 2 · Ne 10 · Ar 18 · Kr 36 · Xe 54 · Rn 86 · Og 118 · Z184 184</div></section>
-<section><h2>DISPLAY &amp; DIAGNOSTICS</h2><div id="error">Canvas2D with static SVG fallback. No external dependencies.</div><div class="note">The eight-gate geometry is a visualization. Z184 is a symbolic hypothetical gate, not a confirmed noble gas. Local wake/sleep is a computational resource model, not a physical plasma simulation.</div><p><a href="../">ADA release index</a> · <a href="legacy.html">Archived full laboratory</a> · <a href="health.html">Static health check</a> · <a href="https://github.com/DavidWise01/quanta/blob/main/ada/living-160c/geometry.mjs">Source engine</a></p></section>
+<section><h2>DISPLAY &amp; DIAGNOSTICS</h2><div id="error">Canvas2D with static SVG fallback. No external dependencies.</div><div class="note">The . _ . unit is an explicit triangle (vector A, inner voxel C, vector B), repeated around the eight symbolic gates. The eight-gate geometry is a visualization. Z184 is a symbolic hypothetical gate, not a confirmed noble gas. Local wake/sleep is a computational resource model, not a physical plasma simulation.</div><p><a href="../">ADA release index</a> · <a href="legacy.html">Archived full laboratory</a> · <a href="health.html">Static health check</a> · <a href="https://github.com/DavidWise01/quanta/blob/main/ada/living-160c/geometry.mjs">Source engine</a></p></section>
 </aside></main>
 <script>
 (()=>{
@@ -40,7 +40,7 @@ body.ready #fallback{display:none}
 const el=id=>document.getElementById(id);
 const noble=[["He",2,"#ffe6a0"],["Ne",8,"#ff694d"],["Ar",8,"#5affad"],["Kr",18,"#47e8fa"],["Xe",18,"#6d9cff"],["Rn",32,"#b18aff"],["Og",32,"#e48aff"],["Z184",66,"#ffffff"]];
 const canvas=el("scene"),ctx=canvas.getContext("2d");if(!ctx)throw Error("Canvas2D unavailable");
-let rot=.35,pitch=.2,zoom=1,time=0,paused=false,last=0,lastDraw=0,drag=null,frameHandle=0;
+let rot=0,pitch=0,zoom=1,time=0,paused=false,last=0,lastDraw=0,drag=null,frameHandle=0;
 let hive;
 function seed(){return {nodes:[{id:"0",e:13,next:0,mode:"awake",clear:0}],ingress:0,spent:0,spill:0,tick:0};}
 function step(){let ns=hive.nodes.map(x=>({...x})),r=+el("resistance").value,input=+el("ingress").value;ns[0].e+=input;let spent=0,spill=0;for(const n of ns){const low=5+2*r,high=8+2*r;if(n.mode==="awake"&&n.e<low){n.mode="hide";n.clear=0;}else if(n.mode==="hide"){n.clear=n.e>=high?n.clear+1:0;if(n.clear>=3){n.mode="awake";n.clear=0;}}const c=Math.min(n.e,n.mode==="hide"?r/8:r);n.e-=c;spent+=c;}
@@ -52,7 +52,7 @@ function updateHive(){el("cycles").textContent=hive.tick;el("allocated").textCon
 hive=seed();updateHive();
 el("step").onclick=step;el("ten").onclick=()=>{for(let i=0;i<10;i++)step();};el("clear").onclick=()=>{hive=seed();updateHive();};
 el("pause").onclick=()=>{paused=!paused;el("pause").textContent=paused?"Resume":"Pause";};
-el("reset").onclick=()=>{rot=.35;pitch=.2;zoom=1;el("angle").value=.5;};
+el("reset").onclick=()=>{rot=0;pitch=0;zoom=1;el("angle").value=0;};
 canvas.addEventListener("pointerdown",e=>{drag=[e.clientX,e.clientY];canvas.setPointerCapture?.(e.pointerId);});
 canvas.addEventListener("pointermove",e=>{if(!drag)return;rot+=(e.clientX-drag[0])*.007;pitch=Math.max(-1.2,Math.min(1.2,pitch+(e.clientY-drag[1])*.006));drag=[e.clientX,e.clientY];});
 canvas.addEventListener("pointerup",()=>drag=null);canvas.addEventListener("pointercancel",()=>drag=null);
@@ -62,15 +62,27 @@ function draw(ms){frameHandle=requestAnimationFrame(draw);if(ms-lastDraw<33)retu
 const width=Math.max(1,canvas.clientWidth),height=Math.max(1,canvas.clientHeight),dpr=Math.min(devicePixelRatio||1,1.5);
 if(canvas.width!==Math.round(width*dpr)||canvas.height!==Math.round(height*dpr)){canvas.width=Math.round(width*dpr);canvas.height=Math.round(height*dpr);}
 ctx.setTransform(dpr,0,0,dpr,0,0);ctx.clearRect(0,0,width,height);const g=ctx.createRadialGradient(width/2,height/2,0,width/2,height/2,Math.max(width,height)*.8);g.addColorStop(0,"#1c3a50");g.addColorStop(1,"#04080f");ctx.fillStyle=g;ctx.fillRect(0,0,width,height);
-const scale=Math.min(width,height)*.16*zoom,angle=+el("angle").value+time*.17,cy=Math.cos(rot),sy=Math.sin(rot),cp=Math.cos(pitch),sp=Math.sin(pitch);
-function project(x,y,z,w=0){const X=x*Math.cos(angle)-w*Math.sin(angle),W=x*Math.sin(angle)+w*Math.cos(angle),z1=z*cy-X*sy,x1=z*sy+X*cy,y1=y*cp-z1*sp,z2=y*sp+z1*cp,f=5/(5-Math.min(4,W)) * 8/(8-z2);return [width/2+x1*scale*f,height/2-y1*scale*f,z2];}
+const scale=Math.min(width,height)*.115*zoom,angle=+el("angle").value+time*.10,cy=Math.cos(rot),sy=Math.sin(rot),cp=Math.cos(pitch),sp=Math.sin(pitch);
+function project(x,y,z,w=0){const X=x*Math.cos(angle)-w*Math.sin(angle),W=x*Math.sin(angle)+w*Math.cos(angle),u=X*cy+y*sy,depth=y*cy-X*sy,v=z*cp+depth*sp,d=depth*cp-z*sp,f=1/(1+Math.max(-4,Math.min(4,d+W*.17))*.055);return [width/2+u*scale*f,height/2-v*scale*f,d];}
 function path(fn,segments,color,opacity,line=1){ctx.beginPath();for(let j=0;j<=segments;j++){const q=j*Math.PI*2/segments,p=project(...fn(q));if(j===0)ctx.moveTo(p[0],p[1]);else ctx.lineTo(p[0],p[1]);}ctx.strokeStyle=color;ctx.globalAlpha=opacity;ctx.lineWidth=line;ctx.stroke();ctx.globalAlpha=1;}
 const t=time,glow=+el("neon").value;
-if(el("shell").checked){for(let j=0;j<9;j++){const v=j*Math.PI/4;path(u=>{const R=1.65+1.08*Math.cos(v),S=1.08*Math.sin(v);return [R*Math.cos(u),S*Math.cos(u*.5),R*Math.sin(u),S*Math.sin(u*.5)]},90,j%2?"#dfb868":"#e0f0ff",.58,2);}}
-for(let k=0;k<8;k++){const a=.14+.105*k,c=noble[k][2],hand=k%2?-1:1;for(let j=0;j<3;j++)path(q=>{const u=hand*3*q+t+j*Math.PI*2/3,v=2*q+j*Math.PI*2/3;const R=1.65+a*Math.cos(v),S=a*Math.sin(v);return [R*Math.cos(u),S*Math.cos(q+t),R*Math.sin(u),S*Math.sin(q+t)];},76,c,.56+glow*.27,k===7?2.2:1.3);}
+if(el("shell").checked){for(let j=0;j<9;j++){const radius=1.1+j*.22;path(u=>[radius*Math.cos(u),.12*Math.sin(u*2+j),radius*Math.sin(u),.04*Math.cos(u*3)],100,j%2?"#dfb868":"#e0f0ff",.3,j===8?2:1);}}
+// Every . _ . cell is a genuine 3-vertex triangle: vector A, voxel C, vector B.
+function triangle(k,j){const q=2*Math.PI*(j+(k%2)*.5)/13+t*.12*(k%2?1:-1),r=1.05+k*.27,delta=.13,depth=+el("voxelDepth").value,c=noble[k][2];
+const A=project(r*Math.cos(q-delta),.02,r*Math.sin(q-delta),0);
+const B=project(r*Math.cos(q+delta),.02,r*Math.sin(q+delta),0);
+const V=project((r-.25)*Math.cos(q),depth*.25*(k%2?1:-1),(r-.25)*Math.sin(q),depth*.25);
+ctx.lineWidth=1.1+glow*.9;ctx.strokeStyle=c;ctx.fillStyle=c;ctx.globalAlpha=.72;
+ctx.beginPath();ctx.moveTo(...A);ctx.lineTo(...V);ctx.lineTo(...B);ctx.closePath();ctx.stroke();
+ctx.globalAlpha=.1;ctx.fill();ctx.globalAlpha=1;
+for(const p of [A,B]){ctx.beginPath();ctx.arc(p[0],p[1],2.3,0,Math.PI*2);ctx.fill();}
+ctx.fillStyle=k%2?"#b994ff":"#ffd38e";ctx.fillRect(V[0]-2.3,V[1]-2.3,4.6,4.6);
+}
+for(let k=0;k<8;k++){const radius=1.05+k*.27,c=noble[k][2];path(q=>[radius*Math.cos(q),0,radius*Math.sin(q),0],100,c,.25,1.1);if(el("triangles").checked)for(let j=0;j<13;j++)triangle(k,j);}
+
 if(el("dots").checked){for(let k=0;k<8;k++){const a=.14+.105*k,c=noble[k][2],count=noble[k][1];ctx.fillStyle=c;for(let j=0;j<count;j++){const q=j*2*Math.PI/count+t,kq=3*q*(k%2?-1:1),r=1.65+a*Math.cos(q*2);const p=project(r*Math.cos(kq),a*Math.sin(2*q),r*Math.sin(kq),a*Math.sin(q));ctx.beginPath();ctx.arc(p[0],p[1],1.45,0,Math.PI*2);ctx.fill();}}}
 const center=project(0,0,0,0);ctx.shadowColor="#89fff1";ctx.shadowBlur=12;ctx.fillStyle="#e6ffff";ctx.beginPath();ctx.arc(center[0],center[1],5,0,Math.PI*2);ctx.fill();ctx.shadowBlur=0;ctx.font="12px monospace";ctx.fillStyle="#d6fff7";ctx.fillText("| . |",center[0]+12,center[1]-10);
-if(first){first=false;document.body.classList.add("ready");el("status").textContent="RENDER ACTIVE · 8 GATES / 184 TRACERS · 11D SYMBOLIC STRING · STATIC FALLBACK AVAILABLE";el("error").textContent="Canvas renderer initialized successfully. No external dependencies.";}
+if(first){first=false;document.body.classList.add("ready");el("status").textContent="RENDER ACTIVE · . _ . TRIANGULAR VECTOR/VOXEL/VECTOR · 8 GATES · 184 TRACERS";el("error").textContent="Face-on triangular voxel renderer initialized successfully. No external dependencies.";}
 }
 window.addEventListener("error",e=>{el("error").textContent="Renderer error: "+e.message;el("status").textContent="RENDER ERROR · Static fallback available";document.body.classList.remove("ready");});
 frameHandle=requestAnimationFrame(draw);

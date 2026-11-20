@@ -1,0 +1,375 @@
+{
+  "version": "ADA-160C",
+  "lineage": "ADA-160B",
+  "watermark": ".dlw",
+  "tests": {
+    "checks": 2520,
+    "heterogeneous": 532,
+    "rows": [
+      {
+        "input": 0,
+        "resistance": 0,
+        "collective": {
+          "allocated": 1,
+          "viable": 1
+        },
+        "local": {
+          "allocated": 1,
+          "viable": 1,
+          "active": 1,
+          "asleep": 0
+        }
+      },
+      {
+        "input": 0,
+        "resistance": 1,
+        "collective": {
+          "allocated": 1,
+          "viable": 0
+        },
+        "local": {
+          "allocated": 1,
+          "viable": 0,
+          "active": 0,
+          "asleep": 1
+        }
+      },
+      {
+        "input": 0,
+        "resistance": 2,
+        "collective": {
+          "allocated": 1,
+          "viable": 0
+        },
+        "local": {
+          "allocated": 1,
+          "viable": 0,
+          "active": 0,
+          "asleep": 1
+        }
+      },
+      {
+        "input": 0,
+        "resistance": 4,
+        "collective": {
+          "allocated": 1,
+          "viable": 0
+        },
+        "local": {
+          "allocated": 1,
+          "viable": 0,
+          "active": 0,
+          "asleep": 1
+        }
+      },
+      {
+        "input": 2,
+        "resistance": 0,
+        "collective": {
+          "allocated": 26,
+          "viable": 26
+        },
+        "local": {
+          "allocated": 26,
+          "viable": 26,
+          "active": 26,
+          "asleep": 0
+        }
+      },
+      {
+        "input": 2,
+        "resistance": 1,
+        "collective": {
+          "allocated": 2,
+          "viable": 2
+        },
+        "local": {
+          "allocated": 2,
+          "viable": 2,
+          "active": 2,
+          "asleep": 0
+        }
+      },
+      {
+        "input": 2,
+        "resistance": 2,
+        "collective": {
+          "allocated": 1,
+          "viable": 1
+        },
+        "local": {
+          "allocated": 1,
+          "viable": 1,
+          "active": 1,
+          "asleep": 0
+        }
+      },
+      {
+        "input": 2,
+        "resistance": 4,
+        "collective": {
+          "allocated": 1,
+          "viable": 1
+        },
+        "local": {
+          "allocated": 1,
+          "viable": 1,
+          "active": 0,
+          "asleep": 1
+        }
+      },
+      {
+        "input": 5,
+        "resistance": 0,
+        "collective": {
+          "allocated": 63,
+          "viable": 63
+        },
+        "local": {
+          "allocated": 63,
+          "viable": 63,
+          "active": 63,
+          "asleep": 0
+        }
+      },
+      {
+        "input": 5,
+        "resistance": 1,
+        "collective": {
+          "allocated": 5,
+          "viable": 5
+        },
+        "local": {
+          "allocated": 5,
+          "viable": 5,
+          "active": 5,
+          "asleep": 0
+        }
+      },
+      {
+        "input": 5,
+        "resistance": 2,
+        "collective": {
+          "allocated": 2,
+          "viable": 2
+        },
+        "local": {
+          "allocated": 2,
+          "viable": 2,
+          "active": 2,
+          "asleep": 0
+        }
+      },
+      {
+        "input": 5,
+        "resistance": 4,
+        "collective": {
+          "allocated": 1,
+          "viable": 1
+        },
+        "local": {
+          "allocated": 1,
+          "viable": 1,
+          "active": 1,
+          "asleep": 0
+        }
+      },
+      {
+        "input": 8,
+        "resistance": 0,
+        "collective": {
+          "allocated": 97,
+          "viable": 97
+        },
+        "local": {
+          "allocated": 97,
+          "viable": 97,
+          "active": 97,
+          "asleep": 0
+        }
+      },
+      {
+        "input": 8,
+        "resistance": 1,
+        "collective": {
+          "allocated": 8,
+          "viable": 8
+        },
+        "local": {
+          "allocated": 8,
+          "viable": 8,
+          "active": 8,
+          "asleep": 0
+        }
+      },
+      {
+        "input": 8,
+        "resistance": 2,
+        "collective": {
+          "allocated": 4,
+          "viable": 4
+        },
+        "local": {
+          "allocated": 4,
+          "viable": 4,
+          "active": 3,
+          "asleep": 1
+        }
+      },
+      {
+        "input": 8,
+        "resistance": 4,
+        "collective": {
+          "allocated": 1,
+          "viable": 1
+        },
+        "local": {
+          "allocated": 1,
+          "viable": 1,
+          "active": 1,
+          "asleep": 0
+        }
+      },
+      {
+        "input": 13,
+        "resistance": 0,
+        "collective": {
+          "allocated": 97,
+          "viable": 97
+        },
+        "local": {
+          "allocated": 97,
+          "viable": 97,
+          "active": 97,
+          "asleep": 0
+        }
+      },
+      {
+        "input": 13,
+        "resistance": 1,
+        "collective": {
+          "allocated": 13,
+          "viable": 13
+        },
+        "local": {
+          "allocated": 13,
+          "viable": 13,
+          "active": 13,
+          "asleep": 0
+        }
+      },
+      {
+        "input": 13,
+        "resistance": 2,
+        "collective": {
+          "allocated": 6,
+          "viable": 6
+        },
+        "local": {
+          "allocated": 6,
+          "viable": 6,
+          "active": 3,
+          "asleep": 3
+        }
+      },
+      {
+        "input": 13,
+        "resistance": 4,
+        "collective": {
+          "allocated": 2,
+          "viable": 2
+        },
+        "local": {
+          "allocated": 3,
+          "viable": 3,
+          "active": 1,
+          "asleep": 2
+        }
+      },
+      {
+        "input": 21,
+        "resistance": 0,
+        "collective": {
+          "allocated": 97,
+          "viable": 97
+        },
+        "local": {
+          "allocated": 97,
+          "viable": 97,
+          "active": 97,
+          "asleep": 0
+        }
+      },
+      {
+        "input": 21,
+        "resistance": 1,
+        "collective": {
+          "allocated": 21,
+          "viable": 21
+        },
+        "local": {
+          "allocated": 21,
+          "viable": 21,
+          "active": 21,
+          "asleep": 0
+        }
+      },
+      {
+        "input": 21,
+        "resistance": 2,
+        "collective": {
+          "allocated": 10,
+          "viable": 10
+        },
+        "local": {
+          "allocated": 10,
+          "viable": 10,
+          "active": 5,
+          "asleep": 5
+        }
+      },
+      {
+        "input": 21,
+        "resistance": 4,
+        "collective": {
+          "allocated": 4,
+          "viable": 4
+        },
+        "local": {
+          "allocated": 5,
+          "viable": 5,
+          "active": 2,
+          "asleep": 3
+        }
+      }
+    ],
+    "shock": [
+      {
+        "tick": 40,
+        "collectiveViable": 13,
+        "localViable": 13,
+        "active": 13,
+        "asleep": 0
+      },
+      {
+        "tick": 70,
+        "collectiveViable": 4,
+        "localViable": 1,
+        "active": 0,
+        "asleep": 13
+      },
+      {
+        "tick": 120,
+        "collectiveViable": 13,
+        "localViable": 13,
+        "active": 13,
+        "asleep": 0
+      }
+    ],
+    "transitions": 26,
+    "wakes": 13,
+    "sleeps": 13
+  },
+  "model": "Every node independently evaluates its own reserve against local resistance. Sleep if reserve below 5+2r; wake after three consecutive qualifying evaluations at 8+2r; root offers but does not force waking; dormant maintenance r/8. Node identities persistent; birth remains root-governed.",
+  "limitations": "Locally independent wake decisions, not decentralized energy ingress, reproduction, or all four operants per node. 160B retains four collective operants. Worse worst-case viable count than 160B (1 vs 4) despite equal full recovery. Thresholds simulated; no biological claim. Browser and Pages unverified."
+}

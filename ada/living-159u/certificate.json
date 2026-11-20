@@ -1,0 +1,59 @@
+{
+  "version": "ADA-159U",
+  "lineage": "ADA-159T.1",
+  "watermark": ".dlw",
+  "grammar": [
+    "implicit",
+    ". .",
+    ". _ .",
+    ". | . |",
+    ".|.|.",
+    "/\\/\\/\\",
+    "/\\/.\\/\\",
+    "|||| ||||",
+    "|||| . ||||",
+    "|o|",
+    "|||",
+    "{[([([([([()])])])])]}",
+    "self-model / consequence estimate",
+    "emergence: hide | fight | flight | none"
+  ],
+  "originalNest": "{[([([([([()])])])])])}",
+  "tests": {
+    "depth": 11,
+    "stageChecks": 48,
+    "examples": [
+      {
+        "name": "none",
+        "energy": 70,
+        "integrity": 100
+      },
+      {
+        "name": "hide",
+        "energy": 68,
+        "integrity": 100
+      },
+      {
+        "name": "fight",
+        "energy": 62,
+        "integrity": 100
+      },
+      {
+        "name": "flight",
+        "energy": 65,
+        "integrity": 100
+      }
+    ],
+    "decisions": 5120,
+    "counts": {
+      "none": 236,
+      "hide": 3187,
+      "fight": 661,
+      "flight": 1036
+    },
+    "survival": 256,
+    "baseline": 0,
+    "scenarios": 256
+  },
+  "limitations": "Stage 12 provisional self-model, stage 13 explicit decision gate, not spontaneous consciousness. Hand-authored one-step consequence score, synthetic tests and passive baseline only. Stage advancement is scripted, not earned yet. MHD separate. Prior parallel ledger retained as compatibility utility. Pages/browser unverified."
+}

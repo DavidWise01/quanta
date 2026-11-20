@@ -1,0 +1,54 @@
+{
+  "version": "ADA-159T",
+  "lineage": "ADA-159S.1",
+  "watermark": ".dlw",
+  "model": "Four spatial coordinates with independent time, explicit hypersurface toroid S1×S2 parameterization (coordinate degeneracies at poles), SO(4) plane rotation, perspective projection. Electrum outer tube. Separate exact three-dimensional incompressible resistive MHD benchmark B=beta*u, nu=eta, pressure=-|u|²/2 in Alfven units.",
+  "tests": {
+    "samples": 24576,
+    "minClearance4": 0.6349999999999998,
+    "maxNormError": 8.881784197001252e-16,
+    "closure": 2.914203267236168e-15,
+    "rows": [
+      {
+        "h": 0.1,
+        "n": 3087,
+        "momentum": 0.0000352404051877172,
+        "induction": 0.00002934350131488475,
+        "div": 0
+      },
+      {
+        "h": 0.05,
+        "n": 3087,
+        "momentum": 0.000008812301311125825,
+        "induction": 0.000007337707206460938,
+        "div": 0
+      },
+      {
+        "h": 0.025,
+        "n": 3087,
+        "momentum": 0.0000022032128489051364,
+        "induction": 0.0000018345413134858996,
+        "div": 0
+      },
+      {
+        "h": 0.0125,
+        "n": 3087,
+        "momentum": 5.508118177563323e-7,
+        "induction": 4.5864249439406877e-7,
+        "div": 0
+      }
+    ],
+    "pdeSamples": 12348,
+    "eye4": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "gates": 8,
+    "tracers": 184,
+    "enclosureTube": 1.09,
+    "outerGateTube": 0.875
+  },
+  "limitations": "Fourth spatial dimension is a chosen abstract coordinate; MHD equations tested in 3D space plus time, not four-spatial-dimensional plasma PDE. Electrum is geometry only, no conductivity boundary condition. Z184 symbolic. Browser rendering and Pages not verified."
+}

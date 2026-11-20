@@ -1,0 +1,94 @@
+<!doctype html><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><title>AION 159J</title><style>body{background:#080b16;color:#deefff;font:14px monospace;margin:20px}h1{color:#8ce8ff}main{display:grid;grid-template-columns:2fr 1fr;gap:20px}canvas{width:100%;height:70vh}button,select{background:#18263b;color:#e5fcff;border:1px solid #58bdda;padding:9px;margin:4px}pre{white-space:pre-wrap}@media(max-width:720px){main{display:block}canvas{height:50vh}}</style><h1>A.I.O.N. 159J / COUNTERFACTUAL TORNADO</h1><p>00 11 [ 24 /|\\ 42 ] 11 00 .dlw</p><main><canvas id="v"></canvas><aside><select id="mode"><option>alternating</option><option>pattern-to-noise</option><option>unpredictable</option></select><button id="step">Step</button><button id="reset">Reset</button><pre id="out"></pre></aside></main><script type=module>// ADA-159B .dlw — 42-bit Stargate, three-layer tornado.
+export const GATE="00 11 [ 24 /|\\ 42 ] 11 00";
+export const WIDTH=42, TURN=1296000000, OFFSET=1025;
+export const LAYERS=Object.freeze(["|V| vector","[] voxel","{[()]} vogel"]);
+export function pack(s,c,i,w){const a=[s,c,i,w],n=[24,9,1,8];if(a.some((v,j)=>typeof v!=="bigint"||v<0n||v>=1n<<BigInt(n[j])))throw Error("width");return s|(c<<24n)|(i<<33n)|(w<<34n);}
+export function unpack(v){if(typeof v!=="bigint"||v<0n||v>=1n<<42n)throw Error("width");return [v&0xffffffn,(v>>24n)&511n,(v>>33n)&1n,(v>>34n)&255n];}
+
+
+ // ADA-159D .dlw — mirrored, equal-time antistrophic pairs.
+export const FRAME=Object.freeze([{name:"vector",hand:1,phase:0},{name:"voxel",hand:-1,phase:2},{name:"vogel",hand:1,phase:4}].map(Object.freeze));
+const wrap=a=>((a%TURN)+TURN)%TURN;
+export function initial(){return {tick:0,x:null,layers:[1,-1].flatMap(side=>FRAME.map((f,i)=>({...f,side,hand:f.hand*side,angle:wrap(side*i*TURN/3),net:0,push:0,pull:0,travel:0})))};}
+export function step(s,x){if(!Number.isSafeInteger(x)||x<0||x>TURN)throw Error("x in milliarcseconds");const latched=s.tick%8===0?x:s.x;
+ return {tick:s.tick+1,x:latched,layers:s.layers.map(l=>{const p=(s.tick+l.phase)%8,pull=p>=4,local=pull?-(latched+OFFSET):latched,delta=l.hand*local;
+ return {...l,p,delta,angle:wrap(l.angle+delta),net:l.net+delta,push:l.push+Number(!pull),pull:l.pull+Number(pull),travel:l.travel+Math.abs(delta)};})};}
+export function check(s){for(let i=0;i<3;i++){const a=s.layers[i],b=s.layers[i+3];if(a.net+b.net!==0||a.delta+b.delta!==0||wrap(a.angle+b.angle)!==0||a.push!==b.push||a.pull!==b.pull||a.travel!==b.travel)throw Error("mirror");}if(s.layers.reduce((v,l)=>v+l.net,0)!==0)throw Error("net");}
+
+// ADA-159E .dlw — bounded pairwise homeostasis, one-tick observation delay.
+export const CAP=1025;
+export function homeInitial(){return {...initial(),correction:0,disturbance:0,errors:[0,0,0]};}
+export function homeStep(s,x,dist=[0,0,0],cap=CAP){
+ if(!Number.isSafeInteger(cap)||cap<0||cap>TURN||dist.length!==3||dist.some(d=>!Number.isSafeInteger(d)||Math.abs(d)>TURN))throw Error("input");
+ const base=step(s,x),commands=s.errors.map(e=>-Math.sign(e)*Math.min(Math.abs(e),cap));
+ const layers=base.layers.map((l,i)=>{const d=i<3?dist[i]:commands[i-3];return {...l,nominal:l.delta,delta:l.delta+d,angle:wrap(l.angle+d),net:l.net+d,travel:l.travel-Math.abs(l.delta)+Math.abs(l.delta+d),adjustment:d};});
+ const errors=layers.slice(0,3).map((l,i)=>l.net+layers[i+3].net);
+ return {...base,layers,errors,commands,dist:[...dist],correction:s.correction+commands.reduce((a,b)=>a+Math.abs(b),0),disturbance:s.disturbance+dist.reduce((a,b)=>a+Math.abs(b),0)};
+}
+
+// ADA-159F .dlw — local priority, transferable per-tick correction capacity.
+export function allocate(errors,cap=CAP){const own=errors.map(e=>Math.min(Math.abs(e),cap)),extra=[0,0,0];let reserve=3*cap-own.reduce((a,b)=>a+b,0),initialReserve=reserve;
+ const order=[0,1,2].sort((a,b)=>(Math.abs(errors[b])-own[b])-(Math.abs(errors[a])-own[a])||a-b);
+ for(const i of order){extra[i]=Math.min(reserve,Math.abs(errors[i])-own[i]);reserve-=extra[i];}
+ return {own,extra,initialReserve,reserve,commands:errors.map((e,i)=>-Math.sign(e)*(own[i]+extra[i]))};}
+export function sharedStep(s,x,dist=[0,0,0],cap=CAP){
+ if(!Number.isSafeInteger(cap)||cap<0||cap>TURN||dist.length!==3||dist.some(d=>!Number.isSafeInteger(d)||Math.abs(d)>TURN))throw Error("input");
+ const base=step(s,x),allocation=allocate(s.errors,cap),commands=allocation.commands;
+ const layers=base.layers.map((l,i)=>{const d=i<3?dist[i]:commands[i-3];return {...l,nominal:l.delta,delta:l.delta+d,angle:wrap(l.angle+d),net:l.net+d,travel:l.travel-Math.abs(l.delta)+Math.abs(l.delta+d),adjustment:d};});
+ const errors=layers.slice(0,3).map((l,i)=>l.net+layers[i+3].net);
+ return {...base,layers,errors,commands,allocation,dist:[...dist],correction:s.correction+commands.reduce((a,b)=>a+Math.abs(b),0),disturbance:s.disturbance+dist.reduce((a,b)=>a+Math.abs(b),0)};
+}
+const norm=a=>a.reduce((s,v)=>s+Math.abs(v),0);
+
+// ADA-159G .dlw — finite, lossless symbolic reserve with bounded discharge.
+export const STORAGE=24600, RELEASE=3075;
+export function reserveInitial(){return {...homeInitial(),bank:0,charged:0,drawn:0,spill:0};}
+export function reserveStep(s,x,dist=[0,0,0],cap=CAP,limit=STORAGE,release=RELEASE){
+ if([cap,limit,release].some(v=>!Number.isSafeInteger(v)||v<0||v>TURN)||s.bank>limit||s.bank<0||dist.length!==3||dist.some(d=>!Number.isSafeInteger(d)||Math.abs(d)>TURN))throw Error("input");
+ const base=step(s,x),a=allocate(s.errors,cap),commands=[...a.commands],demand=norm(s.errors),current=norm(commands);
+ let draw=Math.min(s.bank,release,demand-current),left=draw;
+ const order=[0,1,2].sort((i,j)=>(Math.abs(s.errors[j])-Math.abs(commands[j]))-(Math.abs(s.errors[i])-Math.abs(commands[i]))||i-j);
+ for(const i of order){const n=Math.min(left,Math.abs(s.errors[i])-Math.abs(commands[i]));commands[i]-=Math.sign(s.errors[i])*n;left-=n;}
+ const unused=3*cap-current,charge=Math.min(unused,limit-s.bank+draw),spill=unused-charge,bank=s.bank-draw+charge;
+ const layers=base.layers.map((l,i)=>{const d=i<3?dist[i]:commands[i-3];return {...l,nominal:l.delta,delta:l.delta+d,angle:wrap(l.angle+d),net:l.net+d,travel:l.travel-Math.abs(l.delta)+Math.abs(l.delta+d),adjustment:d};});
+ return {...base,layers,errors:layers.slice(0,3).map((l,i)=>l.net+layers[i+3].net),commands,dist:[...dist],bank,charge,draw,overflow:spill,charged:s.charged+charge,drawn:s.drawn+draw,spill:s.spill+spill,correction:s.correction+norm(commands),disturbance:s.disturbance+norm(dist)};
+}
+
+// ADA-159H .dlw — causal two-transition forecast, frozen before actual input.
+export function forecast(history){const z=[0,0,0],a=history.at(-2)??history.at(-1)??z,b=history.at(-1)??z;return [[...a],[...b]];}
+export function plan(s,x,history){const predicted=forecast(history),maximum=Math.min(s.bank,RELEASE,Math.max(0,norm(s.errors)-3*CAP));
+ const candidates=[...new Set([maximum,Math.floor(maximum/2),0])];let chosen=null;
+ for(const release of candidates){const a=reserveStep(s,x,predicted[0],CAP,STORAGE,release),b=reserveStep(a,x,predicted[1]);const score=4*(norm(a.errors)+norm(b.errors))+(STORAGE-b.bank);
+ if(!chosen||score<chosen.score)chosen={release,score,predicted,expected:[norm(a.errors),norm(b.errors)],bank:b.bank};}
+ return Object.freeze({...chosen,predicted:Object.freeze(chosen.predicted.map(Object.freeze)),expected:Object.freeze(chosen.expected)});
+}
+
+// ADA-159I .dlw — causal rolling confidence on active forecasts.
+export const WINDOW=8;
+export function gate(scores){if(scores.length<4)return 0;const hits=scores.reduce((s,v)=>s+v,0);return hits*4>=scores.length*3?1:hits*2<=scores.length?-1:0;}
+
+// ADA-159J .dlw — matched-state counterfactual action scores, two-tick delayed settlement.
+export const UTILITY_WINDOW=8;
+export function authority(scores){if(scores.length<4)return 0;const v=scores.reduce((a,b)=>a+b,0);return v>0?1:v<0?-1:0;}
+export function shadowIssue(s,history,scores){const p=plan(s,1000,history),max=Math.min(s.bank,RELEASE,Math.max(0,norm(s.errors)-3*CAP));return Object.freeze({tick:s.tick,reactive:max,anticipatory:p.release,gate:authority(scores),state:s,informative:p.release!==max});}
+export function settle(ticket,d1,d2){const a=reserveStep(ticket.state,1000,d1,CAP,STORAGE,ticket.reactive),b=reserveStep(ticket.state,1000,d1,CAP,STORAGE,ticket.anticipatory),a2=reserveStep(a,1000,d2),b2=reserveStep(b,1000,d2);const cost=(q,r)=>4*(norm(q.errors)+norm(r.errors))+STORAGE-r.bank;return cost(a,a2)-cost(b,b2);}
+export function experiment(seed=159){let ticks=0,pairs=0,accounts=0,settled=0,informative=0,states=[0,0,0],withheld=0,benefit=0,harm=0,neutral=0;
+ function run(name,inputs,keep=false){let live=reserveInitial(),greedy=reserveInitial(),anti=reserveInitial(),hist=[],scores=[],pending=null,trace=[],sums=[0,0,0],objectives=[0,0,0],n=0;
+ for(const d of inputs){const t=shadowIssue(live,hist,scores),release=t.gate===1?t.anticipatory:t.reactive;states[t.gate+1]++;if(release<t.reactive)withheld++;
+ const q=reserveStep(live,1000,d,CAP,STORAGE,release);greedy=reserveStep(greedy,1000,d);anti=reserveStep(anti,1000,d,CAP,STORAGE,plan(anti,1000,hist).release);
+ if(q.bank!==live.bank+q.charge-q.draw||norm(q.commands)+q.charge+q.overflow!==3*CAP+q.draw||q.draw>release||q.bank<0||q.bank>STORAGE)throw Error("ledger");accounts++;
+ for(let i=0;i<3;i++){if(q.errors[i]!==live.errors[i]+d[i]+q.commands[i]||wrap(q.layers[i].angle+q.layers[i+3].angle)!==wrap(q.errors[i]))throw Error("pair");pairs++;}
+ let gain=null;if(pending){if(pending.ticket.tick!==t.tick-1)throw Error("latency");gain=settle(pending.ticket,pending.actual,d);settled++;if(pending.ticket.informative){informative++;benefit+=Number(gain>0);harm+=Number(gain<0);neutral+=Number(gain===0);scores.push(gain);if(scores.length>UTILITY_WINDOW)scores.shift();n++;}}
+ pending={ticket:t,actual:[...d]};live=q;hist.push([...d]);if(hist.length>2)hist.shift();[live,greedy,anti].forEach((v,i)=>sums[i]+=norm(v.errors));ticks++;
+ if(keep)trace.push({tick:q.tick,gate:t.gate,release,settledGain:gain,score:scores.reduce((a,b)=>a+b,0),errors:[norm(live.errors),norm(greedy.errors),norm(anti.errors)],bank:q.bank});}
+ [live,greedy,anti].forEach((v,i)=>objectives[i]=4*sums[i]+STORAGE-v.bank);return {name,sums,objectives,informative:n,trace};}
+ const quiet=Array.from({length:8},()=>[0,0,0]);let x=seed>>>0;const rand=()=>{x=(Math.imul(x,1664525)+1013904223)>>>0;return x;};
+ const suite=[["constant",i=>[6150,0,0]],["alternating",i=>[i%2?-6150:6150,0,0]],["two-on-two-off",i=>[i%4<2?6150:0,0,0]],["step-reversal",i=>[i<16?6150:-6150,0,0]],["three-pair reversal",i=>[i%2?-4100:4100,i%2?2050:-2050,1025]],["unpredictable",i=>[rand()%18451-9225,0,0]],["pattern-to-noise",i=>[i<32?(i%2?-6150:6150):rand()%18451-9225,0,0]]];
+ const scenarios=suite.map(([name,f])=>run(name,[...quiet,...Array.from({length:64},(_,i)=>f(i)),...quiet],true));const randomCases=[];for(let j=0;j<64;j++)randomCases.push(run("random-"+j,[...quiet,...Array.from({length:64},()=>Array.from({length:3},()=>rand()%8193-4096)),...quiet]));
+ const agg={sums:[0,0,0],objectives:[0,0,0],wins:0,losses:0,ties:0};for(const v of randomCases){for(let i=0;i<3;i++){agg.sums[i]+=v.sums[i];agg.objectives[i]+=v.objectives[i];}agg.wins+=Number(v.sums[0]<v.sums[1]);agg.losses+=Number(v.sums[0]>v.sums[1]);agg.ties+=Number(v.sums[0]===v.sums[1]);}
+ for(let i=0;i<42;i++){const v=1n<<BigInt(i);if(pack(...unpack(v))!==v)throw Error("payload");}
+ return {seed,ticks,pairs,accounts,settled,informative,states,withheld,benefit,harm,neutral,bitChecks:42,scenarios,agg,randomCases};}
+
+const el=id=>document.getElementById(id),c=el("v"),ctx=c.getContext("2d");let s=reserveInitial(),h=[],scores=[],pending=null,gain=null,t=null,seed=159;
+function render(){const w=c.clientWidth,hg=c.clientHeight,d=devicePixelRatio||1;c.width=w*d;c.height=hg*d;ctx.setTransform(d,0,0,d,0,0);ctx.fillStyle="#080b16";ctx.fillRect(0,0,w,hg);const sc=Math.min(w*.29,hg*.42),cy=hg/2;for(let j=0;j<6;j++){const l=s.layers[j],k=j%3;for(let a=0;a<4;a++){ctx.beginPath();for(let n=0;n<=100;n++){const u=n/100,r=(.025+.95*u)*(1-k*.22),th=l.hand*u*13+a*Math.PI/2+l.net*.0002,X=w/2+sc*r*Math.cos(th),Y=cy+l.side*sc*(u+r*.13*Math.sin(th));if(n===0)ctx.moveTo(X,Y);else ctx.lineTo(X,Y);}ctx.strokeStyle=["#38bdf8","#fb923c","#b18bff"][k];ctx.lineWidth=1.7;ctx.stroke();}}for(const side of [-1,1]){ctx.strokeStyle=side<0?"#fbbf24":"#10b981";ctx.beginPath();ctx.moveTo(w/2,cy);ctx.lineTo(w/2+side*sc*1.3,cy);ctx.stroke();ctx.beginPath();ctx.arc(w/2+side*sc*1.3,cy,18,0,2*Math.PI);ctx.stroke();}ctx.fillStyle="#fff";ctx.beginPath();ctx.arc(w/2,cy,8,0,2*Math.PI);ctx.fill();el("out").textContent=["Tick "+s.tick,"Authority "+(t?.gate??0),"Reactive / anticipatory "+(t?.reactive??0)/1000+" / "+(t?.anticipatory??0)/1000,"Settled gain "+(gain===null?"pending":gain/1000),"Evidence "+scores.join(" "),"Reserve "+s.bank/1000,"Residual "+norm(s.errors)/1000].join(String.fromCharCode(10));}
+el("step").onclick=()=>{t=shadowIssue(s,h,scores);seed=(Math.imul(seed,1664525)+1013904223)>>>0;const i=s.tick-8,mode=el("mode").value,d=[i<0?0:mode==="unpredictable"||(mode==="pattern-to-noise"&&i>=32)?seed%18451-9225:i%2?-6150:6150,0,0];s=reserveStep(s,1000,d,CAP,STORAGE,t.gate===1?t.anticipatory:t.reactive);if(pending){gain=settle(pending.ticket,pending.actual,d);if(pending.ticket.informative){scores.push(gain);if(scores.length>8)scores.shift();}}pending={ticket:t,actual:d};h.push(d);if(h.length>2)h.shift();render();};el("reset").onclick=()=>{s=reserveInitial();h=[];scores=[];pending=null;t=null;gain=null;seed=159;render();};window.addEventListener("resize",render);render();</script>

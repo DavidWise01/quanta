@@ -1,0 +1,23 @@
+{
+  "version": "ADA-159T.1",
+  "lineage": "ADA-159T",
+  "watermark": ".dlw",
+  "canonical": "1 + ([-+4.5]2] explicit 1 implicit)",
+  "interpretation": "1 outer reference + 9 explicit paired slots (4 negative + shared explicit midpoint + 4 positive) + 1 implicit eye = 11. 4.5 is a half-share of a nine-slot structure, not a fractional Euclidean coordinate.",
+  "tests": {
+    "samples": 24576,
+    "maxRoundtrip": 0,
+    "maxPair": 0,
+    "dimensions": {
+      "canonical": "1 + ([-+4.5]2] explicit 1 implicit)",
+      "outer": 1,
+      "paired": 9,
+      "implicit": 1,
+      "total": 11,
+      "chart": 4
+    },
+    "independentChartRank": 4,
+    "implicitEye": 0
+  },
+  "limitations": "Provisional slot assignment; constrained lift of a four-dimensional chart, not eleven independent dimensions. Physical MHD remains 3D plus time. Electrum geometry only. Browser and Pages unverified."
+}

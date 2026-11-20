@@ -1,0 +1,24 @@
+<!doctype html><meta charset="utf-8"><meta name="viewport" content="width=device-width"><title>RQT-519 · Complete Corridor Resolution</title><style>body{background:#191a20;color:#f2e1ba;font:18px system-ui;max-width:900px;margin:40px auto;padding:25px}h1{color:#ffd78b}pre{white-space:pre-wrap;line-height:1.6}a{color:#9adade}</style><h1>RQT-519 — Complete Corridor Resolution</h1><h2>58 fully resolved · 118 remain</h2><p>253,673,383 feasible positions → 34,101,811 CRT visits → 166,969 modular survivors → 0 exact squares.</p><p>Root 19 is open. Predecessor root 18 remains unverified.</p><pre># RQT-519 — Complete Corridor Resolution
+
+Canonical architecture: `{inf brace [inf contain (inf construct \mix/\match/ ) ] }^{n}`.
+
+**Executed:** recovered RQT-516/517/518 exact data, recomputed frozen Gram SHA-256 `5f4f49b1d75d60d61961b8a0aede915707f6c5cf11e1a9d7e71f1d3a7d83c809`, sorted remaining 176 candidate x corridors by feasible width, and **completely enumerated the shortest 58 integer y intervals**, using CRT mod 16,25,49 followed by mod 11,13,17,19,23,29,31,37,41,43, exact discriminants and integer-square tests. Full quadratic back-map for z is applied to exact-square candidates.
+
+- Full feasible integer positions covered: **253,673,383**.
+- CRT visits: **34,101,811**.
+- Exact modular survivors: **166,969**.
+- Exact discriminant squares: **0**.
+- Integral root-19 witnesses: **0**.
+- Additional completely excluded fixed-x corridors: **58**.
+- Total complete exclusions in the 720-corridor sample: **602** = 499 (RQT-517) + 44 (RQT-518 inert primes) + 1 (RQT-518 complete scan) + 58 (this experiment).
+- Still unresolved in this finite 720-corridor sample: **118**.
+- Complete search wall time: **18.72 s** in the local runtime.
+- The largest fully enumerated interval has width **8,958,742**.
+- Frozen root-18 predecessor remains **UNVERIFIED**; root 19 remains **OPEN**.
+
+This is a mathematically complete enumeration only for those 58 fixed x corridors, conditional on the frozen successor form and d=1. It is **not** a global no-root certificate. Other previously scanned regions may overlap.
+
+Downloadable exact script and full per-corridor JSON are available in the conversation artifact. The JPEG and self-contained HTML visual were produced locally, but are not included in this source commit.
+
+**Next RQT-520:** large-width corridor decomposition and constructive norm representation; 118 unresolved intervals include widths far too large for straightforward enumeration.
+</pre></html>

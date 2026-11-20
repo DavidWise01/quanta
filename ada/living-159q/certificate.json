@@ -1,0 +1,86 @@
+{
+  "version": "ADA-159Q",
+  "lineage": "ADA-159P",
+  "watermark": ".dlw",
+  "grammar": "\\\\helium//neon\\\\argon//krypton\\\\xenon//radon\\\\oganesson//",
+  "atomicNumbers": [
+    2,
+    10,
+    18,
+    36,
+    54,
+    86,
+    118
+  ],
+  "increments": [
+    2,
+    8,
+    8,
+    18,
+    18,
+    32,
+    32
+  ],
+  "tests": {
+    "inherited": {
+      "inherited": {
+        "original": {
+          "samples": 4608,
+          "minEyeClearance": 0.6887999999999999,
+          "maxClosureError": 3.819268059394923e-14,
+          "eye": [
+            0,
+            0,
+            0
+          ],
+          "streams": 12,
+          "width": 42
+        },
+        "samples": 7680,
+        "swapError": 4.100316822212988e-15,
+        "doubleError": 6.258313009193178e-15,
+        "minClearance": 1.3402907632801508,
+        "minOneLap": 0.41279999999999906,
+        "maxCenterError": 3.707317959809365e-15,
+        "eye": [
+          0,
+          0,
+          0
+        ],
+        "halfTwists": 1,
+        "edgeLaps": 2
+      },
+      "samples": 3072,
+      "maxMirror": 0,
+      "minSurfaceClearance": 0.5843999999999998,
+      "eye": [
+        0,
+        0,
+        0
+      ],
+      "width": 42,
+      "channelOrder": [
+        "r8!",
+        "b8!",
+        "g8!",
+        "g8!",
+        "b8!",
+        "r8!"
+      ]
+    },
+    "samples": 10752,
+    "closure": 2.6633843106180108e-14,
+    "clearance": 0.7091999999999998,
+    "minTubeGap": 0.10079999999999997,
+    "gateCount": 7,
+    "total": 118,
+    "tracers": 118,
+    "eye": [
+      0,
+      0,
+      0
+    ],
+    "width": 42
+  },
+  "limitations": "Atomic numbers of neutral atoms are electron counts; increments are differences between successive noble gases, not seven physical electron-shell populations of oganesson. Colors, alternating handedness, tracers and radii are symbolic visualization choices. 118 tracers are not additional payload bits. Browser rendering not tested."
+}

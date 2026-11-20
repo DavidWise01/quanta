@@ -1,0 +1,540 @@
+{
+  "version": "ADA-160A",
+  "lineage": "ADA-159Z",
+  "watermark": ".dlw",
+  "tests": {
+    "checks": 5840,
+    "rows": [
+      {
+        "input": 0,
+        "resistance": 0,
+        "old": {
+          "allocated": 1,
+          "viable": 1,
+          "stable": 1,
+          "emergent": 1,
+          "withheld": 0
+        },
+        "new": {
+          "allocated": 1,
+          "viable": 1,
+          "stable": 1,
+          "emergent": 1,
+          "withheld": 0
+        }
+      },
+      {
+        "input": 0,
+        "resistance": 1,
+        "old": {
+          "allocated": 1,
+          "viable": 0,
+          "stable": 0,
+          "emergent": 0,
+          "withheld": 0
+        },
+        "new": {
+          "allocated": 1,
+          "viable": 0,
+          "stable": 0,
+          "emergent": 0,
+          "withheld": 0
+        }
+      },
+      {
+        "input": 0,
+        "resistance": 2,
+        "old": {
+          "allocated": 1,
+          "viable": 0,
+          "stable": 0,
+          "emergent": 0,
+          "withheld": 0
+        },
+        "new": {
+          "allocated": 1,
+          "viable": 0,
+          "stable": 0,
+          "emergent": 0,
+          "withheld": 0
+        }
+      },
+      {
+        "input": 0,
+        "resistance": 5,
+        "old": {
+          "allocated": 1,
+          "viable": 0,
+          "stable": 0,
+          "emergent": 0,
+          "withheld": 0
+        },
+        "new": {
+          "allocated": 1,
+          "viable": 0,
+          "stable": 0,
+          "emergent": 0,
+          "withheld": 0
+        }
+      },
+      {
+        "input": 2,
+        "resistance": 0,
+        "old": {
+          "allocated": 26,
+          "viable": 26,
+          "stable": 26,
+          "emergent": 1,
+          "withheld": 0
+        },
+        "new": {
+          "allocated": 26,
+          "viable": 26,
+          "stable": 26,
+          "emergent": 1,
+          "withheld": 1
+        }
+      },
+      {
+        "input": 2,
+        "resistance": 1,
+        "old": {
+          "allocated": 2,
+          "viable": 2,
+          "stable": 2,
+          "emergent": 1,
+          "withheld": 0
+        },
+        "new": {
+          "allocated": 2,
+          "viable": 2,
+          "stable": 2,
+          "emergent": 1,
+          "withheld": 5
+        }
+      },
+      {
+        "input": 2,
+        "resistance": 2,
+        "old": {
+          "allocated": 1,
+          "viable": 1,
+          "stable": 1,
+          "emergent": 1,
+          "withheld": 0
+        },
+        "new": {
+          "allocated": 1,
+          "viable": 1,
+          "stable": 1,
+          "emergent": 1,
+          "withheld": 0
+        }
+      },
+      {
+        "input": 2,
+        "resistance": 5,
+        "old": {
+          "allocated": 1,
+          "viable": 0,
+          "stable": 0,
+          "emergent": 0,
+          "withheld": 0
+        },
+        "new": {
+          "allocated": 1,
+          "viable": 0,
+          "stable": 0,
+          "emergent": 0,
+          "withheld": 0
+        }
+      },
+      {
+        "input": 5,
+        "resistance": 0,
+        "old": {
+          "allocated": 63,
+          "viable": 63,
+          "stable": 63,
+          "emergent": 1,
+          "withheld": 0
+        },
+        "new": {
+          "allocated": 63,
+          "viable": 63,
+          "stable": 63,
+          "emergent": 1,
+          "withheld": 3
+        }
+      },
+      {
+        "input": 5,
+        "resistance": 1,
+        "old": {
+          "allocated": 5,
+          "viable": 5,
+          "stable": 4,
+          "emergent": 1,
+          "withheld": 0
+        },
+        "new": {
+          "allocated": 5,
+          "viable": 5,
+          "stable": 5,
+          "emergent": 1,
+          "withheld": 10
+        }
+      },
+      {
+        "input": 5,
+        "resistance": 2,
+        "old": {
+          "allocated": 3,
+          "viable": 2,
+          "stable": 2,
+          "emergent": 1,
+          "withheld": 0
+        },
+        "new": {
+          "allocated": 2,
+          "viable": 2,
+          "stable": 2,
+          "emergent": 1,
+          "withheld": 97
+        }
+      },
+      {
+        "input": 5,
+        "resistance": 5,
+        "old": {
+          "allocated": 1,
+          "viable": 1,
+          "stable": 1,
+          "emergent": 1,
+          "withheld": 0
+        },
+        "new": {
+          "allocated": 1,
+          "viable": 1,
+          "stable": 1,
+          "emergent": 1,
+          "withheld": 0
+        }
+      },
+      {
+        "input": 8,
+        "resistance": 0,
+        "old": {
+          "allocated": 101,
+          "viable": 101,
+          "stable": 101,
+          "emergent": 1,
+          "withheld": 0
+        },
+        "new": {
+          "allocated": 97,
+          "viable": 97,
+          "stable": 97,
+          "emergent": 1,
+          "withheld": 4
+        }
+      },
+      {
+        "input": 8,
+        "resistance": 1,
+        "old": {
+          "allocated": 8,
+          "viable": 7,
+          "stable": 7,
+          "emergent": 1,
+          "withheld": 0
+        },
+        "new": {
+          "allocated": 8,
+          "viable": 8,
+          "stable": 8,
+          "emergent": 1,
+          "withheld": 11
+        }
+      },
+      {
+        "input": 8,
+        "resistance": 2,
+        "old": {
+          "allocated": 4,
+          "viable": 3,
+          "stable": 3,
+          "emergent": 1,
+          "withheld": 0
+        },
+        "new": {
+          "allocated": 4,
+          "viable": 4,
+          "stable": 4,
+          "emergent": 1,
+          "withheld": 96
+        }
+      },
+      {
+        "input": 8,
+        "resistance": 5,
+        "old": {
+          "allocated": 2,
+          "viable": 1,
+          "stable": 1,
+          "emergent": 1,
+          "withheld": 0
+        },
+        "new": {
+          "allocated": 1,
+          "viable": 1,
+          "stable": 1,
+          "emergent": 1,
+          "withheld": 98
+        }
+      },
+      {
+        "input": 13,
+        "resistance": 0,
+        "old": {
+          "allocated": 101,
+          "viable": 101,
+          "stable": 101,
+          "emergent": 1,
+          "withheld": 0
+        },
+        "new": {
+          "allocated": 97,
+          "viable": 97,
+          "stable": 97,
+          "emergent": 1,
+          "withheld": 4
+        }
+      },
+      {
+        "input": 13,
+        "resistance": 1,
+        "old": {
+          "allocated": 101,
+          "viable": 9,
+          "stable": 6,
+          "emergent": 1,
+          "withheld": 0
+        },
+        "new": {
+          "allocated": 13,
+          "viable": 13,
+          "stable": 13,
+          "emergent": 1,
+          "withheld": 12
+        }
+      },
+      {
+        "input": 13,
+        "resistance": 2,
+        "old": {
+          "allocated": 101,
+          "viable": 4,
+          "stable": 3,
+          "emergent": 1,
+          "withheld": 0
+        },
+        "new": {
+          "allocated": 6,
+          "viable": 6,
+          "stable": 6,
+          "emergent": 1,
+          "withheld": 95
+        }
+      },
+      {
+        "input": 13,
+        "resistance": 5,
+        "old": {
+          "allocated": 101,
+          "viable": 2,
+          "stable": 2,
+          "emergent": 1,
+          "withheld": 0
+        },
+        "new": {
+          "allocated": 1,
+          "viable": 1,
+          "stable": 1,
+          "emergent": 1,
+          "withheld": 100
+        }
+      },
+      {
+        "input": 21,
+        "resistance": 0,
+        "old": {
+          "allocated": 101,
+          "viable": 101,
+          "stable": 101,
+          "emergent": 1,
+          "withheld": 0
+        },
+        "new": {
+          "allocated": 97,
+          "viable": 97,
+          "stable": 97,
+          "emergent": 1,
+          "withheld": 4
+        }
+      },
+      {
+        "input": 21,
+        "resistance": 1,
+        "old": {
+          "allocated": 101,
+          "viable": 17,
+          "stable": 14,
+          "emergent": 1,
+          "withheld": 0
+        },
+        "new": {
+          "allocated": 21,
+          "viable": 21,
+          "stable": 21,
+          "emergent": 1,
+          "withheld": 12
+        }
+      },
+      {
+        "input": 21,
+        "resistance": 2,
+        "old": {
+          "allocated": 101,
+          "viable": 8,
+          "stable": 7,
+          "emergent": 1,
+          "withheld": 0
+        },
+        "new": {
+          "allocated": 10,
+          "viable": 10,
+          "stable": 10,
+          "emergent": 1,
+          "withheld": 91
+        }
+      },
+      {
+        "input": 21,
+        "resistance": 5,
+        "old": {
+          "allocated": 101,
+          "viable": 3,
+          "stable": 3,
+          "emergent": 1,
+          "withheld": 0
+        },
+        "new": {
+          "allocated": 2,
+          "viable": 2,
+          "stable": 2,
+          "emergent": 1,
+          "withheld": 99
+        }
+      },
+      {
+        "input": 34,
+        "resistance": 0,
+        "old": {
+          "allocated": 101,
+          "viable": 101,
+          "stable": 101,
+          "emergent": 1,
+          "withheld": 0
+        },
+        "new": {
+          "allocated": 97,
+          "viable": 97,
+          "stable": 97,
+          "emergent": 1,
+          "withheld": 4
+        }
+      },
+      {
+        "input": 34,
+        "resistance": 1,
+        "old": {
+          "allocated": 101,
+          "viable": 26,
+          "stable": 23,
+          "emergent": 1,
+          "withheld": 0
+        },
+        "new": {
+          "allocated": 34,
+          "viable": 34,
+          "stable": 34,
+          "emergent": 1,
+          "withheld": 12
+        }
+      },
+      {
+        "input": 34,
+        "resistance": 2,
+        "old": {
+          "allocated": 101,
+          "viable": 13,
+          "stable": 12,
+          "emergent": 1,
+          "withheld": 0
+        },
+        "new": {
+          "allocated": 17,
+          "viable": 17,
+          "stable": 17,
+          "emergent": 1,
+          "withheld": 84
+        }
+      },
+      {
+        "input": 34,
+        "resistance": 5,
+        "old": {
+          "allocated": 101,
+          "viable": 6,
+          "stable": 6,
+          "emergent": 1,
+          "withheld": 0
+        },
+        "new": {
+          "allocated": 5,
+          "viable": 5,
+          "stable": 5,
+          "emergent": 1,
+          "withheld": 96
+        }
+      }
+    ],
+    "shock": [
+      {
+        "tick": 40,
+        "old": 41,
+        "oldViable": 9,
+        "new": 13,
+        "newViable": 13
+      },
+      {
+        "tick": 70,
+        "old": 41,
+        "oldViable": 0,
+        "new": 13,
+        "newViable": 0
+      },
+      {
+        "tick": 120,
+        "old": 90,
+        "oldViable": 8,
+        "new": 13,
+        "newViable": 5
+      }
+    ],
+    "horizon": 5
+  },
+  "model": "Root-coordinated maintenance prior to propagation. Five-sample trailing minimum ingress and maximum resistance, require maintenance coverage for new population, surplus reserve and all existing nodes provisioned. Direct root transfers abstract routing. Matched prior engine comparison.",
+  "limits": "Forecast not guarantee; abrupt shocks can overwhelm both policies. Fixed cost, external ingress, no autonomous local routing or physical claims. Browser and Pages unverified."
+}

@@ -1,0 +1,78 @@
+{
+  "version": "ADA-159S.1",
+  "lineage": "ADA-159S",
+  "watermark": ".dlw",
+  "gate8": "Z184 is a reserved symbolic boundary, not confirmed element or noble gas",
+  "increments": [
+    2,
+    8,
+    8,
+    18,
+    18,
+    32,
+    32,
+    66
+  ],
+  "tests": {
+    "inherited": {
+      "inherited": {
+        "original": {
+          "samples": 4608,
+          "minEyeClearance": 0.6887999999999999,
+          "maxClosureError": 3.819268059394923e-14,
+          "eye": [
+            0,
+            0,
+            0
+          ],
+          "streams": 12,
+          "width": 42
+        },
+        "samples": 7680,
+        "swapError": 4.100316822212988e-15,
+        "doubleError": 6.258313009193178e-15,
+        "minClearance": 1.3402907632801508,
+        "minOneLap": 0.41279999999999906,
+        "maxCenterError": 3.707317959809365e-15,
+        "eye": [
+          0,
+          0,
+          0
+        ],
+        "halfTwists": 1,
+        "edgeLaps": 2
+      },
+      "samples": 3072,
+      "maxMirror": 0,
+      "minSurfaceClearance": 0.5843999999999998,
+      "eye": [
+        0,
+        0,
+        0
+      ],
+      "width": 42,
+      "channelOrder": [
+        "r8!",
+        "b8!",
+        "g8!",
+        "g8!",
+        "b8!",
+        "r8!"
+      ]
+    },
+    "samples": 12288,
+    "closure": 2.8994521679459174e-14,
+    "clearance": 0.5999999999999999,
+    "minTubeGap": 0.10079999999999997,
+    "gateCount": 8,
+    "total": 184,
+    "tracers": 184,
+    "eye": [
+      0,
+      0,
+      0
+    ],
+    "width": 42
+  },
+  "limitations": "Noble shells are visualization overlays; Z184 is not established chemistry. The eighth gate radius and silver color are design choices. Browser and Pages unverified."
+}

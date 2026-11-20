@@ -1,0 +1,4809 @@
+{
+  "version": "ADA-159G",
+  "lineage": "ADA-159F",
+  "watermark": ".dlw",
+  "width": 42,
+  "gate": "00 11 [ 24 /|\\ 42 ] 11 00",
+  "capacity": 24600,
+  "releasePerTick": 3075,
+  "unit": "milliarcsecond-equivalent correction credit",
+  "policy": "Use current correction capacity first, bank unused capacity, discharge only previously banked credit for unmet prior-tick error. Overflow discarded. No simultaneous charge/discharge.",
+  "limitations": "Symbolic budget model; assumes lossless storage and transferable actuation, not physical energy. Storage and discharge bounds chosen provisionally. No payload encoding change.",
+  "tests": {
+    "ticks": 4688,
+    "pairs": 14064,
+    "random": 4096,
+    "accounting": 4688,
+    "bitChecks": 42,
+    "cases": [
+      {
+        "magnitude": 3075,
+        "duration": 1,
+        "peakStored": 3075,
+        "peakDirect": 3075,
+        "endBurst": {
+          "tick": 9,
+          "stored": 3075,
+          "direct": 3075,
+          "bank": 24600,
+          "draw": 0,
+          "charge": 0
+        },
+        "drawn": 0,
+        "trace": [
+          {
+            "tick": 1,
+            "stored": 0,
+            "direct": 0,
+            "bank": 3075,
+            "draw": 0,
+            "charge": 3075
+          },
+          {
+            "tick": 2,
+            "stored": 0,
+            "direct": 0,
+            "bank": 6150,
+            "draw": 0,
+            "charge": 3075
+          },
+          {
+            "tick": 3,
+            "stored": 0,
+            "direct": 0,
+            "bank": 9225,
+            "draw": 0,
+            "charge": 3075
+          },
+          {
+            "tick": 4,
+            "stored": 0,
+            "direct": 0,
+            "bank": 12300,
+            "draw": 0,
+            "charge": 3075
+          },
+          {
+            "tick": 5,
+            "stored": 0,
+            "direct": 0,
+            "bank": 15375,
+            "draw": 0,
+            "charge": 3075
+          },
+          {
+            "tick": 6,
+            "stored": 0,
+            "direct": 0,
+            "bank": 18450,
+            "draw": 0,
+            "charge": 3075
+          },
+          {
+            "tick": 7,
+            "stored": 0,
+            "direct": 0,
+            "bank": 21525,
+            "draw": 0,
+            "charge": 3075
+          },
+          {
+            "tick": 8,
+            "stored": 0,
+            "direct": 0,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 3075
+          },
+          {
+            "tick": 9,
+            "stored": 3075,
+            "direct": 3075,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 10,
+            "stored": 0,
+            "direct": 0,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 11,
+            "stored": 0,
+            "direct": 0,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 12,
+            "stored": 0,
+            "direct": 0,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 13,
+            "stored": 0,
+            "direct": 0,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 14,
+            "stored": 0,
+            "direct": 0,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 15,
+            "stored": 0,
+            "direct": 0,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 16,
+            "stored": 0,
+            "direct": 0,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 17,
+            "stored": 0,
+            "direct": 0,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 18,
+            "stored": 0,
+            "direct": 0,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 19,
+            "stored": 0,
+            "direct": 0,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 20,
+            "stored": 0,
+            "direct": 0,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 21,
+            "stored": 0,
+            "direct": 0,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 22,
+            "stored": 0,
+            "direct": 0,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 23,
+            "stored": 0,
+            "direct": 0,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 24,
+            "stored": 0,
+            "direct": 0,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 25,
+            "stored": 0,
+            "direct": 0,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 0
+          }
+        ]
+      },
+      {
+        "magnitude": 3075,
+        "duration": 4,
+        "peakStored": 3075,
+        "peakDirect": 3075,
+        "endBurst": {
+          "tick": 12,
+          "stored": 3075,
+          "direct": 3075,
+          "bank": 24600,
+          "draw": 0,
+          "charge": 0
+        },
+        "drawn": 0,
+        "trace": [
+          {
+            "tick": 1,
+            "stored": 0,
+            "direct": 0,
+            "bank": 3075,
+            "draw": 0,
+            "charge": 3075
+          },
+          {
+            "tick": 2,
+            "stored": 0,
+            "direct": 0,
+            "bank": 6150,
+            "draw": 0,
+            "charge": 3075
+          },
+          {
+            "tick": 3,
+            "stored": 0,
+            "direct": 0,
+            "bank": 9225,
+            "draw": 0,
+            "charge": 3075
+          },
+          {
+            "tick": 4,
+            "stored": 0,
+            "direct": 0,
+            "bank": 12300,
+            "draw": 0,
+            "charge": 3075
+          },
+          {
+            "tick": 5,
+            "stored": 0,
+            "direct": 0,
+            "bank": 15375,
+            "draw": 0,
+            "charge": 3075
+          },
+          {
+            "tick": 6,
+            "stored": 0,
+            "direct": 0,
+            "bank": 18450,
+            "draw": 0,
+            "charge": 3075
+          },
+          {
+            "tick": 7,
+            "stored": 0,
+            "direct": 0,
+            "bank": 21525,
+            "draw": 0,
+            "charge": 3075
+          },
+          {
+            "tick": 8,
+            "stored": 0,
+            "direct": 0,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 3075
+          },
+          {
+            "tick": 9,
+            "stored": 3075,
+            "direct": 3075,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 10,
+            "stored": 3075,
+            "direct": 3075,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 11,
+            "stored": 3075,
+            "direct": 3075,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 12,
+            "stored": 3075,
+            "direct": 3075,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 13,
+            "stored": 0,
+            "direct": 0,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 14,
+            "stored": 0,
+            "direct": 0,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 15,
+            "stored": 0,
+            "direct": 0,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 16,
+            "stored": 0,
+            "direct": 0,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 17,
+            "stored": 0,
+            "direct": 0,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 18,
+            "stored": 0,
+            "direct": 0,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 19,
+            "stored": 0,
+            "direct": 0,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 20,
+            "stored": 0,
+            "direct": 0,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 21,
+            "stored": 0,
+            "direct": 0,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 22,
+            "stored": 0,
+            "direct": 0,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 23,
+            "stored": 0,
+            "direct": 0,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 24,
+            "stored": 0,
+            "direct": 0,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 25,
+            "stored": 0,
+            "direct": 0,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 26,
+            "stored": 0,
+            "direct": 0,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 27,
+            "stored": 0,
+            "direct": 0,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 28,
+            "stored": 0,
+            "direct": 0,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 0
+          }
+        ]
+      },
+      {
+        "magnitude": 3075,
+        "duration": 8,
+        "peakStored": 3075,
+        "peakDirect": 3075,
+        "endBurst": {
+          "tick": 16,
+          "stored": 3075,
+          "direct": 3075,
+          "bank": 24600,
+          "draw": 0,
+          "charge": 0
+        },
+        "drawn": 0,
+        "trace": [
+          {
+            "tick": 1,
+            "stored": 0,
+            "direct": 0,
+            "bank": 3075,
+            "draw": 0,
+            "charge": 3075
+          },
+          {
+            "tick": 2,
+            "stored": 0,
+            "direct": 0,
+            "bank": 6150,
+            "draw": 0,
+            "charge": 3075
+          },
+          {
+            "tick": 3,
+            "stored": 0,
+            "direct": 0,
+            "bank": 9225,
+            "draw": 0,
+            "charge": 3075
+          },
+          {
+            "tick": 4,
+            "stored": 0,
+            "direct": 0,
+            "bank": 12300,
+            "draw": 0,
+            "charge": 3075
+          },
+          {
+            "tick": 5,
+            "stored": 0,
+            "direct": 0,
+            "bank": 15375,
+            "draw": 0,
+            "charge": 3075
+          },
+          {
+            "tick": 6,
+            "stored": 0,
+            "direct": 0,
+            "bank": 18450,
+            "draw": 0,
+            "charge": 3075
+          },
+          {
+            "tick": 7,
+            "stored": 0,
+            "direct": 0,
+            "bank": 21525,
+            "draw": 0,
+            "charge": 3075
+          },
+          {
+            "tick": 8,
+            "stored": 0,
+            "direct": 0,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 3075
+          },
+          {
+            "tick": 9,
+            "stored": 3075,
+            "direct": 3075,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 10,
+            "stored": 3075,
+            "direct": 3075,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 11,
+            "stored": 3075,
+            "direct": 3075,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 12,
+            "stored": 3075,
+            "direct": 3075,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 13,
+            "stored": 3075,
+            "direct": 3075,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 14,
+            "stored": 3075,
+            "direct": 3075,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 15,
+            "stored": 3075,
+            "direct": 3075,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 16,
+            "stored": 3075,
+            "direct": 3075,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 17,
+            "stored": 0,
+            "direct": 0,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 18,
+            "stored": 0,
+            "direct": 0,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 19,
+            "stored": 0,
+            "direct": 0,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 20,
+            "stored": 0,
+            "direct": 0,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 21,
+            "stored": 0,
+            "direct": 0,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 22,
+            "stored": 0,
+            "direct": 0,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 23,
+            "stored": 0,
+            "direct": 0,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 24,
+            "stored": 0,
+            "direct": 0,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 25,
+            "stored": 0,
+            "direct": 0,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 26,
+            "stored": 0,
+            "direct": 0,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 27,
+            "stored": 0,
+            "direct": 0,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 28,
+            "stored": 0,
+            "direct": 0,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 29,
+            "stored": 0,
+            "direct": 0,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 30,
+            "stored": 0,
+            "direct": 0,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 31,
+            "stored": 0,
+            "direct": 0,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 32,
+            "stored": 0,
+            "direct": 0,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 0
+          }
+        ]
+      },
+      {
+        "magnitude": 3075,
+        "duration": 32,
+        "peakStored": 3075,
+        "peakDirect": 3075,
+        "endBurst": {
+          "tick": 40,
+          "stored": 3075,
+          "direct": 3075,
+          "bank": 24600,
+          "draw": 0,
+          "charge": 0
+        },
+        "drawn": 0,
+        "trace": [
+          {
+            "tick": 1,
+            "stored": 0,
+            "direct": 0,
+            "bank": 3075,
+            "draw": 0,
+            "charge": 3075
+          },
+          {
+            "tick": 2,
+            "stored": 0,
+            "direct": 0,
+            "bank": 6150,
+            "draw": 0,
+            "charge": 3075
+          },
+          {
+            "tick": 3,
+            "stored": 0,
+            "direct": 0,
+            "bank": 9225,
+            "draw": 0,
+            "charge": 3075
+          },
+          {
+            "tick": 4,
+            "stored": 0,
+            "direct": 0,
+            "bank": 12300,
+            "draw": 0,
+            "charge": 3075
+          },
+          {
+            "tick": 5,
+            "stored": 0,
+            "direct": 0,
+            "bank": 15375,
+            "draw": 0,
+            "charge": 3075
+          },
+          {
+            "tick": 6,
+            "stored": 0,
+            "direct": 0,
+            "bank": 18450,
+            "draw": 0,
+            "charge": 3075
+          },
+          {
+            "tick": 7,
+            "stored": 0,
+            "direct": 0,
+            "bank": 21525,
+            "draw": 0,
+            "charge": 3075
+          },
+          {
+            "tick": 8,
+            "stored": 0,
+            "direct": 0,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 3075
+          },
+          {
+            "tick": 9,
+            "stored": 3075,
+            "direct": 3075,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 10,
+            "stored": 3075,
+            "direct": 3075,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 11,
+            "stored": 3075,
+            "direct": 3075,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 12,
+            "stored": 3075,
+            "direct": 3075,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 13,
+            "stored": 3075,
+            "direct": 3075,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 14,
+            "stored": 3075,
+            "direct": 3075,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 15,
+            "stored": 3075,
+            "direct": 3075,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 16,
+            "stored": 3075,
+            "direct": 3075,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 17,
+            "stored": 3075,
+            "direct": 3075,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 18,
+            "stored": 3075,
+            "direct": 3075,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 19,
+            "stored": 3075,
+            "direct": 3075,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 20,
+            "stored": 3075,
+            "direct": 3075,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 21,
+            "stored": 3075,
+            "direct": 3075,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 22,
+            "stored": 3075,
+            "direct": 3075,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 23,
+            "stored": 3075,
+            "direct": 3075,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 24,
+            "stored": 3075,
+            "direct": 3075,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 25,
+            "stored": 3075,
+            "direct": 3075,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 26,
+            "stored": 3075,
+            "direct": 3075,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 27,
+            "stored": 3075,
+            "direct": 3075,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 28,
+            "stored": 3075,
+            "direct": 3075,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 29,
+            "stored": 3075,
+            "direct": 3075,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 30,
+            "stored": 3075,
+            "direct": 3075,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 31,
+            "stored": 3075,
+            "direct": 3075,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 32,
+            "stored": 3075,
+            "direct": 3075,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 33,
+            "stored": 3075,
+            "direct": 3075,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 34,
+            "stored": 3075,
+            "direct": 3075,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 35,
+            "stored": 3075,
+            "direct": 3075,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 36,
+            "stored": 3075,
+            "direct": 3075,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 37,
+            "stored": 3075,
+            "direct": 3075,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 38,
+            "stored": 3075,
+            "direct": 3075,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 39,
+            "stored": 3075,
+            "direct": 3075,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 40,
+            "stored": 3075,
+            "direct": 3075,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 41,
+            "stored": 0,
+            "direct": 0,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 42,
+            "stored": 0,
+            "direct": 0,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 43,
+            "stored": 0,
+            "direct": 0,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 44,
+            "stored": 0,
+            "direct": 0,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 45,
+            "stored": 0,
+            "direct": 0,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 46,
+            "stored": 0,
+            "direct": 0,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 47,
+            "stored": 0,
+            "direct": 0,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 48,
+            "stored": 0,
+            "direct": 0,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 49,
+            "stored": 0,
+            "direct": 0,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 50,
+            "stored": 0,
+            "direct": 0,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 51,
+            "stored": 0,
+            "direct": 0,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 52,
+            "stored": 0,
+            "direct": 0,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 53,
+            "stored": 0,
+            "direct": 0,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 54,
+            "stored": 0,
+            "direct": 0,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 55,
+            "stored": 0,
+            "direct": 0,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 56,
+            "stored": 0,
+            "direct": 0,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 0
+          }
+        ]
+      },
+      {
+        "magnitude": 4100,
+        "duration": 1,
+        "peakStored": 4100,
+        "peakDirect": 4100,
+        "endBurst": {
+          "tick": 9,
+          "stored": 4100,
+          "direct": 4100,
+          "bank": 24600,
+          "draw": 0,
+          "charge": 0
+        },
+        "drawn": 1025,
+        "trace": [
+          {
+            "tick": 1,
+            "stored": 0,
+            "direct": 0,
+            "bank": 3075,
+            "draw": 0,
+            "charge": 3075
+          },
+          {
+            "tick": 2,
+            "stored": 0,
+            "direct": 0,
+            "bank": 6150,
+            "draw": 0,
+            "charge": 3075
+          },
+          {
+            "tick": 3,
+            "stored": 0,
+            "direct": 0,
+            "bank": 9225,
+            "draw": 0,
+            "charge": 3075
+          },
+          {
+            "tick": 4,
+            "stored": 0,
+            "direct": 0,
+            "bank": 12300,
+            "draw": 0,
+            "charge": 3075
+          },
+          {
+            "tick": 5,
+            "stored": 0,
+            "direct": 0,
+            "bank": 15375,
+            "draw": 0,
+            "charge": 3075
+          },
+          {
+            "tick": 6,
+            "stored": 0,
+            "direct": 0,
+            "bank": 18450,
+            "draw": 0,
+            "charge": 3075
+          },
+          {
+            "tick": 7,
+            "stored": 0,
+            "direct": 0,
+            "bank": 21525,
+            "draw": 0,
+            "charge": 3075
+          },
+          {
+            "tick": 8,
+            "stored": 0,
+            "direct": 0,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 3075
+          },
+          {
+            "tick": 9,
+            "stored": 4100,
+            "direct": 4100,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 10,
+            "stored": 0,
+            "direct": 1025,
+            "bank": 23575,
+            "draw": 1025,
+            "charge": 0
+          },
+          {
+            "tick": 11,
+            "stored": 0,
+            "direct": 0,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 1025
+          },
+          {
+            "tick": 12,
+            "stored": 0,
+            "direct": 0,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 13,
+            "stored": 0,
+            "direct": 0,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 14,
+            "stored": 0,
+            "direct": 0,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 15,
+            "stored": 0,
+            "direct": 0,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 16,
+            "stored": 0,
+            "direct": 0,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 17,
+            "stored": 0,
+            "direct": 0,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 18,
+            "stored": 0,
+            "direct": 0,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 19,
+            "stored": 0,
+            "direct": 0,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 20,
+            "stored": 0,
+            "direct": 0,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 21,
+            "stored": 0,
+            "direct": 0,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 22,
+            "stored": 0,
+            "direct": 0,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 23,
+            "stored": 0,
+            "direct": 0,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 24,
+            "stored": 0,
+            "direct": 0,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 25,
+            "stored": 0,
+            "direct": 0,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 0
+          }
+        ]
+      },
+      {
+        "magnitude": 4100,
+        "duration": 4,
+        "peakStored": 4100,
+        "peakDirect": 7175,
+        "endBurst": {
+          "tick": 12,
+          "stored": 4100,
+          "direct": 7175,
+          "bank": 21525,
+          "draw": 1025,
+          "charge": 0
+        },
+        "drawn": 4100,
+        "trace": [
+          {
+            "tick": 1,
+            "stored": 0,
+            "direct": 0,
+            "bank": 3075,
+            "draw": 0,
+            "charge": 3075
+          },
+          {
+            "tick": 2,
+            "stored": 0,
+            "direct": 0,
+            "bank": 6150,
+            "draw": 0,
+            "charge": 3075
+          },
+          {
+            "tick": 3,
+            "stored": 0,
+            "direct": 0,
+            "bank": 9225,
+            "draw": 0,
+            "charge": 3075
+          },
+          {
+            "tick": 4,
+            "stored": 0,
+            "direct": 0,
+            "bank": 12300,
+            "draw": 0,
+            "charge": 3075
+          },
+          {
+            "tick": 5,
+            "stored": 0,
+            "direct": 0,
+            "bank": 15375,
+            "draw": 0,
+            "charge": 3075
+          },
+          {
+            "tick": 6,
+            "stored": 0,
+            "direct": 0,
+            "bank": 18450,
+            "draw": 0,
+            "charge": 3075
+          },
+          {
+            "tick": 7,
+            "stored": 0,
+            "direct": 0,
+            "bank": 21525,
+            "draw": 0,
+            "charge": 3075
+          },
+          {
+            "tick": 8,
+            "stored": 0,
+            "direct": 0,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 3075
+          },
+          {
+            "tick": 9,
+            "stored": 4100,
+            "direct": 4100,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 10,
+            "stored": 4100,
+            "direct": 5125,
+            "bank": 23575,
+            "draw": 1025,
+            "charge": 0
+          },
+          {
+            "tick": 11,
+            "stored": 4100,
+            "direct": 6150,
+            "bank": 22550,
+            "draw": 1025,
+            "charge": 0
+          },
+          {
+            "tick": 12,
+            "stored": 4100,
+            "direct": 7175,
+            "bank": 21525,
+            "draw": 1025,
+            "charge": 0
+          },
+          {
+            "tick": 13,
+            "stored": 0,
+            "direct": 4100,
+            "bank": 20500,
+            "draw": 1025,
+            "charge": 0
+          },
+          {
+            "tick": 14,
+            "stored": 0,
+            "direct": 1025,
+            "bank": 23575,
+            "draw": 0,
+            "charge": 3075
+          },
+          {
+            "tick": 15,
+            "stored": 0,
+            "direct": 0,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 1025
+          },
+          {
+            "tick": 16,
+            "stored": 0,
+            "direct": 0,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 17,
+            "stored": 0,
+            "direct": 0,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 18,
+            "stored": 0,
+            "direct": 0,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 19,
+            "stored": 0,
+            "direct": 0,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 20,
+            "stored": 0,
+            "direct": 0,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 21,
+            "stored": 0,
+            "direct": 0,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 22,
+            "stored": 0,
+            "direct": 0,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 23,
+            "stored": 0,
+            "direct": 0,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 24,
+            "stored": 0,
+            "direct": 0,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 25,
+            "stored": 0,
+            "direct": 0,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 26,
+            "stored": 0,
+            "direct": 0,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 27,
+            "stored": 0,
+            "direct": 0,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 28,
+            "stored": 0,
+            "direct": 0,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 0
+          }
+        ]
+      },
+      {
+        "magnitude": 4100,
+        "duration": 8,
+        "peakStored": 4100,
+        "peakDirect": 11275,
+        "endBurst": {
+          "tick": 16,
+          "stored": 4100,
+          "direct": 11275,
+          "bank": 17425,
+          "draw": 1025,
+          "charge": 0
+        },
+        "drawn": 8200,
+        "trace": [
+          {
+            "tick": 1,
+            "stored": 0,
+            "direct": 0,
+            "bank": 3075,
+            "draw": 0,
+            "charge": 3075
+          },
+          {
+            "tick": 2,
+            "stored": 0,
+            "direct": 0,
+            "bank": 6150,
+            "draw": 0,
+            "charge": 3075
+          },
+          {
+            "tick": 3,
+            "stored": 0,
+            "direct": 0,
+            "bank": 9225,
+            "draw": 0,
+            "charge": 3075
+          },
+          {
+            "tick": 4,
+            "stored": 0,
+            "direct": 0,
+            "bank": 12300,
+            "draw": 0,
+            "charge": 3075
+          },
+          {
+            "tick": 5,
+            "stored": 0,
+            "direct": 0,
+            "bank": 15375,
+            "draw": 0,
+            "charge": 3075
+          },
+          {
+            "tick": 6,
+            "stored": 0,
+            "direct": 0,
+            "bank": 18450,
+            "draw": 0,
+            "charge": 3075
+          },
+          {
+            "tick": 7,
+            "stored": 0,
+            "direct": 0,
+            "bank": 21525,
+            "draw": 0,
+            "charge": 3075
+          },
+          {
+            "tick": 8,
+            "stored": 0,
+            "direct": 0,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 3075
+          },
+          {
+            "tick": 9,
+            "stored": 4100,
+            "direct": 4100,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 10,
+            "stored": 4100,
+            "direct": 5125,
+            "bank": 23575,
+            "draw": 1025,
+            "charge": 0
+          },
+          {
+            "tick": 11,
+            "stored": 4100,
+            "direct": 6150,
+            "bank": 22550,
+            "draw": 1025,
+            "charge": 0
+          },
+          {
+            "tick": 12,
+            "stored": 4100,
+            "direct": 7175,
+            "bank": 21525,
+            "draw": 1025,
+            "charge": 0
+          },
+          {
+            "tick": 13,
+            "stored": 4100,
+            "direct": 8200,
+            "bank": 20500,
+            "draw": 1025,
+            "charge": 0
+          },
+          {
+            "tick": 14,
+            "stored": 4100,
+            "direct": 9225,
+            "bank": 19475,
+            "draw": 1025,
+            "charge": 0
+          },
+          {
+            "tick": 15,
+            "stored": 4100,
+            "direct": 10250,
+            "bank": 18450,
+            "draw": 1025,
+            "charge": 0
+          },
+          {
+            "tick": 16,
+            "stored": 4100,
+            "direct": 11275,
+            "bank": 17425,
+            "draw": 1025,
+            "charge": 0
+          },
+          {
+            "tick": 17,
+            "stored": 0,
+            "direct": 8200,
+            "bank": 16400,
+            "draw": 1025,
+            "charge": 0
+          },
+          {
+            "tick": 18,
+            "stored": 0,
+            "direct": 5125,
+            "bank": 19475,
+            "draw": 0,
+            "charge": 3075
+          },
+          {
+            "tick": 19,
+            "stored": 0,
+            "direct": 2050,
+            "bank": 22550,
+            "draw": 0,
+            "charge": 3075
+          },
+          {
+            "tick": 20,
+            "stored": 0,
+            "direct": 0,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 2050
+          },
+          {
+            "tick": 21,
+            "stored": 0,
+            "direct": 0,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 22,
+            "stored": 0,
+            "direct": 0,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 23,
+            "stored": 0,
+            "direct": 0,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 24,
+            "stored": 0,
+            "direct": 0,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 25,
+            "stored": 0,
+            "direct": 0,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 26,
+            "stored": 0,
+            "direct": 0,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 27,
+            "stored": 0,
+            "direct": 0,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 28,
+            "stored": 0,
+            "direct": 0,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 29,
+            "stored": 0,
+            "direct": 0,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 30,
+            "stored": 0,
+            "direct": 0,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 31,
+            "stored": 0,
+            "direct": 0,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 32,
+            "stored": 0,
+            "direct": 0,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 0
+          }
+        ]
+      },
+      {
+        "magnitude": 4100,
+        "duration": 32,
+        "peakStored": 11275,
+        "peakDirect": 35875,
+        "endBurst": {
+          "tick": 40,
+          "stored": 11275,
+          "direct": 35875,
+          "bank": 0,
+          "draw": 0,
+          "charge": 0
+        },
+        "drawn": 24600,
+        "trace": [
+          {
+            "tick": 1,
+            "stored": 0,
+            "direct": 0,
+            "bank": 3075,
+            "draw": 0,
+            "charge": 3075
+          },
+          {
+            "tick": 2,
+            "stored": 0,
+            "direct": 0,
+            "bank": 6150,
+            "draw": 0,
+            "charge": 3075
+          },
+          {
+            "tick": 3,
+            "stored": 0,
+            "direct": 0,
+            "bank": 9225,
+            "draw": 0,
+            "charge": 3075
+          },
+          {
+            "tick": 4,
+            "stored": 0,
+            "direct": 0,
+            "bank": 12300,
+            "draw": 0,
+            "charge": 3075
+          },
+          {
+            "tick": 5,
+            "stored": 0,
+            "direct": 0,
+            "bank": 15375,
+            "draw": 0,
+            "charge": 3075
+          },
+          {
+            "tick": 6,
+            "stored": 0,
+            "direct": 0,
+            "bank": 18450,
+            "draw": 0,
+            "charge": 3075
+          },
+          {
+            "tick": 7,
+            "stored": 0,
+            "direct": 0,
+            "bank": 21525,
+            "draw": 0,
+            "charge": 3075
+          },
+          {
+            "tick": 8,
+            "stored": 0,
+            "direct": 0,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 3075
+          },
+          {
+            "tick": 9,
+            "stored": 4100,
+            "direct": 4100,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 10,
+            "stored": 4100,
+            "direct": 5125,
+            "bank": 23575,
+            "draw": 1025,
+            "charge": 0
+          },
+          {
+            "tick": 11,
+            "stored": 4100,
+            "direct": 6150,
+            "bank": 22550,
+            "draw": 1025,
+            "charge": 0
+          },
+          {
+            "tick": 12,
+            "stored": 4100,
+            "direct": 7175,
+            "bank": 21525,
+            "draw": 1025,
+            "charge": 0
+          },
+          {
+            "tick": 13,
+            "stored": 4100,
+            "direct": 8200,
+            "bank": 20500,
+            "draw": 1025,
+            "charge": 0
+          },
+          {
+            "tick": 14,
+            "stored": 4100,
+            "direct": 9225,
+            "bank": 19475,
+            "draw": 1025,
+            "charge": 0
+          },
+          {
+            "tick": 15,
+            "stored": 4100,
+            "direct": 10250,
+            "bank": 18450,
+            "draw": 1025,
+            "charge": 0
+          },
+          {
+            "tick": 16,
+            "stored": 4100,
+            "direct": 11275,
+            "bank": 17425,
+            "draw": 1025,
+            "charge": 0
+          },
+          {
+            "tick": 17,
+            "stored": 4100,
+            "direct": 12300,
+            "bank": 16400,
+            "draw": 1025,
+            "charge": 0
+          },
+          {
+            "tick": 18,
+            "stored": 4100,
+            "direct": 13325,
+            "bank": 15375,
+            "draw": 1025,
+            "charge": 0
+          },
+          {
+            "tick": 19,
+            "stored": 4100,
+            "direct": 14350,
+            "bank": 14350,
+            "draw": 1025,
+            "charge": 0
+          },
+          {
+            "tick": 20,
+            "stored": 4100,
+            "direct": 15375,
+            "bank": 13325,
+            "draw": 1025,
+            "charge": 0
+          },
+          {
+            "tick": 21,
+            "stored": 4100,
+            "direct": 16400,
+            "bank": 12300,
+            "draw": 1025,
+            "charge": 0
+          },
+          {
+            "tick": 22,
+            "stored": 4100,
+            "direct": 17425,
+            "bank": 11275,
+            "draw": 1025,
+            "charge": 0
+          },
+          {
+            "tick": 23,
+            "stored": 4100,
+            "direct": 18450,
+            "bank": 10250,
+            "draw": 1025,
+            "charge": 0
+          },
+          {
+            "tick": 24,
+            "stored": 4100,
+            "direct": 19475,
+            "bank": 9225,
+            "draw": 1025,
+            "charge": 0
+          },
+          {
+            "tick": 25,
+            "stored": 4100,
+            "direct": 20500,
+            "bank": 8200,
+            "draw": 1025,
+            "charge": 0
+          },
+          {
+            "tick": 26,
+            "stored": 4100,
+            "direct": 21525,
+            "bank": 7175,
+            "draw": 1025,
+            "charge": 0
+          },
+          {
+            "tick": 27,
+            "stored": 4100,
+            "direct": 22550,
+            "bank": 6150,
+            "draw": 1025,
+            "charge": 0
+          },
+          {
+            "tick": 28,
+            "stored": 4100,
+            "direct": 23575,
+            "bank": 5125,
+            "draw": 1025,
+            "charge": 0
+          },
+          {
+            "tick": 29,
+            "stored": 4100,
+            "direct": 24600,
+            "bank": 4100,
+            "draw": 1025,
+            "charge": 0
+          },
+          {
+            "tick": 30,
+            "stored": 4100,
+            "direct": 25625,
+            "bank": 3075,
+            "draw": 1025,
+            "charge": 0
+          },
+          {
+            "tick": 31,
+            "stored": 4100,
+            "direct": 26650,
+            "bank": 2050,
+            "draw": 1025,
+            "charge": 0
+          },
+          {
+            "tick": 32,
+            "stored": 4100,
+            "direct": 27675,
+            "bank": 1025,
+            "draw": 1025,
+            "charge": 0
+          },
+          {
+            "tick": 33,
+            "stored": 4100,
+            "direct": 28700,
+            "bank": 0,
+            "draw": 1025,
+            "charge": 0
+          },
+          {
+            "tick": 34,
+            "stored": 5125,
+            "direct": 29725,
+            "bank": 0,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 35,
+            "stored": 6150,
+            "direct": 30750,
+            "bank": 0,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 36,
+            "stored": 7175,
+            "direct": 31775,
+            "bank": 0,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 37,
+            "stored": 8200,
+            "direct": 32800,
+            "bank": 0,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 38,
+            "stored": 9225,
+            "direct": 33825,
+            "bank": 0,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 39,
+            "stored": 10250,
+            "direct": 34850,
+            "bank": 0,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 40,
+            "stored": 11275,
+            "direct": 35875,
+            "bank": 0,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 41,
+            "stored": 8200,
+            "direct": 32800,
+            "bank": 0,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 42,
+            "stored": 5125,
+            "direct": 29725,
+            "bank": 0,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 43,
+            "stored": 2050,
+            "direct": 26650,
+            "bank": 0,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 44,
+            "stored": 0,
+            "direct": 23575,
+            "bank": 1025,
+            "draw": 0,
+            "charge": 1025
+          },
+          {
+            "tick": 45,
+            "stored": 0,
+            "direct": 20500,
+            "bank": 4100,
+            "draw": 0,
+            "charge": 3075
+          },
+          {
+            "tick": 46,
+            "stored": 0,
+            "direct": 17425,
+            "bank": 7175,
+            "draw": 0,
+            "charge": 3075
+          },
+          {
+            "tick": 47,
+            "stored": 0,
+            "direct": 14350,
+            "bank": 10250,
+            "draw": 0,
+            "charge": 3075
+          },
+          {
+            "tick": 48,
+            "stored": 0,
+            "direct": 11275,
+            "bank": 13325,
+            "draw": 0,
+            "charge": 3075
+          },
+          {
+            "tick": 49,
+            "stored": 0,
+            "direct": 8200,
+            "bank": 16400,
+            "draw": 0,
+            "charge": 3075
+          },
+          {
+            "tick": 50,
+            "stored": 0,
+            "direct": 5125,
+            "bank": 19475,
+            "draw": 0,
+            "charge": 3075
+          },
+          {
+            "tick": 51,
+            "stored": 0,
+            "direct": 2050,
+            "bank": 22550,
+            "draw": 0,
+            "charge": 3075
+          },
+          {
+            "tick": 52,
+            "stored": 0,
+            "direct": 0,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 2050
+          },
+          {
+            "tick": 53,
+            "stored": 0,
+            "direct": 0,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 54,
+            "stored": 0,
+            "direct": 0,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 55,
+            "stored": 0,
+            "direct": 0,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 56,
+            "stored": 0,
+            "direct": 0,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 0
+          }
+        ]
+      },
+      {
+        "magnitude": 6150,
+        "duration": 1,
+        "peakStored": 6150,
+        "peakDirect": 6150,
+        "endBurst": {
+          "tick": 9,
+          "stored": 6150,
+          "direct": 6150,
+          "bank": 24600,
+          "draw": 0,
+          "charge": 0
+        },
+        "drawn": 3075,
+        "trace": [
+          {
+            "tick": 1,
+            "stored": 0,
+            "direct": 0,
+            "bank": 3075,
+            "draw": 0,
+            "charge": 3075
+          },
+          {
+            "tick": 2,
+            "stored": 0,
+            "direct": 0,
+            "bank": 6150,
+            "draw": 0,
+            "charge": 3075
+          },
+          {
+            "tick": 3,
+            "stored": 0,
+            "direct": 0,
+            "bank": 9225,
+            "draw": 0,
+            "charge": 3075
+          },
+          {
+            "tick": 4,
+            "stored": 0,
+            "direct": 0,
+            "bank": 12300,
+            "draw": 0,
+            "charge": 3075
+          },
+          {
+            "tick": 5,
+            "stored": 0,
+            "direct": 0,
+            "bank": 15375,
+            "draw": 0,
+            "charge": 3075
+          },
+          {
+            "tick": 6,
+            "stored": 0,
+            "direct": 0,
+            "bank": 18450,
+            "draw": 0,
+            "charge": 3075
+          },
+          {
+            "tick": 7,
+            "stored": 0,
+            "direct": 0,
+            "bank": 21525,
+            "draw": 0,
+            "charge": 3075
+          },
+          {
+            "tick": 8,
+            "stored": 0,
+            "direct": 0,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 3075
+          },
+          {
+            "tick": 9,
+            "stored": 6150,
+            "direct": 6150,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 10,
+            "stored": 0,
+            "direct": 3075,
+            "bank": 21525,
+            "draw": 3075,
+            "charge": 0
+          },
+          {
+            "tick": 11,
+            "stored": 0,
+            "direct": 0,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 3075
+          },
+          {
+            "tick": 12,
+            "stored": 0,
+            "direct": 0,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 13,
+            "stored": 0,
+            "direct": 0,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 14,
+            "stored": 0,
+            "direct": 0,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 15,
+            "stored": 0,
+            "direct": 0,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 16,
+            "stored": 0,
+            "direct": 0,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 17,
+            "stored": 0,
+            "direct": 0,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 18,
+            "stored": 0,
+            "direct": 0,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 19,
+            "stored": 0,
+            "direct": 0,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 20,
+            "stored": 0,
+            "direct": 0,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 21,
+            "stored": 0,
+            "direct": 0,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 22,
+            "stored": 0,
+            "direct": 0,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 23,
+            "stored": 0,
+            "direct": 0,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 24,
+            "stored": 0,
+            "direct": 0,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 25,
+            "stored": 0,
+            "direct": 0,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 0
+          }
+        ]
+      },
+      {
+        "magnitude": 6150,
+        "duration": 4,
+        "peakStored": 6150,
+        "peakDirect": 15375,
+        "endBurst": {
+          "tick": 12,
+          "stored": 6150,
+          "direct": 15375,
+          "bank": 15375,
+          "draw": 3075,
+          "charge": 0
+        },
+        "drawn": 12300,
+        "trace": [
+          {
+            "tick": 1,
+            "stored": 0,
+            "direct": 0,
+            "bank": 3075,
+            "draw": 0,
+            "charge": 3075
+          },
+          {
+            "tick": 2,
+            "stored": 0,
+            "direct": 0,
+            "bank": 6150,
+            "draw": 0,
+            "charge": 3075
+          },
+          {
+            "tick": 3,
+            "stored": 0,
+            "direct": 0,
+            "bank": 9225,
+            "draw": 0,
+            "charge": 3075
+          },
+          {
+            "tick": 4,
+            "stored": 0,
+            "direct": 0,
+            "bank": 12300,
+            "draw": 0,
+            "charge": 3075
+          },
+          {
+            "tick": 5,
+            "stored": 0,
+            "direct": 0,
+            "bank": 15375,
+            "draw": 0,
+            "charge": 3075
+          },
+          {
+            "tick": 6,
+            "stored": 0,
+            "direct": 0,
+            "bank": 18450,
+            "draw": 0,
+            "charge": 3075
+          },
+          {
+            "tick": 7,
+            "stored": 0,
+            "direct": 0,
+            "bank": 21525,
+            "draw": 0,
+            "charge": 3075
+          },
+          {
+            "tick": 8,
+            "stored": 0,
+            "direct": 0,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 3075
+          },
+          {
+            "tick": 9,
+            "stored": 6150,
+            "direct": 6150,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 10,
+            "stored": 6150,
+            "direct": 9225,
+            "bank": 21525,
+            "draw": 3075,
+            "charge": 0
+          },
+          {
+            "tick": 11,
+            "stored": 6150,
+            "direct": 12300,
+            "bank": 18450,
+            "draw": 3075,
+            "charge": 0
+          },
+          {
+            "tick": 12,
+            "stored": 6150,
+            "direct": 15375,
+            "bank": 15375,
+            "draw": 3075,
+            "charge": 0
+          },
+          {
+            "tick": 13,
+            "stored": 0,
+            "direct": 12300,
+            "bank": 12300,
+            "draw": 3075,
+            "charge": 0
+          },
+          {
+            "tick": 14,
+            "stored": 0,
+            "direct": 9225,
+            "bank": 15375,
+            "draw": 0,
+            "charge": 3075
+          },
+          {
+            "tick": 15,
+            "stored": 0,
+            "direct": 6150,
+            "bank": 18450,
+            "draw": 0,
+            "charge": 3075
+          },
+          {
+            "tick": 16,
+            "stored": 0,
+            "direct": 3075,
+            "bank": 21525,
+            "draw": 0,
+            "charge": 3075
+          },
+          {
+            "tick": 17,
+            "stored": 0,
+            "direct": 0,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 3075
+          },
+          {
+            "tick": 18,
+            "stored": 0,
+            "direct": 0,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 19,
+            "stored": 0,
+            "direct": 0,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 20,
+            "stored": 0,
+            "direct": 0,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 21,
+            "stored": 0,
+            "direct": 0,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 22,
+            "stored": 0,
+            "direct": 0,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 23,
+            "stored": 0,
+            "direct": 0,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 24,
+            "stored": 0,
+            "direct": 0,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 25,
+            "stored": 0,
+            "direct": 0,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 26,
+            "stored": 0,
+            "direct": 0,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 27,
+            "stored": 0,
+            "direct": 0,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 28,
+            "stored": 0,
+            "direct": 0,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 0
+          }
+        ]
+      },
+      {
+        "magnitude": 6150,
+        "duration": 8,
+        "peakStored": 6150,
+        "peakDirect": 27675,
+        "endBurst": {
+          "tick": 16,
+          "stored": 6150,
+          "direct": 27675,
+          "bank": 3075,
+          "draw": 3075,
+          "charge": 0
+        },
+        "drawn": 24600,
+        "trace": [
+          {
+            "tick": 1,
+            "stored": 0,
+            "direct": 0,
+            "bank": 3075,
+            "draw": 0,
+            "charge": 3075
+          },
+          {
+            "tick": 2,
+            "stored": 0,
+            "direct": 0,
+            "bank": 6150,
+            "draw": 0,
+            "charge": 3075
+          },
+          {
+            "tick": 3,
+            "stored": 0,
+            "direct": 0,
+            "bank": 9225,
+            "draw": 0,
+            "charge": 3075
+          },
+          {
+            "tick": 4,
+            "stored": 0,
+            "direct": 0,
+            "bank": 12300,
+            "draw": 0,
+            "charge": 3075
+          },
+          {
+            "tick": 5,
+            "stored": 0,
+            "direct": 0,
+            "bank": 15375,
+            "draw": 0,
+            "charge": 3075
+          },
+          {
+            "tick": 6,
+            "stored": 0,
+            "direct": 0,
+            "bank": 18450,
+            "draw": 0,
+            "charge": 3075
+          },
+          {
+            "tick": 7,
+            "stored": 0,
+            "direct": 0,
+            "bank": 21525,
+            "draw": 0,
+            "charge": 3075
+          },
+          {
+            "tick": 8,
+            "stored": 0,
+            "direct": 0,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 3075
+          },
+          {
+            "tick": 9,
+            "stored": 6150,
+            "direct": 6150,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 10,
+            "stored": 6150,
+            "direct": 9225,
+            "bank": 21525,
+            "draw": 3075,
+            "charge": 0
+          },
+          {
+            "tick": 11,
+            "stored": 6150,
+            "direct": 12300,
+            "bank": 18450,
+            "draw": 3075,
+            "charge": 0
+          },
+          {
+            "tick": 12,
+            "stored": 6150,
+            "direct": 15375,
+            "bank": 15375,
+            "draw": 3075,
+            "charge": 0
+          },
+          {
+            "tick": 13,
+            "stored": 6150,
+            "direct": 18450,
+            "bank": 12300,
+            "draw": 3075,
+            "charge": 0
+          },
+          {
+            "tick": 14,
+            "stored": 6150,
+            "direct": 21525,
+            "bank": 9225,
+            "draw": 3075,
+            "charge": 0
+          },
+          {
+            "tick": 15,
+            "stored": 6150,
+            "direct": 24600,
+            "bank": 6150,
+            "draw": 3075,
+            "charge": 0
+          },
+          {
+            "tick": 16,
+            "stored": 6150,
+            "direct": 27675,
+            "bank": 3075,
+            "draw": 3075,
+            "charge": 0
+          },
+          {
+            "tick": 17,
+            "stored": 0,
+            "direct": 24600,
+            "bank": 0,
+            "draw": 3075,
+            "charge": 0
+          },
+          {
+            "tick": 18,
+            "stored": 0,
+            "direct": 21525,
+            "bank": 3075,
+            "draw": 0,
+            "charge": 3075
+          },
+          {
+            "tick": 19,
+            "stored": 0,
+            "direct": 18450,
+            "bank": 6150,
+            "draw": 0,
+            "charge": 3075
+          },
+          {
+            "tick": 20,
+            "stored": 0,
+            "direct": 15375,
+            "bank": 9225,
+            "draw": 0,
+            "charge": 3075
+          },
+          {
+            "tick": 21,
+            "stored": 0,
+            "direct": 12300,
+            "bank": 12300,
+            "draw": 0,
+            "charge": 3075
+          },
+          {
+            "tick": 22,
+            "stored": 0,
+            "direct": 9225,
+            "bank": 15375,
+            "draw": 0,
+            "charge": 3075
+          },
+          {
+            "tick": 23,
+            "stored": 0,
+            "direct": 6150,
+            "bank": 18450,
+            "draw": 0,
+            "charge": 3075
+          },
+          {
+            "tick": 24,
+            "stored": 0,
+            "direct": 3075,
+            "bank": 21525,
+            "draw": 0,
+            "charge": 3075
+          },
+          {
+            "tick": 25,
+            "stored": 0,
+            "direct": 0,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 3075
+          },
+          {
+            "tick": 26,
+            "stored": 0,
+            "direct": 0,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 27,
+            "stored": 0,
+            "direct": 0,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 28,
+            "stored": 0,
+            "direct": 0,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 29,
+            "stored": 0,
+            "direct": 0,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 30,
+            "stored": 0,
+            "direct": 0,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 31,
+            "stored": 0,
+            "direct": 0,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 32,
+            "stored": 0,
+            "direct": 0,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 0
+          }
+        ]
+      },
+      {
+        "magnitude": 6150,
+        "duration": 32,
+        "peakStored": 76875,
+        "peakDirect": 101475,
+        "endBurst": {
+          "tick": 40,
+          "stored": 76875,
+          "direct": 101475,
+          "bank": 0,
+          "draw": 0,
+          "charge": 0
+        },
+        "drawn": 24600,
+        "trace": [
+          {
+            "tick": 1,
+            "stored": 0,
+            "direct": 0,
+            "bank": 3075,
+            "draw": 0,
+            "charge": 3075
+          },
+          {
+            "tick": 2,
+            "stored": 0,
+            "direct": 0,
+            "bank": 6150,
+            "draw": 0,
+            "charge": 3075
+          },
+          {
+            "tick": 3,
+            "stored": 0,
+            "direct": 0,
+            "bank": 9225,
+            "draw": 0,
+            "charge": 3075
+          },
+          {
+            "tick": 4,
+            "stored": 0,
+            "direct": 0,
+            "bank": 12300,
+            "draw": 0,
+            "charge": 3075
+          },
+          {
+            "tick": 5,
+            "stored": 0,
+            "direct": 0,
+            "bank": 15375,
+            "draw": 0,
+            "charge": 3075
+          },
+          {
+            "tick": 6,
+            "stored": 0,
+            "direct": 0,
+            "bank": 18450,
+            "draw": 0,
+            "charge": 3075
+          },
+          {
+            "tick": 7,
+            "stored": 0,
+            "direct": 0,
+            "bank": 21525,
+            "draw": 0,
+            "charge": 3075
+          },
+          {
+            "tick": 8,
+            "stored": 0,
+            "direct": 0,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 3075
+          },
+          {
+            "tick": 9,
+            "stored": 6150,
+            "direct": 6150,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 10,
+            "stored": 6150,
+            "direct": 9225,
+            "bank": 21525,
+            "draw": 3075,
+            "charge": 0
+          },
+          {
+            "tick": 11,
+            "stored": 6150,
+            "direct": 12300,
+            "bank": 18450,
+            "draw": 3075,
+            "charge": 0
+          },
+          {
+            "tick": 12,
+            "stored": 6150,
+            "direct": 15375,
+            "bank": 15375,
+            "draw": 3075,
+            "charge": 0
+          },
+          {
+            "tick": 13,
+            "stored": 6150,
+            "direct": 18450,
+            "bank": 12300,
+            "draw": 3075,
+            "charge": 0
+          },
+          {
+            "tick": 14,
+            "stored": 6150,
+            "direct": 21525,
+            "bank": 9225,
+            "draw": 3075,
+            "charge": 0
+          },
+          {
+            "tick": 15,
+            "stored": 6150,
+            "direct": 24600,
+            "bank": 6150,
+            "draw": 3075,
+            "charge": 0
+          },
+          {
+            "tick": 16,
+            "stored": 6150,
+            "direct": 27675,
+            "bank": 3075,
+            "draw": 3075,
+            "charge": 0
+          },
+          {
+            "tick": 17,
+            "stored": 6150,
+            "direct": 30750,
+            "bank": 0,
+            "draw": 3075,
+            "charge": 0
+          },
+          {
+            "tick": 18,
+            "stored": 9225,
+            "direct": 33825,
+            "bank": 0,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 19,
+            "stored": 12300,
+            "direct": 36900,
+            "bank": 0,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 20,
+            "stored": 15375,
+            "direct": 39975,
+            "bank": 0,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 21,
+            "stored": 18450,
+            "direct": 43050,
+            "bank": 0,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 22,
+            "stored": 21525,
+            "direct": 46125,
+            "bank": 0,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 23,
+            "stored": 24600,
+            "direct": 49200,
+            "bank": 0,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 24,
+            "stored": 27675,
+            "direct": 52275,
+            "bank": 0,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 25,
+            "stored": 30750,
+            "direct": 55350,
+            "bank": 0,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 26,
+            "stored": 33825,
+            "direct": 58425,
+            "bank": 0,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 27,
+            "stored": 36900,
+            "direct": 61500,
+            "bank": 0,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 28,
+            "stored": 39975,
+            "direct": 64575,
+            "bank": 0,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 29,
+            "stored": 43050,
+            "direct": 67650,
+            "bank": 0,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 30,
+            "stored": 46125,
+            "direct": 70725,
+            "bank": 0,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 31,
+            "stored": 49200,
+            "direct": 73800,
+            "bank": 0,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 32,
+            "stored": 52275,
+            "direct": 76875,
+            "bank": 0,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 33,
+            "stored": 55350,
+            "direct": 79950,
+            "bank": 0,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 34,
+            "stored": 58425,
+            "direct": 83025,
+            "bank": 0,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 35,
+            "stored": 61500,
+            "direct": 86100,
+            "bank": 0,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 36,
+            "stored": 64575,
+            "direct": 89175,
+            "bank": 0,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 37,
+            "stored": 67650,
+            "direct": 92250,
+            "bank": 0,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 38,
+            "stored": 70725,
+            "direct": 95325,
+            "bank": 0,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 39,
+            "stored": 73800,
+            "direct": 98400,
+            "bank": 0,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 40,
+            "stored": 76875,
+            "direct": 101475,
+            "bank": 0,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 41,
+            "stored": 73800,
+            "direct": 98400,
+            "bank": 0,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 42,
+            "stored": 70725,
+            "direct": 95325,
+            "bank": 0,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 43,
+            "stored": 67650,
+            "direct": 92250,
+            "bank": 0,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 44,
+            "stored": 64575,
+            "direct": 89175,
+            "bank": 0,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 45,
+            "stored": 61500,
+            "direct": 86100,
+            "bank": 0,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 46,
+            "stored": 58425,
+            "direct": 83025,
+            "bank": 0,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 47,
+            "stored": 55350,
+            "direct": 79950,
+            "bank": 0,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 48,
+            "stored": 52275,
+            "direct": 76875,
+            "bank": 0,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 49,
+            "stored": 49200,
+            "direct": 73800,
+            "bank": 0,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 50,
+            "stored": 46125,
+            "direct": 70725,
+            "bank": 0,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 51,
+            "stored": 43050,
+            "direct": 67650,
+            "bank": 0,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 52,
+            "stored": 39975,
+            "direct": 64575,
+            "bank": 0,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 53,
+            "stored": 36900,
+            "direct": 61500,
+            "bank": 0,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 54,
+            "stored": 33825,
+            "direct": 58425,
+            "bank": 0,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 55,
+            "stored": 30750,
+            "direct": 55350,
+            "bank": 0,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 56,
+            "stored": 27675,
+            "direct": 52275,
+            "bank": 0,
+            "draw": 0,
+            "charge": 0
+          }
+        ]
+      },
+      {
+        "magnitude": 9225,
+        "duration": 1,
+        "peakStored": 9225,
+        "peakDirect": 9225,
+        "endBurst": {
+          "tick": 9,
+          "stored": 9225,
+          "direct": 9225,
+          "bank": 24600,
+          "draw": 0,
+          "charge": 0
+        },
+        "drawn": 3075,
+        "trace": [
+          {
+            "tick": 1,
+            "stored": 0,
+            "direct": 0,
+            "bank": 3075,
+            "draw": 0,
+            "charge": 3075
+          },
+          {
+            "tick": 2,
+            "stored": 0,
+            "direct": 0,
+            "bank": 6150,
+            "draw": 0,
+            "charge": 3075
+          },
+          {
+            "tick": 3,
+            "stored": 0,
+            "direct": 0,
+            "bank": 9225,
+            "draw": 0,
+            "charge": 3075
+          },
+          {
+            "tick": 4,
+            "stored": 0,
+            "direct": 0,
+            "bank": 12300,
+            "draw": 0,
+            "charge": 3075
+          },
+          {
+            "tick": 5,
+            "stored": 0,
+            "direct": 0,
+            "bank": 15375,
+            "draw": 0,
+            "charge": 3075
+          },
+          {
+            "tick": 6,
+            "stored": 0,
+            "direct": 0,
+            "bank": 18450,
+            "draw": 0,
+            "charge": 3075
+          },
+          {
+            "tick": 7,
+            "stored": 0,
+            "direct": 0,
+            "bank": 21525,
+            "draw": 0,
+            "charge": 3075
+          },
+          {
+            "tick": 8,
+            "stored": 0,
+            "direct": 0,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 3075
+          },
+          {
+            "tick": 9,
+            "stored": 9225,
+            "direct": 9225,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 10,
+            "stored": 3075,
+            "direct": 6150,
+            "bank": 21525,
+            "draw": 3075,
+            "charge": 0
+          },
+          {
+            "tick": 11,
+            "stored": 0,
+            "direct": 3075,
+            "bank": 21525,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 12,
+            "stored": 0,
+            "direct": 0,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 3075
+          },
+          {
+            "tick": 13,
+            "stored": 0,
+            "direct": 0,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 14,
+            "stored": 0,
+            "direct": 0,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 15,
+            "stored": 0,
+            "direct": 0,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 16,
+            "stored": 0,
+            "direct": 0,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 17,
+            "stored": 0,
+            "direct": 0,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 18,
+            "stored": 0,
+            "direct": 0,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 19,
+            "stored": 0,
+            "direct": 0,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 20,
+            "stored": 0,
+            "direct": 0,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 21,
+            "stored": 0,
+            "direct": 0,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 22,
+            "stored": 0,
+            "direct": 0,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 23,
+            "stored": 0,
+            "direct": 0,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 24,
+            "stored": 0,
+            "direct": 0,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 25,
+            "stored": 0,
+            "direct": 0,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 0
+          }
+        ]
+      },
+      {
+        "magnitude": 9225,
+        "duration": 4,
+        "peakStored": 18450,
+        "peakDirect": 27675,
+        "endBurst": {
+          "tick": 12,
+          "stored": 18450,
+          "direct": 27675,
+          "bank": 15375,
+          "draw": 3075,
+          "charge": 0
+        },
+        "drawn": 18450,
+        "trace": [
+          {
+            "tick": 1,
+            "stored": 0,
+            "direct": 0,
+            "bank": 3075,
+            "draw": 0,
+            "charge": 3075
+          },
+          {
+            "tick": 2,
+            "stored": 0,
+            "direct": 0,
+            "bank": 6150,
+            "draw": 0,
+            "charge": 3075
+          },
+          {
+            "tick": 3,
+            "stored": 0,
+            "direct": 0,
+            "bank": 9225,
+            "draw": 0,
+            "charge": 3075
+          },
+          {
+            "tick": 4,
+            "stored": 0,
+            "direct": 0,
+            "bank": 12300,
+            "draw": 0,
+            "charge": 3075
+          },
+          {
+            "tick": 5,
+            "stored": 0,
+            "direct": 0,
+            "bank": 15375,
+            "draw": 0,
+            "charge": 3075
+          },
+          {
+            "tick": 6,
+            "stored": 0,
+            "direct": 0,
+            "bank": 18450,
+            "draw": 0,
+            "charge": 3075
+          },
+          {
+            "tick": 7,
+            "stored": 0,
+            "direct": 0,
+            "bank": 21525,
+            "draw": 0,
+            "charge": 3075
+          },
+          {
+            "tick": 8,
+            "stored": 0,
+            "direct": 0,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 3075
+          },
+          {
+            "tick": 9,
+            "stored": 9225,
+            "direct": 9225,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 10,
+            "stored": 12300,
+            "direct": 15375,
+            "bank": 21525,
+            "draw": 3075,
+            "charge": 0
+          },
+          {
+            "tick": 11,
+            "stored": 15375,
+            "direct": 21525,
+            "bank": 18450,
+            "draw": 3075,
+            "charge": 0
+          },
+          {
+            "tick": 12,
+            "stored": 18450,
+            "direct": 27675,
+            "bank": 15375,
+            "draw": 3075,
+            "charge": 0
+          },
+          {
+            "tick": 13,
+            "stored": 12300,
+            "direct": 24600,
+            "bank": 12300,
+            "draw": 3075,
+            "charge": 0
+          },
+          {
+            "tick": 14,
+            "stored": 6150,
+            "direct": 21525,
+            "bank": 9225,
+            "draw": 3075,
+            "charge": 0
+          },
+          {
+            "tick": 15,
+            "stored": 0,
+            "direct": 18450,
+            "bank": 6150,
+            "draw": 3075,
+            "charge": 0
+          },
+          {
+            "tick": 16,
+            "stored": 0,
+            "direct": 15375,
+            "bank": 9225,
+            "draw": 0,
+            "charge": 3075
+          },
+          {
+            "tick": 17,
+            "stored": 0,
+            "direct": 12300,
+            "bank": 12300,
+            "draw": 0,
+            "charge": 3075
+          },
+          {
+            "tick": 18,
+            "stored": 0,
+            "direct": 9225,
+            "bank": 15375,
+            "draw": 0,
+            "charge": 3075
+          },
+          {
+            "tick": 19,
+            "stored": 0,
+            "direct": 6150,
+            "bank": 18450,
+            "draw": 0,
+            "charge": 3075
+          },
+          {
+            "tick": 20,
+            "stored": 0,
+            "direct": 3075,
+            "bank": 21525,
+            "draw": 0,
+            "charge": 3075
+          },
+          {
+            "tick": 21,
+            "stored": 0,
+            "direct": 0,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 3075
+          },
+          {
+            "tick": 22,
+            "stored": 0,
+            "direct": 0,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 23,
+            "stored": 0,
+            "direct": 0,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 24,
+            "stored": 0,
+            "direct": 0,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 25,
+            "stored": 0,
+            "direct": 0,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 26,
+            "stored": 0,
+            "direct": 0,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 27,
+            "stored": 0,
+            "direct": 0,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 28,
+            "stored": 0,
+            "direct": 0,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 0
+          }
+        ]
+      },
+      {
+        "magnitude": 9225,
+        "duration": 8,
+        "peakStored": 30750,
+        "peakDirect": 52275,
+        "endBurst": {
+          "tick": 16,
+          "stored": 30750,
+          "direct": 52275,
+          "bank": 3075,
+          "draw": 3075,
+          "charge": 0
+        },
+        "drawn": 24600,
+        "trace": [
+          {
+            "tick": 1,
+            "stored": 0,
+            "direct": 0,
+            "bank": 3075,
+            "draw": 0,
+            "charge": 3075
+          },
+          {
+            "tick": 2,
+            "stored": 0,
+            "direct": 0,
+            "bank": 6150,
+            "draw": 0,
+            "charge": 3075
+          },
+          {
+            "tick": 3,
+            "stored": 0,
+            "direct": 0,
+            "bank": 9225,
+            "draw": 0,
+            "charge": 3075
+          },
+          {
+            "tick": 4,
+            "stored": 0,
+            "direct": 0,
+            "bank": 12300,
+            "draw": 0,
+            "charge": 3075
+          },
+          {
+            "tick": 5,
+            "stored": 0,
+            "direct": 0,
+            "bank": 15375,
+            "draw": 0,
+            "charge": 3075
+          },
+          {
+            "tick": 6,
+            "stored": 0,
+            "direct": 0,
+            "bank": 18450,
+            "draw": 0,
+            "charge": 3075
+          },
+          {
+            "tick": 7,
+            "stored": 0,
+            "direct": 0,
+            "bank": 21525,
+            "draw": 0,
+            "charge": 3075
+          },
+          {
+            "tick": 8,
+            "stored": 0,
+            "direct": 0,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 3075
+          },
+          {
+            "tick": 9,
+            "stored": 9225,
+            "direct": 9225,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 10,
+            "stored": 12300,
+            "direct": 15375,
+            "bank": 21525,
+            "draw": 3075,
+            "charge": 0
+          },
+          {
+            "tick": 11,
+            "stored": 15375,
+            "direct": 21525,
+            "bank": 18450,
+            "draw": 3075,
+            "charge": 0
+          },
+          {
+            "tick": 12,
+            "stored": 18450,
+            "direct": 27675,
+            "bank": 15375,
+            "draw": 3075,
+            "charge": 0
+          },
+          {
+            "tick": 13,
+            "stored": 21525,
+            "direct": 33825,
+            "bank": 12300,
+            "draw": 3075,
+            "charge": 0
+          },
+          {
+            "tick": 14,
+            "stored": 24600,
+            "direct": 39975,
+            "bank": 9225,
+            "draw": 3075,
+            "charge": 0
+          },
+          {
+            "tick": 15,
+            "stored": 27675,
+            "direct": 46125,
+            "bank": 6150,
+            "draw": 3075,
+            "charge": 0
+          },
+          {
+            "tick": 16,
+            "stored": 30750,
+            "direct": 52275,
+            "bank": 3075,
+            "draw": 3075,
+            "charge": 0
+          },
+          {
+            "tick": 17,
+            "stored": 24600,
+            "direct": 49200,
+            "bank": 0,
+            "draw": 3075,
+            "charge": 0
+          },
+          {
+            "tick": 18,
+            "stored": 21525,
+            "direct": 46125,
+            "bank": 0,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 19,
+            "stored": 18450,
+            "direct": 43050,
+            "bank": 0,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 20,
+            "stored": 15375,
+            "direct": 39975,
+            "bank": 0,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 21,
+            "stored": 12300,
+            "direct": 36900,
+            "bank": 0,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 22,
+            "stored": 9225,
+            "direct": 33825,
+            "bank": 0,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 23,
+            "stored": 6150,
+            "direct": 30750,
+            "bank": 0,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 24,
+            "stored": 3075,
+            "direct": 27675,
+            "bank": 0,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 25,
+            "stored": 0,
+            "direct": 24600,
+            "bank": 0,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 26,
+            "stored": 0,
+            "direct": 21525,
+            "bank": 3075,
+            "draw": 0,
+            "charge": 3075
+          },
+          {
+            "tick": 27,
+            "stored": 0,
+            "direct": 18450,
+            "bank": 6150,
+            "draw": 0,
+            "charge": 3075
+          },
+          {
+            "tick": 28,
+            "stored": 0,
+            "direct": 15375,
+            "bank": 9225,
+            "draw": 0,
+            "charge": 3075
+          },
+          {
+            "tick": 29,
+            "stored": 0,
+            "direct": 12300,
+            "bank": 12300,
+            "draw": 0,
+            "charge": 3075
+          },
+          {
+            "tick": 30,
+            "stored": 0,
+            "direct": 9225,
+            "bank": 15375,
+            "draw": 0,
+            "charge": 3075
+          },
+          {
+            "tick": 31,
+            "stored": 0,
+            "direct": 6150,
+            "bank": 18450,
+            "draw": 0,
+            "charge": 3075
+          },
+          {
+            "tick": 32,
+            "stored": 0,
+            "direct": 3075,
+            "bank": 21525,
+            "draw": 0,
+            "charge": 3075
+          }
+        ]
+      },
+      {
+        "magnitude": 9225,
+        "duration": 32,
+        "peakStored": 175275,
+        "peakDirect": 199875,
+        "endBurst": {
+          "tick": 40,
+          "stored": 175275,
+          "direct": 199875,
+          "bank": 0,
+          "draw": 0,
+          "charge": 0
+        },
+        "drawn": 24600,
+        "trace": [
+          {
+            "tick": 1,
+            "stored": 0,
+            "direct": 0,
+            "bank": 3075,
+            "draw": 0,
+            "charge": 3075
+          },
+          {
+            "tick": 2,
+            "stored": 0,
+            "direct": 0,
+            "bank": 6150,
+            "draw": 0,
+            "charge": 3075
+          },
+          {
+            "tick": 3,
+            "stored": 0,
+            "direct": 0,
+            "bank": 9225,
+            "draw": 0,
+            "charge": 3075
+          },
+          {
+            "tick": 4,
+            "stored": 0,
+            "direct": 0,
+            "bank": 12300,
+            "draw": 0,
+            "charge": 3075
+          },
+          {
+            "tick": 5,
+            "stored": 0,
+            "direct": 0,
+            "bank": 15375,
+            "draw": 0,
+            "charge": 3075
+          },
+          {
+            "tick": 6,
+            "stored": 0,
+            "direct": 0,
+            "bank": 18450,
+            "draw": 0,
+            "charge": 3075
+          },
+          {
+            "tick": 7,
+            "stored": 0,
+            "direct": 0,
+            "bank": 21525,
+            "draw": 0,
+            "charge": 3075
+          },
+          {
+            "tick": 8,
+            "stored": 0,
+            "direct": 0,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 3075
+          },
+          {
+            "tick": 9,
+            "stored": 9225,
+            "direct": 9225,
+            "bank": 24600,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 10,
+            "stored": 12300,
+            "direct": 15375,
+            "bank": 21525,
+            "draw": 3075,
+            "charge": 0
+          },
+          {
+            "tick": 11,
+            "stored": 15375,
+            "direct": 21525,
+            "bank": 18450,
+            "draw": 3075,
+            "charge": 0
+          },
+          {
+            "tick": 12,
+            "stored": 18450,
+            "direct": 27675,
+            "bank": 15375,
+            "draw": 3075,
+            "charge": 0
+          },
+          {
+            "tick": 13,
+            "stored": 21525,
+            "direct": 33825,
+            "bank": 12300,
+            "draw": 3075,
+            "charge": 0
+          },
+          {
+            "tick": 14,
+            "stored": 24600,
+            "direct": 39975,
+            "bank": 9225,
+            "draw": 3075,
+            "charge": 0
+          },
+          {
+            "tick": 15,
+            "stored": 27675,
+            "direct": 46125,
+            "bank": 6150,
+            "draw": 3075,
+            "charge": 0
+          },
+          {
+            "tick": 16,
+            "stored": 30750,
+            "direct": 52275,
+            "bank": 3075,
+            "draw": 3075,
+            "charge": 0
+          },
+          {
+            "tick": 17,
+            "stored": 33825,
+            "direct": 58425,
+            "bank": 0,
+            "draw": 3075,
+            "charge": 0
+          },
+          {
+            "tick": 18,
+            "stored": 39975,
+            "direct": 64575,
+            "bank": 0,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 19,
+            "stored": 46125,
+            "direct": 70725,
+            "bank": 0,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 20,
+            "stored": 52275,
+            "direct": 76875,
+            "bank": 0,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 21,
+            "stored": 58425,
+            "direct": 83025,
+            "bank": 0,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 22,
+            "stored": 64575,
+            "direct": 89175,
+            "bank": 0,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 23,
+            "stored": 70725,
+            "direct": 95325,
+            "bank": 0,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 24,
+            "stored": 76875,
+            "direct": 101475,
+            "bank": 0,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 25,
+            "stored": 83025,
+            "direct": 107625,
+            "bank": 0,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 26,
+            "stored": 89175,
+            "direct": 113775,
+            "bank": 0,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 27,
+            "stored": 95325,
+            "direct": 119925,
+            "bank": 0,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 28,
+            "stored": 101475,
+            "direct": 126075,
+            "bank": 0,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 29,
+            "stored": 107625,
+            "direct": 132225,
+            "bank": 0,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 30,
+            "stored": 113775,
+            "direct": 138375,
+            "bank": 0,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 31,
+            "stored": 119925,
+            "direct": 144525,
+            "bank": 0,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 32,
+            "stored": 126075,
+            "direct": 150675,
+            "bank": 0,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 33,
+            "stored": 132225,
+            "direct": 156825,
+            "bank": 0,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 34,
+            "stored": 138375,
+            "direct": 162975,
+            "bank": 0,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 35,
+            "stored": 144525,
+            "direct": 169125,
+            "bank": 0,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 36,
+            "stored": 150675,
+            "direct": 175275,
+            "bank": 0,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 37,
+            "stored": 156825,
+            "direct": 181425,
+            "bank": 0,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 38,
+            "stored": 162975,
+            "direct": 187575,
+            "bank": 0,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 39,
+            "stored": 169125,
+            "direct": 193725,
+            "bank": 0,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 40,
+            "stored": 175275,
+            "direct": 199875,
+            "bank": 0,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 41,
+            "stored": 172200,
+            "direct": 196800,
+            "bank": 0,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 42,
+            "stored": 169125,
+            "direct": 193725,
+            "bank": 0,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 43,
+            "stored": 166050,
+            "direct": 190650,
+            "bank": 0,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 44,
+            "stored": 162975,
+            "direct": 187575,
+            "bank": 0,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 45,
+            "stored": 159900,
+            "direct": 184500,
+            "bank": 0,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 46,
+            "stored": 156825,
+            "direct": 181425,
+            "bank": 0,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 47,
+            "stored": 153750,
+            "direct": 178350,
+            "bank": 0,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 48,
+            "stored": 150675,
+            "direct": 175275,
+            "bank": 0,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 49,
+            "stored": 147600,
+            "direct": 172200,
+            "bank": 0,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 50,
+            "stored": 144525,
+            "direct": 169125,
+            "bank": 0,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 51,
+            "stored": 141450,
+            "direct": 166050,
+            "bank": 0,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 52,
+            "stored": 138375,
+            "direct": 162975,
+            "bank": 0,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 53,
+            "stored": 135300,
+            "direct": 159900,
+            "bank": 0,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 54,
+            "stored": 132225,
+            "direct": 156825,
+            "bank": 0,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 55,
+            "stored": 129150,
+            "direct": 153750,
+            "bank": 0,
+            "draw": 0,
+            "charge": 0
+          },
+          {
+            "tick": 56,
+            "stored": 126075,
+            "direct": 150675,
+            "bank": 0,
+            "draw": 0,
+            "charge": 0
+          }
+        ]
+      }
+    ],
+    "exhausted": {
+      "bank": 0,
+      "error": 39975
+    }
+  }
+}

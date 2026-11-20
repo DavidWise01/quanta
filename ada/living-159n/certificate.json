@@ -1,0 +1,20 @@
+{
+  "version": "ADA-159N",
+  "lineage": "ADA-159M.1",
+  "watermark": ".dlw",
+  "canonical": "{outerbound,brace\\tornado[innerbound(chaos/tornado)]}",
+  "model": "three nested toroidal surfaces, twelve closed winding curves, orthographic/perspective camera projection, stationary eye",
+  "tests": {
+    "samples": 4608,
+    "minEyeClearance": 0.6887999999999999,
+    "maxClosureError": 3.819268059394923e-14,
+    "eye": [
+      0,
+      0,
+      0
+    ],
+    "streams": 12,
+    "width": 42
+  },
+  "limits": "Parametric kinematic visualization, not fluid solver, minimal surface or proof; eye at origin is an imposed geometric invariant."
+}

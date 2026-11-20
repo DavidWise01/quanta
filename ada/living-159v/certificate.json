@@ -1,0 +1,236 @@
+{
+  "version": "ADA-159V",
+  "lineage": "ADA-159U",
+  "watermark": ".dlw",
+  "interpretation": "11 nested bounds with ingress and egress; interfaces are operational, not extra Euclidean axes. Stage 12 ingress/self-model; 13 egress/action. Thresholds provisional.",
+  "tests": {
+    "depth": 11,
+    "checks": 120,
+    "randomChecks": 10240,
+    "fed": {
+      "stage": 13,
+      "first13": 13
+    },
+    "poor": {
+      "stage": 5
+    },
+    "hostile": {
+      "stage": 2,
+      "alive": false
+    },
+    "actions": {
+      "none": "none",
+      "hide": "hide",
+      "fight": "fight",
+      "flight": "flight"
+    },
+    "counts": [
+      247,
+      9,
+      0
+    ],
+    "growth": [
+      {
+        "tick": 1,
+        "stage": 1,
+        "energy": 28
+      },
+      {
+        "tick": 2,
+        "stage": 2,
+        "energy": 36
+      },
+      {
+        "tick": 3,
+        "stage": 3,
+        "energy": 44
+      },
+      {
+        "tick": 4,
+        "stage": 4,
+        "energy": 52
+      },
+      {
+        "tick": 5,
+        "stage": 5,
+        "energy": 60
+      },
+      {
+        "tick": 6,
+        "stage": 6,
+        "energy": 68
+      },
+      {
+        "tick": 7,
+        "stage": 7,
+        "energy": 76
+      },
+      {
+        "tick": 8,
+        "stage": 8,
+        "energy": 84
+      },
+      {
+        "tick": 9,
+        "stage": 9,
+        "energy": 92
+      },
+      {
+        "tick": 10,
+        "stage": 10,
+        "energy": 100
+      },
+      {
+        "tick": 11,
+        "stage": 11,
+        "energy": 100
+      },
+      {
+        "tick": 12,
+        "stage": 12,
+        "energy": 100
+      },
+      {
+        "tick": 13,
+        "stage": 13,
+        "energy": 100
+      },
+      {
+        "tick": 14,
+        "stage": 13,
+        "energy": 100
+      },
+      {
+        "tick": 15,
+        "stage": 13,
+        "energy": 100
+      },
+      {
+        "tick": 16,
+        "stage": 13,
+        "energy": 100
+      },
+      {
+        "tick": 17,
+        "stage": 13,
+        "energy": 100
+      },
+      {
+        "tick": 18,
+        "stage": 13,
+        "energy": 100
+      },
+      {
+        "tick": 19,
+        "stage": 13,
+        "energy": 100
+      },
+      {
+        "tick": 20,
+        "stage": 13,
+        "energy": 100
+      },
+      {
+        "tick": 21,
+        "stage": 13,
+        "energy": 100
+      },
+      {
+        "tick": 22,
+        "stage": 13,
+        "energy": 100
+      },
+      {
+        "tick": 23,
+        "stage": 13,
+        "energy": 100
+      },
+      {
+        "tick": 24,
+        "stage": 13,
+        "energy": 100
+      },
+      {
+        "tick": 25,
+        "stage": 13,
+        "energy": 100
+      },
+      {
+        "tick": 26,
+        "stage": 13,
+        "energy": 100
+      },
+      {
+        "tick": 27,
+        "stage": 13,
+        "energy": 100
+      },
+      {
+        "tick": 28,
+        "stage": 13,
+        "energy": 100
+      },
+      {
+        "tick": 29,
+        "stage": 13,
+        "energy": 100
+      },
+      {
+        "tick": 30,
+        "stage": 13,
+        "energy": 100
+      },
+      {
+        "tick": 31,
+        "stage": 13,
+        "energy": 100
+      },
+      {
+        "tick": 32,
+        "stage": 13,
+        "energy": 100
+      },
+      {
+        "tick": 33,
+        "stage": 13,
+        "energy": 100
+      },
+      {
+        "tick": 34,
+        "stage": 13,
+        "energy": 100
+      },
+      {
+        "tick": 35,
+        "stage": 13,
+        "energy": 100
+      },
+      {
+        "tick": 36,
+        "stage": 13,
+        "energy": 100
+      },
+      {
+        "tick": 37,
+        "stage": 13,
+        "energy": 100
+      },
+      {
+        "tick": 38,
+        "stage": 13,
+        "energy": 100
+      },
+      {
+        "tick": 39,
+        "stage": 13,
+        "energy": 100
+      },
+      {
+        "tick": 40,
+        "stage": 13,
+        "energy": 100
+      }
+    ]
+  },
+  "limits": "Earned promotion rule and action policy hand-authored; no spontaneous consciousness. Ingress resource external, not closed self-sufficiency. No physical 11D string theory claim. Browser/Pages unverified."
+}

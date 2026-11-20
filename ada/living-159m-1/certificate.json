@@ -1,0 +1,34 @@
+{
+  "version": "ADA-159M.1",
+  "lineage": "ADA-159M",
+  "watermark": ".dlw",
+  "canonical": "{vogel ; state space ; {vwxyz}^{n} |r8!| [voxel ; operant space , {wxyz}^{n} |b8!| ( vector ; operants , {xy:`z`}^{n} |g8!| )]}",
+  "width": 42,
+  "point": "One shared implicit reference, not an additional bit. Coordinate meaning and n encoding unresolved; marked z preserved literally. Existing 42-bit packing unchanged.",
+  "geometry": [
+    {
+      "kind": "vogel",
+      "space": "state space",
+      "coordinates": "vwxyz",
+      "spectrum": "r8!"
+    },
+    {
+      "kind": "voxel",
+      "space": "operant space",
+      "coordinates": "wxyz",
+      "spectrum": "b8!"
+    },
+    {
+      "kind": "vector",
+      "space": "operants",
+      "coordinates": "xy:`z`",
+      "spectrum": "g8!"
+    }
+  ],
+  "tests": {
+    "checks": 266,
+    "geometryTicks": 224,
+    "payloadChecks": 42,
+    "sharedPoint": true
+  }
+}

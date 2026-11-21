@@ -1,0 +1,498 @@
+{
+  "version": "ADA-160M",
+  "lineage": "ADA-160L",
+  "watermark": ".dlw",
+  "grammar": "{24/[2]/[4]/(3)/(3)/(1)/(1)}",
+  "tests": {
+    "checks": 4608,
+    "contacts": 1728,
+    "steps": 720,
+    "maxNormError": 3.9968028886505635e-15,
+    "maxUndoError": 3.3306690738754696e-16,
+    "rows": [
+      {
+        "gate": 0,
+        "regime": "stable",
+        "tick": 20,
+        "rawMAE": 0.00498294364494659,
+        "fixedMAE": 0.004894328965722449,
+        "fullMAE": 0.005986785836568347,
+        "choices": [
+          610,
+          67,
+          235
+        ],
+        "retired": 82,
+        "transfers": 156
+      },
+      {
+        "gate": 0,
+        "regime": "drift",
+        "tick": 50,
+        "rawMAE": 0.002357800053639626,
+        "fixedMAE": 0.0022783088135561866,
+        "fullMAE": 0.002746155830162186,
+        "choices": [
+          1148,
+          326,
+          878
+        ],
+        "retired": 520,
+        "transfers": 347
+      },
+      {
+        "gate": 0,
+        "regime": "shock",
+        "tick": 70,
+        "rawMAE": 0.002085999889639293,
+        "fixedMAE": 0.002007997009033048,
+        "fullMAE": 0.0024184908127683137,
+        "choices": [
+          1516,
+          555,
+          1241
+        ],
+        "retired": 888,
+        "transfers": 347
+      },
+      {
+        "gate": 0,
+        "regime": "recovery",
+        "tick": 90,
+        "rawMAE": 0.0020583898540040657,
+        "fixedMAE": 0.0019784399139991,
+        "fullMAE": 0.002389247665676884,
+        "choices": [
+          1963,
+          727,
+          1582
+        ],
+        "retired": 1335,
+        "transfers": 390
+      },
+      {
+        "gate": 1,
+        "regime": "stable",
+        "tick": 20,
+        "rawMAE": 0.0050228168829088,
+        "fixedMAE": 0.004949506950680641,
+        "fullMAE": 0.006011060393438471,
+        "choices": [
+          598,
+          67,
+          247
+        ],
+        "retired": 80,
+        "transfers": 163
+      },
+      {
+        "gate": 1,
+        "regime": "drift",
+        "tick": 50,
+        "rawMAE": 0.002383888437641486,
+        "fixedMAE": 0.0023099479075399695,
+        "fullMAE": 0.002773646975275728,
+        "choices": [
+          1215,
+          311,
+          826
+        ],
+        "retired": 603,
+        "transfers": 331
+      },
+      {
+        "gate": 1,
+        "regime": "shock",
+        "tick": 70,
+        "rawMAE": 0.002136765297463921,
+        "fixedMAE": 0.002061021795009711,
+        "fullMAE": 0.0024747094210198486,
+        "choices": [
+          1571,
+          536,
+          1205
+        ],
+        "retired": 959,
+        "transfers": 331
+      },
+      {
+        "gate": 1,
+        "regime": "recovery",
+        "tick": 90,
+        "rawMAE": 0.002131675672424274,
+        "fixedMAE": 0.002053742420889243,
+        "fullMAE": 0.0024744420876030965,
+        "choices": [
+          1994,
+          734,
+          1544
+        ],
+        "retired": 1382,
+        "transfers": 390
+      },
+      {
+        "gate": 2,
+        "regime": "stable",
+        "tick": 20,
+        "rawMAE": 0.004982943644946589,
+        "fixedMAE": 0.00489432896572245,
+        "fullMAE": 0.005986785836568346,
+        "choices": [
+          610,
+          67,
+          235
+        ],
+        "retired": 82,
+        "transfers": 156
+      },
+      {
+        "gate": 2,
+        "regime": "drift",
+        "tick": 50,
+        "rawMAE": 0.0023578000536396255,
+        "fixedMAE": 0.002278308813556187,
+        "fullMAE": 0.002746155830162186,
+        "choices": [
+          1148,
+          326,
+          878
+        ],
+        "retired": 520,
+        "transfers": 347
+      },
+      {
+        "gate": 2,
+        "regime": "shock",
+        "tick": 70,
+        "rawMAE": 0.002085999889639293,
+        "fixedMAE": 0.0020079970090330474,
+        "fullMAE": 0.0024184908127683137,
+        "choices": [
+          1516,
+          555,
+          1241
+        ],
+        "retired": 888,
+        "transfers": 347
+      },
+      {
+        "gate": 2,
+        "regime": "recovery",
+        "tick": 90,
+        "rawMAE": 0.002058389854004066,
+        "fixedMAE": 0.0019784399139990993,
+        "fullMAE": 0.002389247665676884,
+        "choices": [
+          1963,
+          727,
+          1582
+        ],
+        "retired": 1335,
+        "transfers": 390
+      },
+      {
+        "gate": 3,
+        "regime": "stable",
+        "tick": 20,
+        "rawMAE": 0.005022816882908801,
+        "fixedMAE": 0.004949506950680643,
+        "fullMAE": 0.0060110603934384705,
+        "choices": [
+          598,
+          67,
+          247
+        ],
+        "retired": 80,
+        "transfers": 163
+      },
+      {
+        "gate": 3,
+        "regime": "drift",
+        "tick": 50,
+        "rawMAE": 0.002383888437641486,
+        "fixedMAE": 0.00230994790753997,
+        "fullMAE": 0.0027736469752757276,
+        "choices": [
+          1215,
+          311,
+          826
+        ],
+        "retired": 603,
+        "transfers": 331
+      },
+      {
+        "gate": 3,
+        "regime": "shock",
+        "tick": 70,
+        "rawMAE": 0.002136765297463921,
+        "fixedMAE": 0.002061021795009711,
+        "fullMAE": 0.0024747094210198486,
+        "choices": [
+          1571,
+          536,
+          1205
+        ],
+        "retired": 959,
+        "transfers": 331
+      },
+      {
+        "gate": 3,
+        "regime": "recovery",
+        "tick": 90,
+        "rawMAE": 0.0021316756724242734,
+        "fixedMAE": 0.0020537424208892435,
+        "fullMAE": 0.0024744420876030965,
+        "choices": [
+          1994,
+          734,
+          1544
+        ],
+        "retired": 1382,
+        "transfers": 390
+      },
+      {
+        "gate": 4,
+        "regime": "stable",
+        "tick": 20,
+        "rawMAE": 0.004982943644946589,
+        "fixedMAE": 0.004894328965722449,
+        "fullMAE": 0.005986785836568346,
+        "choices": [
+          610,
+          67,
+          235
+        ],
+        "retired": 82,
+        "transfers": 156
+      },
+      {
+        "gate": 4,
+        "regime": "drift",
+        "tick": 50,
+        "rawMAE": 0.0023578000536396255,
+        "fixedMAE": 0.0022783088135561866,
+        "fullMAE": 0.002746155830162186,
+        "choices": [
+          1148,
+          326,
+          878
+        ],
+        "retired": 520,
+        "transfers": 347
+      },
+      {
+        "gate": 4,
+        "regime": "shock",
+        "tick": 70,
+        "rawMAE": 0.002085999889639293,
+        "fixedMAE": 0.002007997009033048,
+        "fullMAE": 0.002418490812768314,
+        "choices": [
+          1516,
+          555,
+          1241
+        ],
+        "retired": 888,
+        "transfers": 347
+      },
+      {
+        "gate": 4,
+        "regime": "recovery",
+        "tick": 90,
+        "rawMAE": 0.002058389854004066,
+        "fixedMAE": 0.0019784399139991,
+        "fullMAE": 0.0023892476656768844,
+        "choices": [
+          1963,
+          727,
+          1582
+        ],
+        "retired": 1335,
+        "transfers": 390
+      },
+      {
+        "gate": 5,
+        "regime": "stable",
+        "tick": 20,
+        "rawMAE": 0.005022816882908801,
+        "fixedMAE": 0.004949506950680643,
+        "fullMAE": 0.0060110603934384705,
+        "choices": [
+          598,
+          67,
+          247
+        ],
+        "retired": 80,
+        "transfers": 163
+      },
+      {
+        "gate": 5,
+        "regime": "drift",
+        "tick": 50,
+        "rawMAE": 0.0023838884376414862,
+        "fixedMAE": 0.00230994790753997,
+        "fullMAE": 0.0027736469752757276,
+        "choices": [
+          1215,
+          311,
+          826
+        ],
+        "retired": 603,
+        "transfers": 331
+      },
+      {
+        "gate": 5,
+        "regime": "shock",
+        "tick": 70,
+        "rawMAE": 0.002136765297463921,
+        "fixedMAE": 0.002061021795009711,
+        "fullMAE": 0.0024747094210198486,
+        "choices": [
+          1571,
+          536,
+          1205
+        ],
+        "retired": 959,
+        "transfers": 331
+      },
+      {
+        "gate": 5,
+        "regime": "recovery",
+        "tick": 90,
+        "rawMAE": 0.002131675672424274,
+        "fixedMAE": 0.002053742420889243,
+        "fullMAE": 0.0024744420876030965,
+        "choices": [
+          1994,
+          734,
+          1544
+        ],
+        "retired": 1382,
+        "transfers": 390
+      },
+      {
+        "gate": 6,
+        "regime": "stable",
+        "tick": 20,
+        "rawMAE": 0.004982943644946589,
+        "fixedMAE": 0.00489432896572245,
+        "fullMAE": 0.005986785836568347,
+        "choices": [
+          610,
+          67,
+          235
+        ],
+        "retired": 82,
+        "transfers": 156
+      },
+      {
+        "gate": 6,
+        "regime": "drift",
+        "tick": 50,
+        "rawMAE": 0.0023578000536396255,
+        "fixedMAE": 0.002278308813556187,
+        "fullMAE": 0.0027461558301621865,
+        "choices": [
+          1148,
+          326,
+          878
+        ],
+        "retired": 520,
+        "transfers": 347
+      },
+      {
+        "gate": 6,
+        "regime": "shock",
+        "tick": 70,
+        "rawMAE": 0.002085999889639293,
+        "fixedMAE": 0.0020079970090330474,
+        "fullMAE": 0.002418490812768314,
+        "choices": [
+          1516,
+          555,
+          1241
+        ],
+        "retired": 888,
+        "transfers": 347
+      },
+      {
+        "gate": 6,
+        "regime": "recovery",
+        "tick": 90,
+        "rawMAE": 0.0020583898540040657,
+        "fixedMAE": 0.0019784399139991,
+        "fullMAE": 0.0023892476656768844,
+        "choices": [
+          1963,
+          727,
+          1582
+        ],
+        "retired": 1335,
+        "transfers": 390
+      },
+      {
+        "gate": 7,
+        "regime": "stable",
+        "tick": 20,
+        "rawMAE": 0.005022816882908801,
+        "fixedMAE": 0.004949506950680641,
+        "fullMAE": 0.006011060393438472,
+        "choices": [
+          598,
+          67,
+          247
+        ],
+        "retired": 80,
+        "transfers": 163
+      },
+      {
+        "gate": 7,
+        "regime": "drift",
+        "tick": 50,
+        "rawMAE": 0.002383888437641486,
+        "fixedMAE": 0.0023099479075399695,
+        "fullMAE": 0.002773646975275728,
+        "choices": [
+          1215,
+          311,
+          826
+        ],
+        "retired": 603,
+        "transfers": 331
+      },
+      {
+        "gate": 7,
+        "regime": "shock",
+        "tick": 70,
+        "rawMAE": 0.002136765297463921,
+        "fixedMAE": 0.0020610217950097105,
+        "fullMAE": 0.0024747094210198486,
+        "choices": [
+          1571,
+          536,
+          1205
+        ],
+        "retired": 959,
+        "transfers": 331
+      },
+      {
+        "gate": 7,
+        "regime": "recovery",
+        "tick": 90,
+        "rawMAE": 0.0021316756724242734,
+        "fixedMAE": 0.002053742420889242,
+        "fullMAE": 0.0024744420876030965,
+        "choices": [
+          1994,
+          734,
+          1544
+        ],
+        "retired": 1382,
+        "transfers": 390
+      }
+    ],
+    "policy": "Directed contacts choose shrinkage strength from previous 8 records across changing pressure/coupling regimes. Holdout target appended only after choice. Safe local veto, conservation, inverse and fixed anchors retained."
+  },
+  "method": "90-step schedule per gate across stable 20, drift 30, shock 20, recovery 20. Local causal correction memory survives regime changes, cannot overwrite evidence. Current useful-transfer veto preserved.",
+  "limitations": "Fixed alpha remains competitive. Final cumulative MAE values do not isolate per-regime recovery rate. Engine uses true append-only observation ledger and angle independent recent history; browser is an illustrative UI with bounded contact caches and regime labels. No physical pressure or resonance validation."
+}

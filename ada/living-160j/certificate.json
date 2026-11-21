@@ -1,0 +1,276 @@
+{
+  "version": "ADA-160J",
+  "lineage": "ADA-160I",
+  "watermark": ".dlw",
+  "tests": {
+    "checks": 13312,
+    "forecasts": 121344,
+    "accepted": 10260,
+    "vetoed": 51180,
+    "guided": 208,
+    "anchorChecks": 3072,
+    "maxNormError": 9.769962616701378e-15,
+    "maxUndoError": 3.3306690738754696e-16,
+    "rows": [
+      {
+        "angle": 0.05,
+        "gate": 0,
+        "forecasts": 3792,
+        "mae": 0.0007929280410828548,
+        "forecastedImbalance": 0.09029994287322161,
+        "baselineImbalance": 0.09029994287322161
+      },
+      {
+        "angle": 0.05,
+        "gate": 1,
+        "forecasts": 3792,
+        "mae": 0.000793272898268366,
+        "forecastedImbalance": 0.09009138415956015,
+        "baselineImbalance": 0.09009138415956015
+      },
+      {
+        "angle": 0.05,
+        "gate": 2,
+        "forecasts": 3792,
+        "mae": 0.0007929280410828548,
+        "forecastedImbalance": 0.0902999428732216,
+        "baselineImbalance": 0.0902999428732216
+      },
+      {
+        "angle": 0.05,
+        "gate": 3,
+        "forecasts": 3792,
+        "mae": 0.000793272898268366,
+        "forecastedImbalance": 0.09009138415956017,
+        "baselineImbalance": 0.09009138415956017
+      },
+      {
+        "angle": 0.05,
+        "gate": 4,
+        "forecasts": 3792,
+        "mae": 0.0007929280410828548,
+        "forecastedImbalance": 0.0902999428732216,
+        "baselineImbalance": 0.0902999428732216
+      },
+      {
+        "angle": 0.05,
+        "gate": 5,
+        "forecasts": 3792,
+        "mae": 0.000793272898268366,
+        "forecastedImbalance": 0.09009138415956015,
+        "baselineImbalance": 0.09009138415956015
+      },
+      {
+        "angle": 0.05,
+        "gate": 6,
+        "forecasts": 3792,
+        "mae": 0.0007929280410828548,
+        "forecastedImbalance": 0.0902999428732216,
+        "baselineImbalance": 0.0902999428732216
+      },
+      {
+        "angle": 0.05,
+        "gate": 7,
+        "forecasts": 3792,
+        "mae": 0.000793272898268366,
+        "forecastedImbalance": 0.09009138415956017,
+        "baselineImbalance": 0.09009138415956017
+      },
+      {
+        "angle": 0.13,
+        "gate": 0,
+        "forecasts": 3792,
+        "mae": 0.0014069760988688822,
+        "forecastedImbalance": 0.07122762496933255,
+        "baselineImbalance": 0.07122762496933255
+      },
+      {
+        "angle": 0.13,
+        "gate": 1,
+        "forecasts": 3792,
+        "mae": 0.0014097513900815668,
+        "forecastedImbalance": 0.07361843880438337,
+        "baselineImbalance": 0.07361843880438337
+      },
+      {
+        "angle": 0.13,
+        "gate": 2,
+        "forecasts": 3792,
+        "mae": 0.0014069760988688822,
+        "forecastedImbalance": 0.07122762496933253,
+        "baselineImbalance": 0.07122762496933253
+      },
+      {
+        "angle": 0.13,
+        "gate": 3,
+        "forecasts": 3792,
+        "mae": 0.0014097513900815668,
+        "forecastedImbalance": 0.07361843880438337,
+        "baselineImbalance": 0.07361843880438337
+      },
+      {
+        "angle": 0.13,
+        "gate": 4,
+        "forecasts": 3792,
+        "mae": 0.0014069760988688822,
+        "forecastedImbalance": 0.07122762496933255,
+        "baselineImbalance": 0.07122762496933255
+      },
+      {
+        "angle": 0.13,
+        "gate": 5,
+        "forecasts": 3792,
+        "mae": 0.0014097513900815668,
+        "forecastedImbalance": 0.07361843880438337,
+        "baselineImbalance": 0.07361843880438337
+      },
+      {
+        "angle": 0.13,
+        "gate": 6,
+        "forecasts": 3792,
+        "mae": 0.0014069760988688822,
+        "forecastedImbalance": 0.07122762496933253,
+        "baselineImbalance": 0.07122762496933253
+      },
+      {
+        "angle": 0.13,
+        "gate": 7,
+        "forecasts": 3792,
+        "mae": 0.0014097513900815668,
+        "forecastedImbalance": 0.0736184388043834,
+        "baselineImbalance": 0.0736184388043834
+      },
+      {
+        "angle": 0.3,
+        "gate": 0,
+        "forecasts": 3792,
+        "mae": 0.001852306148291533,
+        "forecastedImbalance": 0.12478586180472001,
+        "baselineImbalance": 0.12478586180472001
+      },
+      {
+        "angle": 0.3,
+        "gate": 1,
+        "forecasts": 3792,
+        "mae": 0.0016509006077060687,
+        "forecastedImbalance": 0.15330128106137703,
+        "baselineImbalance": 0.15330128106137703
+      },
+      {
+        "angle": 0.3,
+        "gate": 2,
+        "forecasts": 3792,
+        "mae": 0.0018523061482915333,
+        "forecastedImbalance": 0.12478586180471998,
+        "baselineImbalance": 0.12478586180471998
+      },
+      {
+        "angle": 0.3,
+        "gate": 3,
+        "forecasts": 3792,
+        "mae": 0.0016509006077060687,
+        "forecastedImbalance": 0.153301281061377,
+        "baselineImbalance": 0.153301281061377
+      },
+      {
+        "angle": 0.3,
+        "gate": 4,
+        "forecasts": 3792,
+        "mae": 0.0018523061482915333,
+        "forecastedImbalance": 0.12478586180472,
+        "baselineImbalance": 0.12478586180472
+      },
+      {
+        "angle": 0.3,
+        "gate": 5,
+        "forecasts": 3792,
+        "mae": 0.0016509006077060687,
+        "forecastedImbalance": 0.15330128106137697,
+        "baselineImbalance": 0.15330128106137697
+      },
+      {
+        "angle": 0.3,
+        "gate": 6,
+        "forecasts": 3792,
+        "mae": 0.0018523061482915333,
+        "forecastedImbalance": 0.12478586180472,
+        "baselineImbalance": 0.12478586180472
+      },
+      {
+        "angle": 0.3,
+        "gate": 7,
+        "forecasts": 3792,
+        "mae": 0.001650900607706069,
+        "forecastedImbalance": 0.15330128106137697,
+        "baselineImbalance": 0.15330128106137697
+      },
+      {
+        "angle": 0.6,
+        "gate": 0,
+        "forecasts": 3792,
+        "mae": 0.002519829830985405,
+        "forecastedImbalance": 0.42259432111992073,
+        "baselineImbalance": 0.42259432111992073
+      },
+      {
+        "angle": 0.6,
+        "gate": 1,
+        "forecasts": 3792,
+        "mae": 0.0028644918002377444,
+        "forecastedImbalance": 0.1975022583308405,
+        "baselineImbalance": 0.1975022583308405
+      },
+      {
+        "angle": 0.6,
+        "gate": 2,
+        "forecasts": 3792,
+        "mae": 0.0025198298309854054,
+        "forecastedImbalance": 0.4225943211199207,
+        "baselineImbalance": 0.4225943211199207
+      },
+      {
+        "angle": 0.6,
+        "gate": 3,
+        "forecasts": 3792,
+        "mae": 0.0028644918002377453,
+        "forecastedImbalance": 0.19750225833084048,
+        "baselineImbalance": 0.19750225833084048
+      },
+      {
+        "angle": 0.6,
+        "gate": 4,
+        "forecasts": 3792,
+        "mae": 0.0025198298309854054,
+        "forecastedImbalance": 0.42259432111992073,
+        "baselineImbalance": 0.42259432111992073
+      },
+      {
+        "angle": 0.6,
+        "gate": 5,
+        "forecasts": 3792,
+        "mae": 0.0028644918002377453,
+        "forecastedImbalance": 0.19750225833084048,
+        "baselineImbalance": 0.19750225833084048
+      },
+      {
+        "angle": 0.6,
+        "gate": 6,
+        "forecasts": 3792,
+        "mae": 0.0025198298309854054,
+        "forecastedImbalance": 0.4225943211199206,
+        "baselineImbalance": 0.4225943211199206
+      },
+      {
+        "angle": 0.6,
+        "gate": 7,
+        "forecasts": 3792,
+        "mae": 0.002864491800237745,
+        "forecastedImbalance": 0.19750225833084045,
+        "baselineImbalance": 0.19750225833084045
+      }
+    ],
+    "interpretation": "Forecast learned from last 8 same-angle directed-pair counterfactual outcomes; current local effect verified before transfer. Benchmarked against 160H, no gain demonstrated."
+  },
+  "design": "Forecast local signed gains from last eight same directed contact observations, issue forecast before current counterfactual evaluation, subsequently compare to current calculated outcome, only choose currently beneficial transfers. HTML includes forecast count, MAE, recent predicted-vs-observed events. Maintains 4D contact lattice, pressure and phase transfer.",
+  "limitations": "Benchmark has no measured improvement or changed decisions from forecasting under deterministic seeds. Counterfactuals are model-computed rather than independently observed physical events. Browser ranking combines historyWeight and forecastWeight; not a distinct learning model. Browser memory still in-session, exported .dlw JSON. GitHub Pages and real browser delivery unverified."
+}

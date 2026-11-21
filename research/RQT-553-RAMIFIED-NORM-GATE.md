@@ -1,0 +1,19 @@
+# RQT-553 — Ramified Norm Gate
+
+Exact local norm audit at the prime above 3, using RQT-550 frozen coefficients. **Important field distinction:** `Δ=A²+4(B+2)` has `v₃(Δ)=2`, while `Δ/9≡2 mod3` is nonsquare. Thus `F⊗Q₃=Q₃(√(Δ/9))` is the **unramified quadratic extension** with residue field F₉; this place is not ramified merely because 9 divides the defining polynomial discriminant.
+
+With `K=(A+3s)/2`, `s²=Δ/9`, the relative radicand `δ=K²−4` satisfies `v₃(δ)=1`; the **relative quadratic extension L/F is ramified** at this place. Target C=a+bK satisfies v₃(C)=−1.
+
+Write α=9a and β=9b and
+`C=(c₀+c₁s)/3`, `δ=3(d₀+d₁s)`,
+`c₀=(α+βA/2)/3`, `c₁=β/2`,
+`d₀=(A²+2B−4)/6`, `d₁=A/2`.
+Exact residue calculations in F₉=F₃[s]/(s²−2) give
+`(c₀,c₁,d₀,d₁)≡(2,1,2,2)`.
+Therefore `Cδ≡2+0s (mod3)` and `−1/(Cδ)≡1 (mod3)`. Because the residual unit is 1, it is a square in the odd-residue-characteristic unramified quadratic local field by Hensel lifting. For its square root q, `Norm_{L/F}(q√δ)=q²(−δ)=C⁻¹`. Thus **the local relative norm equation is solvable at the unique prime over 3 to all 3-adic orders**.
+
+This is a local existence certificate, NOT a global rational norm solution, rational simultaneous Wall isometry, or integral lattice equivalence. Other primes, large unfactored cofactors, root19 and full21 remain OPEN; zero new root19 exclusions. Historical selected 720-corridor ledger remains 647 conditionally excluded/73 unresolved. Seven-layer sexagesimal compass is navigation only, not exhaustive sampling.
+
+Local reproducible exact Python, results JSON, original desert-observatory JPEG, and standalone HTML embedding the JPEG are attached to this conversation. GitHub HTML edition below is a text viewer, not the illustrated binary. GitHub Pages deployment unverified.
+
+**Next RQT-554:** exact local norm tests for other discriminant primes, particularly 7, 29, 89, including residue fields and uniformizers; distinguish true obstructions from partial cofactor factorizations.

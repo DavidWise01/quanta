@@ -1,0 +1,24 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width"><title>RQT-555 — Cofactor Place Gates</title><style>body{background:#112720;color:#f4eddf;font:18px/1.7 system-ui;max-width:960px;margin:44px auto;padding:24px}h1{color:#fac081}pre{white-space:pre-wrap;overflow-wrap:anywhere}</style><h1>RQT-555 — Cofactor Place Gates</h1><p>4 new rational primes · 7 local F-places PASS · zero new obstructions · root 19 OPEN</p><pre># RQT-555 — The Cofactor Place Gates
+
+**Executed exact prime screen**: all 348,513 primes up to 5,000,000; 330,529 of them between 200,000 and 5,000,000. Verified target rational norm numerator and denominator have no additional prime factors in this new interval. Recovered new fixed-field discriminant factor **233417¹** and relative radicand norm factors **491², 2552587², 4966811¹**.
+
+Exact identity verified:
+`Norm_{F/Q}(K²−4) = (B−2)²−4A² = χ_D(1)χ_D(−1)`.
+
+**Four newly classified rational primes (seven F-places) — local norms all PASS:**
+
+- `p=233417`: fixed-field discriminant v=1; K=204041, δ=6723, C=106370 mod p. δ nonzero square, so relative extension splits.
+- `p=491`: F splits into two places. At K=489, v_p(δ)=2 and δ/p² is a unit square, so relative extension splits. At K=337, δ is a nonzero square (split). Both local norms pass.
+- `p=2552587`: F splits. At K=1004490, δ is a nonsquare unit (unramified quadratic); target C unit is a norm. At K=2552585, v_p(δ)=2 and the normalized unit is square (split); local norm passes.
+- `p=4966811`: F splits. At K=2, v_p(δ)=1 (ramified quadratic), C=1623928 has **quadratic-residue** reduction, so the target unit is a norm. At K=3773489, δ is a nonsquare unit (unramified quadratic), C unit is a norm.
+
+At special places, K was lifted by exact Hensel iteration to p⁴ before checking valuation and normalized Legendre symbol. Neither observed even valuation was mislabeled ramification. **0 new local obstructions; 0 new root19 exclusions.**
+
+Remaining cofactor bit lengths after trial division: rational target norm numerator **942**, denominator **566**, fixed discriminant **387**, relative radicand norm **353**. These cofactors are NOT proven prime. The place over 2 and larger-cofactor factors remain to be audited. A finite audit cannot establish the full Hasse norm hypothesis or a global rational solution.
+
+Status: rational Wall isometry OPEN; integral GL4 equivalence OPEN; root19 OPEN; full21 reflection word OPEN. Selected historical 720-corridor ledger unchanged at 647 conditional exclusions / 73 unresolved.
+
+The exact local Python verifier, full JSON, botanical neon WAKAKU JPEG and standalone HTML containing its embedded JPEG are conversation artifacts. This GitHub HTML is a text edition; Pages and JPEG repository publication unverified.
+
+**Next RQT-556**: prioritize the smaller relative radicand cofactor and the 2-adic local relative norm, then construct global relative norm only after all contributing places are classified.
+</pre></html>

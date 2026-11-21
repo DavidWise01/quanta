@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>ADA-172N · Anticipatory Homeostasis</title>
+<style>
+:root{color-scheme:light;--ink:#2b2037;--purple:#8d43ed;--orange:#f4772f;--teal:#009f99}
+*{box-sizing:border-box}body{margin:0;background:#f9f7ef;color:var(--ink);font:15px/1.5 system-ui,Segoe UI,sans-serif}
+header{padding:28px max(20px,calc((100vw - 1200px)/2));background:linear-gradient(120deg,#f8f6f0,#f2e8ff);border-bottom:2px solid #c3a4f9}
+h1{font-size:clamp(30px,4vw,49px);line-height:1.1;margin:5px 0}h2{font-size:19px;margin:0 0 13px}
+small,.muted{color:#746984}.tag{font-size:12px;font-weight:800;letter-spacing:.15em;color:var(--purple)}
+main{max-width:1200px;margin:auto;padding:20px;display:grid;grid-template-columns:1fr 310px;gap:16px}
+.panel{background:#fff;border:1px solid #d8cae6;border-radius:14px;padding:18px;box-shadow:0 6px 22px #49335b0b}
+.wide{grid-column:1/-1}.controls{display:flex;gap:9px;flex-wrap:wrap;margin-top:15px}
+button,select{background:#fff;border:1.5px solid var(--purple);color:#4f286b;border-radius:9px;padding:9px 13px;font:inherit;font-weight:700;cursor:pointer}
+button.primary{background:#4d266f;color:white}button:hover{box-shadow:0 0 0 3px #b682ff55}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.contact{background:#faf7ff;border-radius:12px;padding:12px;border-top:4px solid var(--purple)}
+.contact:nth-child(2){border-color:var(--orange)}.contact:nth-child(3){border-color:var(--teal)}
+.big{font-size:23px;font-weight:800}.meter{height:8px;background:#eee6f5;border-radius:9px;overflow:hidden}.bar{height:100%;background:linear-gradient(90deg,var(--purple),var(--orange));transition:width .2s}
+svg{width:100%;height:300px;display:block;background:#181629;border-radius:13px}
+.info{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}.stat{background:#f5f1fa;padding:12px;border-radius:10px}.stat b{display:block;font-size:22px}
+label{display:block;margin:13px 0 5px;font-weight:650}input[type=range]{width:100%;accent-color:var(--purple)}
+.log{height:170px;overflow:auto;background:#161424;color:#dbf5ef;border-radius:10px;padding:10px;font:12px/1.6 ui-monospace,monospace}
+.legend{display:flex;flex-wrap:wrap;gap:14px;font-size:12px}.sw{display:inline-block;width:13px;height:4px;vertical-align:middle;margin-right:4px}
+@media(max-width:780px){main{grid-template-columns:1fr}.cards{grid-template-columns:1fr}.info{grid-template-columns:repeat(2,1fr)}}
+</style></head><body>
+<header><div class="tag">ROOT0 / QUANTA / ADA · .dlw</div><h1>ADA-172N <span style="color:var(--purple)">Anticipatory Homeostasis</span></h1><div>Adaptive memory × adaptive prediction horizon × protected recovery reserves</div><div class="controls"><button class="primary" id="run">▶ Run 100 ticks</button><button id="step">Step</button><button id="reset">Reset</button><button id="shift">Inject sudden shift</button><button id="export">Export evidence JSON</button></div></header>
+<main>
+<section class="panel"><h2>Living demand and forecasts</h2><svg id="plot" viewBox="0 0 800 300" role="img" aria-label="Observed demand and one-step forecasts"></svg><div class="legend"><span><i class="sw" style="background:#40e4d8"></i>observed</span><span><i class="sw" style="background:#d39aff"></i>adaptive forecast</span><span><i class="sw" style="background:#ffae67"></i>fixed-horizon forecast</span></div></section>
+<section class="panel"><h2>Environment / controller</h2><label for="mode">Scenario</label><select id="mode"><option value="cycle">Predictable cycles</option><option value="drift">Frequency drift</option><option value="shock">Sudden regime shifts</option><option value="noise">Noisy false alarms</option></select><label for="penalty">Forecast error penalty <output id="pval">1.0</output></label><input id="penalty" type="range" min="0" max="3" step=".1" value="1"><label for="cost">Long-horizon cost <output id="cval">0.08</output></label><input id="cost" type="range" min="0" max=".3" step=".01" value=".08"><label for="switch">Horizon switching cost <output id="sval">0.15</output></label><input id="switch" type="range" min="0" max="1" step=".05" value=".15"><p class="muted">Candidate forecast horizons: 1, 2, 4, 8, 12 ticks. Working memory: 2, 4, 8, 12, 16, 24 observations. Candidate scores use only previously observed errors.</p></section>
+<section class="panel wide"><h2>Three independent contacts</h2><div class="cards" id="contacts"></div></section>
+<section class="panel wide"><h2>Comparison against fixed forecast horizon</h2><div class="info" id="stats"></div><p class="muted">Both policies see the same generated observations. Forecasts are scored when their target observations arrive, not when predictions are made. Lower mean absolute error is better. This simulation is illustrative, not an empirical validation.</p></section>
+<section class="panel wide"><h2>Append-only session audit</h2><div class="log" id="log"></div><p class="muted">Source ancestry stays with each observation. Historical records are never truncated; adaptive windows control only the working view. JSON export includes configuration, observations and decisions; it is not a cryptographically signed archive.</p></section>
+</main>
+<script>
+"use strict";
+const H=[1,2,4,8,12],W=[2,4,8,12,16,24],names=["Jane","Toph","Ada"];
+const $=x=>document.getElementById(x);const clamp=(x,a,b)=>Math.max(a,Math.min(b,x));const avg=x=>x.reduce((a,b)=>a+b,0)/Math.max(1,x.length);
+let t=0,ledger=[],events=[],pending=[],contacts=[],shift=0,randSeed=172,config={};
+function rng(){randSeed=(Math.imul(randSeed,1664525)+1013904223)>>>0;return randSeed/4294967296}
+function init(){t=0;ledger=[];events=[];pending=[];shift=0;randSeed=172;contacts=names.map((name,i)=>({name,window:8,horizon:4,reserve:72,errors:Object.fromEntries(H.map(h=>[h,[]])),memoryLoss:[],lastForecast:null,score:0,compared:0,baselineError:0,forecastHistory:[],identity:i}));record("reset",{});render()}
+function record(type,data){events.push({event_id:events.length+1,tick:t,type,...data})}
+function scenario(){const x=$("mode").value;let v=50+16*Math.sin(t*(x==="drift"?.08+t*.0009:.105))+8*Math.sin(t*.042);if(x==="shock"&&Math.floor(t/40)%2)v+=25;if(x==="noise")v+=(rng()-.5)*45;return clamp(v+shift+(rng()-.5)*5,0,100)}
+function forecast(c,h){const history=ledger.map(x=>x.value);if(!history.length)return 50;let window=history.slice(-c.window);let current=window[window.length-1],prev=window.length>1?window[window.length-2]:current;let trend=clamp((current-window[0])/Math.max(1,window.length-1),-4,4);let drift=.55*trend+.45*(current-prev);return clamp(current+drift*h*.7,0,100)}
+function errorScore(c,h){let es=c.errors[h];return es.length?avg(es.slice(-24)):12+h*.18}
+function choose(c){const p=+$("penalty").value, cost=+$("cost").value, sw=+$("switch").value;let best={v:Infinity,h:c.horizon};for(let h of H){const known=c.errors[h].length>=3;let risk=known?errorScore(c,h):12+h*.35;let objective=p*risk+cost*h+sw*(h!==c.horizon?1:0)+(known?0:2);if(objective<best.v)best={v:objective,h}}return best.h}
+function adjustMemory(c,absoluteError){const recent=c.memoryLoss.slice(-5);const high=recent.length>=3&&avg(recent)>13;const low=recent.length>=4&&avg(recent)<5;if(high)c.window=Math.max(2,W[Math.max(0,W.indexOf(c.window)-1)]);else if(low&&t%4===0)c.window=Math.min(24,W[Math.min(W.length-1,W.indexOf(c.window)+1)])}
+function step(){t++;const observed=scenario(),ob={id:"ADA172N-"+String(t).padStart(6,"0"),root:"environment-primary",tick:t,value:observed};ledger.push(ob);
+for(const pred of pending.filter(p=>p.target===t)){const c=contacts[p.contact];let e=Math.abs(pred.prediction-observed);c.errors[p.h].push(e);if(c.errors[p.h].length>48)c.errors[p.h].shift();if(pred.selected){c.score+=e;c.compared++;c.memoryLoss.push(e);adjustMemory(c,e)}if(pred.baseline){c.baselineError+=e}}
+pending=pending.filter(p=>p.target>t);
+for(const c of contacts){let old=c.horizon;c.horizon=choose(c);if(old!==c.horizon)record("horizon-change",{contact:c.name,from:old,to:c.horizon});let pool=H.map(h=>({h,prediction:forecast(c,h)}));for(const p of pool)pending.push({contact:c.identity,h:p.h,prediction:p.prediction,target:t+p.h,selected:p.h===c.horizon,baseline:p.h===4});let y=pool.find(p=>p.h===c.horizon).prediction;let fixed=pool.find(p=>p.h===4).prediction;c.lastForecast=y;c.forecastHistory.push({tick:t,value:y,fixed,horizon:c.horizon});c.reserve=clamp(c.reserve+.4-(c.window/24)*.14-c.horizon*.025-(old!==c.horizon?.25:0),0,100);record("decision",{contact:c.name,window:c.window,horizon:c.horizon,forecast:y,fixedForecast:fixed,reserve:+c.reserve.toFixed(2)})}
+record("observation",{source_id:ob.id,source_root:ob.root,value:ob.value});render()}
+function line(vals,color,maxX){if(vals.length<2)return "";const d=vals.map((z,i)=>(i?"L":"M")+(25+750*i/Math.max(1,maxX-1)).toFixed(1)+","+(270-2.35*z).toFixed(1)).join(" ");return '<path d="'+d+'" fill="none" stroke="'+color+'" stroke-width="2.3" stroke-linejoin="round"/>'}
+function render(){const visible=ledger.slice(-80),c=contacts[0];let sampled=c?c.forecastHistory.slice(-80):[];let offset=Math.max(0,visible.length-sampled.length);let actual=visible.map(x=>x.value),predict=Array(offset).fill(NaN).concat(sampled.map(x=>x.value)),fixed=Array(offset).fill(NaN).concat(sampled.map(x=>x.fixed));const lines=(arr,color)=>{let a=arr.map((v,i)=>Number.isFinite(v)?{v,i}:null).filter(Boolean);if(a.length<2)return "";return '<path d="'+a.map((p,j)=>(j?"L":"M")+(25+750*p.i/Math.max(1,visible.length-1)).toFixed(1)+","+(270-2.35*p.v).toFixed(1)).join(" ")+'" stroke="'+color+'" fill="none" stroke-width="2.2"/>'};
+$("plot").innerHTML='<g stroke="#39364d" stroke-width="1">'+[0,25,50,75,100].map(v=>'<path d="M25 '+(270-2.35*v)+' H775"/><text x="4" y="'+(273-2.35*v)+'" fill="#c8c3d9" stroke="none" font-size="11">'+v+'</text>').join("")+'</g>'+lines(actual,"#40e4d8")+lines(predict,"#d39aff")+lines(fixed,"#ffae67");
+$("contacts").innerHTML=contacts.map(c=>'<div class="contact"><b>'+c.name+'</b><div class="big">'+c.window+' obs · '+c.horizon+' ticks</div><small>memory · forecast horizon</small><p>Reserve '+c.reserve.toFixed(1)+'/100</p><div class="meter"><div class="bar" style="width:'+c.reserve+'%"></div></div><p><small>Completed selected forecasts: '+c.compared+'</small></p></div>').join("");
+let completed=contacts.reduce((a,c)=>a+c.compared,0),adapt=contacts.reduce((a,c)=>a+c.score,0),fixedTotal=contacts.reduce((a,c)=>a+c.baselineError,0),fixedN=contacts.reduce((a,c)=>a+c.errors[4].length,0);
+$("stats").innerHTML=[["Ticks",t],["Adaptive scored MAE",completed?(adapt/completed).toFixed(2):"—"],["Fixed H=4 scored MAE",fixedN?(fixedTotal/fixedN).toFixed(2):"—"],["Evidence records",ledger.length]].map(([k,v])=>'<div class="stat"><small>'+k+'</small><b>'+v+'</b></div>').join("");
+$("log").textContent=events.slice(-22).map(e=>e.tick+" · "+e.type+" · "+(e.contact||e.source_id||"system")+(e.horizon?" · H="+e.horizon:"")).join("\n");$("log").scrollTop=$("log").scrollHeight;
+for(const [id,out,dec] of [["penalty","pval",1],["cost","cval",2],["switch","sval",2]])$(out).textContent=(+$(id).value).toFixed(dec)}
+$("step").onclick=step;$("run").onclick=()=>{for(let i=0;i<100;i++)step()};$("reset").onclick=init;$("shift").onclick=()=>{shift=shift>10?-25:25;record("external-shift",{amplitude:shift});render()};
+$("mode").onchange=()=>{record("scenario-change",{scenario:$("mode").value})};["penalty","cost","switch"].forEach(id=>$(id).oninput=render);
+$("export").onclick=()=>{let blob=new Blob([JSON.stringify({schema:"ADA-172N.v1",geometry:"{24/[2]/[4]/(3)/(3)/(1)/(1)}",mark:".dlw",scenario:$("mode").value,parameters:Object.fromEntries(["penalty","cost","switch"].map(id=>[id,+$(id).value])),observations:ledger,events,contacts},null,2)],{type:"application/json"});let a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download="ADA-172N-evidence.json";a.click();setTimeout(()=>URL.revokeObjectURL(a.href),500)};
+init();
+</script></body></html>

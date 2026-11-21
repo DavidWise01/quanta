@@ -1,0 +1,79 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>ADA-178N · Meta-Homeostatic Stability</title>
+<style>
+:root{--bone:#faf8f0;--ink:#31223e;--purple:#9252f5;--orange:#fb8234;--teal:#0aa99e}*{box-sizing:border-box}body{margin:0;background:var(--bone);color:var(--ink);font:15px/1.5 system-ui,sans-serif}header{padding:25px max(18px,calc((100vw - 1160px)/2));background:linear-gradient(115deg,#fff8e9,#f1e8ff);border-bottom:2px solid #d5b8fa}.eyebrow{font:800 12px system-ui;letter-spacing:.16em;color:#7731ba}h1{font-size:clamp(30px,4vw,48px);letter-spacing:-.035em;margin:6px 0;line-height:1.1}h2{font-size:18px;margin:0 0 10px}
+main{max-width:1160px;margin:auto;padding:16px;display:grid;grid-template-columns:minmax(0,1fr) 310px;gap:15px}.panel{background:#fff;border:1px solid #dfd1ed;border-radius:14px;min-width:0;padding:18px;box-shadow:0 9px 25px #4223590a}.wide{grid-column:1/-1}
+.buttons{display:flex;gap:9px;flex-wrap:wrap;margin-top:16px}button,select{border:1.5px solid var(--purple);border-radius:9px;padding:9px 12px;font:700 14px system-ui;color:#542681;background:#fff;cursor:pointer}button.primary{background:#532879;color:#fff}
+button:focus-visible,select:focus-visible,input:focus-visible{outline:3px solid var(--orange)}label{display:block;margin:12px 0 5px;font-weight:750}input[type=range]{width:100%;accent-color:var(--purple)}small,.muted{color:#756b7c}
+svg{height:305px;width:100%;display:block;background:#191527;border-radius:12px}.legend{display:flex;gap:12px;flex-wrap:wrap;font-size:12px;margin-top:10px}.sw{display:inline-block;width:13px;height:5px;vertical-align:middle;margin-right:4px}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:9px}.contact{background:#faf6ff;border-radius:11px;padding:13px;border-top:5px solid var(--purple)}.contact:nth-child(2){border-color:var(--orange)}.contact:nth-child(3){border-color:var(--teal)}.big{font-size:24px;font-weight:800}.state{font-size:11px;padding:3px 7px;border-radius:7px;background:#f6dfd0;color:#8e3d13;font-weight:800}.state.normal{background:#e2f7f0;color:#04796c}
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:9px}.kpi{background:#f5eef9;border-radius:10px;padding:11px}.kpi b{font-size:22px;display:block}
+table{width:100%;border-collapse:collapse;font-size:13px}td,th{padding:10px 7px;border-bottom:1px solid #ece5f2;text-align:right}th:first-child,td:first-child{text-align:left}th{background:#f6effb}
+pre{white-space:pre-wrap;max-height:190px;overflow:auto;font:12px/1.6 ui-monospace,monospace;background:#1b162b;color:#e1d4fa;border-radius:10px;padding:12px}
+@media(max-width:800px){main{grid-template-columns:1fr}.cards{grid-template-columns:1fr}.kpis{grid-template-columns:repeat(2,1fr)}}
+</style></head><body>
+<header><div class="eyebrow">ROOT0 · QUANTA · ADA · .dlw</div><h1>ADA-178N · <span style="color:#8d45dc">Meta-Homeostatic Stability</span></h1><div>The controller learns its recovery thresholds. A slower supervisor regulates how quickly that learning may change.</div>
+<div class="buttons"><button class="primary" id="run">▶ Run 100 ticks</button><button id="step">Step</button><button id="shift">Inject shift</button><button id="reset">Reset</button><button id="export">Export evidence JSON</button></div></header>
+<main>
+<section class="panel"><h2>Environment and adaptation rates</h2><svg id="chart" viewBox="0 0 800 305" role="img" aria-label="Environmental signal and adaptation-rate traces"></svg>
+<div class="legend"><span><i class="sw" style="background:#44e4d9"></i>Signal</span><span><i class="sw" style="background:#b57dff"></i>Supervised rate</span><span><i class="sw" style="background:#ffaa60"></i>Fast-rate baseline</span></div></section>
+<section class="panel"><h2>Supervisory controls</h2><label for="scenario">Disturbance</label><select id="scenario"><option value="cycle">Stable oscillation</option><option value="alternating">Alternating noise regimes</option><option value="drift">Accelerating frequency</option><option value="shock">Sudden shifts</option></select>
+<label for="minGap">Minimum adaptation gap: <output id="minGapOut">8</output></label><input id="minGap" type="range" min="2" max="30" step="1" value="8">
+<label for="maxStep">Maximum threshold step: <output id="maxStepOut">2</output></label><input id="maxStep" type="range" min="1" max="5" step="1" value="2">
+<label for="cost">Adaptation-change cost: <output id="costOut">0.5</output></label><input id="cost" type="range" min="0" max="2" step=".1" value=".5">
+<p class="muted">The supervisor slows threshold adjustments when recent changes alternate direction and increases the gap under unstable miss rates. Protected cooldown and recovery-sample floors remain 4 and 8.</p></section>
+<section class="panel wide"><h2>Jane · Toph · Ada</h2><div id="contacts" class="cards"></div></section>
+<section class="panel wide"><h2>Same-observation comparison</h2><div class="kpis" id="kpis"></div><div style="overflow:auto;margin-top:12px"><table><thead><tr><th>Contact</th><th>Supervised changes</th><th>Fast changes</th><th>Supervised transitions</th><th>Fast transitions</th><th>Mean adaptive gap</th></tr></thead><tbody id="rows"></tbody></table></div>
+<p class="muted">Both policies consume the same issued forecasts and their realized outcomes. Fast and supervised policies maintain separate states. Change counts and state transitions measure stability, not overall correctness; compare response delay and alarm misses before asserting improvement.</p></section>
+<section class="panel wide"><h2>Append-only event ledger</h2><pre id="ledger"></pre><p class="muted">All observation records, issued forecasts, scored outcomes, and controller changes are retained in the session. A JSON download preserves this experimental trace, but is not a cryptographically signed provenance archive.</p></section></main>
+<script>
+"use strict";
+const $=x=>document.getElementById(x),clamp=(x,a,b)=>Math.min(b,Math.max(a,x)),mean=a=>a.reduce((s,x)=>s+x,0)/Math.max(1,a.length);
+let seed=178,t=0,shift=0,observations=[],events=[],pending=[],resolved=[],history=[],contacts=[];
+function rng(){seed=(Math.imul(seed,1664525)+1013904223)>>>0;return seed/4294967296}
+function event(type,data={}){events.push({id:events.length+1,t,type,...data})}
+function policy(){return {mode:"CALIBRATING",cooldown:8,samples:12,gap:8,lastChange:-999,changes:0,transitions:0,alarmAt:null,recent:[],post:[],directions:[],lastAlarm:-1}}
+function init(){seed=178;t=0;shift=0;observations=[];events=[];pending=[];resolved=[];history=[];contacts=["Jane","Toph","Ada"].map((name,id)=>({name,id,supervised:policy(),fast:policy()}));event("genesis",{watermark:".dlw"});render()}
+function environment(){let m=$("scenario").value,w=m==="drift"?.065+t*.0008:.11,v=50+16*Math.sin(t*w)+8*Math.sin(t*.042);
+if(m==="alternating"&&Math.floor(t/24)%2)v+=(rng()-.5)*46;if(m==="shock"&&Math.floor(t/42)%2)v+=25;return clamp(v+shift+(rng()-.5)*5,0,100)}
+function forecast(contact){const history=observations.slice(-(8+contact.id*3)),a=history.at(-1)?.value??50,b=history.at(-2)?.value??a;return clamp(a+.68*clamp(a-b,-5,5),0,100)}
+function adapt(c,k){let p=c[k],v=p.recent.slice(-12);if(v.length<8)return;
+let missRate=mean(v.map(x=>x.covered?0:1)),direction=missRate>.36?1:missRate<.13?-1:0;
+if(!direction)return;
+if(k==="supervised"){let reversals=p.directions.slice(-4).filter((v,i,a)=>i>0&&v!==a[i-1]).length;
+let previous=p.gap;p.gap=clamp(+$("minGap").value+reversals*3,2,30);
+if(t-p.lastChange<p.gap)return;
+if(previous!==p.gap)event("supervisory-gap",{contact:c.name,gap:p.gap,reversals})}
+else if(t-p.lastChange<2)return;
+let step=k==="supervised"?+$("maxStep").value:3,old=[p.cooldown,p.samples];
+p.cooldown=clamp(p.cooldown+direction*step,4,24);p.samples=clamp(p.samples+direction*step,8,30);
+p.directions.push(direction);p.lastChange=t;
+if(old[0]!==p.cooldown||old[1]!==p.samples){p.changes++;event("threshold-changed",{contact:c.name,policy:k,from:old,to:[p.cooldown,p.samples],direction})}}
+function update(c,k,result){let p=c[k];p.recent.push(result);if(p.recent.length>30)p.recent.shift();
+if(p.mode==="CALIBRATING"&&p.recent.length>=8){p.mode="NORMAL";p.transitions++;event("initial-calibration",{contact:c.name,policy:k})}
+adapt(c,k);
+const three=p.recent.slice(-3),bad=three.length===3&&three.filter(x=>!x.covered).length>=2;
+if(p.mode==="NORMAL"&&bad&&t>=p.lastAlarm+p.cooldown){p.mode="ALARM";p.alarmAt=t;p.lastAlarm=t;p.post=[];p.transitions++;event("alarm",{contact:c.name,policy:k})}
+else if(p.mode==="ALARM"&&result.origin>=p.alarmAt){p.post.push(result);const sample=p.post.slice(-p.samples);
+if(sample.length>=p.samples&&t-p.alarmAt>=p.cooldown&&mean(sample.map(x=>x.covered?1:0))>=.8){p.mode="NORMAL";p.transitions++;p.recent=[];event("confidence-recovery",{contact:c.name,policy:k,elapsed:t-p.alarmAt})}}
+}
+function step(){t++;let value=environment(),ob={source_id:"ADA178N-OBS-"+String(t).padStart(6,"0"),source_root:"environment-primary",tick:t,value};observations.push(ob);event("observation",ob);
+for(let p of pending.filter(x=>x.target===t)){let result={...p,actual:value,covered:value>=p.lo&&value<=p.hi};resolved.push(result);event("forecast-scored",{forecast_id:p.id,contact:p.contact,origin:p.origin,target:p.target,covered:result.covered});
+const c=contacts[p.contactId];update(c,"supervised",result);update(c,"fast",result)}
+pending=pending.filter(x=>x.target>t);
+for(let c of contacts){let y=forecast(c),p={id:"ADA178N-P-"+t+"-"+c.id,contact:c.name,contactId:c.id,origin:t,target:t+1,prediction:y,lo:clamp(y-14,0,100),hi:clamp(y+14,0,100)};pending.push(p);event("forecast-issued",p)}
+history.push({tick:t,value,supervised:contacts[0].supervised.gap,fast:2});render()}
+function draw(){const view=history.slice(-80),n=view.length,x=i=>24+750*i/Math.max(79,n-1),y=v=>260-2.2*v;
+function line(key,color,transform=x=>x){return n<2?"":'<path d="'+view.map((v,i)=>(i?"L":"M")+xcoord(i)+","+y(transform(v[key]))).join(" ")+'" fill="none" stroke="'+color+'" stroke-width="2.3"/>'}
+const xcoord=i=>x(i).toFixed(1);
+$("chart").innerHTML='<g stroke="#3e3550">'+[0,25,50,75,100].map(v=>'<path d="M24 '+y(v)+' H776"/>').join("")+'</g>'+line("value","#44e4d9")+line("supervised","#b57dff",v=>v*2.5)+line("fast","#ffaa60",v=>v*2.5)}
+function render(){draw();$("contacts").innerHTML=contacts.map(c=>{let a=c.supervised,f=c.fast;return '<div class="contact"><b>'+c.name+'</b> <span class="state '+(a.mode==="NORMAL"?"normal":"")+'">'+a.mode+'</span><div class="big">'+a.cooldown+' / '+a.samples+'</div><small>cooldown / required evidence</small><p>Supervised gap: '+a.gap+' ticks<br>Threshold changes: '+a.changes+' vs '+f.changes+'</p></div>'}).join("");
+let a=contacts.reduce((n,c)=>n+c.supervised.changes,0),b=contacts.reduce((n,c)=>n+c.fast.changes,0);
+$("kpis").innerHTML=[["Ticks",t],["Supervised changes",a],["Fast changes",b],["Scored forecasts",resolved.length]].map(([k,v])=>'<div class="kpi"><small>'+k+'</small><b>'+v+'</b></div>').join("");
+$("rows").innerHTML=contacts.map(c=>'<tr><td>'+c.name+'</td><td>'+c.supervised.changes+'</td><td>'+c.fast.changes+'</td><td>'+c.supervised.transitions+'</td><td>'+c.fast.transitions+'</td><td>'+c.supervised.gap+'</td></tr>').join("");
+$("ledger").textContent=events.slice(-25).map(e=>e.t+" · "+e.type+" · "+(e.contact||e.source_id||"system")+(e.policy?" · "+e.policy:"")).join("\n");
+for(const id of ["minGap","maxStep"])$(id+"Out").textContent=$(id).value;$("costOut").textContent=(+$("cost").value).toFixed(1)}
+$("step").onclick=step;$("run").onclick=()=>{for(let i=0;i<100;i++)step()};$("reset").onclick=init;$("shift").onclick=()=>{shift=shift>0?-30:30;event("injected-shift",{amplitude:shift});render()};$("scenario").onchange=()=>event("scenario-change",{scenario:$("scenario").value});
+["minGap","maxStep","cost"].forEach(id=>$(id).oninput=render);
+$("export").onclick=()=>{let result={schema:"ADA-178N.v1",watermark:".dlw",geometry:"{24/[2]/[4]/(3)/(3)/(1)/(1)}",scenario:$("scenario").value,controls:{minGap:+$("minGap").value,maxStep:+$("maxStep").value,adaptationCost:+$("cost").value},observations,events,pending,resolved,contacts,history};let url=URL.createObjectURL(new Blob([JSON.stringify(result,null,2)],{type:"application/json"})),a=document.createElement("a");a.href=url;a.download="ADA-178N-evidence.json";a.click();setTimeout(()=>URL.revokeObjectURL(url),1000)};
+init();
+</script></body></html>

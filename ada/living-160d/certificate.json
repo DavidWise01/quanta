@@ -1,0 +1,67 @@
+{
+  "version": "ADA-160D",
+  "lineage": "ADA-160C",
+  "watermark": ".dlw",
+  "primitive": ".*. → >.*.< → o",
+  "model": "13 triangular cells share ring endpoints at each of eight gates, scalar contraction (1-pressure) toward shared implicit origin. Area scales (1-pressure)^2. At pressure=1 circle glyph o represents coincident vertices. Pressure release restores original vertices without allocation.",
+  "tests": {
+    "cells": 104,
+    "sharedEdgesVerified": 728,
+    "checks": 3016,
+    "collapsed": 104,
+    "results": [
+      {
+        "pressure": 0,
+        "areaFraction": 1,
+        "minArea": 0.0551534905875788,
+        "maxArea": 0.11578874235417982,
+        "state": ".*."
+      },
+      {
+        "pressure": 0.125,
+        "areaFraction": 0.765625,
+        "minArea": 0.042226891231115,
+        "maxArea": 0.0886507558649189,
+        "state": ">.*.<"
+      },
+      {
+        "pressure": 0.25,
+        "areaFraction": 0.5625,
+        "minArea": 0.031023838455513077,
+        "maxArea": 0.06513116757422607,
+        "state": ">.*.<"
+      },
+      {
+        "pressure": 0.5,
+        "areaFraction": 0.25,
+        "minArea": 0.0137883726468947,
+        "maxArea": 0.028947185588544956,
+        "state": ">.*.<"
+      },
+      {
+        "pressure": 0.75,
+        "areaFraction": 0.0625,
+        "minArea": 0.003447093161723675,
+        "maxArea": 0.007236796397136239,
+        "state": ">.*.<"
+      },
+      {
+        "pressure": 0.875,
+        "areaFraction": 0.015625,
+        "minArea": 0.0008617732904309187,
+        "maxArea": 0.0018091990992840598,
+        "state": ">.*.<"
+      },
+      {
+        "pressure": 1,
+        "areaFraction": 0,
+        "minArea": 0,
+        "maxArea": 0,
+        "state": "o"
+      }
+    ],
+    "reversibleByPressureControl": true,
+    "interpretation": "symbolic pressure contraction: not a physical equation of state"
+  },
+  "limitations": "Symbolic local geometry; uniform contraction is not a mechanical constitutive law or proof of emergent physics. 184 tracer visualization retained, not mathematically coupled to physical pressure. Browser and Pages not yet verified."
+}

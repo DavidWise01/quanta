@@ -1,0 +1,22 @@
+<!doctype html><html><meta charset="utf-8"><meta name="viewport" content="width=device-width"><title>RQT-523 · Jacobi Witness</title><style>body{background:#17202a;color:#f6dfbf;font:18px system-ui;max-width:950px;margin:50px auto;padding:24px}h1{color:#f3be7b}pre{white-space:pre-wrap;overflow-wrap:anywhere;font:15px system-ui;line-height:1.65}</style><h1>RQT-523 — The Jacobi Witness</h1><p><strong>17 new exact exclusions · 647/720 closed · 73 unresolved · Root 19 OPEN</strong></p><pre># RQT-523 — The Jacobi Witness
+
+**Exact local audit:** 90 open fixed-x corridors → 17 new whole-corridor exclusions → 73 unresolved. The original selected 720-corridor sample now has **647 excluded**. Root 19 remains OPEN and the root-18 predecessor remains UNVERIFIED.
+
+Frozen Gram SHA256: `5f4f49b1d75d60d61961b8a0aede915707f6c5cf11e1a9d7e71f1d3a7d83c809`.
+RQT-520 input SHA256: `e02cd985b505c431fe4c66911d7dd0bf06dcb3299a3c7d77aade5e7a0afa10e2`.
+RQT-522 results SHA256: `aadabf19718f7a09d18f66cf89f368b255dbd20b790400e81684105710729caf`.
+
+Norm condition: `t²+A k²=Jx²−Af`. Frozen `A=9alpha` and `J=9beta`, hence `t=3u` and the **equivalent norm equation** is `u²+alpha k²=beta x²−alpha f=N`.
+
+Writing `N=2^s m` with odd `m` and `gcd(alpha,m)=1`, any integral representation requires Jacobi `(-alpha/m)=+1`, by the even-valuation condition at inert primes. **Jacobi −1 is an exclusion certificate even without factoring m; Jacobi +1 is inconclusive.**
+
+All 90 tested coprimality conditions held. Independent binary Jacobi arithmetic and SymPy agreed on every symbol. 585 explicit norm representations passed positive controls. The 17 newly excluded indices in RQT-522's 104-row ledger: **16, 20, 25, 26, 27, 30, 33, 34, 40, 44, 48, 64, 66, 67, 69, 77, 78**. Total remaining feasible widths across 73 corridors: **50,361,275,653,036,522,376**.
+
+This is a necessary-condition obstruction for specific fixed-x corridors, conditional on frozen predecessor form and d=1, **not** a global root-19 proof. No norm representation was constructed for the other 73, and exact original-coordinate back-mapping remains unverified.
+
+Seven-level sexagesimal seeded cross is preserved as navigation; it was not traversed in this arithmetic audit.
+
+Next RQT-524: genus/class-group and prime-power back-map obstructions for the 73 symbol-positive corridors.
+
+Local reproducible Python and full per-corridor JSON, JPEG and embedded-image HTML are conversation artifacts. The committed webpage is a text edition, not a published JPEG.
+</pre></html>

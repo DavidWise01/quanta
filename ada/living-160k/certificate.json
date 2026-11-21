@@ -1,0 +1,305 @@
+{
+  "version": "ADA-160K",
+  "lineage": "ADA-160J",
+  "watermark": ".dlw",
+  "tests": {
+    "checks": 13312,
+    "forecasts": 121344,
+    "anchors": 3072,
+    "maxNormError": 9.769962616701378e-15,
+    "maxUndoError": 3.3306690738754696e-16,
+    "rows": [
+      {
+        "angle": 0.05,
+        "gate": 0,
+        "forecasts": 3792,
+        "rawMAE": 0.0007929280410828548,
+        "calibratedMAE": 0.0007088202731504263,
+        "improvement": 0.00008410776793242854,
+        "accepted": 686
+      },
+      {
+        "angle": 0.05,
+        "gate": 1,
+        "forecasts": 3792,
+        "rawMAE": 0.000793272898268366,
+        "calibratedMAE": 0.0007148659508572956,
+        "improvement": 0.00007840694741107028,
+        "accepted": 688
+      },
+      {
+        "angle": 0.05,
+        "gate": 2,
+        "forecasts": 3792,
+        "rawMAE": 0.0007929280410828548,
+        "calibratedMAE": 0.0007088202731504263,
+        "improvement": 0.00008410776793242854,
+        "accepted": 686
+      },
+      {
+        "angle": 0.05,
+        "gate": 3,
+        "forecasts": 3792,
+        "rawMAE": 0.0007932728982683661,
+        "calibratedMAE": 0.0007148659508572956,
+        "improvement": 0.00007840694741107041,
+        "accepted": 688
+      },
+      {
+        "angle": 0.05,
+        "gate": 4,
+        "forecasts": 3792,
+        "rawMAE": 0.0007929280410828548,
+        "calibratedMAE": 0.0007088202731504263,
+        "improvement": 0.00008410776793242854,
+        "accepted": 686
+      },
+      {
+        "angle": 0.05,
+        "gate": 5,
+        "forecasts": 3792,
+        "rawMAE": 0.0007932728982683661,
+        "calibratedMAE": 0.0007148659508572956,
+        "improvement": 0.00007840694741107041,
+        "accepted": 688
+      },
+      {
+        "angle": 0.05,
+        "gate": 6,
+        "forecasts": 3792,
+        "rawMAE": 0.0007929280410828548,
+        "calibratedMAE": 0.0007088202731504263,
+        "improvement": 0.00008410776793242854,
+        "accepted": 686
+      },
+      {
+        "angle": 0.05,
+        "gate": 7,
+        "forecasts": 3792,
+        "rawMAE": 0.000793272898268366,
+        "calibratedMAE": 0.0007148659508572956,
+        "improvement": 0.00007840694741107028,
+        "accepted": 688
+      },
+      {
+        "angle": 0.13,
+        "gate": 0,
+        "forecasts": 3792,
+        "rawMAE": 0.001406976098868882,
+        "calibratedMAE": 0.0013860630156799468,
+        "improvement": 0.000020913083188935152,
+        "accepted": 441
+      },
+      {
+        "angle": 0.13,
+        "gate": 1,
+        "forecasts": 3792,
+        "rawMAE": 0.0014097513900815668,
+        "calibratedMAE": 0.0013912082273555546,
+        "improvement": 0.00001854316272601225,
+        "accepted": 425
+      },
+      {
+        "angle": 0.13,
+        "gate": 2,
+        "forecasts": 3792,
+        "rawMAE": 0.0014069760988688822,
+        "calibratedMAE": 0.0013860630156799468,
+        "improvement": 0.000020913083188935386,
+        "accepted": 441
+      },
+      {
+        "angle": 0.13,
+        "gate": 3,
+        "forecasts": 3792,
+        "rawMAE": 0.0014097513900815668,
+        "calibratedMAE": 0.0013912082273555546,
+        "improvement": 0.00001854316272601225,
+        "accepted": 425
+      },
+      {
+        "angle": 0.13,
+        "gate": 4,
+        "forecasts": 3792,
+        "rawMAE": 0.0014069760988688822,
+        "calibratedMAE": 0.0013860630156799468,
+        "improvement": 0.000020913083188935386,
+        "accepted": 441
+      },
+      {
+        "angle": 0.13,
+        "gate": 5,
+        "forecasts": 3792,
+        "rawMAE": 0.0014097513900815668,
+        "calibratedMAE": 0.0013912082273555546,
+        "improvement": 0.00001854316272601225,
+        "accepted": 425
+      },
+      {
+        "angle": 0.13,
+        "gate": 6,
+        "forecasts": 3792,
+        "rawMAE": 0.0014069760988688822,
+        "calibratedMAE": 0.0013860630156799468,
+        "improvement": 0.000020913083188935386,
+        "accepted": 441
+      },
+      {
+        "angle": 0.13,
+        "gate": 7,
+        "forecasts": 3792,
+        "rawMAE": 0.0014097513900815668,
+        "calibratedMAE": 0.0013912082273555546,
+        "improvement": 0.00001854316272601225,
+        "accepted": 425
+      },
+      {
+        "angle": 0.3,
+        "gate": 0,
+        "forecasts": 3792,
+        "rawMAE": 0.001852306148291533,
+        "calibratedMAE": 0.002039932738065692,
+        "improvement": -0.00018762658977415877,
+        "accepted": 143
+      },
+      {
+        "angle": 0.3,
+        "gate": 1,
+        "forecasts": 3792,
+        "rawMAE": 0.0016509006077060687,
+        "calibratedMAE": 0.0018287123577761344,
+        "improvement": -0.00017781175007006565,
+        "accepted": 131
+      },
+      {
+        "angle": 0.3,
+        "gate": 2,
+        "forecasts": 3792,
+        "rawMAE": 0.0018523061482915333,
+        "calibratedMAE": 0.0020399327380656923,
+        "improvement": -0.00018762658977415877,
+        "accepted": 143
+      },
+      {
+        "angle": 0.3,
+        "gate": 3,
+        "forecasts": 3792,
+        "rawMAE": 0.0016509006077060687,
+        "calibratedMAE": 0.0018287123577761346,
+        "improvement": -0.0001778117500700659,
+        "accepted": 131
+      },
+      {
+        "angle": 0.3,
+        "gate": 4,
+        "forecasts": 3792,
+        "rawMAE": 0.0018523061482915333,
+        "calibratedMAE": 0.0020399327380656923,
+        "improvement": -0.000187626589774159,
+        "accepted": 143
+      },
+      {
+        "angle": 0.3,
+        "gate": 5,
+        "forecasts": 3792,
+        "rawMAE": 0.0016509006077060687,
+        "calibratedMAE": 0.0018287123577761346,
+        "improvement": -0.0001778117500700659,
+        "accepted": 131
+      },
+      {
+        "angle": 0.3,
+        "gate": 6,
+        "forecasts": 3792,
+        "rawMAE": 0.0018523061482915333,
+        "calibratedMAE": 0.002039932738065692,
+        "improvement": -0.00018762658977415853,
+        "accepted": 143
+      },
+      {
+        "angle": 0.3,
+        "gate": 7,
+        "forecasts": 3792,
+        "rawMAE": 0.001650900607706069,
+        "calibratedMAE": 0.0018287123577761346,
+        "improvement": -0.00017781175007006565,
+        "accepted": 131
+      },
+      {
+        "angle": 0.6,
+        "gate": 0,
+        "forecasts": 3792,
+        "rawMAE": 0.002519829830985405,
+        "calibratedMAE": 0.0025494745880639343,
+        "improvement": -0.000029644757078529055,
+        "accepted": 15
+      },
+      {
+        "angle": 0.6,
+        "gate": 1,
+        "forecasts": 3792,
+        "rawMAE": 0.0028644918002377444,
+        "calibratedMAE": 0.002890125994035517,
+        "improvement": -0.00002563419379777284,
+        "accepted": 36
+      },
+      {
+        "angle": 0.6,
+        "gate": 2,
+        "forecasts": 3792,
+        "rawMAE": 0.0025198298309854054,
+        "calibratedMAE": 0.002549474588063934,
+        "improvement": -0.000029644757078528116,
+        "accepted": 15
+      },
+      {
+        "angle": 0.6,
+        "gate": 3,
+        "forecasts": 3792,
+        "rawMAE": 0.0028644918002377453,
+        "calibratedMAE": 0.002890125994035517,
+        "improvement": -0.0000256341937977719,
+        "accepted": 36
+      },
+      {
+        "angle": 0.6,
+        "gate": 4,
+        "forecasts": 3792,
+        "rawMAE": 0.0025198298309854054,
+        "calibratedMAE": 0.0025494745880639343,
+        "improvement": -0.000029644757078528584,
+        "accepted": 15
+      },
+      {
+        "angle": 0.6,
+        "gate": 5,
+        "forecasts": 3792,
+        "rawMAE": 0.0028644918002377453,
+        "calibratedMAE": 0.002890125994035517,
+        "improvement": -0.0000256341937977719,
+        "accepted": 36
+      },
+      {
+        "angle": 0.6,
+        "gate": 6,
+        "forecasts": 3792,
+        "rawMAE": 0.0025198298309854054,
+        "calibratedMAE": 0.0025494745880639343,
+        "improvement": -0.000029644757078528584,
+        "accepted": 15
+      },
+      {
+        "angle": 0.6,
+        "gate": 7,
+        "forecasts": 3792,
+        "rawMAE": 0.002864491800237745,
+        "calibratedMAE": 0.002890125994035517,
+        "improvement": -0.000025634193797772367,
+        "accepted": 36
+      }
+    ],
+    "method": "Causal rolling-8 mean baseline with residual-bias shrinkage correction; each candidate forecast evaluated using only prior records. The transfer decision remains constrained by current local improvement. Calibration does not affect actions in this bound."
+  },
+  "model": "Causal local residual correction using historical raw forecast and observed counterfactual; preserve original uncorrected prediction alongside calibrated prediction. Memory, local-veto safety, 4D anchors, and L2 norm held.",
+  "limitations": "Mixed calibration benefit across coupling angles. No physical model or energy law. Verified engine uses exact historical raw forecast; browser uses rolling recent residual pairs. Both are illustrative. HTML static / browser loading and deployment require separate check."
+}

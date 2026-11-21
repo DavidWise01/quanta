@@ -1,0 +1,17 @@
+# RQT-550 — Reciprocal Norm Gate
+
+**Executed exact algebraic reduction**, using the RQT-516 historical and RQT-545 alternate rank-four Gram/Wall matrices.
+
+Let D=D_h and U0 be the verified rational conjugator D_n U0=U0 D. Set S=U0ᵀ H_n U0, C=H_h⁻¹ S, K=D+D⁻¹. Exact assertions show Dᵀ S D=S, CD=DC, and **C=aI+bK** with exact rational a,b. The reciprocal-fixed subalgebra is 2-dimensional.
+
+Every rational intertwiner has the form U=U0 P(D), P(D)=t0 I+t1 D+t2 D²+t3 D³. Therefore exact rational simultaneous Wall equivalence is equivalent to
+
+`P(D⁻¹) P(D) (aI+bK)=I`.
+
+The verifier reduces all sixteen matrix equalities **identically to two exact quadratic equations in four rational unknowns**. Full rational coefficients, conjugator, and equations are stored in the local JSON certificate.
+
+**Additional exact necessary condition:** the reciprocal characteristic polynomial of D yields quadratic fixed-field relation `K²−AK−(B+2)I=0`. Exact sign checks locate one real K-root in (−2,0), the other in (0,+∞). The exact rational coefficients a,b satisfy a>2b>0, so C is positive at both real fixed-field embeddings. **No real-sign obstruction found**. This does not imply rational norm representability.
+
+**Not solved:** two-equation rational point, rational simultaneous Wall isometry, integral GL4 equivalence, historical root18 transfer, root19 witness, or full21 reflection word. Finite selected 720-corridor ledger unchanged: 647 conditional exclusions/73 unresolved. Seven-level base-60 navigation is preserved, not exhaustively traversed.
+
+Next RQT-551: solve the relative norm equation in the reciprocal quartic algebra, with exact rational and local-prime certificates before any integral lift. Reproducible local Python script, two-equation JSON, research Markdown, new indigo blueprint JPEG and self-contained HTML are provided as conversation artifacts; GitHub HTML below is text only, Pages deployment unverified.

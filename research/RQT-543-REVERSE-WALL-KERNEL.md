@@ -1,0 +1,17 @@
+# RQT-543 — The Reverse Wall Kernel
+
+**Executed, exact:** Original-source-derived Stoicheion RQT-541 historical 21D index-64 basis B, 15-root matrix T15, six-dimensional saturated kernel N, Gram F6, Wall H; RQT-241 original published root17 transformed into 21D B coordinates x17.
+
+The **15 ordered prior Wall pairings** x17^T H T15 were checked exactly: all **zero**. On N, define the 1×6 row ℓ=x17^T H N. Its integer coefficient gcd is exactly **1**. Explicit unimodular extended-GCD column elimination produces a saturated 6×5 kernel M with ℓM=0 and full rank five. Restricted integral Gram F5=M^T F6 M has exact determinant
+
+`14475655451912186696519612575357291954504440205448582259540099784`
+
+with **signature (1 positive, 4 negative)** established by signs of exact principal minors.
+
+Published RQT-224 initial root16, which belongs to the wrong branch for RQT-241, yields ℓw=**307135354231451946557**, consistent with RQT-537's known nonzero mixed-branch pairing. The correct Branch-2 ambient root16 has not been constructed; the rank-five reverse kernel describes a necessary space for it, not an identified historical root.
+
+**Artifacts:** original-source replay script, exact 1x6 functional, saturated 6x5 kernel M, ambient 22x5 embedding K B N M, full 5x5 Gram, JSON result certificate, and a novel botanical copperplate JPG and self-contained HTML edition were generated as local conversation artifacts. GitHub HTML is text-only; no Pages deployment verified.
+
+**Status:** 15-root ancestry VERIFIED, reduced root18 first-stage PASS from prior audits, authentic Branch-2 root16 PENDING, root19 OPEN, full21 OPEN. The 720 selected conditional-corridor ledger is unchanged: 647 excluded, 73 unresolved. The 7-level base-60 angular navigation was not exhaustively traversed.
+
+**Next RQT-544:** attempt exact norm −2 representation on the new saturated five-dimensional reverse Wall kernel. Any candidate must verify the original 22D Gram norm, h orthogonality, one-sided Wall constraint against r17, and ancestry of the first 15. A norm solution alone does not prove historical coordinate identity or complete 21-word.

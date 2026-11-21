@@ -90,8 +90,8 @@ ctx.fillStyle=k%2?"#b994ff":"#ffd38e";ctx.beginPath();ctx.arc(V[0],V[1],2.6,0,Ma
 // 160E: each shared ._. node remains pinned when anchored; amplitude peaks between contacts.
 const amp=+el("amplitude").value,phase=+el("phase").value+t*1.5,anchored=el("anchored").checked;
 for(let k=0;k<8;k++){const R=1.05+k*.27,c=noble[k][2],s=1-pressure,state=phaseStates[k];
-path(q=>{const theta=((q%(2*Math.PI))+(2*Math.PI))%(2*Math.PI),j=Math.floor(theta*24/(2*Math.PI))%24,envelope=Math.sin(12*q)**2,rad=amp*s*envelope*state.re[j],trans=amp*s*envelope*state.im[j],rr=s*R+rad;return [rr*Math.cos(q),trans,rr*Math.sin(q),rad];},192,c,.85,1.65+glow*.55);
-for(let j=0;j<24;j++){const q=2*Math.PI*j/24,p=project(s*R*Math.cos(q),0,s*R*Math.sin(q),0);ctx.fillStyle="#fce6b0";ctx.beginPath();ctx.arc(p[0],p[1],2.6,0,Math.PI*2);ctx.fill();}}
+path(q=>{const theta=((q%(2*Math.PI))+(2*Math.PI))%(2*Math.PI),j=Math.floor(theta*24/(2*Math.PI))%24,envelope=anchored?Math.sin(12*q)**2:1,cs=Math.cos(phase),sn=Math.sin(phase),rad=amp*s*envelope*(state.re[j]*cs-state.im[j]*sn),trans=amp*s*envelope*(state.re[j]*sn+state.im[j]*cs),rr=s*R+rad;return [rr*Math.cos(q),trans,rr*Math.sin(q),rad];},192,c,.85,1.65+glow*.55);
+if(anchored)for(let j=0;j<24;j++){const q=2*Math.PI*j/24,p=project(s*R*Math.cos(q),0,s*R*Math.sin(q),0);ctx.fillStyle="#fce6b0";ctx.beginPath();ctx.arc(p[0],p[1],2.6,0,Math.PI*2);ctx.fill();}}
 
 for(let k=0;k<8;k++){const radius=(1.05+k*.27)*(1-pressure),c=noble[k][2];path(q=>[radius*Math.cos(q),0,radius*Math.sin(q),0],100,c,.25,1.1);if(el("triangles").checked)for(let j=0;j<24;j++)triangle(k,j);}
 

@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ADA-173N · Forecast Accountability</title>
+<style>
+:root{--ink:#2f233d;--purple:#9b49ee;--orange:#ff7a2e;--teal:#079f98;--line:#dbccea;--bone:#faf8f1}*{box-sizing:border-box}
+body{margin:0;background:var(--bone);color:var(--ink);font:15px/1.5 system-ui,Segoe UI,sans-serif}
+header{padding:25px max(20px,calc((100vw - 1200px)/2));background:linear-gradient(110deg,#fffaf0,#f6edff);border-bottom:2px solid #ccaff5}
+h1{font-size:clamp(29px,4vw,46px);margin:5px 0 7px;line-height:1.1;letter-spacing:-.04em}h2{font-size:18px;margin:0 0 13px}
+mark{background:#f2d9ff;color:#5f208c;border-radius:4px;padding:1px 4px}small,.muted{color:#756884}.eyebrow{color:#822edc;font-size:12px;font-weight:800;letter-spacing:.15em}
+main{max-width:1200px;padding:18px;margin:auto;display:grid;grid-template-columns:minmax(0,1fr) 320px;gap:15px}
+.card{min-width:0;background:white;border:1px solid var(--line);border-radius:14px;padding:18px;box-shadow:0 9px 30px #30203a0a}.wide{grid-column:1/-1}
+button,select{font:inherit;color:#56267f;background:white;border:1.5px solid #a365e9;border-radius:9px;padding:8px 12px;font-weight:750;cursor:pointer}
+button.primary{background:#55277e;color:white}.controls{display:flex;flex-wrap:wrap;gap:9px;margin-top:17px}
+button:focus-visible,select:focus-visible,input:focus-visible{outline:3px solid #ff993d}
+.contact-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.contact{padding:14px;border-top:4px solid #9b49ee;background:#fbf7ff;border-radius:12px}.contact:nth-child(2){border-color:var(--orange)}.contact:nth-child(3){border-color:var(--teal)}
+.big{font-size:26px;font-weight:800}.meter{height:7px;border-radius:12px;background:#eadff3;margin-top:9px;overflow:hidden}.meter div{height:100%;background:linear-gradient(90deg,#8e42ff,#fc7c32)}
+label{display:block;font-weight:700;margin:10px 0 4px}input[type=range]{accent-color:var(--purple);width:100%}
+svg{width:100%;height:290px;display:block;background:#191629;border-radius:12px}
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:9px}.kpi{background:#f4edf9;padding:11px;border-radius:10px}.kpi b{font-size:23px;display:block}
+table{width:100%;border-collapse:collapse;font-size:13px}td,th{border-bottom:1px solid #eee6f5;padding:10px 7px;text-align:right}td:first-child,th:first-child{text-align:left}th{background:#f4effa;color:#50366a}
+.ledger{font:12px/1.6 ui-monospace,Consolas,monospace;background:#1b1727;color:#dfd5f7;border-radius:10px;padding:12px;height:180px;overflow:auto;white-space:pre-wrap}
+.legend{font-size:12px;display:flex;gap:15px;flex-wrap:wrap;margin-top:9px}
+.dot{display:inline-block;width:15px;height:4px;vertical-align:middle;margin-right:5px}
+@media(max-width:800px){main{grid-template-columns:1fr}.contact-grid{grid-template-columns:1fr}.kpis{grid-template-columns:repeat(2,1fr)}}
+</style></head><body>
+<header><div class="eyebrow">ROOT0 · QUANTA · ADA · .dlw</div>
+<h1>ADA-173N · <span style="color:#8f3ae5">Forecast Accountability</span></h1>
+<div>A prediction is a commitment to a future observation. Score it only after that future arrives.</div>
+<div class="controls"><button id="run" class="primary">▶ Run 100 ticks</button><button id="tick">Step</button><button id="shift">Inject shift</button><button id="reset">Reset</button><button id="download">Export evidence JSON</button></div></header>
+<main>
+<section class="card"><h2>Observed environment and issued predictions</h2><svg id="chart" viewBox="0 0 800 290" role="img" aria-label="Observed demand and next-step predictions"></svg>
+<div class="legend"><span><i class="dot" style="background:#37e9df"></i>observed</span><span><i class="dot" style="background:#c38dff"></i>Jane adaptive 1-step</span><span><i class="dot" style="background:#ffad5f"></i>fixed-memory 1-step</span></div></section>
+<section class="card"><h2>Environment and incentives</h2>
+<label for="scenario">Disturbance</label><select id="scenario"><option value="cycle">Predictable cycles</option><option value="drift">Frequency drift</option><option value="shock">Regime changes</option><option value="noise">Noisy false alarms</option></select>
+<label for="price">Forecast reach cost: <output id="priceLabel">0.08</output></label><input id="price" type="range" min="0" max=".5" step=".01" value=".08">
+<label for="penalty">Horizon switching cost: <output id="penaltyLabel">0.2</output></label><input id="penalty" type="range" min="0" max="3" step=".1" value=".2">
+<p class="muted">Horizon candidates: 1, 2, 4, 8, 12. Memory windows: 2, 4, 8, 12, 16, 24. Each candidate's predictions are compared with a same-origin, same-target persistence forecast.</p></section>
+<section class="card wide"><h2>Contacts · individually adapting</h2><div class="contact-grid" id="contacts"></div></section>
+<section class="card wide"><h2>Fair forecast scorecard</h2><div class="kpis" id="kpis"></div><p class="muted">The 1-step comparison uses identical issue times and target times, with two competing prediction models: contact-specific adaptive memory versus fixed memory 8. The multi-horizon scorecard compares each forecast against a same-target persistence forecast, not a shorter-horizon forecast measured on a different date.</p>
+<div style="overflow:auto"><table><thead><tr><th>Horizon</th><th>Completed pairs</th><th>Forecast MAE</th><th>Persistence MAE</th><th>Skill (lower loss)</th></tr></thead><tbody id="scores"></tbody></table></div></section>
+<section class="card wide"><h2>Append-only event trail</h2><div id="ledger" class="ledger"></div>
+<p class="muted">Every prediction records its origin tick, target tick and selected horizon. A forecast is scored exactly once when the target arrives. Changing sliders changes future decisions only; the evidence history remains intact. This demonstration does not provide cryptographic provenance.</p></section></main>
+<script>
+"use strict";
+const $=id=>document.getElementById(id),H=[1,2,4,8,12],W=[2,4,8,12,16,24],NAMES=["Jane","Toph","Ada"];
+const clamp=(x,a,b)=>Math.max(a,Math.min(b,x)),mean=a=>a.reduce((s,x)=>s+x,0)/Math.max(1,a.length);
+let seed=173,t=0,shift=0,obs=[],events=[],queue=[],contacts=[],scores={},oneStep={adaptive:[],fixed:[]},observedGraph=[],oneGraph=[];
+function rand(){seed=(Math.imul(seed,1664525)+1013904223)>>>0;return seed/4294967296}
+function event(type,detail){events.push({id:events.length+1,tick:t,type,...detail})}
+function reset(){seed=173;t=0;shift=0;obs=[];events=[];queue=[];scores=Object.fromEntries(H.map(h=>[h,[]]));oneStep={adaptive:[],fixed:[]};observedGraph=[];oneGraph=[];contacts=NAMES.map((name,id)=>({id,name,window:8,horizon:1,reserve:72,lastError:[],swaps:0,forecast:null}));event("genesis",{mark:".dlw"});render()}
+function environment(){let mode=$("scenario").value;let v=50+17*Math.sin(t*(mode==="drift"?.055+t*.0007:.105))+8*Math.sin(t*.038);if(mode==="shock"&&Math.floor(t/40)%2)v+=24;if(mode==="noise")v+=(rand()-.5)*43;return clamp(v+shift+(rand()-.5)*4,0,100)}
+function estimate(h,win){const a=obs.slice(-win).map(x=>x.value),last=a.at(-1)??50,first=a[0]??50,prev=a.at(-2)??last;let slope=clamp(.6*(last-prev)+.4*(last-first)/Math.max(1,a.length-1),-3,3);return clamp(last+.62*h*slope,0,100)}
+function completed(h){return scores[h]}
+function choose(c){const length=+$("price").value,sw=+$("penalty").value;let best=c.horizon,bestScore=Infinity;
+for(const h of H){const s=completed(h).filter(x=>x.contact===c.name);const recent=s.slice(-18),skill=recent.length>=3?mean(recent.map(x=>x.baseError-x.error)):0;const uncertainty=recent.length<3?2:(6/Math.sqrt(recent.length));const objective=-skill+length*h+sw*(h!==c.horizon?1:0)+uncertainty;if(objective<bestScore){bestScore=objective;best=h}}
+return best}
+function memory(c){let e=c.lastError.slice(-6);if(e.length<4)return;const m=mean(e),i=W.indexOf(c.window);if(m>12&&i>0)c.window=W[i-1];else if(m<5&&t%5===0&&i<W.length-1)c.window=W[i+1]}
+function tick(){t++;const value=environment(),record={id:"ADA173N-OBS-"+String(t).padStart(6,"0"),root:"environment-primary",tick:t,value};obs.push(record);observedGraph.push({tick:t,value});
+const due=queue.filter(q=>q.targetTick===t);
+for(const q of due){const err=Math.abs(q.prediction-value),baseError=Math.abs(q.persistence-value);const completedRecord={forecast_id:q.forecast_id,contact:q.contact,horizon:q.horizon,originTick:q.originTick,targetTick:q.targetTick,prediction:q.prediction,actual:value,error:err,persistence:q.persistence,baseError,model:q.model};
+if(q.model==="adaptive"&&q.horizon===1){oneStep.adaptive.push(err);contacts[q.contactId].lastError.push(err);memory(contacts[q.contactId]);}
+if(q.model==="fixed"&&q.horizon===1){oneStep.fixed.push(err)}
+if(q.model==="adaptive"){scores[q.horizon].push(completedRecord)}
+event("forecast-scored",completedRecord)}
+queue=queue.filter(q=>q.targetTick>t);
+for(const c of contacts){const before=c.horizon;c.horizon=choose(c);if(c.horizon!==before){c.swaps++;event("horizon-changed",{contact:c.name,from:before,to:c.horizon})}
+const persistence=value;
+for(const h of H){const estimateAdaptive=estimate(h,c.window),id="ADA173N-F-"+String(t).padStart(6,"0")+"-"+c.name+"-"+h;
+queue.push({forecast_id:id,contact:c.name,contactId:c.id,horizon:h,originTick:t,targetTick:t+h,prediction:estimateAdaptive,persistence,model:"adaptive"});
+event("forecast-issued",{forecast_id:id,contact:c.name,originTick:t,targetTick:t+h,horizon:h,selected:h===c.horizon,prediction:estimateAdaptive,persistence})}
+const fixed=estimate(1,8);queue.push({forecast_id:"ADA173N-FIX-"+t+"-"+c.name,contact:c.name,contactId:c.id,horizon:1,originTick:t,targetTick:t+1,prediction:fixed,persistence,model:"fixed"});
+c.forecast=estimate(1,c.window);c.reserve=clamp(c.reserve+.38-.09*c.window/8-.025*c.horizon-(before!==c.horizon?.25:0),0,100);
+if(c.id===0)oneGraph.push({tick:t,adaptive:c.forecast,fixed})}
+event("observation",{source_id:record.id,source_root:record.root,value});render()}
+function plot(){let observed=observedGraph.slice(-85),forecast=oneGraph.slice(-85),start=observed[0]?.tick??0;let coords=(vals,color)=>{let pts=vals.filter(x=>x.tick>=start);if(pts.length<2)return "";return '<path fill="none" stroke="'+color+'" stroke-width="2.2" d="'+pts.map((z,i)=>(i?"L":"M")+(24+752*(z.tick-start)/84).toFixed(2)+","+(266-2.3*z.value).toFixed(2)).join(" ")+'"/>'};let actual=observed.map(x=>({tick:x.tick,value:x.value}));let ad=forecast.map(x=>({tick:x.tick+1,value:x.adaptive}));let fixed=forecast.map(x=>({tick:x.tick+1,value:x.fixed}));
+$("chart").innerHTML='<g stroke="#4e425f" opacity=".7">'+[0,25,50,75,100].map(v=>'<path d="M24 '+(266-v*2.3)+' H776"/>').join("")+'</g>'+coords(actual,"#37e9df")+coords(ad,"#c38dff")+coords(fixed,"#ffad5f")}
+function render(){plot();$("contacts").innerHTML=contacts.map(c=>'<div class="contact"><b>'+c.name+'</b><div class="big">'+c.window+' / '+c.horizon+'</div><small>memory samples / forecast ticks</small><p>Reserve: '+c.reserve.toFixed(1)+' · Horizon changes: '+c.swaps+'</p><div class="meter"><div style="width:'+c.reserve+'%"></div></div></div>').join("");
+const n=oneStep.adaptive.length,m=oneStep.fixed.length,adapt=n?mean(oneStep.adaptive).toFixed(2):"—",fixed=m?mean(oneStep.fixed).toFixed(2):"—";
+$("kpis").innerHTML=[["Ticks",t],["1-step adaptive MAE",adapt],["1-step fixed-memory MAE",fixed],["Completed matched 1-step",Math.min(n,m)]].map(([label,value])=>'<div class="kpi"><small>'+label+'</small><b>'+value+'</b></div>').join("");
+$("scores").innerHTML=H.map(h=>{let s=scores[h],a=s.length?mean(s.map(x=>x.error)):null,b=s.length?mean(s.map(x=>x.baseError)):null,skill=a===null?"—":(b-a).toFixed(2);return '<tr><td>'+h+' ticks</td><td>'+s.length+'</td><td>'+(a===null?"—":a.toFixed(2))+'</td><td>'+(b===null?"—":b.toFixed(2))+'</td><td>'+skill+'</td></tr>'}).join("");
+$("ledger").textContent=events.slice(-26).map(x=>x.tick+" · "+x.type+" · "+(x.contact||x.source_id||"system")+(x.horizon?" · H="+x.horizon:"")).join("\n");
+$("priceLabel").textContent=(+$("price").value).toFixed(2);$("penaltyLabel").textContent=(+$("penalty").value).toFixed(1)}
+$("tick").onclick=tick;$("run").onclick=()=>{for(let i=0;i<100;i++)tick()};$("shift").onclick=()=>{shift=shift>0?-25:25;event("shift-injected",{shift});render()};$("reset").onclick=reset;
+$("scenario").onchange=()=>event("scenario-selected",{scenario:$("scenario").value});["price","penalty"].forEach(x=>$(x).oninput=render);
+$("download").onclick=()=>{const payload={schema:"ADA-173N.v1",mark:".dlw",geometry:"{24/[2]/[4]/(3)/(3)/(1)/(1)}",scenario:$("scenario").value,parameters:{price:+$("price").value,penalty:+$("penalty").value},observations:obs,events,completedScores:scores,oneStep,contacts,pending:queue};const url=URL.createObjectURL(new Blob([JSON.stringify(payload,null,2)],{type:"application/json"}));const a=document.createElement("a");a.href=url;a.download="ADA-173N-evidence.json";a.click();setTimeout(()=>URL.revokeObjectURL(url),500)};
+reset();
+</script></body></html>

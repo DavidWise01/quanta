@@ -1,0 +1,308 @@
+{
+  "version": "ADA-160I",
+  "lineage": "ADA-160H",
+  "watermark": ".dlw",
+  "tests": {
+    "checks": 16640,
+    "accepted": 12060,
+    "vetoed": 64740,
+    "maxNormError": 1.1102230246251565e-14,
+    "maxUndoError": 3.3306690738754696e-16,
+    "maxImbalanceRise": 0,
+    "anchorChecks": 3840,
+    "rows": [
+      {
+        "angle": 0.05,
+        "gate": 0,
+        "accepted": 909,
+        "vetoed": 1491,
+        "finalInequality": 0.07542073543781336,
+        "withoutMemory": 0.07542073543781336,
+        "observations": 2400
+      },
+      {
+        "angle": 0.05,
+        "gate": 1,
+        "accepted": 915,
+        "vetoed": 1485,
+        "finalInequality": 0.0754487375040928,
+        "withoutMemory": 0.0754487375040928,
+        "observations": 2400
+      },
+      {
+        "angle": 0.05,
+        "gate": 2,
+        "accepted": 909,
+        "vetoed": 1491,
+        "finalInequality": 0.07542073543781339,
+        "withoutMemory": 0.07542073543781339,
+        "observations": 2400
+      },
+      {
+        "angle": 0.05,
+        "gate": 3,
+        "accepted": 915,
+        "vetoed": 1485,
+        "finalInequality": 0.07544873750409278,
+        "withoutMemory": 0.07544873750409278,
+        "observations": 2400
+      },
+      {
+        "angle": 0.05,
+        "gate": 4,
+        "accepted": 909,
+        "vetoed": 1491,
+        "finalInequality": 0.07542073543781337,
+        "withoutMemory": 0.07542073543781337,
+        "observations": 2400
+      },
+      {
+        "angle": 0.05,
+        "gate": 5,
+        "accepted": 915,
+        "vetoed": 1485,
+        "finalInequality": 0.07544873750409277,
+        "withoutMemory": 0.07544873750409277,
+        "observations": 2400
+      },
+      {
+        "angle": 0.05,
+        "gate": 6,
+        "accepted": 909,
+        "vetoed": 1491,
+        "finalInequality": 0.07542073543781336,
+        "withoutMemory": 0.07542073543781336,
+        "observations": 2400
+      },
+      {
+        "angle": 0.05,
+        "gate": 7,
+        "accepted": 915,
+        "vetoed": 1485,
+        "finalInequality": 0.07544873750409277,
+        "withoutMemory": 0.07544873750409277,
+        "observations": 2400
+      },
+      {
+        "angle": 0.13,
+        "gate": 0,
+        "accepted": 441,
+        "vetoed": 1959,
+        "finalInequality": 0.07122762496933255,
+        "withoutMemory": 0.07122762496933255,
+        "observations": 2400
+      },
+      {
+        "angle": 0.13,
+        "gate": 1,
+        "accepted": 425,
+        "vetoed": 1975,
+        "finalInequality": 0.07361843880438337,
+        "withoutMemory": 0.07361843880438337,
+        "observations": 2400
+      },
+      {
+        "angle": 0.13,
+        "gate": 2,
+        "accepted": 441,
+        "vetoed": 1959,
+        "finalInequality": 0.07122762496933253,
+        "withoutMemory": 0.07122762496933253,
+        "observations": 2400
+      },
+      {
+        "angle": 0.13,
+        "gate": 3,
+        "accepted": 425,
+        "vetoed": 1975,
+        "finalInequality": 0.07361843880438337,
+        "withoutMemory": 0.07361843880438337,
+        "observations": 2400
+      },
+      {
+        "angle": 0.13,
+        "gate": 4,
+        "accepted": 441,
+        "vetoed": 1959,
+        "finalInequality": 0.07122762496933255,
+        "withoutMemory": 0.07122762496933255,
+        "observations": 2400
+      },
+      {
+        "angle": 0.13,
+        "gate": 5,
+        "accepted": 425,
+        "vetoed": 1975,
+        "finalInequality": 0.07361843880438337,
+        "withoutMemory": 0.07361843880438337,
+        "observations": 2400
+      },
+      {
+        "angle": 0.13,
+        "gate": 6,
+        "accepted": 441,
+        "vetoed": 1959,
+        "finalInequality": 0.07122762496933253,
+        "withoutMemory": 0.07122762496933253,
+        "observations": 2400
+      },
+      {
+        "angle": 0.13,
+        "gate": 7,
+        "accepted": 425,
+        "vetoed": 1975,
+        "finalInequality": 0.0736184388043834,
+        "withoutMemory": 0.0736184388043834,
+        "observations": 2400
+      },
+      {
+        "angle": 0.3,
+        "gate": 0,
+        "accepted": 143,
+        "vetoed": 2257,
+        "finalInequality": 0.12478586180472001,
+        "withoutMemory": 0.12478586180472001,
+        "observations": 2400
+      },
+      {
+        "angle": 0.3,
+        "gate": 1,
+        "accepted": 131,
+        "vetoed": 2269,
+        "finalInequality": 0.15330128106137703,
+        "withoutMemory": 0.15330128106137703,
+        "observations": 2400
+      },
+      {
+        "angle": 0.3,
+        "gate": 2,
+        "accepted": 143,
+        "vetoed": 2257,
+        "finalInequality": 0.12478586180471998,
+        "withoutMemory": 0.12478586180471998,
+        "observations": 2400
+      },
+      {
+        "angle": 0.3,
+        "gate": 3,
+        "accepted": 131,
+        "vetoed": 2269,
+        "finalInequality": 0.153301281061377,
+        "withoutMemory": 0.153301281061377,
+        "observations": 2400
+      },
+      {
+        "angle": 0.3,
+        "gate": 4,
+        "accepted": 143,
+        "vetoed": 2257,
+        "finalInequality": 0.12478586180472,
+        "withoutMemory": 0.12478586180472,
+        "observations": 2400
+      },
+      {
+        "angle": 0.3,
+        "gate": 5,
+        "accepted": 131,
+        "vetoed": 2269,
+        "finalInequality": 0.15330128106137697,
+        "withoutMemory": 0.15330128106137697,
+        "observations": 2400
+      },
+      {
+        "angle": 0.3,
+        "gate": 6,
+        "accepted": 143,
+        "vetoed": 2257,
+        "finalInequality": 0.12478586180472,
+        "withoutMemory": 0.12478586180472,
+        "observations": 2400
+      },
+      {
+        "angle": 0.3,
+        "gate": 7,
+        "accepted": 131,
+        "vetoed": 2269,
+        "finalInequality": 0.15330128106137697,
+        "withoutMemory": 0.15330128106137697,
+        "observations": 2400
+      },
+      {
+        "angle": 0.6,
+        "gate": 0,
+        "accepted": 15,
+        "vetoed": 2385,
+        "finalInequality": 0.42259432111992073,
+        "withoutMemory": 0.42259432111992073,
+        "observations": 2400
+      },
+      {
+        "angle": 0.6,
+        "gate": 1,
+        "accepted": 36,
+        "vetoed": 2364,
+        "finalInequality": 0.1975022583308405,
+        "withoutMemory": 0.1975022583308405,
+        "observations": 2400
+      },
+      {
+        "angle": 0.6,
+        "gate": 2,
+        "accepted": 15,
+        "vetoed": 2385,
+        "finalInequality": 0.4225943211199207,
+        "withoutMemory": 0.4225943211199207,
+        "observations": 2400
+      },
+      {
+        "angle": 0.6,
+        "gate": 3,
+        "accepted": 36,
+        "vetoed": 2364,
+        "finalInequality": 0.19750225833084048,
+        "withoutMemory": 0.19750225833084048,
+        "observations": 2400
+      },
+      {
+        "angle": 0.6,
+        "gate": 4,
+        "accepted": 15,
+        "vetoed": 2385,
+        "finalInequality": 0.42259432111992073,
+        "withoutMemory": 0.42259432111992073,
+        "observations": 2400
+      },
+      {
+        "angle": 0.6,
+        "gate": 5,
+        "accepted": 36,
+        "vetoed": 2364,
+        "finalInequality": 0.19750225833084048,
+        "withoutMemory": 0.19750225833084048,
+        "observations": 2400
+      },
+      {
+        "angle": 0.6,
+        "gate": 6,
+        "accepted": 15,
+        "vetoed": 2385,
+        "finalInequality": 0.4225943211199206,
+        "withoutMemory": 0.4225943211199206,
+        "observations": 2400
+      },
+      {
+        "angle": 0.6,
+        "gate": 7,
+        "accepted": 36,
+        "vetoed": 2364,
+        "finalInequality": 0.19750225833084045,
+        "withoutMemory": 0.19750225833084045,
+        "observations": 2400
+      }
+    ],
+    "historyPerRun": 2400,
+    "rule": "Append-only observed local gains; recent 8 directed pair observations influence ranking but cannot override a presently harmful candidate."
+  },
+  "method": "At each 24-contact pair, record observed signed gain, direction, tick, and pair. Full append-only engine evidence; select from currently beneficial rotations using recent past gain as a prior. Browser bounded direction memory and full session export.",
+  "limitations": "No improvement in deterministic benchmark vs 160H; this is a memory instrumentation bound. Memory-guided count tracks used nonzero priors, not proven causal improvement. Browser full-session log can become large and is not persisted after reload absent export. Norm is a mathematical signal metric, not physical energy. Pages not yet verified."
+}

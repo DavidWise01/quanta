@@ -1,0 +1,17 @@
+# RQT-552 — Split-Prime Norm Gate
+
+Exact audit of RQT-550/551 reciprocal field coefficients. Trial division by all rational primes below 200,000:
+
+- Rational norm numerator: no divisors found; 942-bit remaining cofactor.
+- Rational norm denominator: factors `3²·5·347`; 566-bit remaining cofactor.
+- Fixed-field quadratic discriminant: `3²·7·29·89·1063·18149·27179`; 405-bit remaining cofactor.
+
+At p=5 the reciprocal fixed-field polynomial splits with K roots 0,3. At K=0, target C valuation −1 and K²−4=1 is a square: relative extension splits, so inert-valuation parity does not obstruct. At K=3 the extension discriminant vanishes modulo 5; not audited to all powers.
+
+At p=347 the fixed-field roots are 4,74; at K=4, target C valuation −1 and K²−4=12 is a quadratic residue modulo 347, hence relative extension splits. At K=74 it also splits. These facts do not certify the entire local norm equation or the global norm group.
+
+**No new obstruction established.** Other primes (including the p=3 ramified case), complete factorization of large cofactors, and rational simultaneous Wall isometry remain OPEN. Integral equivalence and root19 OPEN. Selected 720-corridor historical ledger unchanged: 647 conditionally excluded, 73 unresolved.
+
+Reproducible full Python engine, JSON, research report, and original WAKAKU split-prime maritime JPEG with self-contained embedded-image HTML are conversation artifacts. GitHub text page and research report commit do not imply Pages or binary image deployment.
+
+**RQT-553:** ramified prime-power local norm audit and large-cofactor factorization strategy; verify each exact local condition before global existence claims.

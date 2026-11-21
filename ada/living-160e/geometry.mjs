@@ -1,0 +1,14 @@
+
+export const SEGMENTS=13,GATES=8,TAU=2*Math.PI;
+export function safe(p){if(!Number.isFinite(p))throw Error("finite");return Math.max(0,Math.min(1,p));}
+export function orbit(k,theta,phase=0,amplitude=.18,pressure=0,anchored=true){if(!Number.isInteger(k)||k<0||k>=GATES||![theta,phase,amplitude].every(Number.isFinite)||amplitude<0||amplitude>.5)throw Error("argument");const u=1-safe(pressure),r=1.05+k*.27;const contactEnvelope=Math.sin(SEGMENTS*theta/2)**2,excursion=amplitude*(anchored?contactEnvelope*Math.sin(phase):Math.sin(SEGMENTS*theta+phase));const rho=u*(r+excursion);return {x:rho*Math.cos(theta),z:rho*Math.sin(theta),rho,excursion:u*excursion,pressure:safe(pressure),anchored,closed:safe(pressure)===1};}
+export function contact(k,j,phase,amplitude=.18,p=0){if(!Number.isInteger(j)||j<0||j>SEGMENTS)throw Error("anchor");return orbit(k,j*TAU/SEGMENTS,phase,amplitude,p,true);}
+export function verifyAnchored(){let checks=0,contacts=0,continuity=0,collapse=0,distinguishes=0;const rows=[];
+for(const p of [0,.125,.5,.875,1])for(const phase of [0,.4,1.1,2.4]){let maxContactError=0,maxClosureError=0,maxAmplitude=0;
+for(let k=0;k<GATES;k++){const R=(1-p)*(1.05+k*.27),amp=.2;for(let j=0;j<=SEGMENTS;j++){const q=j*TAU/SEGMENTS,c=contact(k,j,phase,amp,p),base=[R*Math.cos(q),R*Math.sin(q)],err=Math.hypot(c.x-base[0],c.z-base[1]);if(err>1e-11)throw Error("anchor shift");maxContactError=Math.max(maxContactError,err);contacts++;checks++;if(j<SEGMENTS){const next=contact(k,j+1,phase,amp,p),left=orbit(k,(j+1)*TAU/SEGMENTS,phase,amp,p,true);if(Math.hypot(next.x-left.x,next.z-left.z)>1e-11)throw Error("neighbor");continuity++;checks++;}}
+const first=orbit(k,0,phase,amp,p,true),last=orbit(k,TAU,phase,amp,p,true),seam=Math.hypot(first.x-last.x,first.z-last.z);if(seam>1e-11)throw Error("seam");maxClosureError=Math.max(maxClosureError,seam);checks++;
+for(let j=0;j<SEGMENTS;j++){const mid=orbit(k,(j+.5)*TAU/SEGMENTS,phase,amp,p,true),expected=(1-p)*amp*Math.abs(Math.sin(phase));if(Math.abs(Math.abs(mid.excursion)-expected)>1e-11)throw Error("amplitude");maxAmplitude=Math.max(maxAmplitude,Math.abs(mid.excursion));checks++;}
+if(p===1){for(const theta of [.01,.2,1.7,4.1,TAU]){const x=orbit(k,theta,phase,amp,p,true);if(x.rho!==0||x.x!==0||x.z!==0)throw Error("collapse");collapse++;checks++;}}
+if(phase===.4&&p===0){const free=orbit(k,0,phase,amp,0,false),fixed=orbit(k,0,phase,amp,0,true);if(Math.abs(free.rho-fixed.rho)<1e-3)throw Error("free-v-anchored");distinguishes++;checks++;}}
+rows.push({pressure:p,phase,contactError:maxContactError,closureError:maxClosureError,maxExcursion:maxAmplitude,closed:p===1});}
+return {checks,contacts,continuity,collapsedSamples:collapse,freeAnchoredContrasts:distinguishes,rows,primitive:"oscillatory amplitude touches shared ._. anchors; uniform pressure convergence -> o",physicalClaim:false};}

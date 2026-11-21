@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ADA-175N · Confidence Recovery</title>
+<style>
+:root{--bone:#faf8f0;--ink:#281c3b;--purple:#9149f5;--orange:#ff782e;--teal:#009d96}
+*{box-sizing:border-box}body{margin:0;background:var(--bone);font:15px/1.5 system-ui,Arial;color:var(--ink)}
+header{border-bottom:2px solid #ddc4f4;background:linear-gradient(115deg,#fff8e9,#f5eeff);padding:28px max(20px,calc((100vw - 1190px)/2))}
+.eyebrow{color:#7635be;letter-spacing:.16em;font-size:12px;font-weight:800}h1{margin:5px 0 8px;font-size:clamp(28px,4vw,47px);line-height:1.1;letter-spacing:-.035em}h2{margin:0 0 12px;font-size:18px}
+main{max-width:1190px;margin:auto;padding:18px;display:grid;grid-template-columns:minmax(0,1fr) 310px;gap:16px}
+.card{background:white;border:1px solid #dfd3ea;border-radius:14px;padding:17px;box-shadow:0 8px 30px #4632520b;min-width:0}.wide{grid-column:1/-1}
+.buttons{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}button,select{font:inherit;border:1.5px solid #a66af4;border-radius:9px;padding:9px 13px;background:white;color:#5e2b89;font-weight:750;cursor:pointer}button.primary{background:#532476;color:white}
+button:hover{box-shadow:0 0 0 3px #c594ff60}button:focus-visible,select:focus-visible,input:focus-visible{outline:3px solid #ff9d46}
+label{display:block;margin:13px 0 5px;font-weight:700}input[type=range]{accent-color:#9149f5;width:100%}
+svg{height:310px;width:100%;border-radius:12px;background:#1a142b;display:block}.muted,small{color:#72677c}
+.legend{display:flex;gap:14px;flex-wrap:wrap;font-size:12px;margin:8px 0}.sw{display:inline-block;width:14px;height:5px;vertical-align:middle;margin-right:4px}
+.contacts{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.contact{background:#faf7ff;padding:15px;border-radius:11px;border-top:5px solid #9856f6}.contact:nth-child(2){border-color:#ff873d}.contact:nth-child(3){border-color:#00aaa2}
+.contact .big{font-size:24px;font-weight:850}.pill{display:inline-block;border-radius:7px;background:#f1e7fd;color:#6a319a;padding:3px 8px;font-size:11px;font-weight:800}.pill.alert{background:#fff0dd;color:#a34912}.pill.safe{background:#e6f7f4;color:#087c76}
+.meter{height:7px;background:#eee6f3;border-radius:12px;overflow:hidden}.meter div{height:100%;background:linear-gradient(90deg,#9d4ff8,#ff863a)}
+.metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:9px}.metric{background:#f6f0fc;padding:12px;border-radius:10px}.metric b{display:block;font-size:23px}
+table{border-collapse:collapse;width:100%;font-size:13px}td,th{padding:10px 8px;text-align:right;border-bottom:1px solid #ede6f4}th:first-child,td:first-child{text-align:left}th{background:#f6effa}
+pre{white-space:pre-wrap;overflow:auto;max-height:210px;background:#171429;color:#e2d6f5;font:12px/1.6 ui-monospace,Consolas,monospace;padding:13px;border-radius:10px}
+@media(max-width:790px){main{grid-template-columns:1fr}.contacts{grid-template-columns:1fr}.metrics{grid-template-columns:repeat(2,1fr)}}
+</style></head><body>
+<header><div class="eyebrow">ROOT0 · QUANTA · ADA · .dlw</div><h1>ADA-175N · <span style="color:#924ef0">Confidence Recovery</span></h1>
+<div>When evidence breaks a forecast, distrust quickly. Recover precision only after new outcomes support it.</div>
+<div class="buttons"><button class="primary" id="run">▶ Run 100 ticks</button><button id="step">Step</button><button id="shift">Inject shift</button><button id="reset">Reset</button><button id="export">Export evidence</button></div></header>
+<main>
+<section class="card"><h2>Jane · forward intervals and realized demand</h2><svg id="chart" viewBox="0 0 800 310" role="img" aria-label="Demand and one-step forecast intervals"></svg>
+<div class="legend"><span><i class="sw" style="background:#35e6dc"></i>actual</span><span><i class="sw" style="background:#c18cff"></i>forecast</span><span><i class="sw" style="background:#ff9847"></i>forecast interval</span></div></section>
+<section class="card"><h2>Disturbances and recovery gates</h2>
+<label for="scenario">Environment</label><select id="scenario"><option value="cycle">Stable oscillation</option><option value="drift">Frequency drift</option><option value="shock">Periodic regime shifts</option><option value="noise">Heavy false alarms</option></select>
+<label for="target">Target interval coverage <output id="targetOut">80%</output></label><input id="target" type="range" min=".5" max=".95" step=".05" value=".8">
+<label for="gate">Recovery validation samples <output id="gateOut">12</output></label><input id="gate" type="range" min="6" max="30" step="2" value="12">
+<label for="cost">Forecast reach penalty <output id="costOut">0.12</output></label><input id="cost" type="range" min="0" max=".5" step=".02" value=".12">
+<p class="muted">Alarm: two misses in three completed one-step forecasts. Return to calibrated mode: at least the required number of post-alarm completed one-step forecasts, whose observed coverage meets target and mean signed error stays within the mean interval half-width.</p></section>
+<section class="card wide"><h2>Independent recovery state · Jane / Toph / Ada</h2><div class="contacts" id="contacts"></div></section>
+<section class="card wide"><h2>Recovery accountability</h2><div class="metrics" id="metrics"></div><div style="overflow:auto;margin-top:12px"><table><thead><tr><th>Contact</th><th>Completed 1-step</th><th>Coverage</th><th>Alarms</th><th>Confirmed recoveries</th><th>Current horizon</th></tr></thead><tbody id="results"></tbody></table></div>
+<p class="muted">This lab uses heuristic thresholds, not mathematically guaranteed predictive coverage. Counts and times are simulated observations, and recovery does not imply proof of calibration.</p></section>
+<section class="card wide"><h2>Evidence ledger · issued before outcome</h2><pre id="ledger"></pre><p class="muted">Observations, predictions, target timestamps, alarm decisions, and confirmations remain in the session ledger. Working-window truncation never deletes evidence. Export writes a JSON copy; the browser log is not a signed or tamper-proof archive.</p></section>
+</main>
+<script>
+"use strict";
+const $=id=>document.getElementById(id),H=[1,2,4,8,12],W=[2,4,8,12,16,24];
+const clamp=(x,a,b)=>Math.max(a,Math.min(b,x)),mean=a=>a.reduce((s,x)=>s+x,0)/Math.max(1,a.length);
+let tick=0,seed=175,shift=0,observations=[],events=[],pending=[],settled=[],contacts=[];
+function rng(){seed=(Math.imul(seed,1664525)+1013904223)>>>0;return seed/4294967296}
+function event(type,obj={}){events.push({id:events.length+1,tick,type,...obj})}
+function reset(){tick=0;seed=175;shift=0;observations=[];events=[];pending=[];settled=[];contacts=["Jane","Toph","Ada"].map((name,id)=>({id,name,memory:8,horizon:4,mode:"CALIBRATING",reserve:72,misses:[],postAlarm:[],alarmTick:null,alarms:0,recoveries:0,residuals:Object.fromEntries(H.map(h=>[h,[]])),last:null}));event("genesis",{watermark:".dlw"});render()}
+function environment(){const scenario=$("scenario").value;let w=scenario==="drift"?.068+tick*.0006:.108;let v=50+16*Math.sin(tick*w)+8*Math.sin(tick*.042);if(scenario==="shock"&&Math.floor(tick/45)%2)v+=26;if(scenario==="noise")v+=(rng()-.5)*42;return clamp(v+shift+(rng()-.5)*5,0,100)}
+function predicted(c,h){let samples=observations.slice(-c.memory).map(o=>o.value),last=samples.at(-1)??50,previous=samples.at(-2)??last;let trend=clamp(last-previous,-3.5,3.5);return clamp(last+.6*trend*h,0,100)}
+function radius(c,h){let res=c.residuals[h].slice(-30).sort((a,b)=>a-b),target=+$("target").value;
+let r=res.length<8?12+2*h:res[Math.min(res.length-1,Math.max(0,Math.ceil((res.length+1)*target)-1))];
+if(c.mode==="ALARM")r=Math.max(r*1.8,18+2*h);
+if(c.mode==="RECOVERING")r=Math.max(r*1.3,14+h);
+return clamp(r,2,100)}
+function selectHorizon(c){if(c.mode==="ALARM"||c.mode==="RECOVERING")return 1;
+let best=c.horizon,min=Infinity;
+for(const h of H){let data=settled.filter(r=>r.contact===c.name&&r.h===h).slice(-24);let loss=data.length>=6?mean(data.map(v=>v.error)):15+h*.5;let score=loss+(+$("cost").value)*h+(h===c.horizon?0:.3)+(data.length<6?3:0);if(score<min){min=score;best=h}}
+return best}
+function score(p,actual){const c=contacts[p.contactId],covered=actual>=p.low&&actual<=p.high,err=Math.abs(actual-p.prediction),entry={...p,actual,covered,error:err};
+settled.push(entry);c.residuals[p.h].push(err);event("forecast-scored",{forecast_id:p.id,contact:c.name,h:p.h,origin:p.origin,target:p.target,actual,covered,error:err});
+if(p.h!==1)return;
+c.misses.push(covered?0:1);if(c.misses.length>3)c.misses.shift();
+if(c.mode==="CALIBRATING"&&c.residuals[1].length>=8)c.mode="NORMAL";
+if(c.mode==="NORMAL"&&c.misses.length===3&&c.misses.reduce((a,b)=>a+b,0)>=2){
+c.mode="ALARM";c.alarmTick=tick;c.alarms++;c.postAlarm=[];event("confidence-alarm",{contact:c.name,reason:"2 misses in 3",evidence:[...c.misses]})}
+else if(c.mode==="ALARM"){c.mode="RECOVERING";event("recovery-started",{contact:c.name})}
+if(c.mode==="RECOVERING"&&p.origin>c.alarmTick){
+c.postAlarm.push(entry);let needed=+$("gate").value,recent=c.postAlarm.slice(-needed);
+if(recent.length>=needed){let coverage=mean(recent.map(x=>x.covered?1:0)),bias=Math.abs(mean(recent.map(x=>x.actual-x.prediction))),halfWidth=mean(recent.map(x=>(x.high-x.low)/2));
+if(coverage>=+$("target").value&&bias<=halfWidth){c.mode="NORMAL";c.recoveries++;event("confidence-restored",{contact:c.name,evidenceCount:needed,coverage,bias,halfWidth,elapsedTicks:tick-c.alarmTick});c.misses=[]}
+}}
+}
+function step(){tick++;let value=environment(),ob={source_id:"ADA175N-OBS-"+tick,source_root:"environment-primary",tick,value};observations.push(ob);
+for(const p of pending.filter(x=>x.target===tick))score(p,value);pending=pending.filter(x=>x.target>tick);
+for(const c of contacts){const previous=c.horizon;c.horizon=selectHorizon(c);
+if(c.horizon!==previous)event("horizon-change",{contact:c.name,from:previous,to:c.horizon});
+if(c.mode==="NORMAL"&&c.residuals[1].length>=8){let e=mean(c.residuals[1].slice(-6)),idx=W.indexOf(c.memory);if(e>14&&idx>0)c.memory=W[idx-1];else if(e<5&&tick%5===0&&idx<W.length-1)c.memory=W[idx+1]}
+for(const h of H){let prediction=predicted(c,h),r=radius(c,h),p={id:"ADA175N-P-"+tick+"-"+c.id+"-"+h,contact:c.name,contactId:c.id,h,origin:tick,target:tick+h,prediction,low:clamp(prediction-r,0,100),high:clamp(prediction+r,0,100),mode:c.mode,selected:h===c.horizon,desiredCoverage:+$("target").value};
+pending.push(p);if(h===1)c.last=p;event("forecast-issued",p)}
+c.reserve=clamp(c.reserve+.38-.025*c.horizon-.006*c.memory-(c.horizon!==previous?.25:0),0,100)}
+event("observation",ob);render()}
+function graph(){const series=observations.slice(-80),start=series[0]?.tick??0;const p=settled.filter(x=>x.contact==="Jane"&&x.h===1&&x.target>=start).concat(pending.filter(x=>x.contact==="Jane"&&x.h===1&&x.target<=tick+1&&x.target>=start));let x=t=>22+752*(t-start)/Math.max(79,tick-start+1),y=v=>280-2.5*v;
+const line=(items,key,color,at)=>items.length<2?"":'<path fill="none" stroke="'+color+'" stroke-width="2.4" d="'+items.map((v,i)=>(i?"L":"M")+x(v[at]).toFixed(1)+","+y(v[key]).toFixed(1)).join(" ")+'"/>';
+let band=p.length>1?'<path d="'+p.map((v,i)=>(i?"L":"M")+x(v.target).toFixed(1)+","+y(v.high).toFixed(1)).join(" ")+" "+p.slice().reverse().map(v=>"L"+x(v.target).toFixed(1)+","+y(v.low).toFixed(1)).join(" ")+' Z" fill="#ff9242" fill-opacity=".20"/>':"";
+$("chart").innerHTML='<g stroke="#3a304a">'+[0,25,50,75,100].map(v=>'<path d="M22 '+y(v)+' H778"/>').join("")+'</g>'+band+line(series,"value","#35e6dc","tick")+line(p,"prediction","#c18cff","target")}
+function render(){graph();$("contacts").innerHTML=contacts.map(c=>{let n=settled.filter(p=>p.contact===c.name&&p.h===1),cov=n.length?(100*mean(n.map(p=>p.covered?1:0))).toFixed(0)+"%":"—";let badge=c.mode==="NORMAL"?"safe":c.mode==="ALARM"?"alert":"";return '<div class="contact"><div><b>'+c.name+'</b> <span class="pill '+badge+'">'+c.mode+'</span></div><div class="big">'+c.memory+' / '+c.horizon+'</div><small>Memory observations / forecast ticks</small><p>Completed coverage: '+cov+'</p><p>Recovery reserve: '+c.reserve.toFixed(1)+'/100</p><div class="meter"><div style="width:'+c.reserve+'%"></div></div></div>'}).join("");
+let one=settled.filter(p=>p.h===1),cov=one.length?(100*mean(one.map(p=>p.covered?1:0))).toFixed(0)+"%":"—";
+$("metrics").innerHTML=[["Simulated ticks",tick],["Completed 1-step",one.length],["Pooled coverage",cov],["Recovery events",contacts.reduce((a,c)=>a+c.recoveries,0)]].map(([k,v])=>'<div class="metric"><small>'+k+'</small><b>'+v+'</b></div>').join("");
+$("results").innerHTML=contacts.map(c=>{let n=one.filter(p=>p.contact===c.name);return '<tr><td>'+c.name+'</td><td>'+n.length+'</td><td>'+(n.length?(100*mean(n.map(p=>p.covered?1:0))).toFixed(0)+"%":"—")+'</td><td>'+c.alarms+'</td><td>'+c.recoveries+'</td><td>'+c.horizon+'</td></tr>'}).join("");
+$("ledger").textContent=events.slice(-25).map(e=>e.tick+" | "+e.type+" | "+(e.contact||e.source_id||"system")+(e.h?" | h="+e.h:"")).join("\n");
+$("targetOut").textContent=Math.round(100*+$("target").value)+"%";$("gateOut").textContent=$("gate").value;$("costOut").textContent=(+$("cost").value).toFixed(2)}
+$("step").onclick=step;$("run").onclick=()=>{for(let i=0;i<100;i++)step()};$("reset").onclick=reset;
+$("shift").onclick=()=>{shift=shift>0?-30:30;event("shift-injected",{shift});render()};$("scenario").onchange=()=>event("scenario-changed",{scenario:$("scenario").value});
+["target","gate","cost"].forEach(id=>$(id).oninput=render);
+$("export").onclick=()=>{const obj={schema:"ADA-175N.v1",watermark:".dlw",geometry:"{24/[2]/[4]/(3)/(3)/(1)/(1)}",scenario:$("scenario").value,parameters:{coverage:+$("target").value,gate:+$("gate").value,cost:+$("cost").value},observations,events,settled,pending,contacts};let url=URL.createObjectURL(new Blob([JSON.stringify(obj,null,2)],{type:"application/json"})),a=document.createElement("a");a.href=url;a.download="ADA-175N-evidence.json";a.click();setTimeout(()=>URL.revokeObjectURL(url),1000)};
+reset();
+</script></body></html>

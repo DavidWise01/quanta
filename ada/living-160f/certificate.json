@@ -1,0 +1,132 @@
+{
+  "version": "ADA-160F",
+  "lineage": "ADA-160E",
+  "watermark": ".dlw",
+  "grammar": "{24/[2]/[4]/(3)/(3)/(1)/(1)",
+  "interpretation": "24 anchored contact positions in each 4D orbital field; 6 simultaneous routing channels [2,4,3,3,1,1] (sum14, product72), not factorization of 24. Two independent rotations in x-w and y-z planes, both Euclidean norm preserving. Shared wave contacts zero displacement; pressure 1 all coordinates collapse to origin.",
+  "tests": {
+    "tests": 12144,
+    "contacts": 4000,
+    "neighborLinks": 3840,
+    "collapses": 160,
+    "projectionNormError": 1.3322676295501878e-15,
+    "anchorError": 1.920662926209852e-29,
+    "seamError": 7.200923178986438e-16,
+    "orbitContacts": 24,
+    "gateContacts": 192,
+    "channelGrammar": "{24/[2]/[4]/(3)/(3)/(1)/(1)",
+    "channelSizes": [
+      2,
+      4,
+      3,
+      3,
+      1,
+      1
+    ],
+    "channelSum": 14,
+    "notFactorization": true,
+    "samples": [
+      {
+        "p": 0,
+        "phase": 0,
+        "maxTransverseAmplitude": 0.2
+      },
+      {
+        "p": 0,
+        "phase": 0.4,
+        "maxTransverseAmplitude": 0.18421219880057704
+      },
+      {
+        "p": 0,
+        "phase": 1.1,
+        "maxTransverseAmplitude": 0.1782414720122871
+      },
+      {
+        "p": 0,
+        "phase": 2.4,
+        "maxTransverseAmplitude": 0.1474787431082491
+      },
+      {
+        "p": 0.125,
+        "phase": 0,
+        "maxTransverseAmplitude": 0.17500000000000002
+      },
+      {
+        "p": 0.125,
+        "phase": 0.4,
+        "maxTransverseAmplitude": 0.1611856739505049
+      },
+      {
+        "p": 0.125,
+        "phase": 1.1,
+        "maxTransverseAmplitude": 0.1559612880107512
+      },
+      {
+        "p": 0.125,
+        "phase": 2.4,
+        "maxTransverseAmplitude": 0.12904390021971796
+      },
+      {
+        "p": 0.5,
+        "phase": 0,
+        "maxTransverseAmplitude": 0.1
+      },
+      {
+        "p": 0.5,
+        "phase": 0.4,
+        "maxTransverseAmplitude": 0.09210609940028852
+      },
+      {
+        "p": 0.5,
+        "phase": 1.1,
+        "maxTransverseAmplitude": 0.08912073600614355
+      },
+      {
+        "p": 0.5,
+        "phase": 2.4,
+        "maxTransverseAmplitude": 0.07373937155412455
+      },
+      {
+        "p": 0.875,
+        "phase": 0,
+        "maxTransverseAmplitude": 0.025
+      },
+      {
+        "p": 0.875,
+        "phase": 0.4,
+        "maxTransverseAmplitude": 0.02302652485007213
+      },
+      {
+        "p": 0.875,
+        "phase": 1.1,
+        "maxTransverseAmplitude": 0.022280184001535887
+      },
+      {
+        "p": 0.875,
+        "phase": 2.4,
+        "maxTransverseAmplitude": 0.018434842888531137
+      },
+      {
+        "p": 1,
+        "phase": 0,
+        "maxTransverseAmplitude": 0
+      },
+      {
+        "p": 1,
+        "phase": 0.4,
+        "maxTransverseAmplitude": 0
+      },
+      {
+        "p": 1,
+        "phase": 1.1,
+        "maxTransverseAmplitude": 0
+      },
+      {
+        "p": 1,
+        "phase": 2.4,
+        "maxTransverseAmplitude": 0
+      }
+    ]
+  },
+  "limits": "4D projected to 2D on Canvas; 4D mathematical construction, not physical string-theory proof. The triangle cell apex is a visual interpolation; no physical constitutive law. Browser rendering and Pages delivery unverified."
+}

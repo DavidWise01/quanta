@@ -1,0 +1,18 @@
+# RQT-556 — The Two 2-Adic Portals
+
+**Executed exact all-order local relative norm audit** using frozen RQT-550 coefficients (SHA256 `3af3b6e48f8006e529e6136ec74dc5e3f8f5e07c1e44e515d58ef1902778d5d0`).
+
+The reciprocal quadratic fixed-field polynomial `K²−AK−(B+2)` satisfies `A≡5 (mod8)`, `B≡4 (mod8)`, and `Δ≡1 (mod8)`; its reductions modulo 2 have two distinct simple roots, even and odd. Hence `F⊗Q₂≅Q₂×Q₂`. Exact simple-root Hensel lifts were computed and asserted through `2^24`.
+
+| Q₂ place | K mod 4096 | v₂(K²−4) | δ unit mod 8 | Relative L/F extension | C mod8 | Norm condition |
+|---|---:|---:|---:|---|---:|---|
+| even K | 2958 | 6 | 3 | ramified quadratic | 1 | PASS |
+| odd K | 2551 | 0 | 5 | unramified quadratic | 1 | PASS |
+
+**Proof valid at all 2-adic orders:** frozen rational coefficients `C=a+bK` have odd denominators with `a≡1 (mod8)`, `b≡0 (mod8)`. Thus at both Q₂ places C≡1 (mod8), hence C⁻¹ is an exact square q² in Q₂. As an embedded base-field scalar q within L_v, its relative norm equals q²=C⁻¹. This explicitly proves local relative norm solvability at both places over p=2 regardless of relative ramification. The `2^24` checks only independently confirm field-root residues and valuations.
+
+**Limits:** 353-bit relative-radicand cofactor and the remaining large target numerator, denominator and fixed-discriminant cofactors are not completely factored or audited at all their places. No global rational norm solution, rational Wall isometry, integral GL4 bridge, root19 construction or full21-word proof has been obtained. New global obstructions: 0. Historical selected 720-corridor ledger unchanged, 647 conditional exclusions / 73 unresolved.
+
+**Next RQT-557:** target cofactor supports, gcd relationships, factor search with exact certifications, and the remaining local norm places; only then evaluate cyclic local–global norm principle. Seven-layer base-60 WAKAKU geometry is navigation, not exhaustive enumeration.
+
+The local Python executable, JSON witness, high-resolution **corrected** 1970s mission-control JPEG, and self-contained JPEG-embedded HTML are conversation artifacts. GitHub viewer is a text edition; GitHub Pages deployment and binary-image upload are not verified.

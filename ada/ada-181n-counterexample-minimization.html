@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ADA-181N · Counterexample Minimization</title>
+<style>
+:root{--bone:#faf8f0;--purple:#9250ea;--orange:#fb7c2e;--teal:#00aba0;--ink:#30233d}
+*{box-sizing:border-box}body{margin:0;background:var(--bone);color:var(--ink);font:15px/1.5 system-ui,sans-serif}
+header{padding:25px max(18px,calc((100vw - 1150px)/2));background:linear-gradient(115deg,#fff8e8,#f2e9ff);border-bottom:2px solid #d9bbfb}
+.kicker{letter-spacing:.15em;color:#8038c8;font-size:12px;font-weight:800}h1{font-size:clamp(28px,4vw,48px);letter-spacing:-.04em;margin:6px 0}
+main{max-width:1150px;margin:auto;padding:17px;display:grid;grid-template-columns:minmax(0,1fr) 305px;gap:15px}
+.panel{min-width:0;background:#fff;border:1px solid #ded0e9;border-radius:14px;padding:17px;box-shadow:0 8px 22px #3524460a}.wide{grid-column:1/-1}h2{font-size:18px;margin:0 0 10px}
+.controls{display:flex;flex-wrap:wrap;gap:9px;margin-top:15px}button,select{font:700 14px system-ui;border:1.5px solid #a775ed;border-radius:9px;background:white;color:#582486;padding:9px 12px;cursor:pointer}button.primary{background:#55227c;color:white}button:focus-visible,select:focus-visible{outline:3px solid var(--orange)}
+label{display:block;margin:13px 0 5px;font-weight:700}.muted,small{color:#75687f}svg{display:block;background:#1b162b;border-radius:12px;width:100%;height:290px}
+.legend{display:flex;flex-wrap:wrap;gap:13px;font-size:12px;margin-top:10px}.sw{display:inline-block;width:13px;height:5px;vertical-align:middle;margin-right:4px}
+.metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:9px}.metric{background:#f5effb;border-radius:10px;padding:12px}.metric b{font-size:24px;display:block}
+pre{background:#191526;color:#e3d6fb;border-radius:10px;padding:13px;max-height:220px;overflow:auto;white-space:pre-wrap;font:12px/1.6 ui-monospace,monospace}
+table{width:100%;border-collapse:collapse;font-size:13px}th,td{padding:9px 7px;border-bottom:1px solid #eee6f5;text-align:right}td:first-child,th:first-child{text-align:left}th{background:#f6effb}
+.status{background:#e5f6ee;color:#047264;font-weight:800;font-size:11px;border-radius:7px;padding:3px 8px}.status.warn{background:#fff0dd;color:#aa4818}
+@media(max-width:800px){main{grid-template-columns:1fr}.metrics{grid-template-columns:repeat(2,1fr)}}
+</style></head>
+<body><header><div class="kicker">ROOT0 · QUANTA · ADA · .dlw</div>
+<h1>ADA-181N · <span style="color:#9250ea">Counterexample Minimization</span></h1>
+<div>Keep the original failure immutable. Reduce its disturbance support. Replay the same safety predicate.</div>
+<div class="controls"><button class="primary" id="generate">1 · Generate failure</button><button id="minimize">2 · Minimize</button><button id="verify">3 · Verify minimality</button><button id="export">Export evidence JSON</button><button id="reset">Reset</button></div></header>
+<main>
+<section class="panel"><h2>Original and minimized disturbance</h2><svg id="plot" viewBox="0 0 800 290" role="img" aria-label="Original and minimized synthetic disturbance traces"></svg>
+<div class="legend"><span><i class="sw" style="background:#ff9951"></i>Original disturbance</span><span><i class="sw" style="background:#b689ff"></i>Minimized disturbance</span><span><i class="sw" style="background:#38e5d5"></i>Critical region</span></div></section>
+<section class="panel"><h2>Controlled experiment</h2>
+<label for="scenario">Synthetic failure family</label><select id="scenario"><option value="bursts">Burst amid distracting spikes</option><option value="two">Two bursts with intervening noise</option><option value="ramp">Long ramp and isolated spikes</option></select>
+<label for="rule">Failure predicate</label><select id="rule"><option value="miss">Candidate has more unprotected critical ticks</option><option value="delay">Candidate detects later than incumbent</option></select>
+<p class="muted">Incumbent requires 2 consecutive critical ticks. Candidate requires 5. Critical threshold is |deviation| ≥ 14. Both policies replay an identical length-72 trace with reset internal state.</p>
+<p class="muted">The reducer removes nonzero disturbance cells by replacing them with zero. It never changes the time index, baseline, thresholds, or original evidence.</p>
+<div id="state" class="status warn">No trial loaded</div></section>
+<section class="panel wide"><h2>Test results · identical safety predicate</h2><div class="metrics" id="metrics"></div>
+<div style="overflow:auto;margin-top:12px"><table><thead><tr><th>Trace</th><th>Nonzero cells</th><th>Incumbent missed ticks</th><th>Candidate missed ticks</th><th>Incumbent detection</th><th>Candidate detection</th><th>Failure retained</th></tr></thead><tbody id="rows"></tbody></table></div>
+<p class="muted">“Minimal” means 1-minimal under removal of any single remaining nonzero cell; it does not mean globally smallest over every possible event sequence or rewrite. A candidate may be rejected for the synthetic safety predicate even if it performs well elsewhere.</p></section>
+<section class="panel wide"><h2>Preserved ancestry · replay and deletion ledger</h2><pre id="ledger"></pre>
+<p class="muted">The original trace is frozen at generation and retained alongside each attempted deletion and exact replay result. Trial identifiers are session-local, not cryptographic signatures. Export before leaving the page to retain evidence.</p></section></main>
+<script>
+"use strict";
+const $=id=>document.getElementById(id),TOTAL=72,THRESHOLD=14;
+let original=null,reduced=null,attempts=[],checks=[],experiment=0,verified=false;
+function clone(a){return a.slice()}
+function nonzero(a){return a.reduce((n,x)=>n+(x!==0),0)}
+function signature(a){let h=2166136261;for(const x of a){h=Math.imul(h^((x+128)&255),16777619)>>>0}return h.toString(16).padStart(8,"0")}
+function generateTrace(kind){let a=Array(TOTAL).fill(0);
+if(kind==="bursts"){for(let i=10;i<18;i++)a[i]=[17,19,20,22,23,18,17,16][i-10];for(let i=28;i<32;i++)a[i]=[20,18,16,18][i-28]}
+if(kind==="two"){for(let i=8;i<15;i++)a[i]=20;for(let i=41;i<49;i++)a[i]=-21}
+if(kind==="ramp"){for(let i=17;i<30;i++)a[i]=8+Math.round((i-17)*1.4);for(let i=42;i<51;i++)a[i]=19}
+for(const i of [2,5,22,35,38,53,59,65,68])a[i]=(i%2?-1:1)*(4+i%9);
+return a}
+function replay(trace,required){let consecutive=0,alarm=false,first=null,miss=0;
+for(let i=0;i<trace.length;i++){let critical=Math.abs(trace[i])>=THRESHOLD;consecutive=critical?consecutive+1:0;
+if(critical&&consecutive>=required){alarm=true;if(first===null)first=i}
+if(!critical)alarm=false;
+if(critical&&!alarm)miss++}
+return {missed:miss,first}}
+function test(trace){let incumbent=replay(trace,2),candidate=replay(trace,5),failure=$("rule").value==="miss"?candidate.missed>incumbent.missed:(candidate.first===null?incumbent.first!==null:incumbent.first!==null&&candidate.first>incumbent.first);
+return {incumbent,candidate,failure,nonzero:nonzero(trace)}}
+function begin(){experiment++;original=Object.freeze(generateTrace($("scenario").value));reduced=clone(original);attempts=[];checks=[];verified=false;
+let baseline=test(original);checks.push({kind:"original",signature:signature(original),test:baseline});render()}
+function minimize(){if(!original)begin();if(!test(original).failure){checks.push({kind:"blocked",reason:"Original does not reproduce selected failure predicate"});render();return}
+let active=reduced.map((v,i)=>v!==0?i:-1).filter(i=>i>=0),parts=2;
+while(active.length>0){let segment=Math.ceil(active.length/parts),found=false;
+for(let start=0;start<active.length;start+=segment){let removed=active.slice(start,start+segment),trial=clone(reduced);
+for(const i of removed)trial[i]=0;
+let response=test(trial);attempts.push({attempt:attempts.length+1,removed,remaining:response.nonzero,failureRetained:response.failure,signature:signature(trial)});
+if(response.failure){reduced=trial;active=active.filter(i=>!removed.includes(i));parts=Math.max(2,parts-1);found=true;break}}
+if(found)continue;if(parts>=active.length)break;parts=Math.min(active.length,parts*2)}
+/* Final single-cell pass ensures deletion-based 1-minimality. */
+let changed=true;while(changed){changed=false;for(let i=0;i<reduced.length;i++)if(reduced[i]!==0){let trial=clone(reduced);trial[i]=0;let r=test(trial);
+attempts.push({attempt:attempts.length+1,removed:[i],remaining:r.nonzero,failureRetained:r.failure,signature:signature(trial)});
+if(r.failure){reduced=trial;changed=true;break}}}
+checks.push({kind:"minimized",signature:signature(reduced),test:test(reduced),attemptCount:attempts.length});verified=false;render()}
+function verify(){if(!original){render();return}if(reduced===null){render();return}
+let remaining=reduced.map((v,i)=>v!==0?i:-1).filter(i=>i>=0),counterexamples=[];
+for(const i of remaining){let trial=clone(reduced);trial[i]=0;if(test(trial).failure)counterexamples.push(i)}
+verified=test(original).failure&&test(reduced).failure&&counterexamples.length===0;
+checks.push({kind:"verification",originalUnchanged:signature(original)===checks[0].signature,remainingCells:remaining.length,singleDeletionFailures:counterexamples,pass:verified});render()}
+function line(a,color,yOffset,scale){if(!a)return "";return '<path fill="none" stroke="'+color+'" stroke-width="2.5" stroke-linejoin="round" d="'+a.map((v,i)=>(i?"L":"M")+(24+i*752/(TOTAL-1)).toFixed(1)+","+(yOffset-v*scale).toFixed(1)).join(" ")+'"/>'}
+function render(){$("plot").innerHTML='<g stroke="#41364f"><path d="M24 95 H776"/><path d="M24 228 H776"/></g><rect x="24" y="28" width="752" height="125" fill="#ff9340" fill-opacity=".03"/>'+line(original,"#ff9951",95,1.7)+line(reduced,"#b689ff",228,1.7);
+$("state").textContent=!original?"No trial loaded":verified?"Verified 1-minimal reproducer":reduced&&nonzero(reduced)<nonzero(original)?"Reduced; run verification":"Original preserved";$("state").className="status "+(verified?"":"warn");
+$("metrics").innerHTML=[["Original nonzero",original?nonzero(original):"—"],["Reduced nonzero",reduced?nonzero(reduced):"—"],["Deletion attempts",attempts.length],["1-minimal verified",verified?"YES":"NO"]].map(([k,v])=>'<div class="metric"><small>'+k+'</small><b>'+v+'</b></div>').join("");
+$("rows").innerHTML=[["Original",original],["Minimized",reduced]].filter(x=>x[1]).map(([label,a])=>{let r=test(a);return '<tr><td>'+label+'</td><td>'+r.nonzero+'</td><td>'+r.incumbent.missed+'</td><td>'+r.candidate.missed+'</td><td>'+(r.incumbent.first??"—")+'</td><td>'+(r.candidate.first??"—")+'</td><td>'+(r.failure?"YES":"NO")+'</td></tr>'}).join("");
+$("ledger").textContent=JSON.stringify({trial:experiment,originalHash:original?signature(original):null,reducedHash:reduced?signature(reduced):null,recentAttempts:attempts.slice(-12),checks:checks.slice(-3)},null,2)}
+$("generate").onclick=begin;$("minimize").onclick=minimize;$("verify").onclick=verify;$("reset").onclick=()=>{original=null;reduced=null;attempts=[];checks=[];verified=false;render()};
+$("rule").onchange=()=>{if(original){reduced=clone(original);attempts=[];checks=[{kind:"original",signature:signature(original),test:test(original)}];verified=false}render()};
+$("scenario").onchange=()=>{original=null;reduced=null;attempts=[];checks=[];verified=false;render()};
+$("export").onclick=()=>{let bundle={schema:"ADA-181N.v1",mark:".dlw",geometry:"{24/[2]/[4]/(3)/(3)/(1)/(1)}",predicate:$("rule").value,scenario:$("scenario").value,original:original?clone(original):null,reduced:reduced?clone(reduced):null,attempts,checks,verified,warning:"Synthetic demonstration; fingerprint is noncryptographic; minimality is deletion-only."};let url=URL.createObjectURL(new Blob([JSON.stringify(bundle,null,2)],{type:"application/json"})),a=document.createElement("a");a.href=url;a.download="ADA-181N-evidence.json";a.click();setTimeout(()=>URL.revokeObjectURL(url),500)};
+render();
+</script></body></html>

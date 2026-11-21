@@ -1,0 +1,178 @@
+{
+  "version": "ADA-160E",
+  "lineage": "ADA-160D",
+  "watermark": ".dlw",
+  "model": "Radial oscillatory amplitude with smooth sin²(13θ/2) contact envelope, phase sin(t); zero displacement at all 13 shared anchor nodes on each of eight gates. Free comparison has unrestricted phase offset. Pressure contracts amplitudes and base radii to o at 1.",
+  "tests": {
+    "checks": 6728,
+    "contacts": 2240,
+    "continuity": 2080,
+    "collapsedSamples": 160,
+    "freeAnchoredContrasts": 8,
+    "rows": [
+      {
+        "pressure": 0,
+        "phase": 0,
+        "contactError": 0,
+        "closureError": 7.200923178986438e-16,
+        "maxExcursion": 0,
+        "closed": false
+      },
+      {
+        "pressure": 0,
+        "phase": 0.4,
+        "contactError": 0,
+        "closureError": 7.200923178986438e-16,
+        "maxExcursion": 0.07788366846173012,
+        "closed": false
+      },
+      {
+        "pressure": 0,
+        "phase": 1.1,
+        "contactError": 0,
+        "closureError": 7.200923178986438e-16,
+        "maxExcursion": 0.1782414720122871,
+        "closed": false
+      },
+      {
+        "pressure": 0,
+        "phase": 2.4,
+        "contactError": 0,
+        "closureError": 7.200923178986438e-16,
+        "maxExcursion": 0.1350926361102302,
+        "closed": false
+      },
+      {
+        "pressure": 0.125,
+        "phase": 0,
+        "contactError": 0,
+        "closureError": 6.300807781613133e-16,
+        "maxExcursion": 0,
+        "closed": false
+      },
+      {
+        "pressure": 0.125,
+        "phase": 0.4,
+        "contactError": 0,
+        "closureError": 6.300807781613133e-16,
+        "maxExcursion": 0.06814820990401385,
+        "closed": false
+      },
+      {
+        "pressure": 0.125,
+        "phase": 1.1,
+        "contactError": 0,
+        "closureError": 6.300807781613133e-16,
+        "maxExcursion": 0.1559612880107512,
+        "closed": false
+      },
+      {
+        "pressure": 0.125,
+        "phase": 2.4,
+        "contactError": 0,
+        "closureError": 6.300807781613133e-16,
+        "maxExcursion": 0.11820605659645142,
+        "closed": false
+      },
+      {
+        "pressure": 0.5,
+        "phase": 0,
+        "contactError": 0,
+        "closureError": 3.600461589493219e-16,
+        "maxExcursion": 0,
+        "closed": false
+      },
+      {
+        "pressure": 0.5,
+        "phase": 0.4,
+        "contactError": 0,
+        "closureError": 3.600461589493219e-16,
+        "maxExcursion": 0.03894183423086506,
+        "closed": false
+      },
+      {
+        "pressure": 0.5,
+        "phase": 1.1,
+        "contactError": 0,
+        "closureError": 3.600461589493219e-16,
+        "maxExcursion": 0.08912073600614355,
+        "closed": false
+      },
+      {
+        "pressure": 0.5,
+        "phase": 2.4,
+        "contactError": 0,
+        "closureError": 3.600461589493219e-16,
+        "maxExcursion": 0.0675463180551151,
+        "closed": false
+      },
+      {
+        "pressure": 0.875,
+        "phase": 0,
+        "contactError": 0,
+        "closureError": 9.001153973733047e-17,
+        "maxExcursion": 0,
+        "closed": false
+      },
+      {
+        "pressure": 0.875,
+        "phase": 0.4,
+        "contactError": 0,
+        "closureError": 9.001153973733047e-17,
+        "maxExcursion": 0.009735458557716264,
+        "closed": false
+      },
+      {
+        "pressure": 0.875,
+        "phase": 1.1,
+        "contactError": 0,
+        "closureError": 9.001153973733047e-17,
+        "maxExcursion": 0.022280184001535887,
+        "closed": false
+      },
+      {
+        "pressure": 0.875,
+        "phase": 2.4,
+        "contactError": 0,
+        "closureError": 9.001153973733047e-17,
+        "maxExcursion": 0.016886579513778775,
+        "closed": false
+      },
+      {
+        "pressure": 1,
+        "phase": 0,
+        "contactError": 0,
+        "closureError": 0,
+        "maxExcursion": 0,
+        "closed": true
+      },
+      {
+        "pressure": 1,
+        "phase": 0.4,
+        "contactError": 0,
+        "closureError": 0,
+        "maxExcursion": 0,
+        "closed": true
+      },
+      {
+        "pressure": 1,
+        "phase": 1.1,
+        "contactError": 0,
+        "closureError": 0,
+        "maxExcursion": 0,
+        "closed": true
+      },
+      {
+        "pressure": 1,
+        "phase": 2.4,
+        "contactError": 0,
+        "closureError": 0,
+        "maxExcursion": 0,
+        "closed": true
+      }
+    ],
+    "primitive": "oscillatory amplitude touches shared ._. anchors; uniform pressure convergence -> o",
+    "physicalClaim": false
+  },
+  "limitations": "Mathematical wave geometry, not physical orbital dynamics. Existing resource hive remains demonstrative, independent from wave phase. Browser and Pages serving not yet verified."
+}

@@ -1,0 +1,70 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>ADA-176N · Recovery Without Oscillation</title>
+<style>
+:root{--bone:#fbf9f1;--ink:#291d38;--violet:#8f42ec;--orange:#fa792f;--teal:#09ada5}
+*{box-sizing:border-box}body{margin:0;background:var(--bone);color:var(--ink);font:15px/1.5 system-ui,Segoe UI,sans-serif}header{padding:24px max(18px,calc((100vw - 1140px)/2));background:linear-gradient(110deg,#fff8ed,#f0e9ff);border-bottom:2px solid #d3b1ef}
+h1{font-size:clamp(30px,4vw,48px);letter-spacing:-.03em;line-height:1.1;margin:5px 0}h2{font-size:18px;margin:0 0 10px}.eyebrow{letter-spacing:.14em;color:var(--violet);font-size:12px;font-weight:800}.muted,small{color:#796e82}
+main{max-width:1140px;margin:auto;padding:16px;display:grid;grid-template-columns:1fr 300px;gap:15px}.panel{min-width:0;background:#fff;border:1px solid #dfd0ee;border-radius:14px;padding:17px;box-shadow:0 8px 25px #291d380b}.wide{grid-column:1/-1}
+.controls{display:flex;flex-wrap:wrap;gap:8px;margin-top:15px}button,select{font:inherit;font-weight:700;padding:9px 12px;border:1.5px solid var(--violet);border-radius:9px;background:#fff;color:#542379;cursor:pointer}button.primary{background:#522777;color:white}button:focus-visible,select:focus-visible,input:focus-visible{outline:3px solid var(--orange)}
+label{display:block;margin-top:11px;font-weight:700}input[type=range]{width:100%;accent-color:var(--violet)}
+svg{background:#191529;width:100%;height:320px;border-radius:11px;display:block}
+.contacts{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.contact{padding:13px;border-radius:11px;background:#f9f5ff;border-top:5px solid var(--violet)}.contact:nth-child(2){border-color:var(--orange)}.contact:nth-child(3){border-color:var(--teal)}
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}.kpi{background:#f5effa;border-radius:10px;padding:11px}.kpi strong{font-size:24px;display:block}
+.pill{display:inline-block;padding:2px 7px;border-radius:7px;font-size:11px;font-weight:800;background:#eee3ff;color:#673299}.pill.alarm{background:#ffead9;color:#a33f0e}.pill.normal{background:#e0f8f1;color:#00796d}
+table{border-collapse:collapse;width:100%;font-size:13px}th,td{padding:9px 7px;border-bottom:1px solid #eee7f3;text-align:right}th:first-child,td:first-child{text-align:left}th{background:#f6effb}
+pre{max-height:180px;overflow:auto;white-space:pre-wrap;background:#18152a;color:#ded4f8;padding:12px;border-radius:10px;font:12px/1.55 ui-monospace,monospace}
+@media(max-width:790px){main{grid-template-columns:1fr}.contacts{grid-template-columns:1fr}.kpis{grid-template-columns:repeat(2,1fr)}}
+</style></head><body>
+<header><div class="eyebrow">ROOT0 · QUANTA · ADA · .dlw</div><h1>ADA-176N · <span style="color:#9149e8">Recovery Without Oscillation</span></h1><div>Alarm quickly on meaningful evidence. Require sustained recovery before relaxing protection.</div>
+<div class="controls"><button class="primary" id="run">▶ Run 100 ticks</button><button id="tick">Step</button><button id="shift">Inject shift</button><button id="reset">Reset</button><button id="download">Export evidence JSON</button></div></header>
+<main><section class="panel"><h2>Confidence state over time</h2><svg id="chart" viewBox="0 0 800 320" role="img" aria-label="Comparative confidence state timeline for hysteresis and rapid-switching controllers"></svg><p class="muted">Teal: demand. Purple: hysteresis controller, orange: rapid-switching baseline. Lower strips display alert states for Jane at each simulated tick.</p></section>
+<section class="panel"><h2>Recovery parameters</h2>
+<label for="scenario">Environment</label><select id="scenario"><option value="cycle">Steady oscillations</option><option value="drift">Increasing frequency</option><option value="shock">Intermittent regime changes</option><option value="noise">Noisy false alarms</option></select>
+<label for="recovery">Required recovery samples: <output id="recoveryOut">12</output></label><input id="recovery" type="range" min="4" max="30" step="2" value="12">
+<label for="cooldown">Minimum cooldown ticks: <output id="cooldownOut">8</output></label><input id="cooldown" type="range" min="0" max="24" step="2" value="8">
+<label for="coverage">Recovery coverage threshold: <output id="coverageOut">80%</output></label><input id="coverage" type="range" min=".5" max=".95" step=".05" value=".8">
+<p class="muted">Alarm on at least 2 misses among 3 completed forecasts. Recovery requires a separate, stricter coverage gate. Cooldown limits repeated transitions; miss evidence is never discarded.</p></section>
+<section class="panel wide"><h2>Three independent contacts</h2><div class="contacts" id="contacts"></div></section>
+<section class="panel wide"><h2>Hysteresis vs rapid-switching baseline · identical observations</h2><div class="kpis" id="kpis"></div><div style="overflow:auto;margin-top:12px"><table><thead><tr><th>Contact</th><th>Hysteresis alarms</th><th>Hysteresis recoveries</th><th>Baseline transitions</th><th>Hysteresis transitions</th><th>Current state</th></tr></thead><tbody id="rows"></tbody></table></div><p class="muted">The baseline uses the same issued forecast outcomes and alert trigger but returns to normal after a single covered forecast. These transition metrics are not proof that the hysteresis policy yields better forecasts or faster fault response.</p></section>
+<section class="panel wide"><h2>Append-only observation and transition log</h2><pre id="ledger"></pre><p class="muted">The JSON audit records original observations, predictions, arrivals, alarms, cooldowns and recoveries. The simulation is deterministic from a seed and control actions but uses illustrative thresholds. Exports are not cryptographically signed.</p></section></main>
+<script>
+"use strict";
+const $=id=>document.getElementById(id),clamp=(n,a,b)=>Math.min(b,Math.max(a,n)),avg=a=>a.reduce((s,x)=>s+x,0)/Math.max(1,a.length);
+let t=0,seed=176,shift=0,observations=[],predictions=[],completed=[],events=[],contacts=[],timeline=[];
+function rand(){seed=(Math.imul(seed,1664525)+1013904223)>>>0;return seed/4294967296}
+function record(type,data={}){events.push({id:events.length+1,tick:t,type,...data})}
+function reset(){t=0;seed=176;shift=0;observations=[];predictions=[];completed=[];events=[];timeline=[];contacts=["Jane","Toph","Ada"].map((name,id)=>({name,id,mode:"CALIBRATING",baseline:"CALIBRATING",alarmTick:-1,coolUntil:0,alarms:0,recoveries:0,transitions:0,baselineTransitions:0,latest:[],post:[],reserve:72}));record("genesis",{watermark:".dlw"});render()}
+function demand(){let m=$("scenario").value,angle=t*(m==="drift"?.065+t*.0008:.108),v=50+16*Math.sin(angle)+8*Math.sin(t*.045);if(m==="shock"&&Math.floor(t/44)%2)v+=27;if(m==="noise")v+=(rand()-.5)*48;return clamp(v+shift+(rand()-.5)*5,0,100)}
+function predict(id){let prior=observations.slice(-(8+4*id)).map(o=>o.value),a=prior.at(-1)??50,b=prior.at(-2)??a;return clamp(a+.68*clamp(a-b,-5,5),0,100)}
+function decide(c,result){c.latest.push(result);if(c.latest.length>3)c.latest.shift();
+const bad=c.latest.length===3&&c.latest.filter(x=>!x.covered).length>=2;
+if(c.mode==="CALIBRATING"&&c.latest.length===3){c.mode="NORMAL";c.transitions++;record("calibrated-initial",{contact:c.name})}
+if(c.baseline==="CALIBRATING"&&c.latest.length===3){c.baseline="NORMAL";c.baselineTransitions++}
+if(c.baseline==="NORMAL"&&bad){c.baseline="ALARM";c.baselineTransitions++}
+else if(c.baseline==="ALARM"&&result.covered){c.baseline="NORMAL";c.baselineTransitions++}
+if(c.mode==="NORMAL"&&bad&&t>=c.coolUntil){c.mode="ALARM";c.transitions++;c.alarms++;c.alarmTick=t;c.post=[];c.coolUntil=t+ +$("cooldown").value;record("alarm-entered",{contact:c.name,coolUntil:c.coolUntil,trigger:"2 misses among latest 3"})}
+else if(c.mode==="ALARM"&&result.origin>=c.alarmTick){c.post.push(result);let length=+$("recovery").value,recent=c.post.slice(-length);
+if(t>=c.coolUntil&&recent.length>=length){let covered=avg(recent.map(v=>v.covered?1:0));
+if(covered>=+$("coverage").value){c.mode="NORMAL";c.transitions++;c.recoveries++;c.coolUntil=t+ +$("cooldown").value;c.latest=[];record("confidence-restored",{contact:c.name,coverage:covered,postAlarmEvidence:recent.length,coolUntil:c.coolUntil,elapsed:t-c.alarmTick})}}}
+}
+function step(){t++;let value=demand(),item={source_id:"ADA176N-OBS-"+String(t).padStart(6,"0"),root:"environment-primary",tick:t,value};observations.push(item);record("observation",item);
+let due=predictions.filter(x=>x.target===t);predictions=predictions.filter(x=>x.target>t);
+for(let pred of due){let result={...pred,actual:value,covered:value>=pred.lo&&value<=pred.hi};completed.push(result);record("forecast-scored",{id:pred.id,contact:pred.contact,origin:pred.origin,target:pred.target,actual:value,covered:result.covered});decide(contacts[pred.contactId],result)}
+for(let c of contacts){let center=predict(c.id);let width=c.mode==="ALARM"?24:13+c.id*2;
+let forecast={id:"ADA176N-"+t+"-"+c.id,contact:c.name,contactId:c.id,origin:t,target:t+1,prediction:center,lo:clamp(center-width,0,100),hi:clamp(center+width,0,100)};
+predictions.push(forecast);record("forecast-issued",forecast);c.reserve=clamp(c.reserve+.25-(c.mode==="ALARM"?.04:.02),0,100)}
+timeline.push({tick:t,value,jane:contacts[0].mode,baseline:contacts[0].baseline});render()}
+function plot(){let data=timeline.slice(-80),x=i=>25+750*i/Math.max(79,data.length-1),y=v=>260-2.1*v,seen=data.map(d=>d.value);
+let path=seen.length<2?"":'<path d="'+seen.map((v,i)=>(i?"L":"M")+x(i).toFixed(1)+","+y(v).toFixed(1)).join(" ")+'" fill="none" stroke="#36e7d7" stroke-width="2.5"/>';
+let states=data.map((d,i)=>'<rect x="'+x(i)+'" y="274" width="9" height="11" fill="'+(d.jane==="ALARM"?"#ac71ff":"#64587d")+'"/><rect x="'+x(i)+'" y="293" width="9" height="11" fill="'+(d.baseline==="ALARM"?"#ff9c48":"#64587d")+'"/>').join("");
+$("chart").innerHTML='<g stroke="#413850">'+[0,25,50,75,100].map(v=>'<path d="M25 '+y(v)+' H775"/>').join("")+'</g>'+path+states+'<text x="10" y="282" fill="#c49aff" font-size="10">H</text><text x="10" y="302" fill="#ffad63" font-size="10">B</text>'}
+function render(){plot();$("contacts").innerHTML=contacts.map(c=>'<div class="contact"><b>'+c.name+'</b> <span class="pill '+(c.mode==="NORMAL"?"normal":c.mode==="ALARM"?"alarm":"")+'">'+c.mode+'</span><p><strong>Cooldown through tick '+c.coolUntil+'</strong></p><small>Recent outcomes: '+c.latest.map(r=>r.covered?"✓":"×").join(" ")+'</small><p>Alarms '+c.alarms+' · recoveries '+c.recoveries+'</p><div class="meter"><div style="width:'+c.reserve+'%"></div></div></div>').join("");
+let ht=contacts.reduce((a,c)=>a+c.transitions,0),bt=contacts.reduce((a,c)=>a+c.baselineTransitions,0);
+$("kpis").innerHTML=[["Ticks",t],["Hysteresis transitions",ht],["Baseline transitions",bt],["Completed forecasts",completed.length]].map(([k,v])=>'<div class="kpi"><small>'+k+'</small><strong>'+v+'</strong></div>').join("");
+$("rows").innerHTML=contacts.map(c=>'<tr><td>'+c.name+'</td><td>'+c.alarms+'</td><td>'+c.recoveries+'</td><td>'+c.baselineTransitions+'</td><td>'+c.transitions+'</td><td>'+c.mode+'</td></tr>').join("");
+$("ledger").textContent=events.slice(-24).map(e=>e.tick+" | "+e.type+" | "+(e.contact||e.source_id||"system")).join("\n");
+$("recoveryOut").textContent=$("recovery").value;$("cooldownOut").textContent=$("cooldown").value;$("coverageOut").textContent=Math.round(100*+$("coverage").value)+"%"}
+$("tick").onclick=step;$("run").onclick=()=>{for(let i=0;i<100;i++)step()};$("reset").onclick=reset;$("shift").onclick=()=>{shift=shift>0?-30:30;record("shift-injected",{shift});render()};
+$("scenario").onchange=()=>record("scenario-selected",{scenario:$("scenario").value});["recovery","cooldown","coverage"].forEach(id=>$(id).oninput=render);
+$("download").onclick=()=>{let obj={schema:"ADA-176N.v1",mark:".dlw",geometry:"{24/[2]/[4]/(3)/(3)/(1)/(1)}",scenario:$("scenario").value,parameters:{recovery:+$("recovery").value,cooldown:+$("cooldown").value,coverage:+$("coverage").value},observations,events,predictions,completed,contacts,timeline};let url=URL.createObjectURL(new Blob([JSON.stringify(obj,null,2)],{type:"application/json"})),a=document.createElement("a");a.href=url;a.download="ADA-176N-evidence.json";a.click();setTimeout(()=>URL.revokeObjectURL(url),500)};
+reset();
+</script></body></html>

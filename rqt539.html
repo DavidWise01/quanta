@@ -1,0 +1,18 @@
+<!doctype html><html><meta charset="utf-8"><meta name="viewport" content="width=device-width"><title>RQT-539 Transport Uniqueness</title><style>body{background:#221822;color:#f4e4c9;font:18px system-ui;max-width:960px;margin:40px auto;padding:24px}h1{color:#ecad71}pre{white-space:pre-wrap;overflow-wrap:anywhere;line-height:1.65}</style><h1>RQT-539 — Transport Uniqueness Test</h1><p>Exact non-uniqueness PASS · genuine Branch-2 ambient root PENDING · root19 OPEN</p><pre># RQT-539 — Transport Uniqueness Test
+
+**Exact proof:** let a=(-183,-198,174,572,-368,-188) be the original RQT-224 initial rank-six root, b=(-232,-246,223,729,-473,-242) the Branch-2 root. With lambda=(-198,183,0,0,0,0), exact arithmetic yields lambda·a=0 and lambda·b=918. For any integral T with T*a=r16_initial, define T'=T+w lambda^T where w is any integer 22-vector. Then T'a=Ta, but T'b=Tb+918w. Taking w=(1,-1,0,...,0) also preserves h·w=0. Constructed explicit integral witness maps using Bézout since gcd(a)=1; all checks PASSED.
+
+**Scope:** The constructed maps illustrate insufficiency of one input-output pair. They are NOT asserted to be the authentic rank-six saturated/Gram/Wall-preserving RQT-216 transport. Original full rank, basis Gram and one-sided Wall requirements are still necessary. No transported Branch-2 22-vector or compatible root16/17 Wall pairing is claimed.
+
+**Source audit:** RQT-224 original Python verifier requires RQT-198-report.json basis_21x21 and RQT-216-reduced-basis.json 21x6 basis; these exact files are absent from currently checked public Stoicheion tree. RQT-198,215,216 docs describe the construction. Recover true B,Z with explicit basis-change matrix before applying b.
+
+Root18 first-stage PASS from earlier audits; full 17-root ambient replay pending; root19 OPEN; full21 OPEN. Selected conditional root19 ledger 647 excluded/73 unresolved of 720; zero new exclusions. Seven-level base-60 architecture preserved as conceptual navigation, not run in this provenance test.
+
+Source documents:
+- https://github.com/DavidWise01/stoicheion/blob/main/research/rqt/RQT-198-wall-integral-lattice.md
+- https://github.com/DavidWise01/stoicheion/blob/main/research/rqt/RQT-216-rank-six-Wall-boundary.md
+- https://github.com/DavidWise01/stoicheion/blob/main/research/rqt/RQT-224-sixteenth-integral-wall-root.md
+- https://github.com/DavidWise01/stoicheion/blob/main/research/rqt/RQT-236-branch2-first-root-gate.md
+
+Next RQT-540 — reconstruct original basis ancestry, rather than infer a transport from a single root. JPEG and embedded JPEG HTML available as separate local artifacts; repo viewer is text-only.
+</pre></html>

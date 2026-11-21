@@ -1,0 +1,21 @@
+# RQT-534 — Root-18 Provenance Gate
+
+**New independent exact replay:** the actual RQT-386 488-digit integer candidate passes the **first-stage** RQT-387 original F4/H4 reflection rank/order gate. The earlier blanket status “root18 unverified” was imprecise: the first-stage candidate is accepted; the complete 17-prefix-plus-four-root **21-reflection word remains OPEN**.
+
+## Exact RQT-534 verifier
+Local downloadable Python `rqt534.py` independently reconstructs F4/H4 constants from the published RQT-387 source and loads the original RQT-386 JSON candidate. The exact input file SHA256 is `49b91d0ec2df0c4bd55bb1d07a62c1376d1c79a1951882e0706051e18cbe6052`. Candidate comma-joined decimal vector SHA256 is `2247dc33eb514ac60e8fe3a39c157f9dbe4b8781b5ad42501c1e5860f89eb6a4` (matches published RQT-387).
+
+Checks passed: H4+H4ᵀ=−F4, det(H4)=1; original primitive u null, gcd(F4*u)=1; uᵀF4v=1; r=(1+vᵀF4v/2)u−v; rᵀF4r=−2; rᵀH4r=1; parity 0111; S=I+r(rᵀF4) integral involution, F4-isometry, det S=−1. With D4=I+H4⁻¹F4 and E=S D4: rational moving rank 4→3, GF2 moving rank 2→1, binary order 3→2, successor swaps coordinates 1 and 4 while fixing 2 and 3.
+
+## Provenance and remaining qualification
+- Source ancestry 1: `DavidWise01/stoicheion` RQT-241 (published 17-prefix and ambient root), RQT-256 (first-stage parity/rank/order criterion), RQT-257 (conditional sufficiency of an integral four-root internal Wall flag). These source files were read but the original full 22×22 prefix was **not independently replayed in RQT-534**.
+- Source ancestry 2: `DavidWise01/quanta` RQT-386 exact root certificate; RQT-387 published first-stage rank/order gate; RQT-401 conditional root19 Gram. This is the same underlying frozen Stoicheion mathematical ancestry, not three independent source roots.
+- Separate local exact arithmetic implementation is an **independent check of a shared source**, not independent source evidence. Frozen successor Gram SHA256 `5f4f49b1d75d60d61961b8a0aede915707f6c5cf11e1a9d7e71f1d3a7d83c809` matches RQT-520 input fingerprint only; RQT-534 did not rebuild the saturated rank-three kernel from scratch.
+
+**Current status:** RQT-386 candidate passes first-stage position-18 gate; full original 21-word not certified. Root19 OPEN. Conditional ledger 647/720 selected fixed-x corridors excluded; 73 unresolved; 0 new exclusions this iteration. No global existence/nonexistence proof.
+
+Canonical exploratory geometry: `{inf brace [ inf contain ( inf construct \\mix/\\match/ ) ] }^{n}`, with seven-level base-60 navigation (not exhaustively traversed).
+
+**Next RQT-535:** independently replay the original Stoicheion 17-root prefix and saturated four-dimensional reduction from the 22×22 ambient operator; compare F4, H4, D4 entry for entry. Then extend the constructive norm19 search.
+
+Local conversation artifacts: `rqt534.py`, the original RQT-386 JSON certificate, `results.json`, a cyanotype JPEG, and a self-contained JPEG-embedded HTML. GitHub text edition intentionally does not link to an unpublished binary JPEG.

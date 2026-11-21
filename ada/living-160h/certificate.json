@@ -1,0 +1,277 @@
+{
+  "version": "ADA-160H",
+  "lineage": "ADA-160G",
+  "watermark": ".dlw",
+  "grammar": "{24/[2]/[4]/(3)/(3)/(1)/(1)",
+  "tests": {
+    "checks": 17600,
+    "accepted": 12060,
+    "skipped": 64740,
+    "contactChecks": 7680,
+    "pressureChecks": 320,
+    "maxEnergyError": 1.1102230246251565e-14,
+    "maxUndoError": 3.3306690738754696e-16,
+    "maxInequalityIncrease": 0,
+    "rows": [
+      {
+        "angle": 0.05,
+        "gate": 0,
+        "accepted": 909,
+        "initialInequality": 1.0625,
+        "selectiveInequality": 0.07542073543781336,
+        "continuousInequality": 0.09200105147984718
+      },
+      {
+        "angle": 0.05,
+        "gate": 1,
+        "accepted": 915,
+        "initialInequality": 1.0625,
+        "selectiveInequality": 0.0754487375040928,
+        "continuousInequality": 0.09216068670728775
+      },
+      {
+        "angle": 0.05,
+        "gate": 2,
+        "accepted": 909,
+        "initialInequality": 1.0625,
+        "selectiveInequality": 0.07542073543781339,
+        "continuousInequality": 0.09200105147984716
+      },
+      {
+        "angle": 0.05,
+        "gate": 3,
+        "accepted": 915,
+        "initialInequality": 1.0625,
+        "selectiveInequality": 0.07544873750409278,
+        "continuousInequality": 0.09216068670728775
+      },
+      {
+        "angle": 0.05,
+        "gate": 4,
+        "accepted": 909,
+        "initialInequality": 1.0625,
+        "selectiveInequality": 0.07542073543781337,
+        "continuousInequality": 0.09200105147984718
+      },
+      {
+        "angle": 0.05,
+        "gate": 5,
+        "accepted": 915,
+        "initialInequality": 1.0625,
+        "selectiveInequality": 0.07544873750409277,
+        "continuousInequality": 0.09216068670728773
+      },
+      {
+        "angle": 0.05,
+        "gate": 6,
+        "accepted": 909,
+        "initialInequality": 1.0625,
+        "selectiveInequality": 0.07542073543781336,
+        "continuousInequality": 0.09200105147984716
+      },
+      {
+        "angle": 0.05,
+        "gate": 7,
+        "accepted": 915,
+        "initialInequality": 1.0625,
+        "selectiveInequality": 0.07544873750409277,
+        "continuousInequality": 0.09216068670728773
+      },
+      {
+        "angle": 0.13,
+        "gate": 0,
+        "accepted": 441,
+        "initialInequality": 1.0625,
+        "selectiveInequality": 0.07122762496933255,
+        "continuousInequality": 0.19782682084626996
+      },
+      {
+        "angle": 0.13,
+        "gate": 1,
+        "accepted": 425,
+        "initialInequality": 1.0625,
+        "selectiveInequality": 0.07361843880438337,
+        "continuousInequality": 0.2000733803451149
+      },
+      {
+        "angle": 0.13,
+        "gate": 2,
+        "accepted": 441,
+        "initialInequality": 1.0625,
+        "selectiveInequality": 0.07122762496933253,
+        "continuousInequality": 0.19782682084626993
+      },
+      {
+        "angle": 0.13,
+        "gate": 3,
+        "accepted": 425,
+        "initialInequality": 1.0625,
+        "selectiveInequality": 0.07361843880438337,
+        "continuousInequality": 0.20007338034511493
+      },
+      {
+        "angle": 0.13,
+        "gate": 4,
+        "accepted": 441,
+        "initialInequality": 1.0625,
+        "selectiveInequality": 0.07122762496933255,
+        "continuousInequality": 0.19782682084626996
+      },
+      {
+        "angle": 0.13,
+        "gate": 5,
+        "accepted": 425,
+        "initialInequality": 1.0625,
+        "selectiveInequality": 0.07361843880438337,
+        "continuousInequality": 0.20007338034511493
+      },
+      {
+        "angle": 0.13,
+        "gate": 6,
+        "accepted": 441,
+        "initialInequality": 1.0625,
+        "selectiveInequality": 0.07122762496933253,
+        "continuousInequality": 0.19782682084626999
+      },
+      {
+        "angle": 0.13,
+        "gate": 7,
+        "accepted": 425,
+        "initialInequality": 1.0625,
+        "selectiveInequality": 0.0736184388043834,
+        "continuousInequality": 0.20007338034511488
+      },
+      {
+        "angle": 0.3,
+        "gate": 0,
+        "accepted": 143,
+        "initialInequality": 1.0625,
+        "selectiveInequality": 0.12478586180472001,
+        "continuousInequality": 0.14750313423229822
+      },
+      {
+        "angle": 0.3,
+        "gate": 1,
+        "accepted": 131,
+        "initialInequality": 1.0625,
+        "selectiveInequality": 0.15330128106137703,
+        "continuousInequality": 0.15800141468581577
+      },
+      {
+        "angle": 0.3,
+        "gate": 2,
+        "accepted": 143,
+        "initialInequality": 1.0625,
+        "selectiveInequality": 0.12478586180471998,
+        "continuousInequality": 0.1475031342322982
+      },
+      {
+        "angle": 0.3,
+        "gate": 3,
+        "accepted": 131,
+        "initialInequality": 1.0625,
+        "selectiveInequality": 0.153301281061377,
+        "continuousInequality": 0.15800141468581574
+      },
+      {
+        "angle": 0.3,
+        "gate": 4,
+        "accepted": 143,
+        "initialInequality": 1.0625,
+        "selectiveInequality": 0.12478586180472,
+        "continuousInequality": 0.14750313423229816
+      },
+      {
+        "angle": 0.3,
+        "gate": 5,
+        "accepted": 131,
+        "initialInequality": 1.0625,
+        "selectiveInequality": 0.15330128106137697,
+        "continuousInequality": 0.15800141468581572
+      },
+      {
+        "angle": 0.3,
+        "gate": 6,
+        "accepted": 143,
+        "initialInequality": 1.0625,
+        "selectiveInequality": 0.12478586180472,
+        "continuousInequality": 0.1475031342322982
+      },
+      {
+        "angle": 0.3,
+        "gate": 7,
+        "accepted": 131,
+        "initialInequality": 1.0625,
+        "selectiveInequality": 0.15330128106137697,
+        "continuousInequality": 0.1580014146858158
+      },
+      {
+        "angle": 0.6,
+        "gate": 0,
+        "accepted": 15,
+        "initialInequality": 1.0625,
+        "selectiveInequality": 0.42259432111992073,
+        "continuousInequality": 0.12374675493823512
+      },
+      {
+        "angle": 0.6,
+        "gate": 1,
+        "accepted": 36,
+        "initialInequality": 1.0625,
+        "selectiveInequality": 0.1975022583308405,
+        "continuousInequality": 0.11649723182358082
+      },
+      {
+        "angle": 0.6,
+        "gate": 2,
+        "accepted": 15,
+        "initialInequality": 1.0625,
+        "selectiveInequality": 0.4225943211199207,
+        "continuousInequality": 0.1237467549382351
+      },
+      {
+        "angle": 0.6,
+        "gate": 3,
+        "accepted": 36,
+        "initialInequality": 1.0625,
+        "selectiveInequality": 0.19750225833084048,
+        "continuousInequality": 0.11649723182358082
+      },
+      {
+        "angle": 0.6,
+        "gate": 4,
+        "accepted": 15,
+        "initialInequality": 1.0625,
+        "selectiveInequality": 0.42259432111992073,
+        "continuousInequality": 0.12374675493823514
+      },
+      {
+        "angle": 0.6,
+        "gate": 5,
+        "accepted": 36,
+        "initialInequality": 1.0625,
+        "selectiveInequality": 0.19750225833084048,
+        "continuousInequality": 0.11649723182358082
+      },
+      {
+        "angle": 0.6,
+        "gate": 6,
+        "accepted": 15,
+        "initialInequality": 1.0625,
+        "selectiveInequality": 0.4225943211199206,
+        "continuousInequality": 0.12374675493823516
+      },
+      {
+        "angle": 0.6,
+        "gate": 7,
+        "accepted": 36,
+        "initialInequality": 1.0625,
+        "selectiveInequality": 0.19750225833084045,
+        "continuousInequality": 0.11649723182358081
+      }
+    ],
+    "criterion": "Local neighboring SO(2) rotations accepted only when squared node-energy imbalance decreases, preserving global L2 norm."
+  },
+  "method": "Each local pair samples ±coupling angle, accepts only a reduction in squared difference of local node L2 energies greater than threshold; even and odd passes; orthogonal 4D wave amplitude signal rotations preserve total L2 norm. Browser offers regulated/unregulated and threshold comparison.",
+  "limitations": "Locally selected exchange is a nonlinear decision rule using the pair's current signals, not a physical resonance measurement or proof of physical energy conservation. Decision logs enable inversion in verified engine; browser does not persist them. At larger coupling continuous mixing can yield lower final inequality; no universal superiority claim. GitHub Pages rendering not yet browser-verified."
+}

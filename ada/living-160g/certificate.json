@@ -1,0 +1,29 @@
+{
+  "version": "ADA-160G",
+  "lineage": "ADA-160F",
+  "watermark": ".dlw",
+  "grammar": "{24/[2]/[4]/(3)/(3)/(1)/(1)",
+  "tests": {
+    "checks": 9311,
+    "steps": 320,
+    "anchorChecks": 8000,
+    "closureChecks": 320,
+    "localityChecks": 24,
+    "maxEnergyError": 8.215650382226158e-15,
+    "maxRestoreError": 1.6653345369377348e-16,
+    "perGateSignalEnergy": 1.25,
+    "gates": 8,
+    "contactsPerGate": 24,
+    "groups": [
+      2,
+      4,
+      3,
+      3,
+      1,
+      1
+    ],
+    "model": "norm-preserving reversible nearest-neighbor signal mixing, not physical energy conservation"
+  },
+  "model": "8 rings of 24 independently seeded complex amplitudes. Two nearest-neighbor orthogonal pair mixing passes with alternating parity; reversible, numerically conserves sum of squared amplitudes. Contact envelope is zero at all 24 anchors. Independent XY/XW and YZ 4D projection retained.",
+  "limits": "Coupling preserves mathematical signal L² norm, not measured physical energy. A contact is a geometrical shared coordinate, not a force law. Pressure closes displayed geometry but does not dissipate simulated signal; user-selected pause halts exchange. Browser runtime and Pages not yet verified."
+}

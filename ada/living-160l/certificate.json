@@ -1,0 +1,466 @@
+{
+  "version": "ADA-160L",
+  "lineage": "ADA-160K",
+  "watermark": ".dlw",
+  "grammar": "{24/[2]/[4]/(3)/(3)/(1)/(1)}",
+  "tests": {
+    "checks": 13312,
+    "forecasts": 121344,
+    "anchors": 3072,
+    "maxNormError": 9.769962616701378e-15,
+    "maxUndoError": 3.3306690738754696e-16,
+    "rows": [
+      {
+        "angle": 0.05,
+        "gate": 0,
+        "forecasts": 3792,
+        "rawMAE": 0.0007929280410828544,
+        "fixedMAE": 0.0007088202731504246,
+        "fullMAE": 0.0007725309873660607,
+        "choices": [
+          2124,
+          357,
+          1311
+        ],
+        "finalInequality": 0.09029994287322161
+      },
+      {
+        "angle": 0.05,
+        "gate": 1,
+        "forecasts": 3792,
+        "rawMAE": 0.0007932728982683647,
+        "fixedMAE": 0.0007148659634134227,
+        "fullMAE": 0.0007778129896935869,
+        "choices": [
+          2106,
+          338,
+          1348
+        ],
+        "finalInequality": 0.09009138415956015
+      },
+      {
+        "angle": 0.05,
+        "gate": 2,
+        "forecasts": 3792,
+        "rawMAE": 0.0007929280410828544,
+        "fixedMAE": 0.0007088202731504246,
+        "fullMAE": 0.0007725309873660608,
+        "choices": [
+          2124,
+          357,
+          1311
+        ],
+        "finalInequality": 0.0902999428732216
+      },
+      {
+        "angle": 0.05,
+        "gate": 3,
+        "forecasts": 3792,
+        "rawMAE": 0.0007932728982683648,
+        "fixedMAE": 0.0007148659634134227,
+        "fullMAE": 0.0007778129896935869,
+        "choices": [
+          2106,
+          338,
+          1348
+        ],
+        "finalInequality": 0.09009138415956017
+      },
+      {
+        "angle": 0.05,
+        "gate": 4,
+        "forecasts": 3792,
+        "rawMAE": 0.0007929280410828544,
+        "fixedMAE": 0.0007088202731504246,
+        "fullMAE": 0.0007725309873660608,
+        "choices": [
+          2124,
+          357,
+          1311
+        ],
+        "finalInequality": 0.0902999428732216
+      },
+      {
+        "angle": 0.05,
+        "gate": 5,
+        "forecasts": 3792,
+        "rawMAE": 0.0007932728982683648,
+        "fixedMAE": 0.0007148659634134227,
+        "fullMAE": 0.0007778129896935869,
+        "choices": [
+          2106,
+          338,
+          1348
+        ],
+        "finalInequality": 0.09009138415956015
+      },
+      {
+        "angle": 0.05,
+        "gate": 6,
+        "forecasts": 3792,
+        "rawMAE": 0.0007929280410828544,
+        "fixedMAE": 0.0007088202731504246,
+        "fullMAE": 0.0007725309873660608,
+        "choices": [
+          2124,
+          357,
+          1311
+        ],
+        "finalInequality": 0.0902999428732216
+      },
+      {
+        "angle": 0.05,
+        "gate": 7,
+        "forecasts": 3792,
+        "rawMAE": 0.0007932728982683648,
+        "fixedMAE": 0.0007148659634134227,
+        "fullMAE": 0.0007778129896935869,
+        "choices": [
+          2106,
+          338,
+          1348
+        ],
+        "finalInequality": 0.09009138415956017
+      },
+      {
+        "angle": 0.13,
+        "gate": 0,
+        "forecasts": 3792,
+        "rawMAE": 0.001406976098868882,
+        "fixedMAE": 0.0013766419125221887,
+        "fullMAE": 0.0017058791665117252,
+        "choices": [
+          2531,
+          477,
+          784
+        ],
+        "finalInequality": 0.07122762496933255
+      },
+      {
+        "angle": 0.13,
+        "gate": 1,
+        "forecasts": 3792,
+        "rawMAE": 0.0014097513900815668,
+        "fixedMAE": 0.0013848461776960871,
+        "fullMAE": 0.0017098405729882294,
+        "choices": [
+          2507,
+          469,
+          816
+        ],
+        "finalInequality": 0.07361843880438337
+      },
+      {
+        "angle": 0.13,
+        "gate": 2,
+        "forecasts": 3792,
+        "rawMAE": 0.0014069760988688817,
+        "fixedMAE": 0.001376641912522189,
+        "fullMAE": 0.0017058791665117245,
+        "choices": [
+          2531,
+          477,
+          784
+        ],
+        "finalInequality": 0.07122762496933253
+      },
+      {
+        "angle": 0.13,
+        "gate": 3,
+        "forecasts": 3792,
+        "rawMAE": 0.001409751390081567,
+        "fixedMAE": 0.0013848461776960874,
+        "fullMAE": 0.0017098405729882287,
+        "choices": [
+          2507,
+          469,
+          816
+        ],
+        "finalInequality": 0.07361843880438337
+      },
+      {
+        "angle": 0.13,
+        "gate": 4,
+        "forecasts": 3792,
+        "rawMAE": 0.0014069760988688817,
+        "fixedMAE": 0.0013766419125221887,
+        "fullMAE": 0.001705879166511725,
+        "choices": [
+          2531,
+          477,
+          784
+        ],
+        "finalInequality": 0.07122762496933255
+      },
+      {
+        "angle": 0.13,
+        "gate": 5,
+        "forecasts": 3792,
+        "rawMAE": 0.001409751390081567,
+        "fixedMAE": 0.0013848461776960874,
+        "fullMAE": 0.0017098405729882287,
+        "choices": [
+          2507,
+          469,
+          816
+        ],
+        "finalInequality": 0.07361843880438337
+      },
+      {
+        "angle": 0.13,
+        "gate": 6,
+        "forecasts": 3792,
+        "rawMAE": 0.0014069760988688817,
+        "fixedMAE": 0.001376641912522189,
+        "fullMAE": 0.0017058791665117252,
+        "choices": [
+          2531,
+          477,
+          784
+        ],
+        "finalInequality": 0.07122762496933253
+      },
+      {
+        "angle": 0.13,
+        "gate": 7,
+        "forecasts": 3792,
+        "rawMAE": 0.001409751390081567,
+        "fixedMAE": 0.0013848461776960871,
+        "fullMAE": 0.0017098405729882294,
+        "choices": [
+          2507,
+          469,
+          816
+        ],
+        "finalInequality": 0.0736184388043834
+      },
+      {
+        "angle": 0.3,
+        "gate": 0,
+        "forecasts": 3792,
+        "rawMAE": 0.0018523061482915342,
+        "fixedMAE": 0.0019477340872198063,
+        "fullMAE": 0.002504688385291107,
+        "choices": [
+          3361,
+          109,
+          322
+        ],
+        "finalInequality": 0.12478586180472001
+      },
+      {
+        "angle": 0.3,
+        "gate": 1,
+        "forecasts": 3792,
+        "rawMAE": 0.0016509006077060715,
+        "fixedMAE": 0.001740994151156921,
+        "fullMAE": 0.002280359789905166,
+        "choices": [
+          3388,
+          114,
+          290
+        ],
+        "finalInequality": 0.15330128106137703
+      },
+      {
+        "angle": 0.3,
+        "gate": 2,
+        "forecasts": 3792,
+        "rawMAE": 0.0018523061482915344,
+        "fixedMAE": 0.0019477340872198063,
+        "fullMAE": 0.002504688385291106,
+        "choices": [
+          3361,
+          109,
+          322
+        ],
+        "finalInequality": 0.12478586180471998
+      },
+      {
+        "angle": 0.3,
+        "gate": 3,
+        "forecasts": 3792,
+        "rawMAE": 0.0016509006077060713,
+        "fixedMAE": 0.001740994151156921,
+        "fullMAE": 0.0022803597899051647,
+        "choices": [
+          3388,
+          114,
+          290
+        ],
+        "finalInequality": 0.153301281061377
+      },
+      {
+        "angle": 0.3,
+        "gate": 4,
+        "forecasts": 3792,
+        "rawMAE": 0.0018523061482915344,
+        "fixedMAE": 0.001947734087219806,
+        "fullMAE": 0.0025046883852911065,
+        "choices": [
+          3361,
+          109,
+          322
+        ],
+        "finalInequality": 0.12478586180472
+      },
+      {
+        "angle": 0.3,
+        "gate": 5,
+        "forecasts": 3792,
+        "rawMAE": 0.0016509006077060713,
+        "fixedMAE": 0.0017409941511569212,
+        "fullMAE": 0.0022803597899051647,
+        "choices": [
+          3388,
+          114,
+          290
+        ],
+        "finalInequality": 0.15330128106137697
+      },
+      {
+        "angle": 0.3,
+        "gate": 6,
+        "forecasts": 3792,
+        "rawMAE": 0.0018523061482915342,
+        "fixedMAE": 0.0019477340872198063,
+        "fullMAE": 0.0025046883852911065,
+        "choices": [
+          3361,
+          109,
+          322
+        ],
+        "finalInequality": 0.12478586180472
+      },
+      {
+        "angle": 0.3,
+        "gate": 7,
+        "forecasts": 3792,
+        "rawMAE": 0.0016509006077060713,
+        "fixedMAE": 0.0017409941511569214,
+        "fullMAE": 0.002280359789905165,
+        "choices": [
+          3388,
+          114,
+          290
+        ],
+        "finalInequality": 0.15330128106137697
+      },
+      {
+        "angle": 0.6,
+        "gate": 0,
+        "forecasts": 3792,
+        "rawMAE": 0.0025198298309854032,
+        "fixedMAE": 0.0019477229108151384,
+        "fullMAE": 0.0029832403907034868,
+        "choices": [
+          3558,
+          76,
+          158
+        ],
+        "finalInequality": 0.42259432111992073
+      },
+      {
+        "angle": 0.6,
+        "gate": 1,
+        "forecasts": 3792,
+        "rawMAE": 0.0028644918002377387,
+        "fixedMAE": 0.002318312358302858,
+        "fullMAE": 0.0036094223080215208,
+        "choices": [
+          3419,
+          111,
+          262
+        ],
+        "finalInequality": 0.1975022583308405
+      },
+      {
+        "angle": 0.6,
+        "gate": 2,
+        "forecasts": 3792,
+        "rawMAE": 0.0025198298309854037,
+        "fixedMAE": 0.0019477229108151388,
+        "fullMAE": 0.0029832403907034868,
+        "choices": [
+          3558,
+          76,
+          158
+        ],
+        "finalInequality": 0.4225943211199207
+      },
+      {
+        "angle": 0.6,
+        "gate": 3,
+        "forecasts": 3792,
+        "rawMAE": 0.0028644918002377383,
+        "fixedMAE": 0.0023183123583028586,
+        "fullMAE": 0.00360942230802152,
+        "choices": [
+          3419,
+          111,
+          262
+        ],
+        "finalInequality": 0.19750225833084048
+      },
+      {
+        "angle": 0.6,
+        "gate": 4,
+        "forecasts": 3792,
+        "rawMAE": 0.0025198298309854032,
+        "fixedMAE": 0.0019477229108151386,
+        "fullMAE": 0.0029832403907034876,
+        "choices": [
+          3558,
+          76,
+          158
+        ],
+        "finalInequality": 0.42259432111992073
+      },
+      {
+        "angle": 0.6,
+        "gate": 5,
+        "forecasts": 3792,
+        "rawMAE": 0.002864491800237738,
+        "fixedMAE": 0.002318312358302858,
+        "fullMAE": 0.00360942230802152,
+        "choices": [
+          3419,
+          111,
+          262
+        ],
+        "finalInequality": 0.19750225833084048
+      },
+      {
+        "angle": 0.6,
+        "gate": 6,
+        "forecasts": 3792,
+        "rawMAE": 0.002519829830985403,
+        "fixedMAE": 0.0019477229108151388,
+        "fullMAE": 0.002983240390703488,
+        "choices": [
+          3558,
+          76,
+          158
+        ],
+        "finalInequality": 0.4225943211199206
+      },
+      {
+        "angle": 0.6,
+        "gate": 7,
+        "forecasts": 3792,
+        "rawMAE": 0.002864491800237738,
+        "fixedMAE": 0.00231831235830286,
+        "fullMAE": 0.0036094223080215208,
+        "choices": [
+          3419,
+          111,
+          262
+        ],
+        "finalInequality": 0.19750225833084045
+      }
+    ],
+    "rule": "Causal contact-specific selection of calibration alpha 0, .35 or 1 by prior rolling loss; current outcome is never used to select its own alpha; original evidence remains append-only."
+  },
+  "method": "Local calibration alpha 0,.35,1 chosen from only earlier same directed-contact observations with at least 3 records; held-out current forecast compared with raw/fixed/full. Reversible signal transfer, 24 anchors and exact local veto unchanged.",
+  "limitations": "In matched deterministic tests adaptive selection does not universally outperform fixed alpha. Numerical result depends on simulation and horizon. HTML rolling bias cache may differ in details from executable batch engine. No real physical predictive validation; site rendering deployment not yet confirmed."
+}

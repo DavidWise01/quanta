@@ -29,9 +29,8 @@ jobs:
           ADA_BASE_URL: http://127.0.0.1:8765
         run: node ada/ada-199n-browser-smoke.mjs
       - name: Check public GitHub Pages response
-        continue-on-error: true
         run: |
-          curl --fail --location --retry 3 --retry-delay 4 --show-error \
+          curl --fail --location --retry 8 --retry-delay 8 --show-error \
             https://davidwise01.github.io/quanta/ada/ada-198n-3d-stress-recovery.html \
             --output /tmp/ada198-live.html
           test -s /tmp/ada198-live.html

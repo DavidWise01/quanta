@@ -34,7 +34,7 @@ pre{max-height:220px;overflow:auto;white-space:pre-wrap;border-radius:10px;backg
 const $=id=>document.getElementById(id),NAMES=["Jane","Toph","Ada"],COLORS=[0xbe82ff,0xff9b57,0x3fe6d9],KEY="quanta.ada194n.learning.v1";
 const P=["baseline","trend","mean"],clamp=(x,a,b)=>Math.max(a,Math.min(b,x)),avg=a=>a.reduce((s,x)=>s+x,0)/Math.max(a.length,1);
 let data,playing=false,clock=null,renderFrame=0,report=null,storeStatus="SESSION",notice="";
-function make(){return {schema:"ADA-194N.v1",mark:".dlw",settings:{environment:$("environment").value,window:+$("window").value},seed:194,tick:0,offset:0,observations:[],events:[],history:[],contacts:NAMES.map((name,id)=>({name,id,root:"ADA194N-"+name.toUpperCase(),policy:"baseline",switches:0,issued:[],scores:[],memory:[]}))}}
+function make(){return {schema:"ADA-194N.v1",mark:".dlw",settings:{environment:$("environment").value,window:+$("window").value},initialSettings:{environment:$("environment").value,window:+$("window").value},seed:194,tick:0,offset:0,observations:[],events:[],history:[],contacts:NAMES.map((name,id)=>({name,id,root:"ADA194N-"+name.toUpperCase(),policy:"baseline",switches:0,issued:[],scores:[],memory:[]}))}}
 function rng(x){let n=(Math.imul(x,1664525)+1013904223)>>>0;return [n,n/4294967296]}
 function emit(d,type,extra={}){d.events.push({index:d.events.length+1,tick:d.tick,type,...extra})}
 function forecast(memory,key,id){let last=memory.at(-1)??50,prev=memory.at(-2)??last,trend=clamp(last-prev,-7,7);
@@ -60,11 +60,11 @@ function advance(n){for(let i=0;i<n;i++)tickOnce(data);persist();paint();syncSce
 function stop(){playing=false;if(clock!==null){clearInterval(clock);clock=null}$("play").textContent="▶ Play"}
 function fresh(){stop();data=make();report=null;notice="New reproducible learning session";persist();paint();syncScene()}
 function replay(original){if(original.schema!=="ADA-194N.v1"||original.mark!==".dlw"||original.tick>3000)throw Error("Unsupported ledger schema or replay limit");
-let d={...make(),settings:{...original.settings},offset:0}; // transitions reapplied by recorded control events
-let control=original.events.filter(e=>e.type==="environment-change"||e.type==="shift");
+let d={...make(),settings:{...original.initialSettings},initialSettings:{...original.initialSettings},offset:0}; // transitions reapplied by recorded control events
+let control=original.events.filter(e=>e.type==="environment-change"||e.type==="shift"||e.type==="window-change");
 let controlsByTick=new Map();for(const e of control){let list=controlsByTick.get(e.tick)||[];list.push(e);controlsByTick.set(e.tick,list)}
-for(let t=1;t<=original.tick;t++){for(const e of controlsByTick.get(t-1)||[]){if(e.type==="environment-change")d.settings.environment=e.mode;else d.offset=e.offset;emit(d,e.type,e.type==="shift"?{offset:e.offset}:{mode:e.mode})}tickOnce(d)}
-for(const e of controlsByTick.get(original.tick)||[]){if(e.type==="environment-change")d.settings.environment=e.mode;else d.offset=e.offset;emit(d,e.type,e.type==="shift"?{offset:e.offset}:{mode:e.mode})}
+for(let t=1;t<=original.tick;t++){for(const e of controlsByTick.get(t-1)||[]){if(e.type==="environment-change")d.settings.environment=e.mode;else if(e.type==="window-change")d.settings.window=e.window;else d.offset=e.offset;emit(d,e.type,e.type==="shift"?{offset:e.offset}:e.type==="window-change"?{window:e.window}:{mode:e.mode})}tickOnce(d)}
+for(const e of controlsByTick.get(original.tick)||[]){if(e.type==="environment-change")d.settings.environment=e.mode;else if(e.type==="window-change")d.settings.window=e.window;else d.offset=e.offset;emit(d,e.type,e.type==="shift"?{offset:e.offset}:e.type==="window-change"?{window:e.window}:{mode:e.mode})}
 if(d.events.length!==original.events.length)throw Error("Event count disagreement "+d.events.length+" / "+original.events.length);
 for(let i=0;i<d.events.length;i++){let a=d.events[i],b=original.events[i];if(JSON.stringify(a)!==JSON.stringify(b))throw Error("Replay mismatch at ledger record "+(i+1))}
 if(d.observations.length!==original.observations.length||d.contacts.some((c,i)=>c.policy!==original.contacts[i].policy))throw Error("Reconstructed state mismatch");

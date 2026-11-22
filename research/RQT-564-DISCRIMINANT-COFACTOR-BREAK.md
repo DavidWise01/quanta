@@ -1,0 +1,22 @@
+# RQT-564 — Discriminant Cofactor Break
+
+New exact factorization discovered by bounded ECM on the 387-bit remaining RQT-555 fixed-field discriminant cofactor:
+
+`150822224842164115531=981893141×153603501791`.
+
+Both factors are prime under deterministic <2^64 integer primality tests; each divides the original fixed-field discriminant Δ with exact valuation 1. Both are **new all-order local norm passes**:
+
+| p | K mod p | K²−4 mod p | C mod p | relative extension | norm |
+|---:|---:|---:|---:|---|---|
+| 981893141 | 10698669 | 271138905 | 916020174 | split | PASS |
+| 153603501791 | 99488999186 | 104191447306 | 101587243882 | unramified quadratic | PASS |
+
+C is nonzero modulo both primes. Fixed quadratic field ramifies at each p; the relative L/F extension splits at the first, and is unramified quadratic at the second. Norm of any local unit exists in either situation. Original-source SHA256 values are frozen in the local results JSON.
+
+**Exact run:** radicand 353-bit remaining cofactor: two new 8-curve ECM batches B1/B2=3000/30000 and 10000/100000; neither found a factor. Fixed-discriminant cofactor: 8 curves at B1/B2=3000/30000 found the 68-bit composite divisor, which factored exactly into the above two primes. The discriminant remaining cofactor shrinks to **320 bits**, unproven prime. The 942-bit norm target numerator remains composite with no known individual factor. Six pairwise cofactor GCDs are 1.
+
+**Limits:** no global rational norm, rational Wall isometry, integral GL4 bridge, root19 root, or complete 21 reflection word. The previously selected 720-corridor conditional ledger remains 647 excluded/73 unresolved. Seven-level base-60 geometry is conceptual, not exhaustively searched.
+
+The local reproducible Python engine, JSON, research Markdown, and original Art Deco terminal JPEG with JPEG-embedded standalone HTML are conversation artifacts; this GitHub HTML is text-based. GitHub Pages and repository JPEG upload remain unverified.
+
+**Next RQT-565:** investigate the remaining 320-bit discriminant cofactor or directly attack odd-valuation inert places dividing target numerator/denominator; require exact factor and local class certificates.

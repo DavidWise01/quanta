@@ -27,7 +27,14 @@ jobs:
         run: |
           python3 -m http.server 8765 --bind 127.0.0.1 > /tmp/ada199-server.log 2>&1 &
           echo $! > /tmp/ada199-server.pid
-          for i in $(seq 1 30); do curl --fail --silent http://127.0.0.1:8765/ada/ada-198n-3d-stress-recovery.html >/dev/null && break; sleep 1; done
+          for i in $(seq 1 30); do
+            if curl --fail --silent http://127.0.0.1:8765/ada/ada-198n-3d-stress-recovery.html >/dev/null; then
+              exit 0
+            fi
+            sleep 1
+          done
+          cat /tmp/ada199-server.log
+          exit 1
       - name: Run local WebGL Chromium verification
         id: local
         continue-on-error: true
@@ -68,9 +75,12 @@ jobs:
           FALLBACK: ${{ steps.fallback.outcome }}
           PUBLIC: ${{ steps.public.outcome }}
         run: |
-          echo "Local WebGL: $LOCAL"
-          echo "Canvas2D fallback: $FALLBACK"
-          echo "Public Pages WebGL: $PUBLIC"
-          test "$LOCAL" = "success"
-          test "$FALLBACK" = "success"
-          test "$PUBLIC" = "success"
+          mkdir -p ada/verification-results
+          node -e 'const fs=require("fs"); const keys=["LOCAL","FALLBACK","PUBLIC"]; const outcomes=Object.fromEntries(keys.map(k=>[k,process.env[k]||"not_run"])); const passed=keys.every(k=>outcomes[k]==="success"); fs.writeFileSync("ada/verification-results/gate.json",JSON.stringify({schema:"ADA-199N.gate.v1",passed,outcomes},null,2)+"\n"); console.log("Aggregate browser gate:",JSON.stringify({passed,outcomes})); if(!passed)process.exitCode=1'
+      - name: Upload final gate verdict
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ada-199n-final-gate
+          path: ada/verification-results/gate.json
+          if-no-files-found: warn

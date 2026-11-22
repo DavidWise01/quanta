@@ -1,0 +1,24 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>RQT-589 — Exact Schur Reconstruction</title><style>body{margin:0;background:radial-gradient(circle at 70% 15%,#321351,#0b1323 60%,#060813);color:#f2ebdc;font:18px/1.6 system-ui}main{max-width:1050px;margin:auto;padding:clamp(20px,5vw,64px)}h1{font-size:clamp(38px,6vw,76px);color:#ffa958;margin:0}h2{color:#8ee9ed}pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#030b1cb8;border:1px solid #b287ec70;padding:20px;border-radius:16px;font-size:clamp(11px,1.6vw,17px)}.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:30px 0}.stat{border:1px solid #bf9eee77;background:#171c3277;padding:16px;border-radius:14px}.big{font-size:42px;color:#7bf0e5;font-weight:800}.bar{height:16px;background:#522f6c;border-radius:10px;overflow:hidden}.fill{height:100%;width:60%;background:linear-gradient(90deg,#ff9d48,#aa72e2)}a{color:#93f5ef}.sub{color:#bcb5ca}@media(max-width:540px){.stats{grid-template-columns:1fr}}</style></head><body><main><p class="sub">QUANTA • EXACT INTEGER RESEARCH • {{i}} • .dlw</p><h1>RQT-589</h1><p>Canonical Discriminant Reconstruction &amp; Gram Identifiability</p><div class="stats"><div class="stat"><div class="big">80</div>Archived equations verified</div><div class="stat"><div class="big">240</div>Exact linear identities</div><div class="stat"><div class="big">7/7</div>Unique coefficient solution</div></div><h2>What was recovered</h2><p>For F = [[a,bᵀ],[b,H]], the discriminant is Δ(v) = vᵀMv − 2a, M = bbᵀ − aH.</p><pre>a = -9603309702921447656
+
+M =
+[-33923887662911442206164954953584674140,
+  -4219194573559178010400265744479501422,
+   81850829273715620803639379963437553624]
+[ -4219194573559178010400265744479501422,
+ -21708964175564668486249102082477843199,
+  -5011140550130980758998505863715699836]
+[ 81850829273715620803639379963437553624,
+  -5011140550130980758998505863715699836,
+ -208380363797895400994011084419064194688]</pre><h2>Canonical Gram remains missing</h2><p>The discriminant identities determine M and a, but not the original cross-term vector b and H separately. They therefore cannot uniquely recover the original 4×4 Gram or its 22D embedding. No claimed nineteenth root.</p><h2>Selected family ledger</h2><div class="bar"><div class="fill"></div></div><p><b>81 / 135 previously excluded (60%)</b> · 54 unresolved · 0 new exclusions in RQT-589.</p><pre>{{i}} → archived 80 Pell equations
+          ↓
+       240 identities
+          ↓
+       rank 7 of 7
+          ↓
+     exact M and a   VERIFIED
+          ↓
+     b and H         NOT IDENTIFIED
+          ↓
+     original 22D    NOT REPLAYED
+          ↓
+       ROOT 19 OPEN</pre><p><a href="research/RQT-589-EXACT-SCHUR-RECONSTRUCTION.md">Research report</a> · <a href="research/rqt589-schur-reconstruction.py">Python verifier</a></p><p class="sub">{brace{n}[box[n](torroid(n))]} · arc-arc-degree{{n}} · .dlw</p></main></body></html>

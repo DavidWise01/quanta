@@ -19,6 +19,8 @@ jobs:
         run: node ada/ada-199n-eight-lab-core-test.mjs
       - name: Test seeded engine and deterministic replay
         run: node ada/ada-199n-deterministic-engine-test.mjs
+      - name: Check WebGL1 WebGL2 and Canvas2D context detection
+        run: node ada/ada-199n-renderer-probe-test.mjs
       - name: Install browser runtime
         run: |
           npm install --no-save playwright@1.58.2

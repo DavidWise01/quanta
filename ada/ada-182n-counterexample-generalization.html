@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>ADA-182N · Counterexample Generalization</title>
+<style>
+:root{--bone:#faf8f1;--ink:#30213b;--purple:#9650ec;--orange:#f67d30;--teal:#00a99f}
+*{box-sizing:border-box}body{margin:0;background:var(--bone);color:var(--ink);font:15px/1.5 system-ui,sans-serif}
+header{padding:24px max(20px,calc((100vw - 1180px)/2));background:linear-gradient(110deg,#fff8ed,#f0e7ff);border-bottom:2px solid #d2b2f5}
+.kicker{letter-spacing:.14em;font-size:12px;font-weight:800;color:#7632c0}h1{font-size:clamp(29px,4vw,48px);line-height:1.1;letter-spacing:-.035em;margin:7px 0}h2{font-size:18px;margin:0 0 12px}
+main{max-width:1180px;padding:17px;margin:auto;display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:15px}.panel{border:1px solid #dfd0e8;border-radius:14px;padding:17px;min-width:0;background:white;box-shadow:0 8px 26px #4424500c}.wide{grid-column:1/-1}
+button,select,input[type=file]{border:1.5px solid var(--purple);background:#fff;color:#5c2a85;border-radius:9px;padding:9px 12px;font:700 14px system-ui;cursor:pointer}button.primary{background:#552579;color:white}button:focus-visible,select:focus-visible,input:focus-visible{outline:3px solid var(--orange)}.controls{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
+small,.muted{color:#796d83}label{display:block;margin:12px 0 5px;font-weight:700}input[type=range]{width:100%;accent-color:var(--purple)}
+svg{background:#1b162c;width:100%;height:310px;display:block;border-radius:12px}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:9px}.stat{padding:11px;background:#f4eefb;border-radius:9px}.stat b{display:block;font-size:23px}
+.grid{display:grid;grid-template-columns:repeat(11,minmax(0,1fr));gap:3px;margin-top:8px}.cell{aspect-ratio:1/1;border-radius:3px;position:relative;background:#ece7f2}.cell.fail{background:#ff8c46}.cell.safe{background:#72d6cb}.cell.na{background:#b1abc0}.cell:hover{outline:2px solid #5c3495;z-index:2}
+table{border-collapse:collapse;width:100%;font-size:13px}th,td{text-align:right;padding:8px 6px;border-bottom:1px solid #eee5f5}th:first-child,td:first-child{text-align:left}th{background:#f4eefb}
+pre{white-space:pre-wrap;max-height:220px;overflow:auto;border-radius:10px;background:#191529;color:#e5dbf7;padding:12px;font:12px/1.55 ui-monospace,monospace}.legend{display:flex;gap:16px;font-size:12px;margin:8px 0}.sw{width:12px;height:12px;border-radius:3px;display:inline-block;vertical-align:middle;margin-right:5px}
+@media(max-width:800px){main{grid-template-columns:1fr}.stats{grid-template-columns:repeat(2,1fr)}}
+</style></head><body>
+<header><div class="kicker">ROOT0 · QUANTA · ADA · .dlw</div><h1>ADA-182N · <span style="color:#9150e4">Counterexample Generalization</span></h1>
+<div>One failure is a point. Explore its neighborhood before claiming a boundary.</div>
+<div class="controls"><button class="primary" id="map">▶ Map 121 mutations</button><button id="reset">Reset</button><button id="export">Export evidence JSON</button></div></header>
+<main>
+<section class="panel"><h2>Failure boundary · amplitude × duration</h2><div id="grid" class="grid" role="img" aria-label="Grid of failure outcomes by amplitude and duration"></div>
+<div class="legend"><span><i class="sw" style="background:#ff8c46"></i>Candidate safety regression</span><span><i class="sw" style="background:#72d6cb"></i>No regression observed</span></div>
+<p class="muted">Left to right: 50%–150% amplitude, bottom to top: duration scaling 50%–150%. A safe cell means the selected safety predicate did not fail in this tested case, not that the policy is globally safe.</p>
+<svg viewBox="0 0 800 310" id="trace" role="img" aria-label="Original, seed and selected mutated disturbance time series"></svg></section>
+<section class="panel"><h2>Seed and experimental controls</h2>
+<label for="source">Seed source</label><select id="source"><option value="synthetic">Built-in illustrative seed</option><option value="imported">Imported ADA-181N evidence</option></select>
+<label for="file">Import ADA-181N JSON</label><input type="file" id="file" accept=".json,application/json">
+<label for="predicate">Safety predicate</label><select id="predicate"><option value="miss">More unprotected critical ticks</option><option value="delay">Later first detection</option></select>
+<label for="shift">Time displacement: <output id="shiftOut">0</output> ticks</label><input id="shift" type="range" min="-12" max="12" step="1" value="0">
+<label for="contact">Contact</label><select id="contact"><option value="Jane">Jane (candidate threshold 5)</option><option value="Toph">Toph (candidate threshold 6)</option><option value="Ada">Ada (candidate threshold 7)</option></select>
+<p class="muted" id="importState">No imported evidence. Built-in seed is independent of ADA-181N's actual minimized output.</p>
+<p class="muted">Time indices remain fixed at 72 ticks; duration variation repeats or removes active disturbance cells, while preserving the source seed separately.</p></section>
+<section class="panel wide"><h2>Neighborhood accountability</h2><div class="stats" id="stats"></div><div style="overflow:auto;margin-top:12px"><table><thead><tr><th>Contact</th><th>Tested</th><th>Regressions</th><th>Nonregressions</th><th>Boundary edges</th><th>First failure</th></tr></thead><tbody id="rows"></tbody></table></div>
+<p class="muted">The map is a finite deterministic parameter sweep, not a statistical estimate of real-world failure probability. A boundary edge joins adjacent parameter cells that have different outcomes. Contact comparison reruns the exact same mutated sequences at different candidate thresholds.</p></section>
+<section class="panel wide"><h2>Append-only mutation and replay ledger</h2><pre id="ledger"></pre><p class="muted">The imported source is frozen in session after validation. The experiment retains seed ancestry, controls, mutation coordinates, replay outcomes and the selected cell. The exported record is not cryptographically authenticated.</p></section></main>
+<script>
+"use strict";
+const $=id=>document.getElementById(id),TOTAL=72,clamp=(x,a,b)=>Math.max(a,Math.min(b,x));
+let seed=Object.freeze(makeSeed()),origin="synthetic-ADA182N",records=[],results=[],selected=null,run=0,imported=false;
+const contacts=[{name:"Jane",required:5},{name:"Toph",required:6},{name:"Ada",required:7}],SCALES=Array.from({length:11},(_,i)=>.5+i*.1);
+function makeSeed(){let a=Array(TOTAL).fill(0);for(let i=14;i<22;i++)a[i]=20;for(let i of [3,7,30,44,61])a[i]=5;return a}
+function digest(a){let h=2166136261;for(let v of a)h=Math.imul(h^((Math.round(v)+128)&255),16777619)>>>0;return h.toString(16).padStart(8,"0")}
+function nonzero(a){return a.filter(x=>x!==0).length}
+function replay(a,req){let consecutive=0,alarm=false,first=null,miss=0;for(let i=0;i<a.length;i++){const active=Math.abs(a[i])>=14;consecutive=active?consecutive+1:0;alarm=active&&consecutive>=req;if(alarm&&first===null)first=i;if(active&&!alarm)miss++}return {miss,first}}
+function judge(a,req){const old=replay(a,2),candidate=replay(a,req);const predicate=$("predicate").value;return {old,candidate,failure:predicate==="miss"?candidate.miss>old.miss:old.first!==null&&(candidate.first===null||candidate.first>old.first)}}
+function mutate(amplitude,duration,displacement){let active=seed.map((v,i)=>({v,i})).filter(x=>Math.abs(x.v)>=14),out=Array(TOTAL).fill(0);
+let span=active.length?active.at(-1).i-active[0].i+1:0,first=active[0]?.i??0,newSpan=Math.max(1,Math.round(span*duration));
+for(let i=0;i<newSpan;i++){let oldIndex=first+Math.min(span-1,Math.floor(i/duration)),src=seed[oldIndex]||0,j=first+i+displacement;if(j>=0&&j<TOTAL)out[j]=Math.round(src*amplitude*100)/100}
+for(let i=0;i<TOTAL;i++)if(Math.abs(seed[i])<14&&seed[i]!==0){let j=i+displacement;if(j>=0&&j<TOTAL&&out[j]===0)out[j]=seed[i]}
+return out}
+function scan(){const displacement=+$("shift").value;run++;results=contacts.map(c=>({name:c.name,cells:SCALES.flatMap((duration,dy)=>SCALES.map((amplitude,ax)=>{let a=mutate(amplitude,duration,displacement),j=judge(a,c.required);return {ax,dy,amplitude,duration,displacement,traceHash:digest(a),nonzero:nonzero(a),...j}}))}));
+selected={contact:$("contact").value,ax:5,dy:5};records.push({event:"sweep",run,seedHash:digest(seed),source:origin,displacement,predicate:$("predicate").value,outcomes:results.map(r=>({name:r.name,failed:r.cells.filter(c=>c.failure).length}))});render()}
+function select(ax,dy){selected={contact:$("contact").value,ax,dy};const c=currentCell();records.push({event:"inspect",run,...selected,traceHash:c?.traceHash,failure:c?.failure});render()}
+function currentCell(){return results.find(r=>r.name===selected?.contact)?.cells.find(c=>c.ax===selected?.ax&&c.dy===selected?.dy)}
+function boundary(cells){let edges=0;for(let y=0;y<11;y++)for(let x=0;x<11;x++){let a=cells[y*11+x];if(x<10&&a.failure!==cells[y*11+x+1].failure)edges++;if(y<10&&a.failure!==cells[(y+1)*11+x].failure)edges++}return edges}
+function line(a,color,offset,scale){return '<path d="'+a.map((v,i)=>(i?"L":"M")+(23+i*755/(TOTAL-1)).toFixed(1)+","+(offset-v*scale).toFixed(1)).join(" ")+'" stroke="'+color+'" stroke-width="2.3" fill="none"/>'}
+function render(){const active=results.find(r=>r.name=== $("contact").value),cell=currentCell();$("grid").innerHTML=active?active.cells.map(c=>'<div class="cell '+(c.failure?"fail":"safe")+'" data-x="'+c.ax+'" data-y="'+c.dy+'" title="amplitude '+c.amplitude.toFixed(1)+' duration '+c.duration.toFixed(1)+': '+(c.failure?"failure":"no regression")+'" style="'+(selected?.ax===c.ax&&selected?.dy===c.dy?"outline:3px solid #371e60":"")+'"></div>').join(""):Array(121).fill('<div class="cell na"></div>').join("");
+$("grid").querySelectorAll("[data-x]").forEach(el=>el.onclick=()=>select(+el.dataset.x,+el.dataset.y));
+const mutated=cell?mutate(cell.amplitude,cell.duration,+$("shift").value):seed;
+$("trace").innerHTML='<g stroke="#453951"><path d="M23 94 H778"/><path d="M23 229 H778"/></g>'+line(seed,"#fb8d48",94,2)+line(mutated,"#bd8bff",229,2)+'<text x="27" y="20" fill="#ffaf6f" font-size="12">FROZEN SEED</text><text x="27" y="162" fill="#ccb2ff" font-size="12">SELECTED MUTATION</text>';
+const total=results.reduce((n,r)=>n+r.cells.length,0),failed=results.reduce((n,r)=>n+r.cells.filter(c=>c.failure).length,0);
+$("stats").innerHTML=[["Trial cells",total],["Failures",failed],["Nonregressions",total-failed],["Seed checksum",digest(seed)]].map(([k,v])=>'<div class="stat"><small>'+k+'</small><b>'+v+'</b></div>').join("");
+$("rows").innerHTML=results.map(r=>{const count=r.cells.filter(c=>c.failure).length,first=r.cells.find(c=>c.failure);return '<tr><td>'+r.name+'</td><td>121</td><td>'+count+'</td><td>'+(121-count)+'</td><td>'+boundary(r.cells)+'</td><td>'+(first?first.amplitude.toFixed(1)+'× / '+first.duration.toFixed(1)+'×':"—")+'</td></tr>'}).join("");
+$("shiftOut").textContent=$("shift").value;
+$("ledger").textContent=JSON.stringify({origin,seedHash:digest(seed),lastEvent:records.slice(-5),selected:cell?{...selected,amplitude:cell.amplitude,duration:cell.duration,failure:cell.failure,incumbent:cell.old,candidate:cell.candidate}:null},null,2)}
+$("map").onclick=scan;$("reset").onclick=()=>{results=[];selected=null;records.push({event:"reset",run});render()};
+$("contact").onchange=()=>{if(selected)selected.contact=$("contact").value;render()};
+["predicate","shift"].forEach(id=>$(id).onchange=()=>{results=[];selected=null;records.push({event:"parameters-changed",id,value:$(id).value});render()});
+$("file").onchange=async()=>{const f=$("file").files?.[0];if(!f)return;try{const doc=JSON.parse(await f.text());if(doc.schema!=="ADA-181N.v1"||!Array.isArray(doc.reduced)||doc.reduced.length!==TOTAL||!doc.reduced.every(Number.isFinite))throw Error("Expected ADA-181N.v1 with 72 finite numeric reduced cells");seed=Object.freeze(doc.reduced.slice());origin="imported-ADA181N:"+digest(seed);imported=true;$("source").value="imported";records.push({event:"import",source:origin,filename:f.name,originalLength:doc.original?.length||null});$("importState").textContent="Imported and frozen: "+f.name+" · checksum "+digest(seed);results=[];selected=null;render()}catch(err){$("importState").textContent="Import rejected: "+err.message}};
+$("source").onchange=()=>{if($("source").value==="synthetic"){seed=Object.freeze(makeSeed());origin="synthetic-ADA182N";imported=false;results=[];selected=null;records.push({event:"source-reset",origin});render()}else if(!imported){$("source").value="synthetic";$("importState").textContent="Choose an ADA-181N JSON file first"}};
+$("export").onclick=()=>{const payload={schema:"ADA-182N.v1",mark:".dlw",geometry:"{24/[2]/[4]/(3)/(3)/(1)/(1)}",source:origin,seed:seed.slice(),seedHash:digest(seed),predicate:$("predicate").value,displacement:+$("shift").value,contacts,scales:SCALES,results,selected,events:records,warning:"Finite synthetic sweep, no probabilistic safety guarantee; checksum is noncryptographic."};let url=URL.createObjectURL(new Blob([JSON.stringify(payload,null,2)],{type:"application/json"})),a=document.createElement("a");a.href=url;a.download="ADA-182N-evidence.json";a.click();setTimeout(()=>URL.revokeObjectURL(url),1000)};
+render();
+</script></body></html>

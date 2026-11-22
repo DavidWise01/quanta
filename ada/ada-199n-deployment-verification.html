@@ -1,0 +1,73 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>ADA-199N · Live Runtime Verification Console</title><style>
+:root{--bone:#faf8f0;--ink:#342440;--violet:#a157ed;--orange:#ff803a;--teal:#00aea5}
+*{box-sizing:border-box}body{margin:0;font:14px/1.48 system-ui,Segoe UI,sans-serif;background:var(--bone);color:var(--ink}header{background:linear-gradient(110deg,#fff7e9,#f0e7ff);padding:24px max(18px,calc((100vw - 1300px)/2));border-bottom:2px solid #d8b9f6}.kicker{font-weight:850;font-size:11px;color:#7932bd;letter-spacing:.16em}h1{font-size:clamp(28px,4vw,46px);letter-spacing:-.04em;margin:5px 0}
+main{max-width:1300px;margin:auto;padding:15px;display:grid;grid-template-columns:minmax(0,1.5fr) minmax(280px,.8fr);gap:14px}
+.panel{background:#fff;border:1px solid #e5d6ee;border-radius:14px;padding:16px;min-width:0}.wide{grid-column:1/-1}h2{font-size:17px;margin:0 0 10px}
+button{padding:10px 14px;border-radius:9px;border:1.5px solid #a96fed;color:#642d89;background:white;font:800 13px system-ui;cursor:pointer}button.primary{background:#55287a;color:white}button:disabled{opacity:.45;cursor:wait}.actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+#viewer{position:relative;background:radial-gradient(circle,#342047,#17121f);border-radius:12px;min-height:360px;height:min(52vw,580px);overflow:hidden}
+iframe{width:100%;height:100%;display:block;border:0}.overlay{position:absolute;top:12px;left:12px;padding:5px 9px;border-radius:7px;background:#251939d9;color:#dffef7;pointer-events:none;font-size:11px;font-weight:850}
+.status{border-left:5px solid #a35dee;background:#faf6ff;padding:12px;border-radius:9px;margin:8px 0}.big{font-size:25px;font-weight:850}.muted,small{color:#766c80}
+table{width:100%;border-collapse:collapse;font-size:12px}th,td{padding:9px 7px;text-align:left;border-bottom:1px solid #eee5f5}th{background:#f7effc}.badge{display:inline-block;font-size:11px;font-weight:850;background:#eee1fc;color:#7633ac;border-radius:7px;padding:4px 8px}.badge.good{background:#def7eb;color:#087b6e}.badge.bad{background:#ffe8e0;color:#a6401a}
+pre{white-space:pre-wrap;max-height:260px;overflow:auto;background:#191629;color:#e9dafa;padding:12px;border-radius:10px;font:11px/1.5 ui-monospace,Consolas,monospace}
+@media(max-width:870px){main{grid-template-columns:1fr}#viewer{height:465px}}
+</style></head><body><header><div class="kicker">ROOT0 · QUANTA · ADA · PHASE II · .dlw</div><h1>ADA-199N · <span style="color:#9150e0">Runtime Verification Console</span></h1><div>Source checks are not runtime tests. This browser console executes the actual previous laboratories and records what passes or fails.</div>
+<div class="actions"><button id="test" class="primary">Run browser verification</button><button id="download">Export test report</button><button id="clear">Clear test report</button></div>
+</header><main><section class="panel"><h2>Live 3D laboratory view · ADA-198N</h2><div id="viewer"><div class="overlay">LIVE EMBED · 3D TOROID</div><iframe id="lab" title="ADA-198N live 3D stress lab" loading="eager" src="./ada-198n-3d-stress-recovery.html"></iframe></div><p class="muted">The embedded Pages page is the actual 3D lab, not a static graphic. It can be interacted with directly. Test runs use separate hidden browser frames.</p></section>
+<section class="panel"><h2>Verification boundary</h2>
+<div class="status"><b>GitHub source</b><div class="big">PUBLISHED</div><small>The runner and workflow are committed; no browser success is assumed.</small></div>
+<div class="status"><b>Live verification</b><div class="big" id="overall">NOT RUN</div><small id="progress">0 / 8 laboratories tested</small></div>
+<div class="status"><b>Phase progression</b><div class="big">80% → 90%</div><small>90% requires actual successful runtime and Pages checks, not merely source inspection.</small></div>
+<div class="badge" id="host">Checking page origin…</div>
+<p class="muted">Use the GitHub Actions workflow for repeatable headless Chromium runs. This console also runs tests within your own browser, including simulation advancement and replay.</p>
+</section>
+<section class="panel wide"><h2>Real-browser smoke verification</h2><div style="overflow:auto"><table><thead><tr><th>Lab</th><th>Route</th><th>Runtime result</th><th>Detail</th></tr></thead><tbody id="results"></tbody></table></div></section>
+<section class="panel wide"><h2>Test evidence</h2><pre id="log">No browser tests executed yet. Select “Run browser verification.”</pre><p class="muted">Same-origin frames are required to inspect state. A cross-origin or blocked frame is reported as an error, never silently interpreted as a pass. WebGL presence is reported separately from Canvas2D fallback. Independent browser runs may be affected by local graphics and network policy.</p></section>
+</main><script>
+"use strict";
+const $=id=>document.getElementById(id);
+const tests=[
+["191N","ada-191n-integrated-living-lab.html","run","stats","replay","verification",false],
+["192N","ada-192n-unified-observation-3d.html","run","metrics","replay","renderMode",true],
+["193N","ada-193n-persistent-3d-memory.html","run","stats","replay","status",true],
+["194N","ada-194n-3d-adaptive-learning.html","run","stats","verify","integrity",true],
+["195N","ada-195n-3d-failure-repair.html","run","stats","verify","verification",true],
+["196N","ada-196n-unified-three-contact-3d.html","batch","stats","verify","status",true],
+["197N","ada-197n-best-policy-3d.html","run","stats","verify","status",true],
+["198N","ada-198n-3d-stress-recovery.html","run","stats","replay","status",true]
+];
+let results=[],testing=false;
+const pause=ms=>new Promise(resolve=>setTimeout(resolve,ms));
+$("host").textContent=location.hostname.endsWith("github.io")?"PUBLIC GITHUB PAGES ORIGIN":"NON-PAGES ORIGIN";
+function write(){const passed=results.filter(r=>r.pass).length,failed=results.filter(r=>!r.pass).length;
+$("results").innerHTML=tests.map(t=>{const r=results.find(x=>x.version===t[0]);return '<tr><td>'+t[0]+'</td><td><a href="./'+t[1]+'" target="_blank" rel="noopener">'+t[1]+'</a></td><td><span class="badge '+(r?(r.pass?"good":"bad"):"")+'">'+(r?r.pass?"PASS":"FAIL":"PENDING")+'</span></td><td>'+(r?.detail||"—")+'</td></tr>'}).join("");
+$("progress").textContent=results.length+" / 8 laboratories tested";
+$("overall").textContent=results.length===0?"NOT RUN":failed?"FAIL · "+failed:results.length===8?"PASS · 8 / 8":"RUNNING · "+passed+" / "+results.length;
+$("log").textContent=JSON.stringify({schema:"ADA-199N.browser.v1",origin:location.origin,timestamp:new Date().toISOString(),passed,failed,results},null,2)}
+async function runOne([version,path,runId,statsId,verifyId,statusId,visual]){
+const frame=document.createElement("iframe");frame.style.cssText="position:absolute;width:1024px;height:768px;left:-20000px;top:0;opacity:0;pointer-events:none";
+frame.title="ADA "+version+" verification";document.body.appendChild(frame);
+try{
+const url=new URL(path,location.href),loaded=new Promise((resolve,reject)=>{const timer=setTimeout(()=>reject(Error("Load timeout")),18000);frame.onload=()=>{clearTimeout(timer);resolve()};frame.onerror=()=>{clearTimeout(timer);reject(Error("Frame load failed"))}});
+frame.src=url.href;await loaded;let doc=frame.contentDocument;if(!doc)throw Error("Same-origin access unavailable");
+await pause(1000);
+let errors=[];
+frame.contentWindow.addEventListener("error",e=>errors.push(e.message));
+const run=doc.getElementById(runId),stats=doc.getElementById(statsId),check=doc.getElementById(verifyId),status=doc.getElementById(statusId);
+if(!run||!stats||!check||!status)throw Error("Required runtime controls missing");
+run.click();await pause(100);
+if(stats.textContent.trim().length<15)throw Error("Simulation did not populate metrics");
+check.click();await pause(100);
+if(!/PASS/i.test(status.textContent)||/FAIL/i.test(status.textContent))throw Error("Replay did not pass: "+status.textContent.trim().slice(0,100));
+let renderer="NONE";
+if(visual){let stage=doc.getElementById("stage"),canvas=stage?.querySelector("canvas");if(!canvas)throw Error("3D and fallback renderers both absent");renderer=doc.getElementById("engine")?.textContent||doc.getElementById("renderMode")?.textContent||doc.getElementById("mode")?.textContent||doc.getElementById("render")?.textContent||"CANVAS PRESENT"}
+if(errors.length)throw Error("Runtime error: "+errors.join("; "));
+return {version,pass:true,detail:"Metrics and replay pass · "+renderer}}
+catch(e){return {version,pass:false,detail:String(e.message).slice(0,160)}}
+finally{frame.remove()}
+}
+$("test").onclick=async()=>{if(testing)return;testing=true;$("test").disabled=true;results=[];write();for(const test of tests){let r=await runOne(test);results.push(r);write()}testing=false;$("test").disabled=false};
+$("clear").onclick=()=>{if(testing)return;results=[];write()};
+$("download").onclick=()=>{const payload={schema:"ADA-199N.browser.v1",time:new Date().toISOString(),origin:location.origin,results,pass:results.length===8&&results.every(r=>r.pass),warning:"This is a browser smoke-test result, not a real-world AI or cryptographic verification."};
+const u=URL.createObjectURL(new Blob([JSON.stringify(payload,null,2)],{type:"application/json"})),a=document.createElement("a");a.href=u;a.download="ADA-199N-browser-verification.json";a.click();setTimeout(()=>URL.revokeObjectURL(u),750)};
+write();
+</script></body></html>

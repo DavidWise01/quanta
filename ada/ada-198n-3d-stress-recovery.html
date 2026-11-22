@@ -1,0 +1,110 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>ADA-198N · 3D Stress & Recovery</title><style>
+:root{--bone:#faf8f0;--ink:#34223f;--violet:#a658f5;--orange:#ff8036;--teal:#00b6ab;--line:#e6d7ee}*{box-sizing:border-box}
+body{margin:0;background:var(--bone);color:var(--ink);font:14px/1.48 system-ui,Segoe UI,sans-serif}header{padding:24px max(16px,calc((100vw - 1320px)/2));background:linear-gradient(114deg,#fff7e7,#f0e7ff);border-bottom:2px solid #d5b5f5}
+.kicker{font-size:11px;letter-spacing:.16em;color:#7833b7;font-weight:850}h1{font-size:clamp(28px,4vw,47px);letter-spacing:-.04em;line-height:1.1;margin:5px 0}.actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+button,select{font:750 13px system-ui;padding:9px 12px;background:#fff;color:#612a89;border:1.5px solid #a76fe9;border-radius:9px;cursor:pointer}button.primary{color:white;background:#542478}button:focus-visible,select:focus-visible,input:focus-visible{outline:3px solid var(--orange)}
+main{max-width:1320px;margin:auto;padding:15px;display:grid;grid-template-columns:minmax(0,1.72fr) minmax(290px,.8fr);gap:14px}.panel{background:#fff;padding:15px;border:1px solid var(--line);border-radius:14px;min-width:0;box-shadow:0 8px 25px #2e22490b}.wide{grid-column:1/-1}h2{font-size:17px;margin:0 0 9px}small,.muted{color:#766a81}
+#stage{height:min(52vw,590px);min-height:395px;border-radius:12px;background:radial-gradient(circle at 50% 42%,#39224d,#131022 75%);overflow:hidden;position:relative;touch-action:none}#stage canvas{display:block;width:100%;height:100%}.hud{position:absolute;top:11px;left:12px;color:#bffbf2;font-weight:850;text-shadow:0 0 12px #3affdc}.mode{position:absolute;right:11px;top:11px;color:#e3c8ff;background:#291b40db;border-radius:7px;padding:5px 8px;font-size:11px}.hint{position:absolute;left:12px;bottom:11px;color:#d0bde5;font-size:11px}.node-label{position:absolute;transform:translate(-50%,-50%);font-weight:850;pointer-events:none;text-shadow:0 1px 10px #05020c}
+.contacts{display:grid;gap:8px}.contact{padding:11px;border-left:5px solid var(--violet);background:#faf6ff;border-radius:10px}.contact:nth-child(2){border-color:var(--orange)}.contact:nth-child(3){border-color:var(--teal)}
+.big{font-size:23px;font-weight:850}.tag{display:inline-block;font-size:11px;font-weight:850;padding:3px 8px;border-radius:7px;background:#eee0fc;color:#6d389d}.tag.good{background:#ddf7ea;color:#087d69}.tag.warn{background:#fff0df;color:#a94b15}
+label{font-weight:750;display:block;margin:12px 0 5px}input[type=range]{accent-color:var(--violet);width:100%}.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}.stat{padding:11px;background:#f6effb;border-radius:10px}.stat b{font-size:22px;display:block}
+table{border-collapse:collapse;width:100%;font-size:12px}th,td{padding:9px 7px;border-bottom:1px solid #eee4f4;text-align:right}th:first-child,td:first-child{text-align:left}th{background:#f6effa}
+pre{max-height:240px;overflow:auto;background:#1b152a;color:#e6d7fc;padding:12px;border-radius:10px;white-space:pre-wrap;font:11px/1.55 ui-monospace,Consolas,monospace}
+@media(max-width:860px){main{grid-template-columns:1fr}#stage{height:455px}.stats{grid-template-columns:repeat(2,1fr)}}
+</style></head><body><header><div class="kicker">ROOT0 · QUANTA · ADA · PHASE II · 3D · .dlw</div>
+<h1>ADA-198N · <span style="color:#9850e5">3D Stress & Recovery</span></h1>
+<div>Stress the best-policy kernel. Compare against the matched baseline. Measure failure, switching cost and recovery.</div>
+<div class="actions"><button class="primary" id="suite">Run 4-regime stress suite</button><button id="step">Step</button><button id="run">Run 140 ticks</button><button id="replay">Verify exact replay</button><button id="reset">Reset</button><button id="export">Export JSON evidence</button></div></header>
+<main><section class="panel"><h2>3D toroidal stress topology</h2>
+<div id="stage" role="img" aria-label="Interactive rotating toroid with three roles and spatial trails, bright orange severe-error markers, and teal adaptive recovery"><div id="hud" class="hud">KERNEL · t0000 · BASELINE</div><div id="mode" class="mode">Loading 3D</div><div class="hint">Drag to orbit · wheel to zoom · orange sparks show severe selected-policy errors</div></div>
+<p class="muted">Purple Jane proposes · orange Toph tests · teal Ada regulates. Center color shows the selected policy. All source traces are computed independently of rendering.</p></section>
+<section class="panel"><h2>Stress protocol</h2><div class="contacts" id="contacts"></div>
+<label for="regime">Disturbance family</label><select id="regime"><option value="shock">Abrupt gain shock</option><option value="noise">Benign noise bursts</option><option value="drift">Changing frequency</option><option value="cost">Variable switching costs</option></select>
+<label for="threshold">Severe-error threshold <output id="thresholdOut">15</output></label><input id="threshold" type="range" min="8" max="28" value="15">
+<label for="cost">Base switching penalty <output id="costOut">2</output></label><input id="cost" type="range" min="0" max="12" value="2">
+<p class="muted">Each 140-tick test has fixed transitions at ticks 35 and 95. Every adaptive controller sees the exact same source sequence as the baseline, including the same seeded noise.</p>
+<div class="tag" id="status">Replay not yet run</div></section>
+<section class="panel wide"><h2>Matched stress suite outcomes</h2><div id="stats" class="stats"></div><div style="overflow:auto;margin-top:10px"><table><thead><tr><th>Regime</th><th>Seeds</th><th>Baseline MAE</th><th>Adaptive MAE</th><th>Baseline severe</th><th>Adaptive severe</th><th>Switch cost</th><th>Recovery ticks*</th></tr></thead><tbody id="rows"></tbody></table></div>
+<p class="muted">*Recovery ticks = first time after the shock at tick 35 that the adaptive controller records five consecutive nonsevere errors, capped at the 140-tick horizon. This is an operational proxy, not a physical recovery time. An improvement is claimed only when actually measured.</p></section>
+<section class="panel wide"><h2>Single-source decision trace · replay and counterexamples</h2><pre id="ledger"></pre>
+<p class="muted">The simulation records one source observation per tick and a single Jane → Toph → Ada policy decision. A safety veto retains baseline when adaptive policies exceed baseline severe failures over the current 18-case window. Export includes all matched seed runs; no evidence is cryptographically signed.</p></section></main>
+<script>
+"use strict";
+const $=id=>document.getElementById(id),P=["baseline","trend","smooth"],NAMES=["Jane","Toph","Ada"],COLORS=[0xc58aff,0xffa263,0x4ee7da],clamp=(x,a,b)=>Math.max(a,Math.min(b,x)),avg=x=>x.reduce((s,v)=>s+v,0)/Math.max(1,x.length);
+const REGIMES=["shock","noise","drift","cost"];let model,allResults=[],replayReport=null,renderFrame=0,THREE,scene,camera,renderer,torus,center,orbs=[],trails=[],sparks=[],webgl=false,canvas,ctx;
+const stage=$("stage"),labels=[],view={az:.4,el:.37,zoom:8,drag:false,px:0,py:0};
+function create(regime,seed,threshold,cost){return {schema:"ADA-198N.v1",mark:".dlw",config:{regime,seed,threshold,cost},regime,seed,threshold,cost,tick:0,active:"baseline",lastSwitch:0,switches:0,totalSwitchCost:0,source:[],records:[],scored:[],selectedErrors:[],baseErrors:[],severeSelected:0,severeBase:0,recoveryTick:null,consecutiveGood:0}}
+function random(m){m.seed=(Math.imul(m.seed,1664525)+1013904223)>>>0;return m.seed/4294967296}
+function signal(m){const t=m.tick,r=random(m),phase=m.regime==="drift"?.07*t+.0006*t*t:.095*t;let s=50+14*Math.sin(phase)+6*Math.cos(t*.035)+(r-.5)*5;
+if(m.regime==="shock"&&t>=35&&t<95)s+=24;if(m.regime==="shock"&&t>=95)s-=17;
+if(m.regime==="noise"&&t>=35&&t<95)s+=(r-.5)*46;
+if(m.regime==="drift"&&t>=35)s+=11*Math.sin(.31*t);
+if(m.regime==="cost"&&t>=35&&t<95)s+=12*Math.sin(.39*t);
+return clamp(s,0,100)}
+function predictor(history,key){let a=history.at(-1)?.value??50,b=history.at(-2)?.value??a,d=clamp(a-b,-9,9);
+return key==="baseline"?a:key==="trend"?clamp(a+.75*d,0,100):clamp((a+b)/2,0,100)}
+function costAt(m){return m.regime==="cost"&&m.tick>=35&&m.tick<95?m.cost*3:m.cost}
+function classify(m){let base=m.scored.slice(-18).filter(x=>x.error.baseline>m.threshold).length;
+return P.map((key,i)=>{let rows=m.scored.slice(-18),errors=rows.map(x=>x.error[key]),severe=errors.filter(v=>v>m.threshold).length,mae=avg(errors);
+return {key,i,mae,severe,count:rows.length,eligible:rows.length>=8&&(key==="baseline"||severe<=base),switchCost:key===m.active?0:costAt(m),score:mae+(key===m.active?0:costAt(m))}}).sort((a,b)=>Number(b.eligible)-Number(a.eligible)||a.score-b.score||a.i-b.i)}
+function tickOnce(m){let guesses=Object.fromEntries(P.map(k=>[k,predictor(m.source,k)]));m.tick++;let value=signal(m),id="ADA198N-OBS-"+m.tick,ob={id,root:"ADA198N-one-synthetic-source",tick:m.tick,value};m.source.push(ob);
+const error=Object.fromEntries(P.map(k=>[k,Math.abs(guesses[k]-value)]));m.scored.push({tick:m.tick,id,error});
+let ranked=classify(m),baseline=ranked.find(x=>x.key==="baseline"),best=ranked.find(x=>x.eligible),safety=!!best&&best.severe<=baseline.severe,selected=safety?best.key:"baseline",old=m.active;
+const penalty=selected===old?0:costAt(m);if(penalty>0)m.totalSwitchCost+=penalty;if(selected!==old){m.switches++;m.lastSwitch=m.tick}m.active=selected;
+const loss=error[selected];m.selectedErrors.push(loss);m.baseErrors.push(error.baseline);if(loss>m.threshold)m.severeSelected++;if(error.baseline>m.threshold)m.severeBase++;
+if(m.tick>=35){m.consecutiveGood=loss<=m.threshold?m.consecutiveGood+1:0;if(m.recoveryTick===null&&m.consecutiveGood>=5)m.recoveryTick=m.tick-35-4}
+m.records.push({tick:m.tick,source_id:id,value,guesses,error,jane:{proposed:best?.key||"baseline",ranking:ranked.map(({key,mae,severe,eligible,score})=>({key,mae,severe,eligible,score}))},toph:{safe:safety,baselineSevere:baseline.severe,candidateSevere:best?.severe??null},ada:{previous:old,selected,switchPenalty:penalty},selectedError:loss});
+return m}
+function advance(m,n){for(let i=0;i<n;i++)tickOnce(m);return m}
+function summary(m){return {regime:m.regime,seed:m.config.seed,ticks:m.tick,baselineMAE:avg(m.baseErrors),adaptiveMAE:avg(m.selectedErrors),baselineSevere:m.severeBase,adaptiveSevere:m.severeSelected,switchCost:m.totalSwitchCost,switches:m.switches,recoveryTicks:m.recoveryTick===null?null:m.recoveryTick,active:m.active}}
+function replay(m){if(m.schema!=="ADA-198N.v1"||!Number.isSafeInteger(m.tick)||m.tick>2500)throw Error("Invalid model");
+let d=create(m.config.regime,m.config.seed,m.config.threshold,m.config.cost);advance(d,m.tick);
+if(JSON.stringify(d.records)!==JSON.stringify(m.records))throw Error("Record mismatch at fixed seed");
+if(JSON.stringify(d.source)!==JSON.stringify(m.source)||JSON.stringify(summary(d))!==JSON.stringify(summary(m)))throw Error("Source or policy outcome mismatch");
+return {passed:true,ticks:m.tick,sourceCount:m.source.length,decisionCount:m.records.length,seed:m.config.seed}}
+function batch(){allResults=[];const th=+$("threshold").value,cost=+$("cost").value;for(const regime of REGIMES)for(let i=0;i<4;i++){let m=create(regime,198000+i*311,th,cost);advance(m,140);let check=replay(m);allResults.push({regime,seed:m.config.seed,summary:summary(m),replay:check,records:m.records})}
+model=create($("regime").value,198000,th,cost);advance(model,140);replayReport=replay(model);paint();syncScene()}
+function reset(){model=create($("regime").value,198000,+$("threshold").value,+$("cost").value);allResults=[];replayReport=null;paint();syncScene()}
+function step(){tickOnce(model);replayReport=null;paint();syncScene()}
+function run(){advance(model,140);replayReport=null;paint();syncScene()}
+function showStats(){let s=summary(model);$("hud").textContent="KERNEL · T"+String(model.tick).padStart(4,"0")+" · "+model.active.toUpperCase();
+$("contacts").innerHTML=[{name:"JANE / EXPLORE",value:model.records.at(-1)?.jane.proposed||"baseline",hint:"proposed minimum eligible score"},{name:"TOPH / TEST",value:model.records.at(-1)?.toph.safe?"PASS":"BASELINE",hint:"safety compared to baseline"},{name:"ADA / REGULATE",value:model.active,hint:"one selected active policy"}].map(c=>'<div class="contact"><b>'+c.name+'</b><div class="big">'+c.value+'</div><small>'+c.hint+'</small></div>').join("");
+$("stats").innerHTML=[["Current ticks",model.tick],["Adaptive MAE",s.adaptiveMAE.toFixed(2)],["Severe errors",s.adaptiveSevere],["Switch cost",s.switchCost.toFixed(1)]].map(([k,v])=>'<div class="stat"><small>'+k+'</small><b>'+v+'</b></div>').join("");
+$("thresholdOut").textContent=model.threshold;$("costOut").textContent=model.cost;
+$("rows").innerHTML=REGIMES.map(reg=>{let r=allResults.filter(x=>x.regime===reg),baseline=r.length?avg(r.map(x=>x.summary.baselineMAE)):null,adaptive=r.length?avg(r.map(x=>x.summary.adaptiveMAE)):null,severeB=r.reduce((a,x)=>a+x.summary.baselineSevere,0),severeA=r.reduce((a,x)=>a+x.summary.adaptiveSevere,0),sw=r.reduce((a,x)=>a+x.summary.switchCost,0),recovery=r.filter(x=>x.summary.recoveryTicks!==null);return '<tr><td>'+reg+'</td><td>'+r.length+'</td><td>'+(baseline===null?"—":baseline.toFixed(2))+'</td><td>'+(adaptive===null?"—":adaptive.toFixed(2))+'</td><td>'+severeB+'</td><td>'+severeA+'</td><td>'+sw.toFixed(1)+'</td><td>'+(recovery.length?avg(recovery.map(x=>x.summary.recoveryTicks)).toFixed(1):"—")+'</td></tr>'}).join("");
+$("ledger").textContent=JSON.stringify({replay:replayReport,latest:summary(model),stressCases:allResults.length,latestDecision:model.records.at(-1)||null},null,2);
+$("status").textContent=replayReport?(replayReport.passed?"REPLAY PASS · "+replayReport.ticks+" ticks":"REPLAY FAIL"):"Replay pending";$("status").className="tag "+(replayReport?.passed?"good":"")}
+function paint(){showStats()}
+$("suite").onclick=batch;$("step").onclick=step;$("run").onclick=run;$("reset").onclick=reset;
+$("replay").onclick=()=>{try{replayReport=replay(model)}catch(e){replayReport={passed:false,error:e.message}}paint()};
+$("regime").onchange=reset;$("threshold").onchange=reset;$("cost").onchange=reset;
+$("export").onclick=()=>{let payload={schema:"ADA-198N.export.v1",mark:".dlw",geometry:"{24/[2]/[4]/(3)/(3)/(1)/(1)}",current:model,results:allResults,replay:(()=>{try{return replay(model)}catch(e){return {passed:false,error:e.message}}})(),warning:"All environments, contacts and outcomes are synthetic; no claim of generalization to real-world safety."};let u=URL.createObjectURL(new Blob([JSON.stringify(payload,null,2)],{type:"application/json"})),a=document.createElement("a");a.href=u;a.download="ADA-198N-stress-recovery-evidence.json";a.click();setTimeout(()=>URL.revokeObjectURL(u),700)};
+// Visual layer: Three.js when available; projected Canvas2D fallback. All outcomes are renderer-independent.
+for(let i=0;i<3;i++){let e=document.createElement("div");e.className="node-label";e.style.color=["#c38aff","#ffae71","#60f4e5"][i];e.textContent=NAMES[i].toUpperCase();stage.appendChild(e);labels.push(e)}
+function loadThree(){const s=document.createElement("script");s.src="https://cdn.jsdelivr.net/npm/three@0.149.0/build/three.min.js";s.onload=()=>window.THREE?init3D(window.THREE):fallback();s.onerror=fallback;document.head.appendChild(s)}
+function init3D(T){try{THREE=T;scene=new T.Scene();camera=new T.PerspectiveCamera(46,1,.1,100);renderer=new T.WebGLRenderer({alpha:true,antialias:true});renderer.setPixelRatio(Math.min(2,devicePixelRatio||1));stage.querySelector("canvas")?.remove();stage.prepend(renderer.domElement);scene.add(new T.AmbientLight(0xd2beff,1.2));let light=new T.PointLight(0xff914c,24,24);light.position.set(3,5,4);scene.add(light);
+torus=new T.Mesh(new T.TorusGeometry(2.15,.4,22,120),new T.MeshStandardMaterial({color:0x9851ec,emissive:0x552183,emissiveIntensity:.8,metalness:.5,roughness:.28,transparent:true,opacity:.78}));torus.rotation.x=.62;scene.add(torus);
+center=new T.Mesh(new T.IcosahedronGeometry(.5,2),new T.MeshStandardMaterial({color:0xf7fff9,emissive:0x44e6d6,emissiveIntensity:1.5}));scene.add(center);
+for(let i=0;i<3;i++){let orb=new T.Mesh(new T.SphereGeometry(.26,20,16),new T.MeshStandardMaterial({color:COLORS[i],emissive:COLORS[i],emissiveIntensity:1.1})),trail=new T.Line(new T.BufferGeometry(),new T.LineBasicMaterial({color:COLORS[i],transparent:true,opacity:.87})),spark=new T.Points(new T.BufferGeometry(),new T.PointsMaterial({color:0xff581b,size:.14}));scene.add(orb,trail,spark);orbs.push(orb);trails.push(trail);sparks.push(spark)}
+webgl=true;$("mode").textContent="WEBGL · STRESS TOPOLOGY";resize();syncScene();frame()}catch(e){fallback()}}
+function fallback(){if(webgl)return;stage.querySelector("canvas")?.remove();canvas=document.createElement("canvas");stage.prepend(canvas);ctx=canvas.getContext("2d");$("mode").textContent="CANVAS2D · PROJECTED 3D";resize();frame()}
+function resize(){let w=stage.clientWidth,h=stage.clientHeight;if(webgl){renderer.setSize(w,h);camera.aspect=w/h;camera.updateProjectionMatrix()}else if(canvas){let d=Math.min(2,devicePixelRatio||1);canvas.width=w*d;canvas.height=h*d;canvas.style.width=w+"px";canvas.style.height=h+"px";ctx.setTransform(d,0,0,d,0,0)}}
+window.addEventListener("resize",resize);
+stage.addEventListener("pointerdown",e=>{view.drag=true;view.px=e.clientX;view.py=e.clientY;stage.setPointerCapture(e.pointerId)});
+stage.addEventListener("pointermove",e=>{if(!view.drag)return;view.az+=(e.clientX-view.px)*.008;view.el=clamp(view.el+(e.clientY-view.py)*.008,-1.4,1.4);view.px=e.clientX;view.py=e.clientY});
+stage.addEventListener("pointerup",()=>view.drag=false);stage.addEventListener("wheel",e=>{e.preventDefault();view.zoom=clamp(view.zoom+e.deltaY*.008,5.4,16)},{passive:false});
+function position(t,i,v){let a=t*.14+i*Math.PI*2/3,r=2.15+(v-50)*.011;return{x:r*Math.cos(a),y:(v-50)*.03,z:r*Math.sin(a)}}
+function paths(){return NAMES.map((_,i)=>model.source.slice(-80).map(o=>position(o.tick,i,o.value+(i-1)*1.8)))}
+function syncScene(){if(!webgl||!model)return;const pathsByContact=paths();for(let i=0;i<3;i++){let p=pathsByContact[i],loc=p.at(-1)||position(0,i,50);orbs[i].position.set(loc.x,loc.y,loc.z);
+trails[i].geometry.dispose();trails[i].geometry=new THREE.BufferGeometry().setFromPoints(p.map(q=>new THREE.Vector3(q.x,q.y,q.z)));
+let errors=model.records.filter(r=>r.tick>model.tick-80&&r.selectedError>model.threshold).map(r=>position(r.tick,i,r.value));sparks[i].geometry.dispose();sparks[i].geometry=new THREE.BufferGeometry().setFromPoints(errors.map(q=>new THREE.Vector3(q.x,q.y,q.z)))}
+center.material.emissive.setHex(model.active==="baseline"?0x5af3d9:model.active==="trend"?0xff994e:0xbe86ff)}
+function project(v){let a=view.az,b=view.el,x=v.x*Math.cos(a)-v.z*Math.sin(a),z=v.x*Math.sin(a)+v.z*Math.cos(a),y=v.y*Math.cos(b)-z*Math.sin(b);z=v.y*Math.sin(b)+z*Math.cos(b);let k=stage.clientHeight/(view.zoom+z)*.8;return{x:stage.clientWidth/2+x*k,y:stage.clientHeight/2-y*k}}
+function frame(){renderFrame++;if(webgl){torus.rotation.z+=.003;center.rotation.y+=.009;camera.position.set(view.zoom*Math.sin(view.az)*Math.cos(view.el),view.zoom*Math.sin(view.el),view.zoom*Math.cos(view.az)*Math.cos(view.el));camera.lookAt(0,0,0);renderer.render(scene,camera);orbs.forEach((o,i)=>{let p=o.position.clone().project(camera);labels[i].style.left=(p.x*.5+.5)*stage.clientWidth+"px";labels[i].style.top=((-p.y*.5+.5)*stage.clientHeight-25)+"px"})}
+else if(ctx&&model){ctx.clearRect(0,0,stage.clientWidth,stage.clientHeight);for(let j=0;j<150;j++){let a=j/150*Math.PI*2,p=project({x:2.15*Math.cos(a),y:.12*Math.sin(2*a),z:2.15*Math.sin(a)});ctx.fillStyle=j%2?"#a968f5a0":"#ff9858a0";ctx.beginPath();ctx.arc(p.x,p.y,2,0,7);ctx.fill()}
+let origin=project({x:0,y:0,z:0});ctx.fillStyle="#f1fff8";ctx.shadowColor="#52ecdc";ctx.shadowBlur=18;ctx.beginPath();ctx.arc(origin.x,origin.y,18,0,7);ctx.fill();ctx.shadowBlur=0;
+paths().forEach((rows,i)=>{ctx.strokeStyle=["#c18cff","#ffa769","#50e8d9"][i];ctx.lineWidth=2;ctx.beginPath();rows.forEach((q,j)=>{let p=project(q);j?ctx.lineTo(p.x,p.y):ctx.moveTo(p.x,p.y)});ctx.stroke();let last=project(rows.at(-1)||position(0,i,50));ctx.fillStyle=ctx.strokeStyle;ctx.beginPath();ctx.arc(last.x,last.y,10,0,7);ctx.fill();labels[i].style.left=last.x+"px";labels[i].style.top=last.y-24+"px";
+for(const r of model.records.filter(r=>r.tick>model.tick-80&&r.selectedError>model.threshold)){let p=project(position(r.tick,i,r.value));ctx.fillStyle="#ff5c1e";ctx.beginPath();ctx.arc(p.x,p.y,3.5,0,7);ctx.fill()}})}
+requestAnimationFrame(frame)}
+reset();loadThree();
+</script></body></html>

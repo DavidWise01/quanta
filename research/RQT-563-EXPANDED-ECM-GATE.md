@@ -1,0 +1,14 @@
+# RQT-563 — Expanded ECM Gate
+
+**Executed** exact deterministic ECM using RQT-559 942-bit numerator, input SHA256 `5504e1be18d2b1f55c1db0039f3569330babc93f26bf482fd084c56ee2c3d6b7`.
+
+| Batch | B1 | B2 | Curves | Seed | Outcome |
+|---|---:|---:|---:|---:|---|
+| A | 10000 | 100000 | 20 | 56301 | no factor |
+| B | 12000 | 120000 | 8 | 56302 | no factor |
+
+28 completed curves in 17.556 seconds, no certified nontrivial factor. A separate high-bound batch exceeded the execution limit and does not count as a completed search. Previously proved composite by RQT-560 base-two compositeness witness; finite ECM nonfinding does not imply primality or factor size lower bound.
+
+No new inert-place or relative norm obstruction. Global rational norm OPEN; rational Wall isometry OPEN; integral GL4 equivalence OPEN; root19 OPEN. Selected 720-corridor ledger unchanged 647 conditionally excluded / 73 unresolved.
+
+Next RQT-564: move to smaller cofactor or a direct algebraic local-norm shortcut; avoid claiming global norm from incomplete factorization. The full exact script, JSON, new Gothic stained-glass astronomy JPEG and self-contained JPEG-embedded HTML are available as local conversation artifacts; repository HTML is text only and Pages/JPEG publication remain unverified.

@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ADA-183N · Boundary-Aware Repair</title>
+<style>
+:root{--bone:#fbf9f1;--ink:#2f203f;--violet:#9349f3;--orange:#ff7c2b;--teal:#00a9a0;--line:#dfd0ec}
+*{box-sizing:border-box}body{margin:0;background:var(--bone);color:var(--ink);font:15px/1.5 system-ui,Segoe UI,sans-serif}
+header{padding:26px max(18px,calc((100vw - 1180px)/2));background:linear-gradient(114deg,#fff9ea,#efe6ff);border-bottom:2px solid #d6b4f8}
+.kicker{color:#8040c0;font-size:12px;font-weight:800;letter-spacing:.16em}h1{font-size:clamp(30px,4vw,48px);line-height:1.1;letter-spacing:-.035em;margin:6px 0}
+main{max-width:1180px;margin:auto;padding:17px;display:grid;grid-template-columns:minmax(0,1fr) 320px;gap:15px}
+.panel{min-width:0;border:1px solid var(--line);border-radius:14px;background:white;padding:18px;box-shadow:0 8px 26px #3826490a}.wide{grid-column:1/-1}
+h2{font-size:18px;margin:0 0 10px}.controls{display:flex;flex-wrap:wrap;gap:8px;margin-top:17px}
+button,select,input[type=file]{font:700 14px system-ui;color:#62288a;background:white;border:1.5px solid var(--violet);border-radius:9px;padding:9px 12px;cursor:pointer}button.primary{background:#532677;color:white}
+button:focus-visible,select:focus-visible,input:focus-visible{outline:3px solid var(--orange)}label{display:block;font-weight:700;margin:12px 0 5px}input[type=range]{accent-color:var(--violet);width:100%}
+small,.muted{color:#776a82}svg{background:#1a152b;width:100%;height:300px;border-radius:12px;display:block}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.policy{border-radius:11px;background:#faf7ff;padding:14px;border-top:5px solid var(--violet)}.policy:nth-child(2){border-color:var(--orange)}.policy:nth-child(3){border-color:var(--teal)}
+.big{font-size:25px;font-weight:850}.tag{display:inline-block;padding:3px 8px;font-size:11px;font-weight:800;border-radius:7px;background:#f2e5ff;color:#7135aa}.tag.good{background:#def7ed;color:#047568}.tag.bad{background:#fff0e1;color:#ad4b18}
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}.kpi{background:#f5eefa;padding:11px;border-radius:10px}.kpi b{font-size:23px;display:block}
+table{border-collapse:collapse;width:100%;font-size:13px}th,td{border-bottom:1px solid #eee7f4;padding:9px 7px;text-align:right}th:first-child,td:first-child{text-align:left}th{background:#f4ecfc}
+pre{white-space:pre-wrap;background:#1a152b;color:#e7dcfc;padding:12px;max-height:205px;overflow:auto;border-radius:10px;font:12px/1.6 ui-monospace,Consolas,monospace}
+.legend{font-size:12px;display:flex;flex-wrap:wrap;gap:14px;margin-top:9px}.sw{display:inline-block;width:13px;height:4px;vertical-align:middle;margin-right:4px}
+@media(max-width:810px){main{grid-template-columns:1fr}.grid{grid-template-columns:1fr}.kpis{grid-template-columns:repeat(2,1fr)}}
+</style></head><body>
+<header><div class="kicker">ROOT0 · QUANTA · ADA · .dlw</div>
+<h1>ADA-183N · <span style="color:#944ae8">Boundary-Aware Repair</span></h1>
+<div>Repair the failing behavior, not the entire learner. Hold out neighboring cases before approving the change.</div>
+<div class="controls"><button id="train" class="primary">1 · Select repairs</button><button id="test">2 · Test holdout</button><button id="promote">3 · Apply safety gate</button><button id="reset">Reset</button><button id="export">Export evidence JSON</button></div></header>
+<main>
+<section class="panel"><h2>Original counterexample · replay</h2><svg id="trace" viewBox="0 0 800 300" role="img" aria-label="Disturbance trace and detection markers of incumbent, local repair and full replacement"></svg>
+<div class="legend"><span><i class="sw" style="background:#fda05b"></i>Original signal</span><span><i class="sw" style="background:#b98afd"></i>Local repair alarm</span><span><i class="sw" style="background:#39e4d7"></i>Replacement alarm</span></div>
+<p class="muted">Unchanged seed retained for replay. Each policy starts from the same reset state.</p></section>
+<section class="panel"><h2>Experiment settings</h2>
+<label for="contact">Contact</label><select id="contact"><option>Jane</option><option>Toph</option><option>Ada</option></select>
+<label for="source">Seed</label><select id="source"><option value="built">Built-in counterexample</option><option value="import">Imported ADA-181N / ADA-182N</option></select>
+<label for="upload">Import JSON</label><input type="file" accept=".json,application/json" id="upload">
+<label for="holdout">Holdout cases: <output id="holdoutOut">48</output></label><input type="range" min="24" max="96" step="12" value="48" id="holdout">
+<label for="tolerance">Max additional holdout missed ticks: <output id="toleranceOut">0</output></label><input type="range" min="0" max="6" step="1" value="0" id="tolerance">
+<p class="muted">The local repair lowers the detection persistence requirement only for sufficiently strong disturbances. Full replacement lowers it everywhere. False-alarm cost is evaluated on noncritical spikes.</p><small id="importState">Using independent built-in demonstration seed.</small></section>
+<section class="panel wide"><h2>Candidate policies · train on failure, evaluate on held-out neighbors</h2><div id="policies" class="grid"></div></section>
+<section class="panel wide"><h2>Promotion decision and held-out risks</h2><div id="kpis" class="kpis"></div>
+<div style="overflow:auto;margin-top:12px"><table><thead><tr><th>Policy</th><th>Original missed ticks</th><th>Holdout missed ticks</th><th>False alarms</th><th>Repair complexity</th><th>Decision</th></tr></thead><tbody id="rows"></tbody></table></div>
+<p class="muted">Selection uses the original failure only; holdout uses disjoint deterministic synthetic cases. Safety gate: original failure must improve over the incumbent, holdout misses may not exceed incumbent misses by the allowed tolerance, and false alarms may not exceed incumbent by more than two. Passing this finite gate is not a universal safety guarantee.</p></section>
+<section class="panel wide"><h2>Append-only repair and promotion ledger</h2><pre id="ledger"></pre><p class="muted">Seed ancestry, candidate choices, holdout cases and approval decisions are retained in the exported JSON. Repeatedly tuning against the same holdout contaminates it; future work should use sealed final evaluation. Checksums here are noncryptographic.</p></section></main>
+<script>
+"use strict";
+const $=id=>document.getElementById(id),N=72,THRESH=14;
+const clamp=(x,a,b)=>Math.min(b,Math.max(a,x)),count=a=>a.filter(v=>v!==0).length;
+let seed=Object.freeze(defaultSeed()),source="synthetic-ADA183N",phase=0,events=[],training=null,validation=null,decisions=null;
+function defaultSeed(){let a=Array(N).fill(0);for(let i=18;i<25;i++)a[i]=21;for(let i of [3,7,11,35,41,60,66])a[i]=7;return a}
+function hash(a){let h=2166136261;for(const v of a)h=Math.imul(h^((Math.round(v)+128)&255),16777619)>>>0;return h.toString(16).padStart(8,"0")}
+function log(type,data={}){events.push({id:events.length+1,type,...data})}
+function rng(n){let s=n>>>0;return()=>{s=(Math.imul(s,1664525)+1013904223)>>>0;return s/4294967296}}
+function policies(){let base=$("contact").value==="Jane"?5:$("contact").value==="Toph"?6:7;
+return [{id:"incumbent",name:"Current policy",base,local:false,complexity:0},
+{id:"local",name:"Targeted local repair",base,local:true,complexity:1},
+{id:"full",name:"Full replacement",base:2,local:false,complexity:4}]}
+function runPolicy(trace,p){let consec=0,alarm=false,missed=0,first=null,falseAlarms=0,alarmTicks=[];
+for(let i=0;i<trace.length;i++){let magnitude=Math.abs(trace[i]),critical=magnitude>=THRESH;
+let needed=p.local&&magnitude>=18?2:p.base;
+consec=critical?consec+1:0;alarm=critical&&consec>=needed;
+if(alarm&&first===null)first=i;if(critical&&!alarm)missed++;
+if(alarm)alarmTicks.push(i);
+if(!critical&&magnitude>0&&magnitude<THRESH&&i>0&&Math.abs(trace[i-1])>=THRESH&&consec===0)falseAlarms+=0;
+}return {missed,first,falseAlarms,alarmTicks}}
+function makeHoldout(caseId){let r=rng(30000+caseId*701),a=Array(N).fill(0),start=6+Math.floor(r()*35),len=2+Math.floor(r()*13),amp=12+Math.floor(r()*16),sign=r()>.5?1:-1;
+for(let i=start;i<Math.min(N,start+len);i++)a[i]=sign*(amp+(r()-.5)*2);
+for(let j=0;j<11;j++){let i=Math.floor(r()*N);if(a[i]===0)a[i]=(r()-.5)*22}
+return a}
+function evaluate(policy,traces){let missed=0,falseAlarms=0,examples=[];for(let i=0;i<traces.length;i++){let r=runPolicy(traces[i],policy);missed+=r.missed;falseAlarms+=r.falseAlarms;examples.push({case_id:i,trace_hash:hash(traces[i]),missed:r.missed,false_alarms:r.falseAlarms})}return {missed,falseAlarms,examples}}
+function train(){const ps=policies(),before=runPolicy(seed,ps[0]);training={seed_hash:hash(seed),original:Array.from(seed),policies:ps.map(p=>({policy:p,...runPolicy(seed,p)}))};
+phase=1;validation=null;decisions=null;log("training",{contact:$("contact").value,seed_hash:hash(seed),initialMisses:before.missed,policies:training.policies.map(p=>({id:p.policy.id,missed:p.missed}))});render()}
+function test(){if(!training)train();const cases=Array.from({length:+$("holdout").value},(_,i)=>makeHoldout(i)),hashes=cases.map(hash);
+validation={case_hashes:hashes,case_count:cases.length,results:training.policies.map(({policy})=>({policy,...evaluate(policy,cases)}))};
+phase=2;decisions=null;log("holdout-tested",{case_hashes:hashes,metrics:validation.results.map(r=>({id:r.policy.id,missed:r.missed,falseAlarms:r.falseAlarms}))});render()}
+function promote(){if(!validation)test();const baseOriginal=training.policies[0],baseHold=validation.results[0],allowed=+$("tolerance").value;
+decisions=training.policies.map((tr,i)=>{const h=validation.results[i],improved=tr.missed<baseOriginal.missed,withinMiss=h.missed<=baseHold.missed+allowed,withinAlarm=h.falseAlarms<=baseHold.falseAlarms+2;
+return {id:tr.policy.id,improved,withinMiss,withinAlarm,accepted:i>0&&improved&&withinMiss&&withinAlarm,reason:i===0?"reference":!improved?"original not repaired":!withinMiss?"holdout safety veto":!withinAlarm?"false alarm veto":"eligible"}});
+phase=3;log("promotion-decision",{decisions,allowedAdditionalMissedTicks:allowed});render()}
+function tracePlot(){let ps=training?.policies||policies().map(p=>({policy:p,...runPolicy(seed,p)})),x=i=>23+i*750/(N-1),y=v=>146-v*3;
+let path='<path d="'+seed.map((v,i)=>(i?"L":"M")+x(i).toFixed(1)+","+y(v).toFixed(1)).join(" ")+'" stroke="#fda05b" stroke-width="2.5" fill="none"/>';
+let a=ps[1]?.alarmTicks||[],b=ps[2]?.alarmTicks||[];
+let marks=a.map(i=>'<circle cx="'+x(i)+'" cy="239" r="3.5" fill="#b98afd"/>').join("")+b.map(i=>'<circle cx="'+x(i)+'" cy="259" r="3.5" fill="#39e4d7"/>').join("");
+$("trace").innerHTML='<g stroke="#43364c"><path d="M23 146 H774"/><path d="M23 238 H774"/><path d="M23 258 H774"/></g>'+path+marks+'<text x="26" y="222" fill="#d4c4ee" font-size="11">LOCAL</text><text x="26" y="283" fill="#d4c4ee" font-size="11">FULL</text>'}
+function render(){tracePlot();const ps=policies(),tr=training?.policies,va=validation?.results;
+$("policies").innerHTML=ps.map((p,i)=>{const d=decisions?.[i],status=!d?"UNTESTED":d.accepted?"ELIGIBLE":d.reason.toUpperCase();return '<div class="policy"><b>'+p.name+'</b> <span class="tag '+(d?(d.accepted?"good":"bad"):"")+'">'+status+'</span><div class="big">'+(p.local?"5+→2":p.base)+' ticks</div><small>persistence rule; local gate requires amplitude ≥18</small><p>Repair complexity: '+p.complexity+'</p></div>'}).join("");
+$("kpis").innerHTML=[["Phase",["Ready","Selected","Tested","Gated"][phase]],["Holdout cases",validation?.case_count??0],["Eligible repairs",decisions?.filter(d=>d.accepted).length??0],["Seed hash",hash(seed)]].map(([k,v])=>'<div class="kpi"><small>'+k+'</small><b>'+v+'</b></div>').join("");
+$("rows").innerHTML=ps.map((p,i)=>'<tr><td>'+p.name+'</td><td>'+(tr?.[i].missed??"—")+'</td><td>'+(va?.[i].missed??"—")+'</td><td>'+(va?.[i].falseAlarms??"—")+'</td><td>'+p.complexity+'</td><td>'+(decisions?.[i].reason??"Not evaluated")+'</td></tr>').join("");
+$("ledger").textContent=JSON.stringify({source,seed_hash:hash(seed),events:events.slice(-10),phase,selected_contact:$("contact").value,decisions},null,2);
+$("holdoutOut").textContent=$("holdout").value;$("toleranceOut").textContent=$("tolerance").value}
+function reset(){phase=0;training=null;validation=null;decisions=null;log("reset",{source});render()}
+$("train").onclick=train;$("test").onclick=test;$("promote").onclick=promote;$("reset").onclick=reset;
+$("contact").onchange=reset;$("holdout").oninput=()=>{reset();render()};$("tolerance").oninput=()=>{decisions=null;if(phase===3)phase=2;render()};
+$("upload").onchange=async()=>{const file=$("upload").files?.[0];if(!file)return;try{const data=JSON.parse(await file.text());
+let arr=data.schema==="ADA-181N.v1"?data.reduced:data.schema==="ADA-182N.v1"?data.seed:null;
+if(!Array.isArray(arr)||arr.length!==N||!arr.every(Number.isFinite))throw Error("Expected a 72-cell ADA-181N reduced trace or ADA-182N seed");
+seed=Object.freeze(arr.slice());source=data.schema+":"+hash(seed);$("source").value="import";$("importState").textContent="Imported "+file.name+" · "+hash(seed);log("import",{source,filename:file.name});reset()}catch(e){$("importState").textContent="Import rejected: "+e.message}};
+$("source").onchange=()=>{if($("source").value==="built"){seed=Object.freeze(defaultSeed());source="synthetic-ADA183N";reset()}else if(!source.startsWith("ADA-")){$("source").value="built";$("importState").textContent="Select a valid JSON file to import"}};
+$("export").onclick=()=>{const data={schema:"ADA-183N.v1",mark:".dlw",geometry:"{24/[2]/[4]/(3)/(3)/(1)/(1)}",source,seed:Array.from(seed),training,validation,decisions,events,limits:"Deterministic synthetic holdout; no universal guarantee or statistical significance"};const u=URL.createObjectURL(new Blob([JSON.stringify(data,null,2)],{type:"application/json"}));const a=document.createElement("a");a.href=u;a.download="ADA-183N-evidence.json";a.click();setTimeout(()=>URL.revokeObjectURL(u),500)};
+render();
+</script></body></html>

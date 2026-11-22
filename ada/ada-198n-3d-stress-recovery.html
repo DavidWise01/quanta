@@ -47,11 +47,20 @@ function costAt(m){return m.regime==="cost"&&m.tick>=35&&m.tick<95?m.cost*3:m.co
 function classify(m){let base=m.scored.slice(-18).filter(x=>x.error.baseline>m.threshold).length;
 return P.map((key,i)=>{let rows=m.scored.slice(-18),errors=rows.map(x=>x.error[key]),severe=errors.filter(v=>v>m.threshold).length,mae=avg(errors);
 return {key,i,mae,severe,count:rows.length,eligible:rows.length>=8&&(key==="baseline"||severe<=base),switchCost:key===m.active?0:costAt(m),score:mae+(key===m.active?0:costAt(m))}}).sort((a,b)=>Number(b.eligible)-Number(a.eligible)||a.score-b.score||a.i-b.i)}
-function tickOnce(m){let guesses=Object.fromEntries(P.map(k=>[k,predictor(m.source,k)]));m.tick++;let value=signal(m),id="ADA198N-OBS-"+m.tick,ob={id,root:"ADA198N-one-synthetic-source",tick:m.tick,value};m.source.push(ob);
-const error=Object.fromEntries(P.map(k=>[k,Math.abs(guesses[k]-value)]));m.scored.push({tick:m.tick,id,error});
-let ranked=classify(m),baseline=ranked.find(x=>x.key==="baseline"),best=ranked.find(x=>x.eligible),safety=!!best&&best.severe<=baseline.severe,selected=safety?best.key:"baseline",old=m.active;
-const penalty=selected===old?0:costAt(m);if(penalty>0)m.totalSwitchCost+=penalty;if(selected!==old){m.switches++;m.lastSwitch=m.tick}m.active=selected;
-const loss=error[selected];m.selectedErrors.push(loss);m.baseErrors.push(error.baseline);if(loss>m.threshold)m.severeSelected++;if(error.baseline>m.threshold)m.severeBase++;
+function tickOnce(m){
+m.tick++;
+// Causal order: choose from completed PRIOR scores, then forecast, then reveal current source.
+const ranked=classify(m),baseline=ranked.find(x=>x.key==="baseline"),best=ranked.find(x=>x.eligible);
+const safety=!!best&&best.severe<=baseline.severe,selected=safety?best.key:"baseline",old=m.active;
+const penalty=selected===old?0:costAt(m);
+if(penalty>0)m.totalSwitchCost+=penalty;
+if(selected!==old){m.switches++;m.lastSwitch=m.tick}m.active=selected;
+const guesses=Object.fromEntries(P.map(k=>[k,predictor(m.source,k)]));
+const value=signal(m),id="ADA198N-OBS-"+m.tick,ob={id,root:"ADA198N-one-synthetic-source",tick:m.tick,value};m.source.push(ob);
+const error=Object.fromEntries(P.map(k=>[k,Math.abs(guesses[k]-value)]));
+m.scored.push({tick:m.tick,id,error});
+const loss=error[selected];m.selectedErrors.push(loss);m.baseErrors.push(error.baseline);
+if(loss>m.threshold)m.severeSelected++;if(error.baseline>m.threshold)m.severeBase++;
 if(m.tick>=35){m.consecutiveGood=loss<=m.threshold?m.consecutiveGood+1:0;if(m.recoveryTick===null&&m.consecutiveGood>=5)m.recoveryTick=m.tick-35-4}
 m.records.push({tick:m.tick,source_id:id,value,guesses,error,jane:{proposed:best?.key||"baseline",ranking:ranked.map(({key,mae,severe,eligible,score})=>({key,mae,severe,eligible,score}))},toph:{safe:safety,baselineSevere:baseline.severe,candidateSevere:best?.severe??null},ada:{previous:old,selected,switchPenalty:penalty},selectedError:loss});
 return m}

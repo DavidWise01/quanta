@@ -1,0 +1,82 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>ADA-186N · Transfer With Memory</title>
+<style>:root{--bone:#faf9f2;--ink:#30223d;--violet:#9650f2;--orange:#fd8132;--teal:#00a99d;--line:#e3d7e9}
+*{box-sizing:border-box}body{margin:0;background:var(--bone);font:15px/1.5 system-ui,Segoe UI,sans-serif;color:var(--ink)}
+header{padding:27px max(18px,calc((100vw - 1160px)/2));background:linear-gradient(112deg,#fff8eb,#f0e8ff);border-bottom:2px solid #d5b7f4}h1{font-size:clamp(29px,4vw,49px);letter-spacing:-.035em;line-height:1.12;margin:6px 0}.eyebrow{color:#8040c9;font-size:12px;letter-spacing:.15em;font-weight:850}
+main{max-width:1160px;margin:auto;padding:17px;display:grid;grid-template-columns:minmax(0,1fr) 310px;gap:15px}.panel{min-width:0;border:1px solid var(--line);border-radius:14px;background:#fff;padding:18px;box-shadow:0 8px 24px #3624470a}.wide{grid-column:1/-1}h2{font-size:18px;margin:0 0 10px}.buttons{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+button,select{font:750 14px system-ui;padding:10px 13px;border:1.5px solid var(--violet);border-radius:9px;color:#612d87;background:#fff;cursor:pointer}button.primary{background:#57287e;color:white}button:focus-visible,select:focus-visible,input:focus-visible{outline:3px solid var(--orange)}
+label{display:block;margin:12px 0 5px;font-weight:700}input[type=range]{width:100%;accent-color:var(--violet)}small,.muted{color:#766b7f}
+svg{background:#191526;width:100%;height:308px;border-radius:12px;display:block}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.card{padding:14px;border-top:5px solid var(--violet);border-radius:11px;background:#faf6ff}.card:nth-child(2){border-color:var(--orange)}.card:nth-child(3){border-color:var(--teal)}.big{font-size:26px;font-weight:850}.pill{display:inline-block;border-radius:6px;background:#e4f8ef;color:#067a6e;padding:3px 7px;font-size:11px;font-weight:850}.pill.warn{background:#ffefdc;color:#b4521c}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}.stat{background:#f5eefb;border-radius:10px;padding:11px}.stat b{display:block;font-size:23px}
+table{border-collapse:collapse;width:100%;font-size:13px}th,td{padding:9px 7px;border-bottom:1px solid #ede4f4;text-align:right}th:first-child,td:first-child{text-align:left}th{background:#f5effa}
+pre{max-height:215px;overflow:auto;white-space:pre-wrap;font:12px/1.6 ui-monospace,Consolas,monospace;background:#191526;color:#e5d7fa;border-radius:10px;padding:12px}
+.legend{display:flex;flex-wrap:wrap;gap:14px;font-size:12px;margin:8px 0}.sw{display:inline-block;width:13px;height:5px;vertical-align:middle;margin-right:4px}
+@media(max-width:800px){main{grid-template-columns:1fr}.cards{grid-template-columns:1fr}.stats{grid-template-columns:repeat(2,1fr)}}
+</style></head><body><header><div class="eyebrow">ROOT0 · QUANTA · ADA · .dlw</div>
+<h1>ADA-186N · <span style="color:#9446e6">Transfer With Memory</span></h1>
+<div>A donated repair is conditional knowledge: observe, adopt locally, monitor, and roll back if circumstances reverse.</div>
+<div class="buttons"><button id="step" class="primary">Step</button><button id="run">▶ Run 100 ticks</button><button id="shift">Change environment</button><button id="reset">Reset</button><button id="export">Export evidence JSON</button></div></header>
+<main>
+<section class="panel"><h2>Repair usage and local rollbacks</h2><svg id="plot" viewBox="0 0 800 308" role="img" aria-label="Signal strength and repair states across three contacts"></svg><div class="legend"><span><i class="sw" style="background:#43e5d6"></i>Signal magnitude</span><span><i class="sw" style="background:#b88aff"></i>Jane repair active</span><span><i class="sw" style="background:#ff9a58"></i>Toph repair active</span><span><i class="sw" style="background:#4ad2cc"></i>Ada repair active</span></div></section>
+<section class="panel"><h2>Environment and local safeguards</h2><label for="scenario">Environmental sequence</label>
+<select id="scenario"><option value="alternating">Alternating useful / noisy</option><option value="stable">Stable useful repairs</option><option value="noise">Mostly benign interference</option><option value="drift">Growing disturbance drift</option></select>
+<label for="window">Local review window: <output id="windowOut">12</output></label><input type="range" id="window" min="6" max="30" step="2" value="12">
+<label for="margin">Promotion gain: <output id="marginOut">2</output></label><input type="range" id="margin" min="0" max="10" step="1" value="2">
+<label for="rollback">Rollback loss: <output id="rollbackOut">3</output></label><input type="range" id="rollback" min="1" max="12" step="1" value="3">
+<p class="muted">Both old and donated detectors run in shadow mode on exactly the same sequence. Every contact makes independent decisions using its own recent completed, labeled outcomes. The ground-truth damage label is available to this simulator only.</p></section>
+<section class="panel wide"><h2>Jane · Toph · Ada · separate repair memories</h2><div id="cards" class="cards"></div></section>
+<section class="panel wide"><h2>Paired safety accounting</h2><div id="stats" class="stats"></div><div style="overflow:auto;margin-top:12px"><table><thead><tr><th>Contact</th><th>Donor trial evidence</th><th>Active mode</th><th>Adoptions</th><th>Rollbacks</th><th>Selected-policy misses</th><th>Selected-policy false alarms</th></tr></thead><tbody id="rows"></tbody></table></div>
+<p class="muted">Score = 8 × missed-damage ticks + 5 × false-alarm episode starts. Adoption requires positive paired score improvement plus nonincreasing missed ticks and false alarms on the latest review window. Rollback requires the donated policy to be worse by the selected loss margin or to exceed either safety metric in that window. A five-tick quarantine prevents immediate readoption.</p></section>
+<section class="panel wide"><h2>Append-only repair memory · provenance and decisions</h2><pre id="ledger"></pre><p class="muted">Session evidence contains observations, both shadow predictions, selected-policy outcomes, local reviews, promotions, rollbacks and quarantine dates. Replay and export are deterministic from this simulation's seed and controls. This is neither a signed archive nor a claim of real-world safety.</p></section></main>
+<script>
+"use strict";
+const $=id=>document.getElementById(id),clamp=(v,a,b)=>Math.max(a,Math.min(b,v)),avg=a=>a.reduce((s,x)=>s+x,0)/Math.max(a.length,1);
+let t=0,seed=186,phaseShift=0,events=[],history=[],contacts=[];
+const names=["Jane","Toph","Ada"],roots=["ADA186N-JANE","ADA186N-TOPH","ADA186N-ADA"];
+function random(){seed=(Math.imul(seed,1664525)+1013904223)>>>0;return seed/4294967296}
+function emit(type,data={}){events.push({id:events.length+1,tick:t,type,...data})}
+function makeContact(name,i){return {name,id:i,root:roots[i],mode:"BASE",oldPersistence:5+i,repairPersistence:2,oldRun:0,newRun:0,oldAlarm:false,newAlarm:false,review:[],adoptions:0,rollbacks:0,coolUntil:0,selectedMiss:0,selectedFalse:0,lastSelectedAlarm:false,memories:[]}}
+function reset(){t=0;seed=186;phaseShift=0;events=[];history=[];contacts=names.map(makeContact);emit("genesis",{watermark:".dlw",source:"synthetic-engine-v1"});render()}
+function signal(){let s=$("scenario").value,block=Math.floor((t+phaseShift)/35),noisy=s==="noise"||(s==="alternating"&&block%2===1),damage=s==="stable"||(s==="drift"&&t>=35)||(s==="alternating"&&block%2===0&&t%35>=8&&t%35<25);
+let strength=damage?22+(s==="drift"?Math.min(12,t*.04):0)+(random()-.5)*5:3+random()*5;
+if(noisy&&random()<.55)strength=15+random()*15;
+if(!damage&&random()<.07)strength+=15;
+return {strength:clamp(strength,0,45),damage,environment:noisy?"noise-heavy":damage?"damage":"benign"}}
+function delta(r){let m=r.reduce((s,x)=>s+(x.old.miss-x.repair.miss),0),f=r.reduce((s,x)=>s+(x.old.falseAlarm-x.repair.falseAlarm),0);
+return {missGain:m,falseGain:f,scoreGain:8*m+5*f}}
+function select(c,r){let count=+$("window").value;if(c.review.length<count)return;
+let evidence=c.review.slice(-count),d=delta(evidence),safety=d.missGain>=0&&d.falseGain>=0,now=t;
+if(c.mode==="BASE"&&now>=c.coolUntil&&safety&&d.scoreGain>=+$("margin").value){
+c.mode="REPAIR";c.adoptions++;c.memories.push({tick:t,action:"adopt",context:r.environment,reviewCount:count,delta:d});emit("repair-adopted",{contact:c.name,source_root:c.root,context:r.environment,delta:d})}
+else if(c.mode==="REPAIR"&&(d.scoreGain<=-(+$("rollback").value)||!safety)){
+c.mode="BASE";c.rollbacks++;c.coolUntil=t+5;c.memories.push({tick:t,action:"rollback",context:r.environment,reviewCount:count,delta:d,coolUntil:c.coolUntil});emit("repair-rolled-back",{contact:c.name,source_root:c.root,context:r.environment,delta:d,quarantineUntil:c.coolUntil})}}
+function step(){t++;let obs=signal();emit("observation",{source_id:"ADA186N-OBS-"+t,source_root:"environment-primary",...obs});
+for(const c of contacts){let strength=clamp(obs.strength+(c.id-1)*2,0,45),above=strength>=12;
+c.oldRun=above?c.oldRun+1:0;c.newRun=above?c.newRun+1:0;
+let oldAlarm=above&&c.oldRun>=c.oldPersistence;
+let repairAlarm=above&&c.newRun>=c.repairPersistence&&strength>=21;
+let old={miss:obs.damage&&!oldAlarm?1:0,falseAlarm:!obs.damage&&oldAlarm&&!c.oldAlarm?1:0,alarm:oldAlarm};
+let repair={miss:obs.damage&&!repairAlarm?1:0,falseAlarm:!obs.damage&&repairAlarm&&!c.newAlarm?1:0,alarm:repairAlarm};
+c.oldAlarm=oldAlarm;c.newAlarm=repairAlarm;
+let selected=c.mode==="REPAIR"?repair:old;c.selectedMiss+=selected.miss;c.selectedFalse+=selected.falseAlarm;
+let outcome={tick:t,context:obs.environment,strength,damage:obs.damage,old,repair,selected:c.mode};
+c.review.push(outcome);if(c.review.length>120)c.review.shift();
+emit("paired-outcome",{contact:c.name,source_root:c.root,...outcome});
+if(t%3===0)select(c,obs)}
+history.push({tick:t,strength:obs.strength,damage:obs.damage,modes:contacts.map(c=>c.mode)});render()}
+function graph(){const data=history.slice(-80),x=i=>25+i*750/Math.max(79,data.length-1),y=v=>230-v*4.6;
+let p=data.length<2?"":'<path d="'+data.map((v,i)=>(i?"L":"M")+x(i).toFixed(1)+","+y(v.strength).toFixed(1)).join(" ")+'" fill="none" stroke="#43e5d6" stroke-width="2.5"/>';
+let shades=data.map((v,i)=>v.damage?'<rect x="'+x(i)+'" y="10" width="9" height="235" fill="#45e6d4" fill-opacity=".08"/>':"").join("");
+let bars=data.map((v,i)=>v.modes.map((m,j)=>'<rect x="'+x(i)+'" y="'+(257+j*14)+'" width="9" height="9" fill="'+(m==="REPAIR"?["#b88aff","#ff9a58","#4ad2cc"][j]:"#514461")+'"/>').join("")).join("");
+$("plot").innerHTML='<g stroke="#423950"><path d="M25 230 H775"/><path d="M25 140 H775"/></g>'+shades+p+bars}
+function render(){graph();$("cards").innerHTML=contacts.map(c=>{let d=delta(c.review.slice(-Math.min(+$("window").value,c.review.length)));return '<div class="card"><b>'+c.name+'</b> <span class="pill '+(c.mode==="REPAIR"?"":"warn")+'">'+c.mode+'</span><div class="big">'+c.adoptions+' / '+c.rollbacks+'</div><small>adoptions / rollbacks</small><p>Recent score gain: '+d.scoreGain+'<br>Quarantine through tick '+c.coolUntil+'</p></div>'}).join("");
+$("stats").innerHTML=[["Ticks",t],["Adoptions",contacts.reduce((a,c)=>a+c.adoptions,0)],["Rollbacks",contacts.reduce((a,c)=>a+c.rollbacks,0)],["Evidence records",events.length]].map(([k,v])=>'<div class="stat"><small>'+k+'</small><b>'+v+'</b></div>').join("");
+$("rows").innerHTML=contacts.map(c=>'<tr><td>'+c.name+'</td><td>'+c.review.length+'</td><td>'+c.mode+'</td><td>'+c.adoptions+'</td><td>'+c.rollbacks+'</td><td>'+c.selectedMiss+'</td><td>'+c.selectedFalse+'</td></tr>').join("");
+$("ledger").textContent=events.slice(-23).map(e=>e.tick+" · "+e.type+" · "+(e.contact||e.source_id||"system")+(e.action?" · "+e.action:"")).join("\\n");
+for(const id of ["window","margin","rollback"])$(id+"Out").textContent=$(id).value}
+$("step").onclick=step;$("run").onclick=()=>{for(let i=0;i<100;i++)step()};$("shift").onclick=()=>{phaseShift+=35;emit("environment-shift",{phaseShift});render()};$("reset").onclick=reset;
+$("scenario").onchange=()=>{emit("scenario-selected",{scenario:$("scenario").value})};
+["window","margin","rollback"].forEach(id=>$(id).oninput=render);
+$("export").onclick=()=>{let data={schema:"ADA-186N.v1",mark:".dlw",geometry:"{24/[2]/[4]/(3)/(3)/(1)/(1)}",scenario:$("scenario").value,parameters:{window:+$("window").value,margin:+$("margin").value,rollback:+$("rollback").value},events,history,contacts,warning:"Deterministic synthetic evidence, not independent real-world witnesses or cryptographic attestations"};let url=URL.createObjectURL(new Blob([JSON.stringify(data,null,2)],{type:"application/json"})),a=document.createElement("a");a.href=url;a.download="ADA-186N-evidence.json";a.click();setTimeout(()=>URL.revokeObjectURL(url),600)};
+reset();
+</script></body></html>

@@ -1,0 +1,110 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>ADA-195N · 3D Failure Detection and Repair</title>
+<style>:root{--bone:#fbf8f0;--ink:#30223d;--violet:#a15cf4;--orange:#fa802f;--teal:#00afa3}
+*{box-sizing:border-box}body{margin:0;background:var(--bone);color:var(--ink);font:14px/1.47 system-ui,Segoe UI,sans-serif}
+header{background:linear-gradient(115deg,#fff8e7,#efe7ff);border-bottom:2px solid #d7b7f8;padding:22px max(16px,calc((100vw - 1320px)/2))}
+.kicker{font-weight:850;letter-spacing:.16em;font-size:11px;color:#7b35bd}h1{font-size:clamp(29px,4vw,48px);margin:5px 0;line-height:1.1;letter-spacing:-.04em}
+.actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}button,select{padding:9px 12px;border:1.5px solid #a56fe8;border-radius:9px;background:white;color:#623088;font:750 13px system-ui;cursor:pointer}button.primary{color:white;background:#512576}button:focus-visible,select:focus-visible,input:focus-visible{outline:3px solid var(--orange)}
+main{max-width:1320px;margin:auto;padding:15px;display:grid;grid-template-columns:minmax(0,1.7fr) minmax(295px,.78fr);gap:14px}.panel{background:white;border:1px solid #e3d6eb;border-radius:14px;padding:15px;min-width:0;box-shadow:0 7px 25px #301b420a}.wide{grid-column:1/-1}h2{font-size:17px;margin:0 0 10px}small,.muted{color:#73667e}
+#stage{height:min(52vw,590px);min-height:375px;border-radius:12px;overflow:hidden;position:relative;background:radial-gradient(circle at 50% 46%,#35214a,#12101f 73%);touch-action:none}#stage canvas{display:block;width:100%;height:100%}
+.hud{position:absolute;left:11px;top:10px;color:#bafff2;font-weight:850;text-shadow:0 0 12px #06ddc1}.engine{position:absolute;right:11px;top:10px;color:#e0c7ff;background:#2d1e3fdd;border-radius:7px;padding:5px 8px;font-size:11px}.tip{position:absolute;left:11px;bottom:9px;color:#d1bfdd;font-size:11px}.label{position:absolute;transform:translate(-50%,-50%);font-weight:850;pointer-events:none;text-shadow:0 0 8px black}
+.card{border-left:4px solid #aa6df5;border-radius:10px;background:#fbf7ff;padding:11px;margin:9px 0}.card:nth-child(2){border-color:#ff8538}.card:nth-child(3){border-color:#00b9ae}.big{font-size:24px;font-weight:850}.tag{display:inline-block;font-size:11px;background:#eee0fb;color:#713aa5;border-radius:7px;padding:3px 7px;font-weight:850}.tag.warn{background:#fff0d9;color:#a94b16}.tag.good{background:#def7ee;color:#067968}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}.stat{border-radius:10px;background:#f6effb;padding:10px}.stat b{font-size:22px;display:block}
+label{display:block;font-weight:750;margin:12px 0 5px}input[type=range]{width:100%;accent-color:#9c53e8}table{border-collapse:collapse;width:100%;font-size:12px}th,td{border-bottom:1px solid #efe5f4;text-align:right;padding:8px 6px}th:first-child,td:first-child{text-align:left}th{background:#f8f1fc}
+pre{max-height:250px;overflow:auto;white-space:pre-wrap;background:#1b152a;color:#e4d7f8;border-radius:10px;padding:12px;font:11px/1.55 ui-monospace,Consolas,monospace}
+@media(max-width:850px){main{grid-template-columns:1fr}.stats{grid-template-columns:repeat(2,1fr)}#stage{height:440px}}</style></head><body>
+<header><div class="kicker">ROOT0 · QUANTA · ADA · PHASE II · THREE-D · .dlw</div><h1>ADA-195N · <span style="color:#984ce9">3D Failure Detection & Repair</span></h1><div>Forecast → detect → minimize → propose → retest → promote only if safer.</div>
+<div class="actions"><button id="step" class="primary">Step</button><button id="run">▶ Run 100</button><button id="shift">Inject regime shift</button><button id="repair">Test and apply repairs</button><button id="verify">Verify replay</button><button id="reset">Reset</button><button id="export">Export JSON</button></div></header>
+<main><section class="panel"><h2>3D error topology and repaired trajectories</h2><div id="stage" role="img" aria-label="Three-dimensional neon toroidal engine with three local contact trails, red-orange failure markers and white-green successful repaired trajectories"><div class="hud" id="hud">SOURCE 0000 · STABLE</div><div class="engine" id="engine">Loading WebGL</div><div class="tip">Drag orbit · wheel zoom · orange sparks denote prediction failures</div></div><p class="muted">Purple Jane · orange Toph · teal Ada · bright sparks mark actual forecast failures. The viewport renders the last 80 measured ticks.</p></section>
+<section class="panel"><h2>Local repair controllers</h2><div id="cards"></div>
+<label for="environment">Disturbance regime</label><select id="environment"><option value="cycle">Cyclic signals</option><option value="drift">Frequency drift</option><option value="noise">High benign noise</option></select>
+<label for="threshold">Failure threshold <output id="thresholdOut">12</output></label><input type="range" id="threshold" min="5" max="25" step="1" value="12">
+<label for="window">Paired repair window <output id="windowOut">18</output></label><input type="range" id="window" min="10" max="40" step="2" value="18">
+<p class="muted">Targeted repair forecasts using recent trend only when the prior change is steep. Baseline remains available. A repair can be promoted only if it reduces mean absolute error while not increasing severe failures on the same completed observations.</p>
+<div class="tag" id="verification">Replay pending</div></section>
+<section class="panel wide"><h2>Observed loss and repair outcomes</h2><div id="stats" class="stats"></div><div style="overflow:auto;margin-top:10px"><table><thead><tr><th>Contact</th><th>Baseline MAE</th><th>Repair MAE</th><th>Baseline severe</th><th>Repair severe</th><th>Active</th><th>Last decision</th></tr></thead><tbody id="rows"></tbody></table></div><p class="muted">Failure minimization preserves the triggering observation and discovers the shortest trailing history that reproduces the baseline's failed prediction. The preserved case is a causal prefix with the future outcome attached—not an untested summary.</p></section>
+<section class="panel wide"><h2>Append-only diagnostic ledger and minimized failure cases</h2><pre id="ledger"></pre><p class="muted">Deterministic seed, observations, policy scores, minimized counterexamples, and repair gates are exported. The scene is a visual representation of the simulation, not a physical process. Source checks do not replace browser runtime tests.</p></section>
+</main>
+<script>
+"use strict";
+const $=id=>document.getElementById(id),NAMES=["Jane","Toph","Ada"],COLORS=[0xbd8aff,0xffa164,0x45e4d9],clamp=(x,a,b)=>Math.max(a,Math.min(b,x)),avg=a=>a.reduce((s,x)=>s+x,0)/Math.max(1,x.length);
+let state=null,renderTicks=0,THREE,scene,camera,renderer,torus,core,nodes=[],trails=[],sparks=[],webgl=false,canvas,ctx;
+const stage=$("stage"),view={az:.47,el:.38,zoom:8,drag:false,px:0,py:0},labels=[];
+function create(){return {schema:"ADA-195N.v1",mark:".dlw",tick:0,seed:195,offset:0,regime:$("environment").value,threshold:+$("threshold").value,window:+$("window").value,observations:[],events:[],failureCases:[],contacts:NAMES.map((name,id)=>({name,id,policy:"BASE",diagnoses:0,repairs:0,history:[],lastDecision:"BASELINE",lastError:0}))}}
+function emit(s,type,info={}){s.events.push({index:s.events.length+1,tick:s.tick,type,...info})}
+function rng(s){s.seed=(Math.imul(s.seed,1664525)+1013904223)>>>0;return s.seed/4294967296}
+function source(s){let t=s.tick,theta=s.regime==="drift"?t*.08+t*t*.0005:t*.11;return clamp(50+18*Math.sin(theta)+8*Math.sin(t*.043)+(rng(s)-.5)*(s.regime==="noise"?24:5)+s.offset,0,100)}
+function predict(series,id,key){const a=series.at(-1)??50,b=series.at(-2)??a,delta=clamp(a-b,-12,12);if(key==="BASE")return a;const weight=[.55,.75,.95][id];return clamp(a+(Math.abs(delta)>2.2?delta*weight:0),0,100)}
+function caseMin(history,actual,id,threshold){if(!history.length)return null;const full=history.slice(-20),p=predict(full,id,"BASE"),error=Math.abs(actual-p);if(error<=threshold)return null;
+let shortest=null;for(let n=1;n<=full.length;n++){const suffix=full.slice(-n);if(Math.abs(actual-predict(suffix,id,"BASE"))>threshold){shortest=suffix;break}}
+return {history:shortest,actual,prediction:p,error,threshold,contact:NAMES[id],length:shortest.length}}
+function metrics(entries,key,th){let a=entries.map(x=>x[key]);return {mae:avg(a.map(v=>v.error)),severe:a.filter(x=>x.error>th).length,count:a.length}}
+function gate(s,c){let w=s.window,rows=c.history.slice(-w),a=metrics(rows,"base",s.threshold),b=metrics(rows,"repair",s.threshold);if(rows.length<6)return {eligible:false,reason:"INSUFFICIENT",a,b};
+let eligible=b.mae+1e-8<a.mae&&b.severe<=a.severe;return {eligible,a,b,reason:eligible?"LOWER ERROR, NO NEW SEVERE FAILURES":b.severe>a.severe?"SAFETY VETO":"NO STRICT IMPROVEMENT"}}
+function tickOnce(s){const previous=s.observations.map(x=>x.value),forecasts=s.contacts.map(c=>({base:predict(previous,c.id,"BASE"),repair:predict(previous,c.id,"REPAIR")}));
+s.tick++;const actual=source(s),sourceId="ADA195N-OBS-"+s.tick;s.observations.push({id:sourceId,tick:s.tick,value:actual,source_root:"ADA195N-single-synthetic-origin"});emit(s,"observation",{source_id:sourceId,value:actual});
+s.contacts.forEach((c,i)=>{const f=forecasts[i],base={prediction:f.base,error:Math.abs(actual-f.base)},repair={prediction:f.repair,error:Math.abs(actual-f.repair)};
+const selected=c.policy==="REPAIR"?repair:base;const row={tick:s.tick,source_id:sourceId,base,repair,selected:c.policy,actual,error:selected.error};
+c.history.push(row);c.lastError=selected.error;
+emit(s,"paired-forecast-scored",{contact:c.name,source_id:sourceId,baseline:base,repair:selected===repair?repair:repair,active:c.policy,error:selected.error});
+if(selected.error>s.threshold){c.diagnoses++;const reduced=caseMin(previous,actual,i,s.threshold);const saved={tick:s.tick,source_id:sourceId,...reduced};s.failureCases.push(saved);emit(s,"failure-detected",{contact:c.name,source_id:sourceId,error:selected.error,case_length:reduced?.length||0})}
+if(s.tick%8===0){let g=gate(s,c);let desired=g.eligible?"REPAIR":"BASE";if(c.policy!==desired){let old=c.policy;c.policy=desired;if(desired==="REPAIR")c.repairs++;emit(s,"policy-transition",{contact:c.name,from:old,to:desired,gate:g.reason,pairedCount:g.a.count})}c.lastDecision=g.reason}});
+return s}
+function doStep(){tickOnce(state);render();syncScene()}
+function doRun(){for(let k=0;k<100;k++)tickOnce(state);render();syncScene()}
+function summarize(s){return {tick:s.tick,contacts:s.contacts.map(c=>({name:c.name,policy:c.policy,diagnoses:c.diagnoses,repairs:c.repairs})),sources:s.observations.length,events:s.events.length,failures:s.failureCases.length}}
+function verify(s){let copy=create();copy.regime=s.regime;copy.threshold=s.threshold;copy.window=s.window;let controls=s.events.filter(e=>e.type==="disturbance-shift"||e.type==="regime-change"||e.type==="threshold-change"||e.type==="window-change"),byTick=new Map();
+for(const e of controls){let arr=byTick.get(e.tick)||[];arr.push(e);byTick.set(e.tick,arr)}
+for(let i=1;i<=s.tick;i++){for(const e of byTick.get(i-1)||[])applyControl(copy,e);tickOnce(copy)}
+for(const e of byTick.get(s.tick)||[])applyControl(copy,e);
+if(JSON.stringify(copy.observations)!==JSON.stringify(s.observations))throw Error("Observation sequence differs");
+if(JSON.stringify(copy.events)!==JSON.stringify(s.events))throw Error("Append-only event sequence differs");
+if(JSON.stringify(copy.failureCases)!==JSON.stringify(s.failureCases))throw Error("Minimized counterexamples differ");
+if(JSON.stringify(summarize(copy))!==JSON.stringify(summarize(s)))throw Error("Repair states differ");
+return {passed:true,ticks:s.tick,events:s.events.length,failures:s.failureCases.length}}
+function applyControl(s,e){if(e.type==="disturbance-shift")s.offset=e.offset;if(e.type==="regime-change")s.regime=e.regime;if(e.type==="threshold-change")s.threshold=e.value;if(e.type==="window-change")s.window=e.value;emit(s,e.type,Object.fromEntries(Object.entries(e).filter(([k])=>!["index","tick","type"].includes(k))))}
+function reset(){state=create();render();syncScene()}
+function render(){if(!state)return;$("hud").textContent="SOURCE · "+String(state.tick).padStart(4,"0")+" · "+(state.observations.at(-1)?.value??50).toFixed(2);
+$("cards").innerHTML=state.contacts.map(c=>'<div class="card"><b>'+c.name+'</b> <span class="tag '+(c.policy==="REPAIR"?"good":"")+'">'+c.policy+'</span><div class="big">'+c.lastError.toFixed(2)+'</div><small>Latest selected-policy error</small><p>'+c.diagnoses+' failures · '+c.repairs+' promotions</p></div>').join("");
+$("stats").innerHTML=[["Source ticks",state.tick],["Severe failures",state.failureCases.length],["Repair promotions",state.contacts.reduce((a,c)=>a+c.repairs,0)],["Ledger events",state.events.length]].map(([key,v])=>'<div class="stat"><small>'+key+'</small><b>'+v+'</b></div>').join("");
+$("rows").innerHTML=state.contacts.map(c=>{const g=gate(state,c);return '<tr><td>'+c.name+'</td><td>'+g.a.mae.toFixed(2)+'</td><td>'+g.b.mae.toFixed(2)+'</td><td>'+g.a.severe+'</td><td>'+g.b.severe+'</td><td>'+c.policy+'</td><td>'+g.reason+'</td></tr>'}).join("");
+$("thresholdOut").textContent=state.threshold;$("windowOut").textContent=state.window;
+$("ledger").textContent=JSON.stringify({latestFailure:state.failureCases.at(-1)||null,contactGates:state.contacts.map(c=>({contact:c.name,...gate(state,c)})),latestEvents:state.events.slice(-12)},null,2)}
+$("step").onclick=doStep;$("run").onclick=doRun;$("repair").onclick=()=>{state.contacts.forEach(c=>{let g=gate(state,c),desired=g.eligible?"REPAIR":"BASE";if(desired!==c.policy){let old=c.policy;c.policy=desired;if(desired==="REPAIR")c.repairs++;emit(state,"policy-transition",{contact:c.name,from:old,to:desired,gate:g.reason,pairedCount:g.a.count})}c.lastDecision=g.reason});render();syncScene()};
+$("shift").onclick=()=>{state.offset=state.offset>0?-25:25;emit(state,"disturbance-shift",{offset:state.offset});render()};
+$("environment").onchange=()=>{state.regime=$("environment").value;emit(state,"regime-change",{regime:state.regime})};
+$("threshold").onchange=()=>{state.threshold=+$("threshold").value;emit(state,"threshold-change",{value:state.threshold});render()};
+$("window").onchange=()=>{state.window=+$("window").value;emit(state,"window-change",{value:state.window});render()};
+$("verify").onclick=()=>{try{let outcome=verify(state);$("verification").textContent="REPLAY PASS · "+outcome.events+" events";$("verification").className="tag good"}catch(e){$("verification").textContent="REPLAY FAIL · "+e.message;$("verification").className="tag warn"}};
+$("reset").onclick=()=>{reset();$("verification").textContent="Replay pending";$("verification").className="tag"};
+$("export").onclick=()=>{let output={...state,geometry:"{24/[2]/[4]/(3)/(3)/(1)/(1)}",verification:(()=>{try{return verify(state)}catch(e){return {passed:false,error:e.message}}})(),notice:"Synthetic simulation; WebGL visual display is not a physical experiment."};let u=URL.createObjectURL(new Blob([JSON.stringify(output,null,2)],{type:"application/json"})),a=document.createElement("a");a.href=u;a.download="ADA-195N-3D-failure-repair.json";a.click();setTimeout(()=>URL.revokeObjectURL(u),700)};
+// 3D graphics: Three.js global renderer, Canvas2D projected fallback, no dependency of physics or evidence on renderer.
+let orbit={az:.44,el:.34,zoom:8,drag:false,px:0,py:0};for(let i=0;i<3;i++){let l=document.createElement("div");l.className="label";l.style.color=["#c996ff","#ffad77","#66ffec"][i];l.textContent=NAMES[i].toUpperCase();stage.appendChild(l);labels.push(l)}
+function boot(){let sc=document.createElement("script");sc.src="https://cdn.jsdelivr.net/npm/three@0.149.0/build/three.min.js";sc.onload=()=>window.THREE?webglInit(window.THREE):fallback();sc.onerror=fallback;document.head.appendChild(sc)}
+function webglInit(T){try{THREE=T;scene=new T.Scene();camera=new T.PerspectiveCamera(46,1,.1,100);renderer=new T.WebGLRenderer({antialias:true,alpha:true});renderer.setPixelRatio(Math.min(2,devicePixelRatio||1));stage.querySelector("canvas")?.remove();stage.prepend(renderer.domElement);scene.add(new T.AmbientLight(0xc7b2ff,1.2));let light=new T.PointLight(0xff8b4c,25,20);light.position.set(3,5,4);scene.add(light);
+torus=new T.Mesh(new T.TorusGeometry(2.25,.42,20,120),new T.MeshStandardMaterial({color:0x9a4bea,emissive:0x522181,emissiveIntensity:.8,metalness:.55,roughness:.28,transparent:true,opacity:.82}));torus.rotation.x=.62;scene.add(torus);
+core=new T.Mesh(new T.IcosahedronGeometry(.48,2),new T.MeshStandardMaterial({color:0xf4fff9,emissive:0x5beadd,emissiveIntensity:1.4}));scene.add(core);
+for(let i=0;i<3;i++){let n=new T.Mesh(new T.SphereGeometry(.25,20,16),new T.MeshStandardMaterial({color:COLORS[i],emissive:COLORS[i],emissiveIntensity:1.2})),l=new T.Line(new T.BufferGeometry(),new T.LineBasicMaterial({color:COLORS[i],transparent:true,opacity:.9})),spark=new T.Points(new T.BufferGeometry(),new T.PointsMaterial({color:0xff5b16,size:.12}));nodes.push(n);trails.push(l);sparks.push(spark);scene.add(n,l,spark)}
+webgl=true;$("engine").textContent="WEBGL · FAILURE & REPAIR";resize();syncScene();frame()}catch(e){fallback()}}
+function fallback(){if(webgl)return;stage.querySelector("canvas")?.remove();canvas=document.createElement("canvas");stage.prepend(canvas);ctx=canvas.getContext("2d");$("engine").textContent="CANVAS2D · PROJECTED 3D";resize();frame()}
+function resize(){let w=stage.clientWidth,h=stage.clientHeight;if(webgl){renderer.setSize(w,h);camera.aspect=w/h;camera.updateProjectionMatrix()}else if(canvas){let d=Math.min(2,devicePixelRatio||1);canvas.width=w*d;canvas.height=h*d;canvas.style.width=w+"px";canvas.style.height=h+"px";ctx.setTransform(d,0,0,d,0,0)}}
+window.addEventListener("resize",resize);
+stage.addEventListener("pointerdown",e=>{orbit.drag=true;orbit.px=e.clientX;orbit.py=e.clientY;stage.setPointerCapture(e.pointerId)});
+stage.addEventListener("pointermove",e=>{if(!orbit.drag)return;orbit.az+=(e.clientX-orbit.px)*.008;orbit.el=clamp(orbit.el+(e.clientY-orbit.py)*.008,-1.4,1.4);orbit.px=e.clientX;orbit.py=e.clientY});
+stage.addEventListener("pointerup",()=>orbit.drag=false);
+stage.addEventListener("wheel",e=>{e.preventDefault();orbit.zoom=clamp(orbit.zoom+e.deltaY*.008,5.4,16)},{passive:false});
+function point(t,i,value){let a=t*.14+i*Math.PI*2/3,r=2.25+(value-50)*.011;return {x:r*Math.cos(a),y:(value-50)*.03,z:r*Math.sin(a)}}
+function paths(){return NAMES.map((n,i)=>state.observations.slice(-80).map(o=>point(o.tick,i,o.value+(i-1)*2)))}
+function syncScene(){if(!webgl||!state)return;let pp=paths();pp.forEach((path,i)=>{let last=path.at(-1)||point(0,i,50),err=state.contacts[i].lastError;nodes[i].position.set(last.x,last.y,last.z);nodes[i].material.emissiveIntensity=clamp(.6+err/8,.6,3);trails[i].geometry.dispose();trails[i].geometry=new THREE.BufferGeometry().setFromPoints(path.map(p=>new THREE.Vector3(p.x,p.y,p.z)));
+const fail=state.failureCases.filter(f=>f.contact===NAMES[i]&&f.tick>=state.tick-80).map(f=>{let o=state.observations[f.tick-1];return point(f.tick,i,o?.value??50)});
+sparks[i].geometry.dispose();sparks[i].geometry=new THREE.BufferGeometry().setFromPoints(fail.map(p=>new THREE.Vector3(p.x,p.y,p.z)))});
+core.scale.setScalar(.8+(state.observations.at(-1)?.value??50)/200)}
+function project(v){let a=orbit.az,b=orbit.el,x=v.x*Math.cos(a)-v.z*Math.sin(a),z=v.x*Math.sin(a)+v.z*Math.cos(a),y=v.y*Math.cos(b)-z*Math.sin(b);z=v.y*Math.sin(b)+z*Math.cos(b);let f=stage.clientHeight/(orbit.zoom+z)*.8;return{x:stage.clientWidth/2+x*f,y:stage.clientHeight/2-y*f}}
+function frame(){renderTicks++;if(webgl){torus.rotation.z+=.003;core.rotation.y+=.009;camera.position.set(orbit.zoom*Math.sin(orbit.az)*Math.cos(orbit.el),orbit.zoom*Math.sin(orbit.el),orbit.zoom*Math.cos(orbit.az)*Math.cos(orbit.el));camera.lookAt(0,0,0);renderer.render(scene,camera);nodes.forEach((n,i)=>{let p=n.position.clone().project(camera);labels[i].style.left=(p.x*.5+.5)*stage.clientWidth+"px";labels[i].style.top=((-p.y*.5+.5)*stage.clientHeight-24)+"px"})}
+else if(ctx&&state){ctx.clearRect(0,0,stage.clientWidth,stage.clientHeight);for(let j=0;j<140;j++){let a=j/140*Math.PI*2,p=project({x:2.25*Math.cos(a),y:.12*Math.sin(2*a),z:2.25*Math.sin(a)});ctx.fillStyle=j%2?"#a667efaa":"#f88e58aa";ctx.beginPath();ctx.arc(p.x,p.y,2,0,7);ctx.fill()}
+let center=project({x:0,y:0,z:0});ctx.shadowColor="#5af4e5";ctx.shadowBlur=16;ctx.fillStyle="#f4fff9";ctx.beginPath();ctx.arc(center.x,center.y,18,0,7);ctx.fill();ctx.shadowBlur=0;
+paths().forEach((path,i)=>{ctx.beginPath();ctx.lineWidth=2;ctx.strokeStyle=["#c48aff","#ffab6e","#4ee4dc"][i];path.forEach((v,j)=>{let p=project(v);j?ctx.lineTo(p.x,p.y):ctx.moveTo(p.x,p.y)});ctx.stroke();
+let last=project(path.at(-1)||point(0,i,50));ctx.fillStyle=ctx.strokeStyle;ctx.beginPath();ctx.arc(last.x,last.y,10,0,7);ctx.fill();labels[i].style.left=last.x+"px";labels[i].style.top=(last.y-22)+"px";
+for(let fail of state.failureCases.filter(f=>f.contact===NAMES[i]&&f.tick>=state.tick-80)){let o=state.observations[fail.tick-1],q=project(point(fail.tick,i,o?.value??50));ctx.fillStyle="#ff5419";ctx.beginPath();ctx.arc(q.x,q.y,4.5,0,7);ctx.fill()}})}
+requestAnimationFrame(frame)}
+reset();boot();
+</script></body></html>

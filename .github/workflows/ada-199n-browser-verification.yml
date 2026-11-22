@@ -56,6 +56,14 @@ jobs:
           ADA_REPORT_DIR: ada/verification-results/fallback
           ADA_FORCE_CANVAS: "1"
         run: node ada/ada-199n-browser-smoke.mjs
+      - name: Verify published Pages source integrity
+        id: pages_integrity
+        if: always()
+        continue-on-error: true
+        env:
+          ADA_PUBLIC_BASE: https://davidwise01.github.io/quanta
+          ADA_REPORT_DIR: ada/verification-results/pages-integrity
+        run: node ada/ada-199n-pages-integrity.mjs
       - name: Verify public Pages with Chromium
         id: public
         if: always()
@@ -78,9 +86,10 @@ jobs:
           LOCAL: ${{ steps.local.outcome }}
           FALLBACK: ${{ steps.fallback.outcome }}
           PUBLIC: ${{ steps.public.outcome }}
+          PAGES_INTEGRITY: ${{ steps.pages_integrity.outcome }}
         run: |
           mkdir -p ada/verification-results
-          node -e 'const fs=require("fs"); const keys=["LOCAL","FALLBACK","PUBLIC"]; const outcomes=Object.fromEntries(keys.map(k=>[k,process.env[k]||"not_run"])); const passed=keys.every(k=>outcomes[k]==="success"); fs.writeFileSync("ada/verification-results/gate.json",JSON.stringify({schema:"ADA-199N.gate.v1",passed,outcomes},null,2)+"\n"); console.log("Aggregate browser gate:",JSON.stringify({passed,outcomes})); if(!passed)process.exitCode=1'
+          node -e 'const fs=require("fs"); const keys=["LOCAL","FALLBACK","PUBLIC","PAGES_INTEGRITY"]; const outcomes=Object.fromEntries(keys.map(k=>[k,process.env[k]||"not_run"])); const passed=keys.every(k=>outcomes[k]==="success"); fs.writeFileSync("ada/verification-results/gate.json",JSON.stringify({schema:"ADA-199N.gate.v1",passed,outcomes},null,2)+"\n"); console.log("Aggregate browser gate:",JSON.stringify({passed,outcomes})); if(!passed)process.exitCode=1'
       - name: Upload final gate verdict
         if: always()
         uses: actions/upload-artifact@v4

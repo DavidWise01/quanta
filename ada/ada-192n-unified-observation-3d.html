@@ -89,7 +89,7 @@ function stop(){playing=false;if(playId!==null){clearInterval(playId);playId=nul
 $("play").onclick=()=>{if(playing){stop();return}playing=true;$("play").textContent="Ⅱ Pause";playId=setInterval(step,170)};
 $("step").onclick=step;$("run").onclick=()=>{for(let i=0;i<100;i++)step()};
 $("shift").onclick=()=>{offset=offset>0?-25:25;emit("disturbance-injected",{offset});syncScene()};
-$("replay").onclick=()=>{let r=verify();emit("replay-verification",r);$("renderMode").textContent=(r.ok?"REPLAY PASS":"REPLAY FAIL")+" · "+(webgl?"WEBGL":"2D")};
+$("replay").onclick=()=>{let r=verify();emit("replay-verification",r);$("renderMode").textContent=(r.ok?"REPLAY PASS":"REPLAY FAIL")+" · "+(webgl?"WEBGL":"CANVAS2D")};
 $("reset").onclick=reset;$("environment").onchange=()=>{emit("environment-mode",{mode:$("environment").value})};
 $("export").onclick=()=>{const obj={schema:"ADA-192N.v1",mark:".dlw",geometry:"{24/[2]/[4]/(3)/(3)/(1)/(1)}",environment:$("environment").value,observations,contacts,ledger,pending,completed,verification:verify(),warning:"Source observations are generated once and interpreted three times. Synthetic single-source ancestry."};
 const u=URL.createObjectURL(new Blob([JSON.stringify(obj,null,2)],{type:"application/json"})),a=document.createElement("a");a.href=u;a.download="ADA-192N-3D-observation-evidence.json";a.click();setTimeout(()=>URL.revokeObjectURL(u),750)};

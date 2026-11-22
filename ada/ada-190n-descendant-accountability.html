@@ -1,0 +1,72 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>ADA-190N · Descendant Accountability</title>
+<style>
+:root{--bone:#faf8f1;--ink:#312341;--purple:#9953ef;--orange:#fd7e2c;--teal:#09aaa1}
+*{box-sizing:border-box}body{margin:0;background:var(--bone);color:var(--ink);font:15px/1.5 system-ui,Segoe UI,sans-serif}
+header{background:linear-gradient(115deg,#fff9eb,#efe6ff);border-bottom:2px solid #d5b2f2;padding:26px max(18px,calc((100vw - 1180px)/2))}
+.kicker{font-size:12px;font-weight:850;letter-spacing:.16em;color:#8039c4}h1{font-size:clamp(29px,4vw,49px);line-height:1.13;letter-spacing:-.04em;margin:7px 0}
+main{max-width:1180px;margin:auto;padding:17px;display:grid;grid-template-columns:minmax(0,1fr) 315px;gap:15px}.panel{min-width:0;background:#fff;border:1px solid #e1d4ea;border-radius:14px;padding:18px;box-shadow:0 7px 26px #2a15470c}.wide{grid-column:1/-1}h2{font-size:18px;margin:0 0 11px}
+.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}button,select{padding:9px 12px;font:750 14px system-ui;border:1.5px solid var(--purple);border-radius:9px;color:#592885;background:#fff;cursor:pointer}button.primary{background:#55247a;color:#fff}button:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid var(--orange)}
+label{display:block;font-weight:750;margin:12px 0 5px}input[type=range]{accent-color:var(--purple);width:100%}small,.muted{color:#776a80}
+svg{width:100%;height:295px;background:#191528;border-radius:12px;display:block}.legend{display:flex;gap:14px;flex-wrap:wrap;font-size:12px;margin-top:8px}.sw{width:13px;height:5px;display:inline-block;vertical-align:middle;margin-right:4px}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.card{border-radius:11px;background:#faf6ff;border-top:5px solid var(--purple);padding:14px}.card:nth-child(2){border-color:var(--orange)}.card:nth-child(3){border-color:var(--teal)}.big{font-size:24px;font-weight:850}.tag{display:inline-block;font-size:11px;border-radius:7px;padding:3px 8px;background:#f0e2ff;color:#6b319e;font-weight:850}.tag.warn{background:#fff0df;color:#b14b17}.tag.good{background:#ddf7ed;color:#087b71}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}.stat{background:#f5eefb;border-radius:10px;padding:11px}.stat b{display:block;font-size:22px}table{width:100%;border-collapse:collapse;font-size:13px}th,td{border-bottom:1px solid #ede6f4;padding:9px 7px;text-align:right}th:first-child,td:first-child{text-align:left}th{background:#f5effa}
+pre{white-space:pre-wrap;background:#181427;color:#e5d6fb;max-height:210px;overflow:auto;border-radius:10px;padding:12px;font:12px/1.55 ui-monospace,Consolas,monospace}
+@media(max-width:820px){main{grid-template-columns:1fr}.cards{grid-template-columns:1fr}.stats{grid-template-columns:repeat(2,1fr)}}
+</style></head><body>
+<header><div class="kicker">ROOT0 · QUANTA · ADA · .dlw</div><h1>ADA-190N · <span style="color:#9249e9">Descendant Accountability</span></h1>
+<div>A reconciled policy is a hypothesis with ancestry, not permanent authority. Challenge it when new evidence contradicts it.</div>
+<div class="actions"><button id="step" class="primary">Step</button><button id="run">▶ Run 100 ticks</button><button id="shift">Inject regime shift</button><button id="challenge">Re-evaluate challenged descendants</button><button id="reset">Reset</button><button id="export">Export evidence JSON</button></div></header>
+<main>
+<section class="panel"><h2>Post-reconciliation observations</h2><svg id="chart" viewBox="0 0 800 295" role="img" aria-label="Observed disturbance magnitude with descendant challenge timelines"></svg>
+<div class="legend"><span><i class="sw" style="background:#42e3d8"></i>Signal magnitude</span><span><i class="sw" style="background:#bf88fc"></i>Jane challenged</span><span><i class="sw" style="background:#ffae67"></i>Toph challenged</span><span><i class="sw" style="background:#57cdc7"></i>Ada challenged</span></div></section>
+<section class="panel"><h2>Accountability controls</h2>
+<label for="environment">Disturbance family</label><select id="environment"><option value="alternating">Alternating damage and benign noise</option><option value="stable">Stable damage</option><option value="noise">Persistent harmless interference</option><option value="shift">Abrupt regime shift</option></select>
+<label for="window">Review history: <output id="windowOut">18</output> ticks</label><input id="window" type="range" min="8" max="40" step="2" value="18">
+<label for="penalty">False-alert cost: <output id="penaltyOut">5</output></label><input id="penalty" type="range" min="1" max="12" step="1" value="5">
+<label for="margin">Challenge margin: <output id="marginOut">4</output></label><input id="margin" type="range" min="0" max="30" step="2" value="4">
+<p class="muted">Descendants and both parents receive exactly the same synthetic observations. Shadow scores use available damage labels. Challenge occurs when a parent improves cost and is no worse on both missed damage and false alarms within the review window.</p></section>
+<section class="panel wide"><h2>Jane · Toph · Ada · monitored descendants</h2><div class="cards" id="cards"></div></section>
+<section class="panel wide"><h2>Accountability across parent and descendant policies</h2><div class="stats" id="stats"></div><div style="overflow:auto;margin-top:12px"><table><thead><tr><th>Contact</th><th>Descendant loss</th><th>Best parent loss</th><th>Descendant misses</th><th>Descendant false alerts</th><th>Challenge evidence</th><th>Status</th></tr></thead><tbody id="rows"></tbody></table></div><p class="muted">A challenged descendant is frozen for review, not deleted. A review may confirm continued use or record an unresolved challenge; this prototype does not automatically replace an active policy. Comparisons use synthetic local truth, not independent field evidence.</p></section>
+<section class="panel wide"><h2>Preserved lineage and challenge events</h2><pre id="ledger"></pre><p class="muted">Export includes both immutable parent policy identifiers, descendant creation record, all simulated observations, per-tick shadow outcomes, and every challenge/review. The ledger is append-only for this session but not cryptographically authenticated.</p></section></main>
+<script>
+"use strict";
+const $=id=>document.getElementById(id),clamp=(v,a,b)=>Math.max(a,Math.min(b,v)),sum=(a,k)=>a.reduce((s,x)=>s+(x[k]||0),0);
+const NAMES=["Jane","Toph","Ada"],POLICIES={A:{id:"parent-A",required:5,threshold:12},B:{id:"parent-B",required:2,threshold:12},D:{id:"reconciled-descendant",required:3,threshold:17}};
+let t=0,seed=190,offset=0,history=[],ledger=[],contacts=[],parentRecord={A:"ADA189N-parent-A-prototype",B:"ADA189N-parent-B-prototype"},descendantRecord={id:"ADA190N-D-0001",parentA:"ADA189N-parent-A-prototype",parentB:"ADA189N-parent-B-prototype",policy:"D",evidenceRoot:"ADA189N-synthetic-paired-replay"};
+function random(){seed=(Math.imul(seed,1664525)+1013904223)>>>0;return seed/4294967296}
+function emit(type,data={}){ledger.push({id:ledger.length+1,tick:t,type,...data})}
+function createContact(name,id){return {name,id,root:"ADA190N-"+name.toLowerCase(),state:"ACTIVE",runs:{A:0,B:0,D:0},priorAlerts:{A:false,B:false,D:false},outcomes:[],challenges:0,reviews:0,lastReason:"No challenge",challengedAt:null}}
+function reset(){t=0;seed=190;offset=0;history=[];ledger=[];contacts=NAMES.map(createContact);emit("descendant-registered",{descendant:descendantRecord,parents:parentRecord});render()}
+function environment(){let mode=$("environment").value,period=Math.floor((t+offset)/30)%2,damage=mode==="stable"||(mode==="alternating"&&period===0&&t%30<20)||(mode==="shift"&&t+offset>=40);
+let strength=damage?19+(random()-.5)*8:3+random()*7;if(mode==="noise"||mode==="alternating"&&period===1){if(random()<.62)strength=12+random()*16}
+return {strength,damage,context:damage?"damage":strength>=12?"benign-interference":"benign"}}
+function score(c,obs){const selected={};for(const key of ["A","B","D"]){const p=POLICIES[key],strength=clamp(obs.strength+(c.id-1)*1.5,0,50),active=strength>=p.threshold;
+c.runs[key]=active?c.runs[key]+1:0;let alert=active&&c.runs[key]>=p.required,miss=obs.damage&&!alert?1:0,falseAlarm=!obs.damage&&alert&&!c.priorAlerts[key]?1:0;
+selected[key]={alert,miss,falseAlarm};c.priorAlerts[key]=alert}
+const outcome={tick:t,root:c.root,context:obs.context,damage:obs.damage,strength:obs.strength,...selected};c.outcomes.push(outcome);
+emit("shadow-outcome",{contact:c.name,origin:c.root,outcome});
+return outcome}
+function summary(data,key){let m=sum(data.map(v=>v[key]),"miss"),f=sum(data.map(v=>v[key]),"falseAlarm");return {miss:m,falseAlarm:f,cost:m*8+f*+$("penalty").value}}
+function assess(c){let data=c.outcomes.slice(-+$("window").value);if(data.length<+$("window").value)return null;
+const d=summary(data,"D"),a=summary(data,"A"),b=summary(data,"B"),margin=+$("margin").value;
+const candidates=[["A",a],["B",b]].filter(([k,p])=>p.miss<=d.miss&&p.falseAlarm<=d.falseAlarm&&d.cost-p.cost>=margin&&d.cost>p.cost).sort((x,y)=>x[1].cost-y[1].cost);
+return {d,a,b,best:candidates[0]?.[0]||null,reason:candidates.length?"A parent dominates the descendant":"No parent satisfies the safety-and-cost challenge rule"}}
+function maybeChallenge(c){const a=assess(c);if(!a)return;if(c.state==="ACTIVE"&&a.best){c.state="CHALLENGED";c.challenges++;c.challengedAt=t;c.lastReason=a.reason;emit("descendant-challenged",{contact:c.name,descendant:descendantRecord.id,parentCandidate:a.best,comparison:a,window:+$("window").value})}}
+function step(){t++;const obs=environment();history.push({tick:t,...obs});emit("observation",{source_id:"ADA190N-OBS-"+t,root:"ADA190N-shared-simulator",...obs});for(const c of contacts){score(c,obs);if(t%3===0)maybeChallenge(c)}render()}
+function review(){for(const c of contacts){if(c.state!=="CHALLENGED")continue;const a=assess(c);c.reviews++;if(!a?.best){c.state="ACTIVE";c.lastReason="Challenge unsupported by current evidence; retained with review note";emit("descendant-reaffirmed",{contact:c.name,descendant:descendantRecord.id,comparison:a})}
+else{c.lastReason="Unresolved: "+a.best+" remains a lower-cost safe alternative";emit("challenge-open",{contact:c.name,descendant:descendantRecord.id,comparison:a})}}render()}
+function draw(){const arr=history.slice(-80),x=i=>25+i*750/Math.max(79,arr.length-1),y=v=>226-v*4.4;
+let path=arr.length>1?'<path d="'+arr.map((v,i)=>(i?"L":"M")+x(i).toFixed(1)+","+y(v.strength).toFixed(1)).join(" ")+'" stroke="#42e3d8" stroke-width="2.5" fill="none"/>':"";
+const bars=arr.map((v,i)=>contacts.map((c,j)=>'<rect x="'+x(i)+'" y="'+(248+j*15)+'" width="8" height="10" fill="'+(c.challengedAt!==null&&v.tick>=c.challengedAt&&c.state==="CHALLENGED"?["#bf88fc","#ffae67","#57cdc7"][j]:"#4b415e")+'"/>').join("")).join("");
+$("chart").innerHTML='<g stroke="#443951"><path d="M25 226 H775"/><path d="M25 136 H775"/></g>'+path+bars}
+function render(){draw();$("cards").innerHTML=contacts.map(c=>{let a=assess(c);return '<div class="card"><b>'+c.name+'</b> <span class="tag '+(c.state==="CHALLENGED"?"warn":"good")+'">'+c.state+'</span><div class="big">'+c.challenges+' / '+c.reviews+'</div><small>challenges / review actions</small><p>'+c.lastReason+'</p></div>'}).join("");
+$("stats").innerHTML=[["Ticks",t],["Open challenges",contacts.filter(c=>c.state==="CHALLENGED").length],["Total challenges",sum(contacts,"challenges")],["Recorded evidence",ledger.length]].map(([k,v])=>'<div class="stat"><small>'+k+'</small><b>'+v+'</b></div>').join("");
+$("rows").innerHTML=contacts.map(c=>{let a=assess(c);return '<tr><td>'+c.name+'</td><td>'+(a?a.d.cost:"—")+'</td><td>'+(a?Math.min(a.a.cost,a.b.cost):"—")+'</td><td>'+(a?a.d.miss:"—")+'</td><td>'+(a?a.d.falseAlarm:"—")+'</td><td>'+(a?.best||"—")+'</td><td>'+c.state+'</td></tr>'}).join("");
+$("ledger").textContent=JSON.stringify({descendant:descendantRecord,recentEvents:ledger.slice(-13),openChallenges:contacts.filter(c=>c.state==="CHALLENGED").map(c=>({contact:c.name,at:c.challengedAt,lastReason:c.lastReason}))},null,2);
+$("windowOut").textContent=$("window").value;$("penaltyOut").textContent=$("penalty").value;$("marginOut").textContent=$("margin").value}
+$("step").onclick=step;$("run").onclick=()=>{for(let i=0;i<100;i++)step()};$("shift").onclick=()=>{offset+=35;emit("regime-shift-requested",{offset});render()};$("challenge").onclick=review;$("reset").onclick=reset;
+$("environment").onchange=()=>emit("environment-selected",{mode:$("environment").value});
+["window","penalty","margin"].forEach(id=>$(id).oninput=render);
+$("export").onclick=()=>{let payload={schema:"ADA-190N.v1",mark:".dlw",geometry:"{24/[2]/[4]/(3)/(3)/(1)/(1)}",parents:parentRecord,descendant:descendantRecord,policies:POLICIES,controls:{environment:$("environment").value,window:+$("window").value,penalty:+$("penalty").value,margin:+$("margin").value},history,contacts,ledger,warning:"Illustrative synthetic descendant, not imported ADA-189N evidence; no cryptographic signatures."};let url=URL.createObjectURL(new Blob([JSON.stringify(payload,null,2)],{type:"application/json"})),a=document.createElement("a");a.href=url;a.download="ADA-190N-accountability-evidence.json";a.click();setTimeout(()=>URL.revokeObjectURL(url),700)};
+reset();
+</script></body></html>

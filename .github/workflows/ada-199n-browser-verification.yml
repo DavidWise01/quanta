@@ -1,0 +1,37 @@
+name: ADA-199N Browser Runtime Verification
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'ada/**'
+      - '.github/workflows/ada-199n-browser-verification.yml'
+  workflow_dispatch:
+jobs:
+  chromium-smoke:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install browser runtime
+        run: |
+          npm install --no-save playwright@1.58.2
+          npx playwright install --with-deps chromium
+      - name: Serve Pages source over HTTP
+        run: |
+          python3 -m http.server 8765 --bind 127.0.0.1 > /tmp/ada199-server.log 2>&1 &
+          echo $! > /tmp/ada199-server.pid
+          for i in $(seq 1 30); do curl --fail --silent http://127.0.0.1:8765/ada/ada-198n-3d-stress-recovery.html >/dev/null && break; sleep 1; done
+      - name: Run real Chromium browser tests
+        env:
+          ADA_BASE_URL: http://127.0.0.1:8765
+        run: node ada/ada-199n-browser-smoke.mjs
+      - name: Check public GitHub Pages response
+        continue-on-error: true
+        run: |
+          curl --fail --location --retry 3 --retry-delay 4 --show-error \
+            https://davidwise01.github.io/quanta/ada/ada-198n-3d-stress-recovery.html \
+            --output /tmp/ada198-live.html
+          test -s /tmp/ada198-live.html

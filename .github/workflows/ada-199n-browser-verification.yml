@@ -32,6 +32,7 @@ jobs:
         env:
           ADA_BASE_URL: http://127.0.0.1:8765
           ADA_REPORT_DIR: ada/verification-results/local
+          ADA_REQUIRE_WEBGL: "1"
         run: node ada/ada-199n-browser-smoke.mjs
       - name: Verify forced Canvas2D fallback in Chromium
         env:
@@ -43,6 +44,7 @@ jobs:
         env:
           ADA_BASE_URL: https://davidwise01.github.io/quanta
           ADA_REPORT_DIR: ada/verification-results/public
+          ADA_REQUIRE_WEBGL: "1"
         run: node ada/ada-199n-browser-smoke.mjs
       - name: Upload browser evidence and screenshots
         if: always()

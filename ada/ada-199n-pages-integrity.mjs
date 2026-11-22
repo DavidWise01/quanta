@@ -4,7 +4,7 @@
 import fs from "node:fs";
 import crypto from "node:crypto";
 
-const base=(process.env.ADA_PUBLIC_BASE||"https://davidwise01.github.io/quanta").replace(/\\/$/,"");
+const base=(process.env.ADA_PUBLIC_BASE||"https://davidwise01.github.io/quanta").replace(/\/$/,"");
 const output=process.env.ADA_REPORT_DIR||"ada/verification-results/pages-integrity";
 fs.mkdirSync(output,{recursive:true});
 const expected=JSON.parse(fs.readFileSync(new URL("./ada-199n-source-integrity.json",import.meta.url),"utf8"));
@@ -39,7 +39,7 @@ try{
 }catch(e){result.error=String(e.message);result.failed++}
 finally{
  result.success=result.manifestMatches&&result.passed===8&&result.failed===0;
- fs.writeFileSync(output+"/report.json",JSON.stringify(result,null,2)+"\\n");
+ fs.writeFileSync(output+"/report.json",JSON.stringify(result,null,2)+"\n");
  console.log(JSON.stringify(result,null,2));
  if(!result.success)process.exitCode=1;
 }

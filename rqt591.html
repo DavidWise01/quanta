@@ -1,0 +1,17 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>RQT-591 — Exact Basis Reconstruction</title><style>body{background:radial-gradient(circle at 75% 20%,#422064,#07162b 60%,#040815);color:#f9efe1;font:18px/1.6 system-ui;margin:0}main{max-width:980px;margin:auto;padding:5vw}h1{font-size:clamp(40px,7vw,72px);color:#f9b45e;margin-bottom:0}h2{color:#78ece7}.metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:25px 0}.metrics div{border-radius:14px;background:#ffffff14;border:1px solid #b693ef77;padding:16px}.val{font-size:36px;font-weight:700;color:#80f9f0}pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#050c1cf5;padding:20px;border:1px solid #a6e5f24c;border-radius:14px}a{color:#8aebfa}.warning{border-left:3px solid #ffb45b;padding-left:18px}@media(max-width:550px){.metrics{grid-template-columns:1fr}}</style><main><p>QUANTA · {{i}} · .dlw</p><h1>RQT-591</h1><p>Exact HNF/LLL Unimodular Basis Reconstruction</p><div class="metrics"><div><div class="val">152</div>LLL steps verified</div><div><div class="val">4×4</div>Reduced Gram derived</div><div><div class="val">PASS</div>Exact Wall and Schur identities</div></div><h2>The new bridge</h2><pre>A = K · B · N (22×4)
+AH = HNF(A)
+(R,T) = exact_rational_LLL(AHᵀ)
+A·U = Rᵀ
+det(U) = ±1
+Fr = Uᵀ F U
+Hr = Uᵀ H U
+Hr + Hrᵀ = −Fr
+Schur(Fr) = RQT-589 M — EXACT MATCH</pre><p>First row of reduced Gram: <code>[-9603309702921447656, -5518412993766573646, 4661604576371729393, -8977768565951810684]</code>.</p><h2>Archive identity gate</h2><p class="warning">The reconstructed matrix matches the archived algorithm and RQT-589 discriminant exactly, but its serialized SHA-256 does not match the archival file fingerprint. It is marked <b>rederived</b>, not byte-identical.</p><pre>RECONSTRUCTED 22×4 EMBEDDING ✓
+EXACT 152-STEP LLL ✓
+UNIMODULAR U ✓
+REDUCED GRAM/WALL IDENTITIES ✓
+RQT-589 SCHUR MATCH ✓
+ARCHIVED BYTES MATCH ?
+ORIGINAL 22D WALL REPLAY ?
+81 / 135 EXCLUDED; 54 UNRESOLVED
+ROOT 19 OPEN</pre><p><a href="research/RQT-591-EXACT-UNIMODULAR-RECONSTRUCTION.md">Research record</a> · <a href="research/rqt591-exact-basis.py">Python verifier</a></p><p>{brace{n}[box[n](torroid(n))]} · {{i}} · arc-arc-degree{{n}} · .dlw</p></main></html>

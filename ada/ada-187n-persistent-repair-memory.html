@@ -1,0 +1,87 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>ADA-187N · Persistent Repair Memory</title>
+<style>
+:root{--bone:#fbf9f2;--ink:#2e213c;--violet:#9752ea;--orange:#fb7f32;--teal:#08a79c;--line:#e1d3ea}
+*{box-sizing:border-box}body{margin:0;background:var(--bone);font:15px/1.5 system-ui,Segoe UI,sans-serif;color:var(--ink)}
+header{padding:25px max(18px,calc((100vw - 1180px)/2));background:linear-gradient(115deg,#fff8e7,#f1e7ff);border-bottom:2px solid #d6baf9}.eyebrow{font:850 12px system-ui;color:#7c31bf;letter-spacing:.16em}h1{font-size:clamp(29px,4vw,48px);margin:6px 0;line-height:1.12;letter-spacing:-.04em}
+main{max-width:1180px;padding:17px;margin:auto;display:grid;grid-template-columns:minmax(0,1fr) 320px;gap:15px}
+.panel{min-width:0;background:white;border:1px solid var(--line);padding:17px;border-radius:14px;box-shadow:0 8px 26px #3522480b}.wide{grid-column:1/-1}h2{font-size:18px;margin:0 0 10px}.controls{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}
+button,input[type=file]{font:750 14px system-ui;border-radius:9px;border:1.5px solid var(--violet);background:white;color:#592881;padding:9px 12px;cursor:pointer}button.primary{background:#55227c;color:#fff}button:focus-visible,input:focus-visible{outline:3px solid var(--orange)}
+small,.muted{color:#766b80}.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.card{background:#faf6ff;padding:13px;border-top:5px solid var(--violet);border-radius:11px}.card:nth-child(2){border-color:var(--orange)}.card:nth-child(3){border-color:var(--teal)}.big{font-size:26px;font-weight:850}
+.tag{display:inline-block;border-radius:7px;padding:3px 8px;font-size:11px;font-weight:850;background:#eee1ff;color:#6b2ca0}.tag.ok{background:#dff7ed;color:#0b766b}.tag.warn{background:#fff0dc;color:#ae4c15}
+svg{width:100%;height:290px;background:#1b152b;display:block;border-radius:12px}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:9px}.stat{border-radius:10px;padding:10px;background:#f6effa}.stat b{font-size:22px;display:block}
+table{border-collapse:collapse;width:100%;font-size:13px}td,th{padding:9px 8px;text-align:right;border-bottom:1px solid #eee7f4}td:first-child,th:first-child{text-align:left}th{background:#f5effb}
+pre{background:#191529;color:#e2d5fa;border-radius:10px;padding:12px;white-space:pre-wrap;max-height:230px;overflow:auto;font:12px/1.55 ui-monospace,Consolas,monospace}
+@media(max-width:800px){main{grid-template-columns:1fr}.cards{grid-template-columns:1fr}.stats{grid-template-columns:repeat(2,1fr)}}
+</style></head><body>
+<header><div class="eyebrow">ROOT0 · QUANTA · ADA · .dlw</div>
+<h1>ADA-187N · <span style="color:#9451e8">Persistent Repair Memory</span></h1>
+<div>Remember the evidence. Reconstruct from decisions. Refuse an invalid checkpoint.</div>
+<div class="controls"><button class="primary" id="step">Generate one decision</button><button id="batch">Generate 12 decisions</button><button id="reload">Reload local archive</button><button id="export">Export JSON</button><button id="reset">Start new archive</button></div>
+</header>
+<main><section class="panel"><h2>Ledger reconstruction · checkpoint witness</h2><svg id="plot" viewBox="0 0 800 290" role="img" aria-label="Append-only decision timeline with adopt rollback and hold states"></svg>
+<p class="muted">The colored contact rows show the replayed state, not the saved checkpoint state. Local browser storage is optional; failed writes are reported rather than silently discarded.</p></section>
+<section class="panel"><h2>Restore and verification</h2>
+<label for="import">Import versioned ADA-187N archive</label><input id="import" type="file" accept=".json,application/json">
+<p id="status" class="tag">New archive</p>
+<p class="muted">Reconstruction validates event sequence, previous-record fingerprint, record fingerprint, allowed transitions and contact identity. It derives policy state only from recorded decisions, then compares it to the checkpoint.</p>
+<p class="muted">Fingerprints are noncryptographic corruption checks, not signatures. An attacker could rewrite the entire chain. Export to preserve independent copies outside this browser.</p>
+<button id="tamper">Demo: attempt invalid checkpoint</button>
+</section>
+<section class="panel wide"><h2>Three contacts · policy reconstructed from history</h2><div class="cards" id="contacts"></div></section>
+<section class="panel wide"><h2>Append-only archive accountability</h2><div class="stats" id="stats"></div>
+<div style="overflow:auto;margin-top:12px"><table><thead><tr><th>Contact</th><th>Replayed state</th><th>Adoptions</th><th>Rollbacks</th><th>Last decision</th><th>Checkpoint match</th></tr></thead><tbody id="rows"></tbody></table></div></section>
+<section class="panel wide"><h2>Decision events · exportable local evidence</h2><pre id="ledger"></pre>
+<p class="muted">Source ancestry: each contact's local decisions have their own root IDs; the simulation generator is a shared ancestry root and is not independent corroboration. No hidden promotion occurs during restoration.</p></section></main>
+<script>
+"use strict";
+const $=id=>document.getElementById(id),KEY="quanta.ada187n.repair-ledger.v1",NAMES=["Jane","Toph","Ada"],ROOTS=["ada187-jane","ada187-toph","ada187-ada"],SCHEMA="ADA-187N.v1";
+const canon=x=>JSON.stringify(x);
+function hash(s){let h=2166136261;for(let i=0;i<s.length;i++){h^=s.charCodeAt(i);h=Math.imul(h,16777619)}return(h>>>0).toString(16).padStart(8,"0")}
+function initial(){return Object.fromEntries(NAMES.map(name=>[name,{state:"BASE",adoptions:0,rollbacks:0,lastTick:0,lastDecision:"genesis"}]))}
+function clone(x){return JSON.parse(JSON.stringify(x))}
+let archive=null,replayed=initial(),error=null,storage="unknown";
+function newArchive(){return {schema:SCHEMA,watermark:".dlw",geometry:"{24/[2]/[4]/(3)/(3)/(1)/(1)}",generator_root:"ADA187N-synthetic-source",events:[],checkpoint:{at:0,states:initial(),tip:"genesis"}}}
+function transition(states,e){let next=clone(states),c=next[e.contact];
+if(!c||!NAMES.includes(e.contact)||e.root!==ROOTS[NAMES.indexOf(e.contact)])throw Error("Unknown or mismatched contact provenance");
+if(!Number.isSafeInteger(e.tick)||e.tick<=c.lastTick)throw Error("Nonmonotonic contact tick");
+if(e.action==="ADOPT"){if(c.state!=="BASE")throw Error("Invalid adopt transition");c.state="REPAIR";c.adoptions++}
+else if(e.action==="ROLLBACK"){if(c.state!=="REPAIR")throw Error("Invalid rollback transition");c.state="BASE";c.rollbacks++}
+else if(e.action!=="HOLD")throw Error("Unknown action");
+if(!Number.isFinite(e.missedDelta)||!Number.isFinite(e.falseDelta))throw Error("Invalid observation delta");
+c.lastTick=e.tick;c.lastDecision=e.action;return next}
+function inspect(x){if(!x||x.schema!==SCHEMA||x.watermark!==".dlw"||!Array.isArray(x.events)||x.events.length>25000)throw Error("Invalid archive header or unsafe event count");
+let states=initial(),previous="genesis",expected=1;
+for(const e of x.events){if(!e||e.sequence!==expected||e.previous!==previous)throw Error("Broken event sequence or ancestry at "+expected);
+const fields={sequence:e.sequence,previous:e.previous,contact:e.contact,root:e.root,tick:e.tick,action:e.action,missedDelta:e.missedDelta,falseDelta:e.falseDelta,reason:e.reason};
+if(typeof e.reason!=="string"||e.reason.length>256||e.fingerprint!==hash(canon(fields)))throw Error("Fingerprint or field mismatch at "+expected);
+states=transition(states,e);previous=e.fingerprint;expected++}
+const ck=x.checkpoint;if(!ck||ck.at!==x.events.length||ck.tip!==previous||canon(ck.states)!==canon(states))throw Error("Checkpoint conflicts with reconstructed decision history");
+return {states,tip:previous}}
+function persist(){try{localStorage.setItem(KEY,JSON.stringify(archive));storage="saved in local browser"}catch(e){storage="storage blocked: "+e.message}}
+function adoptArchive(obj,save){const derived=inspect(obj);archive=obj;replayed=derived.states;error=null;if(save)persist();render()}
+function insert(contact,action,missedDelta,falseDelta,reason){let c=replayed[contact];const tick=c.lastTick+1,previous=archive.events.at(-1)?.fingerprint||"genesis";
+const fields={sequence:archive.events.length+1,previous,contact,root:ROOTS[NAMES.indexOf(contact)],tick,action,missedDelta,falseDelta,reason};
+const e={...fields,fingerprint:hash(canon(fields))},next=transition(replayed,e);
+archive.events.push(e);replayed=next;archive.checkpoint={at:archive.events.length,states:clone(replayed),tip:e.fingerprint};persist();render()}
+function propose(){let name=NAMES[archive.events.length%3],c=replayed[name],k=archive.events.length;
+let missedDelta=((k*7+NAMES.indexOf(name)*3)%9)-4,falseDelta=((k*11+2)%7)-3,advantage=8*missedDelta+5*falseDelta;
+let action=c.state==="BASE"&&advantage>=2?"ADOPT":c.state==="REPAIR"&&(advantage<0||missedDelta<0||falseDelta<0)?"ROLLBACK":"HOLD";
+insert(name,action,missedDelta,falseDelta,action==="HOLD"?"No justified change":action==="ADOPT"?"Paired local improvement":"Observed local regression")}
+function draw(){const events=archive?.events||[],x=i=>75+i*680/Math.max(39,events.length-1),rows=[68,150,230],colors=["#b488ff","#ff9f59","#4bdfd4"];
+let out='<g stroke="#3a314c">'+rows.map(y=>'<path d="M55 '+y+' H770"/>').join("")+'</g>';
+for(let j=0;j<3;j++){out+='<text x="12" y="'+(rows[j]-15)+'" font-size="12" fill="'+colors[j]+'">'+NAMES[j]+'</text>';
+const relevant=events.filter(e=>e.contact===NAMES[j]);out+=relevant.map(e=>{let y=rows[j],cx=x(e.sequence-1),height=e.action==="ADOPT"?-22:e.action==="ROLLBACK"?22:0;return '<circle cx="'+cx+'" cy="'+(y+height)+'" r="'+(e.action==="HOLD"?3:7)+'" fill="'+colors[j]+'" stroke="#201629" stroke-width="2"/>'}).join("")}return out}
+function render(){$("plot").innerHTML=draw();$("contacts").innerHTML=NAMES.map((n,i)=>{let c=replayed[n];return '<div class="card"><b>'+n+'</b> <span class="tag '+(c.state==="REPAIR"?"ok":"")+'">'+c.state+'</span><div class="big">'+c.adoptions+' / '+c.rollbacks+'</div><small>adoptions / rollbacks</small><p>Last: '+c.lastDecision+' · local tick '+c.lastTick+'</p></div>'}).join("");
+$("stats").innerHTML=[["Recorded events",archive.events.length],["Checkpoint position",archive.checkpoint.at],["Fingerprint tip",archive.checkpoint.tip],["Storage",storage.includes("saved")?"SAVED":"CHECK"]].map(([a,b])=>'<div class="stat"><small>'+a+'</small><b style="font-size:'+(String(b).length>9?14:22)+'px">'+b+'</b></div>').join("");
+$("rows").innerHTML=NAMES.map(n=>{let c=replayed[n],k=archive.checkpoint.states[n];return '<tr><td>'+n+'</td><td>'+c.state+'</td><td>'+c.adoptions+'</td><td>'+c.rollbacks+'</td><td>'+c.lastDecision+'</td><td>'+(canon(c)===canon(k)?"MATCH":"MISMATCH")+'</td></tr>'}).join("");
+$("ledger").textContent=JSON.stringify({schema:archive.schema,storage,tip:archive.checkpoint.tip,lastEvents:archive.events.slice(-13),error},null,2);
+$("status").textContent=error?"REJECTED: "+error:storage+" · replay matches checkpoint";$("status").className="tag "+(error?"warn":"ok")}
+$("step").onclick=propose;$("batch").onclick=()=>{for(let i=0;i<12;i++)propose()};
+$("reset").onclick=()=>{archive=newArchive();replayed=initial();error=null;persist();render()};
+$("reload").onclick=()=>{try{let data=localStorage.getItem(KEY);if(!data)throw Error("No saved archive in this browser");adoptArchive(JSON.parse(data),false);storage="reloaded from browser";render()}catch(e){error=e.message;render()}};
+$("tamper").onclick=()=>{let bad=clone(archive);bad.checkpoint.states.Jane.state=bad.checkpoint.states.Jane.state==="BASE"?"REPAIR":"BASE";try{inspect(bad);error="Unexpectedly accepted corrupt checkpoint"}catch(e){error="Checkpoint correctly refused: "+e.message}render()};
+$("import").onchange=async()=>{let f=$("import").files?.[0];if(!f)return;try{if(f.size>5000000)throw Error("File exceeds 5 MB import bound");adoptArchive(JSON.parse(await f.text()),true)}catch(e){error=e.message;render()}};
+$("export").onclick=()=>{let u=URL.createObjectURL(new Blob([JSON.stringify(archive,null,2)],{type:"application/json"})),a=document.createElement("a");a.href=u;a.download="ADA-187N-persistent-evidence.json";a.click();setTimeout(()=>URL.revokeObjectURL(u),500)};
+try{let saved=localStorage.getItem(KEY);if(saved){adoptArchive(JSON.parse(saved),false);storage="reconstructed from local browser";render()}else{archive=newArchive();persist();render()}}catch(e){archive=newArchive();replayed=initial();error="Existing archive rejected: "+e.message;storage="not overwritten";render()}
+</script></body></html>

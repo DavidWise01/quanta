@@ -1,0 +1,15 @@
+# RQT-575 — Reduced Root-Seed Gate
+
+Exact HNF and rational-LLL work on the RQT-545 alternative branch saturated rank-four lattice. Source inputs: RQT-541 historical index-64 basis and RQT-545 saturated 21×4 basis, Gram F and Wall H.
+
+The reconstructed 22×4 ambient embedding A was integer-HNF normalized and Euclidean-row-LLL reduced with the **exact rational** RQT-544 LLL method, because SymPy built-in LLL failed an internal assertion. Reduction took **152 exact LLL steps**. Obtained integral unimodular W, det W=+1, with A W equal to the reduced ambient basis. Transformed F'=WᵀFW and H'=WᵀHW obey H'+H'ᵀ=−F' and preserve determinants.
+
+All coefficient vectors in [-12,12]^4 (**390,625**) were checked exactly; **zero norm −2 hits**. Smaller boxes [-2,2]^4, [-3,3]^4, [-5,5]^4, [-8,8]^4 also have zero hits and are subsets of the largest. This is a bounded nonfinding, **NOT** a global nonrepresentation theorem.
+
+**Important provenance limitation:** Original raw 22D Gram G source was not mounted for an independent replay of AᵀGA=F in this turn. RQT-545 certified original-source checks previously, but this specific RQT-575 pass checks the archived successor forms and ambient embedding, not a fresh 22D original-source verification.
+
+{{i}} nesting and the breathing primitive are architectural context; none of the 27 nested levels or physical Josephson-junction properties are used in the exact norm search. No norm −2 seed, root 19 or full 21-word was constructed. Root19 OPEN; original historical root18 transfer OPEN. Earlier readiness percentage was subjective and is not increased by a bounded nonfinding.
+
+**Next RQT-576:** pursue structured indefinite lattice representation / modular arithmetic instead of ever-wider coefficient boxes; back-map any genuine norm −2 candidate to original 22D Gram/Wall tests.
+
+The full runnable script, reduced Gram/Wall, W and JSON hashes, fresh winter-glass WAKAKU JPEG, and standalone HTML with embedded JPEG are local conversation files. This GitHub HTML is text-based; Pages serving and illustrated binary repo publication remain unverified.

@@ -5,6 +5,8 @@ import fs from "node:fs";
 import path from "node:path";
 const root=(process.env.ADA_BASE_URL||"http://127.0.0.1:8765").replace(/\/$/,"");
 const forceCanvas=process.env.ADA_FORCE_CANVAS==="1";
+const requireWebGL=process.env.ADA_REQUIRE_WEBGL==="1";
+if(forceCanvas&&requireWebGL)throw Error("Invalid test setup: cannot require both WebGL and forced Canvas2D");
 const routes=[
 ["191N","ada-191n-integrated-living-lab.html","run","stats","replay","verification"],
 ["192N","ada-192n-unified-observation-3d.html","run","metrics","replay","renderMode"],
@@ -17,7 +19,7 @@ const routes=[
 ];
 const output=process.env.ADA_REPORT_DIR||"ada/verification-results";
 fs.mkdirSync(output,{recursive:true});
-const browser=await chromium.launch({headless:true,args:["--no-sandbox","--use-gl=angle","--use-angle=swiftshader"]});
+const browser=await chromium.launch({headless:true,args:["--no-sandbox","--enable-webgl","--enable-unsafe-swiftshader","--use-gl=angle","--use-angle=swiftshader"]});
 let passed=0,failed=0;const results=[];
 try{
 for(const [version,file,stepId,statsId,verifyId,statusId] of routes){
@@ -56,6 +58,10 @@ item.renderState=renderState;
 assert("canvas has usable drawing surface",renderState.pixelArea>10000,JSON.stringify(renderState));
 const mode=await page.evaluate(()=>document.querySelector("#renderMode,#engine,#render,#mode")?.textContent||"");
 item.renderMode=mode;
+if(requireWebGL){
+assert("real WebGL renderer activated",/WEBGL/i.test(mode),mode);
+assert("live WebGL drawing context exists",renderState.hasLiveGL,JSON.stringify(renderState));
+}
 if(forceCanvas)assert("forced Canvas2D fallback activated",/CANVAS\s*2D|CANVAS2D|2D\s*PROJECTED|REPLAY PASS\s*·\s*2D/i.test(mode),mode);
 assert("renderer mode declared",/WEBGL|CANVAS\s*2D|CANVAS2D|2D\s*PROJECTED|REPLAY PASS\s*·\s*2D/i.test(mode),mode);
 }
@@ -67,7 +73,7 @@ results.push(item);await page.close();
 console.log(version+" "+item.status+(item.reason?": "+item.reason:""));
 }
 }finally{await browser.close()}
-const report={schema:"ADA-199N.smoke.v2",base:root,forceCanvas,passed,failed,results};
+const report={schema:"ADA-199N.smoke.v3",base:root,forceCanvas,requireWebGL,passed,failed,results};
 fs.writeFileSync(path.join(output,"report.json"),JSON.stringify(report,null,2)+"\n");
 console.log(JSON.stringify(report,null,2));
 if(failed)process.exitCode=1;

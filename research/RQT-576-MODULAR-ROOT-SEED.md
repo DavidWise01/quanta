@@ -1,0 +1,21 @@
+# RQT-576 — Modular Root-Seed Gate
+
+**Executed exact finite modular audit** on the RQT-575 reduced rank-four integral Gram form. Every vector in (Z/mZ)^4 was enumerated for m=2,3,4,5,7,8,11,13,16, checking x^T F x ≡ −2 (mod m).
+
+| m | solutions | first witness |
+|---:|---:|---|
+| 2 | 16 | (0,0,0,0) |
+| 3 | 36 | (0,0,1,0) |
+| 4 | 128 | (0,0,0,1) |
+| 5 | 130 | (0,0,2,0) |
+| 7 | 336 | (0,0,0,2) |
+| 8 | 1280 | (0,0,0,1) |
+| 11 | 1320 | (0,0,0,3) |
+| 13 | 2210 | (0,0,1,7) |
+| 16 | 10240 | (0,1,0,3) |
+
+**All nine modular gates pass.** These are finite congruence solutions only, not integer root vectors or an all-prime local solvability proof. In particular, all 16 vectors modulo 2 pass because the integral quadratic expression is even-valued and −2 ≡ 0 (mod 2). The mod-16 witness is a residue class, not a global solution. RQT-575's no-hit box [-12,12]^4 remains unchanged.
+
+**Root 19 OPEN; exact integer norm−2 seed OPEN; original 22D Gram/Wall replay NOT RUN this iteration; 21-word OPEN.** The triple-nested primitive and {{i}} engine are interpretive architecture, not operations performed on the exact Gram matrix.
+
+Next RQT-577: test compatible primitive lifts to 2^k, investigate 2-adic nondegeneracy, then construct exact integers and back-map against original 22D Wall constraints. JPEG + self-contained illustrated HTML are available as conversation artifacts; this GitHub page is text-only, and Pages serving and binary JPEG repository publishing unverified.

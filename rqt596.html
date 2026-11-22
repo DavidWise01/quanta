@@ -1,0 +1,14 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>RQT-596 | Pell Trace Obstruction</title><style>body{margin:0;background:radial-gradient(ellipse at 65% 18%,#382163,#081628 60%,#040915);color:#f6f0e9;font:18px/1.6 system-ui}main{max-width:1000px;margin:auto;padding:clamp(22px,6vw,70px)}h1{font-size:clamp(44px,8vw,78px);color:#ffb866;margin:0}h2{color:#87f6ec}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:13px}.stat{border:1px solid #ba8eff77;border-radius:15px;padding:18px;background:#ffffff10}.value{font-size:42px;color:#8bf4ed;font-weight:800}.bar{height:15px;background:#372b49;border-radius:18px;overflow:hidden}.fill{height:100%;width:60.7407%;background:linear-gradient(90deg,#ffa64e,#bc89fd)}pre{white-space:pre-wrap;overflow-wrap:anywhere;border-radius:14px;background:#070b1d;padding:20px;border:1px solid #b992ed66}a{color:#84eff4}.note{padding-left:17px;border-left:3px solid #f8b765}@media(max-width:550px){.grid{grid-template-columns:1fr}}</style></head><body><main><p>QUANTA · {{i}} · .dlw</p><h1>RQT-596</h1><p>Integral Pell Orbit Closure · Algebraic Trace Gate</p><div class="grid"><div class="stat"><div class="value">1</div>Proposed generator ruled out</div><div class="stat"><div class="value">82</div>Families excluded previously</div><div class="stat"><div class="value">53</div>Families unresolved</div></div><h2>The exact obstruction</h2><pre>lambda = (U + V sqrt(N)) / W
+U² − NV² = W²
+Trace(lambda) = 2U/W
+
+Reduced trace denominator:
+2,698,204,764,356,087 ≠ 1
+
+Thus lambda is not an algebraic integer.
+No positive power lambda^k can become
+an integral Pell unit.</pre><h2>Integer-coordinate gate</h2><pre>For a particular generalized Pell seed (X,Y):
+W | U X + NV Y
+W | V X + U Y
+X' ≡ B (mod 2A)
+Recover integer u and check q_F = −2.</pre><p class="note">This proof eliminates the specific rational orbit generator, <strong>not family 28</strong>. Other integral units and generalized Pell seeds remain possible.</p><h2>Selected-family coverage</h2><div class="bar"><div class="fill"></div></div><p><strong>82/135 excluded (60.74%)</strong> · 53 unresolved. Original 22D Wall replay not completed. <strong>ROOT 19 OPEN.</strong></p><p><a href="research/RQT-596-PELL-TRACE-OBSTRUCTION.md">Research record</a> · <a href="research/rqt596-pell-trace.py">Python verifier</a></p><p>{brace{n}[box[n](torroid(n))]} · {{i}} · arc-arc-degree{{n}} · .dlw</p></main></body></html>

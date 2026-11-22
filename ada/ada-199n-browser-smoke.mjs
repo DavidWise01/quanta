@@ -61,10 +61,13 @@ item.renderMode=mode;
 // Canvas2D-owned canvas can throw InvalidStateError in real browsers.
 const renderState=await stage.locator("canvas").first().evaluate((el,mode)=>{
  const webgl=/WEBGL/i.test(mode);
- let context=null,error=null;
- try{context=webgl?(el.getContext("webgl2")||el.getContext("webgl")||el.getContext("experimental-webgl")):el.getContext("2d")}
- catch(e){error=String(e)}
- return {type:webgl?"webgl":"canvas2d",contextAvailable:!!context,hasLiveGL:webgl&&!!context&&!context.isContextLost?.(),pixelArea:el.width*el.height,error}
+ let context=null,error=null,contextName=null;
+ const candidates=webgl?["webgl2","webgl","experimental-webgl"]:["2d"];
+ for(const name of candidates){
+   try{const c=el.getContext(name);if(c){context=c;contextName=name;break}}
+   catch(e){error=String(e)}
+ }
+ return {type:webgl?"webgl":"canvas2d",contextName,contextAvailable:!!context,hasLiveGL:webgl&&!!context&&!context.isContextLost?.(),pixelArea:el.width*el.height,error:context?null:error}
 },mode);
 item.renderState=renderState;
 assert("canvas has usable drawing surface",renderState.pixelArea>10000,JSON.stringify(renderState));

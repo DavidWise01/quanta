@@ -28,19 +28,27 @@ jobs:
           python3 -m http.server 8765 --bind 127.0.0.1 > /tmp/ada199-server.log 2>&1 &
           echo $! > /tmp/ada199-server.pid
           for i in $(seq 1 30); do curl --fail --silent http://127.0.0.1:8765/ada/ada-198n-3d-stress-recovery.html >/dev/null && break; sleep 1; done
-      - name: Run real Chromium browser tests
+      - name: Run local WebGL Chromium verification
+        id: local
+        continue-on-error: true
         env:
           ADA_BASE_URL: http://127.0.0.1:8765
           ADA_REPORT_DIR: ada/verification-results/local
           ADA_REQUIRE_WEBGL: "1"
         run: node ada/ada-199n-browser-smoke.mjs
       - name: Verify forced Canvas2D fallback in Chromium
+        id: fallback
+        if: always()
+        continue-on-error: true
         env:
           ADA_BASE_URL: http://127.0.0.1:8765
           ADA_REPORT_DIR: ada/verification-results/fallback
           ADA_FORCE_CANVAS: "1"
         run: node ada/ada-199n-browser-smoke.mjs
       - name: Verify public Pages with Chromium
+        id: public
+        if: always()
+        continue-on-error: true
         env:
           ADA_BASE_URL: https://davidwise01.github.io/quanta
           ADA_REPORT_DIR: ada/verification-results/public
@@ -53,9 +61,16 @@ jobs:
           name: ada-199n-browser-evidence
           path: ada/verification-results/
           if-no-files-found: warn
-      - name: Check public GitHub Pages response
+      - name: Strict final verification gate
+        if: always()
+        env:
+          LOCAL: ${{ steps.local.outcome }}
+          FALLBACK: ${{ steps.fallback.outcome }}
+          PUBLIC: ${{ steps.public.outcome }}
         run: |
-          curl --fail --location --retry 8 --retry-delay 8 --show-error \
-            https://davidwise01.github.io/quanta/ada/ada-198n-3d-stress-recovery.html \
-            --output /tmp/ada198-live.html
-          test -s /tmp/ada198-live.html
+          echo "Local WebGL: $LOCAL"
+          echo "Canvas2D fallback: $FALLBACK"
+          echo "Public Pages WebGL: $PUBLIC"
+          test "$LOCAL" = "success"
+          test "$FALLBACK" = "success"
+          test "$PUBLIC" = "success"

@@ -1,0 +1,87 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>ADA-184N · Repair Robustness</title>
+<style>
+:root{--bone:#faf9f2;--ink:#302039;--violet:#a34cf2;--orange:#ff822e;--teal:#04a9a1;--line:#e4d6eb}
+*{box-sizing:border-box}body{margin:0;background:var(--bone);font:15px/1.5 system-ui,Segoe UI,sans-serif;color:var(--ink)}
+header{padding:26px max(18px,calc((100vw - 1180px)/2));background:linear-gradient(110deg,#fff8e7,#f0e7ff);border-bottom:2px solid #d5adf4}
+h1{font-size:clamp(28px,4vw,49px);letter-spacing:-.035em;line-height:1.12;margin:6px 0}h2{font-size:18px;margin:0 0 11px}.eyebrow{color:#7c34c6;letter-spacing:.15em;font-size:12px;font-weight:850}
+main{max-width:1180px;margin:auto;padding:17px;display:grid;grid-template-columns:minmax(0,1fr) 310px;gap:15px}
+.panel{min-width:0;padding:17px;background:white;border:1px solid var(--line);border-radius:14px;box-shadow:0 9px 28px #3423490b}.wide{grid-column:1/-1}
+.controls{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}button,select{border:1.5px solid var(--violet);border-radius:9px;font:750 14px system-ui;padding:9px 12px;background:white;color:#612987;cursor:pointer}button.primary{background:#532575;color:white}button:focus-visible,select:focus-visible,input:focus-visible{outline:3px solid var(--orange)}
+label{display:block;font-weight:750;margin:12px 0 5px}input[type=range]{accent-color:var(--violet);width:100%}small,.muted{color:#776c80}
+svg{width:100%;height:300px;background:#1a1629;display:block;border-radius:12px}
+.legend{display:flex;flex-wrap:wrap;gap:14px;font-size:12px;margin-top:8px}.sw{display:inline-block;width:13px;height:5px;vertical-align:middle;margin-right:4px}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}.stat{padding:11px;border-radius:10px;background:#f5eff9}.stat b{display:block;font-size:22px}
+table{width:100%;border-collapse:collapse;font-size:13px}td,th{padding:9px 7px;text-align:right;border-bottom:1px solid #eee6f5}td:first-child,th:first-child{text-align:left}th{background:#f5effa}
+.status{padding:3px 8px;border-radius:7px;background:#f5e9ff;color:#703e98;font-size:11px;font-weight:850}
+pre{background:#191528;color:#e9dbff;padding:13px;max-height:210px;overflow:auto;border-radius:10px;font:12px/1.6 ui-monospace,monospace;white-space:pre-wrap}
+@media(max-width:800px){main{grid-template-columns:1fr}.stats{grid-template-columns:repeat(2,1fr)}}
+</style></head><body>
+<header><div class="eyebrow">ROOT0 · QUANTA · ADA · .dlw</div><h1>ADA-184N · <span style="color:#9044e9">Repair Robustness</span></h1>
+<div>Improve damage detection without buying safety at the price of false alarms. The old rule, local repair, and full replacement face identical environments.</div>
+<div class="controls"><button class="primary" id="run">▶ Run matched stress suite</button><button id="shift">Inspect next case</button><button id="reset">Reset</button><button id="export">Export evidence JSON</button></div></header>
+<main><section class="panel"><h2>Representative replay · damage and benign noise</h2>
+<svg id="plot" viewBox="0 0 800 300" aria-label="One synthetic environmental signal and true damage intervals"></svg>
+<div class="legend"><span><i class="sw" style="background:#f9a259"></i>Observed signal</span><span><i class="sw" style="background:#53e7d7"></i>True damage interval</span><span><i class="sw" style="background:#c090ff"></i>Targeted repair alarms</span></div>
+<p class="muted">The damage label is simulation ground truth, not supplied to detectors. Benign transients can cross the detection threshold and persist long enough to trigger false alerts.</p></section>
+<section class="panel"><h2>Stress controls</h2>
+<label for="suite">Disturbance suite</label><select id="suite"><option value="all">All four disturbance families</option><option value="drift">Amplitude drift</option><option value="time">Temporal displacement</option><option value="noise">Benign noise and false alarms</option><option value="mixed">Mixed damage and noise</option></select>
+<label for="cases">Seeds per family <output id="casesOut">12</output></label><input type="range" id="cases" min="4" max="24" step="4" value="12">
+<label for="falseCost">False alarm cost <output id="falseCostOut">4</output></label><input type="range" id="falseCost" min="0" max="15" step="1" value="4">
+<label for="missCost">Missed damage cost <output id="missCostOut">8</output></label><input type="range" id="missCost" min="1" max="20" step="1" value="8">
+<p class="muted">All policies share the same noisy trace and true-damage labels. A promotion requires a lower weighted cost and no increase in missed damage ticks or false-alarm episodes beyond the incumbent.</p>
+</section>
+<section class="panel wide"><h2>Policy comparison · matched trials</h2><div class="stats" id="stats"></div>
+<div style="overflow:auto;margin-top:12px"><table><thead><tr><th>Policy</th><th>Missed damage ticks</th><th>False-alarm episodes</th><th>Mean detection delay</th><th>Weighted cost</th><th>Promotion gate</th></tr></thead><tbody id="rows"></tbody></table></div><p class="muted">Delay is averaged over events detected during their damage window. Undetected events count toward missed-damage ticks but not the delay average. The safety gate is deliberately strict; nonregression on finite synthetic cases does not establish universal safety.</p></section>
+<section class="panel wide"><h2>Scenario breakdown</h2><div style="overflow:auto"><table><thead><tr><th>Scenario</th><th>Policy</th><th>Missed damage</th><th>False alarms</th><th>Weighted cost</th></tr></thead><tbody id="breakdown"></tbody></table></div></section>
+<section class="panel wide"><h2>Immutable replay ledger</h2><pre id="ledger"></pre><p class="muted">Original case traces, separate ground-truth labels, per-policy decisions, summary metrics and scenario seeds are included in the exported JSON. The audit is append-only during this browser session, not cryptographically signed.</p></section></main>
+<script>
+"use strict";
+const $=id=>document.getElementById(id),LEN=120,clamp=(v,a,b)=>Math.max(a,Math.min(b,v));
+let trials=[],results=[],ledger=[],selected=0,runId=0;
+const policies=[{id:"old",name:"Incumbent",minConsecutive:5,local:false},{id:"local",name:"Targeted repair",minConsecutive:5,local:true},{id:"full",name:"Full replacement",minConsecutive:2,local:false}],families=["drift","time","noise","mixed"];
+function random(seed){let x=seed>>>0;return ()=>{x=(Math.imul(x,1664525)+1013904223)>>>0;return x/4294967296}}
+function generate(seed,family){let r=random(seed),signal=Array(LEN).fill(0),damage=Array(LEN).fill(false),episodes=[];
+let first=family==="time"?12+Math.floor(r()*65):25+Math.floor(r()*25),length=family==="drift"?9:family==="mixed"?13:8+Math.floor(r()*5),amplitude=family==="drift"?16+Math.floor(r()*12):family==="noise"?21:24;
+for(let i=first;i<Math.min(LEN,first+length);i++){damage[i]=true;signal[i]=amplitude*(family==="drift"?(1-(i-first)/Math.max(1,length)*.5):1)+(r()-.5)*4}
+episodes.push({start:first,end:Math.min(LEN,first+length)-1});
+if(family==="mixed"){let start=72+Math.floor(r()*15);for(let i=start;i<Math.min(LEN,start+7);i++){damage[i]=true;signal[i]=19+(r()-.5)*3}episodes.push({start,end:Math.min(LEN,start+7)-1})}
+let bursts=family==="noise"?13:family==="mixed"?10:6;
+for(let b=0;b<bursts;b++){let start=Math.floor(r()*(LEN-7)),length=1+Math.floor(r()*6),amp=13+Math.floor(r()*15);
+for(let i=start;i<Math.min(LEN,start+length);i++)if(!damage[i])signal[i]=(r()>.5?1:-1)*amp}
+return {seed,family,signal,damage,episodes}}
+function evaluate(trial,policy){let consec=0,alarm=false,missed=0,falseAlarms=0,previousAlarm=false,alarms=[],episodeFirst={};
+for(let i=0;i<LEN;i++){let strength=Math.abs(trial.signal[i]),active=strength>=12;
+consec=active?consec+1:0;
+let required=policy.local&&strength>=22?2:policy.minConsecutive;
+alarm=active&&consec>=required;
+if(alarm&&!previousAlarm&&!trial.damage[i])falseAlarms++;
+if(trial.damage[i]&&!alarm)missed++;
+if(alarm){alarms.push(i);for(let j=0;j<trial.episodes.length;j++){let e=trial.episodes[j];if(i>=e.start&&i<=e.end&&episodeFirst[j]===undefined)episodeFirst[j]=i}}
+previousAlarm=alarm}
+let delays=trial.episodes.map((e,j)=>episodeFirst[j]===undefined?null:episodeFirst[j]-e.start);
+return {missed,falseAlarms,delays,alarms,detected:delays.filter(x=>x!==null).length,events:delays.length}}
+function cost(a){return a.missed*+$("missCost").value+a.falseAlarms*+$("falseCost").value}
+function aggregate(data){return data.reduce((a,r)=>{a.missed+=r.missed;a.falseAlarms+=r.falseAlarms;a.detected+=r.detected;a.events+=r.events;a.delays.push(...r.delays.filter(x=>x!==null));return a},{missed:0,falseAlarms:0,detected:0,events:0,delays:[]})}
+function execute(){const selectedFamily=$("suite").value,scenarios=selectedFamily==="all"?families:[selectedFamily],n=+$("cases").value;
+trials=scenarios.flatMap((family,index)=>Array.from({length:n},(_,i)=>generate(184000+index*1000+i*37,family)));
+results=policies.map(policy=>{let perCase=trials.map(trial=>evaluate(trial,policy)),metrics=aggregate(perCase);return {policy,metrics,perCase}});
+runId++;selected=0;ledger.push({event:"matched-suite",runId,scenario:selectedFamily,seeds:trials.map(t=>({seed:t.seed,family:t.family})),result:results.map(r=>({policy:r.policy.id,missed:r.metrics.missed,falseAlarms:r.metrics.falseAlarms}))});render()}
+function chart(){if(!trials.length){$("plot").innerHTML='<text x="400" y="150" text-anchor="middle" fill="#d9c2ed" font-size="17">Run the stress suite to inspect identical-policy replays</text>';return}
+let t=trials[selected],local=results[1].perCase[selected],x=i=>25+i*750/(LEN-1),y=v=>150-v*2.7;
+let signal='<path fill="none" stroke="#f9a259" stroke-width="2" d="'+t.signal.map((v,i)=>(i?"L":"M")+x(i).toFixed(1)+","+y(v).toFixed(1)).join(" ")+'"/>';
+let segments=t.episodes.map(e=>'<rect x="'+x(e.start)+'" y="5" width="'+Math.max(2,x(e.end)-x(e.start))+'" height="288" fill="#53e7d7" fill-opacity=".11"/>').join("");
+let points=local.alarms.map(i=>'<circle cx="'+x(i)+'" cy="268" r="3" fill="#c090ff"/>').join("");
+$("plot").innerHTML='<path d="M25 150 H775" stroke="#43384f"/>'+segments+signal+points+'<text x="25" y="288" fill="#c0a7ec" font-size="11">Targeted policy alert ticks</text>'}
+function render(){chart();$("casesOut").textContent=$("cases").value;$("falseCostOut").textContent=$("falseCost").value;$("missCostOut").textContent=$("missCost").value;
+const base=results[0]?.metrics;
+let statuses=results.map((r,i)=>{if(!base)return "—";if(i===0)return "REFERENCE";return r.metrics.missed<=base.missed&&r.metrics.falseAlarms<=base.falseAlarms&&cost(r.metrics)<cost(base)?"ELIGIBLE":"HOLD / VETO"});
+$("stats").innerHTML=[["Cases",trials.length],["Families",new Set(trials.map(t=>t.family)).size],["Candidate policies",3],["Eligible repairs",statuses.filter(s=>s==="ELIGIBLE").length]].map(([a,b])=>'<div class="stat"><small>'+a+'</small><b>'+b+'</b></div>').join("");
+$("rows").innerHTML=results.map((r,i)=>'<tr><td>'+r.policy.name+'</td><td>'+r.metrics.missed+'</td><td>'+r.metrics.falseAlarms+'</td><td>'+(r.metrics.delays.length?(r.metrics.delays.reduce((a,b)=>a+b,0)/r.metrics.delays.length).toFixed(2):"—")+'</td><td>'+cost(r.metrics).toFixed(1)+'</td><td>'+statuses[i]+'</td></tr>').join("");
+$("breakdown").innerHTML=[...new Set(trials.map(x=>x.family))].flatMap(f=>results.map(r=>{let subset=r.perCase.filter((_,i)=>trials[i].family===f),m=aggregate(subset);return '<tr><td>'+f+'</td><td>'+r.policy.name+'</td><td>'+m.missed+'</td><td>'+m.falseAlarms+'</td><td>'+cost(m).toFixed(1)+'</td></tr>'})).join("");
+$("ledger").textContent=JSON.stringify({lastRuns:ledger.slice(-5),selectedCase:trials[selected]?{seed:trials[selected].seed,family:trials[selected].family,episodes:trials[selected].episodes}:null},null,2)}
+$("run").onclick=execute;$("shift").onclick=()=>{if(trials.length){selected=(selected+1)%trials.length;ledger.push({event:"case-inspected",runId,index:selected,seed:trials[selected].seed});render()}};
+$("reset").onclick=()=>{trials=[];results=[];selected=0;ledger.push({event:"reset",runId});render()};
+["falseCost","missCost"].forEach(id=>$(id).oninput=render);
+$("export").onclick=()=>{const payload={schema:"ADA-184N.v1",geometry:"{24/[2]/[4]/(3)/(3)/(1)/(1)}",mark:".dlw",controls:{suite:$("suite").value,cases:+$("cases").value,falseCost:+$("falseCost").value,missCost:+$("missCost").value},trials,results,ledger,warning:"Finite synthetic robustness comparison; not proof of safety beyond these traces."};let url=URL.createObjectURL(new Blob([JSON.stringify(payload,null,2)],{type:"application/json"})),a=document.createElement("a");a.href=url;a.download="ADA-184N-evidence.json";a.click();setTimeout(()=>URL.revokeObjectURL(url),500)};
+render();
+</script></body></html>

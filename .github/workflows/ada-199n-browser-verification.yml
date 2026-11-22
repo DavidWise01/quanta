@@ -33,6 +33,12 @@ jobs:
           ADA_BASE_URL: http://127.0.0.1:8765
           ADA_REPORT_DIR: ada/verification-results/local
         run: node ada/ada-199n-browser-smoke.mjs
+      - name: Verify forced Canvas2D fallback in Chromium
+        env:
+          ADA_BASE_URL: http://127.0.0.1:8765
+          ADA_REPORT_DIR: ada/verification-results/fallback
+          ADA_FORCE_CANVAS: "1"
+        run: node ada/ada-199n-browser-smoke.mjs
       - name: Verify public Pages with Chromium
         env:
           ADA_BASE_URL: https://davidwise01.github.io/quanta

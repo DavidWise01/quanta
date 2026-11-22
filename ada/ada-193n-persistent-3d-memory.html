@@ -1,0 +1,123 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>ADA-193N · Persistent 3D Memory</title>
+<style>
+:root{--bone:#faf9f1;--ink:#30213d;--purple:#a459f7;--orange:#ff8135;--teal:#00aaa3}
+*{box-sizing:border-box}body{margin:0;background:var(--bone);color:var(--ink);font:14px/1.48 system-ui,Segoe UI,sans-serif}header{padding:24px max(16px,calc((100vw - 1310px)/2));border-bottom:2px solid #d5b1f8;background:linear-gradient(115deg,#fff7e8,#f1e9ff)}h1{font-size:clamp(28px,4vw,47px);line-height:1.1;letter-spacing:-.038em;margin:6px 0}.kicker{font-size:11px;letter-spacing:.16em;color:#7336b4;font-weight:850}
+.actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}button,input[type=file]{font:740 13px system-ui;padding:9px 12px;background:white;color:#602884;border:1.5px solid #ab70ef;border-radius:9px;cursor:pointer}button.primary{color:white;background:#572879}button:focus-visible,input:focus-visible{outline:3px solid var(--orange)}
+main{max-width:1310px;margin:auto;padding:15px;display:grid;grid-template-columns:minmax(0,1.65fr) minmax(300px,.8fr);gap:14px}.panel{min-width:0;background:white;padding:16px;border-radius:14px;border:1px solid #e3d7ec;box-shadow:0 8px 24px #36234b0b}.wide{grid-column:1/-1}h2{font-size:17px;margin:0 0 10px}small,.muted{color:#766b82}
+#stage{height:min(55vw,600px);min-height:380px;position:relative;overflow:hidden;border-radius:12px;touch-action:none;background:radial-gradient(circle at center,#352249,#13101f 75%)}
+#stage canvas{width:100%;height:100%;display:block}#stage .hud{position:absolute;left:12px;top:11px;color:#bdfaf2;font-weight:800;text-shadow:0 0 12px #00c2b3;pointer-events:none}#stage .engine{position:absolute;right:11px;top:10px;padding:5px 8px;background:#291b3bc9;color:#d4bbf4;border:1px solid #ac79ea88;border-radius:6px;font-size:11px}#stage .tip{position:absolute;left:12px;bottom:10px;font-size:11px;color:#c7b9d7;pointer-events:none}
+.node-label{position:absolute;transform:translate(-50%,-50%);font-weight:850;pointer-events:none;text-shadow:0 1px 8px #080612,0 0 10px #080612}
+.pills{display:flex;flex-wrap:wrap;gap:8px;margin-top:9px}.pill{font-size:11px;background:#f2e8fe;color:#7136a2;border-radius:8px;padding:4px 8px;font-weight:750}.pill.ok{color:#08796c;background:#e1f7ee}.pill.warn{color:#a44717;background:#fff0da}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:9px}.card{padding:12px;background:#faf6ff;border-radius:10px;border-top:5px solid var(--purple)}.card:nth-child(2){border-color:var(--orange)}.card:nth-child(3){border-color:var(--teal)}.big{font-size:24px;font-weight:850}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}.stat{background:#f5eefa;padding:11px;border-radius:10px}.stat b{font-size:21px;display:block}
+pre{white-space:pre-wrap;max-height:230px;overflow:auto;background:#1a1528;color:#e9d9fd;border-radius:10px;padding:12px;font:11px/1.55 ui-monospace,Consolas,monospace}
+table{width:100%;border-collapse:collapse;font-size:12px}td,th{padding:8px 6px;text-align:right;border-bottom:1px solid #eee4f4}td:first-child,th:first-child{text-align:left}th{background:#f5effa}
+@media(max-width:850px){main{grid-template-columns:1fr}.cards{grid-template-columns:1fr}.stats{grid-template-columns:repeat(2,1fr)}#stage{height:450px}}
+</style></head><body>
+<header><div class="kicker">ROOT0 · QUANTA · ADA · PHASE II · 3D · .dlw</div><h1>ADA-193N · <span style="color:#974cea">Persistent 3D Memory</span></h1>
+<div>One observation source · three spatial interpretation trails · evidence-first replay · durable local archive.</div>
+<div class="actions"><button id="step" class="primary">Step</button><button id="run">▶ Run 100</button><button id="replay">Reconstruct from ledger</button><button id="reload">Reload saved session</button><button id="export">Export JSON</button><button id="reset">New archive</button></div>
+</header><main>
+<section class="panel"><h2>3D toroid · evidence trails · rotate and zoom</h2>
+<div id="stage" role="img" aria-label="Interactive toroidal memory landscape, three moving colored interpretation trails and one central observation source">
+<div class="hud" id="hud">SOURCE · t0000</div><div class="engine" id="engine">Loading 3D</div><div class="tip">Drag to orbit · wheel to zoom · trails reconstructed from event records</div></div>
+<div class="pills"><span class="pill">Purple · Jane</span><span class="pill">Orange · Toph</span><span class="pill">Teal · Ada</span><span class="pill">White · source</span></div></section>
+<section class="panel"><h2>Repair memory · archive integrity</h2><div class="pills"><span id="status" class="pill">New session</span><span id="storage" class="pill">Checking storage</span></div>
+<p class="muted">Each tick appends exactly one canonical source observation, three linked interpretations, and one selected contact decision. The full event chain is saved locally; the viewport renders the last 80 ticks.</p>
+<p class="muted">The checkpoint is compared against a full replay. A mismatch rejects restoration. Stored fingerprints detect accidental corruption; they are not signatures or proof of authenticity.</p>
+<label for="import"><b>Restore exported evidence</b></label><input id="import" type="file" accept=".json,application/json">
+<div class="actions"><button id="tamper">Test checkpoint rejection</button></div>
+<p id="detail" class="muted">The authority is reconstructed event history, not a saved rendering.</p>
+</section>
+<section class="panel wide"><h2>Jane · Toph · Ada · reconstructed contact memory</h2><div id="cards" class="cards"></div></section>
+<section class="panel wide"><h2>Live event ledger</h2><div id="stats" class="stats"></div><div style="overflow:auto;margin-top:10px"><table><thead><tr><th>Contact</th><th>Interpretations</th><th>Last reading</th><th>Selection count</th><th>Mean deviation</th><th>Source ancestry</th></tr></thead><tbody id="rows"></tbody></table></div></section>
+<section class="panel wide"><h2>Reconstructible evidence and replay report</h2><pre id="ledger"></pre>
+<p class="muted">No consensus or competing-authority arbitration: selection is deterministic by the smallest observation-relative deviation, then fixed Jane → Toph → Ada tie order. The shared synthetic source is counted once.</p></section>
+</main>
+<script>
+"use strict";
+const $=id=>document.getElementById(id),KEY="quanta.ada193n.memory.v1",NAMES=["Jane","Toph","Ada"],ROOTS=["ADA193N-JANE","ADA193N-TOPH","ADA193N-ADA"],COLORS=[0xb67fff,0xff9b51,0x4fe4da];
+const clamp=(x,a,b)=>Math.max(a,Math.min(b,x)),clone=x=>JSON.parse(JSON.stringify(x)),canon=x=>JSON.stringify(x);
+function hash(s){let h=2166136261;for(let i=0;i<s.length;i++){h^=s.charCodeAt(i);h=Math.imul(h,16777619)}return(h>>>0).toString(16).padStart(8,"0")}
+function genesis(){return {tick:0,seed:193,source:50,contacts:NAMES.map((name,id)=>({name,id,root:ROOTS[id],reading:50,count:0,selected:0,totalDeviation:0})),points:[],decisions:[]}}
+let archive,model,report={},storage="UNSAVED",notice="",visualTime=0;
+function makeArchive(){let state=genesis();return {schema:"ADA-193N.v1",mark:".dlw",geometry:"{24/[2]/[4]/(3)/(3)/(1)/(1)}",origin:"ADA193N-single-synthetic-root",events:[],checkpoint:{count:0,tip:"genesis",state}}}
+function record(events,type,tick,fields){const previous=events.at(-1)?.fingerprint||"genesis",body={sequence:events.length+1,previous,tick,type,...fields};const event={...body,fingerprint:hash(canon(body))};events.push(event);return event}
+function nextNoise(seed){let s=(Math.imul(seed,1664525)+1013904223)>>>0;return [s,s/4294967296]}
+function sourceValue(t,noise){return clamp(50+19*Math.sin(t*.12)+6*Math.cos(t*.037)+(noise-.5)*8,0,100)}
+function interpret(value,prior,id){const delta=value-prior;return clamp(value+(id-1)*.27*delta+(id===1?1.7:0),0,100)}
+function point(t,id,value){const angle=t*.15+id*Math.PI*2/3,r=2.1+(value-50)*.009;return {x:r*Math.cos(angle),y:(value-50)*.023,z:r*Math.sin(angle),tick:t,id,value}}
+function applyTick(s,events){const t=s.tick+1,[seed,noise]=nextNoise(s.seed),value=sourceValue(t,noise),sourceId="ADA193N-OBS-"+t;
+record(events,"observation",t,{source_id:sourceId,source_root:"ADA193N-single-synthetic-root",value,seed_after:seed});
+const next=clone(s);next.tick=t;next.seed=seed;next.source=value;
+let deviations=[];
+for(let id=0;id<3;id++){const c=next.contacts[id],reading=interpret(value,s.source,id),deviation=Math.abs(reading-value);
+record(events,"interpretation",t,{source_id:sourceId,contact:c.name,contact_root:c.root,reading,deviation});
+c.reading=reading;c.count++;c.totalDeviation+=deviation;deviations.push(deviation);next.points.push(point(t,id,reading))}
+let winner=0;for(let id=1;id<3;id++)if(deviations[id]<deviations[winner]-1e-12)winner=id;
+next.contacts[winner].selected++;const decision={tick:t,source_id:sourceId,selected:NAMES[winner],deviation:deviations[winner]};
+record(events,"decision",t,decision);next.decisions.push(decision);
+return next}
+function verify(input){if(!input||input.schema!=="ADA-193N.v1"||input.mark!==".dlw"||!Array.isArray(input.events)||input.events.length>50000)throw Error("Unsupported schema or event limit");
+let state=genesis(),prev="genesis",pos=0,events=input.events;
+if(events.length%5!==0)throw Error("Incomplete tick: expected 5 events per observation");
+for(let i=0;i<events.length;i++){const e=events[i];if(!e||e.sequence!==i+1||e.previous!==prev)throw Error("Broken event chain at record "+(i+1));
+const body={...e};delete body.fingerprint;if(e.fingerprint!==hash(canon(body)))throw Error("Fingerprint mismatch at record "+(i+1));prev=e.fingerprint}
+for(let i=0;i<events.length;i+=5){let segment=events.slice(i,i+5),rebuilt=[],next=applyTick(state,rebuilt);
+let fields=["tick","type","source_id","contact","reading","deviation","value","seed_after","selected","contact_root","source_root"];
+for(let j=0;j<5;j++){const got=segment[j],expected=rebuilt[j];if(got.type!==expected.type||got.tick!==expected.tick)throw Error("Unexpected event order at tick "+next.tick);
+for(const f of fields)if((got[f]??null)!==(expected[f]??null))throw Error("Evidence mismatch: "+f+" tick "+next.tick)}
+state=next;pos++}
+const checkpoint=input.checkpoint;
+if(!checkpoint||checkpoint.count!==events.length||checkpoint.tip!==prev||canon(checkpoint.state)!==canon(state))throw Error("Checkpoint differs from replay");
+return {state,tip:prev,ticks:pos,events:events.length,verified:true}}
+function persist(){try{localStorage.setItem(KEY,JSON.stringify(archive));storage="LOCAL SAVED"}catch(e){storage="STORAGE BLOCKED";notice="Local storage unavailable: "+e.message}}
+function updateCheckpoint(){archive.checkpoint={count:archive.events.length,tip:archive.events.at(-1)?.fingerprint||"genesis",state:clone(model)}}
+function step(){model=applyTick(model,archive.events);updateCheckpoint();persist();notice="Tick "+model.tick+" appended: 1 source, 3 interpretations, 1 decision";render();updateScene()}
+function load(data,persistIt){const result=verify(data);archive=data;model=result.state;report=result;notice="Replay passed: "+result.ticks+" reconstructed ticks";if(persistIt)persist();render();updateScene()}
+function reset(){archive=makeArchive();model=genesis();report={};notice="New evidence archive created";persist();render();updateScene()}
+function render(){$("hud").textContent="SOURCE · t"+String(model.tick).padStart(4,"0")+" · "+model.source.toFixed(2);
+$("status").textContent=report.verified?"REPLAY PASS":"LIVE APPEND";$("status").className="pill "+(report.verified?"ok":"");
+$("storage").textContent=storage;$("storage").className="pill "+(storage==="LOCAL SAVED"?"ok":"warn");
+$("detail").textContent=notice;
+$("cards").innerHTML=model.contacts.map(c=>'<div class="card"><b>'+c.name+'</b><div class="big">'+c.reading.toFixed(1)+'</div><small>Reconstructed latest interpretation</small><p>Selected '+c.selected+' times · source '+model.tick+'</p></div>').join("");
+$("rows").innerHTML=model.contacts.map(c=>'<tr><td>'+c.name+'</td><td>'+c.count+'</td><td>'+c.reading.toFixed(2)+'</td><td>'+c.selected+'</td><td>'+(c.count?c.totalDeviation/c.count:0).toFixed(3)+'</td><td>'+c.root+'</td></tr>').join("");
+$("stats").innerHTML=[["Source events",model.tick],["Interpretations",model.contacts.reduce((x,c)=>x+c.count,0)],["Decision events",model.decisions.length],["Archive records",archive.events.length]].map(([name,value])=>'<div class="stat"><small>'+name+'</small><b>'+value+'</b></div>').join("");
+$("ledger").textContent=JSON.stringify({tip:archive.checkpoint.tip,checkpointAt:archive.checkpoint.count,replay:report,recent:archive.events.slice(-11)},null,2)}
+$("step").onclick=step;$("run").onclick=()=>{for(let i=0;i<100;i++){model=applyTick(model,archive.events)}updateCheckpoint();persist();notice="100 new ticks appended";render();updateScene()};
+$("replay").onclick=()=>{try{load(archive,false)}catch(e){report={verified:false,error:e.message};notice="REPLAY REJECTED: "+e.message;render()}};
+$("reload").onclick=()=>{try{const s=localStorage.getItem(KEY);if(!s)throw Error("No locally saved archive");load(JSON.parse(s),false)}catch(e){notice="RESTORE REJECTED: "+e.message;render()}};
+$("reset").onclick=reset;
+$("tamper").onclick=()=>{const altered=clone(archive);altered.checkpoint.state.source=altered.checkpoint.state.source+1;try{verify(altered);notice="ERROR: corrupted checkpoint accepted"}catch(e){notice="PASS: modified checkpoint rejected · "+e.message}render()};
+$("import").onchange=async()=>{const f=$("import").files?.[0];if(!f)return;try{if(f.size>4500000)throw Error("File exceeds 4.5 MB");load(JSON.parse(await f.text()),true)}catch(e){notice="IMPORT REJECTED: "+e.message;render()}};
+$("export").onclick=()=>{const u=URL.createObjectURL(new Blob([JSON.stringify({...archive,verification:verify(archive),note:"Event chain and checkpoint are not cryptographically signed"},null,2)],{type:"application/json"})),a=document.createElement("a");a.href=u;a.download="ADA-193N-3D-memory-evidence.json";a.click();setTimeout(()=>URL.revokeObjectURL(u),650)};
+// Visual adapter: 3D WebGL when legacy Three.js global is available; Canvas2D projection otherwise.
+const stage=$("stage"),labels=[],orbit={azimuth:.45,elevation:.36,zoom:8,drag:false,lastX:0,lastY:0};let THREE=null,scene,camera,renderer,torus,source,orbs=[],lines=[],webgl=false,canvas=null,ctx=null;
+for(let i=0;i<3;i++){let e=document.createElement("div");e.className="node-label";e.style.color=["#c190ff","#ffad69","#5af1e5"][i];e.textContent=NAMES[i].toUpperCase();stage.appendChild(e);labels.push(e)}
+function boot(){let s=document.createElement("script");s.src="https://cdn.jsdelivr.net/npm/three@0.149.0/build/three.min.js";s.onload=()=>{if(window.THREE)setup(window.THREE);else fallback()};s.onerror=fallback;document.head.appendChild(s)}
+function setup(lib){try{THREE=lib;scene=new THREE.Scene();camera=new THREE.PerspectiveCamera(46,1,.1,100);renderer=new THREE.WebGLRenderer({alpha:true,antialias:true});renderer.setPixelRatio(Math.min(2,window.devicePixelRatio||1));stage.querySelector("canvas")?.remove();stage.prepend(renderer.domElement);scene.add(new THREE.AmbientLight(0xc6afff,1.15));let light=new THREE.PointLight(0xff9a59,20,18);light.position.set(4,5,4);scene.add(light);
+torus=new THREE.Mesh(new THREE.TorusGeometry(2.13,.36,18,108),new THREE.MeshStandardMaterial({color:0x9c48ed,metalness:.6,roughness:.28,emissive:0x59238f,emissiveIntensity:.75,transparent:true,opacity:.74}));torus.rotation.x=.56;scene.add(torus);
+source=new THREE.Mesh(new THREE.IcosahedronGeometry(.48,2),new THREE.MeshStandardMaterial({color:0xeefff9,emissive:0x54e1d8,emissiveIntensity:1.5}));scene.add(source);
+for(let i=0;i<3;i++){const color=[0xb67fff,0xff9b51,0x4fe4da][i],orb=new THREE.Mesh(new THREE.SphereGeometry(.25,20,16),new THREE.MeshStandardMaterial({color,emissive:color,emissiveIntensity:1.1}));orbs.push(orb);scene.add(orb);
+let l=new THREE.Line(new THREE.BufferGeometry(),new THREE.LineBasicMaterial({color,transparent:true,opacity:.86}));scene.add(l);lines.push(l)}
+webgl=true;$("engine").textContent="WEBGL · 3D MEMORY";resize();frame()}catch(e){console.warn(e);fallback()}}
+function fallback(){if(webgl)return;stage.querySelector("canvas")?.remove();canvas=document.createElement("canvas");stage.prepend(canvas);ctx=canvas.getContext("2d");$("engine").textContent="2D PROJECTED FALLBACK";resize();frame()}
+function resize(){let w=stage.clientWidth,h=stage.clientHeight;if(webgl){renderer.setSize(w,h);camera.aspect=w/h;camera.updateProjectionMatrix()}else if(canvas&&ctx){let r=Math.min(devicePixelRatio||1,2);canvas.width=w*r;canvas.height=h*r;canvas.style.width=w+"px";canvas.style.height=h+"px";ctx.setTransform(r,0,0,r,0,0)}}
+window.addEventListener("resize",resize);
+stage.addEventListener("pointerdown",e=>{orbit.drag=true;orbit.lastX=e.clientX;orbit.lastY=e.clientY;stage.setPointerCapture(e.pointerId)});
+stage.addEventListener("pointermove",e=>{if(!orbit.drag)return;orbit.azimuth+=(e.clientX-orbit.lastX)*.008;orbit.elevation=clamp(orbit.elevation+(e.clientY-orbit.lastY)*.008,-1.4,1.4);orbit.lastX=e.clientX;orbit.lastY=e.clientY});
+stage.addEventListener("pointerup",()=>{orbit.drag=false});
+stage.addEventListener("wheel",e=>{e.preventDefault();orbit.zoom=clamp(orbit.zoom+e.deltaY*.008,5.3,15)},{passive:false});
+function projection(p){let a=orbit.azimuth,b=orbit.elevation,x=p.x*Math.cos(a)-p.z*Math.sin(a),z=p.x*Math.sin(a)+p.z*Math.cos(a),y=p.y*Math.cos(b)-z*Math.sin(b);z=p.y*Math.sin(b)+z*Math.cos(b);let f=stage.clientHeight/(orbit.zoom+z)*.8;return {x:stage.clientWidth/2+x*f,y:stage.clientHeight/2-y*f}}
+function trails(){let recent=model.points.slice(-240),paths=[[],[],[]];for(const p of recent)paths[p.id].push(p);return paths}
+function updateScene(){if(!webgl)return;let paths=trails();for(let i=0;i<3;i++){let points=paths[i].map(p=>new THREE.Vector3(p.x,p.y,p.z));lines[i].geometry.dispose();lines[i].geometry=new THREE.BufferGeometry().setFromPoints(points);let last=paths[i].at(-1)||{x:2*Math.cos(i*2.09),y:0,z:2*Math.sin(i*2.09)};orbs[i].position.set(last.x,last.y,last.z)}source.scale.setScalar(.84+model.source/200)}
+function frame(){visualTime++;if(webgl){torus.rotation.z+=.003;source.rotation.x+=.006;source.rotation.y+=.009;camera.position.set(orbit.zoom*Math.sin(orbit.azimuth)*Math.cos(orbit.elevation),orbit.zoom*Math.sin(orbit.elevation),orbit.zoom*Math.cos(orbit.azimuth)*Math.cos(orbit.elevation));camera.lookAt(0,0,0);renderer.render(scene,camera);
+for(let i=0;i<3;i++){let v=orbs[i].position.clone().project(camera);labels[i].style.left=(v.x*.5+.5)*stage.clientWidth+"px";labels[i].style.top=((-v.y*.5+.5)*stage.clientHeight-26)+"px";labels[i].style.display=v.z<1?"block":"none"}}
+else if(ctx){let w=stage.clientWidth,h=stage.clientHeight;ctx.clearRect(0,0,w,h);for(let i=0;i<125;i++){let a=i/125*Math.PI*2,p=projection({x:2.1*Math.cos(a),y:Math.sin(a*2)*.11,z:2.1*Math.sin(a)});ctx.fillStyle=i%2?"#9357e8aa":"#ff8e499a";ctx.beginPath();ctx.arc(p.x,p.y,2,0,Math.PI*2);ctx.fill()}
+let origin=projection({x:0,y:0,z:0});ctx.shadowBlur=18;ctx.shadowColor="#48eadf";ctx.fillStyle="#f1fffb";ctx.beginPath();ctx.arc(origin.x,origin.y,15+model.source/30,0,Math.PI*2);ctx.fill();ctx.shadowBlur=0;
+let paths=trails();for(let i=0;i<3;i++){let color=["#c18aff","#ffa05a","#4ce8db"][i];ctx.strokeStyle=color;ctx.lineWidth=2;ctx.beginPath();paths[i].forEach((p,j)=>{let q=projection(p);if(j)ctx.lineTo(q.x,q.y);else ctx.moveTo(q.x,q.y)});ctx.stroke();
+let last=paths[i].at(-1)||{x:2*Math.cos(i*2.09),y:0,z:2*Math.sin(i*2.09)},q=projection(last);ctx.fillStyle=color;ctx.beginPath();ctx.arc(q.x,q.y,11,0,Math.PI*2);ctx.fill();labels[i].style.left=q.x+"px";labels[i].style.top=q.y-23+"px"}}
+requestAnimationFrame(frame)}
+try{const saved=localStorage.getItem(KEY);if(saved)load(JSON.parse(saved),false);else reset()}catch(e){archive=makeArchive();model=genesis();storage="RESTORE BLOCKED";notice="Invalid or inaccessible local archive: "+e.message;render()}
+boot();
+</script></body></html>

@@ -1,0 +1,16 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width"><title>RQT-568 — Discriminant Support Theorem</title><style>body{background:#101626;color:#f1e8de;font:18px/1.6 system-ui;max-width:970px;margin:40px auto;padding:25px}h1{color:#ffc180}pre{white-space:pre-wrap;overflow-wrap:anywhere}</style><h1>RQT-568 — Discriminant Support Theorem</h1><p>All discriminant primes p≥5: local norm PASS without factorization · 259-bit cofactor irrelevant for this gate · global norm and root19 OPEN</p><pre># RQT-568 — Discriminant Support Theorem
+
+**Verified exact factor-free local norm theorem using canonical RQT-550 integer/rational coefficients**, source SHA256 `3af3b6e48f8006e529e6136ec74dc5e3f8f5e07c1e44e515d58ef1902778d5d0`.
+
+Let `F=Q(K)`, `K²−AK−(B+2)=0`; `L=F(sqrt(K²−4))`. Set `C=a+bK`, `Norm_F/Q(C)=N/D` reduced, `Delta=A²+4(B+2)`, `R=|Norm_F/Q(K²−4)|`, and coefficient common denominator `m=lcm(den(a),den(b))`.
+
+**Exact checks:** gcd(N,Delta)=1, gcd(D,Delta)=9, gcd(R,Delta)=9, and **gcd(m,Delta)=9**. All six pairwise RQT-557 support gcds reproduced from original coefficients.
+
+**Theorem:** For **every p≥5 dividing Delta** and every place v of F over p, the target C⁻¹ is a norm from L_v/F_v. Proof: m is p-adic unit, K integral, hence C integral at v. Its rational field norm N/D has p-valuation zero, so all local valuations of C, which are nonnegative, must be zero. Thus C is a unit at every v|p. Likewise delta=K²−4 is integral, and R has p-valuation zero; delta is a unit at every v|p. At odd residue characteristic, adjoining sqrt(delta) produces either split quadratic algebra or unramified quadratic extension. Both norm maps are surjective on local units, so C⁻¹ is a local norm at every v|p. The proof needs **no factorization of the remaining 259-bit discriminant cofactor**.
+
+**Crucial limits:** The previous p=2 and p=3 gates are separate. Primes outside discriminant support that divide N,D, or R may still cause local obstructions; especially the composite unfactored 942-bit N. The full global norm equation, rational Wall isometry, integral GL4 bridge, root19 and 21-word are all OPEN. No new root19 exclusions; historical selected 720-corridor ledger remains 647 conditional exclusions / 73 unresolved.
+
+**Next RQT-569:** generalize factor-free unit-norm gating to radicand support away from target valuations, and concentrate factor search on the numerator/denominator where odd valuation at inert places could obstruct.
+
+A full reproducible Python script, JSON certificate, novel holographic neon WAKAKU JPEG and self-contained HTML embedding the JPEG accompany the conversation. This GitHub HTML is text-only; Pages deployment and binary image repository publication are not verified.
+</pre></html>

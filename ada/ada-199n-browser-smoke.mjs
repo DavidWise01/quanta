@@ -47,10 +47,13 @@ assert("no uncaught errors during replay",errors.length===0,errors.join("; "));
 if(version!=="191N"){
 const stage=page.locator("#stage");
 assert("visual stage exists",await stage.count()===1);
-await page.waitForTimeout(1100);
+await page.waitForFunction(() => {const s=document.querySelector("#stage");const mode=document.querySelector("#renderMode,#engine,#render,#mode")?.textContent||"";return !!s?.querySelector("canvas")&&/WEBGL|CANVAS\\s*2D|CANVAS2D|2D\\s*PROJECTED/i.test(mode)},null,{timeout:16000});
 assert("rendered canvas exists",await stage.locator("canvas").count()>0);
 const size=await stage.locator("canvas").first().evaluate(el=>({width:el.width,height:el.height}));
 assert("renderer has nonzero pixel dimensions",size.width>100&&size.height>100,JSON.stringify(size));
+const renderState=await stage.locator("canvas").first().evaluate(el=>{const gl=el.getContext("webgl2")||el.getContext("webgl")||el.getContext("experimental-webgl");return {hasLiveGL:!!gl&&!gl.isContextLost?.(),pixelArea:el.width*el.height}});
+item.renderState=renderState;
+assert("canvas has usable drawing surface",renderState.pixelArea>10000,JSON.stringify(renderState));
 const mode=await page.evaluate(()=>document.querySelector("#renderMode,#engine,#render,#mode")?.textContent||"");
 item.renderMode=mode;
 if(forceCanvas)assert("forced Canvas2D fallback activated",/CANVAS\s*2D|CANVAS2D|2D\s*PROJECTED/i.test(mode),mode);

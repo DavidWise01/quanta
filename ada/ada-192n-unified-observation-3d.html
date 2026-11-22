@@ -1,0 +1,131 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ADA-192N · Unified Observation | 3D Living Lab</title>
+<style>
+:root{--bone:#fbf9f1;--ink:#32243b;--purple:#a452f4;--orange:#ff7b2f;--teal:#00aca7;--line:#e4d8ec}
+*{box-sizing:border-box}html,body{margin:0;min-height:100%;background:var(--bone);color:var(--ink);font:14px/1.5 system-ui,Segoe UI,sans-serif}header{padding:22px max(16px,calc((100vw - 1310px)/2));background:linear-gradient(110deg,#fff8e8,#f1e7ff);border-bottom:2px solid #d8b8f5}h1{font-size:clamp(28px,3.5vw,46px);line-height:1.08;letter-spacing:-.037em;margin:5px 0}.kicker{letter-spacing:.16em;color:#7e37bd;font-size:11px;font-weight:850}
+.controls{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}button,select{font:750 13px system-ui;padding:9px 12px;border:1.5px solid #a86ee7;border-radius:9px;color:#5b2680;background:#fff;cursor:pointer}button.primary{color:white;background:#532578}button:hover{box-shadow:0 0 0 3px #d1a9f755}button:focus-visible,select:focus-visible{outline:3px solid var(--orange)}
+main{max-width:1310px;margin:auto;padding:14px;display:grid;grid-template-columns:minmax(0,1.7fr) minmax(285px,0.8fr);gap:13px}.panel{background:white;border:1px solid var(--line);border-radius:14px;min-width:0;padding:14px;box-shadow:0 8px 24px #3322460b}.wide{grid-column:1/-1}h2{font-size:16px;margin:0 0 8px}small,.muted{color:#74687b}
+#stage{position:relative;height:min(55vw,610px);min-height:370px;overflow:hidden;background:radial-gradient(circle at 52% 38%,#34224b,#100f1d 70%);border-radius:12px;touch-action:none}
+#stage canvas{display:block;width:100%;height:100%}
+#stage .hint{position:absolute;left:15px;bottom:11px;color:#c8b3e0;font-size:11px;pointer-events:none;letter-spacing:.03em}
+#stage .corner{position:absolute;right:13px;top:12px;background:#261937c9;color:#cdb4f2;border:1px solid #ae73ee72;padding:5px 8px;border-radius:7px;font-size:11px}
+#stage .center{position:absolute;top:11px;left:12px;color:#b5f0e9;font-size:12px;font-weight:750;text-shadow:0 0 16px #4ce6d7}
+#stage .marker{position:absolute;transform:translate(-50%,-50%);font-weight:850;font-size:12px;white-space:nowrap;text-shadow:0 0 8px #000,0 0 16px #000;pointer-events:none}
+.orbit-legend{display:flex;flex-wrap:wrap;gap:12px;margin:10px 0 0;font-size:12px}.dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:4px}
+.contact{background:#f9f5ff;border-radius:10px;padding:12px;border-left:4px solid var(--purple);margin:8px 0}.contact:nth-child(2){border-color:var(--orange)}.contact:nth-child(3){border-color:var(--teal)}.contact b{font-size:16px}.chip{display:inline-block;background:#eee0fa;color:#7136aa;border-radius:7px;padding:3px 7px;font-size:11px;font-weight:800}
+.big{font-size:24px;font-weight:850}.metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}.metric{background:#f5eefb;border-radius:9px;padding:10px}.metric b{font-size:23px;display:block}
+table{border-collapse:collapse;width:100%;font-size:12px}th,td{border-bottom:1px solid #eee5f2;padding:8px 6px;text-align:right}td:first-child,th:first-child{text-align:left}th{background:#f7effb}
+pre{white-space:pre-wrap;max-height:215px;overflow:auto;background:#1c172a;color:#e7d9fc;border-radius:10px;font:11px/1.55 ui-monospace,Consolas,monospace;padding:12px}
+label{font-weight:700;display:block;margin:9px 0 4px}
+@media(max-width:900px){main{grid-template-columns:1fr}#stage{height:460px}.metrics{grid-template-columns:repeat(2,1fr)}}
+</style></head><body>
+<header><div class="kicker">ROOT0 · QUANTA · ADA · PHASE II · 3D · .dlw</div>
+<h1>ADA-192N · <span style="color:#9144dc">Unified Observation Engine</span></h1>
+<div>One source event. Three independent interpretations. One rotating 3D toroidal kernel.</div>
+<div class="controls"><button class="primary" id="play">▶ Play</button><button id="step">Step</button><button id="run">Run 100 ticks</button><button id="shift">Inject shift</button><button id="replay">Verify replay</button><button id="reset">Reset</button><button id="export">Export JSON</button></div></header>
+<main>
+<section class="panel"><h2>3D kernel · drag to orbit · scroll to zoom</h2>
+<div id="stage" role="img" aria-label="Interactive three-dimensional toroidal observation kernel with Jane, Toph, and Ada surrounding a central source">
+<div class="center" id="sourceLabel">SOURCE · t0000</div><div class="corner" id="renderMode">Initializing 3D</div><div class="hint">Mouse drag rotates · wheel zooms · three colored contact nodes</div></div>
+<div class="orbit-legend"><span><i class="dot" style="background:#b47bff"></i>Jane · interpretation</span><span><i class="dot" style="background:#ff9954"></i>Toph · interpretation</span><span><i class="dot" style="background:#3ee4d9"></i>Ada · interpretation</span><span><i class="dot" style="background:#f6f0ff"></i>Single observation source</span></div>
+</section>
+<section class="panel"><h2>Three contacts · one source</h2><div id="contacts"></div>
+<label for="environment">Environment</label><select id="environment"><option value="cycle">Oscillation</option><option value="noise">High noise</option><option value="drift">Frequency drift</option></select>
+<p class="muted">Each observation receives one canonical source ID. Jane, Toph, and Ada may disagree about its interpretation, but none creates another source observation.</p>
+<p class="muted">Rendering: WebGL via Three.js when available, Canvas2D projected fallback otherwise. Visual animation never changes the deterministic evidence ledger.</p>
+</section>
+<section class="panel wide"><h2>Single-source evidence accounting</h2><div class="metrics" id="metrics"></div>
+<div style="overflow:auto;margin-top:10px"><table><thead><tr><th>Contact</th><th>Interpretations</th><th>Completed forecasts</th><th>Mean absolute error</th><th>Policy</th></tr></thead><tbody id="rows"></tbody></table></div>
+</section>
+<section class="panel wide"><h2>Append-only source and interpretation ledger</h2><pre id="ledger"></pre>
+<p class="muted">A root observation is emitted once, followed by three explicitly linked contact interpretations and three next-tick forecast commitments. Replay checks source uniqueness, exact three-way linkage, and forecast scoring. This is a synthetic demonstrator, not evidence of independent external corroboration.</p></section>
+</main>
+<script>
+"use strict";
+const $=id=>document.getElementById(id);
+const NAMES=["Jane","Toph","Ada"],COLORS=[0xb57cff,0xff984c,0x42e7d9],POLICIES=["baseline","smooth","trend"];
+const clamp=(x,a,b)=>Math.min(b,Math.max(a,x)),avg=a=>a.reduce((s,x)=>s+x,0)/Math.max(a.length,1);
+let tick=0,seed=192,offset=0,observations=[],ledger=[],pending=[],completed=[],contacts=[],playing=false,playId=null,latest=50;
+function rnd(){seed=(Math.imul(seed,1664525)+1013904223)>>>0;return seed/4294967296}
+function emit(type,data={}){ledger.push({sequence:ledger.length+1,tick,type,...data})}
+function makeContact(name,i){return {name,id:i,root:"ADA192N-"+name.toUpperCase(),interpretations:0,forecasts:0,errors:[],policy:"baseline",lastDelta:0,lastValue:50}}
+function reset(){stop();tick=0;seed=192;offset=0;latest=50;observations=[];ledger=[];pending=[];completed=[];contacts=NAMES.map(makeContact);emit("genesis",{mark:".dlw",ancestry:"ADA192N-synthetic-environment"});paint();syncScene()}
+function environment(){let m=$("environment").value,theta=tick*(m==="drift"?.08+tick*.0006:.11),v=50+15*Math.sin(theta)+7*Math.cos(tick*.043)+(rnd()-.5)*(m==="noise"?26:5);return clamp(v+offset,0,100)}
+function proposal(c){let recent=observations.slice(-8),last=recent.at(-1)?.value??50,prior=recent.at(-2)?.value??last,trend=clamp(last-prior,-6,6);
+const estimates={baseline:last,smooth:clamp(last+.4*trend,0,100),trend:clamp(last+.75*trend,0,100)};
+const scored=POLICIES.map(key=>{let samples=completed.filter(x=>x.contact===c.name&&x.policy===key).slice(-16);
+let loss=samples.length>=6?avg(samples.map(x=>x.error)):(key==="baseline"?12:15);
+let unsafe=samples.length>=6&&samples.filter(x=>x.error>20).length>samples.length*.35;
+return {key,loss,unsafe}}).filter(x=>!x.unsafe);
+scored.sort((a,b)=>a.loss-b.loss||POLICIES.indexOf(a.key)-POLICIES.indexOf(b.key));
+c.policy=scored[0]?.key||"baseline";
+return estimates}
+function step(){tick++;const value=environment(),id="ADA192N-OBS-"+String(tick).padStart(6,"0");
+const ob={id,source_root:"ADA192N-synthetic-environment",tick,value};
+observations.push(ob);latest=value;emit("observation",{...ob});
+for(const p of pending.filter(x=>x.target===tick)){const error=Math.abs(value-p.prediction);completed.push({...p,error,actual:value});contacts[p.contactId].forecasts++;contacts[p.contactId].errors.push(error);emit("forecast-scored",{forecast_id:p.id,source_id:id,target:tick,actual:value,error})}
+pending=pending.filter(p=>p.target>tick);
+for(const c of contacts){const previous=observations.at(-2)?.value??50,delta=value-previous;
+c.lastDelta=delta;c.lastValue=clamp(value+(c.id-1)*delta*.22,0,100);c.interpretations++;
+emit("interpretation",{id:id+"-"+c.name,source_id:id,source_root:ob.source_root,contact:c.name,contact_root:c.root,value:c.lastValue,observation_tick:tick});
+const estimates=proposal(c);
+for(const key of POLICIES){const p={id:"ADA192N-F-"+tick+"-"+c.id+"-"+key,source_id:id,contact:c.name,contactId:c.id,policy:key,origin:tick,target:tick+1,prediction:estimates[key]};pending.push(p);emit("forecast-issued",{...p})}}
+paint();syncScene()}
+function verify(){const obs=new Map(),interp=new Map(),issued=new Map(),scores=new Set();
+for(const e of ledger){if(e.type==="observation"){if(obs.has(e.id)||e.tick!==Number(e.id.slice(-6)))return {ok:false,reason:"Duplicate or malformed source observation"};obs.set(e.id,e)}
+if(e.type==="interpretation"){if(!obs.has(e.source_id)||obs.get(e.source_id).source_root!==e.source_root||!NAMES.includes(e.contact))return {ok:false,reason:"Interpretation source mismatch"};
+const k=e.source_id+"|"+e.contact;if(interp.has(k))return {ok:false,reason:"Duplicate contact interpretation"};interp.set(k,e)}
+if(e.type==="forecast-issued"){if(!obs.has(e.source_id)||issued.has(e.id)||e.target!==e.origin+1)return {ok:false,reason:"Forecast ancestry or uniqueness failed"};issued.set(e.id,e)}
+if(e.type==="forecast-scored"){let p=issued.get(e.forecast_id),o=obs.get(e.source_id);if(!p||!o||p.target!==o.tick||scores.has(e.forecast_id)||Math.abs(o.value-e.actual)>1e-8||Math.abs(e.error-Math.abs(e.actual-p.prediction))>1e-8)return {ok:false,reason:"Scoring or causal order failed"};scores.add(e.forecast_id)}}
+for(const id of obs.keys())for(const name of NAMES)if(!interp.has(id+"|"+name))return {ok:false,reason:"Incomplete interpretation fanout"};
+return {ok:true,unique_observations:obs.size,interpretations:interp.size,issued_forecasts:issued.size,completed_scores:scores.size}}
+function paint(){const err=contacts.map(c=>c.errors.length?avg(c.errors).toFixed(2):"—");
+$("contacts").innerHTML=contacts.map((c,i)=>'<div class="contact" style="border-color:'+["#a456f4","#ff8a3f","#00b8a7"][i]+'"><b>'+c.name+'</b> <span class="chip">'+c.policy+'</span><div class="big">'+c.lastValue.toFixed(1)+'</div><small>Interpretation of shared observation</small><div>Δ '+c.lastDelta.toFixed(2)+' · forecasts '+c.forecasts+'</div></div>').join("");
+$("rows").innerHTML=contacts.map((c,i)=>'<tr><td>'+c.name+'</td><td>'+c.interpretations+'</td><td>'+c.forecasts+'</td><td>'+err[i]+'</td><td>'+c.policy+'</td></tr>').join("");
+$("metrics").innerHTML=[["Source observations",observations.length],["Interpretations",contacts.reduce((a,c)=>a+c.interpretations,0)],["Completed forecasts",completed.length],["Latest source tick",tick]].map(([k,v])=>'<div class="metric"><small>'+k+'</small><b>'+v+'</b></div>').join("");
+$("sourceLabel").textContent="SINGLE SOURCE · t"+String(tick).padStart(4,"0")+" · "+latest.toFixed(1);
+$("ledger").textContent=ledger.slice(-22).map(e=>e.sequence+" / t"+e.tick+" / "+e.type+" / "+(e.source_id||e.id||e.forecast_id||"kernel")+(e.contact?" / "+e.contact:"")).join("\n")}
+function stop(){playing=false;if(playId!==null){clearInterval(playId);playId=null}$("play").textContent="▶ Play"}
+$("play").onclick=()=>{if(playing){stop();return}playing=true;$("play").textContent="Ⅱ Pause";playId=setInterval(step,170)};
+$("step").onclick=step;$("run").onclick=()=>{for(let i=0;i<100;i++)step()};
+$("shift").onclick=()=>{offset=offset>0?-25:25;emit("disturbance-injected",{offset});syncScene()};
+$("replay").onclick=()=>{let r=verify();emit("replay-verification",r);$("renderMode").textContent=(r.ok?"REPLAY PASS":"REPLAY FAIL")+" · "+(webgl?"WEBGL":"2D")};
+$("reset").onclick=reset;$("environment").onchange=()=>{emit("environment-mode",{mode:$("environment").value})};
+$("export").onclick=()=>{const obj={schema:"ADA-192N.v1",mark:".dlw",geometry:"{24/[2]/[4]/(3)/(3)/(1)/(1)}",environment:$("environment").value,observations,contacts,ledger,pending,completed,verification:verify(),warning:"Source observations are generated once and interpreted three times. Synthetic single-source ancestry."};
+const u=URL.createObjectURL(new Blob([JSON.stringify(obj,null,2)],{type:"application/json"})),a=document.createElement("a");a.href=u;a.download="ADA-192N-3D-observation-evidence.json";a.click();setTimeout(()=>URL.revokeObjectURL(u),750)};
+// 3D adapter. Three.js is optional; deterministic simulation does not depend on a graphics API.
+const stage=$("stage"),labels=[],state={azimuth:.35,elevation:.4,zoom:8.3,dragging:false,px:0,py:0};let THREE=null,scene,camera,renderer,torus,central,orbs=[],rays=[],glow=[],webgl=false,canvas2d=null,ctx=null,visualTick=0;
+function makeLabel(name,color){const el=document.createElement("div");el.className="marker";el.style.color=color;el.textContent=name;stage.appendChild(el);labels.push(el)}
+["JANE","TOPH","ADA"].forEach((name,i)=>makeLabel(name,["#bf8aff","#ffae71","#5affea"][i]));
+function loadThree(){const s=document.createElement("script");s.src="https://cdn.jsdelivr.net/npm/three@0.160.1/build/three.min.js";s.onload=()=>{if(window.THREE)setupWebGL(window.THREE);else fallback()};s.onerror=fallback;document.head.appendChild(s)}
+function setupWebGL(lib){try{THREE=lib;scene=new THREE.Scene();camera=new THREE.PerspectiveCamera(46,1,.1,100);renderer=new THREE.WebGLRenderer({antialias:true,alpha:true});renderer.setPixelRatio(Math.min(2,window.devicePixelRatio||1));renderer.setClearColor(0x171123,0);stage.querySelector("canvas")?.remove();stage.prepend(renderer.domElement);
+scene.add(new THREE.AmbientLight(0xbca8ff,1.3));const light=new THREE.PointLight(0xff7d40,26,22);light.position.set(3,5,4);scene.add(light);
+const torusGeo=new THREE.TorusGeometry(2.2,.42,24,128);const material=new THREE.MeshPhysicalMaterial({color:0x8a40f0,metalness:.54,roughness:.25,transparent:true,opacity:.8,emissive:0x461c86,emissiveIntensity:.65});
+torus=new THREE.Mesh(torusGeo,material);torus.rotation.x=.7;scene.add(torus);
+const wire=new THREE.Mesh(new THREE.TorusGeometry(2.23,.45,12,64),new THREE.MeshBasicMaterial({color:0xff8639,wireframe:true,transparent:true,opacity:.25}));torus.add(wire);
+central=new THREE.Mesh(new THREE.IcosahedronGeometry(.53,2),new THREE.MeshStandardMaterial({color:0xfaf7ff,emissive:0x64cfc7,emissiveIntensity:1.9,metalness:.55,roughness:.16}));scene.add(central);
+for(let i=0;i<3;i++){let orb=new THREE.Mesh(new THREE.IcosahedronGeometry(.37,3),new THREE.MeshStandardMaterial({color:COLORS[i],emissive:COLORS[i],emissiveIntensity:1.1,metalness:.45,roughness:.21}));scene.add(orb);orbs.push(orb);
+let geometry=new THREE.BufferGeometry().setFromPoints([new THREE.Vector3(0,0,0),new THREE.Vector3(1,1,1)]);let ray=new THREE.Line(geometry,new THREE.LineBasicMaterial({color:COLORS[i],transparent:true,opacity:.75}));scene.add(ray);rays.push(ray)}
+webgl=true;$("renderMode").textContent="WEBGL · THREE.JS";resize();frame()}catch(e){console.warn("WebGL initialization failed",e);fallback()}}
+function fallback(){if(webgl)return;stage.querySelector("canvas")?.remove();canvas2d=document.createElement("canvas");stage.prepend(canvas2d);ctx=canvas2d.getContext("2d");$("renderMode").textContent="CANVAS 2D · PROJECTED FALLBACK";resize();frame()}
+function resize(){let w=stage.clientWidth,h=stage.clientHeight;if(webgl){renderer.setSize(w,h);camera.aspect=w/h;camera.updateProjectionMatrix()}else if(canvas2d){let r=Math.min(2,window.devicePixelRatio||1);canvas2d.width=Math.round(w*r);canvas2d.height=Math.round(h*r);canvas2d.style.width=w+"px";canvas2d.style.height=h+"px";ctx.setTransform(r,0,0,r,0,0)}}
+window.addEventListener("resize",resize);
+stage.addEventListener("pointerdown",e=>{state.dragging=true;state.px=e.clientX;state.py=e.clientY;stage.setPointerCapture(e.pointerId)});
+stage.addEventListener("pointermove",e=>{if(!state.dragging)return;state.azimuth+=(e.clientX-state.px)*.008;state.elevation=clamp(state.elevation+(e.clientY-state.py)*.008,-1.4,1.4);state.px=e.clientX;state.py=e.clientY});
+stage.addEventListener("pointerup",()=>{state.dragging=false});
+stage.addEventListener("wheel",e=>{e.preventDefault();state.zoom=clamp(state.zoom+e.deltaY*.007,5.5,15)},{passive:false});
+function nodes(){return [0,1,2].map((i)=>{const a=visualTick*.004+(i*Math.PI*2/3);return {x:3.35*Math.cos(a),y:.45*Math.sin(a*1.7),z:3.35*Math.sin(a)}})}
+function project(p){let a=state.azimuth,b=state.elevation,x=p.x*Math.cos(a)-p.z*Math.sin(a),z=p.x*Math.sin(a)+p.z*Math.cos(a),y=p.y*Math.cos(b)-z*Math.sin(b);z=p.y*Math.sin(b)+z*Math.cos(b);let scale=stage.clientHeight/((state.zoom+z)*1.25);return {x:stage.clientWidth/2+x*scale,y:stage.clientHeight/2-y*scale,scale}}
+function syncScene(){if(central&&THREE){central.scale.setScalar(.85+latest/230);torus.material.emissiveIntensity=.36+latest/160}}
+function frame(){visualTick++;const pts=nodes();if(webgl){torus.rotation.z+=.003;central.rotation.x+=.009;central.rotation.y+=.012;
+for(let i=0;i<3;i++){let p=pts[i];orbs[i].position.set(p.x,p.y,p.z);rays[i].geometry.setFromPoints([new THREE.Vector3(0,0,0),new THREE.Vector3(p.x,p.y,p.z)])}
+camera.position.set(state.zoom*Math.sin(state.azimuth)*Math.cos(state.elevation),state.zoom*Math.sin(state.elevation),state.zoom*Math.cos(state.azimuth)*Math.cos(state.elevation));camera.lookAt(0,0,0);renderer.render(scene,camera);
+for(let i=0;i<3;i++){let v=orbs[i].position.clone().project(camera);labels[i].style.left=(v.x*.5+.5)*stage.clientWidth+"px";labels[i].style.top=(-v.y*.5+.5)*stage.clientHeight-28+"px";labels[i].style.display=v.z<1?"block":"none"}}
+else if(ctx){let w=stage.clientWidth,h=stage.clientHeight;ctx.clearRect(0,0,w,h);let loops=[];
+for(let j=0;j<2;j++)for(let i=0;i<160;i++){const t=i/160*Math.PI*2,r=2.2+(j?.25:-.25),p=project({x:r*Math.cos(t),y:Math.sin(t*2+visualTick*.01)*.28,z:r*Math.sin(t)});loops.push({p,t,j})}
+for(const v of loops){ctx.fillStyle=v.j?"#af59e6a0":"#ff975570";ctx.beginPath();ctx.arc(v.p.x,v.p.y,Math.max(1,v.p.scale*.028),0,Math.PI*2);ctx.fill()}
+let c=project({x:0,y:0,z:0});ctx.fillStyle="#e9fff7";ctx.shadowColor="#6efff5";ctx.shadowBlur=22;ctx.beginPath();ctx.arc(c.x,c.y,16+latest/18,0,Math.PI*2);ctx.fill();ctx.shadowBlur=0;
+for(let i=0;i<3;i++){let p=project(pts[i]);ctx.strokeStyle=["#b57cff","#ff9852","#46e5d9"][i];ctx.lineWidth=2;ctx.beginPath();ctx.moveTo(c.x,c.y);ctx.lineTo(p.x,p.y);ctx.stroke();ctx.fillStyle=ctx.strokeStyle;ctx.beginPath();ctx.arc(p.x,p.y,12,0,Math.PI*2);ctx.fill();labels[i].style.left=p.x+"px";labels[i].style.top=(p.y-28)+"px";labels[i].style.display="block"}}
+requestAnimationFrame(frame)}
+loadThree();reset();
+</script></body></html>

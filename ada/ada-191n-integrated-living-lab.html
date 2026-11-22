@@ -1,0 +1,90 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ADA-191N · Integrated Living Lab</title>
+<style>
+:root{--bone:#faf8f0;--ink:#342541;--orange:#ff792a;--violet:#9c48ed;--teal:#0ca9a0;--line:#e2d3ed}
+*{box-sizing:border-box}body{margin:0;background:var(--bone);color:var(--ink);font:15px/1.45 system-ui,Segoe UI,sans-serif}
+header{background:linear-gradient(115deg,#fff9e9,#f0e7ff);padding:27px max(18px,calc((100vw - 1200px)/2));border-bottom:2px solid #d5b3f5}
+.kicker{font:800 12px system-ui;color:#7635be;letter-spacing:.16em}h1{margin:5px 0;font-size:clamp(31px,4vw,49px);line-height:1.1;letter-spacing:-.037em}
+h2{font-size:17px;margin:0 0 10px}main{max-width:1200px;margin:auto;padding:16px;display:grid;grid-template-columns:minmax(0,1fr) 322px;gap:14px}
+.panel{min-width:0;border:1px solid var(--line);border-radius:14px;padding:17px;background:white;box-shadow:0 8px 25px #301b4c0c}.wide{grid-column:1/-1}
+.controls{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}button,select{font:750 14px system-ui;background:#fff;color:#602a89;border:1.5px solid #a767ee;border-radius:9px;padding:9px 12px;cursor:pointer}button.primary{background:#51247b;color:white}button:focus-visible,select:focus-visible{outline:3px solid var(--orange)}
+small,.muted{color:#756a7d}label{display:block;font-weight:700;margin:12px 0 5px}svg{width:100%;height:320px;background:#1b152e;border-radius:12px;display:block}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.contact{padding:13px;background:#faf6ff;border-top:5px solid var(--violet);border-radius:10px}.contact:nth-child(2){border-color:var(--orange)}.contact:nth-child(3){border-color:var(--teal)}.big{font-size:25px;font-weight:850}.tag{display:inline-block;font-size:11px;border-radius:7px;padding:3px 7px;background:#ecdcff;color:#7a3fa9;font-weight:800}.tag.warn{background:#fff0dd;color:#af5018}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}.stat{padding:11px;background:#f7effb;border-radius:10px}.stat b{display:block;font-size:22px}
+.steps{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:6px}.module{padding:11px 5px;background:#f8f2ff;border-radius:9px;text-align:center;font-weight:800;font-size:12px;border-bottom:4px solid #9861e9}.module small{font-weight:500}
+pre{white-space:pre-wrap;max-height:235px;overflow:auto;font:12px/1.55 ui-monospace,monospace;background:#191527;color:#e7dafa;padding:12px;border-radius:10px}
+table{border-collapse:collapse;width:100%;font-size:13px}td,th{text-align:right;padding:9px 7px;border-bottom:1px solid #eee4f3}th:first-child,td:first-child{text-align:left}th{background:#f5eefa}
+@media(max-width:860px){main{grid-template-columns:1fr}.grid{grid-template-columns:1fr}.steps{grid-template-columns:repeat(3,1fr)}.stats{grid-template-columns:repeat(2,1fr)}}
+</style></head><body>
+<header><div class="kicker">ROOT0 · QUANTA · ADA · PHASE II · .dlw</div><h1>ADA-191N · <span style="color:#9252e2">Integrated Living Lab</span></h1>
+<div>One running loop · three contacts · one evidence stream · one best eligible active policy.</div>
+<div class="controls"><button id="step" class="primary">Step</button><button id="run">▶ Run 100 ticks</button><button id="shock">Inject disturbance</button><button id="replay">Replay evidence</button><button id="reset">Reset</button><button id="export">Export JSON</button></div></header>
+<main>
+<section class="panel"><h2>Live observation and forecast history</h2><svg id="chart" viewBox="0 0 800 320" role="img" aria-label="Observed environment and predicted values"></svg>
+<p class="muted">Teal = observed environment. Purple = Jane one-step forecast. Orange markers = injected shifts.</p></section>
+<section class="panel"><h2>Deterministic run controls</h2>
+<label for="mode">Environment</label><select id="mode"><option value="cycle">Oscillating</option><option value="noise">Noisy</option><option value="drift">Drifting frequency</option></select>
+<label for="policy">Decision policy</label><select id="policy"><option value="best">Best eligible (automatic)</option><option value="safe">Safe baseline (comparison)</option></select>
+<p class="muted">The best eligible policy is selected by observed replay loss with a fixed safety gate and deterministic tie-break. If neither adaptive policy qualifies, retain the safe baseline.</p>
+<p class="muted">Modules here are wired into one synchronous browser loop. Persistent checkpoints, full historical module parity, and Pages delivery remain later milestones.</p>
+<div class="tag" id="verification">No replay performed</div></section>
+<section class="panel wide"><h2>Connected processing path</h2><div class="steps">
+<div class="module">Observe<small>source IDs</small></div><div class="module">Remember<small>bounded window</small></div><div class="module">Forecast<small>pending outcomes</small></div><div class="module">Detect<small>scored errors</small></div><div class="module">Repair<small>candidate scoring</small></div><div class="module">Decide<small>single route</small></div></div></section>
+<section class="panel wide"><h2>Three independent contact states</h2><div class="grid" id="contacts"></div></section>
+<section class="panel wide"><h2>Run accountability</h2><div id="stats" class="stats"></div><div style="overflow:auto;margin-top:10px"><table><thead><tr><th>Contact</th><th>Active policy</th><th>Completed forecasts</th><th>Mean absolute error</th><th>Alarm count</th><th>Memory length</th></tr></thead><tbody id="rows"></tbody></table></div></section>
+<section class="panel wide"><h2>Append-only evidence · replay guard</h2><pre id="ledger"></pre><p class="muted">The session ledger never truncates records; working memory may be bounded. Replay checks every source observation and forecast-scoring relationship. Shared simulation origin is one source ancestry, not three independent witnesses.</p></section>
+</main>
+<script>
+"use strict";
+const $=id=>document.getElementById(id),clamp=(x,a,b)=>Math.max(a,Math.min(b,x)),avg=x=>x.reduce((s,n)=>s+n,0)/Math.max(1,x.length);
+const NAMES=["Jane","Toph","Ada"],HORIZONS=[1,2,4],POLICIES=["safe","short","trend"];
+let tick=0,seed=191,offset=0,observations=[],events=[],pending=[],completed=[],contacts=[],shocks=[],renderCount=0;
+function rand(){seed=(Math.imul(seed,1664525)+1013904223)>>>0;return seed/4294967296}
+function emit(type,fields={}){events.push({sequence:events.length+1,tick,type,...fields})}
+function initialContact(name,id){return {name,id,root:"ADA191N-contact-"+name.toLowerCase(),memory:8,policy:"safe",alarms:0,errors:[],misses:[],forecasts:0,repairAttempts:0}}
+function reset(){tick=0;seed=191;offset=0;observations=[];events=[];pending=[];completed=[];shocks=[];contacts=NAMES.map(initialContact);emit("genesis",{source_root:"ADA191N-environment",watermark:".dlw"});render()}
+function environment(){const m=$("mode").value,phase=m==="drift"?.085+tick*.00055:.1;
+let value=50+15*Math.sin(tick*phase)+7*Math.sin(tick*.048)+(rand()-.5)*(m==="noise"?23:5);
+return clamp(value+offset,0,100)}
+function forecast(c,key){let a=observations.slice(-c.memory).map(x=>x.value),last=a.at(-1)??50,prior=a.at(-2)??last;
+if(key==="safe")return clamp(last,0,100);
+if(key==="short")return clamp(last+.4*(last-prior),0,100);
+return clamp(last+.8*clamp(last-prior,-5,5),0,100)}
+function choose(c){if($("policy").value==="safe")return "safe";
+const costs=POLICIES.map(key=>{let old=completed.filter(x=>x.contact===c.name&&x.policy===key).slice(-18),mae=old.length>=5?avg(old.map(x=>x.error)):key==="safe"?12:15;
+const unsafe=old.length>=5&&old.filter(x=>x.error>18).length>Math.floor(old.length*.35);
+return {key,mae,unsafe}});
+const eligible=costs.filter(x=>!x.unsafe).sort((a,b)=>a.mae-b.mae||POLICIES.indexOf(a.key)-POLICIES.indexOf(b.key));
+return eligible[0]?.key||"safe"}
+function step(){tick++;let value=environment(),ob={source_id:"ADA191N-OBS-"+tick,source_root:"ADA191N-environment",tick,value};observations.push(ob);emit("observation",ob);
+const due=pending.filter(x=>x.target===tick);pending=pending.filter(x=>x.target>tick);
+for(const p of due){const c=contacts[p.contactId],error=Math.abs(value-p.prediction),scored={...p,actual:value,error,covered:error<=18};completed.push(scored);c.forecasts++;c.errors.push(error);c.misses.push(error>18?1:0);if(c.misses.length>3)c.misses.shift();emit("forecast-scored",{forecast_id:p.id,target:tick,actual:value,error});
+if(c.misses.length===3&&c.misses.reduce((a,b)=>a+b,0)>=2&&c.misses.at(-1)===1){c.alarms++;emit("confidence-alarm",{contact:c.name,forecast_id:p.id})}}
+for(const c of contacts){let selected=choose(c);if(c.policy!==selected){emit("policy-selected",{contact:c.name,previous:c.policy,selected,reason:"eligible minimal observed loss with deterministic tie-break"});c.policy=selected}
+for(const key of POLICIES){let pred=forecast(c,key),p={id:"ADA191N-P-"+tick+"-"+c.id+"-"+key,origin:tick,target:tick+1,contact:c.name,contactId:c.id,policy:key,prediction:pred};
+pending.push(p);emit("forecast-issued",{...p})}
+if(tick%12===0){let recent=completed.filter(x=>x.contact===c.name&&x.policy===c.policy).slice(-8);
+if(recent.length>=6&&avg(recent.map(x=>x.error))>12&&c.memory>4){let from=c.memory;c.memory-=2;c.repairAttempts++;emit("memory-repair",{contact:c.name,from,to:c.memory,reason:"high completed forecast error"})}}
+}render()}
+function replay(){let found=new Map(),obs=new Map(),scored=0,issue=0;
+for(const e of events){if(e.type==="observation"){if(obs.has(e.tick)||!Number.isFinite(e.value))return {ok:false,reason:"duplicate or invalid observation",tick:e.tick};obs.set(e.tick,e)}
+if(e.type==="forecast-issued"){if(found.has(e.id)||e.origin>=e.target)return {ok:false,reason:"invalid forecast identity or horizon",id:e.id};found.set(e.id,e);issue++}
+if(e.type==="forecast-scored"){let p=found.get(e.forecast_id),o=obs.get(e.target);if(!p||!o||p.target!==e.target||Math.abs(e.actual-o.value)>1e-9||Math.abs(e.error-Math.abs(o.value-p.prediction))>1e-7)return {ok:false,reason:"forecast score mismatch",id:e.forecast_id};scored++}}
+return {ok:true,observations:obs.size,issued:issue,scored,pending:issue-scored,events:events.length}}
+function draw(){let a=observations.slice(-80),n=a.length,x=i=>24+750*i/Math.max(79,n-1),y=v=>278-v*2.5;
+const line=(points,key,color)=>(points.length<2?"":'<path d="'+points.map((p,i)=>(i?"L":"M")+x(i).toFixed(1)+","+y(p[key]).toFixed(1)).join(" ")+'" stroke="'+color+'" stroke-width="2.5" fill="none"/>');
+let predictions=a.map(o=>completed.find(p=>p.contact==="Jane"&&p.policy==="safe"&&p.target===o.tick)).map((p,i)=>p?{prediction:p.prediction,i}:null).filter(Boolean);
+let predPath=predictions.length<2?"":'<path d="'+predictions.map((p,i)=>(i?"L":"M")+x(p.i).toFixed(1)+","+y(p.prediction).toFixed(1)).join(" ")+'" fill="none" stroke="#b48bff" stroke-width="2"/>';
+let markers=shocks.filter(s=>s.tick>=tick-79).map(s=>'<path d="M'+x(Math.max(0,s.tick-(a[0]?.tick||s.tick)))+' 12 V290" stroke="#ff9b51" stroke-dasharray="4 4"/>').join("");
+$("chart").innerHTML='<g stroke="#383146">'+[0,25,50,75,100].map(v=>'<path d="M24 '+y(v)+' H776"/>').join("")+'</g>'+markers+line(a,"value","#42e7d8")+predPath}
+function render(){draw();$("contacts").innerHTML=contacts.map(c=>'<div class="contact"><b>'+c.name+'</b> <span class="tag">'+c.policy+'</span><div class="big">'+c.memory+' / '+c.forecasts+'</div><small>Working memory / resolved candidate forecasts</small><p>Alarms: '+c.alarms+' · repair actions: '+c.repairAttempts+'</p></div>').join("");
+$("stats").innerHTML=[["Ticks",tick],["Evidence records",events.length],["Scored forecasts",completed.length],["Milestone", "191 / 200"]].map(([a,b])=>'<div class="stat"><small>'+a+'</small><b>'+b+'</b></div>').join("");
+$("rows").innerHTML=contacts.map(c=>'<tr><td>'+c.name+'</td><td>'+c.policy+'</td><td>'+c.forecasts+'</td><td>'+(c.errors.length?avg(c.errors).toFixed(2):"—")+'</td><td>'+c.alarms+'</td><td>'+c.memory+'</td></tr>').join("");
+$("ledger").textContent=events.slice(-20).map(e=>e.sequence+" · t"+e.tick+" · "+e.type+" · "+(e.contact||e.source_id||e.forecast_id||"kernel")).join("\n")}
+$("step").onclick=step;$("run").onclick=()=>{for(let i=0;i<100;i++)step()};$("shock").onclick=()=>{offset=offset>0?-26:26;shocks.push({tick,offset});emit("disturbance-injected",{offset});render()};
+$("reset").onclick=reset;$("replay").onclick=()=>{let r=replay();$("verification").textContent=r.ok?"REPLAY PASS · "+r.scored+" scored forecasts":"REPLAY FAIL · "+r.reason;$("verification").className="tag "+(r.ok?"":"warn");emit("replay-check",r);render()};
+$("mode").onchange=()=>{emit("environment-mode",{mode:$("mode").value});render()};$("policy").onchange=()=>{emit("selection-mode",{mode:$("policy").value});render()};
+$("export").onclick=()=>{const result={schema:"ADA-191N.v1",mark:".dlw",geometry:"{24/[2]/[4]/(3)/(3)/(1)/(1)}",version:"Phase-II-turn-1",mode:$("mode").value,decisionMode:$("policy").value,observations,events,pending,completed,contacts,shocks,replay:replay(),warning:"This is an integrated browser simulation, not independent agent deployment or cryptographically signed evidence."};
+let url=URL.createObjectURL(new Blob([JSON.stringify(result,null,2)],{type:"application/json"})),a=document.createElement("a");a.href=url;a.download="ADA-191N-living-lab-evidence.json";a.click();setTimeout(()=>URL.revokeObjectURL(url),700)};
+reset();
+</script></body></html>

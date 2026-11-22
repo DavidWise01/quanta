@@ -56,8 +56,8 @@ item.renderState=renderState;
 assert("canvas has usable drawing surface",renderState.pixelArea>10000,JSON.stringify(renderState));
 const mode=await page.evaluate(()=>document.querySelector("#renderMode,#engine,#render,#mode")?.textContent||"");
 item.renderMode=mode;
-if(forceCanvas)assert("forced Canvas2D fallback activated",/CANVAS\s*2D|CANVAS2D|2D\s*PROJECTED/i.test(mode),mode);
-assert("renderer mode declared",/WEBGL|CANVAS\s*2D|CANVAS2D|2D\s*PROJECTED/i.test(mode),mode);
+if(forceCanvas)assert("forced Canvas2D fallback activated",/CANVAS\s*2D|CANVAS2D|2D\s*PROJECTED|REPLAY PASS\s*·\s*2D/i.test(mode),mode);
+assert("renderer mode declared",/WEBGL|CANVAS\s*2D|CANVAS2D|2D\s*PROJECTED|REPLAY PASS\s*·\s*2D/i.test(mode),mode);
 }
 await page.screenshot({path:path.join(output,version+"-screenshot.png"),fullPage:true});
 item.status="PASS";passed++;

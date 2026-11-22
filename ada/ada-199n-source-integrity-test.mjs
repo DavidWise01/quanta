@@ -13,7 +13,7 @@ for(const [name,expected] of entries){
  assert.ok(/^ada\/ada-19[1-8]n-[a-z0-9-]+\.html$/.test(name),"Unexpected path "+name);
  assert.match(expected,/^[0-9a-f]{40}$/);
  const bytes=fs.readFileSync(new URL("../"+name,import.meta.url));
- const prefix=Buffer.from("blob "+bytes.length+"\\0".replace("\\0","\0"),"utf8");
+ const prefix=Buffer.concat([Buffer.from("blob "+bytes.length+" ","utf8"),Buffer.from([0])]);
  const actual=crypto.createHash("sha1").update(prefix).update(bytes).digest("hex");
  const pass=actual===expected;
  results.push({name,expected,actual,pass});

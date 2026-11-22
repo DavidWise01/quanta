@@ -29,13 +29,13 @@ pre{max-height:250px;overflow:auto;white-space:pre-wrap;background:#1b152a;color
 const $=id=>document.getElementById(id),NAMES=["Jane","Toph","Ada"],COLORS=[0xbd8aff,0xffa164,0x45e4d9],clamp=(x,a,b)=>Math.max(a,Math.min(b,x)),avg=a=>a.reduce((s,x)=>s+x,0)/Math.max(1,x.length);
 let state=null,renderTicks=0,THREE,scene,camera,renderer,torus,core,nodes=[],trails=[],sparks=[],webgl=false,canvas,ctx;
 const stage=$("stage"),view={az:.47,el:.38,zoom:8,drag:false,px:0,py:0},labels=[];
-function create(){return {schema:"ADA-195N.v1",mark:".dlw",tick:0,seed:195,offset:0,regime:$("environment").value,threshold:+$("threshold").value,window:+$("window").value,observations:[],events:[],failureCases:[],contacts:NAMES.map((name,id)=>({name,id,policy:"BASE",diagnoses:0,repairs:0,history:[],lastDecision:"BASELINE",lastError:0}))}}
+function create(){return {schema:"ADA-195N.v1",mark:".dlw",tick:0,seed:195,offset:0,regime:$("environment").value,threshold:+$("threshold").value,window:+$("window").value,initial:{regime:$("environment").value,threshold:+$("threshold").value,window:+$("window").value},observations:[],events:[],failureCases:[],contacts:NAMES.map((name,id)=>({name,id,policy:"BASE",diagnoses:0,repairs:0,history:[],lastDecision:"BASELINE",lastError:0}))}}
 function emit(s,type,info={}){s.events.push({index:s.events.length+1,tick:s.tick,type,...info})}
 function rng(s){s.seed=(Math.imul(s.seed,1664525)+1013904223)>>>0;return s.seed/4294967296}
 function source(s){let t=s.tick,theta=s.regime==="drift"?t*.08+t*t*.0005:t*.11;return clamp(50+18*Math.sin(theta)+8*Math.sin(t*.043)+(rng(s)-.5)*(s.regime==="noise"?24:5)+s.offset,0,100)}
 function predict(series,id,key){const a=series.at(-1)??50,b=series.at(-2)??a,delta=clamp(a-b,-12,12);if(key==="BASE")return a;const weight=[.55,.75,.95][id];return clamp(a+(Math.abs(delta)>2.2?delta*weight:0),0,100)}
-function caseMin(history,actual,id,threshold){if(!history.length)return null;const full=history.slice(-20),p=predict(full,id,"BASE"),error=Math.abs(actual-p);if(error<=threshold)return null;
-let shortest=null;for(let n=1;n<=full.length;n++){const suffix=full.slice(-n);if(Math.abs(actual-predict(suffix,id,"BASE"))>threshold){shortest=suffix;break}}
+function caseMin(history,actual,id,threshold,policy){if(!history.length)return null;const full=history.slice(-20),p=predict(full,id,policy),error=Math.abs(actual-p);if(error<=threshold)return null;
+let shortest=null;for(let n=1;n<=full.length;n++){const suffix=full.slice(-n);if(Math.abs(predict(suffix,id,policy)-p)<1e-9&&Math.abs(actual-predict(suffix,id,policy))>threshold){shortest=suffix;break}}
 return {history:shortest,actual,prediction:p,error,threshold,contact:NAMES[id],length:shortest.length}}
 function metrics(entries,key,th){let a=entries.map(x=>x[key]);return {mae:avg(a.map(v=>v.error)),severe:a.filter(x=>x.error>th).length,count:a.length}}
 function gate(s,c){let w=s.window,rows=c.history.slice(-w),a=metrics(rows,"base",s.threshold),b=metrics(rows,"repair",s.threshold);if(rows.length<6)return {eligible:false,reason:"INSUFFICIENT",a,b};
@@ -46,13 +46,13 @@ s.contacts.forEach((c,i)=>{const f=forecasts[i],base={prediction:f.base,error:Ma
 const selected=c.policy==="REPAIR"?repair:base;const row={tick:s.tick,source_id:sourceId,base,repair,selected:c.policy,actual,error:selected.error};
 c.history.push(row);c.lastError=selected.error;
 emit(s,"paired-forecast-scored",{contact:c.name,source_id:sourceId,baseline:base,repair:selected===repair?repair:repair,active:c.policy,error:selected.error});
-if(selected.error>s.threshold){c.diagnoses++;const reduced=caseMin(previous,actual,i,s.threshold);const saved={tick:s.tick,source_id:sourceId,...reduced};s.failureCases.push(saved);emit(s,"failure-detected",{contact:c.name,source_id:sourceId,error:selected.error,case_length:reduced?.length||0})}
+if(selected.error>s.threshold){c.diagnoses++;const reduced=caseMin(previous,actual,i,s.threshold,c.policy);const saved={tick:s.tick,source_id:sourceId,policy:c.policy,...reduced};s.failureCases.push(saved);emit(s,"failure-detected",{contact:c.name,source_id:sourceId,error:selected.error,case_length:reduced?.length||0})}
 if(s.tick%8===0){let g=gate(s,c);let desired=g.eligible?"REPAIR":"BASE";if(c.policy!==desired){let old=c.policy;c.policy=desired;if(desired==="REPAIR")c.repairs++;emit(s,"policy-transition",{contact:c.name,from:old,to:desired,gate:g.reason,pairedCount:g.a.count})}c.lastDecision=g.reason}});
 return s}
 function doStep(){tickOnce(state);render();syncScene()}
 function doRun(){for(let k=0;k<100;k++)tickOnce(state);render();syncScene()}
 function summarize(s){return {tick:s.tick,contacts:s.contacts.map(c=>({name:c.name,policy:c.policy,diagnoses:c.diagnoses,repairs:c.repairs})),sources:s.observations.length,events:s.events.length,failures:s.failureCases.length}}
-function verify(s){let copy=create();copy.regime=s.regime;copy.threshold=s.threshold;copy.window=s.window;let controls=s.events.filter(e=>e.type==="disturbance-shift"||e.type==="regime-change"||e.type==="threshold-change"||e.type==="window-change"),byTick=new Map();
+function verify(s){let copy=create();copy.regime=s.initial.regime;copy.threshold=s.initial.threshold;copy.window=s.initial.window;copy.initial={...s.initial};let controls=s.events.filter(e=>e.type==="disturbance-shift"||e.type==="regime-change"||e.type==="threshold-change"||e.type==="window-change"||e.type==="manual-repair"),byTick=new Map();
 for(const e of controls){let arr=byTick.get(e.tick)||[];arr.push(e);byTick.set(e.tick,arr)}
 for(let i=1;i<=s.tick;i++){for(const e of byTick.get(i-1)||[])applyControl(copy,e);tickOnce(copy)}
 for(const e of byTick.get(s.tick)||[])applyControl(copy,e);
@@ -61,7 +61,7 @@ if(JSON.stringify(copy.events)!==JSON.stringify(s.events))throw Error("Append-on
 if(JSON.stringify(copy.failureCases)!==JSON.stringify(s.failureCases))throw Error("Minimized counterexamples differ");
 if(JSON.stringify(summarize(copy))!==JSON.stringify(summarize(s)))throw Error("Repair states differ");
 return {passed:true,ticks:s.tick,events:s.events.length,failures:s.failureCases.length}}
-function applyControl(s,e){if(e.type==="disturbance-shift")s.offset=e.offset;if(e.type==="regime-change")s.regime=e.regime;if(e.type==="threshold-change")s.threshold=e.value;if(e.type==="window-change")s.window=e.value;emit(s,e.type,Object.fromEntries(Object.entries(e).filter(([k])=>!["index","tick","type"].includes(k))))}
+function applyControl(s,e){if(e.type==="disturbance-shift")s.offset=e.offset;if(e.type==="regime-change")s.regime=e.regime;if(e.type==="threshold-change")s.threshold=e.value;if(e.type==="window-change")s.window=e.value;if(e.type==="manual-repair"){let c=s.contacts.find(c=>c.name===e.contact);if(c){c.policy=e.to;c.lastDecision=e.gate;if(e.to==="REPAIR")c.repairs++}}emit(s,e.type,Object.fromEntries(Object.entries(e).filter(([k])=>!["index","tick","type"].includes(k))))}
 function reset(){state=create();render();syncScene()}
 function render(){if(!state)return;$("hud").textContent="SOURCE · "+String(state.tick).padStart(4,"0")+" · "+(state.observations.at(-1)?.value??50).toFixed(2);
 $("cards").innerHTML=state.contacts.map(c=>'<div class="card"><b>'+c.name+'</b> <span class="tag '+(c.policy==="REPAIR"?"good":"")+'">'+c.policy+'</span><div class="big">'+c.lastError.toFixed(2)+'</div><small>Latest selected-policy error</small><p>'+c.diagnoses+' failures · '+c.repairs+' promotions</p></div>').join("");
@@ -69,7 +69,7 @@ $("stats").innerHTML=[["Source ticks",state.tick],["Severe failures",state.failu
 $("rows").innerHTML=state.contacts.map(c=>{const g=gate(state,c);return '<tr><td>'+c.name+'</td><td>'+g.a.mae.toFixed(2)+'</td><td>'+g.b.mae.toFixed(2)+'</td><td>'+g.a.severe+'</td><td>'+g.b.severe+'</td><td>'+c.policy+'</td><td>'+g.reason+'</td></tr>'}).join("");
 $("thresholdOut").textContent=state.threshold;$("windowOut").textContent=state.window;
 $("ledger").textContent=JSON.stringify({latestFailure:state.failureCases.at(-1)||null,contactGates:state.contacts.map(c=>({contact:c.name,...gate(state,c)})),latestEvents:state.events.slice(-12)},null,2)}
-$("step").onclick=doStep;$("run").onclick=doRun;$("repair").onclick=()=>{state.contacts.forEach(c=>{let g=gate(state,c),desired=g.eligible?"REPAIR":"BASE";if(desired!==c.policy){let old=c.policy;c.policy=desired;if(desired==="REPAIR")c.repairs++;emit(state,"policy-transition",{contact:c.name,from:old,to:desired,gate:g.reason,pairedCount:g.a.count})}c.lastDecision=g.reason});render();syncScene()};
+$("step").onclick=doStep;$("run").onclick=doRun;$("repair").onclick=()=>{state.contacts.forEach(c=>{let g=gate(state,c),desired=g.eligible?"REPAIR":"BASE";if(desired!==c.policy){let old=c.policy;c.policy=desired;if(desired==="REPAIR")c.repairs++;emit(state,"manual-repair",{contact:c.name,from:old,to:desired,gate:g.reason,pairedCount:g.a.count})}c.lastDecision=g.reason});render();syncScene()};
 $("shift").onclick=()=>{state.offset=state.offset>0?-25:25;emit(state,"disturbance-shift",{offset:state.offset});render()};
 $("environment").onchange=()=>{state.regime=$("environment").value;emit(state,"regime-change",{regime:state.regime})};
 $("threshold").onchange=()=>{state.threshold=+$("threshold").value;emit(state,"threshold-change",{value:state.threshold});render()};

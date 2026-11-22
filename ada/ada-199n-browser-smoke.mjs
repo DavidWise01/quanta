@@ -4,6 +4,7 @@ import { chromium } from "playwright";
 import fs from "node:fs";
 import path from "node:path";
 const root=(process.env.ADA_BASE_URL||"http://127.0.0.1:8765").replace(/\/$/,"");
+const forceCanvas=process.env.ADA_FORCE_CANVAS==="1";
 const routes=[
 ["191N","ada-191n-integrated-living-lab.html","run","stats","replay","verification"],
 ["192N","ada-192n-unified-observation-3d.html","run","metrics","replay","renderMode"],
@@ -21,6 +22,7 @@ let passed=0,failed=0;const results=[];
 try{
 for(const [version,file,stepId,statsId,verifyId,statusId] of routes){
 const page=await browser.newPage({viewport:{width:1280,height:880}});
+if(forceCanvas)await page.route("**/three.min.js",route=>route.abort("blockedbyclient"));
 const errors=[];page.on("pageerror",e=>errors.push(e.message));
 const failedRequests=[];page.on("requestfailed",request=>failedRequests.push({url:request.url(),reason:request.failure()?.errorText}));
 const url=root+"/ada/"+file;
@@ -51,6 +53,7 @@ const size=await stage.locator("canvas").first().evaluate(el=>({width:el.width,h
 assert("renderer has nonzero pixel dimensions",size.width>100&&size.height>100,JSON.stringify(size));
 const mode=await page.evaluate(()=>document.querySelector("#renderMode,#engine,#render,#mode")?.textContent||"");
 item.renderMode=mode;
+if(forceCanvas)assert("forced Canvas2D fallback activated",/CANVAS\s*2D|CANVAS2D|2D\s*PROJECTED/i.test(mode),mode);
 assert("renderer mode declared",/WEBGL|CANVAS\s*2D|CANVAS2D|2D\s*PROJECTED/i.test(mode),mode);
 }
 await page.screenshot({path:path.join(output,version+"-screenshot.png"),fullPage:true});
@@ -61,7 +64,7 @@ results.push(item);await page.close();
 console.log(version+" "+item.status+(item.reason?": "+item.reason:""));
 }
 }finally{await browser.close()}
-const report={schema:"ADA-199N.smoke.v1",base:root,passed,failed,results};
+const report={schema:"ADA-199N.smoke.v2",base:root,forceCanvas,passed,failed,results};
 fs.writeFileSync(path.join(output,"report.json"),JSON.stringify(report,null,2)+"\n");
 console.log(JSON.stringify(report,null,2));
 if(failed)process.exitCode=1;

@@ -1,0 +1,17 @@
+# RQT-562 — Elliptic-Curve Factor Gate
+
+**Executed deterministic bounded ECM on original 942-bit composite numerator N.** Input RQT-559 results SHA256 `5504e1be18d2b1f55c1db0039f3569330babc93f26bf482fd084c56ee2c3d6b7`.
+
+| Stage | B1 | B2 | Curves maximum | Seed | Exact factor |
+|---|---:|---:|---:|---:|---|
+| 1 | 1000 | 10000 | 8 | 562 | none |
+| 2 | 2000 | 20000 | 8 | 1562 | none |
+| 3 | 5000 | 50000 | 6 | 2562 | none |
+
+22 configured ECM curves, 3.243 s total. `_ecm_one_factor` from SymPy 1.14 with exact integer operations. No divisor found. Negative finite-budget result is **not proof of primality or exclusion of small prime factors in general**. RQT-560 separately proves N composite using a strong base-2 Miller–Rabin compositeness witness. No individual Legendre character or prime valuation could be certified here.
+
+**Global relative norm OPEN. Rational Wall isometry OPEN. Integral GL4 bridge OPEN. Root19 OPEN; full21 OPEN.** Original finite selected 720-corridor conditional ledger remains 647 excluded/73 unresolved, zero new exclusions.
+
+A full Python script, machine-readable JSON, bone-white neon orange/purple techno-Zen JPG and self-contained JPEG-embedded HTML are downloadable conversation artifacts. This committed HTML is text-only; GitHub Pages deployment and binary JPEG publication unverified.
+
+**RQT-563 next:** increase the certified ECM budget meaningfully or use a more direct number-field local criterion that avoids global factorization.

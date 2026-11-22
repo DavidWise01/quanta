@@ -1,0 +1,115 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>ADA-194N · 3D Adaptive Learning</title>
+<style>
+:root{--bone:#faf8f1;--ink:#332240;--purple:#a25bf0;--orange:#ff7c31;--teal:#00aaa3;--line:#e4d6e9}
+*{box-sizing:border-box}body{margin:0;color:var(--ink);background:var(--bone);font:14px/1.46 system-ui,Segoe UI,sans-serif}
+header{padding:23px max(15px,calc((100vw - 1300px)/2));background:linear-gradient(112deg,#fff8e9,#eee7ff);border-bottom:2px solid #d8b6f4}.kicker{font-size:11px;letter-spacing:.17em;font-weight:850;color:#7a36be}h1{margin:5px 0;font-size:clamp(29px,4vw,47px);line-height:1.12;letter-spacing:-.04em}h2{font-size:17px;margin:0 0 9px}
+.controls{display:flex;gap:8px;flex-wrap:wrap;margin-top:13px}button,select,input[type=file]{padding:9px 12px;border:1.5px solid #aa72e8;border-radius:9px;color:#5f2b84;background:white;font:730 13px system-ui;cursor:pointer}button.primary{background:#55267b;color:white}button:focus-visible,select:focus-visible,input:focus-visible{outline:3px solid var(--orange)}
+main{max-width:1300px;padding:14px;margin:auto;display:grid;grid-template-columns:minmax(0,1.7fr) minmax(300px,.8fr);gap:14px}.panel{background:white;min-width:0;padding:15px;border:1px solid var(--line);border-radius:14px;box-shadow:0 8px 28px #3925490b}.wide{grid-column:1/-1}small,.muted{color:#76687e}
+#stage{height:min(52vw,590px);min-height:390px;border-radius:12px;overflow:hidden;position:relative;background:radial-gradient(circle at center,#362449,#151121 72%);touch-action:none}#stage canvas{display:block;width:100%;height:100%}
+.hud{position:absolute;left:12px;top:10px;color:#c1faf3;font-weight:800;text-shadow:0 0 13px #29e6d6}.mode{position:absolute;top:10px;right:12px;color:#e0c8fc;background:#302042cc;font-size:11px;border:1px solid #b681ff66;padding:5px 9px;border-radius:7px}.tip{position:absolute;left:12px;bottom:9px;color:#d7c5e2;font-size:11px}.node-label{position:absolute;transform:translate(-50%,-50%);font-weight:850;text-shadow:0 0 11px #14101f;pointer-events:none}
+.contact{padding:12px;border-left:4px solid var(--purple);background:#faf6ff;border-radius:10px;margin:8px 0}.contact:nth-child(2){border-color:var(--orange)}.contact:nth-child(3){border-color:var(--teal)}
+.big{font-size:25px;font-weight:850}.chip{display:inline-block;background:#eee2fb;border-radius:7px;padding:3px 8px;color:#7133a6;font-size:11px;font-weight:850}.chip.good{background:#e1f6ea;color:#087869}.chip.warn{background:#fff0dc;color:#ac511b}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}.stat{background:#f5eef9;border-radius:10px;padding:11px}.stat b{font-size:22px;display:block}
+label{font-weight:750;display:block;margin:12px 0 5px}input[type=range]{width:100%;accent-color:#9954e7}
+table{border-collapse:collapse;width:100%;font-size:12px}th,td{text-align:right;border-bottom:1px solid #ede4f3;padding:8px 6px}td:first-child,th:first-child{text-align:left}th{background:#f6effa}
+pre{max-height:220px;overflow:auto;white-space:pre-wrap;border-radius:10px;background:#191426;color:#e7d6fc;padding:13px;font:11px/1.55 ui-monospace,Consolas,monospace}
+@media(max-width:870px){main{grid-template-columns:1fr}.stats{grid-template-columns:repeat(2,1fr)}#stage{height:450px}}
+</style></head><body>
+<header><div class="kicker">ROOT0 · QUANTA · ADA · PHASE II · 3D · .dlw</div><h1>ADA-194N · <span style="color:#9654e5">3D Adaptive Learning</span></h1><div>Observe → remember → predict → score → adapt. Learning is earned by lower error, not declared by the animation.</div>
+<div class="controls"><button id="play" class="primary">▶ Play</button><button id="step">Step</button><button id="run">Run 100</button><button id="shift">Inject shift</button><button id="verify">Verify learning replay</button><button id="export">Export JSON</button><button id="reset">Reset</button></div></header>
+<main><section class="panel"><h2>3D memory topology · forecast traces</h2><div id="stage" role="img" aria-label="Interactive rotating 3D toroidal learning engine with three contact nodes, colored spatial trails and forecast error pulses"><div class="hud" id="hud">SOURCE t0000</div><div class="mode" id="renderMode">Loading 3D</div><div class="tip">Drag to orbit · wheel to zoom · bright nodes = high recent prediction error</div></div><div style="display:flex;gap:13px;flex-wrap:wrap;margin-top:10px;font-size:12px"><span style="color:#8e53dc">● Jane</span><span style="color:#cf6927">● Toph</span><span style="color:#008c86">● Ada</span><span>○ Canonical source</span></div></section>
+<section class="panel"><h2>Three local learning controllers</h2><div id="contacts"></div>
+<label for="environment">Environment</label><select id="environment"><option value="cycle">Smooth oscillation</option><option value="noise">Noisy observations</option><option value="drift">Changing frequency</option></select>
+<label for="window">Score window <output id="windowOut">16</output> observations</label><input id="window" type="range" min="6" max="30" step="2" value="16">
+<p class="muted">Every policy predicts from prior observations, before the next observation is generated. Candidates share each contact's same realized future, enabling paired score comparisons.</p>
+<p class="muted">One deterministic best eligible policy is selected per contact; baseline remains available if alternatives breach the error guard.</p>
+<div id="integrity" class="chip">Replay not yet run</div>
+</section>
+<section class="panel wide"><h2>Measured learning, not visual impression</h2><div class="stats" id="stats"></div><div style="overflow:auto;margin-top:10px"><table><thead><tr><th>Contact</th><th>Selected policy</th><th>Selected MAE</th><th>Baseline MAE</th><th>Completed forecasts</th><th>Policy switches</th><th>Guard</th></tr></thead><tbody id="rows"></tbody></table></div>
+<p class="muted">Policy selection uses the last N scored predictions, with a six-sample minimum. Eligibility requires the candidate's severe-error rate not exceed the baseline by more than 10 percentage points. A lower MAE wins, then fixed baseline → trend → mean tie order.</p></section>
+<section class="panel wide"><h2>Append-only evidence · independent replay</h2><pre id="ledger"></pre><p class="muted">The event ledger records the single canonical observation, every contact's issued prediction, matched score, and policy change. Replay reconstructs the deterministic tick stream and checks exact observations, predictions, scores, selections and event order. This is a synthetic engine, not a field-trained model.</p></section>
+</main>
+<script>
+"use strict";
+const $=id=>document.getElementById(id),NAMES=["Jane","Toph","Ada"],COLORS=[0xbe82ff,0xff9b57,0x3fe6d9],KEY="quanta.ada194n.learning.v1";
+const P=["baseline","trend","mean"],clamp=(x,a,b)=>Math.max(a,Math.min(b,x)),avg=a=>a.reduce((s,x)=>s+x,0)/Math.max(a.length,1);
+let data,playing=false,clock=null,renderFrame=0,report=null,storeStatus="SESSION",notice="";
+function make(){return {schema:"ADA-194N.v1",mark:".dlw",settings:{environment:$("environment").value,window:+$("window").value},seed:194,tick:0,offset:0,observations:[],events:[],history:[],contacts:NAMES.map((name,id)=>({name,id,root:"ADA194N-"+name.toUpperCase(),policy:"baseline",switches:0,issued:[],scores:[],memory:[]}))}}
+function rng(x){let n=(Math.imul(x,1664525)+1013904223)>>>0;return [n,n/4294967296]}
+function emit(d,type,extra={}){d.events.push({index:d.events.length+1,tick:d.tick,type,...extra})}
+function forecast(memory,key,id){let last=memory.at(-1)??50,prev=memory.at(-2)??last,trend=clamp(last-prev,-7,7);
+if(key==="baseline")return last;if(key==="trend")return clamp(last+(id===2?.8:.55)*trend,0,100);
+return clamp(avg(memory.slice(-Math.max(3,5+id))),0,100)}
+function environment(d){let [seed,n]=rng(d.seed);d.seed=seed;let t=d.tick,phase=d.settings.environment==="drift"?t*.075+t*t*.00048:t*.092;
+let signal=50+18*Math.sin(phase)+5*Math.cos(t*.035)+(n-.5)*(d.settings.environment==="noise"?22:4)+d.offset;return clamp(signal,0,100)}
+function scoreWindow(c,key,w){return c.scores.filter(x=>x.policy===key).slice(-w)}
+function choose(c,w){const baseline=scoreWindow(c,"baseline",w);if(baseline.length<6)return "baseline";
+let baseSevere=baseline.filter(x=>x.error>15).length/baseline.length;
+let eligible=P.map((key,i)=>{let r=scoreWindow(c,key,w),mae=avg(r.map(x=>x.error)),severe=r.filter(x=>x.error>15).length/Math.max(1,r.length);return {key,i,mae,eligible:r.length>=6&&severe<=baseSevere+.1+1e-12}}).filter(x=>x.eligible);
+eligible.sort((a,b)=>a.mae-b.mae||a.i-b.i);return eligible[0]?.key||"baseline"}
+function tickOnce(d){let prior=d.observations.at(-1)?.value??50,predictions=d.contacts.map(c=>P.map(key=>({policy:key,prediction:forecast(c.memory,key,c.id)})));
+d.tick++;let value=environment(d),obsId="ADA194N-OBS-"+d.tick,ob={id:obsId,root:"ADA194N-single-source",tick:d.tick,value};d.observations.push(ob);emit(d,"observation",ob);
+d.contacts.forEach((c,i)=>{const scored=predictions[i].map(p=>{let error=Math.abs(p.prediction-value),s={tick:d.tick,source_id:obsId,policy:p.policy,prediction:p.prediction,actual:value,error};c.scores.push(s);emit(d,"prediction-scored",{contact:c.name,...s});return s});
+c.memory.push(value);if(c.memory.length>40)c.memory.shift();let selected=choose(c,d.settings.window);if(selected!==c.policy){emit(d,"policy-change",{contact:c.name,from:c.policy,to:selected,reason:"lowest eligible paired MAE"});c.switches++;c.policy=selected}
+c.issued.push({tick:d.tick,source_id:obsId,policies:predictions[i]});if(c.issued.length>40)c.issued.shift()});
+d.history.push({tick:d.tick,value,contactStates:d.contacts.map(c=>({name:c.name,policy:c.policy,error:c.scores.at(-1)?.error||0,selectedError:scoreWindow(c,c.policy,1)[0]?.error||0}))});
+return d}
+function appendStep(){tickOnce(data);persist();paint();syncScene()}
+function persist(){try{localStorage.setItem(KEY,JSON.stringify(data));storeStatus="LOCAL SAVED"}catch(e){storeStatus="STORAGE BLOCKED";notice=e.message}}
+function advance(n){for(let i=0;i<n;i++)tickOnce(data);persist();paint();syncScene()}
+function stop(){playing=false;if(clock!==null){clearInterval(clock);clock=null}$("play").textContent="▶ Play"}
+function fresh(){stop();data=make();report=null;notice="New reproducible learning session";persist();paint();syncScene()}
+function replay(original){if(original.schema!=="ADA-194N.v1"||original.mark!==".dlw"||original.tick>3000)throw Error("Unsupported ledger schema or replay limit");
+let d={...make(),settings:{...original.settings},offset:0}; // transitions reapplied by recorded control events
+let control=original.events.filter(e=>e.type==="environment-change"||e.type==="shift");
+let controlsByTick=new Map();for(const e of control){let list=controlsByTick.get(e.tick)||[];list.push(e);controlsByTick.set(e.tick,list)}
+for(let t=1;t<=original.tick;t++){for(const e of controlsByTick.get(t-1)||[]){if(e.type==="environment-change")d.settings.environment=e.mode;else d.offset=e.offset;emit(d,e.type,e.type==="shift"?{offset:e.offset}:{mode:e.mode})}tickOnce(d)}
+for(const e of controlsByTick.get(original.tick)||[]){if(e.type==="environment-change")d.settings.environment=e.mode;else d.offset=e.offset;emit(d,e.type,e.type==="shift"?{offset:e.offset}:{mode:e.mode})}
+if(d.events.length!==original.events.length)throw Error("Event count disagreement "+d.events.length+" / "+original.events.length);
+for(let i=0;i<d.events.length;i++){let a=d.events[i],b=original.events[i];if(JSON.stringify(a)!==JSON.stringify(b))throw Error("Replay mismatch at ledger record "+(i+1))}
+if(d.observations.length!==original.observations.length||d.contacts.some((c,i)=>c.policy!==original.contacts[i].policy))throw Error("Reconstructed state mismatch");
+return {passed:true,events:d.events.length,ticks:d.tick,contacts:d.contacts.map(c=>({name:c.name,selected:c.policy,switches:c.switches}))}}
+function paint(){if(!data)return;$("hud").textContent="SOURCE · t"+String(data.tick).padStart(4,"0")+" · "+(data.observations.at(-1)?.value??50).toFixed(1);
+$("windowOut").textContent=data.settings.window;
+$("contacts").innerHTML=data.contacts.map((c,i)=>{let rs=scoreWindow(c,c.policy,data.settings.window),baseline=scoreWindow(c,"baseline",data.settings.window);return '<div class="contact" style="border-color:'+["#a05ced","#ff8533","#00aca3"][i]+'"><b>'+c.name+'</b> <span class="chip">'+c.policy+'</span><div class="big">'+(rs.length?avg(rs.map(s=>s.error)).toFixed(2):"—")+'</div><small>Selected policy MAE · rolling window</small><div>Baseline '+(baseline.length?avg(baseline.map(s=>s.error)).toFixed(2):"—")+' · '+c.switches+' switches</div></div>'}).join("");
+$("stats").innerHTML=[["Ticks",data.tick],["Canonical sources",data.observations.length],["Scored predictions",data.contacts.reduce((a,c)=>a+c.scores.length,0)],["Policy switches",data.contacts.reduce((a,c)=>a+c.switches,0)]].map(([k,v])=>'<div class="stat"><small>'+k+'</small><b>'+v+'</b></div>').join("");
+$("rows").innerHTML=data.contacts.map(c=>{let sel=scoreWindow(c,c.policy,data.settings.window),base=scoreWindow(c,"baseline",data.settings.window);return '<tr><td>'+c.name+'</td><td>'+c.policy+'</td><td>'+avg(sel.map(x=>x.error)).toFixed(2)+'</td><td>'+avg(base.map(x=>x.error)).toFixed(2)+'</td><td>'+c.scores.length+'</td><td>'+c.switches+'</td><td>PAIRED</td></tr>'}).join("");
+$("ledger").textContent=JSON.stringify({sourceCount:data.observations.length,events:data.events.length,replay:report,storage:storeStatus,notice,lastEvents:data.events.slice(-11)},null,2);
+$("integrity").textContent=report?.passed?"REPLAY PASS · "+report.events+" events":notice||"Replay not yet run";$("integrity").className="chip "+(report?.passed?"good":"")}
+$("play").onclick=()=>{if(playing){stop();return}playing=true;$("play").textContent="Ⅱ Pause";clock=setInterval(appendStep,200)};
+$("step").onclick=appendStep;$("run").onclick=()=>advance(100);$("reset").onclick=fresh;
+$("shift").onclick=()=>{data.offset=data.offset>0?-18:18;emit(data,"shift",{offset:data.offset});persist();paint()};
+$("verify").onclick=()=>{try{report=replay(data);notice="Independent deterministic replay matched";paint()}catch(e){report={passed:false,error:e.message};notice="REPLAY FAIL · "+e.message;paint()}};
+$("environment").onchange=()=>{data.settings.environment=$("environment").value;emit(data,"environment-change",{mode:data.settings.environment});persist();paint()};
+$("window").oninput=()=>{$("windowOut").textContent=$("window").value};$("window").onchange=()=>{data.settings.window=+$("window").value;emit(data,"window-change",{window:data.settings.window});persist();paint()};
+$("export").onclick=()=>{let result={...data,verification:(()=>{try{return replay(data)}catch(e){return {passed:false,error:e.message}}})(),warning:"Simulated deterministic contacts; visual animation is separate from inference."};let u=URL.createObjectURL(new Blob([JSON.stringify(result,null,2)],{type:"application/json"})),a=document.createElement("a");a.href=u;a.download="ADA-194N-adaptive-learning-evidence.json";a.click();setTimeout(()=>URL.revokeObjectURL(u),750)};
+// Renderer: 3D WebGL with browser-compatible legacy Three.js global and projected 2D fallback.
+const stage=$("stage"),labels=[],orbit={az:.42,el:.34,zoom:8,drag:false,px:0,py:0};
+let THREE,scene,camera,renderer,torus,core,nodes=[],trails=[],webgl=false,canvas,ctx;
+for(let i=0;i<3;i++){let e=document.createElement("div");e.className="node-label";e.style.color=["#c491ff","#ffad72","#5affea"][i];e.textContent=NAMES[i].toUpperCase();stage.appendChild(e);labels.push(e)}
+function loadRenderer(){let s=document.createElement("script");s.src="https://cdn.jsdelivr.net/npm/three@0.149.0/build/three.min.js";s.onload=()=>window.THREE?setup(window.THREE):fallback();s.onerror=fallback;document.head.appendChild(s)}
+function setup(T){try{THREE=T;scene=new T.Scene();camera=new T.PerspectiveCamera(45,1,.1,100);renderer=new T.WebGLRenderer({antialias:true,alpha:true});renderer.setPixelRatio(Math.min(2,devicePixelRatio||1));stage.querySelector("canvas")?.remove();stage.prepend(renderer.domElement);scene.add(new T.AmbientLight(0xd5c0ff,1.2));let l=new T.PointLight(0xff9850,20,22);l.position.set(4,5,3);scene.add(l);
+torus=new T.Mesh(new T.TorusGeometry(2.15,.4,20,128),new T.MeshStandardMaterial({color:0x9850e9,emissive:0x5d2889,emissiveIntensity:.8,metalness:.5,roughness:.25,transparent:true,opacity:.8}));torus.rotation.x=.6;scene.add(torus);
+core=new T.Mesh(new T.IcosahedronGeometry(.47,2),new T.MeshStandardMaterial({color:0xf5fff9,emissive:0x48e4d4,emissiveIntensity:1.4}));scene.add(core);
+for(let i=0;i<3;i++){let color=COLORS[i],node=new T.Mesh(new T.IcosahedronGeometry(.28,2),new T.MeshStandardMaterial({color,emissive:color,emissiveIntensity:1.1})),line=new T.Line(new T.BufferGeometry(),new T.LineBasicMaterial({color,transparent:true,opacity:.9}));nodes.push(node);trails.push(line);scene.add(node,line)}
+webgl=true;$("renderMode").textContent="WEBGL · LEARNING TRAILS";resize();syncScene();frame()}catch(e){fallback()}}
+function fallback(){if(webgl)return;stage.querySelector("canvas")?.remove();canvas=document.createElement("canvas");stage.prepend(canvas);ctx=canvas.getContext("2d");$("renderMode").textContent="CANVAS2D · PROJECTED 3D";resize();frame()}
+function resize(){let w=stage.clientWidth,h=stage.clientHeight;if(webgl){renderer.setSize(w,h);camera.aspect=w/h;camera.updateProjectionMatrix()}else if(canvas){let r=Math.min(2,devicePixelRatio||1);canvas.width=w*r;canvas.height=h*r;canvas.style.width=w+"px";canvas.style.height=h+"px";ctx.setTransform(r,0,0,r,0,0)}}
+window.addEventListener("resize",resize);
+stage.addEventListener("pointerdown",e=>{orbit.drag=true;orbit.px=e.clientX;orbit.py=e.clientY;stage.setPointerCapture(e.pointerId)});
+stage.addEventListener("pointermove",e=>{if(!orbit.drag)return;orbit.az+=(e.clientX-orbit.px)*.008;orbit.el=clamp(orbit.el+(e.clientY-orbit.py)*.008,-1.4,1.4);orbit.px=e.clientX;orbit.py=e.clientY});
+stage.addEventListener("pointerup",()=>orbit.drag=false);stage.addEventListener("wheel",e=>{e.preventDefault();orbit.zoom=clamp(orbit.zoom+e.deltaY*.008,5,16)},{passive:false});
+function point(t,i,v){let a=t*.14+i*Math.PI*2/3,r=2.15+(v-50)*.009;return {x:r*Math.cos(a),y:(v-50)*.03,z:r*Math.sin(a)}}
+function paths(){return data.contacts.map((c,i)=>data.observations.slice(-80).map(o=>point(o.tick,i,o.value+(i-1)*2)))}
+function syncScene(){if(!webgl||!data)return;const ps=paths();ps.forEach((p,i)=>{let v=p.at(-1)||point(0,i,50),errs=scoreWindow(data.contacts[i],data.contacts[i].policy,8),glow=clamp(avg(errs.map(e=>e.error))/9,.4,2.8);
+nodes[i].position.set(v.x,v.y,v.z);nodes[i].material.emissiveIntensity=glow;trails[i].geometry.dispose();trails[i].geometry=new THREE.BufferGeometry().setFromPoints(p.map(v=>new THREE.Vector3(v.x,v.y,v.z)))});
+core.scale.setScalar(.9+(data.observations.at(-1)?.value||50)/200)}
+function project(v){let a=orbit.az,b=orbit.el,x=v.x*Math.cos(a)-v.z*Math.sin(a),z=v.x*Math.sin(a)+v.z*Math.cos(a),y=v.y*Math.cos(b)-z*Math.sin(b);z=v.y*Math.sin(b)+z*Math.cos(b);let f=stage.clientHeight/(orbit.zoom+z)*.8;return {x:stage.clientWidth/2+x*f,y:stage.clientHeight/2-y*f}}
+function frame(){renderFrame++;if(webgl){torus.rotation.z+=.003;core.rotation.x+=.006;core.rotation.y+=.008;camera.position.set(orbit.zoom*Math.sin(orbit.az)*Math.cos(orbit.el),orbit.zoom*Math.sin(orbit.el),orbit.zoom*Math.cos(orbit.az)*Math.cos(orbit.el));camera.lookAt(0,0,0);renderer.render(scene,camera);
+nodes.forEach((n,i)=>{let v=n.position.clone().project(camera);labels[i].style.left=(v.x*.5+.5)*stage.clientWidth+"px";labels[i].style.top=((-v.y*.5+.5)*stage.clientHeight-25)+"px"})}
+else if(ctx&&data){let w=stage.clientWidth,h=stage.clientHeight;ctx.clearRect(0,0,w,h);for(let i=0;i<160;i++){let a=i/160*6.283,p=project({x:2.15*Math.cos(a),y:.12*Math.sin(2*a),z:2.15*Math.sin(a)});ctx.fillStyle=i%2?"#b474eeaa":"#f49557bb";ctx.beginPath();ctx.arc(p.x,p.y,2,0,7);ctx.fill()}
+let o=project({x:0,y:0,z:0});ctx.shadowBlur=18;ctx.shadowColor="#5eebdc";ctx.fillStyle="#effff8";ctx.beginPath();ctx.arc(o.x,o.y,18,0,7);ctx.fill();ctx.shadowBlur=0;
+paths().forEach((path,i)=>{ctx.strokeStyle=["#bd8bff","#ffab70","#4ce4d8"][i];ctx.lineWidth=2;ctx.beginPath();path.forEach((v,j)=>{let p=project(v);if(j)ctx.lineTo(p.x,p.y);else ctx.moveTo(p.x,p.y)});ctx.stroke();let last=project(path.at(-1)||point(0,i,50));ctx.fillStyle=ctx.strokeStyle;ctx.beginPath();ctx.arc(last.x,last.y,10,0,7);ctx.fill();labels[i].style.left=last.x+"px";labels[i].style.top=(last.y-23)+"px"})}
+requestAnimationFrame(frame)}
+fresh();loadRenderer();
+</script></body></html>

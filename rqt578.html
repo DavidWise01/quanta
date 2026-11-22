@@ -1,0 +1,15 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width"><title>RQT-578 — Narrow-Cone Root Search</title><style>body{max-width:950px;margin:40px auto;padding:24px;background:#121d2d;color:#f6ecdd;font:18px/1.65 system-ui}h1{color:#ffc27b}pre{white-space:pre-wrap;overflow-wrap:anywhere}</style><h1>RQT-578 — Narrow-Cone Root Search</h1><p>13,997,521 triples · 17 nonnegative discriminants · 0 square discriminants · Root 19 OPEN</p><pre># RQT-578 — Narrow-Cone Root Search
+
+**Exact computation** from the archived RQT-575 reduced 4×4 Gram matrix. The symmetric form has exact congruence pivot signs (-,-,-,+), so signature (1 positive, 3 negative).
+
+For x=(u,v,w,z), solve xᵀFx=−2 as a quadratic in u:
+a*u²+2b*u+c+2=0; a=F00, b=F01*v+F02*w+F03*z, and c is the 3D restricted quadratic form. An integer solution requires Δ=b²−a(c+2)≥0, a perfect square, and (-b±sqrtΔ) divisible by a.
+
+Exhaustively enumerated **all 13,997,521 triples** (v,w,z)∈[-120,120]³ and solved u over **all integers** for each triple: **17 nonnegative discriminants, 0 perfect squares, 0 integer roots**. All comparisons and square roots were exact integers. The surviving triples are (0,0,0) and both signs of (35,-10,14), (45,-13,18), (70,-20,28), (80,-23,32), (90,-26,36), (95,-27,38), (105,-30,42), (115,-33,46). A smaller [-60,60]³ test had 5 nonnegative discriminants and no squares.
+
+**Limits:** Exact finite exclusion only for the three bounded coordinates; no global nonrepresentation proof, no root19, no new norm−2 vector, and no original 22D Wall test executed. The observed narrow directional pattern suggests targeted Diophantine approximation beyond the box, not blind expansion. The {{i}} triple-nested primitive is architectural context, not a mathematical claim of physical Josephson equivalence.
+
+Original full Python verifier and 17-triple JSON ledger, new Art Nouveau astronomical JPEG and embedded-JPEG HTML are available as conversation artifacts. This committed GitHub edition is text only. GitHub Pages and binary image upload unverified.
+
+**Next RQT-579:** use exact rational approximation to follow the thin discriminant cone, test square discrimination and divisibility, and back-map any integer hit through original 22D ancestry. Root19 OPEN.
+</pre></html>

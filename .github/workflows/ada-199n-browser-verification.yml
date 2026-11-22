@@ -31,7 +31,20 @@ jobs:
       - name: Run real Chromium browser tests
         env:
           ADA_BASE_URL: http://127.0.0.1:8765
+          ADA_REPORT_DIR: ada/verification-results/local
         run: node ada/ada-199n-browser-smoke.mjs
+      - name: Verify public Pages with Chromium
+        env:
+          ADA_BASE_URL: https://davidwise01.github.io/quanta
+          ADA_REPORT_DIR: ada/verification-results/public
+        run: node ada/ada-199n-browser-smoke.mjs
+      - name: Upload browser evidence and screenshots
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ada-199n-browser-evidence
+          path: ada/verification-results/
+          if-no-files-found: warn
       - name: Check public GitHub Pages response
         run: |
           curl --fail --location --retry 8 --retry-delay 8 --show-error \

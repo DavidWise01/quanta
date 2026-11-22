@@ -55,11 +55,20 @@ await page.waitForFunction(() => {const s=document.querySelector("#stage");const
 assert("rendered canvas exists",await stage.locator("canvas").count()>0);
 const size=await stage.locator("canvas").first().evaluate(el=>({width:el.width,height:el.height}));
 assert("renderer has nonzero pixel dimensions",size.width>100&&size.height>100,JSON.stringify(size));
-const renderState=await stage.locator("canvas").first().evaluate(el=>{const gl=el.getContext("webgl2")||el.getContext("webgl")||el.getContext("experimental-webgl");return {hasLiveGL:!!gl&&!gl.isContextLost?.(),pixelArea:el.width*el.height}});
-item.renderState=renderState;
-assert("canvas has usable drawing surface",renderState.pixelArea>10000,JSON.stringify(renderState));
 const mode=await page.evaluate(()=>document.querySelector("#renderMode,#engine,#render,#mode")?.textContent||"");
 item.renderMode=mode;
+// Query only the context type actually owned by the canvas. Asking for WebGL on a
+// Canvas2D-owned canvas can throw InvalidStateError in real browsers.
+const renderState=await stage.locator("canvas").first().evaluate((el,mode)=>{
+ const webgl=/WEBGL/i.test(mode);
+ let context=null,error=null;
+ try{context=webgl?(el.getContext("webgl2")||el.getContext("webgl")||el.getContext("experimental-webgl")):el.getContext("2d")}
+ catch(e){error=String(e)}
+ return {type:webgl?"webgl":"canvas2d",contextAvailable:!!context,hasLiveGL:webgl&&!!context&&!context.isContextLost?.(),pixelArea:el.width*el.height,error}
+},mode);
+item.renderState=renderState;
+assert("canvas has usable drawing surface",renderState.pixelArea>10000,JSON.stringify(renderState));
+assert("canvas owns an available drawing context",renderState.contextAvailable,JSON.stringify(renderState));
 if(requireWebGL){
 assert("real WebGL renderer activated",/WEBGL/i.test(mode),mode);
 assert("live WebGL drawing context exists",renderState.hasLiveGL,JSON.stringify(renderState));

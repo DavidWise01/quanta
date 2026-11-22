@@ -1,0 +1,30 @@
+# RQT-586 — Extended Pell Prime Gates
+
+**Exact all-scale result:** 14 additional selected Pell ray-offset families are excluded by certified odd-prime obstructions. Previously excluded 67, now **81/135 excluded, 54 unresolved**. The tested odd rational primes range from 2001 through 200000.
+
+For Δ(t)=At²+Bt+C, D=B²−4AC, an odd prime p with p∤A, Legendre(A,p)=−1 and v_p(D)=1 proves Δ(t) cannot be a perfect square for any integer t. Indeed the unique t0=−B(2A)⁻¹ (mod p) is the only residue where Δ(t) vanishes; elsewhere Δ(t) has nonsquare residue. At t0, every integer lift has valuation exactly 1 (verified modulo p²), so is not an integer square.
+
+| Selected family index | Certified obstruction prime |
+|---:|---:|
+| 32 | 59659 |
+| 39 | 18371 |
+| 41 | 18371 |
+| 48 | 59659 |
+| 66 | 3793 |
+| 68 | 3793 |
+| 83 | 11027 |
+| 90 | 75029 |
+| 91 | 15173 |
+| 97 | 15173 |
+| 98 | 75029 |
+| 105 | 11027 |
+| 115 | 4973 |
+| 127 | 4973 |
+
+The verification independently reproduces the Gram-derived discriminant at signed scales, checks prime status, Legendre symbol, valuation, exceptional t0 residue and p² stability of its lifts. Source: archived RQT-575 reduced Gram, RQT-583 Pell equations, RQT-584 prior exclusion ledger. The local results JSON contains all 14 coefficients and source SHA256 fingerprints.
+
+**Limits:** 135 selected ray-offset corridors are not all of Z⁴. 54 selected families remain unresolved, no integral norm−2 vector found, no original 22D Wall replay performed, Root19 OPEN. {{i}} and arc-arc-degree{{n}} are architectural indexing, not independently verified root-generating operations.
+
+**Next RQT-587:** classify the remaining 54 by stronger arithmetic or construct full Pell orbits, recover integer t and the eliminated lattice coordinate, then test the original 22D Wall conditions.
+
+A separate conversation artifact contains the original Art Deco underwater JPEG and self-contained HTML with embedded JPEG. This repository viewer is a text edition; Pages and binary image upload unverified.

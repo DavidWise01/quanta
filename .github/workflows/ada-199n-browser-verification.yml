@@ -15,6 +15,8 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
+      - name: Verify eight simulation cores and replay invariants
+        run: node ada/ada-199n-eight-lab-core-test.mjs
       - name: Test seeded engine and deterministic replay
         run: node ada/ada-199n-deterministic-engine-test.mjs
       - name: Install browser runtime

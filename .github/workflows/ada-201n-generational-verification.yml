@@ -100,7 +100,7 @@ jobs:
           PAGES: ${{ steps.pages.outcome }}
           PUBLIC: ${{ steps.public.outcome }}
         run: |
-          node -e 'const fs=require("fs");const names=["G201","G202","G203","G204","G205","G206","G207","G208","SOURCE","LOCAL","PAGES","PUBLIC"];const outcomes=Object.fromEntries(names.map(k=>[k,process.env[k]||"skipped"]));const pass=names.every(k=>outcomes[k]==="success");const report={schema:"ADA-209N.runtime-gate.v1",passed:pass,outcomes,runId:process.env.GITHUB_RUN_ID,attempt:process.env.GITHUB_RUN_ATTEMPT,commit:process.env.GITHUB_SHA};fs.mkdirSync("ada/verification-results",{recursive:true});fs.writeFileSync("ada/verification-results/ada-209n-gate.json",JSON.stringify(report,null,2)+"\\n");console.log(JSON.stringify(report));if(!pass)process.exitCode=1'
+          node -e 'const fs=require("fs");const names=["G201","G202","G203","G204","G205","G206","G207","G208","SOURCE","LOCAL","PAGES","PUBLIC"];const outcomes=Object.fromEntries(names.map(k=>[k,process.env[k]||"skipped"]));const pass=names.every(k=>outcomes[k]==="success");const report={schema:"ADA-209N.runtime-gate.v1",passed:pass,outcomes,runId:process.env.GITHUB_RUN_ID,attempt:process.env.GITHUB_RUN_ATTEMPT,commit:process.env.GITHUB_SHA};fs.mkdirSync("ada/verification-results",{recursive:true});fs.writeFileSync("ada/verification-results/ada-209n-gate.json",JSON.stringify(report,null,2)+"\n");console.log(JSON.stringify(report));if(!pass)process.exitCode=1'
       - name: Upload acceptance gate evidence
         if: always()
         uses: actions/upload-artifact@v4
@@ -126,5 +126,5 @@ jobs:
               '- Outcomes: '+JSON.stringify(evidence.outcomes),
               '- Source and public Pages require exact nine-file Git blob identity and independent local/public Chromium test runs.',
               '- Phase III 90% promotion remains conditional on this completed successful workflow.'
-            ].join('\\n');
+            ].join('\n');
             await github.rest.issues.createComment({owner:context.repo.owner,repo:context.repo.repo,issue_number:2,body});

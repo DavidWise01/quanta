@@ -55,7 +55,7 @@
     {
       "n": 209,
       "name": "Real Chromium and Pages acceptance",
-      "state": "PENDING"
+      "state": "ACCEPTANCE_GATE_COMMITTED_CI_PENDING"
     },
     {
       "n": 210,
@@ -89,7 +89,7 @@
     "ada/ada-208n-geometry-stress.mjs",
     "ada/ada-208n-geometry-stress-test.mjs"
   ],
-  "runtimeStatus": "ADA201N_208N_SOURCE_TESTED_BROWSER_PENDING",
+  "runtimeStatus": "ADA209N_DUAL_CHROMIUM_AND_PINNED_PAGES_GATE_PENDING",
   "notes": [
     "LocalStorage journal uses write-once per-generation receipts and writes head last; browser-origin storage is not tamper-proof against a malicious same-origin actor.",
     "Malformed or interrupted persisted history locks appends rather than silently clearing its ancestry.",
@@ -104,6 +104,30 @@
     "ADA-207N uses a bounded 24-entry active memory view with capacity 1–256, retaining every generation in the existing write-once journal.",
     "The first active record preserves its parent hash pointing into archived history; any source mutation invalidates the entire derived memory proof.",
     "ADA-208N stress tested 241 source generations: 24 active, 217 archived, 17 HOLD, 223 eligible growth steps; projected 3D geometry deterministic and source intact.",
-    "Projection is Canvas2D software geometry; it does not claim fabricated optical or independent physical channels. Public Pages browser acceptance remains a distinct ADA-209N gate."
-  ]
+    "Projection is Canvas2D software geometry; it does not claim fabricated optical or independent physical channels. Public Pages browser acceptance remains a distinct ADA-209N gate.",
+    "ADA-209N requires nine exact local and published Git blob bytes and two real Chromium end-to-end runs. Phase III remains 80% until a completed successful workflow reports all twelve outcomes."
+  ],
+  "acceptance": {
+    "issue": "https://github.com/DavidWise01/quanta/issues/2",
+    "workflow": ".github/workflows/ada-201n-generational-verification.yml",
+    "manifest": "ada/ada-209n-pinned-pages.json",
+    "integrityRunner": "ada/ada-209n-pages-integrity.mjs",
+    "statusPage": "ada/ada-209n-acceptance.html",
+    "requiredPasses": [
+      "G201",
+      "G202",
+      "G203",
+      "G204",
+      "G205",
+      "G206",
+      "G207",
+      "G208",
+      "SOURCE",
+      "LOCAL",
+      "PAGES",
+      "PUBLIC"
+    ],
+    "state": "PENDING_COMPLETED_CI_RUN",
+    "progressOnSuccess": 90
+  }
 }

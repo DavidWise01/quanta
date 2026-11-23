@@ -1,0 +1,51 @@
+name: ADA-201N Generational +n Verification
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'ada/ada-201n-*'
+      - 'ada/phase-iii-201-210.*'
+      - '.github/workflows/ada-201n-generational-verification.yml'
+permissions:
+  contents: read
+jobs:
+  generation:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Verify deterministic parent/child +n lineage
+        run: node ada/ada-201n-generational-test.mjs
+      - name: Install Chromium browser
+        run: |
+          npm install --no-save --no-package-lock playwright@1.58.2
+          npx playwright install --with-deps chromium
+      - name: Launch local GitHub Pages source server
+        run: |
+          python3 -m http.server 8765 --bind 127.0.0.1 > /tmp/ada-201n-server.log 2>&1 &
+          for i in $(seq 1 30); do
+            if curl -fsS http://127.0.0.1:8765/ada/ada-201n-generational-lab.html >/dev/null; then exit 0; fi
+            sleep 1
+          done
+          cat /tmp/ada-201n-server.log
+          exit 1
+      - name: Verify browser +n interactions and immutable genesis
+        run: node ada/ada-201n-browser-test.mjs
+      - name: Verify Pages publication
+        env:
+          ADA_PUBLIC_BASE: https://davidwise01.github.io/quanta
+        run: |
+          for attempt in $(seq 1 12); do
+            if curl -fsS "$ADA_PUBLIC_BASE/ada/ada-201n-generational-lab.html" | grep -q 'Generational +n Engine'; then
+              if curl -fsS "$ADA_PUBLIC_BASE/ada/ada-201n-generational-engine.mjs" | grep -q 'export function advance'; then
+                echo "Generation lab and engine are published"
+                exit 0
+              fi
+            fi
+            if [ "$attempt" -eq 12 ]; then echo "Phase III Pages publication not observed"; exit 1; fi
+            sleep 15
+          done

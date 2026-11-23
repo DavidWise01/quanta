@@ -1,0 +1,54 @@
+name: ADA-211N Generational Epoch Verification
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'ada/ada-211n-*'
+      - 'ada/phase-iv-211-220.*'
+      - '.github/workflows/ada-211n-epoch-verification.yml'
+permissions:
+  contents: read
+jobs:
+  epoch:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Check frozen Phase III parent blob
+        run: |
+          test "$(git hash-object ada/ada-210n-phase-iii-freeze.json)" = "59c1419b01ac2c0c592fd650b12a0a11f5b8bb44"
+      - name: Replay 241 inherited generations into 11 epochs
+        run: node ada/ada-211n-epoch-test.mjs
+      - name: Install Chromium
+        run: |
+          npm install --no-save --no-package-lock playwright@1.58.2
+          npx playwright install --with-deps chromium
+      - name: Serve repository checkout
+        run: |
+          python3 -m http.server 8765 --bind 127.0.0.1 >/tmp/ada-211n-server.log 2>&1 &
+          for i in $(seq 1 30); do
+            if curl -fsS http://127.0.0.1:8765/ada/ada-211n-epoch-lab.html >/dev/null; then exit 0; fi
+            sleep 1
+          done
+          cat /tmp/ada-211n-server.log
+          exit 1
+      - name: Verify local browser controls and animated canvas
+        run: node ada/ada-211n-browser-test.mjs
+      - name: Verify public Pages source is deployed
+        run: |
+          for attempt in $(seq 1 15); do
+            if curl -fsS https://davidwise01.github.io/quanta/ada/ada-211n-epoch-lab.html | grep -q 'Generations of Generations +n' &&
+              curl -fsS https://davidwise01.github.io/quanta/ada/ada-211n-epoch-engine.mjs | grep -q 'export function epochHierarchy'; then
+              exit 0
+            fi
+            if [ "$attempt" -eq 15 ]; then echo "Phase IV Pages not observed"; exit 1; fi
+            sleep 12
+          done
+      - name: Verify public Pages Chromium behavior
+        env:
+          ADA_BASE_URL: https://davidwise01.github.io/quanta
+        run: node ada/ada-211n-browser-test.mjs

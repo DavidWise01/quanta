@@ -1,0 +1,14 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>RQT-601 — Compact Pell Seed Sieve</title><style>body{margin:0;background:radial-gradient(circle at 67% 16%,#452466,#09192d 58%,#030815);color:#f8f0e6;font:18px/1.6 system-ui}main{max-width:1050px;margin:auto;padding:clamp(24px,6vw,68px)}h1{font-size:clamp(44px,8vw,84px);color:#ffb36a;margin:0}h2{color:#87f2ef}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.metric{background:#ffffff12;border:1px solid #b899ea77;padding:18px;border-radius:16px}.n{font-size:clamp(27px,4vw,45px);color:#8af4ed;font-weight:800}.bar{background:#3d304f;height:16px;border-radius:16px;overflow:hidden}.fill{background:linear-gradient(90deg,#ffac56,#ae86f5);width:60.7407%;height:100%}pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#060c1c;padding:22px;border:1px solid #b68be477;border-radius:14px}a{color:#8ff0ff}.caution{border-left:3px solid #ffa858;padding-left:17px}@media(max-width:580px){.grid{grid-template-columns:1fr}}</style><main><p>QUANTA RESEARCH SERIES · {{i}} · .dlw</p><h1>RQT-601</h1><p>Compact Modular Seed-First Pell Sieve · Family 28</p><div class="grid"><div class="metric"><div class="n">2,000,001</div>Exact t values covered</div><div class="metric"><div class="n">26</div>Modular prime gates</div><div class="metric"><div class="n">0</div>Survivors in bounded window</div></div><h2>Exact discriminant gate</h2><pre>Δ(t) = A·t² + B·t + C
+Any integer root requires Δ(t)=Y².
+Therefore Δ(t) must be a square (mod p) for every prime p.
+
+First gate: p = 31
+Allowed t mod 31: [12]
+Remaining candidates: 64,516
+
+After p=71: 2
+After p=73: 1
+After p=103: 0
+
+Finite window: -1,000,000 ≤ t ≤ 1,000,000
+ALL INTEGERS IN WINDOW CERTIFIED EXCLUDED.</pre><p class="caution">The sieve does not exclude family 28 at every scale. No fundamental Pell unit or generalized seed was constructed. The original 22D Wall has not been replayed. <b>Root 19 OPEN.</b></p><h2>Selected-family exclusion ledger</h2><div class="bar"><div class="fill"></div></div><p><b>82/135 excluded (60.74%)</b> · 53 unresolved; no change from RQT-600.</p><p><a href="research/RQT-601-COMPACT-MODULAR-SEED-SIEVE.md">Research record</a> · <a href="research/rqt601-sieve.py">Executable verifier</a></p><p>RQT-602: compressed CRT wheel and wider exact window.</p><p>{brace{n}[box[n](torroid(n))]} · arc-arc-degree{{n}} · .dlw</p></main></html>

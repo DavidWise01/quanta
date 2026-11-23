@@ -30,6 +30,11 @@ try{
  assert.match(await page.locator("#growthState").innerText(),/GROWTH REPLAY PASS.*HOLD.*size/);
  assert.match(await page.locator("#mutationState").innerText(),/MUTATION REPLAY PASS.*bounded changes.*HOLD/);
  assert.match(await page.locator("#memoryState").innerText(),/MEMORY REPLAY PASS.*20 active \/ 0 archived/);
+ await page.locator("#stress").click();
+ assert.match(await page.locator("#stressState").innerText(),/GEOMETRY STRESS PASS.*20 generations.*20 active \/ 0 archived/);
+ assert.equal(await page.locator("#stressRows tr").count(),12);
+ assert.equal((await page.locator("#stressRows tr").first().locator("td").first().innerText()).trim(),"19");
+
  assert.equal(await page.locator("#memoryRows tr").count(),14);
  assert.equal((await page.locator("#memoryRows tr").first().locator("td").first().innerText()).trim(),"19");
 

@@ -1,0 +1,87 @@
+{
+  "schema": "ADA.phase-iv.plan.v1",
+  "root": "DavidWise01/quanta",
+  "phase": "IV",
+  "date": "2026-11-23",
+  "target": "Generations of generations +n; sealed epoch hierarchy over immutable Phase III ancestry",
+  "completionPct": 10,
+  "parent": {
+    "phase": "III",
+    "freeze": "ada/ada-210n-phase-iii-freeze.json",
+    "gitBlobSha": "59c1419b01ac2c0c592fd650b12a0a11f5b8bb44",
+    "state": "CLOSED_CERTIFIED"
+  },
+  "milestones": [
+    {
+      "n": 211,
+      "name": "Deterministic epoch-of-generations hierarchy",
+      "state": "SOURCE_REPLAY_PASS_BROWSER_PENDING"
+    },
+    {
+      "n": 212,
+      "name": "Append-only persistent epoch journal",
+      "state": "PENDING"
+    },
+    {
+      "n": 213,
+      "name": "Epoch-level evidence and provenance replay",
+      "state": "PENDING"
+    },
+    {
+      "n": 214,
+      "name": "Three-contact inheritance across epochs",
+      "state": "PENDING"
+    },
+    {
+      "n": 215,
+      "name": "Epoch-scale homeostatic growth",
+      "state": "PENDING"
+    },
+    {
+      "n": 216,
+      "name": "Bounded epoch-level adaptive mutation",
+      "state": "PENDING"
+    },
+    {
+      "n": 217,
+      "name": "Hierarchical memory budget",
+      "state": "PENDING"
+    },
+    {
+      "n": 218,
+      "name": "Nested 3D stress and long-run geometry",
+      "state": "PENDING"
+    },
+    {
+      "n": 219,
+      "name": "Chromium and GitHub Pages acceptance",
+      "state": "PENDING"
+    },
+    {
+      "n": 220,
+      "name": "Final immutable Phase IV freeze",
+      "state": "PENDING"
+    }
+  ],
+  "rules": [
+    "One original source root; descendant epochs are not independent witnesses",
+    "Every full 24-generation epoch is sealed; final partial epoch remains OPEN_TAIL",
+    "All Phase III generations and prior epochs stay immutable",
+    "HOLD is recorded, never erased",
+    "No phase promotion for unverified browser or Pages claims"
+  ],
+  "source": [
+    "ada/ada-211n-epoch-engine.mjs",
+    "ada/ada-211n-epoch-test.mjs",
+    "ada/ada-211n-epoch-lab.html"
+  ],
+  "runtimeStatus": "ADA211N_SOURCE_REPLAY_TESTED_BROWSER_PENDING",
+  "stressEvidence": {
+    "generations": 241,
+    "epochs": 11,
+    "sealed": 10,
+    "openTail": 1,
+    "holds": 17,
+    "sourceRootCount": 1
+  }
+}

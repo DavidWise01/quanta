@@ -1,0 +1,19 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>RQT-604 · Hash-Linked CRT Certificates</title><style>body{margin:0;background:radial-gradient(circle at 68% 13%,#412566,#091727 60%,#030814);color:#f8f1e8;font:18px/1.6 system-ui}main{max-width:1040px;margin:auto;padding:clamp(20px,5vw,70px)}h1{font-size:clamp(44px,8vw,82px);color:#ffb367;margin:0}h2{color:#8bf5e9}.metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.metric{background:#ffffff10;border:1px solid #b68af477;border-radius:15px;padding:18px}.num{color:#8df9ed;font-size:clamp(30px,4vw,45px);font-weight:800}pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#050d20;border:1px solid #aa80e966;padding:20px;border-radius:14px}.bar{height:15px;background:#403153;border-radius:15px;overflow:hidden}.fill{height:100%;width:60.7407%;background:linear-gradient(90deg,#ffa956,#b18af4)}a{color:#84f3fa}.note{border-left:3px solid #ffb46c;padding-left:18px}small{color:#bdbccc}@media(max-width:570px){.metrics{grid-template-columns:1fr}}</style><main><small>QUANTA RESEARCH SERIES · {{i}} · .dlw</small><h1>RQT-604</h1><p>Append-Only CRT Certificates &amp; Direct Integer-Coordinate Gates</p><div class="metrics"><div class="metric"><div class="num">53</div>Hash-linked family certificates</div><div class="metric"><div class="num">989 / 989</div>Prime-filter stages reproduced</div><div class="metric"><div class="num">24</div>Direct coordinate moduli per family</div></div><h2>Deterministic evidence chain</h2><pre>genesis = 000000...000000 (64 hex zeros)
+record_i.previous_hash = SHA256(record_(i−1))
+record_i.sha256 = SHA256(canonical_json(record_i))
+canonical JSON = sorted keys, compact separators
+
+FINAL CHAIN HASH:
+e2bd1c5818a294ecd578af40791c81b3b96c432ee9276f0f404b7e4b054994a2
+
+Source: RQT-603 and rederived RQT-591 Gram
+53 finite intervals [-100000,100000] independently replayed
+All 989 CRT stages matched, all finite survivors = 0.</pre><h2>Direct integer-coordinate tests</h2><pre>q(u,t) + 2 = a·u² + b·u·t + c·t² + d·u + e·t + f
+Checked all (u,t) residues modulo:
+2,4,8,16,32,64,128,256
+3,9,27,81; 5,25,125; 7,49
+11,13,17,19,23,29,31
+
+Every one of 53 families had at least one
+norm-compatible residue pair at every tested modulus.
+New all-scale exclusions: 0.</pre><h2>All-scale selected-family ledger</h2><div class="bar"><div class="fill"></div></div><p><strong>82/135 excluded (60.74%)</strong> · 53 unresolved.</p><p class="note">Hash links preserve checkable provenance within the generated records; they are not independent witnesses or immutable remote storage. Finite-window exclusions and local modular solutions do not establish a global root. Original 22D Wall replay pending. <strong>ROOT 19 OPEN.</strong></p><p><a href="research/RQT-604-APPEND-ONLY-CRT-CERTIFICATES.md">Research record</a> · <a href="research/rqt604-append-only.py">Executable Python verifier</a></p><p>Next natural bound — RQT-605: combined coordinate CRT congruences and exact global-obstruction tests.</p><small>{brace{n}[box[n](torroid(n))]} · arc-arc-degree{{n}} · .dlw</small></main>

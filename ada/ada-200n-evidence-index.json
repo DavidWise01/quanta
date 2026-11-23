@@ -74,6 +74,14 @@
       "type": "evidence-bound-release-certificate-issuer",
       "status": "COMMITTED_NOT_ISSUED",
       "scope": "Validates all eight CI outcomes, eight unique pinned published paths, expected browser origins/routes, and provenance of the named ADA-199N GitHub Actions workflow with positive run ID and attempt on main; rejects invalid evidence and emits certificate artifact only after validation."
+    },
+    {
+      "id": "E-09",
+      "path": "ada/ada-200n-current-source-core-results.json",
+      "type": "current-pinned-source-v8-core-replay",
+      "status": "EXECUTED_SOURCE_ONLY",
+      "scope": "All 8 pinned HTML simulation cores re-evaluated for 100 ticks and deterministic replay on 2026-11-23; includes ADA-197N corrected action-before-observation check; not a GitHub Actions or browser run",
+      "browserVerified": false
     }
   ],
   "finalCertificate": {

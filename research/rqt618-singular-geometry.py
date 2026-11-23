@@ -20,7 +20,7 @@ def grad(c,u,t):
  return 2*a*u+b*t+e,b*u+2*d*t+f
 p=31;c=coeff(byid[28]);roots=[(u,t) for u in range(p) for t in range(p) if q(c,u,t)%p==0]
 assert roots==[(6,12)]
-u0,t0=roots;u0,t0=u0[0],u0[1]
+u0,t0=roots[0]
 gu,gt=grad(c,u0,t0)
 assert gu%p==gt%p==0 and q(c,u0,t0)%(p*p)==0
 red=[c[0],c[1],c[2],gu//p,gt//p,q(c,u0,t0)//(p*p)]

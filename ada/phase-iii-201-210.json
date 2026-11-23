@@ -4,7 +4,7 @@
   "phase": "III",
   "date": "2026-11-23",
   "target": "Generational +n / deterministic, source-bound, diodic inheritance",
-  "completionPct": 40,
+  "completionPct": 50,
   "parent": {
     "phase": "II",
     "freeze": "ada/ada-200n-phase-ii-freeze.json",
@@ -35,7 +35,7 @@
     {
       "n": 205,
       "name": "Homeostatic growth gating",
-      "state": "PENDING"
+      "state": "SOURCE_AND_V8_TEST_PASS_BROWSER_PENDING"
     },
     {
       "n": 206,
@@ -79,15 +79,19 @@
     "ada/ada-203n-provenance.mjs",
     "ada/ada-203n-provenance-test.mjs",
     "ada/ada-204n-three-contact-inheritance.mjs",
-    "ada/ada-204n-three-contact-test.mjs"
+    "ada/ada-204n-three-contact-test.mjs",
+    "ada/ada-205n-homeostatic-growth.mjs",
+    "ada/ada-205n-growth-test.mjs"
   ],
-  "runtimeStatus": "ADA201N_204N_SOURCE_TESTED_BROWSER_PENDING",
+  "runtimeStatus": "ADA201N_205N_SOURCE_TESTED_BROWSER_PENDING",
   "notes": [
     "LocalStorage journal uses write-once per-generation receipts and writes head last; browser-origin storage is not tamper-proof against a malicious same-origin actor.",
     "Malformed or interrupted persisted history locks appends rather than silently clearing its ancestry.",
     "Every generational provenance trace descends from exactly one frozen Phase II source root; repeated descendants cannot be counted as independent witnesses.",
     "The per-generation fingerprint is a deterministic FNV64 consistency check, not a cryptographic proof against an adversary controlling the same origin.",
     "ADA-204N adds a separately derived immutable three-contact ledger; it does not change pinned generations or write-once ADA-202N journal entries.",
-    "Jane observes, Toph gates stability and energy, ADA deterministically APPENDs or HOLDs; HOLD remains a recorded generation event."
+    "Jane observes, Toph gates stability and energy, ADA deterministically APPENDs or HOLDs; HOLD remains a recorded generation event.",
+    "ADA-205N growth is dimensionless ×1.025 (a 2.5% increase) for each eligible APPEND; HOLD retains the previous size while preserving the generation event.",
+    "Growth is a separate deterministic derived ledger; existing pinned source, journal and contact records remain unchanged."
   ]
 }

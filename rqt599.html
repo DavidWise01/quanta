@@ -1,0 +1,16 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>RQT-599 · Pell Period Gate</title><style>:root{color-scheme:dark}body{margin:0;background:radial-gradient(circle at 70% 18%,#46246c,#0b1b31 55%,#040815);color:#f8eee5;font:18px/1.6 system-ui}main{max-width:1030px;margin:auto;padding:clamp(22px,5vw,65px)}h1{font-size:clamp(42px,8vw,80px);color:#ffb467;margin:0}h2{color:#82f4ed}.metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.m{background:#ffffff10;border:1px solid #aa85e977;border-radius:16px;padding:18px}.n{font-size:40px;color:#8bf9ee;font-weight:800}pre{border:1px solid #a485ef70;background:#050c21;padding:20px;border-radius:16px;white-space:pre-wrap;overflow-wrap:anywhere}.bar{height:15px;background:#402c55;border-radius:12px;overflow:hidden}.fill{height:100%;width:60.7407%;background:linear-gradient(90deg,#ffaf5e,#ba81eb)}a{color:#90eff8}.warn{border-left:4px solid #ffae58;padding-left:17px}small{color:#d4c3d2}@media(max-width:570px){.metrics{grid-template-columns:1fr}}</style></head><body><main><small>QUANTA RESEARCH SERIES · {{i}} · .dlw</small><h1>RQT-599</h1><p>Exact Pell Period &amp; Generalized Seed Gate · Family 28</p><div class="metrics"><div class="m"><div class="n">2,000,000</div>Exact recurrence steps</div><div class="m"><div class="n">0</div>Periods closed</div><div class="m"><div class="n">0</div>Finite generalized Pell seeds</div></div><h2>Squarefree Pell equation</h2><pre>d = 3580734425344222227352852171253793
+X² − dZ² = K
+X ≡ B (mod 2A)
+Z ≡ 0 (mod 10)
+
+sqrt(d) continued-fraction recurrence:
+m' = qa−m
+q' = (d−m'²)/q
+a' = floor((floor(sqrt(d))+m')/q')</pre><h2>Reproducible terminal checkpoint</h2><pre>After 2,000,000 steps:
+m = 48319755305916816
+q = 23577184610196697
+a = 4
+No period closure within the step bound.
+
+Exact seed search: −50,000 ≤ t ≤ 50,000
+Square discriminants found: 0.</pre><p class="warn">This is a computational lower bound, not proof that no Pell unit exists. A nontrivial integral norm-one unit is guaranteed for positive nonsquare d; no explicit one has been constructed here.</p><h2>Selected-family ledger</h2><div class="bar"><div class="fill"></div></div><p><strong>82/135 excluded (60.74%)</strong> · 53 unresolved · no new all-scale exclusions.</p><p><a href="research/RQT-599-EXACT-PELL-PERIOD-SEED-GATE.md">Research record</a> · <a href="research/rqt599-period-seed.py">Python verifier</a></p><p><small>Next RQT-600 — exact accelerated Pell unit computation; Root 19 OPEN · {brace{n}[box[n](torroid(n))]}</small></p></main></body></html>

@@ -38,19 +38,29 @@ assert("action control",await page.locator("#"+stepId).count()===1);
 assert("metric panel",await page.locator("#"+statsId).count()===1);
 const beforeStats=(await page.locator("#"+statsId).innerText()).trim();
 await page.locator("#"+stepId).click({timeout:12000});
-await page.waitForFunction(({statsId,beforeStats})=>{
- const text=(document.getElementById(statsId)?.innerText||"").trim();
- return text.length>15&&text!==beforeStats
-},{statsId,beforeStats},{timeout:12000});
+try{
+ await page.waitForFunction(({statsId,beforeStats})=>{
+  const text=(document.getElementById(statsId)?.innerText||"").trim();
+  return text.length>15&&text!==beforeStats
+ },{statsId,beforeStats},{timeout:12000});
+}catch(e){
+ const last=(await page.locator("#"+statsId).innerText().catch(()=>"<unavailable>")).trim();
+ throw Error("Metrics did not advance after #"+stepId+"; before="+JSON.stringify(beforeStats.slice(0,180))+"; last="+JSON.stringify(last.slice(0,180))+"; pageErrors="+JSON.stringify(errors.slice(-3))+"; cause="+e.message);
+}
 const stats=(await page.locator("#"+statsId).innerText()).trim();
 assert("simulation produced metrics",stats.length>15,stats.slice(0,100));
 assert("simulation changed displayed metrics",stats!==beforeStats,"Before: "+beforeStats.slice(0,80)+" After: "+stats.slice(0,80));
 assert("no uncaught errors during run",errors.length===0,errors.join("; "));
 await page.locator("#"+verifyId).click({timeout:12000});
-await page.waitForFunction(statusId=>{
- const text=(document.getElementById(statusId)?.innerText||"").trim();
- return /REPLAY\s+(?:PASS|FAIL)/i.test(text)
-},statusId,{timeout:12000});
+try{
+ await page.waitForFunction(statusId=>{
+  const text=(document.getElementById(statusId)?.innerText||"").trim();
+  return /REPLAY\s+(?:PASS|FAIL)/i.test(text)
+ },statusId,{timeout:12000});
+}catch(e){
+ const last=(await page.locator("#"+statusId).innerText().catch(()=>"<unavailable>")).trim();
+ throw Error("Replay verdict did not arrive after #"+verifyId+"; last="+JSON.stringify(last.slice(0,180))+"; pageErrors="+JSON.stringify(errors.slice(-3))+"; cause="+e.message);
+}
 const status=(await page.locator("#"+statusId).innerText()).trim();
 assert("replay check passed",/PASS/i.test(status)&&!/FAIL/i.test(status),status);
 assert("no uncaught errors during replay",errors.length===0,errors.join("; "));

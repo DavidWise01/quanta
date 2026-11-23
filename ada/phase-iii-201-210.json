@@ -4,7 +4,7 @@
   "phase": "III",
   "date": "2026-11-23",
   "target": "Generational +n / deterministic, source-bound, diodic inheritance",
-  "completionPct": 60,
+  "completionPct": 70,
   "parent": {
     "phase": "II",
     "freeze": "ada/ada-200n-phase-ii-freeze.json",
@@ -45,7 +45,7 @@
     {
       "n": 207,
       "name": "Bounded intergenerational memory",
-      "state": "PENDING"
+      "state": "SOURCE_AND_V8_TEST_PASS_BROWSER_PENDING"
     },
     {
       "n": 208,
@@ -83,9 +83,11 @@
     "ada/ada-205n-homeostatic-growth.mjs",
     "ada/ada-205n-growth-test.mjs",
     "ada/ada-206n-bounded-mutation.mjs",
-    "ada/ada-206n-bounded-mutation-test.mjs"
+    "ada/ada-206n-bounded-mutation-test.mjs",
+    "ada/ada-207n-memory-window.mjs",
+    "ada/ada-207n-memory-window-test.mjs"
   ],
-  "runtimeStatus": "ADA201N_206N_SOURCE_TESTED_BROWSER_PENDING",
+  "runtimeStatus": "ADA201N_207N_SOURCE_TESTED_BROWSER_PENDING",
   "notes": [
     "LocalStorage journal uses write-once per-generation receipts and writes head last; browser-origin storage is not tamper-proof against a malicious same-origin actor.",
     "Malformed or interrupted persisted history locks appends rather than silently clearing its ancestry.",
@@ -96,6 +98,8 @@
     "ADA-205N growth is dimensionless ×1.025 (a 2.5% increase) for each eligible APPEND; HOLD retains the previous size while preserving the generation event.",
     "Growth is a separate deterministic derived ledger; existing pinned source, journal and contact records remain unchanged.",
     "ADA-206N adaptive proposals derive from observed Jane/Toph deltas; per eligible step ±0.025 and total ±0.25, with zero mutation on HOLD.",
-    "The adaptive policy ledger is separately derived and immutable; Phase II, generation journals, inherited contacts and 1.025 growth remain unchanged."
+    "The adaptive policy ledger is separately derived and immutable; Phase II, generation journals, inherited contacts and 1.025 growth remain unchanged.",
+    "ADA-207N uses a bounded 24-entry active memory view with capacity 1–256, retaining every generation in the existing write-once journal.",
+    "The first active record preserves its parent hash pointing into archived history; any source mutation invalidates the entire derived memory proof."
   ]
 }

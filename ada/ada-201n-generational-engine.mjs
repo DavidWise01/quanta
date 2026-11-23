@@ -14,7 +14,7 @@ export function fnv64(text){
 export function lcg(seed){return (Math.imul(seed,1664525)+1013904223)>>>0}
 export function genesis(){
  const frame={schema:SCHEMA,n:0,parent:null,parentRoot:PHASE_II_FREEZE,seed:GENESIS_SEED,signal:50,stability:100,energy:100,contacts:[50,50,50],decision:"ROOT",event:"phase-II-root-boundary"};
- return Object.freeze({...frame,hash:fnv64(canonical(frame))});
+ return Object.freeze({...frame,contacts:Object.freeze([...frame.contacts]),hash:fnv64(canonical(frame))});
 }
 export function next(parent){
  if(!parent||parent.schema!==SCHEMA||!Number.isSafeInteger(parent.n)||parent.n<0||parent.n>=10000)throw Error("Invalid generation parent or generation limit");
@@ -27,7 +27,7 @@ export function next(parent){
  const energy=Number(bound(parent.energy-0.25+0.5*(stability>=95?1:0),0,100).toFixed(5));
  const decision=stability>=90&&energy>=5?"APPEND":"HOLD";
  const frame={schema:SCHEMA,n,parent:parent.hash,parentRoot:parent.parentRoot,seed,signal,stability,energy,contacts,decision,event:decision==="APPEND"?"inherited-observation":"safety-gate-hold"};
- return Object.freeze({...frame,hash:fnv64(canonical(frame))});
+ return Object.freeze({...frame,contacts:Object.freeze([...frame.contacts]),hash:fnv64(canonical(frame))});
 }
 export function verifyNode(item){
  if(!item||item.schema!==SCHEMA||!Number.isInteger(item.n)||item.n<0)return false;

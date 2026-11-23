@@ -1,0 +1,24 @@
+// ADA-201N · deterministic generational +n certification.
+import assert from "node:assert/strict";
+import {PHASE_II_FREEZE,genesis,advance,verifyChain,next} from "./ada-201n-generational-engine.mjs";
+assert.match(PHASE_II_FREEZE,/^[a-f0-9]{40}$/);
+const first=genesis();
+assert.equal(first.n,0);assert.equal(first.parentRoot,PHASE_II_FREEZE);
+assert(Object.isFrozen(first)&&Object.isFrozen(first.contacts),"Genesis and contacts must be frozen");
+let chain=[first];for(const step of [1,5,13,100])chain=advance(chain,step);
+assert.equal(chain.length,120);assert.equal(chain.at(-1).n,119);
+assert(verifyChain(chain).pass,"Full inherited lineage must replay");
+assert(chain.every(x=>Object.isFrozen(x)&&Object.isFrozen(x.contacts)));
+assert(chain.every(x=>x.parentRoot===PHASE_II_FREEZE));
+assert(chain.slice(1).every((x,i)=>x.parent===chain[i].hash));
+const replay=advance([genesis()],119);
+assert.deepEqual(chain,replay,"Same root and +n must reproduce identical generations");
+const attack=JSON.parse(JSON.stringify(chain));attack[10].contacts[1]+=0.01;
+assert.equal(verifyChain(attack).pass,false,"Nested contact mutation must be detected");
+const attack2=JSON.parse(JSON.stringify(chain));attack2[13].parent="0".repeat(16);
+assert.equal(verifyChain(attack2).pass,false,"Broken parent identity must be rejected");
+assert.throws(()=>advance([first],1001),/Steps must be/);
+assert.throws(()=>advance([first],0),/Steps must be/);
+assert.throws(()=>next({...first,signal:55}),/Parent lineage tamper/);
+const decisionCounts=chain.reduce((acc,g)=>(acc[g.decision]=(acc[g.decision]||0)+1,acc),{});
+console.log(JSON.stringify({schema:"ADA-201N.test.v1",pass:true,phaseII:PHASE_II_FREEZE,generations:chain.length,lastHash:chain.at(-1).hash,decisionCounts,checks:["genesis immutability","nested contact immutability","119-generation +n replay","source anchor inheritance","parent hash continuity","deterministic reproduction","nested tamper rejection","parent tamper rejection","bounded input","invalid-parent rejection"]},null,2));

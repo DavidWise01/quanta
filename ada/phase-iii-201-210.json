@@ -4,7 +4,7 @@
   "phase": "III",
   "date": "2026-11-23",
   "target": "Generational +n / deterministic, source-bound, diodic inheritance",
-  "completionPct": 10,
+  "completionPct": 20,
   "parent": {
     "phase": "II",
     "freeze": "ada/ada-200n-phase-ii-freeze.json",
@@ -20,7 +20,7 @@
     {
       "n": 202,
       "name": "Append-only persisted generation archive",
-      "state": "PENDING"
+      "state": "SOURCE_AND_V8_TEST_PASS_BROWSER_PENDING"
     },
     {
       "n": 203,
@@ -73,7 +73,13 @@
   "source": [
     "ada/ada-201n-generational-engine.mjs",
     "ada/ada-201n-generational-lab.html",
-    "ada/ada-201n-generational-test.mjs"
+    "ada/ada-201n-generational-test.mjs",
+    "ada/ada-202n-generation-archive.mjs",
+    "ada/ada-202n-generation-archive-test.mjs"
   ],
-  "runtimeStatus": "V8_TESTED_BROWSER_PENDING"
+  "runtimeStatus": "ADA201N_202N_V8_TESTED_BROWSER_PENDING",
+  "notes": [
+    "LocalStorage journal uses write-once per-generation receipts and writes head last; browser-origin storage is not tamper-proof against a malicious same-origin actor.",
+    "Malformed or interrupted persisted history locks appends rather than silently clearing its ancestry."
+  ]
 }

@@ -6,6 +6,9 @@ on:
       - 'ada/**'
       - '.github/workflows/ada-199n-browser-verification.yml'
   workflow_dispatch:
+permissions:
+  contents: read
+  issues: write
 jobs:
   chromium-smoke:
     runs-on: ubuntu-latest
@@ -125,6 +128,38 @@ jobs:
           name: ada-200n-release-certificate
           path: ada/verification-results/ada-200n-release-certificate.json
           if-no-files-found: ignore
+      - name: Report execution gate to release issue
+        if: always()
+        continue-on-error: true
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            let gate;
+            try {
+              gate = JSON.parse(fs.readFileSync('ada/verification-results/gate.json', 'utf8'));
+            } catch (e) {
+              gate = { schema: 'ADA-199N.gate.v2', passed: false, outcomes: {}, error: 'gate.json unavailable: ' + e.message };
+            }
+            const runUrl = `https://github.com/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}`;
+            const lines = [
+              '### ADA-199N automated gate observation',
+              '- Run: ' + runUrl,
+              '- Commit: ' + context.sha,
+              '- Run ID: ' + context.runId + ' · attempt: ' + process.env.GITHUB_RUN_ATTEMPT,
+              '- Gate verdict: **' + (gate.passed === true ? 'PASS (preliminary)' : 'FAIL / unavailable') + '**',
+              '- Gate schema: ' + (gate.schema || 'missing'),
+              '- Outcomes: ' + JSON.stringify(gate.outcomes || {}),
+              '- Certificate: inspect the completed workflow and `ada-200n-release-certificate` artifact before promoting the phase.',
+              '- This comment is execution evidence, **not** proof that the full workflow completed successfully.'
+            ];
+            if (gate.error) lines.push('- Gate read error: ' + gate.error);
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: 1,
+              body: lines.join('\\n')
+            });
       - name: Upload final gate verdict
         if: always()
         uses: actions/upload-artifact@v4

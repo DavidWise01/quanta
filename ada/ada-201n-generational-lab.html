@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>ADA-201N · Generational +n Kernel</title>
+<title>ADA-202N · Persistent Generational +n Kernel</title>
 <style>
 :root{font:15px/1.5 system-ui,sans-serif;color:#f4f0ff;background:#050919;--v:#af78ff;--o:#ff913d;--t:#55f2dc}
 *{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 50% -20%,#26174c,#090e23 59%,#060a18);min-height:100vh}
@@ -12,14 +12,14 @@ main{width:min(1320px,96vw);margin:auto;padding:20px 0 40px}.head{display:flex;j
 .rule{border-left:3px solid var(--o);padding:10px;background:#2b1c35;font-size:12px;color:#f6d8bd;margin-top:13px}.links{display:flex;gap:8px;flex-wrap:wrap;margin-top:15px}.links a{font-size:12px}
 footer{margin-top:16px;font:12px ui-monospace,monospace;color:#8f9aba}@media(max-width:900px){.layout{grid-template-columns:1fr}.visual{height:410px}.metrics{grid-template-columns:repeat(2,1fr)}}
 </style></head><body><main>
-<div class="head"><div><div class="eyebrow">ROOT 0 / QUANTA / ADA / PHASE III / .dlw</div><h1>Generational <span style="color:var(--o)">+n</span> Engine</h1></div><span class="chip">ADA-201N · FIRST GENERATION</span></div>
+<div class="head"><div><div class="eyebrow">ROOT 0 / QUANTA / ADA / PHASE III / .dlw</div><h1>Generational <span style="color:var(--o)">+n</span> Engine</h1></div><span class="chip">ADA-202N · PERSISTENT GENERATIONS</span></div>
 <p class="intro">One frozen Phase II parent. Every generation inherits exactly one parent hash, creates its own immutable observation and decision, and appends a new generation <b>n → n+1</b>. No retrospective edits. Three contacts: Jane observes, Toph constrains, ADA commits or holds.</p>
 <div class="layout">
 <section class="panel"><div class="visual"><canvas id="scene" aria-label="Animated projected 3D generational toroidal kernel with contact nodes"></canvas><div class="label" id="sceneLabel">{{i}} · parent → child · 0</div></div>
 <div class="metrics"><div class="metric"><strong id="gen">0</strong><span>Generation n</span></div><div class="metric"><strong id="signal">50.00</strong><span>Jane · observation</span></div><div class="metric"><strong id="stable">100.00</strong><span>Toph · stability</span></div><div class="metric"><strong id="energy">100.00</strong><span>ADA · energy</span></div></div>
 <div class="rule"><b>Diodic inheritance:</b> a child knows its parent hash, not a writable parent state. Safety below 90 stability or 5 energy means HOLD, never deletion. Phase II frozen Git blob: <span id="rootHash"></span>.</div>
 </section>
-<aside class="panel"><h2>Generation controls</h2><div class="controls"><button class="primary" id="plusOne">+1</button><button id="plusFive">+5</button><button id="plusN">+n</button><button id="verify">Replay audit</button><button id="export">Export .json</button><button id="reset">Audit genesis</button></div><div class="steps"><label for="nInput">Increment n</label><input id="nInput" type="number" value="13" min="1" max="1000" step="1"><span class="muted">1 – 1000 per click</span></div><div id="status" class="status" aria-live="polite">GENESIS VERIFIED · parent freeze intact</div>
+<aside class="panel"><h2>Persistent generation controls</h2><div class="controls"><button class="primary" id="plusOne">+1</button><button id="plusFive">+5</button><button id="plusN">+n</button><button id="verify">Replay audit</button><button id="export">Export .json</button><button id="reset">Audit genesis</button></div><div class="steps"><label for="nInput">Increment n</label><input id="nInput" type="number" value="13" min="1" max="1000" step="1"><span class="muted">1 – 1000 per click</span></div><div id="status" class="status" aria-live="polite">RESTORING GENERATION JOURNAL…</div><div id="storageState" class="status" aria-live="polite">Write-once journal · verifying inherited history</div>
 <h2>Append-only generation ledger</h2><div class="ledger"><table><thead><tr><th>n</th><th>Decision</th><th>Parent hash</th></tr></thead><tbody id="rows"></tbody></table></div>
 <h2 style="margin-top:16px">Inherited identity</h2><div class="muted" style="font:12px ui-monospace,monospace;overflow-wrap:anywhere">Parent <span id="parent">—</span><hr style="border-color:#373154">Current <span id="hash">—</span></div>
 <div class="links"><a href="./phase-iii-201-210.html">Phase III tracker</a><a href="./ada-200n-phase-ii-freeze.json">Phase II immutable freeze</a><a href="https://github.com/DavidWise01/quanta/tree/main/ada">GitHub source</a></div>
@@ -28,14 +28,15 @@ footer{margin-top:16px;font:12px ui-monospace,monospace;color:#8f9aba}@media(max
 </main>
 <script type="module">
 import {PHASE_II_FREEZE,genesis,advance,verifyChain} from "./ada-201n-generational-engine.mjs";
+import {restoreJournal,appendJournal} from "./ada-202n-generation-archive.mjs";
 const $=id=>document.getElementById(id);
-let chain=[genesis()],angle=0;
+let chain=[genesis()],angle=0,storageReady=false;
 $("rootHash").textContent=PHASE_II_FREEZE.slice(0,14)+"…";
 function render(){
  const node=chain.at(-1);$("gen").textContent=node.n.toLocaleString();$("signal").textContent=node.signal.toFixed(2);$("stable").textContent=node.stability.toFixed(2);$("energy").textContent=node.energy.toFixed(2);$("parent").textContent=node.parent||"PHASE II FROZEN ROOT";$("hash").textContent=node.hash;$("sceneLabel").textContent="{{i}} · generation "+node.n+" · "+node.decision;
  const sample=chain.slice(-22).reverse();$("rows").replaceChildren(...sample.map(node=>{const tr=document.createElement("tr");for(const value of [node.n,node.decision,node.parent?.slice(0,12)||"PHASE-II"]){const td=document.createElement("td");td.textContent=String(value);tr.appendChild(td)}return tr}));
 }
-function evolve(n){try{chain=advance(chain,n);const report=verifyChain(chain);if(!report.pass)throw Error(report.reason);$("status").textContent="PASS · "+report.count+" generations replayed · tip "+report.last;render()}catch(e){$("status").textContent="REJECTED · "+e.message}}
+function evolve(n){try{if(!storageReady)throw Error("Persistent journal is locked; no unrecorded generations allowed");const proposed=advance(chain,n);const report=verifyChain(proposed);if(!report.pass)throw Error(report.reason);appendJournal(localStorage,proposed);chain=proposed;$("status").textContent="PASS · "+report.count+" generations replayed · persisted tip "+report.last;$("storageState").textContent="JOURNAL COMMITTED · "+report.count+" write-once records";render()}catch(e){$("status").textContent="REJECTED · "+e.message}}
 $("plusOne").addEventListener("click",()=>evolve(1));$("plusFive").addEventListener("click",()=>evolve(5));$("plusN").addEventListener("click",()=>evolve(Number($("nInput").value)));
 $("verify").addEventListener("click",()=>{const result=verifyChain(chain);$("status").textContent=result.pass?"REPLAY PASS · "+result.count+" generations · "+result.last:"REPLAY FAIL · "+result.reason});
 $("reset").addEventListener("click",()=>{const original=genesis(),first=chain[0];$("status").textContent=JSON.stringify(first)===JSON.stringify(original)?"GENESIS PASS · immutable parent root preserved":"GENESIS FAIL · original frame drift";render()});
@@ -52,5 +53,6 @@ function draw(){
  const contactColors=["#ff9d50","#a579ff","#50f2d9"],labels=["J","T","A"];tip.contacts.forEach((value,i)=>{const t=i*2*Math.PI/3+angle*.35,q=project(1.6*Math.cos(t),(value-50)*.018,1.6*Math.sin(t),cx,cy,sc);ctx.beginPath();ctx.fillStyle=contactColors[i];ctx.shadowColor=contactColors[i];ctx.shadowBlur=24;ctx.arc(q[0],q[1],8.5,0,7);ctx.fill();ctx.shadowBlur=0;ctx.fillStyle="#fff";ctx.font="700 11px monospace";ctx.textAlign="center";ctx.fillText(labels[i],q[0],q[1]+4)});
  ctx.beginPath();ctx.arc(cx,cy,10+Math.sin(angle*2)*2,0,7);ctx.fillStyle="#faffff";ctx.shadowColor="#68efed";ctx.shadowBlur=18;ctx.fill();ctx.shadowBlur=0;ctx.font="12px monospace";ctx.textAlign="center";ctx.fillStyle="#bac2e0";ctx.fillText("PHASE II / FROZEN → n+"+tip.n,cx,h-22);
  angle+=.005;requestAnimationFrame(draw)}
+try{const restored=restoreJournal(localStorage);if(!restored.persisted)appendJournal(localStorage,restored.chain);chain=restored.chain;storageReady=true;$("status").textContent=(restored.persisted?"RESTORE PASS":"GENESIS PERSISTED")+" · "+chain.length+" generations · parent verified";$("storageState").textContent="PERSISTENT LOCAL JOURNAL · "+chain.length+" write-once records"}catch(e){storageReady=false;$("status").textContent="ARCHIVE LOCKED · "+e.message;$("storageState").textContent="RECOVERY REQUIRED · no silent reset or overwrite"}
 render();if(ctx)requestAnimationFrame(draw);
 </script></body></html>

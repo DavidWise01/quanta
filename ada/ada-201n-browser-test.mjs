@@ -26,6 +26,10 @@ try{
  await page.reload({waitUntil:"networkidle",timeout:25000});
  await page.waitForFunction(()=>document.querySelector("#status")?.textContent.includes("RESTORE PASS"));
  assert.equal((await page.locator("#gen").innerText()).trim(),"19","Generations must survive browser reload");
+ assert.match(await page.locator("#contactState").innerText(),/THREE-CONTACT REPLAY PASS.*20 generations/);
+ assert.equal(await page.locator("#contactRows tr").count(),14);
+ assert.equal((await page.locator("#contactRows tr").first().locator("td").first().innerText()).trim(),"19");
+
  assert.match(await page.locator("#storageState").innerText(),/20 write-once records/);
  const parent=await page.locator("#rootHash").innerText();assert.match(parent,/^[0-9a-f]+…$/);
  const size=await page.locator("#scene").evaluate(e=>({w:e.width,h:e.height}));assert(size.w>300&&size.h>250);

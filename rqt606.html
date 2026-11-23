@@ -1,0 +1,20 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>RQT-606 — Exact Integer Lifting</title><style>body{margin:0;background:radial-gradient(circle at 70% 15%,#49245e,#081729 57%,#040812);color:#f6eee7;font:18px/1.6 system-ui}main{max-width:1060px;margin:auto;padding:clamp(20px,5vw,65px)}h1{color:#ffb46e;font-size:clamp(46px,7vw,80px);margin:0}h2{color:#88f7ec}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.tile{background:#ffffff12;border:1px solid #b68ff087;border-radius:16px;padding:18px}.big{font-size:clamp(33px,5vw,48px);font-weight:800;color:#89f8ed}pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#050d1d;border:1px solid #a67ae766;border-radius:16px;padding:20px}a{color:#8aeaff}.bar{height:15px;background:#3c304d;border-radius:14px;overflow:hidden}.fill{height:100%;width:60.7407%;background:linear-gradient(90deg,#ffad54,#b18df2)}.warning{border-left:4px solid #ffaf65;padding-left:18px}@media(max-width:560px){.grid{grid-template-columns:1fr}}</style></head><body><main><p>QUANTA RESEARCH SERIES · {{i}} · .dlw</p><h1>RQT-606</h1><p>Exact Integer Lifting &amp; Residue-Class Continuation</p><div class="grid"><div class="tile"><div class="big">89,093</div>Integer pairs tested</div><div class="tile"><div class="big">0</div>Exact norm −2 hits</div><div class="tile"><div class="big">53</div>Selected families checked</div></div><h2>From CRT to exact integers</h2><pre>M = 121,298,984,430,624,000
+u = u₀ + kM
+t = t₀ + ℓM
+−20 ≤ k,ℓ ≤ 20
+
+Exact test:
+q_F(u, ray·t + offset) + 2 = 0
+
+All 53 × 41 × 41 = 89,093 tested pairs:
+Exact zero hits: 0</pre><h2>One-step continuation of stored CRT classes</h2><pre>Test all p² coordinate lifts modulo pM.
+
+p=2: 26/53 stored residue classes cannot lift
+p=3: 0/53 cannot lift
+p=5: 0/53 cannot lift
+p=7: 2/53 cannot lift
+p=11: 0/53 cannot lift
+
+These outcomes concern the stored representatives only.
+Other coordinate classes in the same families
+may still lift.</pre><h2>All-scale selected-family ledger</h2><div class="bar"><div class="fill"></div></div><p><strong>82/135 excluded at all scales (60.74%)</strong> · 53 globally unresolved.</p><p class="warning">No new all-scale exclusion was found. A bounded integer search and a nonliftable single CRT representative do not rule out a full family. Original 22D Wall replay still pending. <b>ROOT 19 OPEN.</b></p><p><a href="research/RQT-606-EXACT-INTEGER-LIFTING.md">Research certificate</a> · <a href="research/rqt606-exact-integer-lifts.py">Executable verifier</a></p><p>Next RQT-607: test alternate residue representatives to distinguish witness failure from family obstruction.</p><p>{brace{n}[box[n](torroid(n))]} · arc-arc-degree{{n}} · .dlw</p></main></body></html>

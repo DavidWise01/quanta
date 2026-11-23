@@ -1,0 +1,26 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>RQT-624 · Combined Integer Seed Gates</title><style>*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 50% 8%,#33215e,#090d21 62%,#050918);color:#f7e9d1;font:18px/1.55 Georgia,serif}main{max-width:1100px;margin:auto;padding:clamp(20px,5vw,65px)}header{border:6px double #cfa452;padding:24px;text-align:center;background:#121330;box-shadow:0 0 30px #9863d15c}h1{font-size:clamp(44px,8vw,85px);margin:0;color:#ffc65f}h2{color:#80ecde}.eyebrow{letter-spacing:.13em;font:700 13px system-ui}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:28px 0}.stat{border:2px solid #b28b60;background:#121d37;padding:20px}.num{font:850 clamp(34px,5vw,52px) system-ui;color:#ffbd72}.portal{display:flex;align-items:center;justify-content:center;gap:28px;margin:28px auto;padding:25px;background:#09102c;border:3px solid #5bbac2;flex-wrap:wrap}.gate{padding:17px;border-radius:50%;width:110px;height:110px;display:grid;place-items:center;border:4px solid #f8b66d;box-shadow:0 0 20px #eaaa6d;color:#f8d2ac;text-align:center}.gate:nth-child(2){border-color:#81e6cc;box-shadow:0 0 20px #7cebd6}.gate:nth-child(3){border-color:#c785f6;box-shadow:0 0 20px #c785f6}.panel{display:grid;grid-template-columns:1fr 1fr;gap:18px}.cell{border:2px solid #b3925d;padding:20px;background:#171b36}.detail{font:16px/1.7 ui-monospace,monospace;white-space:pre-wrap;overflow-wrap:anywhere;background:#070e23;padding:20px;border:1px solid #8d6cc0}.bar{height:15px;background:#3a2e51;overflow:hidden}.fill{width:60.7407%;height:100%;background:linear-gradient(90deg,#e5a85b,#9f79ec)}.warn{border-left:4px solid #ffbc6a;padding-left:18px}a{color:#94eeeb}@media(max-width:650px){.grid,.panel{grid-template-columns:1fr}}</style></head><body><main><header><p class="eyebrow">QUANTA RESEARCH SERIES · {{i}} · .dlw</p><h1>RQT-624</h1><p>COMBINED 2-ADIC &amp; ODD-PRIME INTEGER SEED GATES</p></header><div class="grid"><div class="stat"><div class="num">27 / 27</div>Canonical orbits with valid CRT coordinates</div><div class="stat"><div class="num">53</div>Original family IDs preserved</div><div class="stat"><div class="num">0</div>New whole-family exclusions</div></div><div class="portal"><div class="gate">MOD<br>256</div><div class="gate">MOD<br>7</div><div class="gate">MOD<br>31</div></div><h2>Exact exceptional corridors</h2><div class="panel"><div class="cell"><h2>Canonical family 2</h2><div class="detail">Necessary t mod 49:
+{13,20,27,34}
+
+Parameter CRT wheel:
+17,408 / 388,864 classes
+
+Full coordinate modulus:
+256 × 343 × 31
+= 2,722,048</div></div><div class="cell"><h2>Canonical family 28</h2><div class="detail">Necessary t mod 961:
+16 allowed residue classes
+
+Parameter CRT wheel:
+8,192 / 1,722,112 classes
+
+Full coordinate modulus:
+256 × 7 × 29,791
+= 53,385,472</div></div></div><h2>Reproducible arithmetic</h2><div class="detail">1. Reconstruct Q(u,t) from the exact reduced Gram.
+2. Project every mod-256 coordinate solution onto t.
+3. Test coordinate roots mod 7 and mod 31.
+4. Translate singular exceptions to regular forms:
+   family 2  → coordinate norm mod 7³
+   family 28 → coordinate norm mod 31³
+5. Apply CRT separately to u and t.
+6. Evaluate Q(u,t) mod the entire combined modulus.
+
+Result: 27 / 27 combined coordinate witnesses verified.</div><h2>Selected-family status</h2><div class="bar"><div class="fill"></div></div><p><strong>82 / 135 selected families excluded at all scales (60.74%)</strong> · 53 unresolved across 27 canonical sign-orbits.</p><p class="warn">The combined residues are necessary arithmetic gates, not actual integer norm−2 roots. No new full-family exclusion and no original 22D Wall replay. <strong>ROOT 19 OPEN.</strong></p><p><a href="research/RQT-624-COMBINED-2ADIC-ODD-PRIME-GATES.md">Research proof</a> · <a href="research/rqt624-combined-crt.py">Reproducible Python verifier</a></p><h2>Next natural bound — RQT-625</h2><p>Use the combined coordinate CRT gates to prioritize exact global integer seed candidates; verify any surviving discriminant square and integer norm directly rather than inferring existence from modular compatibility.</p><p>{brace{n}[box[n](torroid(n))]} · {{i}} · .dlw</p></main></body></html>

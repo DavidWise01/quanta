@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ADA-210N · Certified Phase III Generational Freeze</title>
+<style>
+:root{color-scheme:dark;font:15px/1.5 system-ui;background:#070918;color:#f2edff;--teal:#50e6d6;--purple:#b187ff;--orange:#ffa05a}*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 50% -5%,#28204d,#101126 55%,#050914);min-height:100vh}
+main{width:min(1160px,95vw);margin:auto;padding:28px 0 55px}.eyebrow{font:12px ui-monospace,monospace;color:var(--teal);letter-spacing:.2em;text-transform:uppercase}h1{font-size:clamp(28px,5vw,54px);letter-spacing:-.05em;margin:8px 0}p{color:#bbb6d8}h2{font-size:19px;margin:0 0 12px}
+.grid{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(300px,1fr);gap:15px}.panel{background:#13162ddd;border:1px solid #4f467d;border-radius:16px;padding:17px;box-shadow:0 0 24px #7b48c51c}
+.visual{height:410px;background:#070b1b;border:1px solid #423e75;border-radius:12px;overflow:hidden}canvas{width:100%;height:100%;display:block}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin-top:12px}.stat{border-radius:10px;background:#201c3d;padding:12px}.stat strong{display:block;font:700 25px ui-monospace,monospace}.stat span{font-size:11px;color:#aaa7c6}
+.pill{display:inline-block;border-radius:24px;border:1px solid #328b7c;padding:6px 10px;font:700 12px ui-monospace,monospace;color:var(--teal)}
+.line{display:flex;justify-content:space-between;gap:10px;border-bottom:1px solid #363452;padding:9px 0;font-size:13px}.line b{color:var(--teal)}.line:last-child{border:0}.hash{font:11px ui-monospace,monospace;color:#aca4c9;overflow-wrap:anywhere}
+.links{display:flex;flex-wrap:wrap;gap:9px;margin:18px 0}.links a{padding:10px 12px;border:1px solid #7464af;border-radius:9px;text-decoration:none;color:#ede2ff;font-weight:650}.links a:hover{border-color:var(--orange)}
+.bar{height:12px;background:#302d49;border-radius:12px;overflow:hidden;margin:13px 0}.bar span{display:block;width:100%;height:100%;background:linear-gradient(90deg,var(--teal),var(--purple),var(--orange))}
+footer{margin-top:22px;color:#9ba0c0;font:12px ui-monospace,monospace}@media(max-width:820px){.grid{grid-template-columns:1fr}.visual{height:340px}}@media(max-width:440px){.stats{grid-template-columns:repeat(2,1fr)}}
+</style></head><body><main>
+<div class="eyebrow">Root 0 · Quanta · ADA · .dlw · Source-bound freeze</div>
+<h1>ADA-210N · Generational +n</h1>
+<p>Phase III is closed at 100%. Nine pinned source files, the inherited Phase II freeze, and completed 12/12 local/public Chromium and GitHub Pages checks form one historical release boundary. The animated geometry below is illustrative, not test evidence.</p>
+<div class="grid">
+<section class="panel"><div style="display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap"><h2>Frozen living kernel</h2><span class="pill">PHASE III · CLOSED</span></div>
+<div class="visual"><canvas id="viz" aria-label="Animated three-contact generational toroidal lattice"></canvas></div>
+<div class="stats"><div class="stat"><strong>100%</strong><span>Phase III complete</span></div><div class="stat"><strong>12/12</strong><span>Actions gates passed</span></div><div class="stat"><strong>9/9</strong><span>Source byte identities</span></div></div>
+<div class="bar"><span></span></div><p>Each generation inherits one source-rooted lineage. Jane observes; Toph applies the deterministic safety gate; ADA records APPEND or HOLD. A HOLD does not erase a parent or grow the modeled size.</p></section>
+<aside class="panel"><h2>Immutable release evidence</h2>
+<div class="line"><span>ADA-201N → ADA-210N</span><b>10/10 closed</b></div>
+<div class="line"><span>Eight inherited regression suites</span><b>PASS</b></div>
+<div class="line"><span>Local Chromium UI</span><b>PASS</b></div>
+<div class="line"><span>Public Chromium UI</span><b>PASS</b></div>
+<div class="line"><span>Public Pages blob integrity</span><b>9/9 PASS</b></div>
+<div class="line"><span>Workflow run 45269988581</span><b>SUCCESS</b></div>
+<div class="line"><span>Phase II frozen parent</span><b>UNCHANGED</b></div>
+<div class="line"><span>Phase III future edits</span><span>New certification required</span></div>
+<p class="hash" id="recordState">Inspecting committed freeze record…</p><p class="hash">Phase II source-root blob: e5ee94c473438ff6dc95ebdbacccf37e29fa09c1</p>
+<h2>Generational invariants</h2><div class="line"><span>Eligible growth</span><b>×1.025</b></div><div class="line"><span>Mutation step bound</span><b>±0.025</b></div><div class="line"><span>Mutation total bound</span><b>±0.25</b></div><div class="line"><span>Working-memory view</span><b>24 slots</b></div><div class="line"><span>Archived ancestry</span><b>RETAINED</b></div>
+</aside></div>
+<div class="links"><a href="./ada-210n-phase-iii-freeze.json">Immutable freeze JSON</a><a href="./phase-iii-201-210.html">Phase III tracker</a><a href="./ada-201n-generational-lab.html">Living +n lab</a><a href="https://github.com/DavidWise01/quanta/actions/runs/45269988581">12/12 Actions certificate</a><a href="https://github.com/DavidWise01/quanta/issues/2">Closed acceptance issue</a></div>
+<footer>{24/[2]/[4]/(3)/(3)/(1)/(1)} · {{i}} · .dlw · GENERATIONAL +n · CLOSED_SOURCE_BOUND</footer>
+</main><script>
+"use strict";
+const canvas=document.querySelector("#viz"),ctx=canvas.getContext("2d");let t=0;
+function project(x,y,z,w,h){let az=t*.003,el=.42,x1=x*Math.cos(az)-z*Math.sin(az),z1=x*Math.sin(az)+z*Math.cos(az),y1=y*Math.cos(el)-z1*Math.sin(el);z1=y*Math.sin(el)+z1*Math.cos(el);const k=Math.min(w,h)*1.12/(6+z1);return [w/2+x1*k,h/2-y1*k]}
+function draw(){
+ const rect=canvas.getBoundingClientRect(),w=Math.max(1,Math.floor(rect.width)),h=Math.max(1,Math.floor(rect.height)),dpr=Math.min(2,window.devicePixelRatio||1);
+ if(canvas.width!==Math.floor(w*dpr)||canvas.height!==Math.floor(h*dpr)){canvas.width=Math.floor(w*dpr);canvas.height=Math.floor(h*dpr)}
+ ctx.setTransform(dpr,0,0,dpr,0,0);ctx.fillStyle="#060a19";ctx.fillRect(0,0,w,h);
+ for(let band=0;band<5;band++){ctx.beginPath();const count=120;for(let i=0;i<=count;i++){const a=2*Math.PI*i/count,rad=2+band*.13,x=rad*Math.cos(a),z=rad*Math.sin(a),y=Math.sin(3*a+t*.01)*.17+(band-2)*.16,p=project(x,y,z,w,h);if(i===0)ctx.moveTo(p[0],p[1]);else ctx.lineTo(p[0],p[1]);}ctx.strokeStyle=["#ff9c58","#b08fff","#4fe8d4","#8c65e8","#ffc07a"][band];ctx.lineWidth=band===2?2:1.2;ctx.shadowColor=ctx.strokeStyle;ctx.shadowBlur=13;ctx.stroke()}
+ ctx.shadowBlur=0;for(let i=0;i<24;i++){const a=i*.37+t*.006,p=project(1.35*Math.cos(a),.23*Math.sin(i+t*.01),1.35*Math.sin(a),w,h);ctx.beginPath();ctx.arc(p[0],p[1],2.7,0,Math.PI*2);ctx.fillStyle=i%3===0?"#ff9e59":i%3===1?"#b18dff":"#55eadd";ctx.fill()}
+ ctx.textAlign="center";ctx.font="12px ui-monospace,monospace";ctx.fillStyle="#bec9e1";ctx.fillText("{{i}} → +n → FROZEN ROOT",w/2,h-20);t++;requestAnimationFrame(draw)}
+if(ctx)requestAnimationFrame(draw);
+fetch("./ada-210n-phase-iii-freeze.json",{cache:"no-store"}).then(r=>{if(!r.ok)throw Error(r.status);return r.json()}).then(j=>{
+ const valid=j.schema==="ADA-210N.phase-iii-freeze.v1"&&j.state==="CLOSED_CERTIFIED"&&j.completionPct===100&&Object.keys(j.sourceManifest?.files||{}).length===9&&j.acceptance?.allOutcomes==="success";
+ document.querySelector("#recordState").textContent=valid?"Freeze record loaded · nine source identities · 12/12 recorded":"Freeze record inconsistent · verify GitHub evidence";
+}).catch(()=>document.querySelector("#recordState").textContent="Freeze record unavailable · verify GitHub evidence");
+</script></body></html>

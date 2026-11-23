@@ -4,7 +4,7 @@
   "phase": "III",
   "date": "2026-11-23",
   "target": "Generational +n / deterministic, source-bound, diodic inheritance",
-  "completionPct": 20,
+  "completionPct": 30,
   "parent": {
     "phase": "II",
     "freeze": "ada/ada-200n-phase-ii-freeze.json",
@@ -25,7 +25,7 @@
     {
       "n": 203,
       "name": "Replayable generational provenance",
-      "state": "PENDING"
+      "state": "SOURCE_AND_V8_TEST_PASS_BROWSER_PENDING"
     },
     {
       "n": 204,
@@ -75,11 +75,15 @@
     "ada/ada-201n-generational-lab.html",
     "ada/ada-201n-generational-test.mjs",
     "ada/ada-202n-generation-archive.mjs",
-    "ada/ada-202n-generation-archive-test.mjs"
+    "ada/ada-202n-generation-archive-test.mjs",
+    "ada/ada-203n-provenance.mjs",
+    "ada/ada-203n-provenance-test.mjs"
   ],
-  "runtimeStatus": "ADA201N_202N_V8_TESTED_BROWSER_PENDING",
+  "runtimeStatus": "ADA201N_203N_SOURCE_TESTED_BROWSER_PENDING",
   "notes": [
     "LocalStorage journal uses write-once per-generation receipts and writes head last; browser-origin storage is not tamper-proof against a malicious same-origin actor.",
-    "Malformed or interrupted persisted history locks appends rather than silently clearing its ancestry."
+    "Malformed or interrupted persisted history locks appends rather than silently clearing its ancestry.",
+    "Every generational provenance trace descends from exactly one frozen Phase II source root; repeated descendants cannot be counted as independent witnesses.",
+    "The per-generation fingerprint is a deterministic FNV64 consistency check, not a cryptographic proof against an adversary controlling the same origin."
   ]
 }

@@ -57,7 +57,7 @@ $("exportTrace").addEventListener("click",()=>{
  if(!lastTrace){$("traceState").textContent="PROVENANCE EXPORT BLOCKED · trace and verify first";return}
  const proof=traceLineage(chain,lastTrace.target.n,lastTrace.returned),valid=validateProvenance(proof,chain);
  if(!valid.pass){$("traceState").textContent="PROVENANCE EXPORT BLOCKED · "+valid.reason;return}
- const blob=new Blob([JSON.stringify(proof,null,2)+"\\n"],{type:"application/json"}),url=URL.createObjectURL(blob),a=document.createElement("a");
+ const blob=new Blob([JSON.stringify(proof,null,2)+"\n"],{type:"application/json"}),url=URL.createObjectURL(blob),a=document.createElement("a");
  a.href=url;a.download="ada-203n-provenance-n"+proof.target.n+".json";a.click();URL.revokeObjectURL(url);
  $("traceState").textContent="PROVENANCE EXPORTED · single root · n="+proof.target.n;
 });

@@ -1,8 +1,8 @@
 {
   "schema": "ADA-200N.evidence-index.v1",
   "phase": "II",
-  "completionPct": 90,
-  "releaseState": "ADA199N_VERIFIED_ADA200N_PENDING",
+  "completionPct": 100,
+  "releaseState": "PHASE_II_CLOSED_CERTIFIED",
   "updated": "2026-11-23",
   "root": "DavidWise01/quanta",
   "sourceManifest": {
@@ -41,39 +41,49 @@
       "id": "E-03",
       "path": "ada/ada-199n-eight-lab-core-test.mjs",
       "type": "executable-core-regression",
-      "status": "COMMITTED_PENDING_CI",
-      "scope": "Eight source cores, ADA-197N pre-observation decision order"
+      "status": "PASSED_IN_VERIFIED_CI",
+      "scope": "Eight source cores, ADA-197N pre-observation decision order Certified by completed runs 45216778769 and 45216830796; see ADA-200N frozen record.",
+      "browserVerified": false
     },
     {
       "id": "E-04",
       "path": "ada/ada-199n-source-integrity-test.mjs",
       "type": "source-integrity-gate",
-      "status": "COMMITTED_PENDING_CI"
+      "status": "PASSED_IN_VERIFIED_CI",
+      "browserVerified": false,
+      "scope": "Certified by completed runs 45216778769 and 45216830796; see ADA-200N frozen record."
     },
     {
       "id": "E-05",
       "path": "ada/ada-199n-renderer-probe-test.mjs",
       "type": "renderer-context-regression",
-      "status": "COMMITTED_PENDING_CI"
+      "status": "PASSED_IN_VERIFIED_CI",
+      "browserVerified": false,
+      "scope": "Certified by completed runs 45216778769 and 45216830796; see ADA-200N frozen record."
     },
     {
       "id": "E-06",
       "path": "ada/ada-199n-browser-smoke.mjs",
       "type": "chromium-runtime-gate",
-      "status": "UNVERIFIED"
+      "status": "PASSED_IN_VERIFIED_CI",
+      "browserVerified": true,
+      "scope": "Certified by completed runs 45216778769 and 45216830796; see ADA-200N frozen record."
     },
     {
       "id": "E-07",
       "path": "ada/ada-199n-pages-integrity.mjs",
       "type": "published-bytes-gate",
-      "status": "UNVERIFIED"
+      "status": "PASSED_IN_VERIFIED_CI",
+      "browserVerified": false,
+      "scope": "Certified by completed runs 45216778769 and 45216830796; see ADA-200N frozen record."
     },
     {
       "id": "E-08",
       "path": "ada/ada-200n-certificate.mjs",
       "type": "evidence-bound-release-certificate-issuer",
-      "status": "COMMITTED_NOT_ISSUED",
-      "scope": "Validates all eight CI outcomes, eight unique pinned published paths, expected browser origins/routes, and provenance of the named ADA-199N GitHub Actions workflow with positive run ID and attempt on main; rejects invalid evidence and emits certificate artifact only after validation."
+      "status": "PASSED_IN_VERIFIED_CI",
+      "scope": "Validates all eight CI outcomes, eight unique pinned published paths, expected browser origins/routes, and provenance of the named ADA-199N GitHub Actions workflow with positive run ID and attempt on main; rejects invalid evidence and emits certificate artifact only after validation. Certified by completed runs 45216778769 and 45216830796; see ADA-200N frozen record.",
+      "browserVerified": false
     },
     {
       "id": "E-09",
@@ -89,6 +99,18 @@
       "type": "completed-actions-runtime-certification",
       "status": "VERIFIED_ACTIONS_RUN",
       "scope": "Two completed successful runs (45216778769 and 45216830796): 8/8 gate statuses success, all 8 labs executed in local WebGL, Canvas2D fallback and public Pages; ADA-200N certificate issued as run artifact",
+      "browserVerified": true,
+      "runIds": [
+        45216778769,
+        45216830796
+      ]
+    },
+    {
+      "id": "E-11",
+      "path": "ada/ada-200n-phase-ii-freeze.json",
+      "type": "immutable-source-and-runtime-freeze-record",
+      "status": "PHASE_CLOSED_VERIFIED",
+      "scope": "Frozen eight pinned Git blob SHA identities; two completed successful eight-outcome CI workflow runs with uploaded release certificates. Future changes not covered.",
       "browserVerified": true,
       "runIds": [
         45216778769,
@@ -136,17 +158,19 @@
         "certificateArtifactId": 14838562478
       }
     ],
-    "finalPhaseFreezeState": "PENDING",
-    "note": "Certificate validated and uploaded as GitHub Actions artifact for both successful ADA-199N runs; ADA-200N completion is separately pending frozen audit/tracker closure."
+    "finalPhaseFreezeState": "CLOSED_CERTIFIED",
+    "note": "Both completed successful ADA-199N workflow jobs issued validated ADA-200N evidence-bound certificate artifacts. The separately audited ADA-200N Phase II freeze has closed at 100% with the eight pinned lab blobs. This is historical certification scoped to these source identities and runs."
   },
   "tracking": {
     "issue": "https://github.com/DavidWise01/quanta/issues/1",
     "tracker": "ada/phase-ii-191-200.html",
     "candidateViewer": "ada/ada-200n-final-freeze.html",
-    "latestVerifiedRun": "https://github.com/DavidWise01/quanta/actions/runs/45216830796"
+    "latestVerifiedRun": "https://github.com/DavidWise01/quanta/actions/runs/45216830796",
+    "freezeRecord": "ada/ada-200n-phase-ii-freeze.json",
+    "phaseClosedAt": "2026-11-23"
   },
   "rules": [
-    "Never mark 90% or 100% solely on a committed source file or historical tests.",
+    "Never advance solely on a committed file; Phase II was closed only after two completed successful eight-gate CI runs and an audited freeze record.",
     "A source correction invalidates any older end-to-end verification claim until the new source has been rerun.",
     "No witness/Byzantine dependency is introduced into this release gate."
   ]

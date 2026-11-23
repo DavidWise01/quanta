@@ -73,7 +73,7 @@
       "path": "ada/ada-200n-certificate.mjs",
       "type": "evidence-bound-release-certificate-issuer",
       "status": "COMMITTED_NOT_ISSUED",
-      "scope": "Requires eight success outcomes, per-lab browser reports, exact published source bytes and GitHub main-branch run provenance. Produces an artifact only if all inputs pass."
+      "scope": "Requires all eight successful CI outcomes, matching eight unique published source paths, fixed local/public browser origins and exact per-lab URLs, replay reports, published Git blob hashes, and main-branch GitHub run provenance. Emits an artifact only if all inputs pass."
     }
   ],
   "finalCertificate": {
@@ -95,7 +95,9 @@
     "requiresCompletedWorkflowSuccess": true,
     "issuer": "ada/ada-200n-certificate.mjs",
     "artifact": "ada-200n-release-certificate",
-    "requiredGateSchema": "ADA-199N.gate.v2"
+    "requiredGateSchema": "ADA-199N.gate.v2",
+    "enforcedPathIdentity": true,
+    "enforcedOriginIdentity": true
   },
   "tracking": {
     "issue": "https://github.com/DavidWise01/quanta/issues/1",

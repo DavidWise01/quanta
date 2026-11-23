@@ -1,8 +1,8 @@
 {
   "schema": "ADA-200N.evidence-index.v1",
   "phase": "II",
-  "completionPct": 80,
-  "releaseState": "PROVISIONAL_NOT_CERTIFIED",
+  "completionPct": 90,
+  "releaseState": "ADA199N_VERIFIED_ADA200N_PENDING",
   "updated": "2026-11-23",
   "root": "DavidWise01/quanta",
   "sourceManifest": {
@@ -82,10 +82,22 @@
       "status": "RECORDED_PRE_ADA196N_BROWSER_FIX",
       "scope": "Eight-core V8 replay executed 2026-11-23 before the ADA-196N Canvas2D projection fix; source-only historical evidence, not current-source certification. Re-execution required on updated pinned manifest.",
       "browserVerified": false
+    },
+    {
+      "id": "E-10",
+      "path": ".github/workflows/ada-199n-browser-verification.yml",
+      "type": "completed-actions-runtime-certification",
+      "status": "VERIFIED_ACTIONS_RUN",
+      "scope": "Two completed successful runs (45216778769 and 45216830796): 8/8 gate statuses success, all 8 labs executed in local WebGL, Canvas2D fallback and public Pages; ADA-200N certificate issued as run artifact",
+      "browserVerified": true,
+      "runIds": [
+        45216778769,
+        45216830796
+      ]
     }
   ],
   "finalCertificate": {
-    "state": "NOT_ISSUED",
+    "state": "ISSUED_AS_ACTIONS_ARTIFACT_FOR_ADA199N",
     "requiredWorkflow": ".github/workflows/ada-199n-browser-verification.yml",
     "requiredArtifact": "ada-199n-final-gate/gate.json",
     "requiredBrowserArtifact": "ada-199n-browser-evidence",
@@ -107,12 +119,31 @@
     "enforcedPathIdentity": true,
     "enforcedOriginIdentity": true,
     "requiredWorkflowName": "ADA-199N Browser Runtime Verification",
-    "requiresPositiveWorkflowRunAndAttempt": true
+    "requiresPositiveWorkflowRunAndAttempt": true,
+    "verifiedRuns": [
+      {
+        "runId": 45216778769,
+        "commit": "bb92c76f0033aa418e6f24f30995fdcd501fc7f4",
+        "conclusion": "success",
+        "allEightGatesPassed": true,
+        "certificateArtifactId": 14839101843
+      },
+      {
+        "runId": 45216830796,
+        "commit": "75efe6646f66558b33e5a58ab116daeef5fc26a2",
+        "conclusion": "success",
+        "allEightGatesPassed": true,
+        "certificateArtifactId": 14838562478
+      }
+    ],
+    "finalPhaseFreezeState": "PENDING",
+    "note": "Certificate validated and uploaded as GitHub Actions artifact for both successful ADA-199N runs; ADA-200N completion is separately pending frozen audit/tracker closure."
   },
   "tracking": {
     "issue": "https://github.com/DavidWise01/quanta/issues/1",
     "tracker": "ada/phase-ii-191-200.html",
-    "candidateViewer": "ada/ada-200n-final-freeze.html"
+    "candidateViewer": "ada/ada-200n-final-freeze.html",
+    "latestVerifiedRun": "https://github.com/DavidWise01/quanta/actions/runs/45216830796"
   },
   "rules": [
     "Never mark 90% or 100% solely on a committed source file or historical tests.",

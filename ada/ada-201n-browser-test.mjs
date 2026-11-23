@@ -27,6 +27,10 @@ try{
  await page.waitForFunction(()=>document.querySelector("#status")?.textContent.includes("RESTORE PASS"));
  assert.equal((await page.locator("#gen").innerText()).trim(),"19","Generations must survive browser reload");
  assert.match(await page.locator("#contactState").innerText(),/THREE-CONTACT REPLAY PASS.*20 generations/);
+ assert.match(await page.locator("#growthState").innerText(),/GROWTH REPLAY PASS.*HOLD.*size/);
+ assert.equal(await page.locator("#growthRows tr").count(),14);
+ assert.equal((await page.locator("#growthRows tr").first().locator("td").first().innerText()).trim(),"19");
+
  assert.equal(await page.locator("#contactRows tr").count(),14);
  assert.equal((await page.locator("#contactRows tr").first().locator("td").first().innerText()).trim(),"19");
 

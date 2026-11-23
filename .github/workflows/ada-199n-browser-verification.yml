@@ -16,12 +16,16 @@ jobs:
         with:
           node-version: '22'
       - name: Verify pinned laboratory source integrity
+        id: source_integrity
         run: node ada/ada-199n-source-integrity-test.mjs
       - name: Verify eight simulation cores and replay invariants
+        id: core_replay
         run: node ada/ada-199n-eight-lab-core-test.mjs
       - name: Test seeded engine and deterministic replay
+        id: seeded_replay
         run: node ada/ada-199n-deterministic-engine-test.mjs
       - name: Check WebGL1 WebGL2 and Canvas2D context detection
+        id: renderer_probe
         run: node ada/ada-199n-renderer-probe-test.mjs
       - name: Install browser runtime
         run: |
@@ -87,9 +91,26 @@ jobs:
           FALLBACK: ${{ steps.fallback.outcome }}
           PUBLIC: ${{ steps.public.outcome }}
           PAGES_INTEGRITY: ${{ steps.pages_integrity.outcome }}
+          SOURCE_INTEGRITY: ${{ steps.source_integrity.outcome }}
+          CORE_REPLAY: ${{ steps.core_replay.outcome }}
+          SEEDED_REPLAY: ${{ steps.seeded_replay.outcome }}
+          RENDERER_PROBE: ${{ steps.renderer_probe.outcome }}
         run: |
           mkdir -p ada/verification-results
-          node -e 'const fs=require("fs"); const keys=["LOCAL","FALLBACK","PUBLIC","PAGES_INTEGRITY"]; const outcomes=Object.fromEntries(keys.map(k=>[k,process.env[k]||"not_run"])); const passed=keys.every(k=>outcomes[k]==="success"); fs.writeFileSync("ada/verification-results/gate.json",JSON.stringify({schema:"ADA-199N.gate.v1",passed,outcomes},null,2)+"\n"); console.log("Aggregate browser gate:",JSON.stringify({passed,outcomes})); if(!passed)process.exitCode=1'
+          node -e 'const fs=require("fs"); const keys=["SOURCE_INTEGRITY","CORE_REPLAY","SEEDED_REPLAY","RENDERER_PROBE","LOCAL","FALLBACK","PUBLIC","PAGES_INTEGRITY"]; const outcomes=Object.fromEntries(keys.map(k=>[k,process.env[k]||"not_run"])); const passed=keys.every(k=>outcomes[k]==="success"); fs.writeFileSync("ada/verification-results/gate.json",JSON.stringify({schema:"ADA-199N.gate.v2",passed,outcomes},null,2)+"\n"); console.log("Aggregate browser gate:",JSON.stringify({passed,outcomes})); if(!passed)process.exitCode=1'
+      - name: Validate ADA-200N certificate issuer denial cases
+        if: always()
+        run: node ada/ada-200n-certificate.mjs --self-test
+      - name: Issue ADA-200N evidence-bound certificate
+        if: always()
+        run: node ada/ada-200n-certificate.mjs
+      - name: Upload ADA-200N certificate when validated
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ada-200n-release-certificate
+          path: ada/verification-results/ada-200n-release-certificate.json
+          if-no-files-found: ignore
       - name: Upload final gate verdict
         if: always()
         uses: actions/upload-artifact@v4

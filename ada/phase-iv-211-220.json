@@ -4,7 +4,7 @@
   "phase": "IV",
   "date": "2026-11-23",
   "target": "Generations of generations +n; sealed epoch hierarchy over immutable Phase III ancestry",
-  "completionPct": 20,
+  "completionPct": 30,
   "parent": {
     "phase": "III",
     "freeze": "ada/ada-210n-phase-iii-freeze.json",
@@ -25,7 +25,7 @@
     {
       "n": 213,
       "name": "Epoch-level evidence and provenance replay",
-      "state": "PENDING"
+      "state": "SOURCE_REPLAY_PASS_BROWSER_PENDING"
     },
     {
       "n": 214,
@@ -77,9 +77,13 @@
     "ada/ada-212n-epoch-journal.mjs",
     "ada/ada-212n-epoch-journal-test.mjs",
     "ada/ada-212n-epoch-lab.html",
-    "ada/ada-212n-browser-test.mjs"
+    "ada/ada-212n-browser-test.mjs",
+    "ada/ada-213n-epoch-provenance.mjs",
+    "ada/ada-213n-epoch-provenance-test.mjs",
+    "ada/ada-213n-epoch-lab.html",
+    "ada/ada-213n-browser-test.mjs"
   ],
-  "runtimeStatus": "ADA212N_SOURCE_CHECKED_CHROMIUM_PENDING",
+  "runtimeStatus": "ADA213N_SOURCE_REPLAY_BROWSER_PENDING",
   "stressEvidence": {
     "generations": 241,
     "epochs": 11,
@@ -91,6 +95,8 @@
   "notes": [
     "Sealed epoch records are write-once browser journal entries; OPEN_TAIL is derived, not persisted as sealed.",
     "Existing ADA-202N generation journal remains source of truth, and completed source commits can reconcile pending epoch records deterministically after interrupted writes.",
-    "Corrupt or uncommitted sealed epoch entries lock the archive rather than deleting or silently rewriting prior receipts."
+    "Corrupt or uncommitted sealed epoch entries lock the archive rather than deleting or silently rewriting prior receipts.",
+    "Epoch ancestry traces derive from exactly one frozen original source root; sealed receipts are verified against the write-once journal, and OPEN_TAIL remains provisional.",
+    "Provenance fingerprints use deterministic FNV64 consistency checks, not cryptographic proof against same-origin storage tampering."
   ]
 }

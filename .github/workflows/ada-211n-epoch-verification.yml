@@ -8,6 +8,7 @@ on:
       - 'ada/ada-212n-*'
       - 'ada/ada-213n-*'
       - 'ada/ada-214n-*'
+      - 'ada/ada-215n-*'
       - 'ada/phase-iv-211-220.*'
       - '.github/workflows/ada-211n-epoch-verification.yml'
 permissions:
@@ -32,6 +33,8 @@ jobs:
         run: node ada/ada-213n-epoch-provenance-test.mjs
       - name: Verify inherited Jane/Toph/ADA epoch contact ledger
         run: node ada/ada-214n-epoch-contacts-test.mjs
+      - name: Verify SEALED-only epoch growth and source growth invariance
+        run: node ada/ada-215n-epoch-growth-test.mjs
       - name: Install Chromium
         run: |
           npm install --no-save --no-package-lock playwright@1.58.2
@@ -53,6 +56,8 @@ jobs:
         run: node ada/ada-213n-browser-test.mjs
       - name: Verify ADA-214N local Chromium epoch contact inheritance
         run: node ada/ada-214n-browser-test.mjs
+      - name: Verify ADA-215N local Chromium epoch homeostasis
+        run: node ada/ada-215n-browser-test.mjs
       - name: Verify public Pages source is deployed
         run: |
           for attempt in $(seq 1 15); do
@@ -93,6 +98,16 @@ jobs:
             if [ "$attempt" -eq 15 ]; then echo "ADA-214N Pages not observed"; exit 1; fi
             sleep 12
           done
+      - name: Verify ADA-215N public Pages files
+        run: |
+          for attempt in $(seq 1 15); do
+            if curl -fsS https://davidwise01.github.io/quanta/ada/ada-215n-epoch-lab.html | grep -q 'ADA-215N · Homeostatic Epoch Growth +n' &&
+              curl -fsS https://davidwise01.github.io/quanta/ada/ada-215n-epoch-growth.mjs | grep -q 'export function deriveEpochGrowth'; then
+              exit 0
+            fi
+            if [ "$attempt" -eq 15 ]; then echo "ADA-215N Pages not observed"; exit 1; fi
+            sleep 12
+          done
       - name: Verify public Pages Chromium behavior
         env:
           ADA_BASE_URL: https://davidwise01.github.io/quanta
@@ -109,3 +124,7 @@ jobs:
         env:
           ADA_BASE_URL: https://davidwise01.github.io/quanta
         run: node ada/ada-214n-browser-test.mjs
+      - name: Verify ADA-215N public Chromium homeostasis
+        env:
+          ADA_BASE_URL: https://davidwise01.github.io/quanta
+        run: node ada/ada-215n-browser-test.mjs

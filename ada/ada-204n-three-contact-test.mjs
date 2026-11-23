@@ -1,0 +1,32 @@
+import assert from "node:assert/strict";
+import {PHASE_II_FREEZE,genesis,advance,verifyChain} from "./ada-201n-generational-engine.mjs";
+import {deriveContacts,verifyContacts,contactProof} from "./ada-204n-three-contact-inheritance.mjs";
+const chain=advance([genesis()],120),original=JSON.stringify(chain);
+const ledger=deriveContacts(chain);
+assert.equal(ledger.length,121);
+assert.equal(verifyContacts(chain,ledger).pass,true);
+assert.deepEqual(deriveContacts(chain),ledger,"Contact generations must replay bit-identically");
+assert.equal(JSON.stringify(chain),original,"Derived contacts must not rewrite their parent");
+assert.equal(new Set(ledger.map(x=>x.sourceRoot)).size,1);
+assert(ledger.every(x=>Object.isFrozen(x)&&Object.isFrozen(x.state)&&Object.isFrozen(x.state.jane)&&Object.isFrozen(x.state.toph)&&Object.isFrozen(x.state.ada)));
+for(let n=1;n<ledger.length;n++){
+ const previous=ledger[n-1].state,current=ledger[n].state;
+ assert.equal(ledger[n].parent,ledger[n-1].hash);
+ assert.equal(current.jane.inherited,previous.jane.id);
+ assert.equal(current.toph.inherited,previous.toph.id);
+ assert.equal(current.ada.inherited,previous.ada.id);
+ assert.equal(ledger[n].decision,chain[n].decision);
+ assert.equal(current.ada.action,ledger[n].decision);
+ assert.equal(current.toph.eligible,chain[n].stability>=90&&chain[n].energy>=5);
+}
+const holds=ledger.filter(x=>x.decision==="HOLD");
+assert(holds.length>0,"Safety hold must be exercised in a deterministic regression");
+assert.equal(ledger.length,chain.length,"Held generations are retained");
+const p=contactProof(chain,57);
+assert.equal(p.sourceRoot,PHASE_II_FREEZE);assert.equal(p.independentSourceRoots,1);
+assert.equal(p.contactHash,ledger[57].hash);
+const tampered=structuredClone(ledger);tampered[2].state.toph.eligible=false;
+assert.equal(verifyContacts(chain,tampered).pass,false);
+assert.throws(()=>deriveContacts([chain[0],{...chain[1],signal:0}]),/invalid generation chain/);
+assert(verifyChain(chain).pass);
+console.log(JSON.stringify({schema:"ADA-204N.test.v1",passed:true,generations:ledger.length,holds:holds.length,append:ledger.filter(x=>x.decision==="APPEND").length,oneSourceRoot:true,checks:["identical replay","immutable ancestry","three inheritance links","safety gating","preserved holds","contact-proof identity","tamper rejection","parent mutation rejection"]},null,2));

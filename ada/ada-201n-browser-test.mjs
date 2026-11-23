@@ -29,6 +29,10 @@ try{
  assert.match(await page.locator("#contactState").innerText(),/THREE-CONTACT REPLAY PASS.*20 generations/);
  assert.match(await page.locator("#growthState").innerText(),/GROWTH REPLAY PASS.*HOLD.*size/);
  assert.match(await page.locator("#mutationState").innerText(),/MUTATION REPLAY PASS.*bounded changes.*HOLD/);
+ assert.match(await page.locator("#memoryState").innerText(),/MEMORY REPLAY PASS.*20 active \/ 0 archived/);
+ assert.equal(await page.locator("#memoryRows tr").count(),14);
+ assert.equal((await page.locator("#memoryRows tr").first().locator("td").first().innerText()).trim(),"19");
+
  assert.equal(await page.locator("#mutationRows tr").count(),14);
  assert.equal((await page.locator("#mutationRows tr").first().locator("td").first().innerText()).trim(),"19");
  assert.equal(await page.locator("#growthRows tr").count(),14);

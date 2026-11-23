@@ -8,7 +8,7 @@ const errors=[];page.on("pageerror",e=>errors.push(e.message));
 try{
  const response=await page.goto(base+"/ada/ada-201n-generational-lab.html",{waitUntil:"networkidle",timeout:25000});
  assert.equal(response.status(),200);
- await page.waitForFunction(()=>document.querySelector("#status")?.textContent.includes("GENESIS VERIFIED"));
+ await page.waitForFunction(()=>/GENESIS PERSISTED|RESTORE PASS/.test(document.querySelector("#status")?.textContent||""));
  assert.equal((await page.locator("#gen").innerText()).trim(),"0");
  await page.locator("#plusOne").click();assert.equal((await page.locator("#gen").innerText()).trim(),"1");
  await page.locator("#plusFive").click();assert.equal((await page.locator("#gen").innerText()).trim(),"6");
@@ -17,7 +17,7 @@ try{
  await page.reload({waitUntil:"networkidle",timeout:25000});
  await page.waitForFunction(()=>document.querySelector("#status")?.textContent.includes("RESTORE PASS"));
  assert.equal((await page.locator("#gen").innerText()).trim(),"19","Generations must survive browser reload");
- assert.match(await page.locator("#storageState").innerText(),/19?\d? write-once records|20 write-once records/);
+ assert.match(await page.locator("#storageState").innerText(),/20 write-once records/);
  const parent=await page.locator("#rootHash").innerText();assert.match(parent,/^[0-9a-f]+…$/);
  const size=await page.locator("#scene").evaluate(e=>({w:e.width,h:e.height}));assert(size.w>300&&size.h>250);
  await page.locator("#reset").click();assert.match(await page.locator("#status").innerText(),/GENESIS PASS/);

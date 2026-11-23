@@ -43,14 +43,27 @@ function forecast(history,key){const last=history.at(-1)?.value??50,prior=histor
 function rank(m){const baseline=m.scores.baseline.slice(-18),baselineSevere=baseline.filter(s=>s.error>m.threshold).length;
 return P.map((key,index)=>{let rows=m.scores[key].slice(-18),severe=rows.filter(s=>s.error>m.threshold).length,mae=avg(rows.map(s=>s.error)),eligible=rows.length>=8&&(key==="baseline"||severe<=baselineSevere);
 let recovery=key===m.active?0:m.cost;return {key,index,count:rows.length,mae,severe,eligible,recovery,score:mae+recovery}}).sort((a,b)=>Number(b.eligible)-Number(a.eligible)||a.score-b.score||a.index-b.index)}
-function tickOnce(m){const forecasts=Object.fromEntries(P.map(key=>[key,forecast(m.observations,key)]));
-m.tick++;const value=signal(m),source_id="ADA197N-OBS-"+m.tick;m.observations.push({id:source_id,root:"ADA197N-single-synthetic-source",tick:m.tick,value});emit(m,"observation",{source_id,value,root:"ADA197N-single-synthetic-source"});
+function tickOnce(m){
+// Select the sole active policy using ONLY completed prior observations.
+// No current-tick forecast error may participate in the policy decision.
+const ordered=rank(m),proposal=ordered.find(p=>p.eligible)?.key||"baseline";
+const baseline=ordered.find(p=>p.key==="baseline"),candidate=ordered.find(p=>p.key===proposal);
+const permitted=!!candidate?.eligible&&candidate.severe<=baseline.severe;
+const chosen=permitted?proposal:"baseline",previous=m.active;
+if(!permitted)m.vetoes++;
+if(chosen!==m.active)m.switches++;
+m.active=chosen;
+const forecasts=Object.fromEntries(P.map(key=>[key,forecast(m.observations,key)]));
+m.tick++;
+const source_id="ADA197N-OBS-"+m.tick;
+const d={tick:m.tick,source_id,proposal,permitted,chosen,previous,ranks:ordered.map(({key,count,mae,severe,eligible,recovery,score})=>({key,count,mae,severe,eligible,recovery,score}))};
+m.cycles.push(d);
+emit(m,"single-action",{source_id,jane:{proposal},toph:{permitted,baselineSevere:baseline.severe,candidateSevere:candidate?.severe??null},ada:{chosen,previous},ranked:d.ranks});
+const value=signal(m);
+m.observations.push({id:source_id,root:"ADA197N-single-synthetic-source",tick:m.tick,value});
+emit(m,"observation",{source_id,value,root:"ADA197N-single-synthetic-source"});
 for(const key of P)m.scores[key].push({tick:m.tick,source_id,prediction:forecasts[key],error:Math.abs(value-forecasts[key])});
-const ordered=rank(m),proposal=ordered.find(p=>p.eligible)?.key||"baseline",baseline=ordered.find(p=>p.key==="baseline"),candidate=ordered.find(p=>p.key===proposal);
-const permitted=!!candidate?.eligible&&candidate.severe<=baseline.severe,chosen=permitted?proposal:"baseline",previous=m.active;
-if(!permitted)m.vetoes++;if(chosen!==m.active)m.switches++;m.active=chosen;
-const d={tick:m.tick,source_id,proposal,permitted,chosen,previous,ranks:ordered.map(({key,count,mae,severe,eligible,recovery,score})=>({key,count,mae,severe,eligible,recovery,score}))};m.cycles.push(d);
-emit(m,"single-action",{source_id,jane:{proposal},toph:{permitted,baselineSevere:baseline.severe,candidateSevere:candidate?.severe??null},ada:{chosen,previous},ranked:d.ranks});return d}
+return d}
 function control(m,type,fields){if(type==="environment")m.mode=fields.mode;else if(type==="cost")m.cost=fields.cost;else if(type==="threshold")m.threshold=fields.threshold;else if(type==="shock")m.offset=fields.offset;emit(m,type,fields)}
 function verify(m){if(m.schema!=="ADA-197N.v1"||!Number.isSafeInteger(m.tick)||m.tick>12000)throw Error("Invalid archive");
 const r=create(m.initial.mode,m.initial.cost,m.initial.threshold),changes=m.events.filter(e=>["environment","cost","threshold","shock"].includes(e.type)),byTick=new Map();

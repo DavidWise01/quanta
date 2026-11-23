@@ -7,7 +7,7 @@ const manifest=JSON.parse(fs.readFileSync(new URL("./ada-199n-source-integrity.j
 assert.equal(manifest.schema,"ADA-199N.source-integrity.v1");
 assert.equal(manifest.algorithm,"git-blob-sha1");
 // Git's canonical blob hash of "hello\\n" (verified against git hash-object).
-const vector=Buffer.from("hello\\n");
+const vector=Buffer.from("hello\n");
 const vectorHeader=Buffer.concat([Buffer.from("blob "+vector.length),Buffer.from([0])]);
 assert.equal(crypto.createHash("sha1").update(vectorHeader).update(vector).digest("hex"),"ce013625030ba8dba906f756967f9e9ca394464a","Git blob header calibration");
 const entries=Object.entries(manifest.files);

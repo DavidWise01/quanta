@@ -33,12 +33,13 @@ try{
 for(const [version,file,stepId,statsId,verifyId,statusId] of routes){
 let page=null;
 const errors=[],failedRequests=[];
+let blockedThreeRequests=0;
 const url=root+"/ada/"+file;
 const item={version,url,checks:[],errors,failedRequests};
 const assert=(name,ok,detail="")=>{item.checks.push({name,pass:!!ok,detail});if(!ok)throw Error(name+(detail?" - "+detail:""))};
 try{
 page=await browser.newPage({viewport:{width:1280,height:880}});
-if(forceCanvas)await page.route("**/three.min.js",route=>route.abort("blockedbyclient"));
+if(forceCanvas)await page.route("**/three.min.js",route=>{blockedThreeRequests++;return route.abort("blockedbyclient")});
 page.on("pageerror",e=>errors.push(e.message));
 page.on("requestfailed",request=>failedRequests.push({url:request.url(),reason:request.failure()?.errorText}));
 const response=await page.goto(url,{waitUntil:"domcontentloaded",timeout:20000});
@@ -104,6 +105,11 @@ assert("live WebGL drawing context exists",renderState.hasLiveGL,JSON.stringify(
 }
 if(forceCanvas)assert("forced Canvas2D fallback activated",/CANVAS\s*2D|CANVAS2D|2D\s*PROJECTED|REPLAY PASS\s*·\s*2D/i.test(mode),mode);
 assert("renderer mode declared",/WEBGL|CANVAS\s*2D|CANVAS2D|2D\s*PROJECTED|REPLAY PASS\s*·\s*2D/i.test(mode),mode);
+if(forceCanvas){
+ item.blockedThreeRequests=blockedThreeRequests;
+ assert("Three.js loading was explicitly blocked",blockedThreeRequests>0,String(blockedThreeRequests));
+ assert("2D context actually used",renderState.contextName==="2d",JSON.stringify(renderState));
+}
 }
 await page.screenshot({path:path.join(output,version+"-screenshot.png"),fullPage:true});
 item.status="PASS";passed++;

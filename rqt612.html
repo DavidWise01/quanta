@@ -1,0 +1,17 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>RQT-612 · Combined Pell Seed Gates</title><style>*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 66% 12%,#472267,#081527 59%,#040713);color:#f9eee3;font:18px/1.6 system-ui}main{max-width:1030px;margin:auto;padding:clamp(22px,5vw,66px)}h1{color:#ffb76c;font-size:clamp(46px,7vw,80px);margin:0}h2{color:#88f5ed}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.card{padding:20px;background:#ffffff10;border:1px solid #c29df67a;border-radius:16px}.number{font-size:clamp(32px,5vw,50px);font-weight:800;color:#82f8eb}.families{display:grid;grid-template-columns:1fr 1fr;gap:18px}.family{padding:24px;background:#0b1025;border-radius:16px;border:1px solid #a87ed777}pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#050a1b;padding:22px;border:1px solid #ae82ed6c;border-radius:15px}.status{height:15px;background:#433055;border-radius:10px;overflow:hidden}.fill{height:100%;width:60.7407%;background:linear-gradient(90deg,#ffa753,#ac80f1)}a{color:#89f1ff}.note{border-left:4px solid #ffa951;padding-left:18px}@media(max-width:650px){.grid,.families{grid-template-columns:1fr}}</style></head><body><main><p>QUANTA RESEARCH SERIES · {{i}} · .dlw</p><h1>RQT-612</h1><p>Combined Pell Seed Gates &amp; Exact Integer Recovery</p><div class="grid"><div class="card"><div class="number">4,000,002</div>Family-parameter pairs screened</div><div class="card"><div class="number">2 / 2</div>Finite windows completely cleared</div><div class="card"><div class="number">0</div>Exact norm −2 seeds found</div></div><div class="families"><section class="family"><h2>Family 2</h2><p>Necessary t mod 49, derived from norm modulo 343:</p><pre>{13, 20, 27, 34}
+
+After mod343 gate: 163,264
+After prime 89: 1
+After prime 97: 0</pre></section><section class="family"><h2>Family 24</h2><p>Necessary t mod 49, derived from norm modulo 343:</p><pre>{15, 22, 29, 36}
+
+After mod343 gate: 163,264
+After prime 89: 1
+After prime 97: 0</pre></section></div><h2>Important exact distinction</h2><p>Checking the norm only modulo 49 permits seven t mod 49 classes for each family. Imposing the stronger congruence modulo 343 leaves the four necessary t classes shown above. An exact integer zero must satisfy this stronger gate.</p><h2>Proof architecture</h2><pre>1. Reopen archived RQT-583 equations.
+2. Reconstruct the exact RQT-591 Gram norm.
+3. Recheck all u,t modulo 343.
+4. Project allowed t to modulo 49.
+5. Sieve −1,000,000 ≤ t ≤ 1,000,000.
+6. Reject t only on exact quadratic nonresidue.
+7. Record each filter stage and final zero count.
+
+No approximation. No global absence claim.</pre><h2>All-scale selected-family classification</h2><div class="status"><div class="fill"></div></div><p><strong>82 of 135 excluded (60.74%)</strong> · 53 still unresolved. This selection does not exhaust the rank-four lattice.</p><p class="note">All tested parameter values in these two windows are ruled out, but values outside them may still work. Original 22D Wall not replayed. <strong>ROOT 19 OPEN.</strong></p><p><a href="research/RQT-612-COMBINED-PELL-SEED-GATES.md">Research record</a> · <a href="research/rqt612-combined-seed-sieve.py">Exact verifier</a></p><p>Next natural bound — RQT-613: compressed CRT seed corridors and auditable expanded search.</p><p>{brace{n}[box[n](torroid(n))]} · {{i}} · arc-arc-degree{{n}} · .dlw</p></main></body></html>

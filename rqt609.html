@@ -1,0 +1,19 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>RQT-609 — Hensel Branch Classification</title><style>body{margin:0;background:radial-gradient(circle at 75% 17%,#4d2469,#0a1930 55%,#030914);color:#f7efe5;font:18px/1.6 system-ui}main{max-width:1050px;margin:auto;padding:clamp(22px,5vw,72px)}h1{color:#ffba68;font-size:clamp(44px,8vw,80px);margin:0}h2{color:#8cf3ee}.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.stat{background:#ffffff12;border:1px solid #aa88ea88;border-radius:16px;padding:20px}.value{color:#8af2f0;font-size:clamp(31px,5vw,49px);font-weight:800}pre{background:#050b1d;border:1px solid #b184ed77;padding:22px;white-space:pre-wrap;overflow-wrap:anywhere;border-radius:15px}.bar{height:16px;background:#3d3154;border-radius:13px;overflow:hidden}.fill{height:100%;width:60.7407%;background:linear-gradient(90deg,#ffab56,#ae86f4)}.warning{border-left:4px solid #ffab56;padding-left:17px}a{color:#8fecf9}small{color:#c6bfd2}@media(max-width:570px){.grid{grid-template-columns:1fr}}</style></head><body><main><small>QUANTA RESEARCH SERIES · {{i}} · .dlw</small><h1>RQT-609</h1><p>Regular vs. Singular Hensel Branches · Exact CRT Continuation</p><div class="grid"><div class="stat"><div class="value">53/53</div>Locally solvable at next powers</div><div class="stat"><div class="value">53</div>Singular-only mod 2 families</div><div class="stat"><div class="value">2</div>Singular-only mod 7 families</div></div><h2>Exact branch classification</h2><pre>q(u,t)+2 = 0 (mod p)
+regular root: (∂q/∂u, ∂q/∂t) ≠ (0,0) mod p
+
+p=2:
+  All 53 families: 4 roots / 4 singular.
+p=7:
+  51 families: at least one regular root.
+  Families 2 and 24: one singular-only root.
+
+2-adic: all branches retained through 2¹⁴ = 16,384
+  16,384–98,304 solution pairs per family.
+
+7-adic singular-only families 2 and 24:
+  Valid-pair counts at powers 7¹ to 7⁶:
+  1 → 49 → 392 → 2,744 → 19,208 → 134,456.</pre><h2>Expanded CRT modulus</h2><pre>Previous modulus: 1,331,377,653,110,529,024,000
+Next combined modulus: 18,639,287,143,547,406,336,000
+
+Every family has explicit u,t modulo M satisfying:
+q_F(u, ray·t+offset) + 2 ≡ 0 (mod M).</pre><h2>All-scale selected-family ledger</h2><div class="bar"><div class="fill"></div></div><p><strong>82 / 135 excluded (60.74%)</strong> · 53 unresolved.</p><p class="warning">Finite prime-power solvability does not produce an exact integer norm−2 root, nor a global existence theorem. Original 22D Wall replay not performed. <b>ROOT 19 OPEN.</b></p><p><a href="research/RQT-609-HENSEL-BRANCH-CLASSIFICATION.md">Research certificate</a> · <a href="research/rqt609-hensel-classifier.py">Executable replay</a></p><p>Next natural bound — RQT-610: derive and check the singular 7-adic branch-growth law.</p><small>{brace{n}[box[n](torroid(n))]} · arc-arc-degree{{n}} · .dlw</small></main></body></html>

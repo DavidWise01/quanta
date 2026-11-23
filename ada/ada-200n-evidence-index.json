@@ -67,6 +67,13 @@
       "path": "ada/ada-199n-pages-integrity.mjs",
       "type": "published-bytes-gate",
       "status": "UNVERIFIED"
+    },
+    {
+      "id": "E-08",
+      "path": "ada/ada-200n-certificate.mjs",
+      "type": "evidence-bound-release-certificate-issuer",
+      "status": "COMMITTED_NOT_ISSUED",
+      "scope": "Requires eight success outcomes, per-lab browser reports, exact published source bytes and GitHub main-branch run provenance. Produces an artifact only if all inputs pass."
     }
   ],
   "finalCertificate": {
@@ -75,13 +82,20 @@
     "requiredArtifact": "ada-199n-final-gate/gate.json",
     "requiredBrowserArtifact": "ada-199n-browser-evidence",
     "requiredOutcomes": [
+      "SOURCE_INTEGRITY",
+      "CORE_REPLAY",
+      "SEEDED_REPLAY",
+      "RENDERER_PROBE",
       "LOCAL",
       "FALLBACK",
       "PUBLIC",
       "PAGES_INTEGRITY"
     ],
     "requiredOutcomeValue": "success",
-    "requiresCompletedWorkflowSuccess": true
+    "requiresCompletedWorkflowSuccess": true,
+    "issuer": "ada/ada-200n-certificate.mjs",
+    "artifact": "ada-200n-release-certificate",
+    "requiredGateSchema": "ADA-199N.gate.v2"
   },
   "tracking": {
     "issue": "https://github.com/DavidWise01/quanta/issues/1",

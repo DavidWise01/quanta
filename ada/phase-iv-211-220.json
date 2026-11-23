@@ -4,7 +4,7 @@
   "phase": "IV",
   "date": "2026-11-23",
   "target": "Generations of generations +n; sealed epoch hierarchy over immutable Phase III ancestry",
-  "completionPct": 40,
+  "completionPct": 50,
   "parent": {
     "phase": "III",
     "freeze": "ada/ada-210n-phase-iii-freeze.json",
@@ -35,7 +35,7 @@
     {
       "n": 215,
       "name": "Epoch-scale homeostatic growth",
-      "state": "PENDING"
+      "state": "SOURCE_REPLAY_PASS_BROWSER_PENDING"
     },
     {
       "n": 216,
@@ -85,9 +85,13 @@
     "ada/ada-214n-epoch-contacts.mjs",
     "ada/ada-214n-epoch-contacts-test.mjs",
     "ada/ada-214n-epoch-lab.html",
-    "ada/ada-214n-browser-test.mjs"
+    "ada/ada-214n-browser-test.mjs",
+    "ada/ada-215n-epoch-growth.mjs",
+    "ada/ada-215n-epoch-growth-test.mjs",
+    "ada/ada-215n-epoch-lab.html",
+    "ada/ada-215n-browser-test.mjs"
   ],
-  "runtimeStatus": "ADA214N_SOURCE_REPLAY_BROWSER_PENDING",
+  "runtimeStatus": "ADA215N_SOURCE_REPLAY_BROWSER_PENDING",
   "stressEvidence": {
     "generations": 241,
     "epochs": 11,
@@ -103,6 +107,8 @@
     "Epoch ancestry traces derive from exactly one frozen original source root; sealed receipts are verified against the write-once journal, and OPEN_TAIL remains provisional.",
     "Provenance fingerprints use deterministic FNV64 consistency checks, not cryptographic proof against same-origin storage tampering.",
     "ADA-214N derives Jane observation averages, Toph source-gate counts and ADA SEAL/OPEN_TAIL epoch action from the original immutable generations; source generation APPEND/HOLD decisions remain authoritative.",
-    "The three role identities inherit across epoch parent hashes; sealed receipts and OPEN_TAIL source proofs are not modified or mistaken for independent evidence."
+    "The three role identities inherit across epoch parent hashes; sealed receipts and OPEN_TAIL source proofs are not modified or mistaken for independent evidence.",
+    "ADA-215N applies dimensionless ×1.025 exactly once per SEALED epoch; OPEN_TAIL contributes ×1 until a complete 24-generation group is sealed.",
+    "Epoch multiplier is independently derived from the source generation growth ledger and does not overwrite or compound the original generation-level measurements. 241 source records: ten sealed, one OPEN_TAIL, epoch multiplier 1.2800845441964."
   ]
 }

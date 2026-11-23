@@ -1,0 +1,20 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>RQT-613 — Compressed CRT Seed Corridors</title><style>*{box-sizing:border-box}body{margin:0;background:#f4f0e8;background-image:linear-gradient(#384b7215 1px,transparent 1px),linear-gradient(90deg,#384b7215 1px,transparent 1px);background-size:24px 24px;color:#172d51;font:18px/1.55 system-ui}main{max-width:1080px;margin:auto;padding:clamp(22px,5vw,64px)}h1{color:#e95320;font-size:clamp(47px,8vw,85px);line-height:1.05;margin:0}h2{color:#283a78}.eyebrow{font-weight:800;letter-spacing:.12em}.sub{background:#e85320;color:white;padding:12px 18px;font-weight:800;font-size:clamp(20px,3vw,30px)}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:24px 0}.metric{padding:18px;border:2px solid #283a78;background:#ffffffb8}.value{font-weight:900;font-size:clamp(29px,4vw,49px);color:#ee5720}.wheels{display:grid;grid-template-columns:1fr 1fr;gap:16px}.panel{border:2px solid #283a78;padding:20px;background:#ffffffbc}pre{white-space:pre-wrap;overflow-wrap:anywhere;border-left:6px solid #e95320;background:#e9e6f4;padding:20px}a{color:#5a35ae}.bar{height:16px;background:#d6cde3;overflow:hidden}.fill{background:linear-gradient(90deg,#f05f27,#694ac5);width:60.7407%;height:100%}.warning{border:2px solid #e95320;padding:14px 20px}@media(max-width:650px){.grid,.wheels{grid-template-columns:1fr}}</style></head><body><main><p class="eyebrow">QUANTA RESEARCH SERIES / {{i}} / .dlw</p><h1>RQT-613</h1><p class="sub">COMPRESSED CRT SEED CORRIDORS</p><div class="grid"><div class="metric"><div class="value">80,000,002</div>Family-parameter pairs covered</div><div class="metric"><div class="value">44,051</div>CRT wheel modulus</div><div class="metric"><div class="value">1,088</div>Allowed residues per wheel</div></div><h2>Exact wheel construction</h2><pre>M = 49 × 31 × 29 = 44,051
+family 2:  t mod 49 ∈ {13,20,27,34}
+family 24: t mod 49 ∈ {15,22,29,36}
+4 × 17 × 16 = 1,088 CRT residues per family.
+
+Projection to t mod 49 comes from direct norm
+solvability mod 343, NOT merely mod 49.
+
+Expanded interval per family:
+−20,000,000 ≤ t ≤ 20,000,000.</pre><div class="wheels"><div class="panel"><h2>Family 2</h2><p>987,942 candidates after CRT wheel</p><pre>After p=89:   15
+After p=97:    8
+After p=101:   3
+After p=103:   2
+After p=107:   1
+After p=109:   0</pre></div><div class="panel"><h2>Family 24</h2><p>987,942 candidates after CRT wheel</p><pre>After p=89:   15
+After p=97:    8
+After p=101:   3
+After p=103:   2
+After p=107:   1
+After p=109:   0</pre></div></div><h2>All-scale classification</h2><div class="bar"><div class="fill"></div></div><p><strong>82/135 selected families excluded at all scales (60.74%)</strong> · 53 unresolved.</p><p class="warning"><strong>FINITE EXCLUSION ONLY.</strong> No exact integer norm−2 seed was constructed; these searches do not exclude families 2 and 24 outside the tested intervals. Original 22D Wall replay is pending. <strong>ROOT 19 OPEN.</strong></p><p><a href="research/RQT-613-COMPRESSED-CRT-SEED-CORRIDORS.md">Research record</a> · <a href="research/rqt613-crt-wheel.py">Python verifier</a></p><p>Next natural bound — RQT-614: global Pell orbit constraints rather than ever-growing finite windows.</p><p>{brace{n}[box[n](torroid(n))]} · {{i}} · .dlw</p></main></body></html>

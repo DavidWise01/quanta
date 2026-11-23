@@ -31,14 +31,16 @@ try{
 let passed=0,failed=0;const results=[];
 try{
 for(const [version,file,stepId,statsId,verifyId,statusId] of routes){
-const page=await browser.newPage({viewport:{width:1280,height:880}});
-if(forceCanvas)await page.route("**/three.min.js",route=>route.abort("blockedbyclient"));
-const errors=[];page.on("pageerror",e=>errors.push(e.message));
-const failedRequests=[];page.on("requestfailed",request=>failedRequests.push({url:request.url(),reason:request.failure()?.errorText}));
+let page=null;
+const errors=[],failedRequests=[];
 const url=root+"/ada/"+file;
 const item={version,url,checks:[],errors,failedRequests};
 const assert=(name,ok,detail="")=>{item.checks.push({name,pass:!!ok,detail});if(!ok)throw Error(name+(detail?" - "+detail:""))};
 try{
+page=await browser.newPage({viewport:{width:1280,height:880}});
+if(forceCanvas)await page.route("**/three.min.js",route=>route.abort("blockedbyclient"));
+page.on("pageerror",e=>errors.push(e.message));
+page.on("requestfailed",request=>failedRequests.push({url:request.url(),reason:request.failure()?.errorText}));
 const response=await page.goto(url,{waitUntil:"domcontentloaded",timeout:20000});
 assert("route HTTP 200",response?.status()===200,String(response?.status()));
 assert("document title",await page.title()!== "");
@@ -106,8 +108,8 @@ assert("renderer mode declared",/WEBGL|CANVAS\s*2D|CANVAS2D|2D\s*PROJECTED|REPLA
 await page.screenshot({path:path.join(output,version+"-screenshot.png"),fullPage:true});
 item.status="PASS";passed++;
 }catch(e){item.status="FAIL";item.reason=e.message;failed++;
-try{await page.screenshot({path:path.join(output,version+"-failure.png"),fullPage:true})}catch{}}
-results.push(item);await page.close();
+try{if(page)await page.screenshot({path:path.join(output,version+"-failure.png"),fullPage:true})}catch{}}
+results.push(item);if(page)try{await page.close()}catch(e){item.closeError=String(e.message||e)}
 console.log(version+" "+item.status+(item.reason?": "+item.reason:""));
 }
 }finally{await browser.close()}

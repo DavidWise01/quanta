@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>ADA-202N · Persistent Generational +n Kernel</title>
+<title>ADA-203N · Traceable Generational +n Kernel</title>
 <style>
 :root{font:15px/1.5 system-ui,sans-serif;color:#f4f0ff;background:#050919;--v:#af78ff;--o:#ff913d;--t:#55f2dc}
 *{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 50% -20%,#26174c,#090e23 59%,#060a18);min-height:100vh}
@@ -12,7 +12,7 @@ main{width:min(1320px,96vw);margin:auto;padding:20px 0 40px}.head{display:flex;j
 .rule{border-left:3px solid var(--o);padding:10px;background:#2b1c35;font-size:12px;color:#f6d8bd;margin-top:13px}.links{display:flex;gap:8px;flex-wrap:wrap;margin-top:15px}.links a{font-size:12px}
 footer{margin-top:16px;font:12px ui-monospace,monospace;color:#8f9aba}@media(max-width:900px){.layout{grid-template-columns:1fr}.visual{height:410px}.metrics{grid-template-columns:repeat(2,1fr)}}
 </style></head><body><main>
-<div class="head"><div><div class="eyebrow">ROOT 0 / QUANTA / ADA / PHASE III / .dlw</div><h1>Generational <span style="color:var(--o)">+n</span> Engine</h1></div><span class="chip">ADA-202N · PERSISTENT GENERATIONS</span></div>
+<div class="head"><div><div class="eyebrow">ROOT 0 / QUANTA / ADA / PHASE III / .dlw</div><h1>Generational <span style="color:var(--o)">+n</span> Engine</h1></div><span class="chip">ADA-203N · PROVENANCE +n</span></div>
 <p class="intro">One frozen Phase II parent. Every generation inherits exactly one parent hash, creates its own immutable observation and decision, and appends a new generation <b>n → n+1</b>. No retrospective edits. Three contacts: Jane observes, Toph constrains, ADA commits or holds.</p>
 <div class="layout">
 <section class="panel"><div class="visual"><canvas id="scene" aria-label="Animated projected 3D generational toroidal kernel with contact nodes"></canvas><div class="label" id="sceneLabel">{{i}} · parent → child · 0</div></div>
@@ -21,7 +21,7 @@ footer{margin-top:16px;font:12px ui-monospace,monospace;color:#8f9aba}@media(max
 </section>
 <aside class="panel"><h2>Persistent generation controls</h2><div class="controls"><button class="primary" id="plusOne">+1</button><button id="plusFive">+5</button><button id="plusN">+n</button><button id="verify">Replay audit</button><button id="export">Export .json</button><button id="reset">Audit genesis</button></div><div class="steps"><label for="nInput">Increment n</label><input id="nInput" type="number" value="13" min="1" max="1000" step="1"><span class="muted">1 – 1000 per click</span></div><div id="status" class="status" aria-live="polite">RESTORING GENERATION JOURNAL…</div><div id="storageState" class="status" aria-live="polite">Write-once journal · verifying inherited history</div>
 <h2>Append-only generation ledger</h2><div class="ledger"><table><thead><tr><th>n</th><th>Decision</th><th>Parent hash</th></tr></thead><tbody id="rows"></tbody></table></div>
-<h2 style="margin-top:16px">Inherited identity</h2><div class="muted" style="font:12px ui-monospace,monospace;overflow-wrap:anywhere">Parent <span id="parent">—</span><hr style="border-color:#373154">Current <span id="hash">—</span></div>
+<h2 style="margin-top:16px">Origin and ancestor inspector</h2><div class="steps"><label for="traceAt">Generation</label><input id="traceAt" type="number" value="0" min="0" max="10000" step="1"><button id="trace" style="padding:7px 11px">Trace origin</button><button id="exportTrace" style="padding:7px 11px">Export proof</button></div><div id="traceState" class="status">One source root · no independent corroboration claimed</div><div class="ledger" style="max-height:180px"><table><thead><tr><th>Generation</th><th>Decision</th><th>Source hash</th></tr></thead><tbody id="traceRows"></tbody></table></div><h2 style="margin-top:16px">Inherited identity</h2><div class="muted" style="font:12px ui-monospace,monospace;overflow-wrap:anywhere">Parent <span id="parent">—</span><hr style="border-color:#373154">Current <span id="hash">—</span></div>
 <div class="links"><a href="./phase-iii-201-210.html">Phase III tracker</a><a href="./ada-200n-phase-ii-freeze.json">Phase II immutable freeze</a><a href="https://github.com/DavidWise01/quanta/tree/main/ada">GitHub source</a></div>
 </aside></div>
 <footer>{24/[2]/[4]/(3)/(3)/(1)/(1)} · {{i}} · .dlw · +n / APPEND-ONLY / SOURCE-BOUND</footer>
@@ -29,13 +29,38 @@ footer{margin-top:16px;font:12px ui-monospace,monospace;color:#8f9aba}@media(max
 <script type="module">
 import {PHASE_II_FREEZE,genesis,advance,verifyChain} from "./ada-201n-generational-engine.mjs";
 import {restoreJournal,appendJournal} from "./ada-202n-generation-archive.mjs";
+import {traceLineage,validateProvenance,inspectJournal} from "./ada-203n-provenance.mjs";
 const $=id=>document.getElementById(id);
-let chain=[genesis()],angle=0,storageReady=false;
+let chain=[genesis()],angle=0,storageReady=false,lastTrace=null;
 $("rootHash").textContent=PHASE_II_FREEZE.slice(0,14)+"…";
 function render(){
+ $("traceAt").max=String(chain.length-1);
  const node=chain.at(-1);$("gen").textContent=node.n.toLocaleString();$("signal").textContent=node.signal.toFixed(2);$("stable").textContent=node.stability.toFixed(2);$("energy").textContent=node.energy.toFixed(2);$("parent").textContent=node.parent||"PHASE II FROZEN ROOT";$("hash").textContent=node.hash;$("sceneLabel").textContent="{{i}} · generation "+node.n+" · "+node.decision;
  const sample=chain.slice(-22).reverse();$("rows").replaceChildren(...sample.map(node=>{const tr=document.createElement("tr");for(const value of [node.n,node.decision,node.parent?.slice(0,12)||"PHASE-II"]){const td=document.createElement("td");td.textContent=String(value);tr.appendChild(td)}return tr}));
 }
+function inspectOrigin(){
+ try{
+  if(!storageReady)throw Error("Journal locked; cannot assert provenance");
+  const n=Number($("traceAt").value);
+  if(!Number.isSafeInteger(n)||n<0||n>=chain.length)throw Error("Select a committed generation between 0 and "+(chain.length-1));
+  const inspected=inspectJournal(localStorage,n,24);
+  const proof=traceLineage(chain,n,24);
+  const attestation=validateProvenance(proof,inspected.persisted?restoreJournal(localStorage).chain:chain);
+  if(!attestation.pass)throw Error(attestation.reason);
+  lastTrace=proof;
+  $("traceState").textContent="SOURCE TRACE PASS · n="+n+" · depth="+proof.ancestryDepth+" · shown="+proof.returned+" · 1 original root · "+(proof.truncated?"bounded view":"full view");
+  $("traceRows").replaceChildren(...proof.ancestors.map(node=>{const tr=document.createElement("tr");for(const v of [node.n,node.decision,node.hash.slice(0,12)]){const td=document.createElement("td");td.textContent=String(v);tr.appendChild(td)}return tr}));
+ }catch(e){lastTrace=null;$("traceState").textContent="PROVENANCE REJECTED · "+e.message;$("traceRows").replaceChildren()}
+}
+$("trace").addEventListener("click",inspectOrigin);
+$("exportTrace").addEventListener("click",()=>{
+ if(!lastTrace){$("traceState").textContent="PROVENANCE EXPORT BLOCKED · trace and verify first";return}
+ const proof=traceLineage(chain,lastTrace.target.n,lastTrace.returned),valid=validateProvenance(proof,chain);
+ if(!valid.pass){$("traceState").textContent="PROVENANCE EXPORT BLOCKED · "+valid.reason;return}
+ const blob=new Blob([JSON.stringify(proof,null,2)+"\\n"],{type:"application/json"}),url=URL.createObjectURL(blob),a=document.createElement("a");
+ a.href=url;a.download="ada-203n-provenance-n"+proof.target.n+".json";a.click();URL.revokeObjectURL(url);
+ $("traceState").textContent="PROVENANCE EXPORTED · single root · n="+proof.target.n;
+});
 function evolve(n){try{if(!storageReady)throw Error("Persistent journal is locked; no unrecorded generations allowed");const proposed=advance(chain,n);const report=verifyChain(proposed);if(!report.pass)throw Error(report.reason);appendJournal(localStorage,proposed);chain=proposed;$("status").textContent="PASS · "+report.count+" generations replayed · persisted tip "+report.last;$("storageState").textContent="JOURNAL COMMITTED · "+report.count+" write-once records";render()}catch(e){$("status").textContent="REJECTED · "+e.message}}
 $("plusOne").addEventListener("click",()=>evolve(1));$("plusFive").addEventListener("click",()=>evolve(5));$("plusN").addEventListener("click",()=>evolve(Number($("nInput").value)));
 $("verify").addEventListener("click",()=>{const result=verifyChain(chain);$("status").textContent=result.pass?"REPLAY PASS · "+result.count+" generations · "+result.last:"REPLAY FAIL · "+result.reason});
@@ -54,5 +79,6 @@ function draw(){
  ctx.beginPath();ctx.arc(cx,cy,10+Math.sin(angle*2)*2,0,7);ctx.fillStyle="#faffff";ctx.shadowColor="#68efed";ctx.shadowBlur=18;ctx.fill();ctx.shadowBlur=0;ctx.font="12px monospace";ctx.textAlign="center";ctx.fillStyle="#bac2e0";ctx.fillText("PHASE II / FROZEN → n+"+tip.n,cx,h-22);
  angle+=.005;requestAnimationFrame(draw)}
 try{const restored=restoreJournal(localStorage);if(!restored.persisted)appendJournal(localStorage,restored.chain);chain=restored.chain;storageReady=true;$("status").textContent=(restored.persisted?"RESTORE PASS":"GENESIS PERSISTED")+" · "+chain.length+" generations · parent verified";$("storageState").textContent="PERSISTENT LOCAL JOURNAL · "+chain.length+" write-once records"}catch(e){storageReady=false;$("status").textContent="ARCHIVE LOCKED · "+e.message;$("storageState").textContent="RECOVERY REQUIRED · no silent reset or overwrite"}
-render();if(ctx)requestAnimationFrame(draw);
+$("traceAt").value=String(chain.length-1);
+render();if(storageReady)inspectOrigin();if(ctx)requestAnimationFrame(draw);
 </script></body></html>

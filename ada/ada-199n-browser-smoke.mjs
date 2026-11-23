@@ -49,7 +49,7 @@ assert("no uncaught errors during run",errors.length===0,errors.join("; "));
 await page.locator("#"+verifyId).click({timeout:12000});
 await page.waitForFunction(statusId=>{
  const text=(document.getElementById(statusId)?.innerText||"").trim();
- return /REPLAY\\s+(?:PASS|FAIL)/i.test(text)
+ return /REPLAY\s+(?:PASS|FAIL)/i.test(text)
 },statusId,{timeout:12000});
 const status=(await page.locator("#"+statusId).innerText()).trim();
 assert("replay check passed",/PASS/i.test(status)&&!/FAIL/i.test(status),status);

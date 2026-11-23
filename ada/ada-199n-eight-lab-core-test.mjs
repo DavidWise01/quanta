@@ -43,6 +43,12 @@ for(const [name,file,splitter,exercise] of labs){
  const outcome=vm.runInContext(core+"\n"+stub+exercise,context,{timeout:20000});
  assert.equal(outcome.pass,true,name+" replay failed");
  assert.equal(outcome.ticks,100,name+" unexpected tick count");
+ if(name==="197N"){
+  const causal=vm.runInContext('({first:model.events[0]?.type,second:model.events[1]?.type,causal:model.cycles.every((c,i)=>model.events[2*i]?.type==="single-action"&&model.events[2*i+1]?.type==="observation"&&model.events[2*i]?.source_id===model.events[2*i+1]?.source_id)})',context);
+  assert.equal(causal.first,"single-action","ADA-197N must decide before observing");
+  assert.equal(causal.second,"observation","ADA-197N must then observe");
+  assert.equal(causal.causal,true,"ADA-197N must preserve pre-observation action order");
+ }
  results.push({lab:name,...JSON.parse(JSON.stringify(outcome))});
  console.log(name+": PASS ("+outcome.events+" events)");
 }

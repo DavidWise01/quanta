@@ -4,7 +4,7 @@
   "phase": "III",
   "date": "2026-11-23",
   "target": "Generational +n / deterministic, source-bound, diodic inheritance",
-  "completionPct": 90,
+  "completionPct": 100,
   "parent": {
     "phase": "II",
     "freeze": "ada/ada-200n-phase-ii-freeze.json",
@@ -60,7 +60,7 @@
     {
       "n": 210,
       "name": "Final immutable generational freeze",
-      "state": "PENDING"
+      "state": "CLOSED_SOURCE_BOUND_CERTIFIED"
     }
   ],
   "rules": [
@@ -89,7 +89,7 @@
     "ada/ada-208n-geometry-stress.mjs",
     "ada/ada-208n-geometry-stress-test.mjs"
   ],
-  "runtimeStatus": "ADA209N_COMPLETE_DUAL_CHROMIUM_AND_PINNED_PAGES_VERIFIED",
+  "runtimeStatus": "PHASE_III_CLOSED_SOURCE_BOUND_CERTIFIED",
   "notes": [
     "LocalStorage journal uses write-once per-generation receipts and writes head last; browser-origin storage is not tamper-proof against a malicious same-origin actor.",
     "Malformed or interrupted persisted history locks appends rather than silently clearing its ancestry.",
@@ -107,7 +107,8 @@
     "Projection is Canvas2D software geometry; it does not claim fabricated optical or independent physical channels. Public Pages browser acceptance remains a distinct ADA-209N gate.",
     "ADA-209N requires nine exact local and published Git blob bytes and two real Chromium end-to-end runs. Phase III remains 80% until a completed successful workflow reports all twelve outcomes.",
     "ADA-209N workflow run 45269988581 completed successfully. Eight Node regression gates, local source hash gate, local Chromium, public Pages byte hash gate and public Chromium all passed; machine-readable gate artifact uploaded.",
-    "This certifies the pinned 9-file source boundary used by that run, not arbitrary future edits."
+    "This certifies the pinned 9-file source boundary used by that run, not arbitrary future edits.",
+    "ADA-210N Phase III immutable freeze completed only after nine pinned blob SHAs and Phase II frozen parent checked against the successful 12/12 ADA-209N workflow. Future edits require re-verification."
   ],
   "acceptance": {
     "issue": "https://github.com/DavidWise01/quanta/issues/2",
@@ -142,5 +143,14 @@
       "allOutcomesPassed": 12,
       "issuesUrl": "https://github.com/DavidWise01/quanta/issues/2"
     }
+  },
+  "phaseState": "CLOSED_CERTIFIED",
+  "freeze": {
+    "path": "ada/ada-210n-phase-iii-freeze.json",
+    "schema": "ADA-210N.phase-iii-freeze.v1",
+    "sourceCount": 9,
+    "verifiedRunId": 45269988581,
+    "certificateArtifactId": 14865115415,
+    "finalState": "CLOSED_CERTIFIED"
   }
 }

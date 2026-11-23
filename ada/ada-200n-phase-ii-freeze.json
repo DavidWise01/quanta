@@ -1,0 +1,86 @@
+{
+  "schema": "ADA-200N.phase-ii-freeze.v1",
+  "mark": ".dlw",
+  "date": "2026-11-23",
+  "root": "DavidWise01/quanta",
+  "phase": "II",
+  "scope": "ADA-191N through ADA-200N",
+  "state": "CLOSED_CERTIFIED",
+  "progressPct": 100,
+  "authority": "One deterministic release gate; all eight outcomes required; no Byzantine or witness dependency",
+  "immutablePolicy": "Append-only freeze of the pinned ADA-191N–198N source identities and successful historical execution evidence. Future code or workflow changes are NOT automatically certified.",
+  "sourceManifest": {
+    "path": "ada/ada-199n-source-integrity.json",
+    "gitBlobSha": "ef302052717e894c2d38691179dbcf9cff6e989c",
+    "files": {
+      "ada/ada-191n-integrated-living-lab.html": "9c8989e7241db1a36137abf99940012266445b51",
+      "ada/ada-192n-unified-observation-3d.html": "da5f6582a22a39876496cb607cd548d5c2c37b58",
+      "ada/ada-193n-persistent-3d-memory.html": "57c6855f681132bd5935217a29b0793f9fc99a86",
+      "ada/ada-194n-3d-adaptive-learning.html": "b703c25ca436b746e55127e94d3d717db90ebec8",
+      "ada/ada-195n-3d-failure-repair.html": "b52e30244d22f96ae44fac8a21e4c6a9c35f15f4",
+      "ada/ada-196n-unified-three-contact-3d.html": "b2e692f44820b9adf0dbbbd1923ec4be05a6062a",
+      "ada/ada-197n-best-policy-3d.html": "a4f840f39c620b7b9b9969f32bb06e4f67a332a1",
+      "ada/ada-198n-3d-stress-recovery.html": "d913520a292e256cf6696eec4715c380ee96831a"
+    }
+  },
+  "verification": {
+    "workflow": ".github/workflows/ada-199n-browser-verification.yml",
+    "workflowName": "ADA-199N Browser Runtime Verification",
+    "requiredOutcomes": [
+      "SOURCE_INTEGRITY",
+      "CORE_REPLAY",
+      "SEEDED_REPLAY",
+      "RENDERER_PROBE",
+      "LOCAL",
+      "FALLBACK",
+      "PUBLIC",
+      "PAGES_INTEGRITY"
+    ],
+    "completedSuccessfulRuns": [
+      {
+        "runId": 45216778769,
+        "commit": "bb92c76f0033aa418e6f24f30995fdcd501fc7f4",
+        "jobId": 137839932079,
+        "certificateArtifactId": 14839101843,
+        "browserArtifactId": 14838852090,
+        "gateArtifactId": 14837633187,
+        "conclusion": "success",
+        "passedOutcomes": 8
+      },
+      {
+        "runId": 45216830796,
+        "commit": "75efe6646f66558b33e5a58ab116daeef5fc26a2",
+        "jobId": 137840115035,
+        "certificateArtifactId": 14838562478,
+        "browserArtifactId": 14839475921,
+        "gateArtifactId": 14838757143,
+        "conclusion": "success",
+        "passedOutcomes": 8
+      }
+    ],
+    "browserLabVersions": [
+      "191N",
+      "192N",
+      "193N",
+      "194N",
+      "195N",
+      "196N",
+      "197N",
+      "198N"
+    ],
+    "paths": [
+      "local WebGL Chromium",
+      "local forced Canvas2D Chromium",
+      "public GitHub Pages Chromium",
+      "public Pages exact Git blob SHA"
+    ],
+    "certificateOrigin": "GitHub Actions artifact ada-200n-release-certificate; validated by ada/ada-200n-certificate.mjs"
+  },
+  "governance": {
+    "countedMilestones": 10,
+    "closedIssue": "https://github.com/DavidWise01/quanta/issues/1",
+    "phaseTracker": "ada/phase-ii-191-200.html",
+    "viewer": "ada/ada-200n-final-freeze.html",
+    "nextPhase": "III; new scoped goals, without mutating this freeze's pinned eight sources"
+  }
+}

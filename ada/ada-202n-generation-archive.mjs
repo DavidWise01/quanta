@@ -22,7 +22,7 @@ export function restoreJournal(storage){
  for(let n=0;n<=head.n;n++){
   const node=readJson(storage,ENTRY_KEY(n));
   if(node===null)throw Error("Missing write-once generation "+n);
-  chain.push(node);
+  chain.push(Object.freeze({...node,contacts:Object.freeze([...node.contacts])}));
  }
  const report=verifyChain(chain);
  if(!report.pass)throw Error("Journal rejected: "+report.reason);

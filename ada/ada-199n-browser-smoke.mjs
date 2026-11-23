@@ -19,7 +19,15 @@ const routes=[
 ];
 const output=process.env.ADA_REPORT_DIR||"ada/verification-results";
 fs.mkdirSync(output,{recursive:true});
-const browser=await chromium.launch({headless:true,args:["--no-sandbox","--enable-webgl","--enable-unsafe-swiftshader","--use-gl=angle","--use-angle=swiftshader"]});
+let browser;
+try{
+ browser=await chromium.launch({headless:true,args:["--no-sandbox","--enable-webgl","--enable-unsafe-swiftshader","--use-gl=angle","--use-angle=swiftshader"]});
+}catch(error){
+ const report={schema:"ADA-199N.smoke.v3",base:root,forceCanvas,requireWebGL,passed:0,failed:routes.length,results:routes.map(([version])=>({version,status:"FAIL",reason:"Chromium launch failed: "+String(error.message||error)})),fatal:{stage:"chromium-launch",message:String(error.message||error)}};
+ fs.writeFileSync(path.join(output,"report.json"),JSON.stringify(report,null,2)+"\\n");
+ console.error("Chromium launch failed:",error);
+ process.exit(1);
+}
 let passed=0,failed=0;const results=[];
 try{
 for(const [version,file,stepId,statsId,verifyId,statusId] of routes){

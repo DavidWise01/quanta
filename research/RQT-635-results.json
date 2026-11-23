@@ -1,0 +1,88 @@
+{
+  "rqt": 635,
+  "certificate_type": "exact prime support CRT",
+  "source_RQT634_sha256": "",
+  "canonical_orbits_covered": 16,
+  "canonical_orbits_total": 27,
+  "groups": [
+    {
+      "group": 1,
+      "s": 5,
+      "E": 3,
+      "primes": [
+        3,
+        13,
+        1693
+      ],
+      "M": 66027,
+      "allowed_x": [
+        1,
+        8464,
+        22010,
+        30473,
+        35554,
+        44017,
+        57563,
+        66026
+      ],
+      "canonical_ids": [
+        28,
+        29,
+        30,
+        31,
+        33,
+        34,
+        35,
+        36,
+        37
+      ]
+    },
+    {
+      "group": 2,
+      "s": 7,
+      "E": 3,
+      "primes": [
+        3
+      ],
+      "M": 3,
+      "allowed_x": [
+        1,
+        2
+      ],
+      "canonical_ids": [
+        81,
+        89,
+        92
+      ]
+    },
+    {
+      "group": 3,
+      "s": 4,
+      "E": 2,
+      "primes": [
+        12097,
+        87083
+      ],
+      "M": 1053443051,
+      "allowed_x": [
+        1,
+        246270725,
+        807172326,
+        1053443050
+      ],
+      "canonical_ids": [
+        0,
+        1,
+        2,
+        7
+      ]
+    }
+  ],
+  "numeric_nontrivial_units_constructed": 0,
+  "new_all_scale_family_exclusions": 0,
+  "selected_excluded": 82,
+  "selected_unresolved": 53,
+  "root19": "OPEN",
+  "original_22d_wall": "NOT REPLAYED",
+  "limitations": "These are necessary congruences for units, not existence of units, Pell target seeds or full lattice roots."
+}

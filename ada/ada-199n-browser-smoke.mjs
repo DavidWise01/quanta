@@ -118,7 +118,13 @@ try{if(page)await page.screenshot({path:path.join(output,version+"-failure.png")
 results.push(item);if(page)try{await page.close()}catch(e){item.closeError=String(e.message||e)}
 console.log(version+" "+item.status+(item.reason?": "+item.reason:""));
 }
-}finally{await browser.close()}
+}finally{
+ try{await browser.close()}
+ catch(error){
+  failed++;
+  results.push({version:"BROWSER_SHUTDOWN",status:"FAIL",reason:"Chromium shutdown failed: "+String(error.message||error)});
+ }
+}
 const report={schema:"ADA-199N.smoke.v3",base:root,forceCanvas,requireWebGL,passed,failed,results};
 fs.writeFileSync(path.join(output,"report.json"),JSON.stringify(report,null,2)+"\n");
 console.log(JSON.stringify(report,null,2));

@@ -13,7 +13,9 @@ export function validate({gate,manifest,reports,run}){
  assert.equal(gate.passed,true,"Aggregate gate must pass");
  for(const id of required)assert.equal(gate.outcomes?.[id],"success",id+" must succeed");
  assert.match(run.sha,/^[a-f0-9]{40}$/i,"Workflow commit required");
- assert.match(run.id,/^[0-9]+$/,"Workflow run ID required");
+ assert.match(run.id,/^[1-9][0-9]*$/,"Positive workflow run ID required");
+ assert.match(String(run.attempt),/^[1-9][0-9]*$/,"Positive workflow attempt required");
+ assert.equal(run.workflow,"ADA-199N Browser Runtime Verification","Expected GitHub Actions workflow required");
  assert.equal(run.ref,"refs/heads/main","Release must run on main");
  assert.equal(manifest.schema,"ADA-199N.source-integrity.v1");
  assert.equal(Object.keys(manifest.files).length,8,"All eight pinned source roots required");
@@ -61,16 +63,19 @@ export function validate({gate,manifest,reports,run}){
 if(process.argv.includes("--self-test")){
  const manifest={schema:"ADA-199N.source-integrity.v1",files:Object.fromEntries(Array.from({length:8},(_,i)=>["ada/ada-"+(i+191)+"n-example.html","a".repeat(40)]))};
  const report=(fallback,base)=>({schema:"ADA-199N.smoke.v3",base,passed:8,failed:0,forceCanvas:fallback,requireWebGL:!fallback,results:Array.from({length:8},(_,i)=>({version:(191+i)+"N",url:base+"/ada/ada-"+(191+i)+"n-example.html",status:"PASS",checks:[{pass:true}]}))});
- const inputs={gate:{schema:"ADA-199N.gate.v2",passed:true,outcomes:Object.fromEntries(required.map(k=>[k,"success"]))},manifest,reports:{local:report(false,"http://127.0.0.1:8765"),fallback:report(true,"http://127.0.0.1:8765"),public:report(false,"https://davidwise01.github.io/quanta"),pages:{schema:"ADA-199N.pages-integrity.v1",base:"https://davidwise01.github.io/quanta",manifestMatches:true,success:true,passed:8,failed:0,results:Object.entries(manifest.files).map(([p,id])=>({path:p,expected:id,actual:id,pass:true}))}},run:{id:"123",attempt:"1",sha:"f".repeat(40),ref:"refs/heads/main",workflow:"ADA-199N"}};
+ const inputs={gate:{schema:"ADA-199N.gate.v2",passed:true,outcomes:Object.fromEntries(required.map(k=>[k,"success"]))},manifest,reports:{local:report(false,"http://127.0.0.1:8765"),fallback:report(true,"http://127.0.0.1:8765"),public:report(false,"https://davidwise01.github.io/quanta"),pages:{schema:"ADA-199N.pages-integrity.v1",base:"https://davidwise01.github.io/quanta",manifestMatches:true,success:true,passed:8,failed:0,results:Object.entries(manifest.files).map(([p,id])=>({path:p,expected:id,actual:id,pass:true}))}},run:{id:"123",attempt:"1",sha:"f".repeat(40),ref:"refs/heads/main",workflow:"ADA-199N Browser Runtime Verification"}};
  assert.equal(validate(inputs).state,"EVIDENCE_VALIDATED");
  for(const key of required){const copy=structuredClone(inputs);copy.gate.outcomes[key]="failure";assert.throws(()=>validate(copy),key+" should veto issue")}
  {const copy=structuredClone(inputs);copy.reports.public.results[0].status="FAIL";assert.throws(()=>validate(copy),"Failed browser lab must veto")}
  {const copy=structuredClone(inputs);copy.reports.pages.results[0].actual="b".repeat(40);assert.throws(()=>validate(copy),"Changed public source must veto")}
  {const copy=structuredClone(inputs);copy.run.ref="refs/heads/other";assert.throws(()=>validate(copy),"Non-main branch must veto")}
+ {const copy=structuredClone(inputs);copy.run.workflow="Unexpected Workflow";assert.throws(()=>validate(copy),"Unexpected workflow must veto")}
+ {const copy=structuredClone(inputs);copy.run.attempt="0";assert.throws(()=>validate(copy),"Zero workflow attempt must veto")}
+ {const copy=structuredClone(inputs);copy.run.id="0";assert.throws(()=>validate(copy),"Zero workflow run ID must veto")}
  {const copy=structuredClone(inputs);copy.reports.pages.results[1]=structuredClone(copy.reports.pages.results[0]);assert.throws(()=>validate(copy),"Duplicate published source must veto")}
  {const copy=structuredClone(inputs);copy.reports.public.base="https://example.invalid";assert.throws(()=>validate(copy),"Wrong public origin must veto")}
  {const copy=structuredClone(inputs);copy.reports.local.results[0].url="http://127.0.0.1:8765/ada/wrong.html";assert.throws(()=>validate(copy),"Wrong browser route must veto")}
- console.log("PASS: valid certificate; eight independent outcome vetoes; browser failure; source drift; non-main branch; duplicate path; wrong origin; wrong route");
+ console.log("PASS: valid certificate; eight independent outcome vetoes; browser failure; source drift; non-main branch; duplicate path; wrong origin; wrong route; invalid workflow provenance");
 }else{
  const base=path.resolve("ada/verification-results");
  const read=p=>JSON.parse(fs.readFileSync(p,"utf8"));

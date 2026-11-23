@@ -9,7 +9,7 @@ const output=process.env.ADA_REPORT_DIR||"ada/verification-results/pages-integri
 fs.mkdirSync(output,{recursive:true});
 const expected=JSON.parse(fs.readFileSync(new URL("./ada-199n-source-integrity.json",import.meta.url),"utf8"));
 const result={schema:"ADA-199N.pages-integrity.v1",base,checkedAt:new Date().toISOString(),manifestMatches:false,passed:0,failed:0,results:[]};
-const gitBlobHash=bytes=>crypto.createHash("sha1").update(Buffer.from("blob "+bytes.length+" ","utf8")).update(Buffer.from([0])).update(bytes).digest("hex");
+const gitBlobHash=bytes=>crypto.createHash("sha1").update(Buffer.from("blob "+bytes.length,"utf8")).update(Buffer.from([0])).update(bytes).digest("hex");
 async function fetchBytes(url){
  const response=await fetch(url,{redirect:"follow",signal:AbortSignal.timeout(20000),headers:{"User-Agent":"ADA-199N-Verification/1.0","Cache-Control":"no-cache"}});
  if(!response.ok)throw Error("HTTP "+response.status+" "+url);

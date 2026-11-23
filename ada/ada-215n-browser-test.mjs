@@ -1,0 +1,41 @@
+// ADA-215N · Real Chromium checks growth after sealing, reload, and OPEN_TAIL veto.
+import assert from "node:assert/strict";
+import {chromium} from "playwright";
+const base=(process.env.ADA_BASE_URL||"http://127.0.0.1:8765").replace(/\/$/,"");
+const browser=await chromium.launch({headless:true,args:["--no-sandbox","--enable-webgl","--enable-unsafe-swiftshader"]});
+const page=await browser.newPage({viewport:{width:1280,height:860},acceptDownloads:true});
+const errors=[];page.on("pageerror",e=>errors.push(e.message));
+try{
+ const r=await page.goto(base+"/ada/ada-215n-epoch-lab.html",{waitUntil:"networkidle",timeout:30000});
+ assert.equal(r.status(),200);
+ await page.waitForFunction(()=>/GENESIS PERSISTED|RESTORE PASS/.test(document.querySelector("#status")?.textContent||""));
+ assert.match(await page.locator("#growthState").innerText(),/EPOCH GROWTH REPLAY PASS.*0 sealed.*1 OPEN_TAIL/);
+ await page.locator("#batch").click();
+ assert.equal((await page.locator("#count").innerText()).trim(),"241");
+ assert.match(await page.locator("#growthState").innerText(),/EPOCH GROWTH REPLAY PASS.*10 sealed.*1 OPEN_TAIL.*1\.2800845/);
+ assert.equal(await page.locator("#growthRows tr").count(),11);
+ const tail=page.locator("#growthRows tr").first();
+ assert.equal((await tail.locator("td").nth(0).innerText()).trim(),"10");
+ assert.equal((await tail.locator("td").nth(1).innerText()).trim(),"OPEN_TAIL");
+ assert.equal((await tail.locator("td").nth(2).innerText()).trim(),"1.000");
+ const before=await page.locator("#growthState").innerText();
+ await page.reload({waitUntil:"networkidle",timeout:30000});
+ await page.waitForFunction(()=>document.querySelector("#status")?.textContent.includes("RESTORE PASS"));
+ assert.equal((await page.locator("#growthState").innerText()).trim(),before.trim(),"Growth must replay across reload");
+ await page.locator("#day").click();assert.equal((await page.locator("#count").innerText()).trim(),"265");
+ assert.match(await page.locator("#growthState").innerText(),/11 sealed.*1 OPEN_TAIL/);
+ assert.equal((await page.locator("#growthRows tr").nth(1).locator("td").nth(2).innerText()).trim(),"1.025");
+ const result=await page.evaluate(async()=>{const {deriveEpochGrowth,verifyEpochGrowth}=await import("./ada-215n-epoch-growth.mjs");
+  const {restoreJournal}=await import("./ada-202n-generation-archive.mjs");
+  const chain=restoreJournal(localStorage).chain,ledger=deriveEpochGrowth(chain),audit=verifyEpochGrowth(chain,ledger);
+  return {pass:audit.pass,sealed:audit.sealedSteps,open:audit.open,source:ledger.at(-1).generationMultiplier,epoch:ledger.at(-1).sizeMultiplier};});
+ assert(result.pass);assert.equal(result.sealed,11);assert.equal(result.open,1);
+ assert(result.source>result.epoch);
+ await page.evaluate(()=>{const key="ADA-212N.epoch.sealed.00009",e=JSON.parse(localStorage.getItem(key));e.holds+=1;localStorage.setItem(key,JSON.stringify(e))});
+ await page.reload({waitUntil:"networkidle",timeout:30000});
+ await page.waitForFunction(()=>document.querySelector("#status")?.textContent.includes("ARCHIVE LOCKED"));
+ await page.locator("#one").click();assert.match(await page.locator("#status").innerText(),/REJECTED/);
+ assert.equal((await page.locator("#count").innerText()).trim(),"1");
+ assert.deepEqual(errors,[]);
+ console.log(JSON.stringify({schema:"ADA-215N.browser.v1",pass:true,sealed:result.sealed,open:result.open,epochMultiplier:result.epoch,sourceMultiplier:result.source,errors},null,2));
+}finally{await page.close();await browser.close()}

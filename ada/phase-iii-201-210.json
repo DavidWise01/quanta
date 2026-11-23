@@ -4,7 +4,7 @@
   "phase": "III",
   "date": "2026-11-23",
   "target": "Generational +n / deterministic, source-bound, diodic inheritance",
-  "completionPct": 70,
+  "completionPct": 80,
   "parent": {
     "phase": "II",
     "freeze": "ada/ada-200n-phase-ii-freeze.json",
@@ -50,7 +50,7 @@
     {
       "n": 208,
       "name": "3D hierarchy and interaction stress",
-      "state": "PENDING"
+      "state": "SOURCE_AND_V8_TEST_PASS_BROWSER_PENDING"
     },
     {
       "n": 209,
@@ -85,9 +85,11 @@
     "ada/ada-206n-bounded-mutation.mjs",
     "ada/ada-206n-bounded-mutation-test.mjs",
     "ada/ada-207n-memory-window.mjs",
-    "ada/ada-207n-memory-window-test.mjs"
+    "ada/ada-207n-memory-window-test.mjs",
+    "ada/ada-208n-geometry-stress.mjs",
+    "ada/ada-208n-geometry-stress-test.mjs"
   ],
-  "runtimeStatus": "ADA201N_207N_SOURCE_TESTED_BROWSER_PENDING",
+  "runtimeStatus": "ADA201N_208N_SOURCE_TESTED_BROWSER_PENDING",
   "notes": [
     "LocalStorage journal uses write-once per-generation receipts and writes head last; browser-origin storage is not tamper-proof against a malicious same-origin actor.",
     "Malformed or interrupted persisted history locks appends rather than silently clearing its ancestry.",
@@ -100,6 +102,8 @@
     "ADA-206N adaptive proposals derive from observed Jane/Toph deltas; per eligible step ±0.025 and total ±0.25, with zero mutation on HOLD.",
     "The adaptive policy ledger is separately derived and immutable; Phase II, generation journals, inherited contacts and 1.025 growth remain unchanged.",
     "ADA-207N uses a bounded 24-entry active memory view with capacity 1–256, retaining every generation in the existing write-once journal.",
-    "The first active record preserves its parent hash pointing into archived history; any source mutation invalidates the entire derived memory proof."
+    "The first active record preserves its parent hash pointing into archived history; any source mutation invalidates the entire derived memory proof.",
+    "ADA-208N stress tested 241 source generations: 24 active, 217 archived, 17 HOLD, 223 eligible growth steps; projected 3D geometry deterministic and source intact.",
+    "Projection is Canvas2D software geometry; it does not claim fabricated optical or independent physical channels. Public Pages browser acceptance remains a distinct ADA-209N gate."
   ]
 }

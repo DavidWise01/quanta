@@ -1,0 +1,79 @@
+{
+  "schema": "ADA.phase-iii.plan.v1",
+  "root": "DavidWise01/quanta",
+  "phase": "III",
+  "date": "2026-11-23",
+  "target": "Generational +n / deterministic, source-bound, diodic inheritance",
+  "completionPct": 10,
+  "parent": {
+    "phase": "II",
+    "freeze": "ada/ada-200n-phase-ii-freeze.json",
+    "gitBlobSha": "e5ee94c473438ff6dc95ebdbacccf37e29fa09c1",
+    "state": "CLOSED_CERTIFIED"
+  },
+  "milestones": [
+    {
+      "n": 201,
+      "name": "Immutable generation primitive",
+      "state": "SOURCE_AND_V8_TEST_PASS"
+    },
+    {
+      "n": 202,
+      "name": "Append-only persisted generation archive",
+      "state": "PENDING"
+    },
+    {
+      "n": 203,
+      "name": "Replayable generational provenance",
+      "state": "PENDING"
+    },
+    {
+      "n": 204,
+      "name": "Three-contact inheritance across generations",
+      "state": "PENDING"
+    },
+    {
+      "n": 205,
+      "name": "Homeostatic growth gating",
+      "state": "PENDING"
+    },
+    {
+      "n": 206,
+      "name": "Adaptive mutation without parent edits",
+      "state": "PENDING"
+    },
+    {
+      "n": 207,
+      "name": "Bounded intergenerational memory",
+      "state": "PENDING"
+    },
+    {
+      "n": 208,
+      "name": "3D hierarchy and interaction stress",
+      "state": "PENDING"
+    },
+    {
+      "n": 209,
+      "name": "Real Chromium and Pages acceptance",
+      "state": "PENDING"
+    },
+    {
+      "n": 210,
+      "name": "Final immutable generational freeze",
+      "state": "PENDING"
+    }
+  ],
+  "rules": [
+    "Each generation n+1 binds its parent generation hash",
+    "All previous generation objects and nested contact arrays are immutable",
+    "A held decision is appended as a record and never erased",
+    "Only a completed verification can advance measured phase progress",
+    "Phase II frozen source identities may never be retroactively changed by Phase III"
+  ],
+  "source": [
+    "ada/ada-201n-generational-engine.mjs",
+    "ada/ada-201n-generational-lab.html",
+    "ada/ada-201n-generational-test.mjs"
+  ],
+  "runtimeStatus": "V8_TESTED_BROWSER_PENDING"
+}

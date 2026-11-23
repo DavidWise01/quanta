@@ -67,7 +67,21 @@ jobs:
         env:
           ADA_PUBLIC_BASE: https://davidwise01.github.io/quanta
           ADA_REPORT_DIR: ada/verification-results/pages-integrity
-        run: node ada/ada-199n-pages-integrity.mjs
+        run: |
+          # Pages deployment may lag the source push that triggered this workflow.
+          # Never accept stale bytes; retry the entire pinned-source check.
+          for attempt in $(seq 1 12); do
+            echo "Pages integrity attempt ${attempt}/12"
+            if node ada/ada-199n-pages-integrity.mjs; then
+              echo "Exact pinned Pages bytes are deployed"
+              exit 0
+            fi
+            if [ "$attempt" -eq 12 ]; then
+              echo "Pinned Pages deployment not confirmed after 12 attempts"
+              exit 1
+            fi
+            sleep 15
+          done
       - name: Verify public Pages with Chromium
         id: public
         if: always()

@@ -10,6 +10,7 @@ on:
       - 'ada/ada-204n-*'
       - 'ada/ada-205n-*'
       - 'ada/ada-206n-*'
+      - 'ada/ada-207n-*'
       - 'ada/phase-iii-201-210.*'
       - '.github/workflows/ada-201n-generational-verification.yml'
 permissions:
@@ -35,6 +36,8 @@ jobs:
         run: node ada/ada-205n-growth-test.mjs
       - name: Verify bounded adaptive mutation and HOLD constraints
         run: node ada/ada-206n-bounded-mutation-test.mjs
+      - name: Verify bounded working memory and complete source ancestry
+        run: node ada/ada-207n-memory-window-test.mjs
       - name: Install Chromium browser
         run: |
           npm install --no-save --no-package-lock playwright@1.58.2
@@ -56,7 +59,7 @@ jobs:
         run: |
           for attempt in $(seq 1 12); do
             if curl -fsS "$ADA_PUBLIC_BASE/ada/ada-201n-generational-lab.html" | grep -q 'ADA-201N · Generational +n Kernel'; then
-              if curl -fsS "$ADA_PUBLIC_BASE/ada/ada-201n-generational-engine.mjs" | grep -q 'export function advance' && curl -fsS "$ADA_PUBLIC_BASE/ada/ada-202n-generation-archive.mjs" | grep -q 'export function appendJournal' && curl -fsS "$ADA_PUBLIC_BASE/ada/ada-203n-provenance.mjs" | grep -q 'export function traceLineage' && curl -fsS "$ADA_PUBLIC_BASE/ada/ada-204n-three-contact-inheritance.mjs" | grep -q 'export function deriveContacts' && curl -fsS "$ADA_PUBLIC_BASE/ada/ada-205n-homeostatic-growth.mjs" | grep -q 'export function deriveGrowth' && curl -fsS "$ADA_PUBLIC_BASE/ada/ada-206n-bounded-mutation.mjs" | grep -q 'export function deriveMutations'; then
+              if curl -fsS "$ADA_PUBLIC_BASE/ada/ada-201n-generational-engine.mjs" | grep -q 'export function advance' && curl -fsS "$ADA_PUBLIC_BASE/ada/ada-202n-generation-archive.mjs" | grep -q 'export function appendJournal' && curl -fsS "$ADA_PUBLIC_BASE/ada/ada-203n-provenance.mjs" | grep -q 'export function traceLineage' && curl -fsS "$ADA_PUBLIC_BASE/ada/ada-204n-three-contact-inheritance.mjs" | grep -q 'export function deriveContacts' && curl -fsS "$ADA_PUBLIC_BASE/ada/ada-205n-homeostatic-growth.mjs" | grep -q 'export function deriveGrowth' && curl -fsS "$ADA_PUBLIC_BASE/ada/ada-206n-bounded-mutation.mjs" | grep -q 'export function deriveMutations' && curl -fsS "$ADA_PUBLIC_BASE/ada/ada-207n-memory-window.mjs" | grep -q 'export function deriveMemory'; then
                 echo "Generation lab and engine are published"
                 exit 0
               fi

@@ -48,7 +48,7 @@ $("proofExport").addEventListener("click",()=>{
  if(!lastTrace){$("traceState").textContent="EXPORT BLOCKED · trace a verified epoch first";return}
  const proof=proveEpoch(chain,lastTrace.selectedEpoch,{maxAncestors:lastTrace.returnedAncestors});
  if(!verifyEpochProof(chain,proof).pass){$("traceState").textContent="EXPORT BLOCKED · evidence changed";return}
- const blob=new Blob([JSON.stringify(proof,null,2)+"\\n"],{type:"application/json"}),url=URL.createObjectURL(blob),a=document.createElement("a");
+ const blob=new Blob([JSON.stringify(proof,null,2)+"\n"],{type:"application/json"}),url=URL.createObjectURL(blob),a=document.createElement("a");
  a.href=url;a.download="ada-213n-provenance-epoch-"+proof.selectedEpoch+".json";a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);
  $("traceState").textContent="PROVENANCE EXPORTED · epoch "+proof.selectedEpoch+" · "+proof.selectedState;
 });

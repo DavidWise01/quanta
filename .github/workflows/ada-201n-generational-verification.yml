@@ -40,7 +40,7 @@ jobs:
           ADA_PUBLIC_BASE: https://davidwise01.github.io/quanta
         run: |
           for attempt in $(seq 1 12); do
-            if curl -fsS "$ADA_PUBLIC_BASE/ada/ada-201n-generational-lab.html" | grep -q 'Generational +n Engine'; then
+            if curl -fsS "$ADA_PUBLIC_BASE/ada/ada-201n-generational-lab.html" | grep -q 'ADA-201N · Generational +n Kernel'; then
               if curl -fsS "$ADA_PUBLIC_BASE/ada/ada-201n-generational-engine.mjs" | grep -q 'export function advance'; then
                 echo "Generation lab and engine are published"
                 exit 0

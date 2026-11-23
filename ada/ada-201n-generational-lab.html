@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ADA-201N · Generational +n Kernel</title>
+<style>
+:root{font:15px/1.5 system-ui,sans-serif;color:#f4f0ff;background:#050919;--v:#af78ff;--o:#ff913d;--t:#55f2dc}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 50% -20%,#26174c,#090e23 59%,#060a18);min-height:100vh}
+main{width:min(1320px,96vw);margin:auto;padding:20px 0 40px}.head{display:flex;justify-content:space-between;gap:14px;align-items:center;flex-wrap:wrap}.eyebrow{color:var(--t);letter-spacing:.22em;text-transform:uppercase;font-size:12px}.muted{color:#a9a7c3}h1{font-size:clamp(28px,4.5vw,54px);letter-spacing:-.05em;margin:4px 0 6px}.intro{margin:3px 0 20px;max-width:980px;color:#bfbad5}.head a,.links a{color:#e8dbff;text-decoration:none;border:1px solid #68589d;border-radius:10px;padding:8px 12px}.head a:hover,.links a:hover{border-color:var(--o)}
+.layout{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(310px,.9fr);gap:14px}.panel{border:1px solid #4c4178;background:#10142bde;border-radius:16px;padding:16px;box-shadow:0 0 26px #7b4df019}.visual{height:min(57vh,545px);min-height:350px;position:relative;background:#060b19;border:1px solid #46407d;border-radius:12px;overflow:hidden}canvas{display:block;width:100%;height:100%}.chip{color:#68f6df;border:1px solid #357d87;border-radius:20px;padding:4px 10px;font:11px ui-monospace,monospace}.visual .label{position:absolute;left:14px;top:12px;color:#c9bfeb;font:12px ui-monospace,monospace;pointer-events:none}
+.metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:10px}.metric{background:#161a37;border:1px solid #353260;padding:11px;border-radius:10px}.metric strong{display:block;font:600 24px ui-monospace,monospace;color:#fff}.metric span{font-size:11px;color:#aaa8c6}h2{font-size:17px;margin:0 0 12px}
+.controls{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}button{font:700 14px system-ui;background:#231d45;color:white;border:1px solid #7a60ad;padding:11px;border-radius:10px;cursor:pointer}button:hover{border-color:#ffad5e;box-shadow:0 0 13px #ff8b2c40}button.primary{background:linear-gradient(120deg,#a34fef,#f57d39);border:0}button:disabled{opacity:.4;cursor:default}
+.steps{margin-top:10px;display:flex;align-items:center;gap:8px}input{width:90px;background:#080d24;color:#fff;border:1px solid #7964a2;border-radius:7px;padding:8px}label{font-size:13px;color:#c2bfdb}.status{font:12px ui-monospace,monospace;color:#80edcf;min-height:34px;padding:10px 0}.ledger{max-height:270px;overflow:auto;border-top:1px solid #373557}table{width:100%;border-collapse:collapse;text-align:left;font:12px ui-monospace,monospace}td,th{padding:9px 4px;border-bottom:1px solid #292c4c}td:nth-child(1){color:#78eedd}td:last-child{color:#aeb1cf}th{position:sticky;top:0;background:#10142b;color:#c4b4ef}.pill{display:inline-block;border-radius:7px;padding:2px 6px;background:#263748;color:#6ce7d4}.hold{color:#ffc089;background:#563821}
+.rule{border-left:3px solid var(--o);padding:10px;background:#2b1c35;font-size:12px;color:#f6d8bd;margin-top:13px}.links{display:flex;gap:8px;flex-wrap:wrap;margin-top:15px}.links a{font-size:12px}
+footer{margin-top:16px;font:12px ui-monospace,monospace;color:#8f9aba}@media(max-width:900px){.layout{grid-template-columns:1fr}.visual{height:410px}.metrics{grid-template-columns:repeat(2,1fr)}}
+</style></head><body><main>
+<div class="head"><div><div class="eyebrow">ROOT 0 / QUANTA / ADA / PHASE III / .dlw</div><h1>Generational <span style="color:var(--o)">+n</span> Engine</h1></div><span class="chip">ADA-201N · FIRST GENERATION</span></div>
+<p class="intro">One frozen Phase II parent. Every generation inherits exactly one parent hash, creates its own immutable observation and decision, and appends a new generation <b>n → n+1</b>. No retrospective edits. Three contacts: Jane observes, Toph constrains, ADA commits or holds.</p>
+<div class="layout">
+<section class="panel"><div class="visual"><canvas id="scene" aria-label="Animated projected 3D generational toroidal kernel with contact nodes"></canvas><div class="label" id="sceneLabel">{{i}} · parent → child · 0</div></div>
+<div class="metrics"><div class="metric"><strong id="gen">0</strong><span>Generation n</span></div><div class="metric"><strong id="signal">50.00</strong><span>Jane · observation</span></div><div class="metric"><strong id="stable">100.00</strong><span>Toph · stability</span></div><div class="metric"><strong id="energy">100.00</strong><span>ADA · energy</span></div></div>
+<div class="rule"><b>Diodic inheritance:</b> a child knows its parent hash, not a writable parent state. Safety below 90 stability or 5 energy means HOLD, never deletion. Phase II frozen Git blob: <span id="rootHash"></span>.</div>
+</section>
+<aside class="panel"><h2>Generation controls</h2><div class="controls"><button class="primary" id="plusOne">+1</button><button id="plusFive">+5</button><button id="plusN">+n</button><button id="verify">Replay audit</button><button id="export">Export .json</button><button id="reset">Return to n=0</button></div><div class="steps"><label for="nInput">Increment n</label><input id="nInput" type="number" value="13" min="1" max="1000" step="1"><span class="muted">1 – 1000 per click</span></div><div id="status" class="status" aria-live="polite">GENESIS VERIFIED · parent freeze intact</div>
+<h2>Append-only generation ledger</h2><div class="ledger"><table><thead><tr><th>n</th><th>Decision</th><th>Parent hash</th></tr></thead><tbody id="rows"></tbody></table></div>
+<h2 style="margin-top:16px">Inherited identity</h2><div class="muted" style="font:12px ui-monospace,monospace;overflow-wrap:anywhere">Parent <span id="parent">—</span><hr style="border-color:#373154">Current <span id="hash">—</span></div>
+<div class="links"><a href="./phase-iii-201-210.html">Phase III tracker</a><a href="./ada-200n-phase-ii-freeze.json">Phase II immutable freeze</a><a href="https://github.com/DavidWise01/quanta/tree/main/ada">GitHub source</a></div>
+</aside></div>
+<footer>{24/[2]/[4]/(3)/(3)/(1)/(1)} · {{i}} · .dlw · +n / APPEND-ONLY / SOURCE-BOUND</footer>
+</main>
+<script type="module">
+import {PHASE_II_FREEZE,genesis,advance,verifyChain} from "./ada-201n-generational-engine.mjs";
+const $=id=>document.getElementById(id);
+let chain=[genesis()],angle=0;
+$("rootHash").textContent=PHASE_II_FREEZE.slice(0,14)+"…";
+function render(){
+ const node=chain.at(-1);$("gen").textContent=node.n.toLocaleString();$("signal").textContent=node.signal.toFixed(2);$("stable").textContent=node.stability.toFixed(2);$("energy").textContent=node.energy.toFixed(2);$("parent").textContent=node.parent||"PHASE II FROZEN ROOT";$("hash").textContent=node.hash;$("sceneLabel").textContent="{{i}} · generation "+node.n+" · "+node.decision;
+ const sample=chain.slice(-22).reverse();$("rows").replaceChildren(...sample.map(node=>{const tr=document.createElement("tr");for(const value of [node.n,node.decision,node.parent?.slice(0,12)||"PHASE-II"]){const td=document.createElement("td");td.textContent=String(value);tr.appendChild(td)}return tr}));
+}
+function evolve(n){try{chain=advance(chain,n);const report=verifyChain(chain);if(!report.pass)throw Error(report.reason);$("status").textContent="PASS · "+report.count+" generations replayed · tip "+report.last;render()}catch(e){$("status").textContent="REJECTED · "+e.message}}
+$("plusOne").addEventListener("click",()=>evolve(1));$("plusFive").addEventListener("click",()=>evolve(5));$("plusN").addEventListener("click",()=>evolve(Number($("nInput").value)));
+$("verify").addEventListener("click",()=>{const result=verifyChain(chain);$("status").textContent=result.pass?"REPLAY PASS · "+result.count+" generations · "+result.last:"REPLAY FAIL · "+result.reason});
+$("reset").addEventListener("click",()=>{chain=[genesis()];$("status").textContent="RESET TO GENESIS · historical export remains user-owned";render()});
+$("export").addEventListener("click",()=>{const result=verifyChain(chain);if(!result.pass){$("status").textContent="EXPORT BLOCKED · "+result.reason;return}const payload={schema:"ADA-201N.export.v1",phaseII:PHASE_II_FREEZE,verification:result,generations:chain};const blob=new Blob([JSON.stringify(payload,null,2)+"\n"],{type:"application/json"});const url=URL.createObjectURL(blob);const a=document.createElement("a");a.href=url;a.download="ada-201n-generations-"+chain.at(-1).n+".json";a.click();URL.revokeObjectURL(url);$("status").textContent="EXPORT READY · "+chain.length+" immutable generation records"});
+const canvas=$("scene"),ctx=canvas.getContext("2d");
+function project(x,y,z,cx,cy,scale){const a=angle,b=.37+Math.sin(angle*.21)*.08;let xx=x*Math.cos(a)-z*Math.sin(a),zz=x*Math.sin(a)+z*Math.cos(a);const yy=y*Math.cos(b)-zz*Math.sin(b);zz=y*Math.sin(b)+zz*Math.cos(b);const k=scale/(6+zz);return [cx+xx*k,cy+yy*k,k]}
+function draw(){
+ const rect=canvas.getBoundingClientRect(),dpr=Math.min(2,devicePixelRatio||1),w=Math.max(1,Math.round(rect.width)),h=Math.max(1,Math.round(rect.height));
+ if(canvas.width!==Math.round(w*dpr)||canvas.height!==Math.round(h*dpr)){canvas.width=Math.round(w*dpr);canvas.height=Math.round(h*dpr)}
+ ctx.setTransform(dpr,0,0,dpr,0,0);ctx.clearRect(0,0,w,h);ctx.fillStyle="#050918";ctx.fillRect(0,0,w,h);const cx=w/2,cy=h/2,sc=Math.min(w,h)*1.24,tip=chain.at(-1);
+ const rings=5,detail=86;
+ for(let layer=0;layer<rings;layer++){const phase=(layer-rings/2)*.45;ctx.beginPath();for(let i=0;i<=detail;i++){const t=i/detail*Math.PI*2,r=2.12+phase*.24,x=r*Math.cos(t),z=r*Math.sin(t),y=Math.sin(t*3+angle+layer)*.22+phase;const p=project(x,y,z,cx,cy,sc);i?ctx.lineTo(p[0],p[1]):ctx.moveTo(p[0],p[1])}ctx.strokeStyle=["#e48d51","#8e70ff","#55ead5","#9653e7","#fa9b5a"][layer];ctx.globalAlpha=.40+layer*.095;ctx.lineWidth=layer===2?2.6:1.3;ctx.shadowColor=ctx.strokeStyle;ctx.shadowBlur=14;ctx.stroke()}ctx.globalAlpha=1;ctx.shadowBlur=0;
+ const points=chain.slice(-Math.min(70,chain.length));for(let i=0;i<points.length;i++){const p=points[i],t=p.n*.37,rad=1.5+(p.signal-50)*.012;const q=project(rad*Math.cos(t),(p.stability-95)*.035,rad*Math.sin(t),cx,cy,sc);ctx.beginPath();ctx.arc(q[0],q[1],Math.max(1.5,2.8*q[2]/70),0,7);ctx.fillStyle=p.decision==="APPEND"?"#65f5dd":"#ffab59";ctx.fill()}
+ const contactColors=["#ff9d50","#a579ff","#50f2d9"],labels=["J","T","A"];tip.contacts.forEach((value,i)=>{const t=i*2*Math.PI/3+angle*.35,q=project(1.6*Math.cos(t),(value-50)*.018,1.6*Math.sin(t),cx,cy,sc);ctx.beginPath();ctx.fillStyle=contactColors[i];ctx.shadowColor=contactColors[i];ctx.shadowBlur=24;ctx.arc(q[0],q[1],8.5,0,7);ctx.fill();ctx.shadowBlur=0;ctx.fillStyle="#fff";ctx.font="700 11px monospace";ctx.textAlign="center";ctx.fillText(labels[i],q[0],q[1]+4)});
+ ctx.beginPath();ctx.arc(cx,cy,10+Math.sin(angle*2)*2,0,7);ctx.fillStyle="#faffff";ctx.shadowColor="#68efed";ctx.shadowBlur=18;ctx.fill();ctx.shadowBlur=0;ctx.font="12px monospace";ctx.textAlign="center";ctx.fillStyle="#bac2e0";ctx.fillText("PHASE II / FROZEN → n+"+tip.n,cx,h-22);
+ angle+=.005;requestAnimationFrame(draw)}
+render();if(ctx)requestAnimationFrame(draw);
+</script></body></html>

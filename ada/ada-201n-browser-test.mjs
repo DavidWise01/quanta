@@ -14,6 +14,15 @@ try{
  await page.locator("#plusFive").click();assert.equal((await page.locator("#gen").innerText()).trim(),"6");
  await page.locator("#nInput").fill("13");await page.locator("#plusN").click();assert.equal((await page.locator("#gen").innerText()).trim(),"19");
  await page.locator("#verify").click();assert.match(await page.locator("#status").innerText(),/REPLAY PASS/);
+ await page.locator("#traceAt").fill("13");
+ await page.locator("#trace").click();
+ assert.match(await page.locator("#traceState").innerText(),/SOURCE TRACE PASS.*n=13.*1 original root/);
+ assert.equal(await page.locator("#traceRows tr").count(),14,"Generation 13 has exactly 14 historical ancestors");
+ const proofDownload=page.waitForEvent("download");
+ await page.locator("#exportTrace").click();
+ const lineageExport=await proofDownload;
+ assert.match(lineageExport.suggestedFilename(),/ada-203n-provenance-n13\.json/);
+
  await page.reload({waitUntil:"networkidle",timeout:25000});
  await page.waitForFunction(()=>document.querySelector("#status")?.textContent.includes("RESTORE PASS"));
  assert.equal((await page.locator("#gen").innerText()).trim(),"19","Generations must survive browser reload");
@@ -32,5 +41,5 @@ try{
  assert.match(await page.locator("#status").innerText(),/REJECTED/,"Tampered ancestry blocks appends");
  assert.equal((await page.locator("#gen").innerText()).trim(),"0","No tampered generation is loaded");
  assert.deepEqual(errors,[],"No uncaught browser errors");
- console.log(JSON.stringify({schema:"ADA-201N.browser.v1",pass:true,n:19,render:size,controls:["genesis","+1","+5","+n","replay","reload restore","audit","reject-invalid","export","tamper lock"],errors},null,2));
+ console.log(JSON.stringify({schema:"ADA-201N.browser.v1",pass:true,n:19,render:size,controls:["genesis","+1","+5","+n","replay","13-ancestor trace","proof export","reload restore","audit","reject-invalid","export","tamper lock"],errors},null,2));
 }catch(e){console.error("ADA-201N browser verification failed",e.message,"errors",errors);throw e}finally{await page.close();await browser.close()}

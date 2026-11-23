@@ -7,7 +7,7 @@
   "root": "DavidWise01/quanta",
   "sourceManifest": {
     "path": "ada/ada-199n-source-integrity.json",
-    "blobSha": "a4ec9bdb8d20abc6f80571832800ac0c5e7b14d2",
+    "blobSha": "ef302052717e894c2d38691179dbcf9cff6e989c",
     "algorithm": "git-blob-sha1",
     "labs": {
       "ada/ada-191n-integrated-living-lab.html": "9c8989e7241db1a36137abf99940012266445b51",
@@ -15,7 +15,7 @@
       "ada/ada-193n-persistent-3d-memory.html": "57c6855f681132bd5935217a29b0793f9fc99a86",
       "ada/ada-194n-3d-adaptive-learning.html": "b703c25ca436b746e55127e94d3d717db90ebec8",
       "ada/ada-195n-3d-failure-repair.html": "b52e30244d22f96ae44fac8a21e4c6a9c35f15f4",
-      "ada/ada-196n-unified-three-contact-3d.html": "c996fd1be060d67ebd821bc8cd62ed154cee01be",
+      "ada/ada-196n-unified-three-contact-3d.html": "b2e692f44820b9adf0dbbbd1923ec4be05a6062a",
       "ada/ada-197n-best-policy-3d.html": "a4f840f39c620b7b9b9969f32bb06e4f67a332a1",
       "ada/ada-198n-3d-stress-recovery.html": "d913520a292e256cf6696eec4715c380ee96831a"
     }
@@ -79,8 +79,8 @@
       "id": "E-09",
       "path": "ada/ada-200n-current-source-core-results.json",
       "type": "current-pinned-source-v8-core-replay",
-      "status": "EXECUTED_SOURCE_ONLY",
-      "scope": "All 8 pinned HTML simulation cores re-evaluated for 100 ticks and deterministic replay on 2026-11-23; includes ADA-197N corrected action-before-observation check; not a GitHub Actions or browser run",
+      "status": "RECORDED_PRE_ADA196N_BROWSER_FIX",
+      "scope": "Eight-core V8 replay executed 2026-11-23 before the ADA-196N Canvas2D projection fix; source-only historical evidence, not current-source certification. Re-execution required on updated pinned manifest.",
       "browserVerified": false
     }
   ],

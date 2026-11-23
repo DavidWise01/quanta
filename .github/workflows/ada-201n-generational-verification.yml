@@ -6,6 +6,7 @@ on:
     paths:
       - 'ada/ada-201n-*'
       - 'ada/ada-202n-*'
+      - 'ada/ada-203n-*'
       - 'ada/phase-iii-201-210.*'
       - '.github/workflows/ada-201n-generational-verification.yml'
 permissions:
@@ -23,6 +24,8 @@ jobs:
         run: node ada/ada-201n-generational-test.mjs
       - name: Verify persistent write-once generation journal
         run: node ada/ada-202n-generation-archive-test.mjs
+      - name: Verify generational provenance and source-root ancestry
+        run: node ada/ada-203n-provenance-test.mjs
       - name: Install Chromium browser
         run: |
           npm install --no-save --no-package-lock playwright@1.58.2
@@ -44,7 +47,7 @@ jobs:
         run: |
           for attempt in $(seq 1 12); do
             if curl -fsS "$ADA_PUBLIC_BASE/ada/ada-201n-generational-lab.html" | grep -q 'ADA-201N · Generational +n Kernel'; then
-              if curl -fsS "$ADA_PUBLIC_BASE/ada/ada-201n-generational-engine.mjs" | grep -q 'export function advance' && curl -fsS "$ADA_PUBLIC_BASE/ada/ada-202n-generation-archive.mjs" | grep -q 'export function appendJournal'; then
+              if curl -fsS "$ADA_PUBLIC_BASE/ada/ada-201n-generational-engine.mjs" | grep -q 'export function advance' && curl -fsS "$ADA_PUBLIC_BASE/ada/ada-202n-generation-archive.mjs" | grep -q 'export function appendJournal' && curl -fsS "$ADA_PUBLIC_BASE/ada/ada-203n-provenance.mjs" | grep -q 'export function traceLineage'; then
                 echo "Generation lab and engine are published"
                 exit 0
               fi

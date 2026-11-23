@@ -12,10 +12,12 @@ on:
       - 'ada/ada-206n-*'
       - 'ada/ada-207n-*'
       - 'ada/ada-208n-*'
+      - 'ada/ada-209n-*'
       - 'ada/phase-iii-201-210.*'
       - '.github/workflows/ada-201n-generational-verification.yml'
 permissions:
   contents: read
+  issues: write
 jobs:
   generation:
     runs-on: ubuntu-24.04
@@ -26,21 +28,32 @@ jobs:
         with:
           node-version: '22'
       - name: Verify deterministic parent/child +n lineage
+        id: g201
         run: node ada/ada-201n-generational-test.mjs
       - name: Verify persistent write-once generation journal
+        id: g202
         run: node ada/ada-202n-generation-archive-test.mjs
       - name: Verify generational provenance and source-root ancestry
+        id: g203
         run: node ada/ada-203n-provenance-test.mjs
       - name: Verify three-contact inherited generations and safety holds
+        id: g204
         run: node ada/ada-204n-three-contact-test.mjs
       - name: Verify homeostatic growth and HOLD-preserving lineage
+        id: g205
         run: node ada/ada-205n-growth-test.mjs
       - name: Verify bounded adaptive mutation and HOLD constraints
+        id: g206
         run: node ada/ada-206n-bounded-mutation-test.mjs
       - name: Verify bounded working memory and complete source ancestry
+        id: g207
         run: node ada/ada-207n-memory-window-test.mjs
       - name: Stress geometry and retained source lineage across 241 generations
+        id: g208
         run: node ada/ada-208n-geometry-stress-test.mjs
+      - name: Verify all nine local source blob identities
+        id: source
+        run: node ada/ada-209n-pages-integrity.mjs
       - name: Install Chromium browser
         run: |
           npm install --no-save --no-package-lock playwright@1.58.2
@@ -55,18 +68,63 @@ jobs:
           cat /tmp/ada-201n-server.log
           exit 1
       - name: Verify browser +n, reload persistence, tamper lock and immutable genesis
+        id: local
         run: node ada/ada-201n-browser-test.mjs
-      - name: Verify Pages publication
-        env:
-          ADA_PUBLIC_BASE: https://davidwise01.github.io/quanta
+      - name: Verify exact deployed Pages source bytes
+        id: pages
         run: |
-          for attempt in $(seq 1 12); do
-            if curl -fsS "$ADA_PUBLIC_BASE/ada/ada-201n-generational-lab.html" | grep -q 'ADA-208N · 3D Stress Generational +n Kernel'; then
-              if curl -fsS "$ADA_PUBLIC_BASE/ada/ada-201n-generational-engine.mjs" | grep -q 'export function advance' && curl -fsS "$ADA_PUBLIC_BASE/ada/ada-202n-generation-archive.mjs" | grep -q 'export function appendJournal' && curl -fsS "$ADA_PUBLIC_BASE/ada/ada-203n-provenance.mjs" | grep -q 'export function traceLineage' && curl -fsS "$ADA_PUBLIC_BASE/ada/ada-204n-three-contact-inheritance.mjs" | grep -q 'export function deriveContacts' && curl -fsS "$ADA_PUBLIC_BASE/ada/ada-205n-homeostatic-growth.mjs" | grep -q 'export function deriveGrowth' && curl -fsS "$ADA_PUBLIC_BASE/ada/ada-206n-bounded-mutation.mjs" | grep -q 'export function deriveMutations' && curl -fsS "$ADA_PUBLIC_BASE/ada/ada-207n-memory-window.mjs" | grep -q 'export function deriveMemory' && curl -fsS "$ADA_PUBLIC_BASE/ada/ada-208n-geometry-stress.mjs" | grep -q 'export function geometryStress'; then
-                echo "Generation lab and engine are published"
-                exit 0
-              fi
-            fi
-            if [ "$attempt" -eq 12 ]; then echo "Phase III Pages publication not observed"; exit 1; fi
-            sleep 15
+          for attempt in $(seq 1 15); do
+            if node ada/ada-209n-pages-integrity.mjs --public; then exit 0; fi
+            if [ "$attempt" = "15" ]; then echo "Pinned public Pages byte integrity failed"; exit 1; fi
+            sleep 12
           done
+      - name: Verify public Pages Chromium runtime and controls
+        id: public
+        env:
+          ADA_BASE_URL: https://davidwise01.github.io/quanta
+        run: node ada/ada-201n-browser-test.mjs
+      - name: Record ADA-209N gate result
+        id: gate
+        if: always()
+        env:
+          G201: ${{ steps.g201.outcome }}
+          G202: ${{ steps.g202.outcome }}
+          G203: ${{ steps.g203.outcome }}
+          G204: ${{ steps.g204.outcome }}
+          G205: ${{ steps.g205.outcome }}
+          G206: ${{ steps.g206.outcome }}
+          G207: ${{ steps.g207.outcome }}
+          G208: ${{ steps.g208.outcome }}
+          SOURCE: ${{ steps.source.outcome }}
+          LOCAL: ${{ steps.local.outcome }}
+          PAGES: ${{ steps.pages.outcome }}
+          PUBLIC: ${{ steps.public.outcome }}
+        run: |
+          node -e 'const fs=require("fs");const names=["G201","G202","G203","G204","G205","G206","G207","G208","SOURCE","LOCAL","PAGES","PUBLIC"];const outcomes=Object.fromEntries(names.map(k=>[k,process.env[k]||"skipped"]));const pass=names.every(k=>outcomes[k]==="success");const report={schema:"ADA-209N.runtime-gate.v1",passed:pass,outcomes,runId:process.env.GITHUB_RUN_ID,attempt:process.env.GITHUB_RUN_ATTEMPT,commit:process.env.GITHUB_SHA};fs.mkdirSync("ada/verification-results",{recursive:true});fs.writeFileSync("ada/verification-results/ada-209n-gate.json",JSON.stringify(report,null,2)+"\\n");console.log(JSON.stringify(report));if(!pass)process.exitCode=1'
+      - name: Upload acceptance gate evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ada-209n-gate
+          path: ada/verification-results/ada-209n-gate.json
+          if-no-files-found: warn
+      - name: Report result in release issue 2
+        if: always()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            let evidence;
+            try { evidence=JSON.parse(fs.readFileSync('ada/verification-results/ada-209n-gate.json','utf8')); }
+            catch(error) { evidence={passed:false,error:String(error),outcomes:{}}; }
+            const url=`${context.serverUrl}/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}`;
+            const body=[
+              '### ADA-209N automated browser and Pages gate',
+              '- Run: '+url,
+              '- Commit: '+context.sha,
+              '- Gate verdict: **'+(evidence.passed?'PASS':'FAIL / unavailable')+'**',
+              '- Outcomes: '+JSON.stringify(evidence.outcomes),
+              '- Source and public Pages require exact nine-file Git blob identity and independent local/public Chromium test runs.',
+              '- Phase III 90% promotion remains conditional on this completed successful workflow.'
+            ].join('\\n');
+            await github.rest.issues.createComment({owner:context.repo.owner,repo:context.repo.repo,issue_number:2,body});

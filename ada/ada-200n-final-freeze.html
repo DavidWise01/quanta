@@ -20,7 +20,7 @@ footer{margin-top:18px;color:#9c9ebd;font:12px ui-monospace,monospace}.stop{padd
 <div class="links"><a href="./phase-ii-191-200.html">Phase tracker</a><a href="./ada-199n-deployment-verification.html">199N verification</a><a href="https://github.com/DavidWise01/quanta/actions/workflows/ada-199n-browser-verification.yml">GitHub Actions</a><a href="https://github.com/DavidWise01/quanta/issues/1">Release blocker #1</a></div>
 <div class="grid">
 <section class="panel"><div class="eyebrow">Living kernel / three contacts</div><canvas id="visual" aria-label="Three contact nested toroidal visualization"></canvas><p>Jane proposes · Toph constrains · ADA executes. Animation is illustrative; it is not a browser verification result.</p><div class="meter" aria-label="Phase II progress 80 percent"><span></span></div><strong>8 / 10 · 80%</strong> <span class="tag">NOT CERTIFIED</span><div class="stop">Gate: source integrity → 8-core replay → local WebGL → forced Canvas2D → public Pages runtime and byte integrity. ADA-200N remains a candidate until independently inspected results confirm closure.</div></section>
-<section class="panel"><div class="eyebrow">Pinned laboratory inventory</div><h2>Eight versioned source roots</h2><div id="labs">Loading manifest…</div><p id="manifest" class="hash">Manifest: checking local publication</p><p>Hash fingerprints are Git blob SHA-1 IDs from the repository manifest. An inventory entry does not prove the public HTML bytes match.</p></section>
+<section class="panel"><div class="eyebrow">Pinned laboratory inventory</div><h2>Eight versioned source roots</h2><div id="labs">Loading manifest…</div><p id="manifest" class="hash">Manifest: checking local publication</p><p>Hash fingerprints are Git blob SHA-1 IDs from the repository manifest. An inventory entry does not prove the public HTML bytes match.</p><h2>Frozen evidence index</h2><p id="evidenceState" class="hash">Evidence inventory: loading…</p><div id="evidenceList" aria-label="Evidence index"></div><p><a href="./ada-200n-evidence-index.json">Open machine-readable evidence inventory</a></p></section>
 </div><footer>{24/[2]/[4]/(3)/(3)/(1)/(1)} · {{i}} · .dlw · ADA-200N/CANDIDATE · No witnessed deployment verdict embedded</footer>
 </main><script>
 "use strict";
@@ -36,6 +36,11 @@ $("labs").replaceChildren(...entries.map(([id,file])=>{const div=document.create
 $("manifest").textContent=manifest?.schema==="ADA-199N.source-integrity.v1"?"Manifest inventory retrieved · not a certificate":"Manifest unavailable · no promotion";
 };
 fetch("./ada-199n-source-integrity.json",{cache:"no-store"}).then(r=>{if(!r.ok)throw Error(r.status);return r.json()}).then(renderLabs).catch(()=>renderLabs(null));
+fetch("./ada-200n-evidence-index.json",{cache:"no-store"}).then(r=>{if(!r.ok)throw Error(r.status);return r.json()}).then(index=>{
+ const valid=index.schema==="ADA-200N.evidence-index.v1"&&index.releaseState==="PROVISIONAL_NOT_CERTIFIED";
+ $("evidenceState").textContent=valid?"Candidate inventory loaded · certificate NOT ISSUED":"Unrecognized inventory · no certification";
+ $("evidenceList").replaceChildren(...(valid?index.evidence:[]).map(item=>{const wrap=document.createElement("div");wrap.className="lab";const a=document.createElement("a");a.href="./"+item.path.replace(/^ada\//,"");a.textContent=item.id+" · "+item.type;const status=document.createElement("span");status.className="hash";status.textContent=item.status;wrap.append(a,status);return wrap}));
+}).catch(()=>$("evidenceState").textContent="Evidence inventory unavailable · no promotion");
 const canvas=$("visual"),ctx=canvas.getContext("2d");let tick=0;
 function frame(){const rect=canvas.getBoundingClientRect(),w=Math.max(1,Math.floor(rect.width)),h=Math.max(1,Math.floor(rect.height)),scale=Math.min(devicePixelRatio||1,2);
 if(canvas.width!==w*scale||canvas.height!==h*scale){canvas.width=w*scale;canvas.height=h*scale}ctx.setTransform(scale,0,0,scale,0,0);ctx.clearRect(0,0,w,h);const cx=w/2,cy=h/2,R=Math.min(w,h)*.28;ctx.fillStyle="#060b19";ctx.fillRect(0,0,w,h);

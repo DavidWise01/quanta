@@ -1,0 +1,19 @@
+{
+  "schema": "ADA-209N.pinned-pages.v1",
+  "repository": "DavidWise01/quanta",
+  "branch": "main",
+  "algorithm": "git-blob-sha1",
+  "base": "https://davidwise01.github.io/quanta",
+  "files": {
+    "ada/ada-201n-generational-lab.html": "3d62677a516cf0aab2942fb1fcdc8a526deae195",
+    "ada/ada-201n-generational-engine.mjs": "a7616f4e89721e291176bcdf9cd76b906be70041",
+    "ada/ada-202n-generation-archive.mjs": "c4b68b8747faaafbd80db13008babb5ff7188ebf",
+    "ada/ada-203n-provenance.mjs": "7611ac80c562c950752009dd57ef9eade69a601d",
+    "ada/ada-204n-three-contact-inheritance.mjs": "405854552765e08d0846359d5997df7fbcdfddaa",
+    "ada/ada-205n-homeostatic-growth.mjs": "e6d613f4213bbd6b7199d5b6a5fef76d19a94a3b",
+    "ada/ada-206n-bounded-mutation.mjs": "a77609562ded7c3e3f9dd45f7a85c9a8dc9e8c76",
+    "ada/ada-207n-memory-window.mjs": "835f49d2812675bcba71ea0434bd7820be81cd76",
+    "ada/ada-208n-geometry-stress.mjs": "15c6beee950a6243aec85707885d1fd94730189b"
+  },
+  "sourceScope": "Nine exact byte identities. Requires both public byte equality and real Chromium controls; no 90% promotion without completed CI pass."
+}

@@ -1,0 +1,39 @@
+{
+  "rqt": 659,
+  "certificate_sha256": "da410c2fdd7319d6fde2fb247b329e52de3b675147db5c3a04a9076196019f0b",
+  "recursively_certified_prime_nodes": 130,
+  "new_prime_nodes": [
+    487,
+    853,
+    3413,
+    2273059
+  ],
+  "candidates": [
+    {
+      "index": 23,
+      "n": "945427648580040545577333019482816067975849758493",
+      "certified_part_F": "3084",
+      "unresolved_part_R": "306558900317782278073065181414661500640677613",
+      "F_exceeds_sqrt_n": false,
+      "unresolved_part_composite_proved": false
+    },
+    {
+      "index": 28,
+      "n": "724069887353858191628011556527931108147407415720720843",
+      "certified_part_F": "2213959466",
+      "unresolved_part_R": "327047490468309319818419637014226667936389137",
+      "F_exceeds_sqrt_n": false,
+      "unresolved_part_composite_proved": true
+    }
+  ],
+  "new_prime_targets_certified": 0,
+  "remaining_open_indexes": [
+    23,
+    28
+  ],
+  "selected_excluded": 82,
+  "selected_unresolved": 53,
+  "root19": "OPEN",
+  "original_22d_wall": "NOT REPLAYED",
+  "full_certificate_status": "Local conversation download; not committed to GitHub"
+}

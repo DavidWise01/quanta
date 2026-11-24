@@ -1,0 +1,182 @@
+{
+  "rqt": 662,
+  "source_rqt619_sha256": "97de34faf9b0163357ec3c0c81d4d1d768ffe040dc5fd5faf707ea3e8ae19021",
+  "local_full_certificate_sha256": "7b9b0b160819f061920a055c84e44785fe2ee21796747124c8dc387e25c1f21b",
+  "bound_t_inclusive": 20000,
+  "canonical_orbits": 27,
+  "total_parameter_orbit_checks": 1080027,
+  "nonnegative_discriminants": 1078223,
+  "modular_square_candidates": 62032,
+  "exact_perfect_squares": 0,
+  "integral_recovered_solutions": 0,
+  "orbit_statistics": [
+    {
+      "canonical_id": 0,
+      "nonnegative": 39938,
+      "modular_square_candidates": 3535,
+      "exact_perfect_squares": 0
+    },
+    {
+      "canonical_id": 1,
+      "nonnegative": 39961,
+      "modular_square_candidates": 2825,
+      "exact_perfect_squares": 0
+    },
+    {
+      "canonical_id": 2,
+      "nonnegative": 39893,
+      "modular_square_candidates": 705,
+      "exact_perfect_squares": 0
+    },
+    {
+      "canonical_id": 7,
+      "nonnegative": 39961,
+      "modular_square_candidates": 3393,
+      "exact_perfect_squares": 0
+    },
+    {
+      "canonical_id": 28,
+      "nonnegative": 39902,
+      "modular_square_candidates": 2385,
+      "exact_perfect_squares": 0
+    },
+    {
+      "canonical_id": 29,
+      "nonnegative": 39806,
+      "modular_square_candidates": 1691,
+      "exact_perfect_squares": 0
+    },
+    {
+      "canonical_id": 30,
+      "nonnegative": 39939,
+      "modular_square_candidates": 1530,
+      "exact_perfect_squares": 0
+    },
+    {
+      "canonical_id": 31,
+      "nonnegative": 39948,
+      "modular_square_candidates": 2154,
+      "exact_perfect_squares": 0
+    },
+    {
+      "canonical_id": 33,
+      "nonnegative": 39911,
+      "modular_square_candidates": 3576,
+      "exact_perfect_squares": 0
+    },
+    {
+      "canonical_id": 34,
+      "nonnegative": 39953,
+      "modular_square_candidates": 4173,
+      "exact_perfect_squares": 0
+    },
+    {
+      "canonical_id": 35,
+      "nonnegative": 39857,
+      "modular_square_candidates": 2116,
+      "exact_perfect_squares": 0
+    },
+    {
+      "canonical_id": 36,
+      "nonnegative": 39898,
+      "modular_square_candidates": 2970,
+      "exact_perfect_squares": 0
+    },
+    {
+      "canonical_id": 37,
+      "nonnegative": 39944,
+      "modular_square_candidates": 1601,
+      "exact_perfect_squares": 0
+    },
+    {
+      "canonical_id": 55,
+      "nonnegative": 39981,
+      "modular_square_candidates": 1619,
+      "exact_perfect_squares": 0
+    },
+    {
+      "canonical_id": 56,
+      "nonnegative": 39952,
+      "modular_square_candidates": 2122,
+      "exact_perfect_squares": 0
+    },
+    {
+      "canonical_id": 57,
+      "nonnegative": 39981,
+      "modular_square_candidates": 1559,
+      "exact_perfect_squares": 0
+    },
+    {
+      "canonical_id": 61,
+      "nonnegative": 39986,
+      "modular_square_candidates": 1167,
+      "exact_perfect_squares": 0
+    },
+    {
+      "canonical_id": 62,
+      "nonnegative": 39955,
+      "modular_square_candidates": 1396,
+      "exact_perfect_squares": 0
+    },
+    {
+      "canonical_id": 64,
+      "nonnegative": 39991,
+      "modular_square_candidates": 1297,
+      "exact_perfect_squares": 0
+    },
+    {
+      "canonical_id": 65,
+      "nonnegative": 39966,
+      "modular_square_candidates": 2562,
+      "exact_perfect_squares": 0
+    },
+    {
+      "canonical_id": 67,
+      "nonnegative": 40001,
+      "modular_square_candidates": 536,
+      "exact_perfect_squares": 0
+    },
+    {
+      "canonical_id": 81,
+      "nonnegative": 39844,
+      "modular_square_candidates": 1240,
+      "exact_perfect_squares": 0
+    },
+    {
+      "canonical_id": 89,
+      "nonnegative": 39786,
+      "modular_square_candidates": 3096,
+      "exact_perfect_squares": 0
+    },
+    {
+      "canonical_id": 92,
+      "nonnegative": 39919,
+      "modular_square_candidates": 4200,
+      "exact_perfect_squares": 0
+    },
+    {
+      "canonical_id": 109,
+      "nonnegative": 39989,
+      "modular_square_candidates": 2393,
+      "exact_perfect_squares": 0
+    },
+    {
+      "canonical_id": 110,
+      "nonnegative": 39969,
+      "modular_square_candidates": 2834,
+      "exact_perfect_squares": 0
+    },
+    {
+      "canonical_id": 112,
+      "nonnegative": 39992,
+      "modular_square_candidates": 3357,
+      "exact_perfect_squares": 0
+    }
+  ],
+  "new_all_scale_exclusions": 0,
+  "selected_excluded": 82,
+  "selected_unresolved": 53,
+  "root19": "OPEN",
+  "original_22d_wall": "NOT REPLAYED",
+  "scope": "Finite bounded exact search in 27 canonical charts; no all-scale conclusion."
+}

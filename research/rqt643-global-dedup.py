@@ -83,6 +83,6 @@ def main():
    warnings=['Performance is a single instrumented run, not a portable benchmark.','Shapley attribution uses aggregate policy state unions; adaptive trajectories depend on ledger order.'],
    selected_excluded=82,selected_unresolved=53,root19='OPEN',original_22D_wall='NOT REPLAYED')
  path=Path(sys.argv[1] if len(sys.argv)>1 else 'RQT-643-results.json')
- path.write_text(json.dumps(out,indent=2)+'\\n')
+ path.write_text(json.dumps(out,indent=2)+'\n')
  print('PASS RQT-643:',len(global_states),'global states, 0 unit events')
 if __name__=='__main__':main()

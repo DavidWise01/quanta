@@ -1,0 +1,34 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>RQT-667 · Congruence-Preserving Pell Automorphisms</title><style>*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at top,#314755,#0b1522 75%);color:#f9eddc;font:17px/1.6 system-ui}main{max-width:1100px;margin:auto;padding:clamp(20px,5vw,70px)}header{background:#1c3446;border:5px double #e8c68d;padding:27px}h1{font-size:clamp(45px,8vw,85px);line-height:1.1;margin:0;color:#ffe0a3}.eyebrow{font-size:12px;letter-spacing:.15em;color:#b2f3dc}h2{color:#b4f2d9}.metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:26px 0}.tile{border:2px solid #c3b68a;background:#1d3a4e;padding:20px}.num{font-size:clamp(33px,5vw,55px);font-weight:900;color:#f8c57d}.math{background:#081a27;color:#c2ffe5;border-left:7px solid #f0bd80;padding:23px;white-space:pre-wrap;overflow-wrap:anywhere;font:clamp(14px,2vw,19px)/1.7 ui-monospace,monospace}.visual{position:relative;min-height:260px;border:2px solid #9fcbb2;background:#0a2632;margin:24px 0;overflow:hidden}canvas{width:100%;height:270px;display:block}.controls{display:flex;gap:16px;flex-wrap:wrap;align-items:center;background:#203e4b;padding:13px}.controls label{display:flex;align-items:center;gap:8px}.controls input{accent-color:#b7e8d0}button{border:1px solid #d5c18e;color:#fae6bf;background:#2d4d59;border-radius:4px;padding:8px 15px;cursor:pointer}.note{border-left:5px solid #e7bf87;padding-left:17px}.bar{height:15px;background:#3c5564}.bar>div{width:60.7407%;height:100%;background:linear-gradient(90deg,#eeb87a,#78dfbc)}a{color:#a5f7d9}@media(max-width:680px){.metrics{grid-template-columns:1fr}}</style></head><body><main><header><p class="eyebrow">QUANTA · {{i}} · .dlw</p><h1>RQT-667</h1><p>CONGRUENCE-PRESERVING PELL AUTOMORPHISMS</p></header><div class="metrics"><div class="tile"><div class="num">27/27</div>Original canonical equations audited</div><div class="tile"><div class="num">16</div>Synthetic recurrence power verified</div><div class="tile"><div class="num">0</div>New roots in real unresolved charts</div></div><div class="visual"><canvas id="viz" width="960" height="360" aria-label="Animated mathematical torus and original coordinate lattice"></canvas><div class="controls"><label>Rotation <input id="speed" type="range" min="0" max="100" value="30"></label><button id="toggle">Pause rotation</button><span id="state" aria-live="polite">Lattice gate preserved · synthetic model</span></div></div><h2>The exact sufficient congruence gate</h2><div class="math">Let a=r₁²−4r₀r₂, D=|2r₀|, M=aD.
+Given Pell unit U²−aV²=1:
+
+    U ≡ 1 (mod M)
+    V ≡ 0 (mod M)
+
+Original parameter:
+    t′=U·t+V·y+(U−1)·h/a
+    t′ ≡ t (mod D)
+
+Square-root coordinate:
+    y′=V·(a·t+h)+U·y
+    y′ ≡ y (mod D)
+
+Thus y′≡±(r₁t′+r₃) (mod D).
+Recover integral u′ and verify G(u′,t′)=0.</div><h2>Constructive synthetic example</h2><p>For <b>u²−2t²=1</b>, the unit (3,1) has norm 1 in the associated Pell equation with a=8. Its 16th power is <b>(886731088897, 313506783024)</b>, satisfying the subgroup modulus M=16. It maps the initial integer solution (u,t)=(1,0) to:</p><div class="math">u′ = 886731088897
+t′ = 627013566048
+
+u′² − 2t′² − 1 = 0  [EXACT PASS]</div><p class="note">The subgroup condition is sufficient, not necessary or proven minimal. A norm-one Pell unit may have a positive power in this subgroup, but without an actual starting integer solution, no real unresolved chart trajectory can be instantiated. This experiment discovered neither a unit nor a seed in the 27 original charts.</p><h2>Selected family ledger</h2><div class="bar"><div></div></div><p><b>82/135 excluded at all scales (60.74%)</b> · 53 unresolved across 27 canonical sign-orbits · <b>ROOT 19 OPEN.</b> Original 22D Wall not replayed.</p><p><a href="research/RQT-667-CONGRUENCE-PRESERVING-AUTOMORPHISMS.md">Mathematical proof</a> · <a href="research/rqt667.py">Python verifier</a> · <a href="research/RQT-667-summary.json">Exact results summary</a></p><h2>RQT-668 — Next natural bound</h2><p>Optimize the safe congruence subgroup, checking whether smaller moduli preserve the lattice and identifying the exact finite modular action without inventing an original integer seed.</p><p>{{i}} · .dlw</p></main><script>
+const canvas=document.querySelector('#viz'),ctx=canvas.getContext('2d');let angle=0,paused=false;const speed=document.querySelector('#speed'),toggle=document.querySelector('#toggle');
+toggle.onclick=()=>{paused=!paused;toggle.textContent=paused?'Resume rotation':'Pause rotation'};
+function draw(){
+const W=canvas.width,H=canvas.height;ctx.clearRect(0,0,W,H);
+const cx=W/2,cy=H/2,R=110,r=44;
+ctx.strokeStyle='#3d858b55';ctx.lineWidth=1;
+for(let x=0;x<W;x+=38){ctx.beginPath();ctx.moveTo(x,0);ctx.lineTo(x,H);ctx.stroke()}
+for(let y=0;y<H;y+=38){ctx.beginPath();ctx.moveTo(0,y);ctx.lineTo(W,y);ctx.stroke()}
+function project(u,v){let x=(R+r*Math.cos(v))*Math.cos(u),y=(R+r*Math.cos(v))*Math.sin(u),z=r*Math.sin(v);let ca=Math.cos(angle),sa=Math.sin(angle);let X=x*ca-z*sa,Z=x*sa+z*ca;let tilt=.5;return [cx+X,cy+y*Math.cos(tilt)-Z*Math.sin(tilt),Z]}
+for(let j=0;j<18;j++){let v=j*2*Math.PI/18;ctx.beginPath();for(let i=0;i<=100;i++){let [x,y]=project(i*2*Math.PI/100,v);if(i)ctx.lineTo(x,y);else ctx.moveTo(x,y)}ctx.strokeStyle=j%3?'#69dfca99':'#f7b96ebb';ctx.lineWidth=1.5;ctx.stroke()}
+for(let i=0;i<36;i++){let u=i*2*Math.PI/36;ctx.beginPath();for(let j=0;j<=60;j++){let [x,y]=project(u,j*2*Math.PI/60);if(j)ctx.lineTo(x,y);else ctx.moveTo(x,y)}ctx.strokeStyle='#a0ebec88';ctx.lineWidth=1;ctx.stroke()}
+ctx.textAlign='center';ctx.font='bold 29px Georgia';ctx.fillStyle='#ffe5a4';ctx.fillText('{{i}}',cx,cy+10);
+if(!paused)angle+=Number(speed.value)/2000;requestAnimationFrame(draw)}
+draw();
+</script></body></html>

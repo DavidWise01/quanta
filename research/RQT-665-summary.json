@@ -1,0 +1,26 @@
+{
+  "rqt": 665,
+  "source_sha256": "97de34faf9b0163357ec3c0c81d4d1d768ffe040dc5fd5faf707ea3e8ae19021",
+  "full_local_certificate_sha256": "89f64930cf22fd6761dc774d79be42394e708c81742460115d85af1bf1fee2db",
+  "bounded_t": 100000,
+  "canonical_orbits": 27,
+  "bounded_checks": 5400027,
+  "nonnegative_discriminants": 5398223,
+  "bounded_exact_squares": 0,
+  "off_window_convergent_denominator_probes": 276,
+  "off_window_exact_squares": 0,
+  "original_integer_seeds": 0,
+  "closest_normalized": {
+    "orbit": 2,
+    "t": 68501,
+    "gap": "12359540640053",
+    "spacing": "54468026810289965217333"
+  },
+  "next": "RQT-666",
+  "new_exclusions": 0,
+  "selected_excluded": 82,
+  "selected_unresolved": 53,
+  "root19": "OPEN",
+  "original_22d_wall": "NOT REPLAYED",
+  "caution": "All 276 off-window probes are sparse, nonexhaustive; normalized near-misses are not integer roots."
+}

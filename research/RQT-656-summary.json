@@ -1,0 +1,72 @@
+{
+  "rqt": 656,
+  "source_rqt655_sha256": "f8b712bfd62052d9f01590b8061de0bdcb613b769b24ff1c614e3a453f2f9198",
+  "local_certificate_sha256": "2566f4657beb8c941d9e53508e360bdab867a0b7cabfc9c601824106168b3327",
+  "proven_composites": 23,
+  "composites_with_verified_prime_divisor": 11,
+  "composites_without_explicit_factor": 12,
+  "probable_primes_uncertified": 8,
+  "certified_prime_divisors": [
+    {
+      "index": 2,
+      "factor": "77671969"
+    },
+    {
+      "index": 5,
+      "factor": "304413919"
+    },
+    {
+      "index": 6,
+      "factor": "736588199"
+    },
+    {
+      "index": 11,
+      "factor": "46772993"
+    },
+    {
+      "index": 13,
+      "factor": "1525343993"
+    },
+    {
+      "index": 15,
+      "factor": "6865787557"
+    },
+    {
+      "index": 18,
+      "factor": "5811373"
+    },
+    {
+      "index": 19,
+      "factor": "84250303"
+    },
+    {
+      "index": 20,
+      "factor": "30240923"
+    },
+    {
+      "index": 25,
+      "factor": "14381293"
+    },
+    {
+      "index": 29,
+      "factor": "5228453"
+    }
+  ],
+  "all_divisors_primality_verified_by_complete_trial_division": true,
+  "probable_prime_indexes": [
+    0,
+    1,
+    4,
+    12,
+    23,
+    24,
+    26,
+    28
+  ],
+  "global_integer_norm_minus_two_root": "NOT FOUND",
+  "selected_excluded": 82,
+  "selected_unresolved": 53,
+  "root19": "OPEN",
+  "new_family_exclusions": 0,
+  "original_22d_wall": "NOT REPLAYED"
+}

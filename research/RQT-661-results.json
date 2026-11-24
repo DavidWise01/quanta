@@ -1,0 +1,142 @@
+{
+  "rqt": 661,
+  "source_rqt660_sha256": "b0719a64145785fabc47ee9bc77e5c57ba162cd45ddd8dbc0a37b1b262e6030a",
+  "method": "Exact certified small n+1 factors and deterministic bounded direct rho scan of R",
+  "results": [
+    {
+      "index": 23,
+      "target_n": "945427648580040545577333019482816067975849758493",
+      "target_bits": 160,
+      "R": "306558900317782278073065181414661500640677613",
+      "n_plus_one": "945427648580040545577333019482816067975849758494",
+      "n_plus_one_certified_prime_powers": [
+        [
+          "2",
+          1
+        ],
+        [
+          "7",
+          1
+        ],
+        [
+          "11",
+          1
+        ],
+        [
+          "13",
+          1
+        ],
+        [
+          "3709",
+          1
+        ],
+        [
+          "7723",
+          1
+        ]
+      ],
+      "n_plus_one_certified_part": "57346503214",
+      "n_plus_one_unresolved_part": "16486230120291507571698842720004456521",
+      "certified_part_square_exceeds_n": false,
+      "certified_part_fraction_approx": "6.06566809212e-38",
+      "certified_part_bits": 36,
+      "unresolved_cofactor_bits": 124,
+      "rho_attempts": [
+        {
+          "seed_c": 1,
+          "iterations": 12000,
+          "factor": null
+        },
+        {
+          "seed_c": 3,
+          "iterations": 12000,
+          "factor": null
+        },
+        {
+          "seed_c": 5,
+          "iterations": 12000,
+          "factor": null
+        },
+        {
+          "seed_c": 7,
+          "iterations": 12000,
+          "factor": null
+        },
+        {
+          "seed_c": 11,
+          "iterations": 12000,
+          "factor": null
+        }
+      ],
+      "direct_R_factor": null,
+      "target_prime_certified": false
+    },
+    {
+      "index": 28,
+      "target_n": "724069887353858191628011556527931108147407415720720843",
+      "target_bits": 179,
+      "R": "327047490468309319818419637014226667936389137",
+      "n_plus_one": "724069887353858191628011556527931108147407415720720844",
+      "n_plus_one_certified_prime_powers": [
+        [
+          "2",
+          2
+        ],
+        [
+          "3",
+          1
+        ],
+        [
+          "672757",
+          1
+        ]
+      ],
+      "n_plus_one_certified_part": "8073084",
+      "n_plus_one_unresolved_part": "89689378601022631701591554916055761112780124141",
+      "certified_part_square_exceeds_n": false,
+      "certified_part_fraction_approx": "1.11495922438e-47",
+      "certified_part_bits": 23,
+      "unresolved_cofactor_bits": 156,
+      "rho_attempts": [
+        {
+          "seed_c": 1,
+          "iterations": 12000,
+          "factor": null
+        },
+        {
+          "seed_c": 3,
+          "iterations": 12000,
+          "factor": null
+        },
+        {
+          "seed_c": 5,
+          "iterations": 12000,
+          "factor": null
+        },
+        {
+          "seed_c": 7,
+          "iterations": 12000,
+          "factor": null
+        },
+        {
+          "seed_c": 11,
+          "iterations": 12000,
+          "factor": null
+        }
+      ],
+      "direct_R_factor": null,
+      "target_prime_certified": false
+    }
+  ],
+  "new_R_factors": 0,
+  "new_target_prime_certificates": 0,
+  "remaining_open_indexes": [
+    23,
+    28
+  ],
+  "status_warning": "n+1 partial factorization alone does not prove target primality. Both square thresholds fail.",
+  "selected_excluded": 82,
+  "selected_unresolved": 53,
+  "root19": "OPEN",
+  "original_22d_wall": "NOT REPLAYED"
+}

@@ -1,0 +1,54 @@
+{
+  "rqt": 643,
+  "source": "RQT-642 full 24-permutation arithmetic replay",
+  "observations": 51840,
+  "within_run_distinct_summed": 38254,
+  "globally_distinct_group_scoped_full_states": 1376,
+  "repeated_observations": 50464,
+  "unit_events": 0,
+  "policy": {
+    "nearest": {
+      "standalone_union_states": 186,
+      "within_run_marginal": 8134,
+      "global_new_execution_order": 186,
+      "measured_elapsed_ns": 3244371913
+    },
+    "runner_up": {
+      "standalone_union_states": 540,
+      "within_run_marginal": 9612,
+      "global_new_execution_order": 531,
+      "measured_elapsed_ns": 1973740412
+    },
+    "alternating": {
+      "standalone_union_states": 192,
+      "within_run_marginal": 7710,
+      "global_new_execution_order": 87,
+      "measured_elapsed_ns": 2845024094
+    },
+    "adaptive": {
+      "standalone_union_states": 1248,
+      "within_run_marginal": 12798,
+      "global_new_execution_order": 572,
+      "measured_elapsed_ns": 2373786171
+    }
+  },
+  "policy_order_invariant_shapley_marginal": {
+    "nearest": 111.75,
+    "runner_up": 266.75,
+    "alternating": 104.25,
+    "adaptive": 893.25
+  },
+  "performance": {
+    "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+    "python": "3.13.5",
+    "full_run_elapsed_ns": 10462342640,
+    "tracemalloc_peak_bytes": 1043308,
+    "tracemalloc_current_bytes": 1008664,
+    "note": "One instrumented run, not a portable benchmark or peak process RSS."
+  },
+  "original_certificate_sha256": "d5e084cf2948758214f7a0794929098ab86c0c41c48040b084b4bfa2f1208d11",
+  "new_exclusions": 0,
+  "selected_excluded": 82,
+  "selected_unresolved": 53,
+  "root19": "OPEN"
+}

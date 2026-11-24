@@ -1,0 +1,55 @@
+{
+  "schema": "ADA-220N.phase-iv-freeze-candidate.v1",
+  "parentCommit": "52c3317bd9d1d478e71a925314ae88062777b960",
+  "status": "SOURCE_PINNED_ACCEPTANCE_PENDING",
+  "growthFactor": 1.025,
+  "epochSize": 24,
+  "files": [
+    {
+      "path": "ada/ada-201n-generational-engine.mjs",
+      "blob": "a7616f4e89721e291176bcdf9cd76b906be70041"
+    },
+    {
+      "path": "ada/ada-211n-epoch-engine.mjs",
+      "blob": "2843c690401519669c0a74d1b86993886d1d843a"
+    },
+    {
+      "path": "ada/ada-212n-epoch-journal.mjs",
+      "blob": "b4ba3df0222dd2276e11020a76c82da0754f1ece"
+    },
+    {
+      "path": "ada/ada-213n-epoch-provenance.mjs",
+      "blob": "c750e08450927392da69091eaa6d9d43cb8a09ce"
+    },
+    {
+      "path": "ada/ada-214n-epoch-contacts.mjs",
+      "blob": "7ae572ee718d474ee5cb463a1e74e51678135149"
+    },
+    {
+      "path": "ada/ada-215n-epoch-growth.mjs",
+      "blob": "199cc26dd5b1ba2b231dbd0a523e13ac87a1d564"
+    },
+    {
+      "path": "ada/ada-216n-epoch-mutation.mjs",
+      "blob": "ed3b4d733e129d0f84ebce36a446b06cbea66352"
+    },
+    {
+      "path": "ada/ada-217n-adaptive-expression.mjs",
+      "blob": "f4d74097f66869b8159d4d93ba2189e98ecaa31e"
+    },
+    {
+      "path": "ada/ada-218n-epoch-propagation.mjs",
+      "blob": "1314bfaae313e734bcbaaf0ed0b72ff03b1ef9f5"
+    },
+    {
+      "path": "ada/ada-219n-horizon-audit.mjs",
+      "blob": "d7fe37c62d40064428ac979f3d1455f12c921826"
+    }
+  ],
+  "acceptance": {
+    "runtime": "PENDING",
+    "chromium": "PENDING",
+    "pages": "PENDING"
+  },
+  "watermark": ".dlw"
+}

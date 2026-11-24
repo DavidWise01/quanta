@@ -1,0 +1,44 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>RQT-668 · Exact Affine Lattice Gate</title><style>*{box-sizing:border-box}body{margin:0;background:#081e36;color:#f7ecdc;font:17px/1.6 system-ui;background-image:linear-gradient(#aec5cc0c 1px,transparent 1px),linear-gradient(90deg,#aec5cc0c 1px,transparent 1px);background-size:22px 22px}main{max-width:1100px;margin:auto;padding:clamp(20px,5vw,68px)}header{border:5px double #ebc78f;background:#13344d;padding:27px}h1{font-size:clamp(44px,8vw,84px);line-height:1.1;color:#f7d39e;margin:0}.eyebrow{font-size:12px;letter-spacing:.16em;color:#a6f4e0}h2{color:#b7f2de}.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:13px;margin:26px 0}.stat{border:2px solid #b4bbab;padding:20px;background:#194155}.number{font-size:clamp(32px,5vw,53px);font-weight:900;color:#ffd09b}.formula{background:#071725;color:#d2ffe7;border-left:7px solid #ecc08b;padding:24px;white-space:pre-wrap;overflow-wrap:anywhere;font:clamp(14px,2vw,19px)/1.7 ui-monospace,monospace}.comparison{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:22px 0}.panel{padding:22px;border:2px solid #c19b70;background:#1a3e50}.panel strong{display:block;font-size:45px;color:#ffd99e}canvas{width:100%;height:270px;display:block;background:#0a2838;border:2px solid #668fa4}.controls{display:flex;flex-wrap:wrap;gap:14px;align-items:center;background:#194056;padding:13px}.controls input{accent-color:#ebbc81}button{background:#254e5d;border:1px solid #c9b18f;color:#fce0b4;padding:8px 13px;border-radius:5px;cursor:pointer}.notice{border-left:5px solid #e6ba85;padding-left:18px}.bar{height:15px;background:#405668}.bar div{height:100%;width:60.7407%;background:linear-gradient(90deg,#ce7e4e,#66d8bf)}a{color:#a3f7da}@media(max-width:680px){.stats,.comparison{grid-template-columns:1fr}}</style></head><body><main><header><p class="eyebrow">QUANTA · {{i}} · .dlw</p><h1>RQT-668</h1><p>EXACT AFFINE-LATTICE GATE · PELL AUTOMORPHISMS</p></header><div class="stats"><div class="stat"><div class="number">27 / 27</div>Original quadratic coefficients audited</div><div class="stat"><div class="number">243</div>Identity-map integer-coordinate checks</div><div class="stat"><div class="number">1</div>Chart with automatic parameter shift: orbit 67</div></div><canvas id="mesh" width="1000" height="350" aria-label="Rotating torus inside coordinate lattice"></canvas><div class="controls"><label>Rotation <input id="speed" type="range" min="0" max="100" value="35"></label><button id="pause">Pause</button><span>Animated mathematical illustration · not a simulated real root</span></div><h2>Necessary and sufficient full affine-chart gate</h2><div class="formula">G(u,t)=r₀u²+r₁ut+r₂t²+r₃u+r₄t+r₅
+a=r₁²−4r₀r₂, h=r₁r₃−2r₀r₄, D=|2r₀|
+
+For a norm-one Pell unit U²−aV²=1:
+
+1. a divides (U−1)h
+2. D divides V(a−r₁²)
+3. D divides (U−r₁V−1)r₃
+            +Vh−r₁[(U−1)h/a]
+
+These conditions are EXACT for preserving every
+integer point in the original affine chart.</div><h2>Sharper parameter congruence</h2><div class="formula">a | (U−1)h
+   ⇔ U ≡ 1 (mod a/gcd(a,h))
+
+Orbit 67: a | h
+⇒ its parameter shift is automatically integral.
+
+The remaining 26 orbits retain a nontrivial
+parameter congruence. The other two conditions
+remain essential for the original u-coordinate.</div><h2>Synthetic efficiency comparison</h2><div class="comparison"><div class="panel">RQT-667 conservative modulus<strong>16th power</strong>First acceptable power of (3,1)</div><div class="panel">RQT-668 exact affine gate<strong>1st power</strong>Same genuine norm-one unit, no extra powers</div></div><div class="formula">Synthetic original: u²−2t²=1.
+Pell parameter a=8, D=2, M=16.
+Unit (U,V)=(3,1) has 3²−8=1.
+Start (u,t)=(1,0) → (3,2).
+Verify 3²−2·2²−1=0 EXACTLY.
+All 16 successive powers checked.</div><p class="notice">This is a theorem about the full affine integer lattice and a synthetic example. It is not claimed minimal for the subset of norm-equation solutions; no nontrivial unit or seed was found in the 27 original unresolved charts. Original 22D Wall not replayed.</p><h2>Selected-family ledger</h2><div class="bar"><div></div></div><p><b>82/135 excluded at all scales (60.74%)</b> · 53 unresolved across 27 canonical sign-orbits · <b>ROOT 19 OPEN.</b></p><p><a href="research/RQT-668-EXACT-AFFINE-LATTICE-GATE.md">Mathematical proof</a> · <a href="research/rqt668.py">Exact replay verifier</a> · <a href="research/RQT-668-summary.json">Machine-readable summary</a></p><h2>RQT-669 — Next natural bound</h2><p>Compute the subgroup’s finite modular action and closure properties, then seek a verified unit and original integer seed without relaxing the exact norm and coordinate tests.</p><p>{{i}} · .dlw</p></main><script>
+const canvas=document.getElementById('mesh'),ctx=canvas.getContext('2d'),speed=document.getElementById('speed'),toggle=document.getElementById('pause');let phase=0,paused=false;
+toggle.onclick=()=>{paused=!paused;toggle.textContent=paused?'Resume':'Pause'};
+function render(){
+const w=canvas.width,h=canvas.height,cx=w/2,cy=h/2,R=116,r=48;ctx.clearRect(0,0,w,h);
+ctx.strokeStyle='#6da4b72e';ctx.lineWidth=1;
+for(let x=0;x<w;x+=40){ctx.beginPath();ctx.moveTo(x,0);ctx.lineTo(x,h);ctx.stroke()}
+for(let y=0;y<h;y+=40){ctx.beginPath();ctx.moveTo(0,y);ctx.lineTo(w,y);ctx.stroke()}
+function projection(u,v){
+const x=(R+r*Math.cos(v))*Math.cos(u),y=(R+r*Math.cos(v))*Math.sin(u),z=r*Math.sin(v);
+const ca=Math.cos(phase),sa=Math.sin(phase);const X=x*ca-z*sa,Z=x*sa+z*ca;
+return [cx+X,cy+y*.83-Z*.53];
+}
+for(let v=0;v<18;v++){ctx.beginPath();for(let j=0;j<=100;j++){let [x,y]=projection(j*Math.PI*2/100,v*Math.PI*2/18);if(j)ctx.lineTo(x,y);else ctx.moveTo(x,y)}ctx.strokeStyle=v%3?'#66d8c5a3':'#ffd091';ctx.lineWidth=1.4;ctx.stroke()}
+for(let u=0;u<32;u++){ctx.beginPath();for(let j=0;j<=64;j++){let [x,y]=projection(u*Math.PI*2/32,j*Math.PI*2/64);if(j)ctx.lineTo(x,y);else ctx.moveTo(x,y)}ctx.strokeStyle='#b4fbeb93';ctx.lineWidth=1;ctx.stroke()}
+ctx.fillStyle='#ffe4b8';ctx.font='bold 30px Georgia';ctx.textAlign='center';ctx.fillText('{{i}}',cx,cy+9);
+if(!paused)phase+=Number(speed.value)/2500;
+requestAnimationFrame(render)}
+render();
+</script></body></html>

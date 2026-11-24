@@ -1,0 +1,86 @@
+{
+  "rqt": 639,
+  "type": "published summary certificate; full per-policy fingerprint certificate downloadable in conversation",
+  "full_local_certificate_sha256": "193510fd7e3b6ee58b58019cc1683c29746c77a931135b2aedfbd77ab7e5333c",
+  "policies": [
+    "nearest",
+    "runner_up",
+    "alternating"
+  ],
+  "steps_per_policy_group": 120,
+  "groups": [
+    {
+      "group": 1,
+      "canonical_ids": [
+        28,
+        29,
+        30,
+        31,
+        33,
+        34,
+        35,
+        36,
+        37
+      ],
+      "state_observations": 360,
+      "distinct_full_states": 297,
+      "distinct_signed_norms": 297,
+      "cross_policy_matching_norm_comparisons": 64,
+      "trivial_quotients": 64,
+      "nontrivial_units": 0,
+      "final_coordinate_bits": {
+        "nearest": 340,
+        "runner_up": 69,
+        "alternating": 225
+      }
+    },
+    {
+      "group": 2,
+      "canonical_ids": [
+        81,
+        89,
+        92
+      ],
+      "state_observations": 360,
+      "distinct_full_states": 298,
+      "distinct_signed_norms": 298,
+      "cross_policy_matching_norm_comparisons": 63,
+      "trivial_quotients": 63,
+      "nontrivial_units": 0,
+      "final_coordinate_bits": {
+        "nearest": 391,
+        "runner_up": 63,
+        "alternating": 278
+      }
+    },
+    {
+      "group": 3,
+      "canonical_ids": [
+        0,
+        1,
+        2,
+        7
+      ],
+      "state_observations": 360,
+      "distinct_full_states": 298,
+      "distinct_signed_norms": 298,
+      "cross_policy_matching_norm_comparisons": 63,
+      "trivial_quotients": 63,
+      "nontrivial_units": 0,
+      "final_coordinate_bits": {
+        "nearest": 371,
+        "runner_up": 66,
+        "alternating": 236
+      }
+    }
+  ],
+  "total_observations": 1080,
+  "distinct_full_states_total": 893,
+  "cross_policy_matching_norm_comparisons": 190,
+  "trivial_quotients": 190,
+  "nontrivial_units": 0,
+  "selected_excluded": 82,
+  "selected_unresolved": 53,
+  "root19": "OPEN",
+  "original_22d_wall": "NOT REPLAYED"
+}

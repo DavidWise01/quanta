@@ -1,0 +1,57 @@
+{
+  "rqt": 642,
+  "design": {
+    "groups": 3,
+    "offsets": [
+      4,
+      5,
+      6
+    ],
+    "policy_orders": 24,
+    "policies": [
+      "nearest",
+      "runner_up",
+      "alternating",
+      "adaptive"
+    ],
+    "steps_per_policy": 60
+  },
+  "total_observations": 51840,
+  "distinct_within_run_summed": 38254,
+  "units_found": 0,
+  "full_certificate_sha256": "207e23d0bfc0d6a3a70711de6e9a83257413e96942e6dbd91421d7650b507ae2",
+  "policies": [
+    {
+      "policy": "nearest",
+      "marginal_new_states": 8134,
+      "proxy_bit_work": 29152272,
+      "new_per_1000_proxy": 0.279018,
+      "mean_final_a_bits": 195.333
+    },
+    {
+      "policy": "runner_up",
+      "marginal_new_states": 9612,
+      "proxy_bit_work": 13137480,
+      "new_per_1000_proxy": 0.731647,
+      "mean_final_a_bits": 62.333
+    },
+    {
+      "policy": "alternating",
+      "marginal_new_states": 7710,
+      "proxy_bit_work": 21330960,
+      "new_per_1000_proxy": 0.361446,
+      "mean_final_a_bits": 139.111
+    },
+    {
+      "policy": "adaptive",
+      "marginal_new_states": 12798,
+      "proxy_bit_work": 15762130,
+      "new_per_1000_proxy": 0.811946,
+      "mean_final_a_bits": 85.972
+    }
+  ],
+  "selected_excluded": 82,
+  "selected_unresolved": 53,
+  "root19": "OPEN",
+  "limitations": "No new whole-family exclusion or root; novelty is order-balanced marginal count over runs, not globally deduplicated. No CPU timing recorded."
+}

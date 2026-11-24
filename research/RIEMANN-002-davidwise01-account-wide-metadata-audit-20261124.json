@@ -1,0 +1,200 @@
+{
+  "schema": "root0.external-research.repository-audit/1",
+  "id": "RIEMANN-002-DAVIDWISE01-ACCOUNT-WIDE-INVENTORY-20261124",
+  "recorded_date": "2026-11-24",
+  "question": "Cross-correlate https://riemann.verifytask.cn/ against all DavidWise01 GitHub repositories, extending RIEMANN-001 QUANTA-only source inspection.",
+  "status": "PUBLIC_REPOSITORY_METADATA_SCREEN_COMPLETE_2166_FILES_SAMPLED_NOT_ALL_REPO_CONTENT_INSPECTED",
+  "inventory": {
+    "method": "GitHub repository search restricted to user:DavidWise01, split by nonoverlapping creation-date ranges to bypass 1,000-result API cap; page_size 100, all nonempty pages retrieved; sampled name/description of each returned repository",
+    "total_repo_metadata_records_returned": 2166,
+    "ranges": [
+      {
+        "created": "2026-01-01..2026-04-30",
+        "count": 12
+      },
+      {
+        "created": "2026-05-01..2026-05-31",
+        "count": 103
+      },
+      {
+        "created": "2026-06-01..2026-06-07",
+        "count": 40
+      },
+      {
+        "created": "2026-06-08..2026-06-14",
+        "count": 93
+      },
+      {
+        "created": "2026-06-15..2026-06-21",
+        "count": 315
+      },
+      {
+        "created": "2026-06-22..2026-06-30",
+        "count": 605
+      },
+      {
+        "created": "2026-07-01..2026-07-31",
+        "count": 897
+      },
+      {
+        "created": "2026-08-01..2026-09-30",
+        "count": 82
+      },
+      {
+        "created": "2026-10-01..2026-11-24",
+        "count": 19
+      }
+    ],
+    "created_before_2026_query": "user:DavidWise01 created:<2026-01-01",
+    "created_before_2026_returned": 0,
+    "direct_repo_title_search": {
+      "riemann": 0,
+      "zeta": 0
+    },
+    "important_restrictions": [
+      "Queries enumerate what the authenticated GitHub search endpoint returned, not inaccessible, deleted, renamed-only, archived-only, or unindexed source history.",
+      "Name/description screen is not inspection of all README files, source files, commits, tags, branches or issues.",
+      "GitHub code search narrowed to owner returned a smaller indexed subset; zero results for zeta/RiemannHypothesis cannot establish global absence.",
+      "Repository creation metadata ranges should not be interpreted as earliest date of human conception."
+    ]
+  },
+  "source_inspected": [
+    {
+      "repository": "DavidWise01/oasis",
+      "path": "lean/README.md",
+      "blob_sha": "0182ccaa630dded369361b4b562ad8fad3dad888",
+      "finding": "Explicit actual Lean formalization of ROOT0/Oasis language cube and OSI analog layers; local validation marked by author, not independently compiled here",
+      "priority": 1
+    },
+    {
+      "repository": "DavidWise01/oasis",
+      "path": "lean/Oasis.Language.Cube.00.lean",
+      "blob_sha": "9b5ac4e27ca38b63666320234b55df1b0d1e9d30",
+      "finding": "Lean theorem statements and by decide/rfl proofs for factorial primitive, permission rail, HOME path reversal and delimiter invariants; imports Std, no Mathlib"
+    },
+    {
+      "repository": "DavidWise01/oasis",
+      "path": "lean/Oasis.Language.OSI6.00.lean",
+      "blob_sha": "93c729ebd8666ff9539de7e52bd56c3e5ade408f",
+      "finding": "Lean finitary proofs of 104+20=124 bit representation, roundtrip unbind_bind and identity; not RH"
+    },
+    {
+      "repository": "DavidWise01/the-fourier-transform",
+      "path": "README.md",
+      "blob_sha": "08cea7e05c50c526f04684940610b609564f5c89",
+      "finding": "Finite discrete Fourier transform, spectrum and signal conservation, not analytic continuation or Riemann zeta zeros",
+      "priority": 2
+    },
+    {
+      "repository": "DavidWise01/the-fourier-dyad",
+      "path": "README.md",
+      "blob_sha": "8012a0fed4742cf7a1f5c804cdb9663e193575bf",
+      "finding": "DFT/iDFT roundtrip and finite Parseval identity, not a zeta zero certificate",
+      "priority": 2
+    },
+    {
+      "repository": "DavidWise01/the-proof",
+      "path": "README.md",
+      "blob_sha": "8bdeee9df0b63c5ce3e92ec4e8b2604d9f934d24",
+      "finding": "Euclid Elements Book I Prop 1 constructibility and continuity boundary",
+      "priority": 3
+    },
+    {
+      "repository": "DavidWise01/euclid-paper",
+      "path": "README.md",
+      "blob_sha": "995c6cabef00d62e086da2ce17ba3c56cbdebfd0",
+      "finding": "Euclid IX.20 finite-prime-set constructibility demo, no direct RH",
+      "priority": 3
+    },
+    {
+      "repository": "DavidWise01/jacobi-space",
+      "path": "README.md",
+      "blob_sha": "b9e1f09255fc997b80bb1a2f89dea2568989b695",
+      "finding": "Jacobian spectral radius contraction and iteration, no zeta theorem",
+      "priority": 4
+    },
+    {
+      "repository": "DavidWise01/the-condition-number",
+      "path": "README.md",
+      "blob_sha": "f3a96512c09edafd210fee4273bede7293ec39cd",
+      "finding": "Linear algebra numerical condition number and error amplification",
+      "priority": 4
+    },
+    {
+      "repository": "DavidWise01/quanta",
+      "path": "ada/kernel.py",
+      "blob_sha": "e8e4fd50281a45fa18b9c450db17d73f761637e0",
+      "finding": "Exact-modeled phase and growth counters, event replay, symbolic 27abc=1; no RH proof",
+      "priority": 5
+    },
+    {
+      "repository": "DavidWise01/quanta",
+      "path": "language/QG-063-PINNED-SOURCE-ADMISSION.md",
+      "blob_sha": "31482317725a344bdd487996e21a51973b518597",
+      "finding": "Pinned source admission with SHA-256 and ancestry caveats; comparable evidence hygiene",
+      "priority": 5
+    },
+    {
+      "repository": "DavidWise01/the-partition",
+      "path": "README.md",
+      "blob_sha": "004bdc249194c72f102e4c98d30cdaafcf1338b8",
+      "finding": "Hashes prove integrity not truth; structurally useful for evaluating Riemann external proof claims",
+      "priority": 6
+    },
+    {
+      "repository": "DavidWise01/the-convergence-audit",
+      "path": "README.md",
+      "blob_sha": "a065f12bed05afef1eb362fb913e34ab06a0c6fc",
+      "finding": "Claims no provenance transmission and recognizes independently reproduced results separately from copying"
+    },
+    {
+      "repository": "DavidWise01/on-computable-numbers",
+      "path": "README.md",
+      "blob_sha": "2379d4064ca7c4c4696e2b92e96ea6b386bbf9f5",
+      "finding": "Turing machine and computability demonstration"
+    },
+    {
+      "repository": "DavidWise01/david-hilbert",
+      "path": "README.md",
+      "blob_sha": "e1d57e9e8308fe6159827fe29029402663243815",
+      "finding": "Historical exposition of Hilbert program and undecidability"
+    },
+    {
+      "repository": "DavidWise01/the-fast-fourier-transform",
+      "path": "README.md",
+      "blob_sha": "2349b414612a48f43b45b16bd68e309a743dbb40",
+      "finding": "Cooley-Tukey finite FFT demonstration"
+    },
+    {
+      "repository": "DavidWise01/the-jacobian-lens",
+      "path": "README.md",
+      "blob_sha": "8cb08bd05b9e615f25088cd176a082d1d2ef51df",
+      "finding": "Finite differentiation and first/second-order numerical correspondence; not RH"
+    },
+    {
+      "repository": "DavidWise01/stoicheion",
+      "path": "README.md",
+      "blob_sha": "c482a4671575a9565690a2c774d66331fb4605fb",
+      "finding": "Governance axiom corpus, not mathematical RH statement"
+    }
+  ],
+  "external": {
+    "site": "https://riemann.verifytask.cn/",
+    "comparison": "Lean formal proof and optimization dashboard as described in RIEMANN-001, not independently fetched or compiled from dashboard within this particular GitHub-only expansion"
+  },
+  "finding": {
+    "direct_named_riemann_or_zeta_repository": false,
+    "actual_lean_proof_source_found": true,
+    "lean_repo": "DavidWise01/oasis",
+    "lean_contents": "Finitary language/routing invariants proved within Lean, not nontrivial complex analysis theorems",
+    "fourier_math_found": true,
+    "source_level_RH_theorem_equivalence_found": false,
+    "external_cross_access_path_found": false,
+    "copying_or_common_authorship_proven": false,
+    "claim": "Broader mathematical and verification architecture overlap across the account, but no exact RIEMANN HYPOTHESIS formal declaration or shared proof machinery established from the inspected source."
+  },
+  "next_bound": "RIEMANN-003: enumerate Oasis Lean theorem names and syntax, map to selected RH Lean theorem declaration as a type-level comparator; optionally build a machine-testable provenance checklist for external Lean proof artifacts. Avoid claiming complete corpus search without file trees.",
+  "linked_prior_record": "research/RIEMANN-001-external-proof-formalization-cross-correlation-20261124.json",
+  "mark": ".dlw",
+  "append_only": true
+}

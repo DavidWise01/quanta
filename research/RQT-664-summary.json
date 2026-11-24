@@ -1,0 +1,23 @@
+{
+  "rqt": 664,
+  "source_sha256": "97de34faf9b0163357ec3c0c81d4d1d768ffe040dc5fd5faf707ea3e8ae19021",
+  "results_sha256": "ebe9a6757a21e958ee91f07f8628f2d1b13c8057f32809fc6ffd1b12b661da6c",
+  "bound_t": 100000,
+  "canonical_orbits": 27,
+  "total_parameter_orbit_checks": 5400027,
+  "nonnegative_discriminants": 5398223,
+  "continued_fraction_convergents": 324,
+  "exact_squares": 0,
+  "integer_seeds": 0,
+  "closest_absolute_gap": {
+    "canonical_orbit": 67,
+    "t": 0,
+    "gap": "1353594672"
+  },
+  "new_all_scale_exclusions": 0,
+  "selected_excluded": 82,
+  "selected_unresolved": 53,
+  "root19": "OPEN",
+  "original_22d_wall": "NOT REPLAYED",
+  "interpretation": "CF(sqrt(a)) convergents are diagnostics, not verified generalized Pell roots."
+}

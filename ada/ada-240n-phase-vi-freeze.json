@@ -1,0 +1,50 @@
+{
+  "schema": "ADA-240N.freeze-candidate.v1",
+  "commit": "e815ef6243e1c2ffe8996f7d93c73badfb6d9a2c",
+  "files": [
+    {
+      "path": "ada/ada-231n-three-pumps.mjs",
+      "blob": "5caffb973b5d3452261edbbe05a42a379a6fbf46"
+    },
+    {
+      "path": "ada/ada-232n-resource-intake.mjs",
+      "blob": "513627cb57f29e654c2e84f0b28f663b7cb15a52"
+    },
+    {
+      "path": "ada/ada-233n-internal-circulation.mjs",
+      "blob": "1769ac9b11533171f37825c8ff90b4e2bbc36f05"
+    },
+    {
+      "path": "ada/ada-234n-resource-expenditure.mjs",
+      "blob": "367857e69b0cb6c15e6bf666db758a1faf607b93"
+    },
+    {
+      "path": "ada/ada-235n-homeostatic-replenishment.mjs",
+      "blob": "90089b7ed08adfe4ab7d604b1b1d4302df73d966"
+    },
+    {
+      "path": "ada/ada-236n-metabolic-attenuation.mjs",
+      "blob": "e7dabeb0244aa764728232cb0fd943ca490d31f7"
+    },
+    {
+      "path": "ada/ada-237n-resource-inheritance.mjs",
+      "blob": "254b154dc38d64530f3f8180dd91d235df6af06f"
+    },
+    {
+      "path": "ada/ada-238n-adaptive-equilibrium.mjs",
+      "blob": "0b4c0e96cdb2017c677da1ea5bc9334a8d9754b1"
+    },
+    {
+      "path": "ada/ada-239n-metabolic-stability.mjs",
+      "blob": "02eb289283fa69003a9b88e85eb934522d2306f2"
+    },
+    {
+      "path": "ada/ada-240n-metabolic-freeze.mjs",
+      "blob": "db6909f1381a69e9fd40f7253609d162b785bdf0"
+    }
+  ],
+  "growthFactor": 1.025,
+  "status": "SOURCE_PINNED_ACCEPTANCE_PENDING",
+  "parentPhase": "ADA-230N provisional",
+  "watermark": ".dlw"
+}

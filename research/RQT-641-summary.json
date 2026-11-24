@@ -1,0 +1,59 @@
+{
+  "rqt": 641,
+  "source": "research/rqt641-order-balanced.py",
+  "full_certificate_sha256": "8e93c6d3f8a71c287d116a3d9d5b7c65c2fde30261b86c03be7e7a1d0f834a72",
+  "design": {
+    "reduced_coefficients": 3,
+    "held_out_offsets": [
+      4,
+      5,
+      6
+    ],
+    "cyclic_orders": 4,
+    "policies": [
+      "nearest",
+      "runner_up",
+      "alternating",
+      "adaptive"
+    ],
+    "steps_per_policy": 60
+  },
+  "total_observations": 8640,
+  "distinct_states_summed_within_runs": 6512,
+  "unit_events": 0,
+  "policy_results": [
+    {
+      "policy": "nearest",
+      "new_states": 1292,
+      "proxy_bit_work": 4858712,
+      "new_states_per_1000_proxy": 0.265914,
+      "mean_final_a_bits": 195.333
+    },
+    {
+      "policy": "runner_up",
+      "new_states": 1602,
+      "proxy_bit_work": 2189580,
+      "new_states_per_1000_proxy": 0.731647,
+      "mean_final_a_bits": 62.333
+    },
+    {
+      "policy": "alternating",
+      "new_states": 1485,
+      "proxy_bit_work": 3555160,
+      "new_states_per_1000_proxy": 0.417703,
+      "mean_final_a_bits": 139.111
+    },
+    {
+      "policy": "adaptive",
+      "new_states": 2133,
+      "proxy_bit_work": 2529740,
+      "new_states_per_1000_proxy": 0.84317,
+      "mean_final_a_bits": 80.25
+    }
+  ],
+  "new_exclusions": 0,
+  "selected_excluded": 82,
+  "selected_unresolved": 53,
+  "root19": "OPEN",
+  "warning": "Cyclic rotation only. Distinct states sum within runs; proxy not CPU time."
+}

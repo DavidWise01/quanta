@@ -1,0 +1,32 @@
+{
+  "rqt": 652,
+  "source_rqt619_sha256": "97de34faf9b0163357ec3c0c81d4d1d768ffe040dc5fd5faf707ea3e8ae19021",
+  "full_exact_local_certificate_sha256": "2cd1ccf0119ea4f09617657cbb0e58351cb7812e8661e1109bd03b822da4e72a",
+  "prime_bound_inclusive": 100000,
+  "canonical_orbits": 27,
+  "distinct_discriminants": 5,
+  "distinct_determinants": 27,
+  "previous_prime_orbit_risk_cases_below_2000": 84,
+  "new_risk_cases_2000_to_100000": 16,
+  "new_cases_nonsingular": 16,
+  "new_distinct_primes": [
+    4679,
+    5303,
+    9521,
+    12097,
+    13457,
+    21499,
+    55049,
+    59029,
+    64283,
+    87083
+  ],
+  "unfactored_cofactor_entries": 54,
+  "full_factorization": false,
+  "global_integer_norm_minus_two_root": "NOT FOUND",
+  "new_family_exclusions": 0,
+  "selected_excluded": 82,
+  "selected_unresolved": 53,
+  "root19": "OPEN",
+  "original_22d_wall": "NOT REPLAYED"
+}

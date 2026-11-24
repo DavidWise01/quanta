@@ -1,0 +1,264 @@
+{
+  "schema": "root0.quanta.toroidal-closure-counterexamples/1",
+  "id": "RIEMANN-005-TOROIDAL-GLOBAL-CLOSURE-20261124",
+  "observed_on": "2026-11-24",
+  "objective": "Differentiate six-channel return, coordinate return, radial return, total CoupledState identity, and homeostatic preservation. No RH proof research.",
+  "source_basis": [
+    {
+      "repo": "DavidWise01/positronic-law",
+      "path": "ToroidalBlackHoleDynamics_v084.lean",
+      "blob_sha": "85db7f9b460679bf70570e32de25385e3e555eec",
+      "inspected_lines": [
+        [
+          623,
+          636
+        ],
+        [
+          685,
+          702
+        ],
+        [
+          774,
+          798
+        ],
+        [
+          806,
+          846
+        ],
+        [
+          1192,
+          1238
+        ]
+      ],
+      "status": "GIT_SOURCE_READBACK"
+    },
+    {
+      "repo": "DavidWise01/toroid-kernel",
+      "path": "petals/p73_rotation_closure.lean",
+      "blob_sha": "246b09b4ba765448e03768320d6e632044e6c591",
+      "inspected_lines": [
+        [
+          1,
+          23
+        ]
+      ],
+      "status": "GIT_SOURCE_READBACK"
+    }
+  ],
+  "executable_method": "Python 3 model of the exact discrete transformations, checked by assert, executed locally. Upstream Lean original has NOT been compiled in this turn.",
+  "model_equations": {
+    "radius": "r' = max(1,r-1)",
+    "position": "(theta',phi')=((theta+v_theta) mod 360,(phi+v_phi) mod 360)",
+    "channel": "F'(i)=F((i+1) mod 3); B'(i)=B((i+1) mod 3)",
+    "homeostasis": "For each i in [0,1,2], F_i+B_i=0",
+    "net": "sum all six channel velocities"
+  },
+  "initial_six_channel_fixture": [
+    2,
+    4,
+    6,
+    -2,
+    -4,
+    -6
+  ],
+  "cases": [
+    {
+      "id": "C1",
+      "steps": 3,
+      "radius": 4,
+      "start": [
+        0,
+        0
+      ],
+      "velocities": [
+        1,
+        0
+      ],
+      "channel_return": true,
+      "coordinate_return": false,
+      "radius_return": false,
+      "complete_state_return": false,
+      "homeostatic_preserved": true,
+      "reason": "Three rotations close the channels, while theta advances three degrees and the radius reaches one."
+    },
+    {
+      "id": "C2",
+      "steps": 1,
+      "radius": 4,
+      "start": [
+        0,
+        0
+      ],
+      "velocities": [
+        360,
+        360
+      ],
+      "channel_return": false,
+      "coordinate_return": true,
+      "radius_return": false,
+      "complete_state_return": false,
+      "homeostatic_preserved": true,
+      "reason": "Both modular angular coordinates return, while the channel permutation has only advanced once."
+    },
+    {
+      "id": "C3",
+      "steps": 3,
+      "radius": 1,
+      "start": [
+        0,
+        0
+      ],
+      "velocities": [
+        120,
+        120
+      ],
+      "channel_return": true,
+      "coordinate_return": true,
+      "radius_return": true,
+      "complete_state_return": true,
+      "homeostatic_preserved": true,
+      "reason": "Period of channels=3, both angles complete 360, horizon is fixed."
+    },
+    {
+      "id": "C4",
+      "steps": 1,
+      "radius": 4,
+      "start": [
+        0,
+        0
+      ],
+      "velocities": [
+        17,
+        23
+      ],
+      "channel_return": false,
+      "coordinate_return": false,
+      "radius_return": false,
+      "complete_state_return": false,
+      "homeostatic_preserved": true,
+      "reason": "Homeostasis and net sum conserved even though no state component returns."
+    },
+    {
+      "id": "C5",
+      "steps": 3,
+      "radius": 1,
+      "start": [
+        0,
+        0
+      ],
+      "velocities": [
+        120,
+        1
+      ],
+      "channel_return": true,
+      "coordinate_return": false,
+      "radius_return": true,
+      "complete_state_return": false,
+      "homeostatic_preserved": true,
+      "reason": "Closure in theta but nonzero phi displacement fails joint torus closure."
+    },
+    {
+      "id": "C6",
+      "steps": 3,
+      "radius": 1,
+      "start": [
+        361,
+        0
+      ],
+      "velocities": [
+        120,
+        120
+      ],
+      "channel_return": true,
+      "coordinate_return": false,
+      "radius_return": true,
+      "complete_state_return": false,
+      "homeostatic_preserved": true,
+      "reason": "Raw unwrapped theta starts 361, ends normalized theta 1; equivalence modulo 360 is not literal raw-state equality."
+    }
+  ],
+  "bounded_regression": {
+    "initial_radius": 4,
+    "initial_position": [
+      23,
+      41
+    ],
+    "channel_fixture": [
+      2,
+      4,
+      6,
+      -2,
+      -4,
+      -6
+    ],
+    "steps_tested": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12
+    ],
+    "velocities_tested": [
+      [
+        0,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        120,
+        120
+      ],
+      [
+        360,
+        360
+      ]
+    ],
+    "configurations": 52,
+    "assertions_per_configuration": 4,
+    "total_assertions": 208,
+    "passed_assertions": 208,
+    "assertions": [
+      "Channel equality iff step count multiple of 3 for distinct entries",
+      "Coordinate equality iff both n*v are zero mod 360",
+      "For initial radius=4 radial equality iff n=0",
+      "For initial radius=4 whole state equality iff n=0"
+    ]
+  },
+  "executed_local_artifacts": {
+    "python_sha256": "ec04cb4ca5b712aa5c54a7ce43fbc92f4e26e67e9a37439823c22a9f34dd9bcc",
+    "filename": "regression.py",
+    "results_filename": "results.json",
+    "exact_script_committed_to_github": false,
+    "reason": "Local script and results delivered separately as conversation files; evidence record includes executable method and source digest"
+  },
+  "findings": {
+    "necessary_conditions_for_complete_state_return": [
+      "six-channel equality after n rotations",
+      "theta and phi both equal their original raw Nat coordinates, not merely same equivalence class, unless initial position already normalized",
+      "radial index unchanged after n inward steps"
+    ],
+    "sufficient_conditions_for_complete_state_return_at_horizon": "If start radius=1, start coordinates normalized, n divisible by 3 and n*v_theta and n*v_phi each divisible by 360, then all CoupledState fields return.",
+    "warning": "Full-state return here refers to a finite software struct; not an equivalence of physical universe states.",
+    "torus_conservation_not_equivalent_to_return": true
+  },
+  "limitations": [
+    "Python source-derived model is not a direct execution of the original Lean proofs.",
+    "Single fixed channel fixture for the 208 assertions; model-level generalization only where justified algebraically.",
+    "This is not validation of physical toroidal universes, black holes or analytic Stokes identities.",
+    "No new Riemann Hypothesis mathematical equivalence or proof-origin transmission established."
+  ],
+  "next_bound": "RIEMANN-006: add separate Lean theorem fixture for iff conditions and negative counterexamples using source module types, compile with a pinned Lean toolchain in CI and inspect logs; retain the original frozen files.",
+  "append_only": true,
+  "watermark": ".dlw"
+}

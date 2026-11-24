@@ -1,0 +1,66 @@
+{
+  "rqt": 646,
+  "full_certificate_sha256": "a60604e9c2fded56eb1b59aeb1dfb9383d555e75822ef3b8b81c8f5a3d3d0f01",
+  "canonical_orbits": 27,
+  "moduli": [
+    16,
+    32,
+    64,
+    128,
+    256
+  ],
+  "aggregate": [
+    {
+      "modulus": 16,
+      "pell_pairs": 1728,
+      "coordinate_pairs": 1544,
+      "pell_t": 432,
+      "coordinate_t": 432
+    },
+    {
+      "modulus": 32,
+      "pell_pairs": 3552,
+      "coordinate_pairs": 3232,
+      "pell_t": 784,
+      "coordinate_t": 704
+    },
+    {
+      "modulus": 64,
+      "pell_pairs": 7936,
+      "coordinate_pairs": 7296,
+      "pell_t": 1488,
+      "coordinate_t": 1408
+    },
+    {
+      "modulus": 128,
+      "pell_pairs": 15744,
+      "coordinate_pairs": 14464,
+      "pell_t": 2824,
+      "coordinate_t": 2704
+    },
+    {
+      "modulus": 256,
+      "pell_pairs": 30976,
+      "coordinate_pairs": 28416,
+      "pell_t": 5328,
+      "coordinate_t": 5168
+    }
+  ],
+  "sharpened_orbits": [
+    28,
+    31,
+    34,
+    37,
+    55,
+    61,
+    64,
+    67,
+    109,
+    112
+  ],
+  "new_whole_family_exclusions": 0,
+  "selected_excluded": 82,
+  "selected_unresolved": 53,
+  "root19": "OPEN",
+  "limitations": "Compatible finite modular residue sets are necessary conditions only."
+}

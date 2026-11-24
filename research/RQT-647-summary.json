@@ -1,0 +1,72 @@
+{
+  "rqt": 647,
+  "description": "Exact paired 2-adic lifting, ten sharpened canonical sign orbits",
+  "canonical_ids": [
+    28,
+    31,
+    34,
+    37,
+    55,
+    61,
+    64,
+    67,
+    109,
+    112
+  ],
+  "aggregate": [
+    {
+      "modulus": 16,
+      "pairs": 560,
+      "projected_t": 160
+    },
+    {
+      "modulus": 32,
+      "pairs": 640,
+      "projected_t": 160,
+      "terminated": 400,
+      "lifted_parents": 160
+    },
+    {
+      "modulus": 64,
+      "pairs": 1280,
+      "projected_t": 320,
+      "terminated": 320,
+      "lifted_parents": 320
+    },
+    {
+      "modulus": 128,
+      "pairs": 2560,
+      "projected_t": 640,
+      "terminated": 640,
+      "lifted_parents": 640
+    },
+    {
+      "modulus": 256,
+      "pairs": 5120,
+      "projected_t": 1280,
+      "terminated": 1280,
+      "lifted_parents": 1280
+    },
+    {
+      "modulus": 512,
+      "pairs": 10240,
+      "projected_t": 2560,
+      "terminated": 2560,
+      "lifted_parents": 2560
+    },
+    {
+      "modulus": 1024,
+      "pairs": 20480,
+      "projected_t": 5120,
+      "terminated": 5120,
+      "lifted_parents": 5120
+    }
+  ],
+  "full_certificate_sha256": "3445b6a6376bb59dc7c1135b67b15e75a52b80614f3fc7510ade9b81d115260a",
+  "full_certificate_location": "conversation artifact RQT-647-results.json",
+  "new_exclusions": 0,
+  "selected_excluded": 82,
+  "selected_unresolved": 53,
+  "root19": "OPEN",
+  "limits": "Finite depths only; no infinite path or root proved."
+}

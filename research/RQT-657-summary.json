@@ -1,0 +1,25 @@
+{
+  "rqt": 657,
+  "source": "RQT-656 exact results",
+  "certified_indexes": [
+    0,
+    1,
+    4,
+    12,
+    26
+  ],
+  "uncertified_indexes": [
+    23,
+    24,
+    28
+  ],
+  "recursive_prime_nodes": 104,
+  "full_certificate_sha256": "d6e51381a61df61b552f4c5402ceb643c9ef84adb1c3c8229987df13348c3b40",
+  "certificate_download": "Available in conversation as RQT-657-results.json",
+  "method": "Complete recursive Lucas n−1 criterion; deterministic modular replay",
+  "new_whole_family_exclusions": 0,
+  "selected_excluded": 82,
+  "selected_unresolved": 53,
+  "root19": "OPEN",
+  "wall22d": "NOT REPLAYED"
+}

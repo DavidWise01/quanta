@@ -1,0 +1,132 @@
+{
+  "rqt": 638,
+  "certificate_type": "cross-trajectory aggregate with exact starting and ending states",
+  "steps_per_trajectory": 600,
+  "trajectories_per_group": 3,
+  "groups": [
+    {
+      "group": 1,
+      "s": 5,
+      "recovery_exponent": 3,
+      "canonical_ids": [
+        28,
+        29,
+        30,
+        31,
+        33,
+        34,
+        35,
+        36,
+        37
+      ],
+      "states": 1800,
+      "distinct_signed_norms": 602,
+      "cross_trajectory_matching_pairs": 1796,
+      "integral_quotients": 1796,
+      "trivial_quotients": 1796,
+      "nontrivial_units": 0,
+      "initial_final_states": [
+        {
+          "offset": 1,
+          "initial_k": "51070072690674307",
+          "last_k": "-37952853879234633",
+          "last_a_bits": 1492
+        },
+        {
+          "offset": 2,
+          "initial_k": "170748549040337488",
+          "last_k": "51282039175564288",
+          "last_a_bits": 1491
+        },
+        {
+          "offset": 3,
+          "initial_k": "290427025390000671",
+          "last_k": "5462733818144251",
+          "last_a_bits": 1487
+        }
+      ]
+    },
+    {
+      "group": 2,
+      "s": 7,
+      "recovery_exponent": 3,
+      "canonical_ids": [
+        81,
+        89,
+        92
+      ],
+      "states": 1800,
+      "distinct_signed_norms": 602,
+      "cross_trajectory_matching_pairs": 1796,
+      "integral_quotients": 1796,
+      "trivial_quotients": 1796,
+      "nontrivial_units": 0,
+      "initial_final_states": [
+        {
+          "offset": 1,
+          "initial_k": "110469424403646715",
+          "last_k": "-11037353147735984",
+          "last_a_bits": 1601
+        },
+        {
+          "offset": 2,
+          "initial_k": "220964241262283688",
+          "last_k": "-9666205400125985",
+          "last_a_bits": 1597
+        },
+        {
+          "offset": 3,
+          "initial_k": "331459058120920663",
+          "last_k": "-54058737405884360",
+          "last_a_bits": 1596
+        }
+      ]
+    },
+    {
+      "group": 3,
+      "s": 4,
+      "recovery_exponent": 2,
+      "canonical_ids": [
+        0,
+        1,
+        2,
+        7
+      ],
+      "states": 1800,
+      "distinct_signed_norms": 602,
+      "cross_trajectory_matching_pairs": 1796,
+      "integral_quotients": 1796,
+      "trivial_quotients": 1796,
+      "nontrivial_units": 0,
+      "initial_final_states": [
+        {
+          "offset": 1,
+          "initial_k": "47390538694843037",
+          "last_k": "59315165890772858",
+          "last_a_bits": 1585
+        },
+        {
+          "offset": 2,
+          "initial_k": "246221345491388882",
+          "last_k": "41843032408524841",
+          "last_a_bits": 1583
+        },
+        {
+          "offset": 3,
+          "initial_k": "445052152287934729",
+          "last_k": "-6604925036302367",
+          "last_a_bits": 1578
+        }
+      ]
+    }
+  ],
+  "total_states": 5400,
+  "cross_trajectory_matching_pairs": 5388,
+  "integral_quotients": 5388,
+  "trivial_quotients": 5388,
+  "nontrivial_units": 0,
+  "selected_excluded": 82,
+  "selected_unresolved": 53,
+  "root19": "OPEN",
+  "scope": "Finite exact computation only; do not infer global unit nonexistence."
+}

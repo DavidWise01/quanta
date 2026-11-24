@@ -1,0 +1,40 @@
+{
+  "rqt": 667,
+  "source_sha256": "97de34faf9b0163357ec3c0c81d4d1d768ffe040dc5fd5faf707ea3e8ae19021",
+  "local_full_certificate_sha256": "92bc91bf892d666530d37a63579aa0d4829d472502d7e546a5a45f77f38dc512",
+  "canonical_orbits": 27,
+  "original_selected_family_ids_in_orbits": 53,
+  "conservative_subgroup": {
+    "M": "a*abs(2r0)",
+    "unit_norm": "U²−aV²=1",
+    "U_mod_M": 1,
+    "V_mod_M": 0,
+    "t_prime": "U*t+V*y+(U-1)*h/a",
+    "y_prime": "V*(a*t+h)+U*y",
+    "conclusion": "Both original integer-coordinate congruences preserved"
+  },
+  "synthetic": {
+    "original_equation": "u²−2t²=1",
+    "a": 8,
+    "D": 2,
+    "M": 16,
+    "base_unit": [
+      3,
+      1
+    ],
+    "first_subgroup_power": 16,
+    "U": "886731088897",
+    "V": "313506783024",
+    "recovered_u": "886731088897",
+    "recovered_t": "627013566048",
+    "exact_original_G": 0
+  },
+  "verified_real_chart_units_found": 0,
+  "verified_real_chart_integer_seeds_found": 0,
+  "new_all_scale_exclusions": 0,
+  "selected_excluded": 82,
+  "selected_unresolved": 53,
+  "root19": "OPEN",
+  "original_22d_wall": "NOT REPLAYED",
+  "scope": "Sufficient algebraic theorem and synthetic witness, not a new original lattice solution."
+}

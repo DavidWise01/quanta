@@ -1,0 +1,121 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>ADA-229N · Spatial Stability</title><style>
+:root{color-scheme:dark;font:14px/1.5 system-ui,sans-serif;background:#080a1b;color:#f2edff;--o:#ff9455;--t:#50e9d6;--p:#b28dff}*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 50% -10%,#322353,#0a0e22 60%)}main{width:min(1150px,95vw);margin:auto;padding:25px 0 50px}.eyebrow{color:var(--t);letter-spacing:.2em;font:12px ui-monospace,monospace}h1{font-size:clamp(30px,5vw,52px);letter-spacing:-.05em;margin:7px 0}p{color:#bdb8d9}.layout{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(290px,1fr);gap:14px}.panel{background:#14152cde;border:1px solid #4b4577;border-radius:15px;padding:15px}.visual{height:425px;border:1px solid #4c3d79;border-radius:11px;overflow:hidden}canvas{width:100%;height:100%;display:block}.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:7px;margin-top:12px}.stat{background:#211c3f;padding:10px;border-radius:9px}.stat b{display:block;font:700 23px ui-monospace,monospace}.stat small{color:#aea7c6}.buttons{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}button{border:1px solid #7569af;border-radius:9px;padding:11px 7px;color:#fff;background:#262045;font-weight:750;cursor:pointer}button:hover{border-color:var(--o)}button.primary{background:linear-gradient(110deg,#9255e8,#fa8544);border:0}.status{font:12px ui-monospace,monospace;color:#86eed6;min-height:36px;padding:13px 0}.table{max-height:315px;overflow:auto}table{width:100%;border-collapse:collapse;font:12px ui-monospace,monospace;text-align:left}td,th{padding:9px 4px;border-bottom:1px solid #343050}th{background:#14152c;position:sticky;top:0;color:#c0b4f1}td:first-child{color:var(--t)}.note{border-left:3px solid var(--o);background:#302139;padding:11px;margin-top:12px;font-size:12px}.links{display:flex;gap:9px;flex-wrap:wrap;margin-top:16px}.links a{padding:9px 11px;color:#eadcff;text-decoration:none;border:1px solid #7365aa;border-radius:9px}.hash{font:11px ui-monospace,monospace;overflow-wrap:anywhere;color:#b5aed2}footer{font:12px ui-monospace,monospace;color:#9ea0bd;margin-top:22px}@media(max-width:790px){.layout{grid-template-columns:1fr}.visual{height:345px}}@media(max-width:460px){.stats{grid-template-columns:repeat(2,1fr)}}
+</style></head><body><main><div class="eyebrow">ROOT 0 / QUANTA / PHASE V / ADA-229N / .dlw</div><h1>Generations <span style="color:var(--o)">of generations</span> +n</h1>
+<p>Twenty-four inherited generations create one epoch. A full epoch seals its historical identity; a partial epoch stays OPEN_TAIL. Every epoch inherits one original certified Phase III root, never an independent witness or writable ancestor.</p>
+<div class="layout"><section class="panel"><div class="visual"><canvas id="viz" aria-label="Animated projected 3D nested generation epochs"></canvas></div>
+<div class="stats"><div class="stat"><b id="count">1</b><small>Generations</small></div><div class="stat"><b id="epochCount">1</b><small>Epochs</small></div><div class="stat"><b id="sealed">0</b><small>Sealed</small></div><div class="stat"><b id="holds">0</b><small>HOLD</small></div></div>
+<div class="note">Frozen Phase III Git blob: <span id="root" class="hash"></span>. SEALED epoch receipts persist write-once; OPEN_TAIL is derived after replay and is never written as a sealed record.</div>
+</section><aside class="panel"><h2>Phase V · Spatial stability</h2><button id="spatialStress">Audit 2,400 transitions</button><pre id="spatialAudit" style="white-space:pre-wrap;color:#50e9d6"></pre><h2>Generational morphogenesis</h2><pre id="morphogenesis" style="white-space:pre-wrap;color:#50e9d6"></pre><h2>Geometric specialization</h2><pre id="specialization" style="white-space:pre-wrap;color:#ff9455"></pre><h2>Six-face boundary</h2><pre id="boundary" style="white-space:pre-wrap;color:#50e9d6"></pre><h2>Homeostatic volume</h2><pre id="volume" style="white-space:pre-wrap;color:#50e9d6"></pre><h2>Nested spatial inheritance</h2><pre id="nested" style="white-space:pre-wrap;color:#ff9455"></pre><h2>Local morphology</h2><pre id="morphology" style="white-space:pre-wrap;color:#50e9d6"></pre><h2>Directional attenuation</h2><pre id="directional" style="white-space:pre-wrap;color:#ff9455"></pre><h2>Spatial expression</h2><pre id="spatial" style="white-space:pre-wrap;color:#50e9d6"></pre><p>Source pinned. Runtime certification pending. Simulation remains exploratory and does not modify the frozen source.</p><p><a style="color:#50e9d6" href="./ada-220n-phase-iv-freeze.json">Pinned source manifest</a></p><h2>Advance +n</h2><div class="buttons"><button class="primary" id="one">+1</button><button id="day">+24</button><button id="batch">+240</button><button id="audit">Audit</button><button id="export">Export proof</button><button id="rootAudit">Audit root</button></div>
+<div id="status" class="status">Checking root…</div><h2>Epoch provenance inspector</h2><div class="buttons"><input id="epochInput" type="number" min="0" value="0" step="1" style="min-width:0;width:100%;border-radius:9px;background:#1b1937;color:#fff;border:1px solid #7569af;padding:9px" aria-label="Epoch number"><button id="trace">Trace origin</button><button id="proofExport">Export trace</button></div><div class="status" id="traceState">One original source root · inspect any epoch</div><div class="table" style="max-height:150px"><table><thead><tr><th>Epoch</th><th>State</th><th>Source range</th></tr></thead><tbody id="traceRows"></tbody></table></div><h2>Three-contact epoch inheritance</h2><div id="contactState" class="status">Deriving inherited Jane / Toph / ADA epoch states…</div><div class="table" style="max-height:180px"><table><thead><tr><th>Epoch</th><th>Jane Δ</th><th>Toph holds</th><th>ADA state</th></tr></thead><tbody id="contactRows"></tbody></table></div><h2>Homeostatic growth · ×1.025 per sealed epoch</h2><div id="growthState" class="status">Deriving separate epoch growth ledger…</div><div class="table" style="max-height:190px"><table><thead><tr><th>Epoch</th><th>State</th><th>Step ×</th><th>Epoch size ×</th></tr></thead><tbody id="growthRows"></tbody></table></div><h2>Long-horizon stability</h2><button id="stress">Audit 400 epochs</button><pre id="horizon" style="white-space:pre-wrap;color:#50e9d6"></pre><h2>Forward-only epoch feedback</h2><pre id="propagation" style="white-space:pre-wrap;color:#ff9455"></pre><h2>Adaptive perception</h2><pre id="expression" style="white-space:pre-wrap;color:#50e9d6"></pre><h2>Prospective mutation ledger</h2><pre id="mutation" style="white-space:pre-wrap;color:#ff9455"></pre><h2>Derived epoch ledger</h2><div class="table"><table><thead><tr><th>Epoch</th><th>Range</th><th>State</th><th>HOLD</th></tr></thead><tbody id="rows"></tbody></table></div><p class="hash">Tip: <span id="tip"></span></p>
+<div class="links"><a href="./phase-iv-211-220.html">Phase IV tracker</a><a href="./ada-214n-epoch-lab.html">ADA-214N contact lab</a><a href="./ada-213n-epoch-lab.html">ADA-213N provenance lab</a><a href="./ada-212n-epoch-lab.html">ADA-212N persistent lab</a><a href="./ada-211n-epoch-lab.html">ADA-211N original lab</a><a href="./ada-210n-final-freeze.html">Frozen Phase III</a><a href="https://github.com/DavidWise01/quanta/tree/main/ada">GitHub source</a></div></aside></div>
+<footer>{24/[2]/[4]/(3)/(3)/(1)/(1)} · {{i}} · .dlw · EPOCH^{{n}} · ONE ROOT</footer></main>
+<script type="module">
+import {genesis,advance} from "./ada-201n-generational-engine.mjs";
+import {PHASE_III_FREEZE,epochHierarchy,verifyEpochs,epochProof} from "./ada-211n-epoch-engine.mjs";
+import {restoreEpochJournal,commitEpochJournal} from "./ada-212n-epoch-journal.mjs";
+import {proveEpoch,verifyEpochProof,inspectPersistedEpoch} from "./ada-213n-epoch-provenance.mjs";
+import {deriveEpochContacts,verifyEpochContacts,epochContactProof} from "./ada-214n-epoch-contacts.mjs";
+import {auditHorizon,stressHorizon} from "./ada-219n-horizon-audit.mjs";
+import {auditSpatial,stressSpatial} from "./ada-229n-spatial-stability.mjs";
+import {deriveMorphogenesis,verifyMorphogenesis} from "./ada-228n-morphogenesis.mjs";
+import {deriveSpecialization,verifySpecialization} from "./ada-227n-geometric-specialization.mjs";
+import {deriveBoundary,verifyBoundary} from "./ada-226n-boundary-differentiation.mjs";
+import {deriveVolume,verifyVolume} from "./ada-225n-homeostatic-volume.mjs";
+import {deriveNested,verifyNested} from "./ada-224n-nested-spatial.mjs";
+import {deriveMorphology,verifyMorphology} from "./ada-223n-local-morphology.mjs";
+import {deriveDirectional,verifyDirectional} from "./ada-222n-directional-attenuation.mjs";
+import {deriveSpatial,verifySpatial} from "./ada-221n-spatial-expression.mjs";
+import {derivePropagation,verifyPropagation} from "./ada-218n-epoch-propagation.mjs";
+import {deriveAdaptiveExpression,verifyAdaptiveExpression} from "./ada-217n-adaptive-expression.mjs";
+import {deriveEpochMutation,verifyEpochMutation} from "./ada-216n-epoch-mutation.mjs";
+import {deriveEpochGrowth,verifyEpochGrowth} from "./ada-215n-epoch-growth.mjs";
+const $=id=>document.getElementById(id);let chain=[genesis()],epochs=epochHierarchy(chain),tick=0,storageReady=false,lastTrace=null;
+$("root").textContent=PHASE_III_FREEZE;
+function renderEpochContacts(){
+ try{
+  const ledger=deriveEpochContacts(chain),audit=verifyEpochContacts(chain,ledger);
+  if(!audit.pass)throw Error(audit.reason);
+  $("contactState").textContent="EPOCH CONTACT REPLAY PASS · "+audit.epochs+" epochs · "+audit.sealed+" sealed · "+audit.holds+" retained HOLD · 1 original root";
+  $("contactRows").replaceChildren(...ledger.slice(-12).reverse().map(item=>{
+   const tr=document.createElement("tr");
+   for(const v of [item.epoch,item.state.jane.deltaFromParent.toFixed(3),item.state.toph.heldDecisions,item.state.ada.action]){
+    const td=document.createElement("td");td.textContent=String(v);tr.appendChild(td);
+   }
+   return tr;
+  }));
+ }catch(e){$("contactState").textContent="EPOCH CONTACT REPLAY FAIL · "+e.message;$("contactRows").replaceChildren()}
+}
+function renderEpochGrowth(){
+ try{
+  const ledger=deriveEpochGrowth(chain),audit=verifyEpochGrowth(chain,ledger);
+  if(!audit.pass)throw Error(audit.reason);
+  const tip=ledger.at(-1);
+  $("growthState").textContent="EPOCH GROWTH REPLAY PASS · "+audit.sealedSteps+
+    " sealed × 1.025 · "+audit.open+" OPEN_TAIL · epoch "+audit.size.toFixed(7)+"× · original generation "+tip.generationMultiplier.toFixed(5)+"× (separate)";
+  $("growthRows").replaceChildren(...ledger.slice(-14).reverse().map(item=>{
+   const tr=document.createElement("tr");
+   for(const v of [item.epoch,item.state,item.stepFactor.toFixed(3),item.sizeMultiplier.toFixed(6)]){
+    const td=document.createElement("td");td.textContent=String(v);tr.appendChild(td);
+   }return tr;
+  }));
+ }catch(e){$("growthState").textContent="EPOCH GROWTH REPLAY FAIL · "+e.message;$("growthRows").replaceChildren()}
+}
+function render(){
+ renderEpochContacts();
+ renderEpochGrowth();
+ try{$("spatialAudit").textContent=JSON.stringify(auditSpatial(chain),null,2)}catch(e){$("spatialAudit").textContent="REJECTED "+e.message}
+ try{const s=deriveSpatial(chain);if(!verifySpatial(chain,s).pass)throw Error("Spatial replay mismatch");$("spatial").textContent=s.slice(-6).map(x=>`G${x.generation} (${x.center.map(v=>v.toFixed(4)).join(", ")})`).join("\n");const a=deriveDirectional(chain);if(!verifyDirectional(chain,a).pass)throw Error("Directional replay mismatch");const t=a.at(-1);const m=deriveMorphology(chain);if(!verifyMorphology(chain,m).pass)throw Error("Morphology replay mismatch");const n=deriveNested(chain);if(!verifyNested(chain,n).pass)throw Error("Nested replay mismatch");window.nested=n.at(-1);const b=deriveBoundary(chain);if(!verifyBoundary(chain,b).pass)throw Error("Boundary replay mismatch");window.boundary=b.at(-1);const sp=deriveSpecialization(chain);if(!verifySpecialization(chain,sp).pass)throw Error("Specialization replay mismatch");window.specialization=sp.at(-1);$("specialization").textContent=window.specialization.levels.map(l=>"Depth "+l.depth+"\n"+l.faces.map(f=>f.face+" "+f.role+" memory "+f.memory.toFixed(3)+" response "+f.response.toFixed(3)).join("\n")).join("\n\n");$("boundary").textContent=window.boundary.levels.map(l=>"Depth "+l.depth+"\n"+l.faces.map(f=>f.face+" "+f.clearance.toFixed(5)+" "+f.state+" gain "+f.attenuation.toFixed(3)).join("\n")).join("\n\n");const v=deriveVolume(chain);if(!verifyVolume(chain,v).pass)throw Error("Volume replay mismatch");window.volume=v.at(-1);$("volume").textContent=window.volume.levels.map(l=>`Depth ${l.depth} · V ${l.volume.toPrecision(5)} · occupancy ${(l.fraction*100).toFixed(4)}% · operant ${l.operant}`).join("\n");$("nested").textContent=JSON.stringify(window.nested.levels,null,2);window.morphology=m.at(-1);const mg=deriveMorphogenesis(chain);if(!verifyMorphogenesis(chain,mg).pass)throw Error("Morphogenesis replay mismatch");const latest=mg.at(-1);window.morphology=latest.levels[0];window.nested=latest;window.spatialCenter=window.morphology.center;$("morphogenesis").textContent=latest.levels.map(l=>`Depth ${l.depth} · drive ${l.drive.map(x=>x.toFixed(4)).join(" / ")} · R ${l.R} · r ${l.r} · clearance ${l.clearance}`).join("\n");$("morphology").textContent=JSON.stringify(window.morphology,null,2);$("directional").textContent="Axis gains: "+t.gains.join(" / ")+"\nDirection: "+t.direction.join(" / ")+"\nCenter: "+t.center.join(" / ");}catch(e){$("spatial").textContent="REJECTED "+e.message;}
+ try{$("horizon").textContent=JSON.stringify(auditHorizon(chain),null,2)}catch(e){$("horizon").textContent=e.message}
+ try{const a=derivePropagation(chain);if(!verifyPropagation(chain,a).pass)throw Error("Replay mismatch");$("propagation").textContent=a.slice(-8).map(x=>`E${x.epoch} ${x.incoming.toFixed(4)} → ${x.outgoing===null?"OPEN":x.outgoing.toFixed(4)} · offset ${x.offset.toFixed(4)}`).join("\n");}catch(e){$("propagation").textContent="REJECTED "+e.message;}
+ try{const a=deriveAdaptiveExpression(chain);if(!verifyAdaptiveExpression(chain,a).pass)throw Error("Replay mismatch");$("expression").textContent=a.slice(-8).map(x=>`G${x.generation} ${x.raw.toFixed(3)} → ${x.perception.toFixed(3)} ${x.expression}`).join("\n");}catch(e){$("expression").textContent="REJECTED "+e.message;}
+ try{const m=deriveEpochMutation(chain);if(!verifyEpochMutation(chain,m).pass)throw Error("Replay mismatch");$("mutation").textContent=m.length?m.slice(-8).map(x=>`E${x.epoch} → E${x.effectiveEpoch} ${x.decision} Δ${x.step.toFixed(3)} offset ${x.offset.toFixed(3)}`).join("\n"):"No SEALED epochs";}catch(e){$("mutation").textContent="REJECTED "+e.message;}
+ epochs=epochHierarchy(chain);const audit=verifyEpochs(chain,epochs);if(!audit.pass)throw Error(audit.reason);
+ $("epochInput").max=String(epochs.length-1);
+ $("count").textContent=chain.length;$("epochCount").textContent=epochs.length;$("sealed").textContent=audit.sealed;$("holds").textContent=audit.holds;$("tip").textContent=audit.tip;
+ $("rows").replaceChildren(...epochs.slice(-25).reverse().map(e=>{const tr=document.createElement("tr");for(const value of [e.epoch,e.sourceStart+"–"+e.sourceEnd,e.state,e.holds]){const td=document.createElement("td");td.textContent=String(value);tr.appendChild(td)}return tr}));
+}
+function traceOrigin(){
+ try{
+  if(!storageReady)throw Error("Epoch journal locked");
+  const i=Number($("epochInput").value);
+  if(!Number.isSafeInteger(i)||i<0||i>=epochs.length)throw Error("Select epoch 0.."+(epochs.length-1));
+  const stored=inspectPersistedEpoch(localStorage,i,{maxAncestors:24});
+  const proof=proveEpoch(chain,i,{maxAncestors:24});
+  const audit=verifyEpochProof(chain,proof);
+  if(!audit.pass||stored.proof.fingerprint!==proof.fingerprint)throw Error("Stored lineage diverges");
+  lastTrace=proof;
+  $("traceState").textContent="EPOCH TRACE PASS · epoch "+i+" · "+proof.selectedState+
+    " · "+proof.returnedAncestors+" ancestors · "+proof.generations.length+
+    " source generations · 1 source root · "+(proof.sealedReceipt?"SEALED RECEIPT":"PROVISIONAL TAIL");
+  $("traceRows").replaceChildren(...proof.ancestors.map(item=>{
+    const tr=document.createElement("tr");
+    for(const v of [item.epoch,item.state,item.sourceStart+"–"+item.sourceEnd]){
+      const td=document.createElement("td");td.textContent=String(v);tr.appendChild(td)
+    }return tr
+  }));
+ }catch(e){lastTrace=null;$("traceState").textContent="TRACE REJECTED · "+e.message;$("traceRows").replaceChildren()}
+}
+$("trace").addEventListener("click",traceOrigin);
+$("proofExport").addEventListener("click",()=>{
+ if(!lastTrace){$("traceState").textContent="EXPORT BLOCKED · trace a verified epoch first";return}
+ const proof=proveEpoch(chain,lastTrace.selectedEpoch,{maxAncestors:lastTrace.returnedAncestors});
+ if(!verifyEpochProof(chain,proof).pass){$("traceState").textContent="EXPORT BLOCKED · evidence changed";return}
+ const blob=new Blob([JSON.stringify(proof,null,2)+"\n"],{type:"application/json"}),url=URL.createObjectURL(blob),a=document.createElement("a");
+ a.href=url;a.download="ada-213n-provenance-epoch-"+proof.selectedEpoch+".json";a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);
+ $("traceState").textContent="PROVENANCE EXPORTED · epoch "+proof.selectedEpoch+" · "+proof.selectedState;
+});
+function grow(steps){try{if(!storageReady)throw Error("Epoch journal locked; further generations blocked");let next=chain;for(let k=0;k<steps;k+=1000)next=advance(next,Math.min(1000,steps-k));const committed=commitEpochJournal(localStorage,next);chain=committed.chain;render();$("status").textContent="EPOCH JOURNAL PASS · "+chain.length+" generations · "+committed.sealedCount+" SEALED receipts · "+(committed.openTail?"OPEN_TAIL":"fully sealed")}catch(e){storageReady=false;$("status").textContent="REJECTED · "+e.message}}
+$("one").addEventListener("click",()=>grow(1));$("day").addEventListener("click",()=>grow(24));$("batch").addEventListener("click",()=>grow(240));
+$("audit").addEventListener("click",()=>{const a=verifyEpochs(chain,epochs);$("status").textContent=a.pass?"AUDIT PASS · "+a.sealed+" sealed · "+a.holds+" HOLD":"AUDIT FAIL · "+a.reason});
+$("rootAudit").addEventListener("click",()=>{$("status").textContent=chain[0].hash===genesis().hash?"ROOT PASS · frozen ancestry unmodified":"ROOT FAIL"});
+$("export").addEventListener("click",()=>{const proof=epochProof(chain,epochs.length-1),blob=new Blob([JSON.stringify(proof,null,2)+"\n"],{type:"application/json"}),url=URL.createObjectURL(blob),a=document.createElement("a");a.href=url;a.download="ada-211n-epoch-"+proof.epoch+".json";a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);$("status").textContent="EPOCH PROOF EXPORTED · n="+proof.epoch});
+$("stress").addEventListener("click",()=>{try{$("horizon").textContent=JSON.stringify(stressHorizon(),null,2)}catch(e){$("horizon").textContent=e.message}});
+$("spatialStress").addEventListener("click",()=>{try{$("spatialAudit").textContent=JSON.stringify(stressSpatial(),null,2)}catch(e){$("spatialAudit").textContent="REJECTED "+e.message}});
+const canvas=$("viz"),ctx=canvas.getContext("2d");
+function draw(){const b=canvas.getBoundingClientRect(),w=Math.max(1,Math.floor(b.width)),h=Math.max(1,Math.floor(b.height)),dpr=Math.min(2,devicePixelRatio||1);if(canvas.width!==Math.floor(w*dpr)||canvas.height!==Math.floor(h*dpr)){canvas.width=Math.floor(w*dpr);canvas.height=Math.floor(h*dpr)}ctx.setTransform(dpr,0,0,dpr,0,0);ctx.fillStyle="#050919";ctx.fillRect(0,0,w,h);const scale=Math.min(w,h)*.45;
+function p(x,y,z){const a=tick*.004,xx=x*Math.cos(a)-z*Math.sin(a),zz=x*Math.sin(a)+z*Math.cos(a),yy=y*.91-zz*.4,k=scale/(2.8+zz*.2);return [w/2+xx*k,h/2+yy*k]}
+const visible=epochs.slice(-11);for(let i=0;i<visible.length;i++){const e=visible[i],r=.4+i*.095;ctx.beginPath();for(let j=0;j<=90;j++){const a=j*2*Math.PI/90,q=p(r*Math.cos(a),Math.sin(a*3+tick*.008)*.2,r*Math.sin(a));if(j===0)ctx.moveTo(...q);else ctx.lineTo(...q)}ctx.strokeStyle=e.state==="SEALED"?"#53e8d3":"#ff9a5c";ctx.globalAlpha=.4+.6*i/visible.length;ctx.lineWidth=e.state==="SEALED"?1.6:2.7;ctx.shadowBlur=14;ctx.shadowColor=ctx.strokeStyle;ctx.stroke()}ctx.globalAlpha=1;ctx.shadowBlur=0;
+const c=window.spatialCenter??[0,0,0];ctx.strokeStyle="#ad91ff";ctx.lineWidth=1;for(const x of [-1,1])for(const y of [-1,1])for(const z of [-1,1]){for(const q of [[-x,y,z],[x,-y,z],[x,y,-z]]){ctx.beginPath();ctx.moveTo(...p(x,y,z));ctx.lineTo(...p(...q));ctx.stroke()}}const m=window.morphology??{R:.45,r:.15,tilt:0};ctx.strokeStyle="#ff9455";ctx.lineWidth=1;for(let k=0;k<12;k++){const b=k*Math.PI/6;ctx.beginPath();for(let j=0;j<=90;j++){const a=j*Math.PI/45,u=(m.R+m.r*Math.cos(b))*Math.cos(a),v=m.r*Math.sin(b),z=(m.R+m.r*Math.cos(b))*Math.sin(a),q=p(c[0]+u*Math.cos(m.tilt)-v*Math.sin(m.tilt),c[1]+u*Math.sin(m.tilt)+v*Math.cos(m.tilt),c[2]+z);if(j===0)ctx.moveTo(...q);else ctx.lineTo(...q)}ctx.stroke()}
+for(const l of (window.nested?.levels??[]).slice(1)){ctx.strokeStyle="#50e9d6";ctx.lineWidth=1;for(const x of [-1,1])for(const y of [-1,1])for(const z of [-1,1])for(const q of [[-x,y,z],[x,-y,z],[x,y,-z]]){const f=(a,b,d)=>p(a*l.half+l.center[0],b*l.half+l.center[1],d*l.half+l.center[2]);ctx.beginPath();ctx.moveTo(...f(x,y,z));ctx.lineTo(...f(...q));ctx.stroke()}}const last=epochs.at(-1);for(let i=0;i<last.count;i++){const a=i*2*Math.PI/24+tick*.01,q=p(.91*Math.cos(a),.15*Math.sin(3*a),.91*Math.sin(a));ctx.fillStyle=last.decisions[i]==="HOLD"?"#ff9a5c":"#ae85ff";ctx.beginPath();ctx.arc(q[0],q[1],3.3,0,Math.PI*2);ctx.fill()}ctx.fillStyle="#cfdbef";ctx.textAlign="center";ctx.font="12px monospace";ctx.fillText("{{i}} → EPOCH "+last.epoch+" · "+last.state,w/2,h-18);tick++;requestAnimationFrame(draw)}
+try{const recovered=restoreEpochJournal(localStorage);const committed=commitEpochJournal(localStorage,recovered.chain);chain=committed.chain;storageReady=true;render();$("status").textContent=(recovered.persisted?"RESTORE PASS":"GENESIS PERSISTED")+" · "+chain.length+" generations · "+committed.sealedCount+" SEALED receipts · "+(committed.openTail?"OPEN_TAIL":"SEALED")}catch(e){storageReady=false;render();$("status").textContent="ARCHIVE LOCKED · "+e.message}if(ctx)requestAnimationFrame(draw);
+</script></body></html>

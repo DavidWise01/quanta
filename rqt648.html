@@ -1,0 +1,23 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>RQT-648 · Algebraic 2-Adic Branching</title><style>*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at top,#283d60,#071426 67%);color:#f8e9ca;font:17px/1.6 system-ui}main{max-width:1080px;margin:auto;padding:clamp(22px,5vw,70px)}header{border:6px double #e4ba79;background:#10283e;padding:28px}h1{font-size:clamp(48px,8vw,86px);line-height:1.1;color:#f6ce8c;margin:0}.eyebrow{font-size:12px;letter-spacing:.16em;color:#a7f1e1}h2{color:#9cf1d8}.metrics,.branches{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:25px 0}.tile{padding:22px;border:2px solid #c2a478;background:#19334a}.num{font-size:clamp(30px,5vw,54px);font-weight:900;color:#ffc683}.branches{grid-template-columns:1fr 1fr}.branch{padding:24px;background:#18453b;border:2px solid #80e6c5}.branch.dead{background:#462c3b;border-color:#fb9279}.branch b{font-size:38px;color:#ffcf91}.math{background:#061829;border-left:7px solid #f4ba6f;padding:22px;font:clamp(14px,2vw,20px)/1.8 ui-monospace,monospace;white-space:pre-wrap;overflow-wrap:anywhere;color:#c9ffe5}.bar{height:14px;background:#344c5f}.bar>div{height:100%;width:60.7407%;background:linear-gradient(90deg,#f6bd82,#81ebd5)}.warn{border-left:5px solid #f3b977;padding-left:18px}a{color:#a9f6e1}@media(max-width:650px){.metrics,.branches{grid-template-columns:1fr}}</style></head><body><main><header><p class="eyebrow">QUANTA · {{i}} · .dlw</p><h1>RQT-648</h1><p>ALGEBRAIC 2-ADIC BRANCHING &amp; HENSEL EXISTENCE</p></header><div class="metrics"><div class="tile"><div class="num">27/27</div>Canonical orbits with nonsingular mod-2 roots</div><div class="tile"><div class="num">1,544</div>Compatible mod-16 parent pairs</div><div class="tile"><div class="num">0</div>New whole-family exclusions</div></div><h2>The zero-or-four theorem</h2><div class="math">G(u,t) = r₀u²+r₁ut+r₂t²+r₃u+r₄t+r₅
+
+For every archived orbit: v₂(|2r₀|)=3.
+At m=2ᵏ, k≥4, every parent (t,y)
+has four children (t+αm,y+βm).
+
+The polynomial changes by:
+m[2βy−2α(at+h)] + m²[β²−aα²]
+
+All terms are multiples of 2m.
+The recovery congruence stays modulo 8.
+
+Hence every parent has 0 OR 4 children.</div><div class="branches"><div class="branch dead"><b>736</b><p>Mod-16 parents with zero compatible mod-32 children</p></div><div class="branch"><b>808</b><p>Mod-16 parents with four compatible mod-32 children</p></div></div><h2>Existence at every 2-adic precision</h2><div class="math">For each of the 27 equations:
+G(u₀,t₀) ≡ 0 (mod 2)
+∂G/∂u(u₀,t₀) ≡ 1 (mod 2)
+
+Fix t=t₀∈{0,1}.
+Given G(uₙ,t₀)≡0 (mod 2ⁿ):
+ bₙ = [G(uₙ,t₀)/2ⁿ] mod 2
+ uₙ₊₁ = uₙ + bₙ 2ⁿ
+
+These nested lifts define a solution u∈Z₂.
+Exact verifier checks each through 2²⁴.</div><p>The all-depth conclusion follows from the odd derivative and Hensel's lemma. The finite 24-bit check corroborates the arithmetic but does not replace the proof.</p><h2>Selected-family ledger</h2><div class="bar"><div></div></div><p><strong>82/135 excluded all scale (60.74%)</strong> · 53 unresolved, organized in 27 canonical sign-orbits.</p><p class="warn">A 2-adic solution is not an ordinary integer solution. No integer norm−2 seed, new whole-family exclusion or original 22D Wall replay. <strong>ROOT 19 OPEN.</strong></p><p><a href="research/RQT-648-ALGEBRAIC-2ADIC-BRANCHING.md">Mathematical proof</a> · <a href="research/rqt648-hensel-branching.py">Exact verifier</a> · <a href="research/RQT-648-summary.json">Results summary</a></p><h2>RQT-649 — Next natural bound</h2><p>Combine 2-adic local solvability with odd-prime and full coordinate-integrality gates, targeting an ordinary integer seed or a genuine all-scale obstruction.</p><p>{brace{n}[box[n](torroid(n))]} · {{i}} · .dlw</p></main></body></html>

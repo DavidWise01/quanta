@@ -1,0 +1,114 @@
+{
+  "schema": "root0.quanta.methodology-lean-corpus-correction/1",
+  "id": "RIEMANN-003A-DISTRIBUTED-LEAN-CORPUS-20261124",
+  "recorded_date": "2026-11-24",
+  "correction_of": [
+    "research/RIEMANN-002-davidwise01-account-wide-metadata-audit-20261124.json",
+    "research/RIEMANN-003-toroidal-methodology-cross-correlation-20261124.json"
+  ],
+  "correction": "Earlier reports undercounted actual Lean source distributed across DavidWise01 repositories by emphasizing Oasis. This is a correction and expansion, not a replacement of prior append-only records.",
+  "discovery": {
+    "primary_language_lean_repositories": [
+      "DavidWise01/toroid-kernel",
+      "DavidWise01/positronic-law",
+      "DavidWise01/governed-action"
+    ],
+    "additional_repositories_with_lean_files": [
+      "DavidWise01/oasis"
+    ],
+    "method": "GitHub repository primary language filter, source readbacks, dated diff readback; NOT full enumeration of every lean file in all repos",
+    "verified_files": [
+      {
+        "repo": "DavidWise01/positronic-law",
+        "path": "ToroidalBlackHoleDynamics_v084.lean",
+        "git_blob": "85db7f9b460679bf70570e32de25385e3e555eec",
+        "lines": 2677,
+        "theorem_decl_count": 274,
+        "lemma_decl_count": 0,
+        "sorry_token_count": 0,
+        "axiom_declaration_count": 0,
+        "source_commit": "eae5bcd04eec5aeb2a01553c973913ea88488bdf",
+        "source_commit_date_local": "2026-09-13T19:49:05-05:00",
+        "details": "Triple Torus Ganglia: three bands, three curves, two flows, three tori, ±360° traversal, three wraps=1080°, Fibonacci signal, frozen partition 30|5|30|5|30=100, explicit no physical inference from arithmetic invariants. Counts are source-text scan not compiler-verification."
+      },
+      {
+        "repo": "DavidWise01/toroid-kernel",
+        "path": "petals/p73_rotation_closure.lean",
+        "git_blob": "246b09b4ba765448e03768320d6e632044e6c591",
+        "theorems": [
+          "rotation_closes",
+          "closed_spine_is_neutral",
+          "original_spine_is_neutral"
+        ],
+        "source_commit": "6cdb80a0f9dce3b90d53ed6f8ec7f8b7d17fc081",
+        "details": "Three-step rotation yields original spine and preserves summed neutrality."
+      },
+      {
+        "repo": "DavidWise01/toroid-kernel",
+        "path": "proof/Friday/friday_complete.lean",
+        "git_blob": "28378f0eddfde69d1bcfaaa19b4d0a4cd0ebf87f",
+        "theorems": [
+          "reverse_orbit_undoes_forward",
+          "double_flip_restores",
+          "flip_preserves_core",
+          "friday_is_closed"
+        ],
+        "source_commit": "6535bb17210bfbab34fa07142d02dc2966873f4f",
+        "details": "Cubit orbit, identity reversal, orientation involution and frozen-core preservation; semantics depend on explicit local structures."
+      },
+      {
+        "repo": "DavidWise01/governed-action",
+        "path": "governance.lean",
+        "git_blob": "7524cda82d51efdd49ffdc86b3ac09d28dc39cb9",
+        "source_commit": "cb689b0a486a0d09d46e132fb5206c47407b6d72",
+        "details": "Governance legitimacy, no complete legitimate top under stated recurrence, value monotonicity."
+      },
+      {
+        "repo": "DavidWise01/governed-action",
+        "path": "attestation.lean",
+        "git_blob": "5032aa7fd336054423ee2dbd92b30af5d540f8fe",
+        "details": "Exterior specification/trust/timing attestation propositions."
+      },
+      {
+        "repo": "DavidWise01/governed-action",
+        "path": "achievability.lean",
+        "git_blob": "b989854a46470305b7ca82a43ba1cd534e03d25c",
+        "details": "Verifier soundness/completeness, pre-action containment, liveness."
+      },
+      {
+        "repo": "DavidWise01/governed-action",
+        "path": "trust_floor.lean",
+        "git_blob": "9e398f680ab91f474725d57a446779eea9123849",
+        "details": "Under the stated soundness/guessing assumptions, uniform secret support has size >= 2^lambda; source notes scope constraints."
+      },
+      {
+        "repo": "DavidWise01/oasis",
+        "path": "lean/Oasis.Language.Cube.00.lean",
+        "git_blob": "9b5ac4e27ca38b63666320234b55df1b0d1e9d30",
+        "details": "Lean language cube: home toroidal palindrome, reversal, delimiters, and attach rules."
+      },
+      {
+        "repo": "DavidWise01/oasis",
+        "path": "lean/Oasis.Language.OSI6.00.lean",
+        "git_blob": "93c729ebd8666ff9539de7e52bd56c3e5ade408f",
+        "details": "Lean finite representation and roundtrip properties."
+      }
+    ]
+  },
+  "corrected_methodology_findings": [
+    "Toroidal formal source is directly present in Positronic Law and Toroid Kernel, not just architectural README analogies.",
+    "The proof artifacts cover discrete topology-like cycles, finite rotations, mathematical closure claims, and governance-boundary propositions.",
+    "Lean theorem declarations with by rfl/by omega/by decide are formally structured code, but compilation was not independently performed this turn.",
+    "No Riemann zeta or mathematical RH theorem equivalence was established; user focus is methodology and toroidal universes."
+  ],
+  "status": {
+    "source_readback": "PASS",
+    "git_blob_readback": "PASS",
+    "independent_lean_kernel_compilation": "NOT_PERFORMED",
+    "full_account_lean_filename_census": "NOT_COMPLETE",
+    "riemann_project_source_access_or_derivation": "NOT_ESTABLISHED"
+  },
+  "next": "RIEMANN-004: concrete toroidal invariant transport audit on Positronic Law triple torus and Toroid Kernel rotations: statements, assumptions, reversibility and roundtrip checks; run Lean only if proper toolchain is available. Do not make RH mathematical equivalence claims.",
+  "append_only": true,
+  "mark": ".dlw"
+}

@@ -1,0 +1,31 @@
+{
+  "rqt": 663,
+  "source_sha256": "97de34faf9b0163357ec3c0c81d4d1d768ffe040dc5fd5faf707ea3e8ae19021",
+  "local_certificate_sha256": "ca7b6909fa1821fa05f57897c4413d9f9f45a48cf367ba8fc84c9f2e4be1411e",
+  "bound_t": 100000,
+  "original_quadratic_charts": 27,
+  "parameter_orbit_pairs": 5400027,
+  "nonnegative_discriminants": 5398223,
+  "residue_wheel_modulus": 4032,
+  "wheel_candidates": 1732949,
+  "remaining_moduli": [
+    65,
+    17,
+    19
+  ],
+  "modular_survivors": 310407,
+  "exact_square_discriminants": 0,
+  "original_integer_seeds": 0,
+  "independent_prior_bound": {
+    "bound_t": 20000,
+    "nonnegative": 1078223,
+    "modular_survivors": 62032,
+    "exact_squares": 0
+  },
+  "selected_excluded": 82,
+  "selected_unresolved": 53,
+  "root19": "OPEN",
+  "new_all_scale_exclusions": 0,
+  "original_22d_wall": "NOT REPLAYED",
+  "scope": "Finite exhaustive search of original parameter t in 27 charts; no global no-root theorem."
+}

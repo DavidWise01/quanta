@@ -1,0 +1,26 @@
+{
+  "rqt": 654,
+  "local_full_certificate_sha256": "f96f757aeb861f7a0c117639c91c6653fb00b745227cf80eb36b6bb2cbe4eae8",
+  "prime_sieve_limit": 5000000,
+  "distinct_odd_cofactors": 31,
+  "cofactors_with_certified_factors": 8,
+  "distinct_prime_factors_certified": 9,
+  "certified_prime_factors": [
+    153437,
+    220859,
+    402881,
+    482093,
+    777871,
+    1909651,
+    2120863,
+    2479457,
+    2640767
+  ],
+  "unresolved_large_remainders": 31,
+  "large_remainder_primality": "UNDETERMINED",
+  "selected_excluded": 82,
+  "selected_unresolved": 53,
+  "root19": "OPEN",
+  "original_22d_wall": "NOT REPLAYED",
+  "new_whole_family_exclusions": 0
+}

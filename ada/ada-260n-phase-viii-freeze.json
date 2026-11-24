@@ -1,0 +1,51 @@
+{
+  "schema": "ADA-260N.freeze-candidate.v1",
+  "commit": "1d5208a8e5012c846c62974cb3b8293fe7e49331",
+  "files": [
+    {
+      "path": "ada/ada-251n-contextual-architecture.mjs",
+      "blob": "010e781c5ffe814ecd38c9c2992a321228fa9d03"
+    },
+    {
+      "path": "ada/ada-252n-spatial-relationships.mjs",
+      "blob": "f5d9e6290dd3709804ee7d1be7b968096cf53fa2"
+    },
+    {
+      "path": "ada/ada-253n-temporal-relationships.mjs",
+      "blob": "d80f8a9beba22c75903a04b731f0be65075f237e"
+    },
+    {
+      "path": "ada/ada-254n-semantic-differentiation.mjs",
+      "blob": "c7c7fa28e67f66a23b5266f6834ee2fe12e3a987"
+    },
+    {
+      "path": "ada/ada-255n-contextual-association.mjs",
+      "blob": "7aad3691197cbfe47dabcc0c6c4633508c31df24"
+    },
+    {
+      "path": "ada/ada-256n-pattern-recognition.mjs",
+      "blob": "6e2e7d62c8c40f2313619f7fb6f0c48261a02630"
+    },
+    {
+      "path": "ada/ada-257n-contextual-inheritance.mjs",
+      "blob": "4313b7862837af0c0d392da553e95cee270ede84"
+    },
+    {
+      "path": "ada/ada-258n-adaptive-context.mjs",
+      "blob": "924b6c26dd21b98e838f3b85b98c2fe65f79ebcd"
+    },
+    {
+      "path": "ada/ada-259n-contextual-stability.mjs",
+      "blob": "24bd865256872a34d54272d46f6014a6343fd267"
+    },
+    {
+      "path": "ada/ada-260n-contextual-freeze.mjs",
+      "blob": "78149f1cd8e09bf37413f361d200b7757fafb645"
+    }
+  ],
+  "growthFactor": 1.025,
+  "status": "SOURCE_PINNED_ACCEPTANCE_PENDING",
+  "parentPhase": "ADA-250N provisional",
+  "authority": "OBSERVE_ONLY",
+  "watermark": ".dlw"
+}

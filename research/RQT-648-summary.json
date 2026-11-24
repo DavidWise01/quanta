@@ -1,0 +1,24 @@
+{
+  "rqt": 648,
+  "title": "All-depth 2-adic branching and Hensel existence",
+  "canonical_orbits": 27,
+  "original_family_ids": 53,
+  "mod2_nonsingular_roots_verified": 27,
+  "all_depth_2adic_solutions_proved": 27,
+  "hensel_computation_precision_bits": 24,
+  "mod16_to32": {
+    "parent_pairs": 1544,
+    "zero_children": 736,
+    "four_children": 808,
+    "one_two_three_children": 0,
+    "compatible_children": 3232
+  },
+  "input_rqt619_sha256": "97de34faf9b0163357ec3c0c81d4d1d768ffe040dc5fd5faf707ea3e8ae19021",
+  "local_full_certificate_sha256": "8d0f8eb7cb5985929af78d14356f3a31fc260fc938d20fc93645901830930440",
+  "new_full_family_exclusions": 0,
+  "selected_excluded": 82,
+  "selected_unresolved": 53,
+  "root19": "OPEN",
+  "original_22d_wall": "NOT REPLAYED",
+  "warning": "2-adic root existence is not ordinary integer root existence."
+}

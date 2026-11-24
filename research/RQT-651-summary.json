@@ -1,0 +1,32 @@
+{
+  "rqt": 651,
+  "source_rqt619_sha256": "97de34faf9b0163357ec3c0c81d4d1d768ffe040dc5fd5faf707ea3e8ae19021",
+  "full_local_result_sha256": "bdbf19b65aff510708ba8ef0818a9d57981ea1d857f23d49948114a6431459b1",
+  "prime_bound_exclusive": 2000,
+  "criterion": "p divides b²−4ac or det homogenized 2G matrix",
+  "canonical_orbits": 27,
+  "old_risk_prime_orbit_cases": 55,
+  "new_risk_prime_orbit_cases": 29,
+  "new_cases_with_nonsingular_root": 29,
+  "new_distinct_primes": [
+    53,
+    59,
+    71,
+    113,
+    131,
+    271,
+    293,
+    449,
+    491,
+    769,
+    929,
+    1693
+  ],
+  "all_primes_checked": false,
+  "full_factorization_claimed": false,
+  "new_family_exclusions": 0,
+  "selected_excluded": 82,
+  "selected_unresolved": 53,
+  "root19": "OPEN",
+  "original_22d_wall": "NOT REPLAYED"
+}

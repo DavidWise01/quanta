@@ -45,10 +45,10 @@ def main():
    'target_prime_certified':False})
  assert not any(r['direct_R_factor'] for r in rows)
  out={'rqt':661,'source_rqt660_sha256':hashlib.sha256(raw).hexdigest(),
-  'method':'Certified small n+1 factors and bounded direct rho scan of R',
+  'method':'Exact certified small n+1 factors and deterministic bounded direct rho scan of R',
   'results':rows,'new_R_factors':0,'new_target_prime_certificates':0,
   'remaining_open_indexes':[23,28],
-  'status_warning':'Partial n+1 factorization does not prove primality; both square thresholds fail.',
+  'status_warning':'n+1 partial factorization alone does not prove target primality. Both square thresholds fail.',
   'selected_excluded':82,'selected_unresolved':53,'root19':'OPEN','original_22d_wall':'NOT REPLAYED'}
  dest=Path(sys.argv[2]) if len(sys.argv)>2 else Path('RQT-661-results.json')
  dest.write_text(json.dumps(out,indent=2)+'\n')

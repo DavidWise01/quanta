@@ -1,0 +1,137 @@
+{
+  "schema": "root0.quanta.methodological-cross-correlation/1",
+  "id": "RIEMANN-003-TOROIDAL-METHODOLOGY-20261124",
+  "date_recorded": "2026-11-24",
+  "scope": "Compare methodology and toroidal universe architectures; explicitly exclude attempts to prove Riemann Hypothesis",
+  "user_scope": "Methodology and toroidal universes only; do not misconstrue user's goals as RH theorem proving",
+  "external": {
+    "url": "https://riemann.verifytask.cn/",
+    "page_title": "Riemann Hypothesis · Lean 4 Proof Techniques",
+    "observed": "2026-11-24",
+    "notice_date": "2026-11-23",
+    "source_characterization": "Online Lean 4 proof-engineering and compression benchmark for specified subset of RH formalization",
+    "site_claims": {
+      "subset_files": 158055,
+      "full_files": 175187,
+      "subset_share_percent": 92.23,
+      "verification": "Dashboard asserts Lean 4.34.1 and 4.33.1 plus comparator 0 sorry and standard axioms only for chosen pillars",
+      "metric": "Anti-golf normalized token metric; benchmark tests substitutions that preserve formal theorems",
+      "scope_limit": "Self-declared harness telemetry is not blinded independent model ranking; full RH build and subset compression are distinct"
+    },
+    "attribution": "Public site statements, not local verification of compilation or benchmark submissions"
+  },
+  "local_sources": [
+    {
+      "repo": "DavidWise01/oasis",
+      "path": "architecture/box-toroid.md",
+      "blob": "5e08d723d4fa72f610999d7c16ce86e7a78ea61e",
+      "observation": "Box ingress/decoder/state/transform/witness/egress; toroidal software return closes source→transform→destination→witness→source. Explicitly architectural, not physical torus"
+    },
+    {
+      "repo": "DavidWise01/oasis",
+      "path": "README.md",
+      "blob": "dbe8515061eea745acb66e40879075a270e5d61a",
+      "observation": "O1 immutable parent; KANA invariant center between representation changes; descendants append-only; symbolic return and correction; semantic/spatial universe work"
+    },
+    {
+      "repo": "DavidWise01/oasis",
+      "path": "lean/Oasis.Language.Cube.00.lean",
+      "blob": "9b5ac4e27ca38b63666320234b55df1b0d1e9d30",
+      "observation": "Lean `home_toroidal_palindrome`, `home_reverse_exact`, permission and attachment invariants; imports Std; no Mathlib; proofs rfl/decide. Lean source inspected but not compiled in this turn"
+    },
+    {
+      "repo": "DavidWise01/quanta",
+      "path": "ada/ada-046-persistent-kernel.md",
+      "blob": "f9fd6a4f6c83d50666d2820e6b7d45b6f07bda5a",
+      "observation": "Exact symbolic π/φ timing scales, inherited 27abc=1 closure, 110-step common return, explicit inverse recovery, retained hash-linked journal; this is a software model"
+    },
+    {
+      "repo": "DavidWise01/quanta",
+      "path": "language/QG-063-PINNED-SOURCE-ADMISSION.md",
+      "blob": "31482317725a344bdd487996e21a51973b518597",
+      "observation": "Source identity and pinned SHA-256 precede evidence acceptance; source matches do not prove truth or authorship"
+    },
+    {
+      "repo": "DavidWise01/toroid-kernel",
+      "path": "README.md",
+      "blob": "81894f276ac01c863fda3b805023570bb1d44676",
+      "observation": "256-address axiom register, ternary VM tiles, input/container/dock/landing/extraction transformation pipeline; repo description asserts a seal, not rehashed here"
+    },
+    {
+      "repo": "DavidWise01/stoicheion",
+      "path": "README.md",
+      "blob": "c482a4671575a9565690a2c774d66331fb4605fb",
+      "observation": "256-axiom governance / strict inversion and provenance discipline; not a complex-analysis proof"
+    },
+    {
+      "repo": "DavidWise01/0root-ai-toroid-builder",
+      "path": "README.md",
+      "blob": "43cbebeac858cd5d352a837fdb62eab408dbe9cf",
+      "observation": "Public static GUI for 0root.ai toroid builder, backend omitted; geometry and model validation not analyzed"
+    },
+    {
+      "repo": "DavidWise01/4096-recursion",
+      "path": "README.md",
+      "blob": "9d0484f5bac05d3617e01b0775a71e67931f9e48",
+      "observation": "Recursion closure through 256-bit register into conceptual ROOT_0; explicitly warns architecture does not establish natural physical law"
+    },
+    {
+      "repo": "DavidWise01/the-convergence-audit",
+      "path": "README.md",
+      "blob": "a065f12bed05afef1eb362fb913e34ab06a0c6fc",
+      "observation": "Convergence and independent reconstruction distinguished from actual transmission; the current record does not adopt unrelated attribution claims"
+    }
+  ],
+  "crosswalk": [
+    {
+      "axis": "closed_return",
+      "owned": "oasis software box-toroid channel and witness-return cycle",
+      "external": "Proof submission→compiler/comparator→accept/reject loop",
+      "relation": "PROCESS_ANALOGY",
+      "caution": "A proof checker acceptance loop is not geometric torus or inverse transformation"
+    },
+    {
+      "axis": "invariant",
+      "owned": "OaSIs KANA invariants and Lean `home_toroidal_palindrome`; QUANTA phase/amplitude closure",
+      "external": "Lean theorem statement unchanged under valid alternative proof",
+      "relation": "MEANINGFUL_VERIFICATION_PATTERN",
+      "caution": "Owned invariants are different propositions/structures than Riemann theorem"
+    },
+    {
+      "axis": "transformation",
+      "owned": "Recursive representation changes and append-only descendants",
+      "external": "Proof rewriting and token compression of fixed statement",
+      "relation": "RELATED_CONTRACT_PRESERVATION_METHOD",
+      "caution": "No shared optimization algorithm demonstrated"
+    },
+    {
+      "axis": "evidence",
+      "owned": "QG-063 pinning and ancestry gating, hash-ledger replay",
+      "external": "Lean compiler and statement comparator; benchmark submissions and reported telemetry",
+      "relation": "REPRODUCIBILITY_COMMONALITY",
+      "caution": "Hash checks and proof kernels prove different properties"
+    },
+    {
+      "axis": "spatial_geometry",
+      "owned": "Toroidal and manifold universe modeling; explicit source calls toroid software analogy",
+      "external": "Upper-triangular proof dependency matrix",
+      "relation": "NOT_GEOMETRICALLY_EQUIVALENT",
+      "caution": "A triangular dependency display is not toroidal topology"
+    }
+  ],
+  "verdict": {
+    "methodology_overlap": "VERIFIED_AT_ABSTRACT_CONTRACT_LEVEL",
+    "identical_code": "NOT_ESTABLISHED",
+    "shared_toroidal_mathematical_object": "NOT_ESTABLISHED",
+    "source_access_or_derivation": "NOT_ESTABLISHED",
+    "user_is_researching_RH": "FALSE",
+    "independent_execution_of_both_systems": "NOT_PERFORMED"
+  },
+  "reproducibility_bound": "OaSIs Lean source was fetched, no Lean compiler executed in this turn; external page observed, not its interactive hidden data or full proof files.",
+  "next": "RIEMANN-004: select a concrete transformation in OaSIs, formalize a before/after invariant-preservation specification, and compare it to a public Lean proof-refactor contract without asserting same theorem, shared code or physical torus.",
+  "protocol": {
+    "append_only": true,
+    "watermark": ".dlw",
+    "prior_records_unchanged": true
+  }
+}

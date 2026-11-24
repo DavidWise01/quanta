@@ -1,0 +1,109 @@
+{
+  "rqt": 669,
+  "title": "Finite modular action and affine Pell subgroup closure",
+  "source_sha256": "97de34faf9b0163357ec3c0c81d4d1d768ffe040dc5fd5faf707ea3e8ae19021",
+  "full_local_certificate_sha256": "1e755bad074cc79dbc60a36ba4320dbec2990c44cf03a303a0ba9b9347b65f17",
+  "canonical_orbits_audited": 27,
+  "identity_coordinate_checks": 243,
+  "subgroup_properties_proved": [
+    "identity",
+    "composition",
+    "inverse"
+  ],
+  "affine_determinant": 1,
+  "synthetic": {
+    "original_equation": "u²−2t²=1",
+    "unit": [
+      3,
+      1
+    ],
+    "matrix": [
+      [
+        3,
+        2
+      ],
+      [
+        4,
+        3
+      ]
+    ],
+    "inverse_unit": [
+      3,
+      -1
+    ],
+    "exact_powers_verified": 16,
+    "modular_action": [
+      {
+        "m": 2,
+        "points": 4,
+        "order": 1,
+        "cycles": {
+          "1": 4
+        }
+      },
+      {
+        "m": 4,
+        "points": 16,
+        "order": 2,
+        "cycles": {
+          "1": 4,
+          "2": 6
+        }
+      },
+      {
+        "m": 8,
+        "points": 64,
+        "order": 4,
+        "cycles": {
+          "1": 4,
+          "2": 14,
+          "4": 8
+        }
+      },
+      {
+        "m": 16,
+        "points": 256,
+        "order": 8,
+        "cycles": {
+          "1": 4,
+          "2": 14,
+          "4": 24,
+          "8": 16
+        }
+      },
+      {
+        "m": 32,
+        "points": 1024,
+        "order": 16,
+        "cycles": {
+          "1": 4,
+          "2": 14,
+          "4": 24,
+          "8": 48,
+          "16": 32
+        }
+      },
+      {
+        "m": 64,
+        "points": 4096,
+        "order": 32,
+        "cycles": {
+          "1": 4,
+          "2": 14,
+          "4": 24,
+          "8": 48,
+          "16": 96,
+          "32": 64
+        }
+      }
+    ]
+  },
+  "new_nontrivial_units_original_charts": 0,
+  "new_integer_seeds_original_charts": 0,
+  "new_all_scale_exclusions": 0,
+  "selected_excluded": 82,
+  "selected_unresolved": 53,
+  "root19": "OPEN",
+  "wall22d": "NOT REPLAYED",
+  "limits": "Nonidentity modular cycle enumeration is synthetic, not evidence of actual original-chart seed or unit."
+}

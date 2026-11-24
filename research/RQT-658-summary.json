@@ -1,0 +1,28 @@
+{
+  "rqt": 658,
+  "method": "Complete recursive Lucas n−1 proof",
+  "newly_certified_index": 24,
+  "newly_certified_value": "432877412205274760633664264474592820317371476039",
+  "certified_indexes": [
+    0,
+    1,
+    4,
+    12,
+    26,
+    24
+  ],
+  "remaining_open_indexes": [
+    23,
+    28
+  ],
+  "recursive_certificate_nodes": 126,
+  "complete_certificate_sha256": "f902bb282f26e3b9b254ffcab0231564008f6c9091baa6a53215f5bd98ca6cfb",
+  "independent_stdlib_verifier": "research/rqt658-verify.py",
+  "deterministic_builder": "research/rqt658-build.py",
+  "full_json_cert_location": "Conversation download, not committed to GitHub",
+  "selected_excluded": 82,
+  "selected_unresolved": 53,
+  "root19": "OPEN",
+  "new_family_exclusions": 0,
+  "original_22d_wall": "NOT REPLAYED"
+}

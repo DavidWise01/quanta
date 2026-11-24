@@ -1,0 +1,25 @@
+{
+  "rqt": 666,
+  "source_sha256": "97de34faf9b0163357ec3c0c81d4d1d768ffe040dc5fd5faf707ea3e8ae19021",
+  "full_certificate_sha256": "78eb19434ee48c8bbef6d5bd81f88a2d895323fddc1a0d19a819396e53571d88",
+  "canonical_orbits": 27,
+  "per_orbit_convergents": 128,
+  "total_convergents": 3456,
+  "norm_plus_one_unit_convergents": 0,
+  "norm_minus_one_unit_convergents": 0,
+  "generalized_target_norm_convergents": 0,
+  "integral_original_seeds": 0,
+  "conditional_recurrence": {
+    "z_next": "U*z+a*V*y",
+    "y_next": "V*z+U*y",
+    "unit_norm_required": "U²−aV²=1",
+    "target_norm_preserved": "z²−a*y²=N",
+    "additional_integer_gate": "z≡h (mod a) and u=(-r1*t-r3±y)/(2*r0) integral"
+  },
+  "new_all_scale_exclusions": 0,
+  "selected_excluded": 82,
+  "selected_unresolved": 53,
+  "root19": "OPEN",
+  "original_22d_wall": "NOT REPLAYED",
+  "limitation": "No usable unit or seed found within finite 128-convergent prefixes."
+}

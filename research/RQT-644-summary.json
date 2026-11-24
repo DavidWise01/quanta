@@ -1,0 +1,74 @@
+{
+  "rqt": 644,
+  "certificate_type": "global exact deduplication and Pell-unit gate audit",
+  "observations": 51840,
+  "globally_distinct_states": 1376,
+  "repeat_observations": 50464,
+  "groups": [
+    {
+      "group": 1,
+      "s": 5,
+      "canonical_ids": [
+        28,
+        29,
+        30,
+        31,
+        33,
+        34,
+        35,
+        36,
+        37
+      ],
+      "unique_states": 462,
+      "unique_signed_norms": 462,
+      "minimum_abs_norm": "714182761645757",
+      "repeats": 16818,
+      "distinct_state_same_norm_pairs": 0,
+      "direct_units": 0,
+      "square_division_units": 0,
+      "quotient_units": 0
+    },
+    {
+      "group": 2,
+      "s": 7,
+      "canonical_ids": [
+        81,
+        89,
+        92
+      ],
+      "unique_states": 460,
+      "unique_signed_norms": 460,
+      "minimum_abs_norm": "25392454990256",
+      "repeats": 16820,
+      "distinct_state_same_norm_pairs": 0,
+      "direct_units": 0,
+      "square_division_units": 0,
+      "quotient_units": 0
+    },
+    {
+      "group": 3,
+      "s": 4,
+      "canonical_ids": [
+        0,
+        1,
+        2,
+        7
+      ],
+      "unique_states": 454,
+      "unique_signed_norms": 454,
+      "minimum_abs_norm": "1185925484330234",
+      "repeats": 16826,
+      "distinct_state_same_norm_pairs": 0,
+      "direct_units": 0,
+      "square_division_units": 0,
+      "quotient_units": 0
+    }
+  ],
+  "full_local_json_sha256": "9360bed29cd8f3db823c1e9ceebd1dee745aa59a95488203be3041a3b4037665",
+  "new_all_scale_family_exclusions": 0,
+  "selected_excluded": 82,
+  "selected_unresolved": 53,
+  "root19": "OPEN",
+  "original_22d_wall": "NOT REPLAYED",
+  "scope": "Finite 1376-state corpus only; no unit impossibility theorem."
+}

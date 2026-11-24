@@ -1,0 +1,164 @@
+{
+  "schema": "root0.toroidal-invariant-audit/1",
+  "id": "RIEMANN-004-TOROIDAL-INVARIANT-TRANSPORT-20261124",
+  "recorded_date": "2026-11-24",
+  "scope": "User works on methodology and toroidal universes, not solving RH. This audits original Lean theorem contracts and contrasts their verification method, not theorem subject, with proof-refactor checking.",
+  "sources": [
+    {
+      "repo": "DavidWise01/positronic-law",
+      "path": "ToroidalBlackHoleDynamics_v084.lean",
+      "blob_sha": "85db7f9b460679bf70570e32de25385e3e555eec",
+      "lines": 2677,
+      "theorem_declaration_count_source_scan": 274
+    },
+    {
+      "repo": "DavidWise01/toroid-kernel",
+      "path": "petals/p73_rotation_closure.lean",
+      "blob_sha": "246b09b4ba765448e03768320d6e632044e6c591",
+      "lines": 23
+    },
+    {
+      "repo": "DavidWise01/toroid-kernel",
+      "path": "proof/Friday/friday_complete.lean",
+      "blob_sha": "28378f0eddfde69d1bcfaaa19b4d0a4cd0ebf87f",
+      "lines": 115
+    },
+    {
+      "repo": "DavidWise01/oasis",
+      "path": "lean/Oasis.Language.Cube.00.lean",
+      "blob_sha": "9b5ac4e27ca38b63666320234b55df1b0d1e9d30"
+    }
+  ],
+  "theorem_audits": [
+    {
+      "name": "invertFlow_involutive",
+      "line": 101,
+      "preconditions": "Flow is forward or reverse",
+      "operation": "invertFlow twice",
+      "postcondition": "restores original flow",
+      "proof_kind": "case split, definitional reduction",
+      "scope": "two-element enum direction"
+    },
+    {
+      "name": "directed_turns_cancel",
+      "line": 105,
+      "preconditions": "Forward=+360, reverse=-360 as Int",
+      "operation": "add directed turn and inverse",
+      "postcondition": "signed sum zero",
+      "proof_kind": "cases,rfl",
+      "scope": "signed arithmetic, not experimental energy conservation"
+    },
+    {
+      "name": "torus_primary_turn_not_closed",
+      "line": 292,
+      "preconditions": "two-component TorusPath.closes requires both endpoints zero",
+      "operation": "primary angle returns zero, transverse endpoint one",
+      "postcondition": "not closed",
+      "proof_kind": "simp",
+      "scope": "definition of two-coordinate abstract path"
+    },
+    {
+      "name": "rotate_preserves_net_flow",
+      "line": 782,
+      "preconditions": "six-channel velocity struct",
+      "operation": "permutes inner, middle, outer in both forward and reverse groups",
+      "postcondition": "sixChannelNet unchanged",
+      "proof_kind": "dsimp,omega",
+      "scope": "sum-preserving permutation"
+    },
+    {
+      "name": "rotate_preserves_homeostasis",
+      "line": 787,
+      "preconditions": "sixChannelHomeostatic predicate",
+      "operation": "same rotation as above",
+      "postcondition": "predicate equivalence before and after",
+      "proof_kind": "rearrangement of conjunctions",
+      "scope": "model-defined balance predicate"
+    },
+    {
+      "name": "rotate_three_times_identity",
+      "line": 796,
+      "preconditions": "six-channel velocity struct",
+      "operation": "rotateSixChannels three times",
+      "postcondition": "channel fields identical",
+      "proof_kind": "rfl",
+      "scope": "channel ordering only, not full coupled state"
+    },
+    {
+      "name": "iterate_preserves_homeostasis",
+      "line": 891,
+      "preconditions": "initial channels satisfy sixChannelHomeostatic",
+      "operation": "coupledIterate any Nat steps",
+      "postcondition": "final channels satisfy same predicate",
+      "proof_kind": "induction on finite iteration count",
+      "scope": "does not assert arbitrary physical-time stability"
+    },
+    {
+      "name": "full_turn_closes_both_cycles",
+      "line": 1233,
+      "preconditions": "Nat×Nat coordinates, wrap each mod360",
+      "operation": "add 360 to both then wrap",
+      "postcondition": "coordinate equal to previous wrapped coordinate",
+      "proof_kind": "simp with Nat modular arithmetic",
+      "scope": "finite modular coordinate equality"
+    },
+    {
+      "name": "discrete_stokes_identity",
+      "line": 1090,
+      "preconditions": "assumes stokesResidual boundary = interiorCurl",
+      "operation": "subtract curl from given equal boundary residual",
+      "postcondition": "stokesCellResidual zero",
+      "proof_kind": "dsimp,omega",
+      "scope": "conditional algebraic identity, not independent derivation of continuous Stokes theorem"
+    },
+    {
+      "name": "constant_torus_stencil_has_zero_laplacian",
+      "line": 1497,
+      "preconditions": "5-point stencil with every entry same Int",
+      "operation": "sum four neighbors minus four center",
+      "postcondition": "zero",
+      "proof_kind": "dsimp,omega",
+      "scope": "constant finite-difference stencil only"
+    },
+    {
+      "name": "p73_rotation_closes",
+      "source": "DavidWise01/toroid-kernel/petals/p73_rotation_closure.lean",
+      "preconditions": "spine=[-1,0,1]",
+      "operation": "list rotation three times",
+      "postcondition": "initial spine restored and signed total zero",
+      "scope": "one fixed 3-entry list, not every possible toroidal state"
+    },
+    {
+      "name": "Friday reverse_orbit_undoes_forward",
+      "source": "DavidWise01/toroid-kernel/proof/Friday/friday_complete.lean",
+      "preconditions": "Cubit finite enum and next/previous maps",
+      "operation": "forward move then reverse",
+      "postcondition": "restores original cubit",
+      "scope": "finite four-way orbital enumeration"
+    }
+  ],
+  "critical_limitations": [
+    "torusFlowStep at lines 628-630 explicitly ignores thetaVelocity and phiVelocity and returns unchanged coordinates; torusAdvance at 667-669 is separate and moves coordinates using mod360.",
+    "Three channel rotations return channel order; coupledStep also changes radius and torus position, so not a theorem of whole-state identity.",
+    "TorusPath.closes is a definition over two Nat endpoints, not a theorem about continuous topological torus geometry.",
+    "Finite Stokes residual theorem assumes the boundary-curl equality as hypothesis; the original Stokes theorem is not derived.",
+    "Source readback verifies Git blobs only. Lean was not independently compiled or executed in this session.",
+    "No mathematical equivalence, RH proof, physical model validation, or source-transmission link with Riemann proof-optimization dashboard established."
+  ],
+  "methodological_comparison": {
+    "overlap": "Formalize state and invariant first, implement transformation, verify preserved contract mechanically; immutable source/provenance and unmodified theorem statements",
+    "difference": "OaSIs/Positronic Law/toroid-kernel specify finite symbolic toroidal states; external Riemann dashboard optimizes Lean proof terms against a fixed formal theorem statement",
+    "claimed_identical_theorem_or_algorithm": false,
+    "claimed_derivation_or_copying": false,
+    "external_basis": "Riemann dashboard context recorded in RIEMANN-001 and RIEMANN-003; not re-run in this turn"
+  },
+  "next_bound": "RIEMANN-005: identify weakest theorem assumptions and build a lean-checkable counterexample matrix distinguishing whole-state-return, channel-return, closed-path, and homeostasis. Preserve source and test without editing originals.",
+  "status": {
+    "source_verified": true,
+    "lean_compiled": false,
+    "independent_experiment": false,
+    "provenance_only": true
+  },
+  "append_only": true,
+  "watermark": ".dlw"
+}

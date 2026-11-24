@@ -31,7 +31,7 @@ for i in (24,23):
 out={'rqt':658,'method':'Recursive full Lucas n-1 certificates augmented from RQT-657',
 'source_rqt656_sha256':hashlib.sha256(sx.read_bytes()).hexdigest(),
 'source_rqt657_sha256':hashlib.sha256(so.read_bytes()).hexdigest(),
-'certified_target_indexes':[0,1,4,12,24,26],
+'certified_target_indexes':[0,1,4,12,26,24],
 'target_values':{str(i):x['records'][i]['input'] for i in [0,1,4,12,23,24,26]},
 'certificates':cert,'remaining_open_indexes':[23,28],
 'selected_excluded':82,'selected_unresolved':53,'root19':'OPEN','original_22d_wall':'NOT REPLAYED'}

@@ -1,0 +1,18 @@
+{
+  "rqt": 653,
+  "input_rqt652_sha256": "2cd1ccf0119ea4f09617657cbb0e58351cb7812e8661e1109bd03b822da4e72a",
+  "local_full_certificate_sha256": "cf3e28b3eacb5214a99f381609ecf5ed21b0a4f56bf7ebd01132ac0be7602627",
+  "residual_entries": 54,
+  "distinct_odd_cofactors": 31,
+  "sum_of_two_adic_valuations_including_repeated_entries": 82,
+  "exact_distinct_pairwise_gcd_checks": 465,
+  "all_distinct_odd_cofactors_pairwise_coprime": true,
+  "primality_verified": false,
+  "complete_factorization": false,
+  "new_prime_orbit_cases": 0,
+  "selected_excluded": 82,
+  "selected_unresolved": 53,
+  "canonical_orbits": 27,
+  "root19": "OPEN",
+  "original_22d_wall": "NOT REPLAYED"
+}

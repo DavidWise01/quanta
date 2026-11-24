@@ -1,0 +1,71 @@
+{
+  "rqt": 650,
+  "title": "Singular Prime p-adic Resolution",
+  "input_rqt619_sha256": "97de34faf9b0163357ec3c0c81d4d1d768ffe040dc5fd5faf707ea3e8ae19021",
+  "local_exact_certificate_sha256": "45714e90f7e7a8aee714976c33657df302145401e4fc138ed03b3a6a879803cd",
+  "singular_cases": [
+    {
+      "orbit": 2,
+      "prime": 7,
+      "base_root": [
+        1,
+        6
+      ],
+      "H_mod_p_coefficients": [
+        2,
+        4,
+        3,
+        0,
+        2,
+        2
+      ],
+      "nonsingular_H_roots": 8,
+      "roots_mod_p2": 49,
+      "roots_mod_p3": 392,
+      "local_Zp": "PROVED"
+    },
+    {
+      "orbit": 28,
+      "prime": 31,
+      "base_root": [
+        6,
+        12
+      ],
+      "H_mod_p_coefficients": [
+        17,
+        5,
+        12,
+        22,
+        23,
+        20
+      ],
+      "nonsingular_H_roots": 32,
+      "roots_mod_p2": 961,
+      "roots_mod_p3": 30752,
+      "local_Zp": "PROVED"
+    }
+  ],
+  "odd_primes_tested": [
+    3,
+    5,
+    7,
+    11,
+    13,
+    17,
+    19,
+    23,
+    29,
+    31,
+    37,
+    41,
+    43
+  ],
+  "tested_prime_orbit_cases": 351,
+  "proved_Zp_solvable": 351,
+  "all_primes": "NOT PROVED",
+  "ordinary_integer_root": "NOT FOUND",
+  "selected_excluded": 82,
+  "selected_unresolved": 53,
+  "root19": "OPEN",
+  "original_22d_wall": "NOT REPLAYED"
+}

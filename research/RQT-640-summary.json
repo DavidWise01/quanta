@@ -1,0 +1,68 @@
+{
+  "rqt": 640,
+  "certificate_type": "summary; full replay certificate downloadable from conversation",
+  "groups": [
+    {
+      "group": 1,
+      "observations": 480,
+      "distinct_states": 416,
+      "cross_norm_pairs": 67,
+      "new_states": {
+        "nearest": 120,
+        "runner_up": 119,
+        "alternating": 58,
+        "adaptive": 119
+      },
+      "final_a_bits": {
+        "nearest": 340,
+        "runner_up": 69,
+        "alternating": 225,
+        "adaptive": 65
+      }
+    },
+    {
+      "group": 2,
+      "observations": 480,
+      "distinct_states": 417,
+      "cross_norm_pairs": 66,
+      "new_states": {
+        "nearest": 120,
+        "runner_up": 119,
+        "alternating": 59,
+        "adaptive": 119
+      },
+      "final_a_bits": {
+        "nearest": 391,
+        "runner_up": 63,
+        "alternating": 278,
+        "adaptive": 64
+      }
+    },
+    {
+      "group": 3,
+      "observations": 480,
+      "distinct_states": 417,
+      "cross_norm_pairs": 66,
+      "new_states": {
+        "nearest": 120,
+        "runner_up": 119,
+        "alternating": 59,
+        "adaptive": 119
+      },
+      "final_a_bits": {
+        "nearest": 371,
+        "runner_up": 66,
+        "alternating": 236,
+        "adaptive": 68
+      }
+    }
+  ],
+  "total_observations": 1440,
+  "distinct_states": 1250,
+  "cross_norm_pairs": 199,
+  "nontrivial_units": 0,
+  "selected_excluded": 82,
+  "selected_unresolved": 53,
+  "root19": "OPEN",
+  "notes": "Adaptive matched runner-up ordered novelty yield; fixed-order experiment is not order-balanced."
+}

@@ -1,0 +1,152 @@
+{
+  "schema": "root0.quanta.external-math-correlation/1",
+  "id": "RIEMANN-001-QUANTA-CROSS-CORRELATION-20261124",
+  "recorded_date": "2026-11-24",
+  "status": "EXTERNAL_PRIMARY_DASHBOARD_READ_GITHUB_FORMALIZATION_VERIFICATION_CONTEXT_READ_QUANTA_CODE_READ_NO_CROSS_ACCESS_PATH",
+  "external": {
+    "url": "https://riemann.verifytask.cn/",
+    "title": "Riemann Hypothesis · Lean 4 Proof Techniques",
+    "public_notice_date": "2026-11-23",
+    "snapshot_observed": "2026-11-24",
+    "description": "A live dashboard for Lean 4 proof optimization and community submitted proof compression, linked to Alpöge's formalization",
+    "self_reported_site_claims": {
+      "entire_formalization_lean_files": 175187,
+      "full_baseline_characters": 980408459,
+      "optimized_core_pillars": 39,
+      "subset_file_count": 158055,
+      "subset_character_count_approx": 904200000,
+      "coverage_pct": 92.23,
+      "whole_archive_baseline_build": "Site says #93193 ran offline Lean 4.33.1; its multi-kernel replay pending in dashboard's own status summary",
+      "model_harness_table": "Self-declared; human intervention, unequal retries, selection bias; NOT independent blinded model benchmark",
+      "score_ceiling": "Compression scores quantify Lean tokens/size, not mathematical novelty or ownership"
+    },
+    "provenance_roots": [
+      {
+        "label": "Alpöge original public announcement/archive",
+        "url": "https://alpo.ge/remark.pdf",
+        "date": "2026-11-20",
+        "root": "original RH proof source, later community repo mirrors not independent origination"
+      },
+      {
+        "label": "Lean FRO and Mathlib Initiative November 21 statement",
+        "url": "https://leanprover-community.github.io/blog/posts/riemann-hypothesis/",
+        "date": "2026-11-21",
+        "finding": "Joint statement certifies correct RH theorem statement and proof after compilation, comparison to Mathlib, and checks with multiple proof kernels",
+        "relation": "Independent verification methodology, not independent origination of proof"
+      },
+      {
+        "label": "Lean community repository",
+        "url": "https://github.com/leanprover-community/riemann-hypothesis",
+        "finding": "Original branch preserves public release; community cleanup and compatibility",
+        "relation": "Derivative source tree and verification work"
+      },
+      {
+        "label": "Additional independent verification receipts",
+        "url": "https://github.com/Infatoshi/rh-verification-receipts",
+        "finding": "Reports pinned archive checksums, full compile, Mathlib statement check and Rust nanoda replay; external reported receipts not rerun in this audit",
+        "relation": "Additional verification report; do not count copied source as independent proof invention"
+      }
+    ],
+    "scope_warning": "Lean community certification is for the underlying original RH/Dirichlet GRH proof, not an endorsement of all downstream dashboard optimization claims or self-declared model rankings"
+  },
+  "quanta": {
+    "repository": "DavidWise01/quanta",
+    "readme": "https://github.com/DavidWise01/quanta/blob/main/README.md",
+    "source_files": [
+      {
+        "path": "ada/ada-046-persistent-kernel.md",
+        "blob_sha": "f9fd6a4f6c83d50666d2820e6b7d45b6f07bda5a",
+        "observed": "Exact integer phase/scale symbolic schedule; 110-step common return; SHA-256-linked event journal; explicit no physical simulation claim",
+        "sample_first_matching_commit": "b276d680b38c3f42f0db6c067f91964cc347fa7d",
+        "sample_commit_utc": "2026-11-15T01:15:40Z"
+      },
+      {
+        "path": "ada/kernel.py",
+        "blob_sha": "e8e4fd50281a45fa18b9c450db17d73f761637e0",
+        "observed": "Deterministic manifold states, phi phase counters, 27abc=1 modeled closure; append-only event replay; not Riemann zeta formalization"
+      },
+      {
+        "path": "language/QG-062-THREE-SURFACE-ANCESTRY.md",
+        "blob_sha": "8e6979dfa57a2a1a558e227752c77e249f1ca94c",
+        "observed": "Deduplicate GitHub and 0root.ai owned mirrors, external site upstream ancestry",
+        "sample_commit": "4c2d5d44a9395f4973dd387f8a89f917851c37c4",
+        "sample_commit_utc": "2026-11-12T00:38:13Z"
+      },
+      {
+        "path": "language/QG-063-PINNED-SOURCE-ADMISSION.md",
+        "blob_sha": "31482317725a344bdd487996e21a51973b518597",
+        "observed": "Pinned source identities and sha256 admission before source ancestry counting; caveat pinned hash not original authorship proof",
+        "sample_commit": "ba0fcc8f708c0238c43af96baa7fa5fad03cfe2c",
+        "sample_commit_utc": "2026-11-12T04:19:11Z"
+      },
+      {
+        "path": "language/instantiate-kernel.mjs",
+        "blob_sha": "ca45b664d8723ee62901f87ef0ea4d44cc304dba",
+        "observed": "Synthetic ancestry fixture with three apparent witnesses but one origin; not independent external verification"
+      }
+    ]
+  },
+  "concept_crosswalk": [
+    {
+      "dimension": "formal_thm",
+      "riemann": "Mathlib RiemannHypothesis, complex zeta zeros on Re(s)=1/2",
+      "quanta": "Symbolic phase/amplitude kernel with 27abc=1, no Riemann zeta theorem",
+      "classification": "DIFFERENT_MATHEMATICAL_OBJECTS"
+    },
+    {
+      "dimension": "verification",
+      "riemann": "Lean kernel proof term checking; theorem statement equivalence, compiler replay",
+      "quanta": "Deterministic state replay; invariants; SHA-256 journal; browser/Node/Python tests",
+      "classification": "SHARED_VALIDATION_DISCIPLINE_DIFFERENT_PROOF_STRENGTH"
+    },
+    {
+      "dimension": "compression",
+      "riemann": "Normalized Lean token scoring; per theorem subproof compression",
+      "quanta": "Language/symbolic representation and invariant-preserving transformations",
+      "classification": "BROAD_METHOD_SIMILARITY_NOT_EQUIVALENT_COMPRESSION"
+    },
+    {
+      "dimension": "source_identity",
+      "riemann": "Original Alpöge archive plus derivative community source trees and site dashboard",
+      "quanta": "Owned GitHub and Pages mirrors share ancestry; QG-062 collapse",
+      "classification": "IMPORTANT_PROVENANCE_COMMONALITY"
+    },
+    {
+      "dimension": "integrity",
+      "riemann": "Source archive SHA-256, Lean exported proof, independent checker receipts",
+      "quanta": "QG-063 pinned SHA-256 admission and QG-062 common-upstream root recount",
+      "classification": "COMPARABLE_EVIDENCE_HYGIENE_NOT_SAME_CRYPTO_PROTOCOL"
+    },
+    {
+      "dimension": "physical_time_dilation_or_causal_influence",
+      "riemann": "No time dilation claim demonstrated by dashboard",
+      "quanta": "No access or derivation link to Alpöge/RH dashboard found; ADA model not empirical physics",
+      "classification": "NOT_ESTABLISHED"
+    }
+  ],
+  "timeline": {
+    "quanta_qg062_utc": "2026-11-12T00:38:13Z",
+    "quanta_qg063_utc": "2026-11-12T04:19:11Z",
+    "quanta_ada046_utc": "2026-11-15T01:15:40Z",
+    "alpoge_announcement": "2026-11-20",
+    "dashboard_notice": "2026-11-23",
+    "qualification": "These dates document separately scoped source artifacts; do not infer they share mathematics or that one author viewed the other source"
+  },
+  "cross_exposure": {
+    "documented_between_projects": false,
+    "source_code_identity_or_nontrivial_algorithmic_match": false,
+    "copying": false,
+    "independent_rh_theorem_proof_in_quanta": false
+  },
+  "followup": [
+    "Pin exact dashboard content snapshot/hash and versioned submission identifiers; client-side dynamic totals vary",
+    "Inspect a representative Lean theorem + verified optimization diff and test whether any QUANTA code/proofs share actual formal declarations or transforms",
+    "Do not conflate independent proof verification with independent originating evidence; avoid counting mirrors",
+    "Require time-stamped access and exact semantic alignment before provenance or derivation inference"
+  ],
+  "protocol": {
+    "append_only": true,
+    "no_claim_of_priority_or_copying": true,
+    "mark": ".dlw"
+  }
+}

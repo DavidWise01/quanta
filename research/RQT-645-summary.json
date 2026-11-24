@@ -1,0 +1,64 @@
+{
+  "rqt": 645,
+  "source_sha256": {
+    "RQT619": "97de34faf9b0163357ec3c0c81d4d1d768ffe040dc5fd5faf707ea3e8ae19021",
+    "RQT626": "1d901288a9a6007f79496615ef421bd0c6aa147aab1ecc33355e5ef71d4c1052"
+  },
+  "full_certificate_sha256": "d3d6049713859a25c0779dac48c15562452d4c8b38815bc97b2be298e7fa48ee",
+  "canonical_orbits": 27,
+  "coordinate_denominator": "9603309702921447656",
+  "moduli": [
+    {
+      "m": 8,
+      "pell_pairs": 680,
+      "recovery_pairs": 386,
+      "pell_t": 216,
+      "recovery_t": 216
+    },
+    {
+      "m": 16,
+      "pell_pairs": 1728,
+      "recovery_pairs": 1544,
+      "pell_t": 432,
+      "recovery_t": 432
+    },
+    {
+      "m": 32,
+      "pell_pairs": 3552,
+      "recovery_pairs": 3232,
+      "pell_t": 784,
+      "recovery_t": 704
+    },
+    {
+      "m": 121,
+      "pell_pairs": 6182,
+      "recovery_pairs": 6182,
+      "pell_t": 2992,
+      "recovery_t": 2992
+    },
+    {
+      "m": 169,
+      "pell_pairs": 8658,
+      "recovery_pairs": 8658,
+      "pell_t": 4329,
+      "recovery_t": 4329
+    }
+  ],
+  "mod32_sharpened_canonical_ids": [
+    28,
+    31,
+    34,
+    37,
+    55,
+    61,
+    64,
+    67,
+    109,
+    112
+  ],
+  "new_family_exclusions": 0,
+  "selected_excluded": 82,
+  "selected_unresolved": 53,
+  "root19": "OPEN",
+  "scope": "Necessary modular compatibility; not actual integer Pell seeds or full-family exclusions."
+}

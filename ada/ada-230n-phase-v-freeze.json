@@ -1,0 +1,50 @@
+{
+  "schema": "ADA-230N.freeze-candidate.v1",
+  "commit": "be5227d1578246587d7b6cffcb8af129459659d6",
+  "files": [
+    {
+      "path": "ada/ada-221n-spatial-expression.mjs",
+      "blob": "9060753f3469e51504cbef1cf4fddaf7f5c62f31"
+    },
+    {
+      "path": "ada/ada-222n-directional-attenuation.mjs",
+      "blob": "d1495ac7e76147e90ebb688d776726f9dfc401ab"
+    },
+    {
+      "path": "ada/ada-223n-local-morphology.mjs",
+      "blob": "31d270f29e71b91235da40bf6c85033dbae6d4d4"
+    },
+    {
+      "path": "ada/ada-224n-nested-spatial.mjs",
+      "blob": "d5e3a76f0980508cba758ca4510d556872cead7c"
+    },
+    {
+      "path": "ada/ada-225n-homeostatic-volume.mjs",
+      "blob": "ac935305530ad8b199f04a04316387ce036aebfe"
+    },
+    {
+      "path": "ada/ada-226n-boundary-differentiation.mjs",
+      "blob": "f63a5db2cae1dfacf76f4cadfdd139f191a4dd0b"
+    },
+    {
+      "path": "ada/ada-227n-geometric-specialization.mjs",
+      "blob": "200395c0c974abfb75729fcd8ede2b58f2c011c6"
+    },
+    {
+      "path": "ada/ada-228n-morphogenesis.mjs",
+      "blob": "c7651ec698d004adc7b8d7bc7c713f50d88998c1"
+    },
+    {
+      "path": "ada/ada-229n-spatial-stability.mjs",
+      "blob": "6a4234546fce685dc0a21c4c89c0bc0589ba7b36"
+    },
+    {
+      "path": "ada/ada-230n-freeze-gate.mjs",
+      "blob": "5df6463d39b177323d90b26e29b74af2a51a914f"
+    }
+  ],
+  "growthFactor": 1.025,
+  "status": "SOURCE_PINNED_ACCEPTANCE_PENDING",
+  "parentPhase": "ADA-220N provisional",
+  "watermark": ".dlw"
+}

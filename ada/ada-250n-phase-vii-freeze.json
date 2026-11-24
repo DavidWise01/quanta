@@ -1,0 +1,51 @@
+{
+  "schema": "ADA-250N.freeze-candidate.v1",
+  "commit": "37ba1fc4b51247d4ed8289894a9021c037b3f591",
+  "files": [
+    {
+      "path": "ada/ada-241n-directional-sensory.mjs",
+      "blob": "c453c358409dee1d7eb307e82fcea32105b32949"
+    },
+    {
+      "path": "ada/ada-242n-signal-acquisition.mjs",
+      "blob": "7dac44c08fb75b45a30d56d513755274ea4c4d87"
+    },
+    {
+      "path": "ada/ada-243n-perceptual-attenuation.mjs",
+      "blob": "60815a858e04b4fdb5214c69a5b9e25b90994d74"
+    },
+    {
+      "path": "ada/ada-244n-signal-differentiation.mjs",
+      "blob": "a344fa743138b938856cbfa69d9ba65e80abecb8"
+    },
+    {
+      "path": "ada/ada-245n-selective-attention.mjs",
+      "blob": "5075ebd5dddfbbcdee9cce8d6cdc4280e6ceef04"
+    },
+    {
+      "path": "ada/ada-246n-temporal-memory.mjs",
+      "blob": "af7414fdc8be7f53f165d4f2cd0f1f015ca2fe52"
+    },
+    {
+      "path": "ada/ada-247n-perceptual-inheritance.mjs",
+      "blob": "a60b7d4b92536ecd5c939440ec80a540a2c15f76"
+    },
+    {
+      "path": "ada/ada-248n-adaptive-perception.mjs",
+      "blob": "677946a0a34c3cae23b1802ff19fa90f71250dac"
+    },
+    {
+      "path": "ada/ada-249n-perceptual-stability.mjs",
+      "blob": "e8c4f9d5c06788c5be0d27f2513c48f59bb43bc9"
+    },
+    {
+      "path": "ada/ada-250n-perceptual-freeze.mjs",
+      "blob": "e04b2696f333227964bc9d1ce35e021f6425b873"
+    }
+  ],
+  "growthFactor": 1.025,
+  "status": "SOURCE_PINNED_ACCEPTANCE_PENDING",
+  "parentPhase": "ADA-240N provisional",
+  "authority": "OBSERVE_ONLY",
+  "watermark": ".dlw"
+}

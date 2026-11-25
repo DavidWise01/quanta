@@ -97,6 +97,11 @@ fn certify()->Value{
   basis_content=basis_content.gcd(&det3(&a).abs());
  }
  assert_eq!(basis_content,BigInt::one());
+ // The recovered predecessor and saturated successor basis together must
+ // be unimodular in the original four integral coordinates.
+ let completion:Vec<Vec<BigInt>>=(0..4).map(|i|vec![r[i].clone(),b[i][0].clone(),b[i][1].clone(),b[i][2].clone()]).collect();
+ let completion_det=det4(&completion);
+ assert_eq!(completion_det,BigInt::one(),"[r18|B] must be unimodular with det +1");
  let coords:Vec<String>=r.iter().map(ToString::to_string).collect();
  let fingerprint=format!("{:x}",Sha256::digest(coords.join(",").as_bytes()));
  json!({
@@ -104,6 +109,8 @@ fn certify()->Value{
   "source":"RQT-388 B,Q; original F4,H4 cross-referenced to stoicheion RQT-242",
   "kernel_rank":3,"basis_maximal_minor_gcd":basis_content.to_string(),
   "kernel_cofactor_gcd":gcd.to_string(),
+  "det_r18_join_B":completion_det.to_string(),
+  "integral_unimodular_completion":true,
   "r18":coords,"r18_sha256":fingerprint,
   "r18_norm_minus_two":true,"r18_wall_self_one":true,
   "r18_parity":"0111","r18_primitive":true,

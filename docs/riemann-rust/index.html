@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>QUANTA · Rust Toroidal Closure Laboratory</title>
+<style>
+:root{color-scheme:dark;--bg:#070a17;--panel:#111529;--line:#354065;--cyan:#66f3e7;--orange:#ffad55;--violet:#b58bff;--ink:#eaf4fc;--dim:#aab7d5}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 70% -15%,#26204e,transparent 52%),var(--bg);color:var(--ink);font:15px/1.5 system-ui,Segoe UI,sans-serif}
+header{display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:18px 25px;border-bottom:1px solid #334362;background:#0d1121e6;flex-wrap:wrap}
+small,.subtle{color:var(--dim)}a{color:var(--cyan)}main{padding:22px;max-width:1500px;margin:auto}
+h1{font-size:clamp(24px,3vw,40px);margin:0;letter-spacing:-.05em}h2{font-size:18px;margin:0 0 12px}h3{font-size:13px;letter-spacing:.13em;text-transform:uppercase;color:var(--dim);margin:2px 0 12px}
+.layout{display:grid;grid-template-columns:minmax(0,1.7fr) minmax(300px,1fr);gap:16px}
+.panel{background:linear-gradient(145deg,#121729ee,#0b1224f0);border:1px solid var(--line);border-radius:18px;box-shadow:inset 0 1px #ffffff10,0 18px 42px #0006;padding:17px}
+.stage{position:relative;min-height:530px;overflow:hidden;padding:0;border-color:#425c78}
+.stage canvas{width:100%;height:530px;display:block}
+.stagelabel{position:absolute;left:18px;top:15px;max-width:60%;pointer-events:none}.stagelabel b{letter-spacing:.18em;color:var(--cyan)}
+.stagelabel small{display:block}.status{border:1px solid #cfad63;border-radius:25px;padding:7px 12px;font-weight:700;font-size:12px;color:#ffe2aa;background:#302716}
+.status.ok{border-color:#45d3bd;color:#b2fff0;background:#12332e}
+.controls{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+label{display:block;color:var(--dim);font-size:13px}select,input{width:100%;margin-top:5px;background:#080d1e;color:var(--ink);border:1px solid #485a82;border-radius:9px;padding:10px;font:inherit}
+button{padding:11px;border:1px solid #46717b;border-radius:10px;background:#16313a;color:var(--cyan);font-weight:700;cursor:pointer}
+button:hover{filter:brightness(1.3)}button:disabled{opacity:.4;cursor:not-allowed}
+.buttons{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
+.stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px;margin-top:15px}
+.stat{padding:12px;background:#0b1020;border:1px solid #344463;border-radius:10px;min-width:0}.stat b{display:block;font:700 clamp(15px,2.4vw,25px)/1.3 ui-monospace,monospace;color:var(--orange);overflow-wrap:anywhere}.stat small{font-size:11px}
+.flags{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-top:13px}.flag{padding:9px;border:1px solid #3d4b6b;border-radius:8px;color:#b9c4dc;background:#0c1121}
+.flag.yes{color:#95fff0;border-color:#258a7d;background:#102926}.flag.no{color:#ffb486;border-color:#8a5143;background:#2b1b21}
+.legend{display:flex;flex-wrap:wrap;gap:15px;margin:12px 0;color:var(--dim);font-size:12px}.dot{display:inline-block;width:9px;height:9px;border-radius:100%;margin-right:6px}
+footer{margin-top:18px;color:var(--dim);font-size:13px;line-height:1.7}
+@media(max-width:930px){.layout{grid-template-columns:1fr}.stage{min-height:400px}.stage canvas{height:400px}}
+</style></head>
+<body><header><div><small>QUANTA / ROOT0 · RIEMANN-010 / RUST + WASM</small><h1>Toroidal Closure Laboratory</h1></div><div id="wasmStatus" class="status" role="status" aria-live="polite">WASM LOADING · HOLD</div></header>
+<main><div class="layout">
+<section class="panel stage"><canvas id="arena" aria-label="Three neon toroidal mesh projections and discrete state visualization"></canvas><div class="stagelabel"><b>{{ 4D [ 3D ( 2D | 1D ) ] }}</b><small>Geometric projection · discrete Rust states</small></div></section>
+<div class="panel"><h2>Invariant controls</h2><h3>Six source-derived counterexamples</h3>
+<label>Scenario<select id="scenario">
+<option value="0">C1 · Channels return, position drifts</option>
+<option value="1">C2 · Coordinates return, channels drift</option>
+<option value="2" selected>C3 · Global closure at horizon</option>
+<option value="3">C4 · Homeostasis without return</option>
+<option value="4">C5 · One-angle closure only</option>
+<option value="5">C6 · Unwrapped address ≠ raw return</option>
+</select></label>
+<div class="controls">
+<label>Initial radius<input type="number" id="radius" value="1" min="0" max="100"></label>
+<label>Initial θ (degrees)<input type="number" id="theta" value="0" min="0" max="100000"></label>
+<label>Initial φ (degrees)<input type="number" id="phi" value="0" min="0" max="100000"></label>
+<label>Steps / observation<input type="number" id="steps" value="0" min="0" max="360"></label>
+<label>θ increment / step<input type="number" id="vtheta" value="120" min="0" max="360"></label>
+<label>φ increment / step<input type="number" id="vphi" value="120" min="0" max="360"></label>
+</div>
+<div class="buttons"><button id="step" disabled>STEP +1</button><button id="run" disabled>PLAY</button><button id="reset" disabled>RESET</button></div>
+<div class="stats"><div class="stat"><small>Radius</small><b id="outRadius">—</b></div><div class="stat"><small>θ position</small><b id="outTheta">—</b></div><div class="stat"><small>φ position</small><b id="outPhi">—</b></div></div>
+<h3 style="margin-top:19px">Measured closure predicates</h3><div class="flags">
+<div id="flag0" class="flag">CHANNEL RETURN · —</div><div id="flag1" class="flag">POSITION RETURN · —</div>
+<div id="flag2" class="flag">RADIAL RETURN · —</div><div id="flag3" class="flag">HOMEOSTASIS · —</div>
+<div id="flag4" class="flag" style="grid-column:1/-1">GLOBAL RETURN · —</div></div>
+<div class="legend"><span><i class="dot" style="background:#65f3e7"></i>Forward</span><span><i class="dot" style="background:#fca453"></i>Reverse</span><span><i class="dot" style="background:#b58bff"></i>Shadow</span></div>
+<p class="subtle" style="font-size:13px">The WASM binary calculates state transitions. Canvas rendering is a visualization only. A closed channel, invariant sum, or equivalent wrapped angle does not imply full-state return.</p>
+</div></div><footer>
+<p>Original formal source: <a href="https://github.com/DavidWise01/positronic-law/blob/main/ToroidalBlackHoleDynamics_v084.lean">ToroidalBlackHoleDynamics_v084.lean</a> · <a href="https://github.com/DavidWise01/quanta/tree/main/research/riemann-rust">Rust engine</a> · <a href="https://github.com/DavidWise01/quanta/tree/main/research/riemann-wasm">WASM exports</a>. The original Lean proofs are not modified or replaced.</p>
+<p>Research concerns deterministic methodology and conceptual toroidal universes, not physical confirmation or a Riemann Hypothesis proof. <code>.dlw</code></p>
+</footer></main>
+<script>
+'use strict';
+const $=id=>document.getElementById(id), canvas=$('arena'),ctx=canvas.getContext('2d');
+const cases=[[4,0,0,1,0],[4,0,0,360,360],[1,0,0,120,120],[4,0,0,17,23],[1,0,0,120,1],[1,361,0,120,120]];
+let wasm=null,playing=false,last=0,phase=0,values={radius:1,theta:0,phi:0,steps:0,vtheta:120,vphi:120},outputs=[1,0,0,0];
+function read(){for(const id of ['radius','theta','phi','steps','vtheta','vphi']){const hi=id==='steps'?360:id==='radius'?100:100000;values[id]=Math.min(hi,Math.max(0,Math.floor(Number($(id).value)||0)));$(id).value=values[id];}}
+function setCase(){const c=cases[Number($('scenario').value)];['radius','theta','phi','vtheta','vphi'].forEach((k,i)=>$(k).value=c[i]);$('steps').value=0;playing=false;$('run').textContent='PLAY';update();}
+function update(){read();if(!wasm)return;const v=[values.radius,values.theta,values.phi,values.steps,values.vtheta,values.vphi];const e=wasm.exports;outputs=[e.toroid_radius(...v),e.toroid_theta(...v),e.toroid_phi(...v),e.toroid_closure_mask(...v)];['Radius','Theta','Phi'].forEach((name,i)=>$('out'+name).textContent=String(outputs[i]));const mask=outputs[3];['CHANNEL RETURN','POSITION RETURN','RADIAL RETURN','HOMEOSTASIS','GLOBAL RETURN'].forEach((label,i)=>{const el=$('flag'+i);const yes=!!(mask&(1<<i));el.className='flag '+(yes?'yes':'no');el.textContent=label+' · '+(yes?'YES':'NO')});}
+function draw(t){const rect=canvas.getBoundingClientRect();const dpr=Math.min(2,window.devicePixelRatio||1),w=Math.max(1,rect.width),h=Math.max(1,rect.height);if(canvas.width!==Math.round(w*dpr)||canvas.height!==Math.round(h*dpr)){canvas.width=Math.round(w*dpr);canvas.height=Math.round(h*dpr)}ctx.setTransform(dpr,0,0,dpr,0,0);ctx.clearRect(0,0,w,h);
+const cx=w*.5,cy=h*.53,scale=Math.min(w/790,h/550)*1.32;const runTheta=outputs[1]*Math.PI/180,runPhi=outputs[2]*Math.PI/180,angY=.32+phase*.11,angX=.36+Math.sin(phase*.33)*.08;
+function project(u,v,R,offset=0){const a=R+47*Math.cos(v),x=a*Math.cos(u),y=a*Math.sin(u),z=47*Math.sin(v),xx=x*Math.cos(angY)+z*Math.sin(angY),zz=-x*Math.sin(angY)+z*Math.cos(angY);return [cx+(xx+offset)*scale,cy+(y*Math.sin(angX)+zz*Math.cos(angX))*.83*scale,zz]}
+function strokeLine(points,color,alpha,width){ctx.beginPath();points.forEach((p,i)=>i?ctx.lineTo(p[0],p[1]):ctx.moveTo(p[0],p[1]));ctx.strokeStyle=color;ctx.globalAlpha=alpha;ctx.lineWidth=width;ctx.shadowColor=color;ctx.shadowBlur=width>1?16:5;ctx.stroke();ctx.shadowBlur=0;ctx.globalAlpha=1}
+for(let k=2;k>=0;k--){const R=100+k*51;const color=['#65f3e7','#ffad55','#b58bff'][k];for(let vstep=0;vstep<12;vstep++){const pts=[];for(let n=0;n<=96;n++)pts.push(project(n*Math.PI*2/96,vstep*Math.PI*2/12,R));strokeLine(pts,color,k===2?.35:.25,1)}for(let ustep=0;ustep<24;ustep++){const pts=[];for(let n=0;n<=48;n++)pts.push(project(ustep*Math.PI*2/24,n*Math.PI*2/48,R));strokeLine(pts,color,.25,1)}}
+if(wasm){const u=runTheta+Math.PI/3,v=runPhi+Math.PI/6;for(let k=0;k<3;k++){const p=project(u+k*2*Math.PI/3,v+k*.24,100+k*51);ctx.beginPath();ctx.arc(p[0],p[1],5.5,0,2*Math.PI);ctx.fillStyle=['#b58bff','#ffad55','#65f3e7'][k];ctx.shadowBlur=24;ctx.shadowColor=ctx.fillStyle;ctx.fill();ctx.shadowBlur=0}}
+ctx.fillStyle='#c1d3ec';ctx.font='12px ui-monospace,monospace';ctx.fillText(wasm?'RUST/WASM · ACTIVE':'RUST/WASM · NOT LOADED',20,h-18);ctx.fillText('3× CURVES / 2× ANGLES / 1× RETURN',Math.max(20,w-340),h-18)}
+function frame(t){const dt=Math.min(.05,Math.max(0,(t-last)/1000||0));last=t;phase+=dt*.45;if(playing&&wasm){const current=Number($('steps').value);if(t-(frame.lastStep||0)>240){frame.lastStep=t;if(current<360){$('steps').value=current+1;update()}else{playing=false;$('run').textContent='PLAY'}}}draw(t);requestAnimationFrame(frame)}
+$('scenario').addEventListener('change',setCase);
+for(const id of ['radius','theta','phi','steps','vtheta','vphi'])$(id).addEventListener('change',update);
+$('step').onclick=()=>{if(!wasm)return;$('steps').value=Math.min(360,Number($('steps').value)+1);update()};
+$('run').onclick=()=>{if(!wasm)return;playing=!playing;$('run').textContent=playing?'PAUSE':'PLAY'};
+$('reset').onclick=setCase;
+requestAnimationFrame(frame);
+(async()=>{try{const response=await fetch('./toroid.wasm',{cache:'no-store'});if(!response.ok)throw Error('WASM build not published (HTTP '+response.status+')');const bytes=await response.arrayBuffer();const result=await WebAssembly.instantiate(bytes,{});wasm=result.instance;if(wasm.exports.toroid_version()!==10)throw Error('Unexpected WASM ABI version');$('wasmStatus').textContent='RUST/WASM LOADED · v10';$('wasmStatus').className='status ok';for(const id of ['step','run','reset'])$(id).disabled=false;setCase()}catch(error){$('wasmStatus').textContent='WASM HOLD · '+error.message;$('wasmStatus').title=String(error);}})();
+</script></body></html>

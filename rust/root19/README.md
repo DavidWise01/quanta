@@ -132,3 +132,20 @@ cargo run --release --bin rqt694
 ```
 
 **Scope:** This is a single-source software integrity audit, **not** independent external testimony or empirical validation of cosmology. It cannot prove or disprove the original lattice's integer norm −2 Root 19, which remains OPEN.
+
+## RQT-701 — exact predecessor recovery and unimodular completion
+
+Reconstruct the predecessor from the original RQT-388 saturated rank-three kernel `B` using the frozen rank-four Wall form `H4`. The one-sided Wall relation is `Bᵀ H4 r18 = 0`. Its unique primitive integer null vector (up to sign) is obtained from signed 3×3 cofactors of `Bᵀ H4`, without importing purported 22D coordinates or a candidate label.
+
+Exact source checks:
+
+- `Q = Bᵀ F4 B`, `H4 + H4ᵀ = -F4`, and `det(H4)=1`.
+- Primitive recovered vector has `r18ᵀ F4 r18 = -2`, `r18ᵀ H4 r18 = 1`, parity `0111`, and `Bᵀ H4 r18 = 0`.
+- All maximal 3×3 minors of `B` have gcd 1, proving the successor kernel basis is saturated in `Z^4`.
+- **`det([r18 | B])=+1`**, giving an exact integral unimodular completion of the original four-dimensional reduced lattice.
+
+Run `cargo test --bin rqt701` or `cargo run --release --bin rqt701`. Independently reproduced with `RQT-701-predecessor-recovery.py` using the original RQT-388 JSON (SHA-256 `42340006137328677e45b76c140bc10a64a7a79d858852471b94c6171fd7cfdc`).
+
+Historical source anchors: [stoicheion RQT-242](https://github.com/DavidWise01/stoicheion/blob/main/research/rqt/RQT-242-rank-four-residual.md), [quanta RQT-386](../../research/rqt386-exact-null-and-root-candidate.py), and [RQT-388](../../research/rqt388-exact-second-key.py).
+
+**Boundary:** This certifies the 4D F4/H4 branch's predecessor and rank-three kernel, **not** its original 22D frozen-root embedding, its whole 17-root reflection ancestry, or an integer nineteenth root. Root19 is OPEN.

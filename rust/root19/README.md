@@ -13,8 +13,9 @@ The program loads the original reduced 3×3 Gram matrix and 4×3 basis from `dat
 ```bash
 cd rust/root19
 cargo test
-cargo run --release -- 3000
-cargo run --release -- 10000
+cargo run --release --bin rqt-root19 -- 3000
+cargo run --release --bin rqt-root19 -- 10000
+cargo run --release --bin rqt689 -- 33 1000
 ```
 
 The optional CLI argument is the positive integer maximum y. Defaults to 3000. The program outputs a JSON result with candidate counts, exact integer lifts (if any), and an explicit `root19_status: OPEN`.
@@ -31,3 +32,9 @@ The scanning gate is the necessary strict inequality `177065/100000 < x/y < 1786
 Source: RQT-388 root19 kernel data (archived in the research artifacts). Prior source checks: RQT-390, RQT-394, RQT-687.
 
 .dlw
+
+## RQT-689 — primitive rational witness search
+
+The additional `src/bin/rqt689.rs` executable searches `v=(x,y,z)/d` with odd primitive denominator `1<=d<=d_max` and `1<=y<=y_max`, under the inherited strict rational cone. It checks the exact homogeneous identity `(x,y,z)^T Q (x,y,z)=-2d²`, rejects impossible modular square discriminants, and reports all exact witnesses. Even primitive denominators are excluded by RQT-687's mod-8 obstruction. The search is **bounded**; zero hits is not a proof of global nonexistence. Use `cargo run --release --bin rqt689 -- 33 1000`.
+
+The two binaries share the source fixture and perform exact calculations. The workflow now tests both and uploads both JSON results. An Actions execution, not merely committed code, is required to claim compiled/tested status.

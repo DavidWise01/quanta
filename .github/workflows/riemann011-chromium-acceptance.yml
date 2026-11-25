@@ -1,0 +1,61 @@
+name: RIEMANN-011 Chromium Rust/WASM acceptance
+
+on:
+  push:
+    paths:
+      - 'research/riemann-wasm/**'
+      - 'docs/riemann-rust/**'
+      - '.github/workflows/riemann011-chromium-acceptance.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  browser-acceptance:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup Node.js 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install pinned browser automation
+        shell: bash
+        run: |
+          set -euo pipefail
+          npm install --no-save --no-audit --no-fund playwright@1.56.1
+          npx playwright install --with-deps chromium
+      - name: Node smoke of existing compiled Rust WASM binary
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p research/riemann-wasm/evidence
+          node research/riemann-wasm/smoke.mjs docs/riemann-rust/toroid.wasm 2>&1 | tee research/riemann-wasm/evidence/wasm-runtime.log
+      - name: Serve exactly the committed Pages tree
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 -m http.server 8765 --bind 127.0.0.1 > /tmp/riemann011-http.log 2>&1 &
+          echo $! > /tmp/riemann011-http.pid
+          for attempt in {1..30}; do
+            if curl -fsS http://127.0.0.1:8765/docs/riemann-rust/ > /dev/null; then exit 0; fi
+            sleep 1
+          done
+          cat /tmp/riemann011-http.log
+          exit 1
+      - name: Exercise Chromium page, inputs, flags and Canvas
+        shell: bash
+        run: |
+          set -euo pipefail
+          node research/riemann-wasm/browser-acceptance.cjs http://127.0.0.1:8765/docs/riemann-rust/ 2>&1 | tee research/riemann-wasm/evidence/chromium.log
+      - name: Preserve browser and WASM acceptance evidence
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: riemann011-browser-acceptance
+          path: |
+            research/riemann-wasm/evidence/
+            /tmp/riemann011-http.log
+          if-no-files-found: warn

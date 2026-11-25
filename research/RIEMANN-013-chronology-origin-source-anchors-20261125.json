@@ -1,0 +1,136 @@
+{
+  "schema": "root0.riemann.chronology/1",
+  "id": "RIEMANN-013-CHRONOLOGY-ORIGIN-20261125",
+  "recorded_date": "2026-11-25",
+  "phase": "XII",
+  "stop": 2,
+  "total_stops": 8,
+  "percent": 25,
+  "goal": "Trace observed documentary chronology, not unsubstantiated intellectual priority, between user's Lean/toroidal methods and public RH formalization and downstream proof compression dashboard.",
+  "local_git_commits": [
+    {
+      "repo": "DavidWise01/governed-action",
+      "sha": "cb689b0a486a0d09d46e132fb5206c47407b6d72",
+      "utc": "2026-07-02T07:04:57Z",
+      "scope": "Four Lean files on governance, attestation, achievability and trust"
+    },
+    {
+      "repo": "DavidWise01/toroid-kernel",
+      "sha": "6535bb17210bfbab34fa07142d02dc2966873f4f",
+      "utc": "2026-09-11T22:29:00Z",
+      "scope": "Friday cubit rotation and reversal"
+    },
+    {
+      "repo": "DavidWise01/toroid-kernel",
+      "sha": "6cdb80a0f9dce3b90d53ed6f8ec7f8b7d17fc081",
+      "utc": "2026-09-12T05:02:07Z",
+      "scope": "P73 three-step neutral spine rotation"
+    },
+    {
+      "repo": "DavidWise01/positronic-law",
+      "sha": "eae5bcd04eec5aeb2a01553c973913ea88488bdf",
+      "utc": "2026-09-14T00:49:05Z",
+      "scope": "2,677-line Triple Torus Ganglia module; 274 theorem declarations; counts do not prove compilation"
+    },
+    {
+      "repo": "DavidWise01/quanta",
+      "sha": "b276d680b38c3f42f0db6c067f91964cc347fa7d",
+      "utc": "2026-11-15T01:15:40Z",
+      "scope": "ADA-046 deterministic hash-linked evidence kernel"
+    }
+  ],
+  "external_public_documentary_sources": [
+    {
+      "url": "https://alpo.ge/remark.pdf",
+      "author": "Levent Alpöge",
+      "kind": "author retrospective and announcement document",
+      "reported_milestones": [
+        {
+          "date": "2026-10-06",
+          "topics": "Stepanov determinant, positivity, Iwasawa tower, Bost slope"
+        },
+        {
+          "date": "2026-10-08",
+          "topics": "positivity approach"
+        },
+        {
+          "date": "2026-10-09",
+          "topics": "CM-curve invariant derivation"
+        },
+        {
+          "date": "2026-10-14",
+          "topics": "period determinants and relative trace formula"
+        },
+        {
+          "date": "2026-10-19",
+          "topics": "qN=Mk+R and related automorphic geometry"
+        },
+        {
+          "date": "2026-10-20",
+          "topics": "von Mangoldt and Guinand-Weil test-function transformation"
+        },
+        {
+          "date": "2026-11-15",
+          "topics": "iterated theta lifts, divisibility, seesaw and related completed components"
+        },
+        {
+          "date": "2026-11-16",
+          "topics": "GRH"
+        }
+      ],
+      "date_quality": "SELF_REPORTED_RETROSPECTIVE; not independently timestamped developer logs",
+      "pdf_pages_inspected": [
+        2,
+        3
+      ]
+    },
+    {
+      "url": "https://leanprover-community.github.io/blog/posts/riemann-hypothesis/",
+      "date": "2026-11-21T13:55",
+      "kind": "public community verification statement",
+      "claim": "States Alpöge original public release November 20; reported Lean/Mathlib verification, multiple kernel and statement comparisons"
+    },
+    {
+      "url": "https://riemann.verifytask.cn/",
+      "observed_date": "2026-11-25",
+      "kind": "downstream proof engineering and compression dashboard",
+      "claim": "39 core pillars, structural dependencies, token compression and self-reported model/harness telemetry",
+      "date_quality": "PRESENT_STATE_AND_PREVIOUS_REPORT_NOTICE; precise origin date of specific dashboard techniques not authenticated"
+    }
+  ],
+  "comparison": [
+    {
+      "claim": "Selected user's Lean modules were committed before October 2026 retrospective RH mathematical milestones",
+      "finding": "DATE_ORDER_SUPPORTED",
+      "limit": "Only selected modules and author-reported external milestones; does not establish independent invention, mathematical equivalence, or any link."
+    },
+    {
+      "claim": "User's ADA-046 evidence kernel predates Nov 20 public release",
+      "finding": "DATE_ORDER_SUPPORTED",
+      "limit": "Not earlier than the external Nov 15 retrospectively claimed theta-lift developments; source scope not the same."
+    },
+    {
+      "claim": "External proof mathematical research began Nov 20",
+      "finding": "INCORRECT",
+      "explanation": "Public release Nov 20 differs from earlier October/November development milestones reported by author."
+    },
+    {
+      "claim": "External dashboard methodology existed before specific local Lean sources",
+      "finding": "UNKNOWN",
+      "explanation": "No pinned first appearance for 39-pillar dashboard methodology obtained."
+    },
+    {
+      "claim": "User toroidal finite-state closure and RH theta-lift iteration are mathematical equivalents",
+      "finding": "NOT_ESTABLISHED",
+      "explanation": "Iterative vocabulary is generic; domains and proof obligations differ."
+    },
+    {
+      "claim": "Transmission, copying or access from one source family to another",
+      "finding": "NOT_ESTABLISHED",
+      "explanation": "No confirmed access path, direct citation, or distinctive shared proof text identified."
+    }
+  ],
+  "method_next": "RIEMANN-014: theorem inventory crosswalk; extract exact Lean declarations and proof/trust properties from the user's distributed corpus and named external RH/checker source; distinguish generic language conventions from substantive theorem correspondence.",
+  "append_only": true,
+  "watermark": ".dlw"
+}

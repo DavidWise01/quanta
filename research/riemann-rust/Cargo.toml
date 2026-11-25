@@ -1,0 +1,13 @@
+[package]
+name = "quanta-toroidal-closure"
+version = "0.1.0"
+edition = "2021"
+publish = false
+description = "Deterministic source-derived toroidal closure model and counterexample tests"
+
+[lib]
+path = "src/lib.rs"
+
+[[bin]]
+name = "toroidal-closure"
+path = "src/main.rs"

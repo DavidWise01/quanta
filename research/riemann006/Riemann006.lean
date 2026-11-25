@@ -21,7 +21,7 @@ theorem whole_state_iff_components (s t : CoupledState) :
     cases h
     exact ⟨rfl, rfl, rfl⟩
   · intro h
-    rcases h with ⟨hr, hp, hc⟩
+    obtain ⟨hr, hp, hc⟩ := h
     cases s with
     | mk sr sp sc =>
       cases t with
@@ -76,7 +76,8 @@ theorem c2_channels_do_not_return :
       (sample 4 0 0).channels := by
   intro h
   have hinner := congrArg SixChannelVelocity.forwardInner h
-  decide at hinner
+  change (4 : Int) = 2 at hinner
+  exact (by decide : (4 : Int) ≠ 2) hinner
 
 theorem c2_global_return_fails :
     coupledIterate 1 (sample 4 0 0) 360 360 ≠ sample 4 0 0 := by
@@ -126,6 +127,8 @@ theorem nonreturn_is_not_full_closure :
     coupledIterate 1 (sample 4 0 0) 17 23 ≠ sample 4 0 0 := by
   intro h
   have hpos := congrArg CoupledState.position h
-  decide at hpos
+  have htheta := congrArg Prod.fst hpos
+  change (17 : Nat) = 0 at htheta
+  exact (by decide : (17 : Nat) ≠ 0) htheta
 
 end Riemann006

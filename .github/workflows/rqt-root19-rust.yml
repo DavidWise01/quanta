@@ -21,6 +21,8 @@ jobs:
         run: cargo test --verbose
       - name: Run bounded source verifier
         run: cargo run --release --bin rqt-root19 -- 3000 > rqt688-results.json
+      - name: RQT-700 verify conditional divisibility and ancestry source
+        run: cargo run --release --bin rqt700 > rqt700-ancestry.json
       - name: RQT-699 full-22D gate rejects missing embedding
         run: |
           if cargo run --release --bin rqt699 > rqt699-hold.log 2>&1; then
@@ -60,3 +62,4 @@ jobs:
             rust/root19/rqt693-addresses.json
             rust/root19/rqt694-ledger.json
             rust/root19/rqt698-pairing-parity.json
+            rust/root19/rqt700-ancestry.json

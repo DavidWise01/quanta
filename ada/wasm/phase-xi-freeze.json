@@ -1,0 +1,88 @@
+{
+  "schema": "ADA-290N.freeze.v1",
+  "baseline_commit": "45e4274a93fba47a62e1b93f1d7b40905b36c5d0",
+  "files": [
+    {
+      "path": "ada/wasm/Cargo.lock",
+      "blob": "af6581a71ce1f1bd4995822fda2bb8ced7016fd7"
+    },
+    {
+      "path": "ada/wasm/phase-x-freeze.json",
+      "blob": "cc0c1f9902a8901f12063d6c0ac9ea468f1e1692"
+    },
+    {
+      "path": "ada/wasm/loader.mjs",
+      "blob": "f933bf307b3ed6df9370e17bf32b9874bb5f72dc"
+    },
+    {
+      "path": "ada/wasm/ledger.mjs",
+      "blob": "c7cd4da3eefee72f108c270d50a8d2a61b74b95e"
+    },
+    {
+      "path": "ada/wasm/replay.mjs",
+      "blob": "69a2dfa0aec66cddb22d19681cbce058a529936d"
+    },
+    {
+      "path": "ada/wasm/chromium-acceptance.mjs",
+      "blob": "130aa3c8d61635c552ef040e9aa1ddf1f642ad34"
+    },
+    {
+      "path": ".github/workflows/ada-package.yml",
+      "blob": "6ffa6f791348415eaec44363457d3c10fd066665"
+    },
+    {
+      "path": "ada/ada-282n-rust-loader.html",
+      "blob": "430f89e6359dd64d283ce55172d9167f71ed1a35"
+    },
+    {
+      "path": "ada/ada-283n-native-clock.html",
+      "blob": "09e52ed061207039faf907bffe7c699548cb3529"
+    },
+    {
+      "path": "ada/ada-284n-native-tesseract.html",
+      "blob": "853cb6306772a86f3661a04a9936a48f8e6bb9c2"
+    },
+    {
+      "path": "ada/ada-285n-native-pumps.html",
+      "blob": "59a41cb50a644fb77a26acc0f46779dda07edb2f"
+    },
+    {
+      "path": "ada/ada-286n-persistent-ledger.html",
+      "blob": "85b7ad37b55aa82e5a4d417b3e191f9dd196e0f6"
+    },
+    {
+      "path": "ada/ada-287n-inheritance-replay.html",
+      "blob": "4a0eaeb8298b91a55fdc83944fe60569e37cfa3b"
+    },
+    {
+      "path": "ada/ada-288n-adaptive-equilibrium.html",
+      "blob": "558a1f39657ddef41f2a039513258269d153fdae"
+    }
+  ],
+  "ancestor_manifest": "ada/wasm/phase-x-freeze.json",
+  "status": "SOURCE_PINNED_RUNTIME_PENDING",
+  "authority": "OBSERVE_ONLY",
+  "growth": [
+    41,
+    40
+  ],
+  "epoch": 24,
+  "memory": 8,
+  "ticks": 360,
+  "pumps": 3,
+  "acceptance": {
+    "native_tests": null,
+    "double_build": null,
+    "parity_expected": 57933,
+    "parity_actual": null,
+    "chromium": null,
+    "pages": null
+  },
+  "limitations": [
+    "No verified compiled artifact or public deployment",
+    "Local ledger not independent custody",
+    "Synthetic pump observations",
+    "Equilibrium policy not persisted"
+  ],
+  "watermark": ".dlw"
+}

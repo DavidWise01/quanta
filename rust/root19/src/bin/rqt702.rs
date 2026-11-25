@@ -105,6 +105,27 @@ fn certify()->Value{
  assert_eq!(pairing_content,BigInt::one());
  let parity:Vec<u8>=r5.iter().map(|x|if x.is_even(){0}else{1}).collect();
  assert_eq!(parity,vec![1,0,0,1,0]);
+ // Extend the actual rank-three successor lattice into the historic rank-five
+ // coordinates before applying ANY divisibility filter.
+ let e5=mul(&c,&b); // exact 5x3 integral embedding
+ let mut e5_content=BigInt::zero();
+ for i in 0..5 { for j in (i+1)..5 { for k in (j+1)..5 {
+  e5_content=e5_content.gcd(&det(&vec![e5[i].clone(),e5[j].clone(),e5[k].clone()]).abs());
+ }}}
+ assert_eq!(e5_content,BigInt::one());
+ let f5e5=mul(&f5,&e5);
+ let mod2:Vec<Vec<u8>>=f5e5.iter().map(|row|row.iter()
+  .map(|x|if x.is_even(){0}else{1}).collect()).collect();
+ assert_eq!(mod2,vec![vec![0,0,0],vec![1,0,0],vec![0,0,0],vec![1,1,1],vec![0,0,0]]);
+ let mut rank5_parity=std::collections::BTreeMap::new();
+ for class in ["001","011","110"] {
+  let v:Vec<Vec<BigInt>>=class.bytes().map(|d|vec![BigInt::from(d-b'0')]).collect();
+  let odd=mul(&f5e5,&v).iter().any(|r|!r[0].is_even());
+  rank5_parity.insert(class,odd);
+ }
+ assert_eq!(rank5_parity.get("001"),Some(&true));
+ assert_eq!(rank5_parity.get("011"),Some(&false));
+ assert_eq!(rank5_parity.get("110"),Some(&true));
  json!({
   "rqt":702,"status":"EXACT BRANCH-2 5D TO 4D TO 3D CHAIN PASS",
   "det_P":"-1","det_F5":det(&f5).to_string(),
@@ -114,6 +135,8 @@ fn certify()->Value{
   "r18_rank5_parity":parity,"r18_rank5_norm":"-2",
   "r18_rank5_pairing_gcd":pairing_content.to_string(),
   "r18_rank5_primitive":true,"root17_wall_row_times_r18":"0",
+  "E5_5x3_maximal_minor_gcd":e5_content.to_string(),
+  "F5E5_mod2":mod2,"rank5_odd_pairing_by_class":rank5_parity,
   "original_22d_embedding":"PENDING",
   "full_17_root_chain_replay":"PENDING",
   "root19_status":"OPEN"

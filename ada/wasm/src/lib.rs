@@ -67,3 +67,11 @@ mod typed_tests {
 }
 
 pub mod clock;
+
+pub mod memory;
+
+pub mod geometry;
+
+pub mod pumps;
+
+pub mod inheritance;

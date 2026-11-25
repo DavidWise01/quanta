@@ -1,0 +1,25 @@
+name: ADA WebAssembly verification
+on:
+  push:
+    paths:
+      - 'ada/wasm/**'
+      - 'ada/rust/**'
+      - '.github/workflows/ada-wasm.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: rustup target add wasm32-unknown-unknown
+      - run: cargo test --manifest-path ada/rust/Cargo.toml
+      - run: cargo test --manifest-path ada/wasm/Cargo.toml
+      - run: cargo build --release --target wasm32-unknown-unknown --manifest-path ada/wasm/Cargo.toml
+      - run: |
+          node -e 'const fs=require("fs"); WebAssembly.instantiate(fs.readFileSync("ada/wasm/target/wasm32-unknown-unknown/release/ada_browser.wasm")).then(({instance:{exports:e}})=>{if(e.ada_abi_version()!==1||e.ada_growth_numerator()!==41||e.ada_growth_denominator()!==40||e.ada_prefer(100,4,2,2,2)!==-1||e.ada_prefer(100,2,2,4,2)!==1||e.ada_prefer(99,4,2,4,2)!==0||e.ada_prefer(100,37,0,0,0)!==-2)throw Error("ABI mismatch"); console.log("WASM scalar smoke pass")}).catch(e=>{console.error(e);process.exit(1)})'
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ada-browser-wasm
+          path: ada/wasm/target/wasm32-unknown-unknown/release/ada_browser.wasm

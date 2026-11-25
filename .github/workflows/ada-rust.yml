@@ -1,0 +1,16 @@
+name: ADA Rust verification
+on:
+  push:
+    paths:
+      - 'ada/rust/**'
+      - '.github/workflows/ada-rust.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: rustc --version && cargo --version
+      - run: cargo test --manifest-path ada/rust/Cargo.toml

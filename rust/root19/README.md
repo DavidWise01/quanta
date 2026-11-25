@@ -149,3 +149,24 @@ Run `cargo test --bin rqt701` or `cargo run --release --bin rqt701`. Independent
 Historical source anchors: [stoicheion RQT-242](https://github.com/DavidWise01/stoicheion/blob/main/research/rqt/RQT-242-rank-four-residual.md), [quanta RQT-386](../../research/rqt386-exact-null-and-root-candidate.py), and [RQT-388](../../research/rqt388-exact-second-key.py).
 
 **Boundary:** This certifies the 4D F4/H4 branch's predecessor and rank-three kernel, **not** its original 22D frozen-root embedding, its whole 17-root reflection ancestry, or an integer nineteenth root. Root19 is OPEN.
+
+## RQT-702 — source-pinned original Branch-2 rank-five ancestry
+
+The RQT-701 recovered predecessor now has an **exact coordinate link** to the published Stoicheion Branch-2 rank-five lattice, without assuming an unverified 22D embedding.
+
+Sources:
+- [stoicheion RQT-239](https://github.com/DavidWise01/stoicheion/blob/main/research/rqt/RQT-239-global-integral-root-existence.md) provides a unimodular 5×5 basis `P` and reduced Gram `J`, reconstructing `F5 = P^{-T} J P^{-1}`.
+- [stoicheion RQT-242](https://github.com/DavidWise01/stoicheion/blob/main/research/rqt/RQT-242-rank-four-residual.md) provides saturated 5×4 basis `C` and the original 17th-root Wall row.
+- [quanta RQT-388](../../research/rqt388-exact-second-key.py) provides reduced saturated 4×3 basis `B` and ternary Gram `Q`.
+
+Exact identities: `Pᵀ F5 P = J`, `Cᵀ F5 C = F4`, `Bᵀ F4 B = Q`, `det P = −1`, and gcd of 4×4 minors of C is **1**.
+
+Define `r18_5 = C r18_4` where `r18_4` is recovered through signed cofactors of `Bᵀ H4`. Then `r18_5ᵀ F5 r18_5 = −2`, `gcd(r18_5) = 1`, `gcd(F5 r18_5) = 1`, the original RQT-242 root17 Wall row pairs to **0**, and parity is `10010`. The source verifier reports exact five-coordinate values; no derived integer is truncated.
+
+Run:
+```bash
+cargo test --bin rqt702
+cargo run --release --bin rqt702
+```
+
+The 5D ancestry bridge is exact, but the original **22×5 ambient embedding**, whole frozen 17-root chain, full 22D divisibility/Wall compatibility, and an **actual Root 19** remain unverified. Do not relabel the vector as a historically certified eighteenth reflection solely from this bridge.

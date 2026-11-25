@@ -20,8 +20,12 @@ jobs:
       - name: Test exact invariants
         run: cargo test --verbose
       - name: Run bounded source verifier
-        run: cargo run --release -- 3000 > rqt688-results.json
+        run: cargo run --release --bin rqt-root19 -- 3000 > rqt688-results.json
+      - name: Bounded rational point scan (Rust)
+        run: cargo run --release --bin rqt689 -- 33 1000 > rqt689-results.json
       - uses: actions/upload-artifact@v4
         with:
           name: rqt688-rust-results
-          path: rust/root19/rqt688-results.json
+          path: |
+            rust/root19/rqt688-results.json
+            rust/root19/rqt689-results.json

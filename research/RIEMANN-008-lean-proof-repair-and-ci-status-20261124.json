@@ -1,0 +1,86 @@
+{
+  "schema": "root0.quanta.lean-qualification-audit/1",
+  "id": "RIEMANN-008-LEAN-PROOF-REPAIR-20261124",
+  "recorded_date": "2026-11-24",
+  "status": "LEAN_PROOF_SOURCE_HARDENED_THEOREM_STATEMENTS_UNCHANGED_CI_HOLD",
+  "scope": "Toroidal universe method verification, not Riemann Hypothesis proof research",
+  "sources": {
+    "upstream": {
+      "repository": "DavidWise01/positronic-law",
+      "path": "ToroidalBlackHoleDynamics_v084.lean",
+      "pinned_commit": "eae5bcd04eec5aeb2a01553c973913ea88488bdf",
+      "blob": "85db7f9b460679bf70570e32de25385e3e555eec",
+      "changed": false
+    },
+    "companion": {
+      "repository": "DavidWise01/quanta",
+      "path": "research/riemann006/Riemann006.lean",
+      "previous_blob": "a99963e20738026703afc275fe7263afa6d9218b",
+      "current_blob": "52a5b6f2b8b0c8656c9248a50c6b96171489263c",
+      "repair_commit": "966a2a5941beed1d3140f7af4a95dc7c9087c54d",
+      "theorems": 16,
+      "signatures_unchanged": true
+    },
+    "workflow": {
+      "path": ".github/workflows/riemann006-lean-global-closure.yml",
+      "blob": "1eedcf911c661ee34faadf9f0b805ad54b92ccf6",
+      "toolchain": "leanprover/lean4:v4.36.0",
+      "release_verification": "GitHub Lean 4 v4.36.0 release dated November 16 2026",
+      "changed": false
+    }
+  },
+  "repairs": [
+    {
+      "target": "whole_state_iff_components",
+      "change": "Replace optional rcases destructuring with base Lean obtain; preserve proposition"
+    },
+    {
+      "target": "c2_channels_do_not_return",
+      "change": "Replace decide applied at hypothesis with explicit definally reduced Int equality and decidable contradiction"
+    },
+    {
+      "target": "nonreturn_is_not_full_closure",
+      "change": "Project theta from positional equality and explicitly contradict 17 != 0"
+    }
+  ],
+  "readback_checks": {
+    "old_new_source_loaded": true,
+    "theorem_declarations_before": 16,
+    "theorem_declarations_after": 16,
+    "theorem_signatures_identical": true,
+    "fragile_tactic_occurrences_before": 3,
+    "fragile_tactic_occurrences_after": 0,
+    "source_blob_readback": true
+  },
+  "ci_access": {
+    "queries": [
+      {
+        "commit": "966a2a5941beed1d3140f7af4a95dc7c9087c54d",
+        "commit_status_records": 0,
+        "pull_request_run_records": 0
+      },
+      {
+        "commit": "686142188aa8733f8f8ed5da7c3e4b68107225f3",
+        "commit_status_records": 0,
+        "pull_request_run_records": 0
+      }
+    ],
+    "limit": "GitHub workflow run accessor is restricted to pull_request triggers and cannot verify push or workflow_dispatch runs; combined legacy status API does not enumerate GitHub Actions check runs",
+    "public_workflow_web": "not accessible through browsing",
+    "local_lean_binary": "not installed",
+    "local_container_github_network": "DNS unavailable",
+    "run_id": null,
+    "job_id": null,
+    "compiler_log": null,
+    "artifact": null,
+    "conclusion": "NOT_OBSERVED"
+  },
+  "meaning": {
+    "proven": "The sixteen theorem statements were preserved exactly across the repair; source files are Git-readback identical to reported SHA values",
+    "not_proven": "Lean kernel compilation of either upstream or companion; final theorem acceptance, reproducibility of the CI workflow",
+    "methodological_invariant": "A local rotation, coordinate equivalence and global return are distinct. A source-text check is not formal proof."
+  },
+  "next_bound": "RIEMANN-009: use an authorized route to fetch push-run ID and compile logs, or independently compile pinned source with Lean 4.36.0. Only then freeze a PASS. If compilation fails, repair companion and recheck, preserving original source.",
+  "append_only": true,
+  "mark": ".dlw"
+}

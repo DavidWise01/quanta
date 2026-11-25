@@ -38,3 +38,18 @@ Source: RQT-388 root19 kernel data (archived in the research artifacts). Prior s
 The additional `src/bin/rqt689.rs` executable searches `v=(x,y,z)/d` with odd primitive denominator `1<=d<=d_max` and `1<=y<=y_max`, under the inherited strict rational cone. It checks the exact homogeneous identity `(x,y,z)^T Q (x,y,z)=-2d²`, rejects impossible modular square discriminants, and reports all exact witnesses. Even primitive denominators are excluded by RQT-687's mod-8 obstruction. The search is **bounded**; zero hits is not a proof of global nonexistence. Use `cargo run --release --bin rqt689 -- 33 1000`.
 
 The two binaries share the source fixture and perform exact calculations. The workflow now tests both and uploads both JSON results. An Actions execution, not merely committed code, is required to claim compiled/tested status.
+
+## RQT-690 — conditional rational point constructor
+
+`src/bin/rqt690.rs` implements the exact identity on `H=diag(Q,2)`:
+
+`T_p(w)=H(w)p - 2 B(p,w) w`, with `B(p,w)=pᵀ H w`.
+
+If a verified null seed `p=(x,y,z,d)` with `d ≠ 0` exists, this generates more exact rational solutions, normalizes their integer coordinates and checks every homogeneous norm identity. Without a seed it exits nonzero, and it **never fabricates** an authentic rational witness. GitHub Actions tests the invalid-seed gate and runs Rust unit tests, including a synthetic-seed proof of the algebraic identity. The mathematical existence theorem does not supply explicit seed coordinates.
+
+```bash
+cargo test --bin rqt690
+cargo run --release --bin rqt690 -- 0 0 0 1  # expected REJECT; not a root
+```
+
+To construct original-source rational points, supply four exact integers for a *separately certified* primitive null seed. A reduced rational point still does not establish the original 22D divisibility-one root or frozen reflection chain.

@@ -1,0 +1,91 @@
+{
+  "schema": "root0.quanta.lean-proof-qualification/1",
+  "id": "RIEMANN-006-LEAN-GLOBAL-CLOSURE-QUALIFICATION-20261124",
+  "recorded_date": "2026-11-24",
+  "goal": "Formally distinguish channel, coordinate, radial and full coupled-state closure using original triple-torus Lean definitions; user researches methodology and toroidal universes, not the Riemann Hypothesis.",
+  "source": {
+    "repo": "DavidWise01/positronic-law",
+    "path": "ToroidalBlackHoleDynamics_v084.lean",
+    "pinned_commit": "eae5bcd04eec5aeb2a01553c973913ea88488bdf",
+    "expected_git_blob_sha1": "85db7f9b460679bf70570e32de25385e3e555eec",
+    "connector_readback_at_pin": "MATCH"
+  },
+  "created": [
+    {
+      "repo": "DavidWise01/quanta",
+      "path": "research/riemann006/Riemann006.lean",
+      "git_blob_sha": "a99963e20738026703afc275fe7263afa6d9218b",
+      "commit": "b8861b9142e9fcfd7b9e04bc8a5b67ffd3987d9e",
+      "status": "COMMITTED_SOURCE_READBACK_PASS"
+    },
+    {
+      "repo": "DavidWise01/quanta",
+      "path": ".github/workflows/riemann006-lean-global-closure.yml",
+      "git_blob_sha": "1eedcf911c661ee34faadf9f0b805ad54b92ccf6",
+      "commit": "686142188aa8733f8f8ed5da7c3e4b68107225f3",
+      "status": "COMMITTED_SOURCE_READBACK_PASS"
+    }
+  ],
+  "proof_obligations": [
+    {
+      "name": "whole_state_iff_components",
+      "statement": "Whole CoupledState equality iff radius, position and channels are all equal"
+    },
+    {
+      "name": "three_step_full_return_iff_radius_and_position",
+      "statement": "Three-step channel-return theorem narrows complete-state return to radius and position equality"
+    },
+    {
+      "name": "c1_channels_return; c1_position_does_not_return; c1_global_return_fails",
+      "statement": "3 rotations close six channels while coordinate and entire state fail to return"
+    },
+    {
+      "name": "c2_coordinates_return; c2_channels_do_not_return; c2_global_return_fails",
+      "statement": "One 360+360 step returns two wrapped coordinates but not channel ordering or full state"
+    },
+    {
+      "name": "c3_whole_state_returns",
+      "statement": "At fixed horizon with 3×120-degree steps on both coordinates, sample complete state returns"
+    },
+    {
+      "name": "c5_theta_closes; c5_phi_open; c5_not_globally_closed",
+      "statement": "Closure in only one coordinate does not close two-coordinate state"
+    },
+    {
+      "name": "c6_unwrapped_address_not_identical",
+      "statement": "Modulo-angle equivalence for an initially unwrapped address is weaker than original raw state equality"
+    },
+    {
+      "name": "homeostasis_of_channels; nonreturn_preserves_homeostasis; nonreturn_is_not_full_closure",
+      "statement": "A homeostatic channel configuration remains homeostatic during a nonreturning state transition"
+    }
+  ],
+  "ci": {
+    "toolchain": "leanprover/lean4:v4.36.0",
+    "upstream_blob_verification": "Git object SHA-1 hash of pinned original, fails closed on mismatch",
+    "commands": [
+      "lean -o ToroidalBlackHoleDynamics_v084.olean ToroidalBlackHoleDynamics_v084.lean",
+      "LEAN_PATH=\"$PWD\" lean ../research/riemann006/Riemann006.lean"
+    ],
+    "retained_artifact_name": "riemann006-pinned-lean-verification",
+    "source_readback": true,
+    "run_id": null,
+    "job_logs_read": false,
+    "artifact_retrieved": false,
+    "conclusion": "HOLD_UNVERIFIED"
+  },
+  "safety_and_claims": [
+    "No upstream original Lean file was modified.",
+    "A committed Lean file with theorem statements is not a completed kernel check.",
+    "No local lean executable available in current container; original and companion have not been independently compiled.",
+    "CI source verified by connector readback, actual workflow result not verified.",
+    "The file proves software-level statements only if the checker compiles it; it does not prove physical black holes, toroidal cosmology, or RH.",
+    "GitHub Pages is not updated; tests are in research and CI."
+  ],
+  "prior_evidence": "research/RIEMANN-005-toroidal-global-closure-counterexamples-20261124.json",
+  "next": "RIEMANN-007: obtain CI push-run job logs, fix any Lean syntax/proof issues only in the new companion, read artifact, then freeze exact compiled theorem hashes with qualification; never infer pass from workflow existence.",
+  "protocol": {
+    "append_only": true,
+    "watermark": ".dlw"
+  }
+}

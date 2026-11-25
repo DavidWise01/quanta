@@ -37,6 +37,16 @@ jobs:
           receipt={"schema":"ADA-281N.package.v1","source_commit":os.environ["GITHUB_SHA"],"toolchain":subprocess.check_output(["rustc","+1.85.1","-Vv"],text=True),"sha256":hashlib.sha256(p.read_bytes()).hexdigest(),"bytes":p.stat().st_size,"double_build_equal":True,"parity":json.loads(pathlib.Path("package/parity.json").read_text()),"authority":"OBSERVE_ONLY","watermark":".dlw"}
           pathlib.Path("package/manifest.json").write_text(json.dumps(receipt,indent=2)+"\n")
           PY
+      - name: Chromium acceptance against staged package
+        run: |
+          mkdir -p ada/wasm/package
+          cp package/* ada/wasm/package/
+          npm install --no-save --package-lock=false playwright@1.51.1
+          npx playwright install --with-deps chromium
+          python3 -m http.server 8765 --bind 127.0.0.1 > /tmp/ada-http.log 2>&1 &
+          for i in $(seq 1 30); do curl -fsS http://127.0.0.1:8765/ada/wasm/package/manifest.json >/dev/null && break; sleep 1; done
+          node ada/wasm/chromium-acceptance.mjs > package/chromium.json
+          cat package/chromium.json
       - uses: actions/upload-artifact@v4
         with:
           name: ada-281n-wasm-package

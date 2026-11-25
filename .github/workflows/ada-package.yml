@@ -1,0 +1,43 @@
+name: ADA reproducible WASM package
+on:
+  push:
+    paths:
+      - 'ada/wasm/**'
+      - 'ada/rust/**'
+      - '.github/workflows/ada-package.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  package:
+    runs-on: ubuntu-24.04
+    env:
+      RUSTFLAGS: '--remap-path-prefix=/home/runner/work/quanta/quanta=/source'
+      CARGO_INCREMENTAL: '0'
+    steps:
+      - uses: actions/checkout@v4
+      - run: rustup toolchain install 1.85.1 --profile minimal --target wasm32-unknown-unknown
+      - run: cargo +1.85.1 test --manifest-path ada/rust/Cargo.toml
+      - run: cargo +1.85.1 test --locked --manifest-path ada/wasm/Cargo.toml
+      - name: Double clean compilation
+        run: |
+          for dir in build-a build-b; do
+            CARGO_TARGET_DIR="$RUNNER_TEMP/$dir" cargo +1.85.1 build --locked --release --target wasm32-unknown-unknown --manifest-path ada/wasm/Cargo.toml --lib
+          done
+          cmp "$RUNNER_TEMP/build-a/wasm32-unknown-unknown/release/ada_browser.wasm" "$RUNNER_TEMP/build-b/wasm32-unknown-unknown/release/ada_browser.wasm"
+      - name: Verify native parity and package
+        run: |
+          mkdir -p package
+          cp "$RUNNER_TEMP/build-a/wasm32-unknown-unknown/release/ada_browser.wasm" package/
+          cargo +1.85.1 run --locked --quiet --release --manifest-path ada/wasm/Cargo.toml --bin parity > native.tsv
+          node ada/wasm/parity.mjs package/ada_browser.wasm native.tsv > package/parity.json
+          python3 - <<'PY'
+          import hashlib,json,os,pathlib,subprocess
+          p=pathlib.Path("package/ada_browser.wasm")
+          receipt={"schema":"ADA-281N.package.v1","source_commit":os.environ["GITHUB_SHA"],"toolchain":subprocess.check_output(["rustc","+1.85.1","-Vv"],text=True),"sha256":hashlib.sha256(p.read_bytes()).hexdigest(),"bytes":p.stat().st_size,"double_build_equal":True,"parity":json.loads(pathlib.Path("package/parity.json").read_text()),"authority":"OBSERVE_ONLY","watermark":".dlw"}
+          pathlib.Path("package/manifest.json").write_text(json.dumps(receipt,indent=2)+"\n")
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ada-281n-wasm-package
+          path: package/

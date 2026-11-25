@@ -65,3 +65,5 @@ mod typed_tests {
     assert_eq!((ada_typed_version(),ada_epoch_size(),ada_memory_window()),(2,24,8));
  }
 }
+
+pub mod clock;

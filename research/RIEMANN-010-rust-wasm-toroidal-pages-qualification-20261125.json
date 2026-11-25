@@ -1,0 +1,105 @@
+{
+  "schema": "root0.quanta.rust-wasm-pages-qualification/1",
+  "id": "RIEMANN-010-RUST-WASM-TOROIDAL-PAGES-20261125",
+  "date": "2026-11-25",
+  "user_objective": "Continue Rust-native toroidal universe methodology and provide live GitHub Pages 3D-style neon visualization, without RH proof claims.",
+  "scope": "Finite source-derived CoupledState simulator; Rust is the calculation authority. 3D-looking Canvas2D projection is visualization, not proof of continuous topology or 4D physics.",
+  "source_reference": {
+    "repo": "DavidWise01/positronic-law",
+    "path": "ToroidalBlackHoleDynamics_v084.lean",
+    "pinned_commit": "eae5bcd04eec5aeb2a01553c973913ea88488bdf",
+    "blob": "85db7f9b460679bf70570e32de25385e3e555eec",
+    "modified": false
+  },
+  "rust_source": {
+    "main_crate": "research/riemann-rust",
+    "wasm_adapter": "research/riemann-wasm",
+    "compiler_pin": "1.85.1",
+    "wasm_target": "wasm32-unknown-unknown",
+    "third_party_rust_dependencies": 0
+  },
+  "pages": {
+    "viewer": "docs/riemann-rust/index.html",
+    "planned_public_url": "https://davidwise01.github.io/quanta/docs/riemann-rust/",
+    "root_navigation_link_in_place": true,
+    "root_homepage_preserved": true,
+    "gh_pages_http_reachability": "NOT_INDEPENDENTLY_TESTED",
+    "client_failed_load_behavior": "Explicit WASM HOLD with buttons disabled. No JS numerical fallback.",
+    "viewer_projections": "Three layered neon torus mesh projections with forward/reverse/shadow color keys, animated rotations and angle-linked markers."
+  },
+  "binary": {
+    "repo_path": "docs/riemann-rust/toroid.wasm",
+    "git_blob_sha1": "372e37e602a9c8a53360ca1989db138df1253bc2",
+    "decoded_bytes": 5520,
+    "wasm_magic_and_version": "0061736d01000000",
+    "exports": [
+      "memory",
+      "toroid_version",
+      "toroid_radius",
+      "toroid_theta",
+      "toroid_phi",
+      "toroid_closure_mask",
+      "toroid_forward_inner",
+      "__data_end",
+      "__heap_base"
+    ],
+    "binary_exists": true,
+    "binary_exports_verified_by_section7_parse": true,
+    "runtime_executed_independently": false
+  },
+  "committed_paths": [
+    {
+      "path": "research/riemann-wasm/Cargo.toml",
+      "blob": "712e3c87a4383af0a4b77f22935ccebf59fe2cb0"
+    },
+    {
+      "path": "research/riemann-wasm/src/lib.rs",
+      "blob": "b6058a07f0d98f7272466ffd5b95bd8fe7fa3db9"
+    },
+    {
+      "path": "research/riemann-wasm/smoke.mjs",
+      "blob": "6963f723ba6d7dcc254f1cd3e33524e65fcae77e"
+    },
+    {
+      "path": "research/riemann-wasm/README.md",
+      "blob": "30b7cb14c74603b8eb39d512780a8df2034e4603"
+    },
+    {
+      "path": "docs/riemann-rust/index.html",
+      "blob": "e5471746192f2419028f70cb5dd6a52d3574afb1"
+    },
+    {
+      "path": "docs/riemann-rust/toroid.wasm",
+      "blob": "372e37e602a9c8a53360ca1989db138df1253bc2"
+    },
+    {
+      "path": ".github/workflows/riemann010-rust-wasm-pages.yml",
+      "blob": "2d8c6fd4ed60bdd52a0d0268d7541c336675e4d7"
+    },
+    {
+      "path": "index.html",
+      "blob": "7486e91a7646283ebc35920fb915facafd8ff227"
+    }
+  ],
+  "validation": {
+    "repository_readback": "PASS",
+    "browser_inline_js_syntax": "PASS",
+    "wasm_magic": "PASS",
+    "wasm_export_section": "PASS",
+    "source_configuration_checks": "7/7",
+    "native_rust_test_compilation": "NOT_OBSERVED",
+    "actual_node_wasm_runtime_smoke": "NOT_OBSERVED",
+    "github_actions_logs": "NOT_OBSERVED",
+    "pages_deployment": "NOT_INDEPENDENTLY_VERIFIED"
+  },
+  "workflow": "Build uses pinned Rust toolchain, runs native Cargo tests for base and adapter, builds WASM, tests binary via Node smoke script, and commits only binary into existing Pages source tree; committed workflow definition not an observed completed run.",
+  "claim_limits": [
+    "WASM binary existence and export structure are observed, but binary's calculations were not independently executed in this session.",
+    "The new GitHub Actions workflow includes a runtime smoke test but its run result/logs have not been retrieved.",
+    "The expected Pages URL is not treated as a verified live deployment.",
+    "No claim of physical toroidal universe validation or Riemann Hypothesis proof."
+  ],
+  "next_bound": "RIEMANN-011: obtain authenticated GitHub Actions run ID and binary smoke logs, independently exercise browser and Pages, then freeze PASS if demonstrated; otherwise keep verification HOLD. Optional WebGL/Three.js rendering expansion should not remove Rust numerical authority.",
+  "append_only": true,
+  "watermark": ".dlw"
+}

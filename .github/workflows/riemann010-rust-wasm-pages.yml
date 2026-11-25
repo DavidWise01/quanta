@@ -59,6 +59,11 @@ jobs:
           assert len(raw)>256, 'too small to be compiled engine'
           print('WASM header and minimum length verified')
           PY
+      - name: Execute real WASM binary in Node.js
+        shell: bash
+        run: |
+          set -euo pipefail
+          node research/riemann-wasm/smoke.mjs docs/riemann-rust/toroid.wasm 2>&1 | tee /tmp/riemann010-evidence/wasm-runtime-smoke.log
       - name: Publish only compiled WASM asset into existing Pages tree
         shell: bash
         run: |

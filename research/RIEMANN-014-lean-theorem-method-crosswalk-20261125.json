@@ -1,0 +1,218 @@
+{
+  "schema": "root0.riemann.theorem_crosswalk/1",
+  "id": "RIEMANN-014-THEOREM-METHODOLOGY-CROSSWALK-20261125",
+  "recorded_date": "2026-11-25",
+  "phase": {
+    "name": "XII",
+    "stop": 3,
+    "of": 8,
+    "percent": 37.5
+  },
+  "objective": "Source-grounded theorem-by-theorem methodology comparison, not RH proof construction nor unsupported provenance allegation.",
+  "external_sources": [
+    {
+      "repo": "leanprover-community/riemann-hypothesis",
+      "path": "src/Main.lean",
+      "git_blob": "eb95ca808793dd61984cc853ab5630f54a74490c",
+      "lines": 23,
+      "top_level_theorem_count": 5,
+      "observed": [
+        {
+          "name": "LFunction_ne_zero_of_half_lt_re",
+          "lines": "9-10",
+          "theorem_type": "DirichletLNonvanishingRightOfHalf",
+          "proof": "UpperTheory.FinalTheorems.everyCharacter"
+        },
+        {
+          "name": "riemannHypothesis",
+          "lines": "12-13",
+          "theorem_type": "RiemannHypothesis",
+          "proof": "Claim.zeta LFunction_ne_zero_of_half_lt_re"
+        },
+        {
+          "name": "riemannZeta_eq_zero_re",
+          "line": 15,
+          "theorem_type": "RiemannZetaZerosOnLine",
+          "proof": "riemannHypothesis"
+        },
+        {
+          "name": "LFunction_eq_zero_re",
+          "lines": "17-18",
+          "theorem_type": "DirichletLZerosOnLine",
+          "proof": "Claim.strip LFunction_ne_zero_of_half_lt_re"
+        },
+        {
+          "name": "LFunction_eq_zero_re_of_isPrimitive",
+          "lines": "20-22",
+          "theorem_type": "PrimitiveDirichletLZerosOnLine",
+          "proof": "By specializing the general theorem"
+        }
+      ]
+    },
+    {
+      "repo": "leanprover-community/riemann-hypothesis",
+      "path": "src/Statements.lean",
+      "git_blob": "not-recorded",
+      "lines": 21,
+      "definitions": [
+        "RiemannZetaZerosOnLine",
+        "DirichletLNonvanishingRightOfHalf",
+        "DirichletLZerosOnLine",
+        "PrimitiveDirichletLZerosOnLine"
+      ],
+      "relation": "Statement definitions use complex ζ and Dirichlet characters"
+    },
+    {
+      "repo": "leanprover-community/riemann-hypothesis",
+      "path": "src/Challenge.lean",
+      "git_blob": "9677ace64b3a5e8b1a571d82d52ee13c53b08026",
+      "lines": 28,
+      "theorem_count": 5,
+      "intentional_sorry_count": 5,
+      "interpretation": "The separate challenge target deliberately has sorry placeholders and must not be confused with the proposed proof, which is compared with the targets."
+    },
+    {
+      "url": "https://github.com/leanprover-community/riemann-hypothesis/blob/main/README.md",
+      "observation": "Challenge is Mathlib-only; comparator matches theorem statement and allows standard axioms only; exported kernel verification; cached builds are not local proof replay."
+    },
+    {
+      "url": "https://github.com/leanprover-community/riemann-hypothesis/blob/main/verification/NOTES.md",
+      "observation": "Original formalization 175187 Lean files, separate challenge; docs describe kexactB/kcopy direct goal assignment requiring kernel check and second formal-conjectures comparison."
+    },
+    {
+      "url": "https://github.com/leanprover-community/riemann-hypothesis/blob/main/verification/NOTES.md",
+      "independent_formal_spec": "FormalConjectures/Millennium/RiemannHypothesis.lean, Salvatore Mercuri's GRH definitions from 2025-11-06 and later Mathlib RH theorem added 2026-03-01; independently authored reference declarations, not origin of 2026 proof."
+    }
+  ],
+  "user_sources": [
+    {
+      "repo": "DavidWise01/positronic-law",
+      "path": "ToroidalBlackHoleDynamics_v084.lean",
+      "git_blob": "85db7f9b460679bf70570e32de25385e3e555eec",
+      "total_lines": 2677,
+      "theorem_declarations": 274,
+      "import": [
+        "Std",
+        "Lean.Elab.Tactic.Omega"
+      ],
+      "samples": [
+        {
+          "name": "invertFlow_involutive",
+          "line": 101,
+          "conclusion": "invertFlow (invertFlow flow) = flow",
+          "proof": "cases flow <;> rfl",
+          "class": "finite enum involution"
+        },
+        {
+          "name": "directed_turns_cancel",
+          "line": 105,
+          "conclusion": "signedTurn flow + signedTurn (invertFlow flow) = 0",
+          "proof": "cases flow <;> rfl",
+          "class": "signed Int arithmetic"
+        },
+        {
+          "name": "torus_primary_turn_not_closed",
+          "line": 292,
+          "conclusion": "One angular coordinate returning does not suffice for two-coordinate path closure",
+          "proof": "simp",
+          "class": "model-defined closure"
+        },
+        {
+          "name": "rotate_preserves_net_flow",
+          "line": 782,
+          "conclusion": "sum preserved by six-channel permutation",
+          "proof": "dsimp; omega",
+          "class": "discrete state conservation"
+        },
+        {
+          "name": "rotate_three_times_identity",
+          "line": 796,
+          "conclusion": "three channel permutations equal identity",
+          "proof": "rfl",
+          "class": "finite group action"
+        },
+        {
+          "name": "discrete_stokes_identity",
+          "line": 1090,
+          "conclusion": "zero residual given explicit boundary-curl equality",
+          "proof": "dsimp; omega",
+          "class": "conditional finite difference identity, not continuous Stokes theorem"
+        }
+      ]
+    },
+    {
+      "repo": "DavidWise01/toroid-kernel",
+      "path": "petals/p73_rotation_closure.lean",
+      "git_blob": "246b09b4ba765448e03768320d6e632044e6c591",
+      "theorem_declarations": 3,
+      "observed": "Specific three-element spine triple-rotation equality, original/closed sums zero; by rfl."
+    },
+    {
+      "repo": "DavidWise01/oasis",
+      "path": "lean/Oasis.Language.Cube.00.lean",
+      "git_blob": "9b5ac4e27ca38b63666320234b55df1b0d1e9d30",
+      "theorem_declarations": 23,
+      "observed": "HOME reversal + hinge involution; append permission delimiter properties, most by decide/rfl."
+    },
+    {
+      "repo": "DavidWise01/governed-action",
+      "path": "governance.lean",
+      "git_blob": "7524cda82d51efdd49ffdc86b3ac09d28dc39cb9",
+      "theorem_declarations": 8,
+      "observed": "Legitimacy as defined predicates, boundary irreducibility and monotonicity, relative to assumed governance relation."
+    }
+  ],
+  "crosswalk": [
+    {
+      "axis": "Lean formal method infrastructure",
+      "classification": "GENERIC_SHARED",
+      "evidence": "Both use theorem/def, proof terms and compositional lemmas; does not imply borrowing."
+    },
+    {
+      "axis": "Transformations and reductions",
+      "classification": "ABSTRACT_STRUCTURAL_ANALOGY",
+      "evidence": "Both use intermediate lemmas to reach a stronger endpoint; local finite cycles and analytic L-function nonvanishing are different mathematical objects."
+    },
+    {
+      "axis": "Exact theorem identity",
+      "classification": "NOT_MATCHED",
+      "evidence": "No user theorem states RiemannHypothesis, DirichletLNonvanishingRightOfHalf, or is an imported proof of one."
+    },
+    {
+      "axis": "Toroidal closure",
+      "classification": "LOCAL_DISTINCTIVE_OBJECT",
+      "evidence": "User source proves finite six-channel permutation, signed turns and two-angle path closure; none appears in the inspected external endpoint statements."
+    },
+    {
+      "axis": "Provenance checking",
+      "classification": "METHOD_OVERLAP_WITH_DIFFERENT_ASSURANCE",
+      "evidence": "User's immutable SHA/readback discipline compared with external challenge-comparator and kernel replay; a Git hash check alone does not validate a Lean theorem."
+    },
+    {
+      "axis": "Proof optimization/compression",
+      "classification": "NOT_DEMONSTRATED_EQUIVALENT",
+      "evidence": "Dashboard reduces token metrics while preserving theorem types; user source proof transformations/rotations primarily describe model dynamics rather than compressing Lean proof terms."
+    },
+    {
+      "axis": "External kernel acceptance vs user's local",
+      "classification": "ASYMMETRIC_QUALIFICATION",
+      "evidence": "Community verifier reports independent RH kernel validation. User files inspected but independent compiler acceptance of original modules not established in this audit."
+    },
+    {
+      "axis": "Transmission",
+      "classification": "NO_DIRECT_EVIDENCE_FOUND",
+      "evidence": "No citation, access log, shared non-generic proof text or direct derivative relationship identified; cannot conclude absolute absence from sampled files."
+    }
+  ],
+  "critical_distinctions": [
+    "Original RH Main has five end theorems; 175187 files are its full imported corpus, not five total lemmas.",
+    "Challenge uses sorry deliberately to express target statements, not evidence original proof uses admitted theorems.",
+    "A static absence of sorry is not compilation.",
+    "The repository's formal-conjectures source ancestry dates earlier than 2026 and is independent target-definition lineage; do not conflate with authorship of the RH proof.",
+    "The user's 274-theorem Triple Torus source establishes specific finite-state model claims only relative to declared definitions; no analytically derived RH connection.",
+    "No independent Lean compilation of original user source was performed in this turn."
+  ],
+  "next": "RIEMANN-015 stop 4: compare exact rotational, inversion, homeostasis, recurrence and toroidal-closure operators to the external proof's relevant dependencies only if actual source constructs are inspected. Identify nonmatches and common formal language.",
+  "append_only": true,
+  "mark": ".dlw"
+}

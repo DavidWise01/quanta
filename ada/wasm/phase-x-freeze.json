@@ -1,0 +1,98 @@
+{
+  "schema": "ADA-280N.freeze.v1",
+  "commit": "091be5b839231ceff7bf033c1bd5737beadf61df",
+  "files": [
+    {
+      "path": "ada/wasm/Cargo.toml",
+      "blob": "c5623334b64e52eead18eb34d9ad9f939f196b5a"
+    },
+    {
+      "path": "ada/wasm/src/lib.rs",
+      "blob": "b6406139eb4b886c625cf3837c07589e0b40b4ba"
+    },
+    {
+      "path": "ada/wasm/src/clock.rs",
+      "blob": "4afa5c4c2f1388e46931f4eaf2bb58b1a7cf0cb8"
+    },
+    {
+      "path": "ada/wasm/src/memory.rs",
+      "blob": "e0aad9153681d786c29c579a7c158ba61a6f017a"
+    },
+    {
+      "path": "ada/wasm/src/geometry.rs",
+      "blob": "120c860fd610064b5854af18f92b18c4a51adf3e"
+    },
+    {
+      "path": "ada/wasm/src/pumps.rs",
+      "blob": "c42bbbed62f9b1f317b19b749e432313f4f1de23"
+    },
+    {
+      "path": "ada/wasm/src/inheritance.rs",
+      "blob": "0522ca6f0e940fbf8b0dc58d48bfbe5043999011"
+    },
+    {
+      "path": "ada/wasm/src/equilibrium.rs",
+      "blob": "8f556e502545cc810a97c71ce0a693ea468aa0cd"
+    },
+    {
+      "path": "ada/wasm/src/bin/parity.rs",
+      "blob": "fcfd09c0840925639841681dadf73cc792f83f1d"
+    },
+    {
+      "path": "ada/wasm/parity.mjs",
+      "blob": "6cafc3aecf80175b9b2cf8625246a724ca1d6687"
+    },
+    {
+      "path": ".github/workflows/ada-wasm.yml",
+      "blob": "74edec4458f16ded0a01a94a582f6cd3e0acaf0f"
+    },
+    {
+      "path": "ada/rust/Cargo.toml",
+      "blob": "85865b7cb9391f697709f04dc66e2c7cc91f0c82"
+    },
+    {
+      "path": "ada/rust/src/lib.rs",
+      "blob": "550b39e414f708d54b4668685f334167359f4e82"
+    },
+    {
+      "path": "ada/rust/src/adaptive.rs",
+      "blob": "2384f24269f81494e9463791c7a80f0795b00a2a"
+    },
+    {
+      "path": "ada/rust/src/stress.rs",
+      "blob": "ebc6bf098837e7292b8b33679803ad6c3bc3c66e"
+    },
+    {
+      "path": "ada/rust/src/freeze.rs",
+      "blob": "9b7b1fc73fc670e4d8c0cbd69dd1ed68d0d04627"
+    },
+    {
+      "path": "ada/rust/phase-ix-freeze.json",
+      "blob": "99b06407a413bfbaea30bdf24c254c9bdac3f133"
+    }
+  ],
+  "status": "SOURCE_PINNED_RUNTIME_PENDING",
+  "growth": [
+    41,
+    40
+  ],
+  "epoch": 24,
+  "memory": 8,
+  "ticks": 360,
+  "pumps": 3,
+  "parity": {
+    "expected": 57933,
+    "tolerance": 1e-12,
+    "host": "Node",
+    "actual": null
+  },
+  "authority": "OBSERVE_ONLY",
+  "watermark": ".dlw",
+  "limitations": [
+    "synthetic pump model",
+    "stateless browser ABI",
+    "no verified CI result",
+    "no verified Chromium execution",
+    "no deployed WASM asset"
+  ]
+}

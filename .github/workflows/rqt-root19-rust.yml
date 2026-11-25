@@ -21,6 +21,8 @@ jobs:
         run: cargo test --verbose
       - name: Run bounded source verifier
         run: cargo run --release --bin rqt-root19 -- 3000 > rqt688-results.json
+      - name: Verify single 1131 universe snapshot
+        run: cargo run --release --bin rqt692 -- 4 > rqt692-snapshot.json
       - name: Verify canonical recursive grammar
         run: cargo run --release --bin rqt691 -- 8 > rqt691-topology.json
       - name: Reject missing rational seed (fail-closed)
@@ -39,3 +41,4 @@ jobs:
             rust/root19/rqt688-results.json
             rust/root19/rqt689-results.json
             rust/root19/rqt691-topology.json
+            rust/root19/rqt692-snapshot.json

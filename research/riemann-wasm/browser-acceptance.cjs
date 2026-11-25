@@ -47,6 +47,8 @@ const cases = [
     assert.deepEqual(errors,[], 'no JavaScript errors');
     const canvas=await page.locator('#arena').evaluate(e=>({width:e.width,height:e.height}));
     assert.ok(canvas.width>200&&canvas.height>200,'canvas layout');
+    require('node:fs').mkdirSync('research/riemann-wasm/evidence',{recursive:true});
+    await page.screenshot({path:'research/riemann-wasm/evidence/accepted-viewer.png',fullPage:true});
     console.log('CHROMIUM ACCEPTANCE PASS: 6/6 cases, 30 flags, reset/step, canvas, zero errors');
   } finally { await browser.close(); }
 })().catch(err=>{console.error('CHROMIUM ACCEPTANCE FAIL:',err.stack||err);process.exit(1)});

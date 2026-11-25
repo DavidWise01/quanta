@@ -21,6 +21,13 @@ jobs:
         run: cargo test --verbose
       - name: Run bounded source verifier
         run: cargo run --release --bin rqt-root19 -- 3000 > rqt688-results.json
+      - name: Reject missing rational seed (fail-closed)
+        run: |
+          if cargo run --release --bin rqt690 -- 0 0 0 1 > rqt690-invalid.log 2>&1; then
+            echo 'ERROR: invalid rational seed accepted'
+            exit 1
+          fi
+          grep -q 'REJECT: supplied vector' rqt690-invalid.log
       - name: Bounded rational point scan (Rust)
         run: cargo run --release --bin rqt689 -- 33 1000 > rqt689-results.json
       - uses: actions/upload-artifact@v4

@@ -87,7 +87,7 @@ fn main() {
     }}
     println!("{}",serde_json::to_string_pretty(&json!({
         "rqt":690,"language":"Rust","method":"rational quadric projection from a certified seed",
-        "topology":"{1×[3×8 | n | (8×3)×1]}",
+        "topology":"{{brace[[box((torroid))]]}}^{{n}}^[[n]]^((n))",
         "certified_seed":emit_point(&q,&p),
         "derived_rational_points":points,
         "root19":"OPEN: no original 22D integral divisibility-one or reflection-chain certificate"

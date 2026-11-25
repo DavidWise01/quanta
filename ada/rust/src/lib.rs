@@ -96,3 +96,5 @@ mod tests {
 }
 
 pub mod adaptive;
+
+pub mod stress;

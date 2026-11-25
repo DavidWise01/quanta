@@ -1,0 +1,12 @@
+[package]
+name = "quanta-toroidal-wasm"
+version = "0.1.0"
+edition = "2021"
+publish = false
+
+[lib]
+crate-type = ["cdylib"]
+path = "src/lib.rs"
+
+[dependencies]
+quanta-toroidal-closure = { path = "../riemann-rust" }

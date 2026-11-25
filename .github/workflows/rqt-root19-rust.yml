@@ -21,6 +21,8 @@ jobs:
         run: cargo test --verbose
       - name: Run bounded source verifier
         run: cargo run --release --bin rqt-root19 -- 3000 > rqt688-results.json
+      - name: Verify immutable single-snapshot observation ledger
+        run: cargo run --release --bin rqt694 > rqt694-ledger.json
       - name: Verify deterministic temporal and spatial addresses
         run: cargo run --release --bin rqt693 -- 4 > rqt693-addresses.json
       - name: Verify single 1131 universe snapshot
@@ -45,3 +47,4 @@ jobs:
             rust/root19/rqt691-topology.json
             rust/root19/rqt692-snapshot.json
             rust/root19/rqt693-addresses.json
+            rust/root19/rqt694-ledger.json

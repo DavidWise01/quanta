@@ -1,0 +1,5 @@
+[package]
+name = "ada-quanta"
+version = "0.267.0"
+edition = "2021"
+[dependencies]

@@ -1,0 +1,27 @@
+name: RQT Root19 Rust Exact Verifier
+on:
+  push:
+    paths:
+      - 'rust/root19/**'
+      - '.github/workflows/rqt-root19-rust.yml'
+  workflow_dispatch:
+jobs:
+  rust-verify:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: rust/root19
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: Swatinem/rust-cache@v2
+        with:
+          workspaces: rust/root19
+      - name: Test exact invariants
+        run: cargo test --locked --verbose
+      - name: Run bounded source verifier
+        run: cargo run --locked --release -- 3000 > rqt688-results.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: rqt688-rust-results
+          path: rust/root19/rqt688-results.json

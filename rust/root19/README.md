@@ -94,3 +94,21 @@ cargo run --release --bin rqt692 -- 4
 ```
 
 The output is a structural JSON snapshot and is **not** evidence about physical cosmology, root-19 integral existence, or the original 22D reflection chain. Root 19 remains OPEN.
+
+## RQT-693 — deterministic temporal/surface/recursive addresses
+
+One immutable snapshot is indexed by `1/<time>/<face>/<position>/<T|B-path>`. This **does not** generate additional snapshots or duplicate the center.
+
+* Temporal channels are `past` (observes), `present` (deserves), `future` (reserves); the four ordered `1|1|3|1` bands are preserved with nested present payload `y[n(m)]`. Three inner symbols do not count as three separate times.
+* Face is one of the six observational **3D projected** faces; no claim is made that a 4D hypercube literally has six cubic facets (it has eight).
+* Position is one of the eight original named outer spatial nodes; the focus remains a single `CENTER{[(FOCUS)]}` and has no recursion.
+* Recursive addresses are a history of top (T) and bottom (B) branches; no branch is merged into a sibling.
+
+At depth `d`, there are `8 × 2^d` spatial branch leaves. For each leaf, there are `3 × 6` **observation-address views**, not distinct physical objects; at depth four this gives `128 × 18 = 2,304` distinct address strings in **one** snapshot. This is a structural bookkeeping result only.
+
+```bash
+cargo test --bin rqt693
+cargo run --release --bin rqt693 -- 4
+```
+
+This addresses the canonical `{{brace[[box((torroid))]]}}^{{n}}^[[n]]^((n))` grammar without replacing the authentic RQT-388 Gram matrix or asserting a norm −2 integer root. Root 19 remains OPEN.

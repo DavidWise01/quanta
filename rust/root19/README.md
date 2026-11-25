@@ -170,3 +170,20 @@ cargo run --release --bin rqt702
 ```
 
 The 5D ancestry bridge is exact, but the original **22×5 ambient embedding**, whole frozen 17-root chain, full 22D divisibility/Wall compatibility, and an **actual Root 19** remain unverified. Do not relabel the vector as a historically certified eighteenth reflection solely from this bridge.
+
+### RQT-702 rank-five successor parity recovery
+
+Using the exact 5×3 successor embedding `E5 = C B`, gcd of all maximal 3×3 minors is **1**. Its pairing map is
+
+```text
+F5 E5 mod 2 =
+0 0 0
+1 0 0
+0 0 0
+1 1 1
+0 0 0
+```
+
+Thus the norm-compatible classes **001 and 110 have odd F5 pairings**; **011 does not**. Crucially, **110 was even-pairing in F4 but odd-pairing in F5**, a direct demonstration that an F4-only parity gate cannot exclude it.
+
+This is an exact arithmetic statement about the published Branch-2 5D lattice, not an exclusion in the original 22D lattice. A true norm -2 vector of class 001 or 110 has pairing-divisibility one **in F5**. Class 011 may still pair oddly outside F5 in the original 22D lattice. RQT-702 neither constructs Root19 nor certifies the complete original 22D reflection ancestry.

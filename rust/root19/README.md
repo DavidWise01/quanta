@@ -2,9 +2,9 @@
 
 This is an **append-only Rust port** of the bounded, exact-arithmetic search over the recovered **RQT-388 saturated rank-three** kernel. It is not a claim that an integral root 19 has been constructed.
 
-Canonical Quanta orchestration topology (not the dimension of the Gram form):
+Canonical Quanta per-position grammar (not the dimension of the Gram form):
 
-`{1×[3×8 | n | (8×3)×1]}`
+`{{brace[[box((torroid))]]}}^{{n}}^[[n]]^((n))`
 
 The program loads the original reduced 3×3 Gram matrix and 4×3 basis from `data/RQT-388-root19-kernel-results.json`, checks symmetry, the exact identity `Q=BᵀF₄B`, the known mod-16 fingerprint, the primitive odd-denominator obstruction modulo 8, and performs an exact cone/discriminant scan with BigInt arithmetic.
 
@@ -27,7 +27,7 @@ The scanning gate is the necessary strict inequality `177065/100000 < x/y < 1786
 * A finite scan proves no root only within its specified coordinates.
 * A reduced norm -2 vector would still need the original integral lattice, divisibility-one, and ordered reflection-chain checks.
 * RQT-685 established rational existence for the reduced form; an **explicit rational witness** and **integral root 19** remain open.
-* The `3×8 | n | 8×3` topology organizes the inquiry; it is **not** a 48-dimensional substitute for the exact rank-three Gram matrix.
+* The eight named recursive spatial positions around `CENTER{[(FOCUS)]}` organize the inquiry; they are **not** a substitute for the authentic reduced rank-three Gram matrix.
 
 Source: RQT-388 root19 kernel data (archived in the research artifacts). Prior source checks: RQT-390, RQT-394, RQT-687.
 
@@ -53,3 +53,26 @@ cargo run --release --bin rqt690 -- 0 0 0 1  # expected REJECT; not a root
 ```
 
 To construct original-source rational points, supply four exact integers for a *separately certified* primitive null seed. A reduced rational point still does not establish the original 22D divisibility-one root or frozen reflection chain.
+
+## RQT-691 — corrected recursive spatial topology (canonical)
+
+The former `3×8 | n | (8×3)` layout was **incorrect** and is superseded. Every peripheral position contains the same **structural grammar**, not a numerical 3×8 array:
+
+```text
+{{brace[[box((torroid))]]}}^{{n}}^[[n]]^((n))
+
+upperleftrear{{|}}   centerupper{{|}}   upperrightfront{{|}}
+centerleftrear{{|}} CENTER{[(FOCUS)]}  centerrightfront{{|}}
+lowerleftrear{{|}}   centerlower{{|}}   lowerrightfront{{|}}
+
+Each | branches into two child | symbols:
+               |
+             /   \\
+          | top  | bottom
+           / \\      / \\
+          |   |    |   |  ...
+```
+
+The labels are **spatial names**; the 3×3 rendering above is a schematic ordering, not a claim all nine positions are coplanar. Each `|` emits a top-child and bottom-child `|`, each retaining its original spatial position and a distinct T/B ancestry address. The focus does not branch. For complete expansion the peripheral depth-`d` node count is `8×2^d` (one center is separate). No inference is made here about chemistry, the dimension of the original quadratic form, or root existence.
+
+`cargo run --release --bin rqt691 -- 8` checks these structural invariants. The previous rank-three arithmetic routines remain independent from this visualization/grammar layer.

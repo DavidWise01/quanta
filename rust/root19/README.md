@@ -112,3 +112,23 @@ cargo run --release --bin rqt693 -- 4
 ```
 
 This addresses the canonical `{{brace[[box((torroid))]]}}^{{n}}^[[n]]^((n))` grammar without replacing the authentic RQT-388 Gram matrix or asserting a norm −2 integer root. Root 19 remains OPEN.
+
+## RQT-694 — Temporal conservation and immutable snapshot observation ledger
+
+`src/bin/rqt694.rs` binds each observation address from RQT-693 to the same canonical frozen `1|1|3|1` snapshot, `y[n(m)]`, eight spatial roots, immutable `CENTER{[(FOCUS)]}`, and six observational projection faces. The literal 4D hypercube has eight cubic boundary cells; this remains distinct from the six projected 3D faces.
+
+A SHA-256 digest commits to the canonical snapshot definition. Each append-only observation includes a monotonic sequence index, ordered phase (past → present → future), validated `1/<time>/<face>/<position>/<T/B-path>` address, observation text, prior digest, and its own length-delimited SHA-256 record hash. A verification pass reconstructs the full chain and checks the immutable snapshot fingerprint. The sample ledger includes one observation per temporal role; it does **not** create multiple universe snapshots.
+
+Tests verify:
+* deterministic replay yields the same final digest;
+* retroactive phase ordering and a `CENTER` recursive address are rejected;
+* a changed observation or reordered log fails validation;
+* top/bottom branches, projected faces, temporal channels, and spatial roots do not alias.
+
+Run:
+```bash
+cargo test --bin rqt694
+cargo run --release --bin rqt694
+```
+
+**Scope:** This is a single-source software integrity audit, **not** independent external testimony or empirical validation of cosmology. It cannot prove or disprove the original lattice's integer norm −2 Root 19, which remains OPEN.

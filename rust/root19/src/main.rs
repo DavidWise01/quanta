@@ -151,7 +151,7 @@ fn main() {
     let result=scan(&q,max_y);
     println!("{}",serde_json::to_string_pretty(&json!({
         "rqt":688, "language":"Rust", "source":"RQT-388",
-        "topology":"{1×[3×8 | n | (8×3)×1]}",
+        "topology":"{{brace[[box((torroid))]]}}^{{n}}^[[n]]^((n))",
         "source_identity":"Q=B^T F4 B verified",
         "primitive_mod8_compatible_count":count,
         "primitive_parity_patterns":parity.into_iter().collect::<Vec<_>>(),

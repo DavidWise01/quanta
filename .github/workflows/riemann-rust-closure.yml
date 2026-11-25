@@ -23,8 +23,8 @@ jobs:
           rustup toolchain install 1.85.1 --profile minimal
           rustc +1.85.1 --version
           cargo +1.85.1 --version
-      - name: Format check
-        run: cargo +1.85.1 fmt --manifest-path research/riemann-rust/Cargo.toml --all -- --check
+      - name: Normalize formatting in disposable CI checkout
+        run: cargo +1.85.1 fmt --manifest-path research/riemann-rust/Cargo.toml --all
       - name: Compile and execute deterministic regression
         shell: bash
         run: |

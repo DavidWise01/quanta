@@ -1,0 +1,42 @@
+name: RIEMANN Rust toroidal closure regression
+
+on:
+  push:
+    paths:
+      - 'research/riemann-rust/**'
+      - '.github/workflows/riemann-rust-closure.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  deterministic-rust:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install pinned stable Rust toolchain
+        shell: bash
+        run: |
+          set -euo pipefail
+          rustup toolchain install 1.85.1 --profile minimal
+          rustc +1.85.1 --version
+          cargo +1.85.1 --version
+      - name: Format check
+        run: cargo +1.85.1 fmt --manifest-path research/riemann-rust/Cargo.toml --all -- --check
+      - name: Compile and execute deterministic regression
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p research/riemann-rust/evidence
+          cargo +1.85.1 test --manifest-path research/riemann-rust/Cargo.toml --all-targets --offline -- --nocapture 2>&1 | tee research/riemann-rust/evidence/tests.log
+          cargo +1.85.1 run --manifest-path research/riemann-rust/Cargo.toml --offline 2>&1 | tee research/riemann-rust/evidence/cases.log
+          printf 'Rust unit tests and CLI completed with exit 0\n' > research/riemann-rust/evidence/verdict.txt
+      - name: Upload regression receipts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: riemann-rust-closure-evidence
+          path: research/riemann-rust/evidence/
+          if-no-files-found: warn

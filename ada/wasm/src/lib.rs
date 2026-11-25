@@ -75,3 +75,5 @@ pub mod geometry;
 pub mod pumps;
 
 pub mod inheritance;
+
+pub mod equilibrium;

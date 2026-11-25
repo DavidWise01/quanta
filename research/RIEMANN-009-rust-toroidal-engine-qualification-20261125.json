@@ -1,0 +1,78 @@
+{
+  "schema": "root0.quanta.rust-port-qualification/1",
+  "id": "RIEMANN-009-RUST-TOROIDAL-ENGINE-20261125",
+  "date": "2026-11-25",
+  "request": "Switch methodology/toroidal universe implementation to Rust and publish in GitHub",
+  "status": "RUST_SOURCE_COMMITTED_READBACK_PASS;COMPILER_AND_CI_EXECUTION_HOLD",
+  "repository": "DavidWise01/quanta",
+  "rust_crate_root": "research/riemann-rust",
+  "files": [
+    {
+      "path": "research/riemann-rust/Cargo.toml",
+      "git_blob": "ae7eb4c45d976ec1ad6bf214e2b8c93ebdc33d4d"
+    },
+    {
+      "path": "research/riemann-rust/src/lib.rs",
+      "git_blob": "09d59d506665f5f1a16591abb58110887582c32e"
+    },
+    {
+      "path": "research/riemann-rust/src/main.rs",
+      "git_blob": "e682086843c53d11b01e0b37954ebc1bdde3c028"
+    },
+    {
+      "path": ".github/workflows/riemann-rust-closure.yml",
+      "git_blob": "a1644009e0502347ba2711adf004a00ca176810b"
+    },
+    {
+      "path": "research/riemann-rust/README.md",
+      "git_blob": "99850652d895fcacf33c8109d1dc9678cc258443"
+    }
+  ],
+  "source_reference": {
+    "repo": "DavidWise01/positronic-law",
+    "path": "ToroidalBlackHoleDynamics_v084.lean",
+    "commit": "eae5bcd04eec5aeb2a01553c973913ea88488bdf",
+    "blob": "85db7f9b460679bf70570e32de25385e3e555eec",
+    "modified": false
+  },
+  "design": {
+    "language": "Rust 2021",
+    "third_party_dependencies": 0,
+    "numeric_model": "u128 coordinates, radius; i64 individual velocities, widened i128 net sum",
+    "scope": "Finite CoupledState subset: radial clamp, modular two-angle advance, 3x2 channel permutation, homeostasis, component/global return",
+    "tests": 11,
+    "cli_scenarios": 6,
+    "regression_configurations": 52,
+    "regression_assertions_per_configuration": 4,
+    "arithmetic_boundary": "Modular arithmetic reduced before sum; handles u128 maximum without overflow",
+    "limitations": [
+      "Rust u128 is bounded; Lean Nat unbounded",
+      "Rust unit tests are empirical/software tests, not formal Lean kernel proof",
+      "No physical cosmology, black-hole or Riemann Hypothesis theorem claimed"
+    ]
+  },
+  "validation": {
+    "github_files_readback": 5,
+    "github_files_sha_matched": 5,
+    "source_configuration_checks": {
+      "passed": 8,
+      "total": 8
+    },
+    "rust_compiler_available_in_session": false,
+    "cargo_executable_available_in_session": false,
+    "github_actions_workflow_present": true,
+    "github_actions_compiler_run_observed": false,
+    "ci_conclusion": "HOLD_UNVERIFIED"
+  },
+  "commits": {
+    "cargo": "10024d8dd400ad9124898c5eabdcbd67800e499c",
+    "lib": "5b3d269aa9dfd24f256c3b6f899cc2f303445ce9",
+    "bin": "bef290ba33f9a1ba4fad969a6c07f794b5fbfa7e",
+    "ci_first": "512849e19e97170edb86b2910f8b60603d4f3041",
+    "ci_format_fix": "b9dafb3df0df214606d301bf91fa47e5815f14c7",
+    "readme": "fdafc151cc2e18d5427553e314120cc78c484020"
+  },
+  "next": "Obtain actual Rust 1.85.1 GitHub Actions workflow run ID, verify cargo test and CLI logs; fix Rust only if compiler complains, keeping Lean frozen. Then consider Rust/WASM for GitHub Pages interactive visualization as a separate explicit phase.",
+  "append_only": true,
+  "watermark": ".dlw"
+}

@@ -1,0 +1,81 @@
+{
+  "schema": "root0.quanta.browser-acceptance-qualification/1",
+  "id": "RIEMANN-011-CHROMIUM-TOROIDAL-ACCEPTANCE-20261125",
+  "date": "2026-11-25",
+  "scope": "Continue toroidal universe methodology in Rust/WASM and qualify live browser interaction without modifying original Lean or Rust kernel sources",
+  "artifacts": [
+    {
+      "path": "research/riemann-wasm/browser-acceptance.cjs",
+      "blob": "28602b65eae7f52c439608add3ad3f6290349f85",
+      "purpose": "Headless Chromium tests six scenarios, 30 closure flags, radius/theta/phi, reset, step, canvas, zero JS exceptions, screenshot"
+    },
+    {
+      "path": ".github/workflows/riemann011-chromium-acceptance.yml",
+      "blob": "74382f20de18b31a23a5657bc4a6935bd7d45008",
+      "purpose": "HTTP serves committed Pages subtree, executes actual WASM via node smoke, launches pinned Playwright Chromium, uploads evidence"
+    },
+    {
+      "path": "docs/riemann-rust/index.html",
+      "blob": "f533e442c4ec90eccb9dc59c08dfde68491efdb2",
+      "purpose": "HTML viewer, empty favicon removes false browser-console 404"
+    },
+    {
+      "path": "docs/riemann-rust/toroid.wasm",
+      "blob": "372e37e602a9c8a53360ca1989db138df1253bc2",
+      "purpose": "Pre-existing real 5520-byte Rust WebAssembly asset, magic and exports previously inspected"
+    },
+    {
+      "path": "research/riemann-wasm/smoke.mjs",
+      "blob": "6963f723ba6d7dcc254f1cd3e33524e65fcae77e",
+      "purpose": "Six case assertions using actual WASM binary"
+    }
+  ],
+  "checked_scenarios": [
+    "C1 channels return without coordinates and radius",
+    "C2 coordinates return without channels",
+    "C3 complete state returns at horizon",
+    "C4 homeostasis without return",
+    "C5 one angular coordinate returns",
+    "C6 normalized coordinate equivalent but raw state different"
+  ],
+  "source_readback": {
+    "pass": 9,
+    "total": 9,
+    "details": [
+      "browser source parses as JavaScript",
+      "viewer inline JavaScript parses",
+      "six browser scenarios declared",
+      "step and reset assertions present",
+      "screenshot evidence configured",
+      "WASM real runtime smoke configured in workflow",
+      "Chromium test configured in workflow",
+      "compiled WASM asset present at recorded blob SHA",
+      "inline favicon avoids noise"
+    ]
+  },
+  "execution": {
+    "local_node_available": true,
+    "local_wasm_binary_execution": "NOT_EXECUTED",
+    "reason": "GitHub connector returned binary via base64 but not mounted to local execution environment; container's outbound network DNS is disabled; no workflow job id or logs retrieved",
+    "chromium_run_status": "NOT_OBSERVED",
+    "chromium_screenshot_status": "NOT_RETRIEVED",
+    "live_pages_url": "https://davidwise01.github.io/quanta/docs/riemann-rust/",
+    "live_pages_browser_verification": "NOT_ACCESSIBLE_FROM_CURRENT_WEB_BROWSER_TOOL",
+    "final_acceptance": "HOLD"
+  },
+  "limits": [
+    "WASM format and exported symbols were source-inspected; not equivalent to executing WebAssembly.",
+    "CI file existence is not a completed CI result.",
+    "Browser source syntax/readback does not prove live DOM and Canvas acceptance.",
+    "No new claims of physical universe verification, Rust/Lean mathematical equivalence, or Riemann Hypothesis proof."
+  ],
+  "source_integrity": {
+    "upstream_lean_unchanged": true,
+    "rust_coupledstate_engine_unchanged": true,
+    "base_rust_test_contract_unchanged": true,
+    "quanta_main_page_preserved": true
+  },
+  "next": "RIEMANN-012: retrieve a real Chromium GitHub Actions run ID, six-case smoke logs and screenshot; on PASS freeze build and HTML provenance, on FAIL repair viewer/test without rewriting original Rust/Lean. Consider WebGL as optional projection-only enhancement.",
+  "append_only": true,
+  "mark": ".dlw"
+}

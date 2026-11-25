@@ -21,6 +21,13 @@ jobs:
         run: cargo test --verbose
       - name: Run bounded source verifier
         run: cargo run --release --bin rqt-root19 -- 3000 > rqt688-results.json
+      - name: RQT-699 full-22D gate rejects missing embedding
+        run: |
+          if cargo run --release --bin rqt699 > rqt699-hold.log 2>&1; then
+            echo 'ERROR: unauthenticated 22D inference accepted'
+            exit 1
+          fi
+          grep -q 'RQT-699 HOLD' rqt699-hold.log
       - name: Verify RQT-698 exact F4 pairing parity
         run: cargo run --release --bin rqt698 > rqt698-pairing-parity.json
       - name: Verify QG-077 Rust bridge

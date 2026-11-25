@@ -1,0 +1,24 @@
+{
+  "schema": "ADA-291N.evidence.v1",
+  "baseline": "45e4274a93fba47a62e1b93f1d7b40905b36c5d0",
+  "observed": {
+    "combined_status_entries": 0,
+    "pr_workflow_runs": 0,
+    "local_cargo": false,
+    "local_rustc": false,
+    "public_api": "DNS unavailable"
+  },
+  "limits": [
+    "Connector workflow discovery excludes push-triggered runs",
+    "Empty status list is not proof of failure or absence of execution"
+  ],
+  "qualification": {
+    "native": null,
+    "wasm": null,
+    "parity": null,
+    "chromium": null,
+    "pages": null
+  },
+  "status": "HOLD",
+  "watermark": ".dlw"
+}

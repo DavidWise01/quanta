@@ -76,3 +76,21 @@ Each | branches into two child | symbols:
 The labels are **spatial names**; the 3×3 rendering above is a schematic ordering, not a claim all nine positions are coplanar. Each `|` emits a top-child and bottom-child `|`, each retaining its original spatial position and a distinct T/B ancestry address. The focus does not branch. For complete expansion the peripheral depth-`d` node count is `8×2^d` (one center is separate). No inference is made here about chemistry, the dimension of the original quadratic form, or root existence.
 
 `cargo run --release --bin rqt691 -- 8` checks these structural invariants. The previous rank-three arithmetic routines remain independent from this visualization/grammar layer.
+
+## RQT-692 — Universe snapshot: `1 | 1 | 3 | 1`
+
+The canonical recursive node grammar from RQT-691 is now embedded into **one snapshot**, not a time-series simulation. User-specified temporal anatomy:
+
+- `1 | 1 | 3 | 1`: **past** | **present** | three nested symbols `y[n(m)]` | **future**. This is a representational interpretation of four ordered bands, not a claim of four independent timelines.
+- One hypercube **interior**, one immutable `CENTER{[(FOCUS)]}`, and exactly **one frozen snapshot**.
+- Six observed faces: front / back / left / right / top / bottom of the **3D observational projection**.
+- A literal mathematical 4D hypercube has **eight cubic boundary cells**, not six; the Rust model explicitly keeps these distinct.
+- Each of the eight named peripheral spatial positions retains its original recursive `{{|}}` with top and bottom child addresses, preserving the per-position grammar `{{brace[[box((torroid))]]}}^{{n}}^[[n]]^((n))`.
+- The governance semantics from the original project remain: **past observes, present deserves, future reserves**.
+
+```bash
+cargo test --bin rqt692
+cargo run --release --bin rqt692 -- 4
+```
+
+The output is a structural JSON snapshot and is **not** evidence about physical cosmology, root-19 integral existence, or the original 22D reflection chain. Root 19 remains OPEN.

@@ -1,0 +1,136 @@
+{
+  "id": "RIEMANN-012-ANCESTRY-AND-ROUTE-20261125",
+  "schema": "root0.riemann.evidence_walk/1",
+  "recorded_date": "2026-11-25",
+  "objective": "Compare RH formal proof verification/optimization methodology with DavidWise01 Lean/toroidal-universe corpus; not an RH proof attempt.",
+  "phase": {
+    "name": "XII",
+    "stops": 8,
+    "completed": 1,
+    "percent": 12.5
+  },
+  "walk": [
+    [
+      "1",
+      "Source ancestry & ownership",
+      "INITIAL BASELINE COMPLETE"
+    ],
+    [
+      "2",
+      "Chronology and first recorded source introductions",
+      "NEXT"
+    ],
+    [
+      "3",
+      "Lean declarations, trust and proof infrastructure",
+      "PLANNED"
+    ],
+    [
+      "4",
+      "Toroidal inversion, cyclic closure and invariants",
+      "PLANNED"
+    ],
+    [
+      "5",
+      "Recursive architecture and structural analogy",
+      "PLANNED"
+    ],
+    [
+      "6",
+      "Proof optimization, verification and independent replay",
+      "PLANNED"
+    ],
+    [
+      "7",
+      "Convergence versus transmission with counterevidence",
+      "PLANNED"
+    ],
+    [
+      "8",
+      "Final finding adjudication and immutable freeze",
+      "PLANNED"
+    ]
+  ],
+  "original_sources": [
+    {
+      "root": "Alpoge original",
+      "url": "https://alpo.ge/remark.pdf",
+      "released": "2026-11-20",
+      "basis": "Lean FRO and Mathlib Initiative November 21 public statement; origin must be kept separate from derivative proof-compression dashboard"
+    },
+    {
+      "root": "Lean FRO and Mathlib Initiative verifier",
+      "url": "https://leanprover-community.github.io/blog/posts/riemann-hypothesis/",
+      "published": "2026-11-21",
+      "report": "Compiler replay, comparison with Mathlib theorem, independent checkers; verification is not independent proof origination"
+    },
+    {
+      "root": "Riemann optimization dashboard",
+      "url": "https://riemann.verifytask.cn/",
+      "accessed": "2026-11-25",
+      "siteClaims": {
+        "corePillars": 39,
+        "subsetLeanFiles": 158055,
+        "totalLeanFiles": 175187
+      },
+      "caution": "Dashboard metrics are self-reported; not a blinded model or lineage benchmark"
+    },
+    {
+      "root": "DavidWise01/governed-action",
+      "path": "governance.lean",
+      "gitBlob": "7524cda82d51efdd49ffdc86b3ac09d28dc39cb9",
+      "introductionCommit": "cb689b0a486a0d09d46e132fb5206c47407b6d72",
+      "observedDate": "2026-07-02"
+    },
+    {
+      "root": "DavidWise01/toroid-kernel",
+      "path": "petals/p73_rotation_closure.lean",
+      "gitBlob": "246b09b4ba765448e03768320d6e632044e6c591",
+      "introductionCommit": "6cdb80a0f9dce3b90d53ed6f8ec7f8b7d17fc081",
+      "observedDate": "2026-09-12"
+    },
+    {
+      "root": "DavidWise01/positronic-law",
+      "path": "ToroidalBlackHoleDynamics_v084.lean",
+      "gitBlob": "85db7f9b460679bf70570e32de25385e3e555eec",
+      "introductionCommit": "eae5bcd04eec5aeb2a01553c973913ea88488bdf",
+      "observedDate": "2026-09-13",
+      "theoremDeclarations": 274
+    },
+    {
+      "root": "DavidWise01/oasis",
+      "path": "lean/Oasis.Language.Cube.00.lean",
+      "gitBlob": "9b5ac4e27ca38b63666320234b55df1b0d1e9d30",
+      "method": "Lean HOME reversal and toroidal palindrome"
+    }
+  ],
+  "findings": [
+    {
+      "claim": "Dated source material in the user's Lean corpus predates Alpoge November 20 public RH release",
+      "classification": "OBSERVED FOR SELECTED GIT RECORDS",
+      "limit": "Not proof of priority for every method or knowledge of anyone else's work"
+    },
+    {
+      "claim": "Original RH proof, its independent verification, and downstream compression telemetry are distinct evidence roots or roles",
+      "classification": "OBSERVED",
+      "limit": "Derivative mirrors do not become original independent inventions"
+    },
+    {
+      "claim": "GitHub and Pages duplicates of user's works are same ancestry",
+      "classification": "EVIDENCE PROTOCOL"
+    },
+    {
+      "claim": "Methodological influence or copying",
+      "classification": "UNRESOLVED",
+      "limit": "No dated transmission or direct access path shown"
+    }
+  ],
+  "next": "RIEMANN-013: collect primary dated change history for source methods and dashboard; create side-by-side earliest observed chronology with provenance weights.",
+  "rules": [
+    "Append-only records",
+    "Do not infer independent witnessing from mirrors",
+    "Distinguish observed method similarity from chronology and transmission",
+    "No physical cosmology or mathematical RH proof assertions derived from local finite models"
+  ],
+  "watermark": ".dlw"
+}

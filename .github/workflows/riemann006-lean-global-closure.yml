@@ -1,0 +1,63 @@
+name: RIEMANN-006 pinned original-source Lean closure verification
+
+on:
+  push:
+    paths:
+      - 'research/riemann006/Riemann006.lean'
+      - '.github/workflows/riemann006-lean-global-closure.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify-lean:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - name: Fetch and Git-blob-verify frozen upstream original
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p proof-temp
+          curl -fsSL --retry 3 \
+            https://raw.githubusercontent.com/DavidWise01/positronic-law/eae5bcd04eec5aeb2a01553c973913ea88488bdf/ToroidalBlackHoleDynamics_v084.lean \
+            -o proof-temp/ToroidalBlackHoleDynamics_v084.lean
+          python3 - <<'PY'
+          import hashlib, pathlib
+          p=pathlib.Path('proof-temp/ToroidalBlackHoleDynamics_v084.lean')
+          b=p.read_bytes()
+          sha=hashlib.sha1(b'blob '+str(len(b)).encode('ascii')+bytes([0])+b).hexdigest()
+          expected='85db7f9b460679bf70570e32de25385e3e555eec'
+          print('Upstream Git blob:',sha)
+          if sha != expected: raise SystemExit('SOURCE HASH MISMATCH')
+          PY
+      - name: Install exactly Lean v4.36.0
+        shell: bash
+        run: |
+          set -euo pipefail
+          curl -fsSL https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh -o /tmp/elan-init.sh
+          sh /tmp/elan-init.sh -y --default-toolchain leanprover/lean4:v4.36.0
+          echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
+      - name: Compile original module and independent companion
+        shell: bash
+        run: |
+          set -euo pipefail
+          export PATH="$HOME/.elan/bin:$PATH"
+          lean --version | tee proof-temp/toolchain.txt
+          cd proof-temp
+          lean -o ToroidalBlackHoleDynamics_v084.olean ToroidalBlackHoleDynamics_v084.lean 2>&1 | tee upstream-lean.log
+          LEAN_PATH="$PWD" lean ../research/riemann006/Riemann006.lean 2>&1 | tee companion-lean.log
+          printf 'Lean source module and RIEMANN-006 companion compiled\n' > verdict.txt
+      - name: Preserve exact compiler evidence
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: riemann006-pinned-lean-verification
+          path: |
+            proof-temp/toolchain.txt
+            proof-temp/upstream-lean.log
+            proof-temp/companion-lean.log
+            proof-temp/verdict.txt
+          if-no-files-found: warn

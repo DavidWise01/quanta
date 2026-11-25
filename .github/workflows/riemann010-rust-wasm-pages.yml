@@ -55,7 +55,7 @@ jobs:
           python3 - <<'PY'
           import pathlib
           raw=pathlib.Path('docs/riemann-rust/toroid.wasm').read_bytes()
-          assert raw[:4]==b'\\x00asm', 'not a WASM binary'
+          assert raw[:4]==b'\x00asm', 'not a WASM binary'
           assert len(raw)>256, 'too small to be compiled engine'
           print('WASM header and minimum length verified')
           PY
@@ -67,6 +67,7 @@ jobs:
           cp docs/riemann-rust/toroid.wasm "$wasm"
           git config user.name github-actions[bot]
           git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git reset --hard HEAD  # discard disposable rustfmt changes before switching to main
           for attempt in 1 2 3; do
             git fetch origin main
             git checkout -B main origin/main

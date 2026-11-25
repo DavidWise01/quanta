@@ -1,0 +1,110 @@
+{
+  "schema": "root0.quanta.lean-evidence-qualification/1",
+  "id": "RIEMANN-007-LEAN-COMPILER-EVIDENCE-GATE-20261124",
+  "recorded_date": "2026-11-24",
+  "scope": "Toroidal universe methods; verify existing RIEMANN-006 source and CI obligations; no RH theorem claim.",
+  "status": "SOURCE_PREFLIGHT_PASS_14_OF_14;LEAN_COMPILE_HOLD_UNVERIFIED",
+  "inputs": [
+    {
+      "repository": "DavidWise01/quanta",
+      "path": "research/riemann006/Riemann006.lean",
+      "blob": "a99963e20738026703afc275fe7263afa6d9218b"
+    },
+    {
+      "repository": "DavidWise01/positronic-law",
+      "path": "ToroidalBlackHoleDynamics_v084.lean",
+      "blob": "85db7f9b460679bf70570e32de25385e3e555eec",
+      "pinned_revision": "eae5bcd04eec5aeb2a01553c973913ea88488bdf"
+    },
+    {
+      "repository": "DavidWise01/quanta",
+      "path": ".github/workflows/riemann006-lean-global-closure.yml",
+      "blob": "1eedcf911c661ee34faadf9f0b805ad54b92ccf6"
+    }
+  ],
+  "tool_queries": {
+    "commit_statuses": [
+      {
+        "commit": "686142188aa8733f8f8ed5da7c3e4b68107225f3",
+        "endpoint": "get_commit_combined_status",
+        "returned_statuses": 0
+      },
+      {
+        "commit": "9f5803d7f5573cd54fdba1b2e6590e6fc544101d",
+        "endpoint": "get_commit_combined_status",
+        "returned_statuses": 0
+      }
+    ],
+    "pull_request_only_run_query": {
+      "queried_commit": "686142188aa8733f8f8ed5da7c3e4b68107225f3",
+      "returned_runs": 0,
+      "warning": "PR-only connector wrapper does not enumerate push-triggered workflow runs"
+    },
+    "direct_github_actions_page": "Unavailable: DisabledError via web",
+    "api_actions_endpoint": "Unavailable via web fetch",
+    "local_compiler_executable": "Not installed; verified by command -v lean and ~/.elan/bin absence",
+    "interpretation": "No job id, run id, log file or CI artifact has been retrieved. The absence of commit statuses does NOT imply that GitHub Actions did not execute."
+  },
+  "independent_static_gate": {
+    "method": "Fresh GitHub content reads; programmatic source-string, theorem declaration and CI configuration checks via JavaScript; syntax/semantics not verified by Lean",
+    "passed": 14,
+    "total": 14,
+    "checks": {
+      "source_import": true,
+      "expected_original_blob": true,
+      "channel_return_import": true,
+      "homeostasis_import": true,
+      "structured_coupledstate": true,
+      "companion_no_sorry": true,
+      "companion_no_admit": true,
+      "companion_no_axiom_declaration": true,
+      "companion_no_unsafe_declaration": true,
+      "positive_and_negative_cases": true,
+      "global_contract": true,
+      "ci_pinned_blob": true,
+      "ci_pinned_toolchain": true,
+      "ci_upload_artifact": true
+    },
+    "theorem_declarations_found": [
+      "whole_state_iff_components",
+      "three_step_full_return_iff_radius_and_position",
+      "c1_channels_return",
+      "c1_position_does_not_return",
+      "c1_global_return_fails",
+      "c2_coordinates_return",
+      "c2_channels_do_not_return",
+      "c2_global_return_fails",
+      "c3_whole_state_returns",
+      "c5_theta_closes",
+      "c5_phi_open",
+      "c5_not_globally_closed",
+      "c6_unwrapped_address_not_identical",
+      "homeostasis_of_channels",
+      "nonreturn_preserves_homeostasis",
+      "nonreturn_is_not_full_closure"
+    ],
+    "count": 16
+  },
+  "local_model_regression": {
+    "file": "/mnt/data/riemann005/regression.py",
+    "status": "Executed in this turn without process error",
+    "reference": "research/RIEMANN-005-toroidal-global-closure-counterexamples-20261124.json",
+    "bounded_assertions_reported_in_prior_evidence": 208,
+    "limitation": "Python discrete-transcription model does not establish Lean proof compilation."
+  },
+  "immutable_sources": [
+    "Original upstream Positronic Law source left untouched.",
+    "Existing RIEMANN-006 companion and workflow left untouched during this qualification review.",
+    "This document is appended instead of overwriting prior evidence."
+  ],
+  "claim_boundary": [
+    "14 of 14 source-level checks passed; NOT 14 Lean proof checks.",
+    "16 Lean theorem declarations observed, NOT 16 kernel-qualified proofs.",
+    "Unverified CI result must stay HOLD until authenticated job logs and compiler outputs read back.",
+    "Neither toroidal software closure nor source integrity establishes physical toroidal universe validation.",
+    "No asserted connection to a mathematical Riemann Hypothesis proof."
+  ],
+  "next_bound": "RIEMANN-008: obtain push-triggered run via supported GitHub Actions API or a separately linked run; inspect actual job steps and error logs, repair only companion proof source; qualify under the pinned 4.36.0 compiler after success. If cannot obtain, preserve HOLD and do not fabricate PASS.",
+  "append_only": true,
+  "mark": ".dlw"
+}

@@ -1,0 +1,67 @@
+{
+  "schema": "ADA-270N.freeze.v1",
+  "commit": "e82c9d5eea6da3d7eb62175b094ed931899dcff7",
+  "files": [
+    {
+      "path": "ada/rust/Cargo.toml",
+      "blob": "85865b7cb9391f697709f04dc66e2c7cc91f0c82"
+    },
+    {
+      "path": "ada/rust/src/lib.rs",
+      "blob": "550b39e414f708d54b4668685f334167359f4e82"
+    },
+    {
+      "path": "ada/rust/src/adaptive.rs",
+      "blob": "2384f24269f81494e9463791c7a80f0795b00a2a"
+    },
+    {
+      "path": "ada/rust/src/stress.rs",
+      "blob": "ebc6bf098837e7292b8b33679803ad6c3bc3c66e"
+    },
+    {
+      "path": "ada/rust/src/freeze.rs",
+      "blob": "9b7b1fc73fc670e4d8c0cbd69dd1ed68d0d04627"
+    },
+    {
+      "path": ".github/workflows/ada-rust.yml",
+      "blob": "cea01ec9040e7d467fb3dcf0c990e29746794be2"
+    },
+    {
+      "path": "ada/ada-261n-bounded-intent.mjs",
+      "blob": "cd85edaff74508bf4f91053cc91ccbdac1284d73"
+    },
+    {
+      "path": "ada/ada-262n-intent-candidates.mjs",
+      "blob": "febb8ac3cdb7fbb6d845b2a3c958f79b98a68a5d"
+    },
+    {
+      "path": "ada/ada-263n-intent-grounding.mjs",
+      "blob": "26d643e64ca2427beaf17bbdf77c3fc07144faba"
+    },
+    {
+      "path": "ada/ada-264n-intent-differentiation.mjs",
+      "blob": "143c37f98e13ff41e9d231e99ad27d94f1787ff8"
+    },
+    {
+      "path": "ada/ada-265n-intent-priority.mjs",
+      "blob": "46f05f2745fecacd8448c80ece054f9198801ead"
+    },
+    {
+      "path": "ada/ada-266n-prospective-consequences.mjs",
+      "blob": "4df0655820f166b38e8e4a6e5e74c1c79b651550"
+    }
+  ],
+  "status": "SOURCE_PINNED_ACCEPTANCE_PENDING",
+  "growth": [
+    41,
+    40
+  ],
+  "authority": "OBSERVE_ONLY",
+  "watermark": ".dlw",
+  "limitations": [
+    "synthetic inputs",
+    "native contextual parity incomplete",
+    "runtime not certified",
+    "WASM pending"
+  ]
+}

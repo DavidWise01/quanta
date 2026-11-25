@@ -90,7 +90,7 @@ fn exact_rational_scan(q: &[Vec<BigInt>], d_max: u64, y_max: u64) -> Value {
         }
     }
     json!({"rqt":689,"language":"Rust","source":"RQT-388 exact reduced Gram",
-        "topology":"{1×[3×8 | n | (8×3)×1]}",
+        "topology":"{{brace[[box((torroid))]]}}^{{n}}^[[n]]^((n))",
         "denominator_max":d_max,"denominator_policy":"primitive odd denominators only",
         "positive_y_max":y_max,"cone":"177065/100000 < x/y < 178600/100000",
         "candidate_dxy":tested,"modular_nonsquares":nonsquares,

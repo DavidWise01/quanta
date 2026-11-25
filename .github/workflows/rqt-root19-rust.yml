@@ -21,6 +21,8 @@ jobs:
         run: cargo test --verbose
       - name: Run bounded source verifier
         run: cargo run --release --bin rqt-root19 -- 3000 > rqt688-results.json
+      - name: Verify RQT-698 exact F4 pairing parity
+        run: cargo run --release --bin rqt698 > rqt698-pairing-parity.json
       - name: Verify QG-077 Rust bridge
         run: cargo run --release --bin rqt696 > rqt696-bridge.json
       - name: Verify immutable single-snapshot observation ledger
@@ -50,3 +52,4 @@ jobs:
             rust/root19/rqt692-snapshot.json
             rust/root19/rqt693-addresses.json
             rust/root19/rqt694-ledger.json
+            rust/root19/rqt698-pairing-parity.json

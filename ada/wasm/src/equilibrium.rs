@@ -47,3 +47,33 @@ mod tests{
  assert_eq!(at(24001),None);assert_eq!(ada_equilibrium_field(0,2),u32::MAX);
  }
 }
+
+// ADA-308N: cycle-aware replay; original at() remains the reference.
+pub fn at_cycle(g:u32)->Option<Equilibrium>{
+ if g>24000{return None;}
+ let epochs=Clock::at(g)?.epoch;
+ let period=360/EPOCH_SIZE as u32;
+ let mut p=Equilibrium::default();
+ if epochs==0{return Some(p);}
+ let histories:Vec<Vec<Option<usize>>>=(1..=period.min(epochs)).map(|e|{
+  let start=e*EPOCH_SIZE as u32;
+  (start-MEMORY_WINDOW as u32..start).map(dominant).collect()
+ }).collect();
+ if epochs<period{for h in &histories{p=adjust(p,h);}return Some(p);}
+ for _ in 0..epochs/period{
+  let before=p;
+  for h in &histories{p=adjust(p,h);}
+  if p==before{break;}
+ }
+ for h in histories.iter().take((epochs%period) as usize){p=adjust(p,h);}
+ Some(p)
+}
+#[cfg(test)]
+mod cycle_tests{
+ use super::*;
+ #[test] fn all_epoch_boundaries(){
+  for e in 0..=1000{let g=e*24;assert_eq!(at_cycle(g),at(g),"epoch {e}");if g<24000{assert_eq!(at_cycle(g+23),at_cycle(g));}}
+  assert_eq!(at_cycle(24001),None);
+  assert_eq!(at_cycle(u32::MAX),None);
+ }
+}

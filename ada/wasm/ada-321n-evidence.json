@@ -1,0 +1,117 @@
+{
+  "scope": "executed synthetic fixtures; no native or browser execution",
+  "python": "3.13.5",
+  "v5": {
+    "blob": "9ad374cfb5b99dff2972f95b98db4cb781b39b44",
+    "matched": 15
+  },
+  "v6": {
+    "blob": "f5a61e339709a528ebc6a3887a21136fc7ab2866",
+    "matched": 17
+  },
+  "cases": [
+    {
+      "name": "valid",
+      "expected_accept": true,
+      "v5_accept": true,
+      "v6_accept": true
+    },
+    {
+      "name": "missing",
+      "expected_accept": false,
+      "v5_accept": false,
+      "v6_accept": false
+    },
+    {
+      "name": "invalid JSON",
+      "expected_accept": false,
+      "v5_accept": false,
+      "v6_accept": false
+    },
+    {
+      "name": "null",
+      "expected_accept": false,
+      "v5_accept": false,
+      "v6_accept": false
+    },
+    {
+      "name": "array",
+      "expected_accept": false,
+      "v5_accept": false,
+      "v6_accept": false
+    },
+    {
+      "name": "failed status",
+      "expected_accept": false,
+      "v5_accept": false,
+      "v6_accept": false
+    },
+    {
+      "name": "wrong source",
+      "expected_accept": false,
+      "v5_accept": false,
+      "v6_accept": false
+    },
+    {
+      "name": "wrong binary",
+      "expected_accept": false,
+      "v5_accept": false,
+      "v6_accept": false
+    },
+    {
+      "name": "missing group",
+      "expected_accept": false,
+      "v5_accept": false,
+      "v6_accept": false
+    },
+    {
+      "name": "reordered groups",
+      "expected_accept": false,
+      "v5_accept": false,
+      "v6_accept": false
+    },
+    {
+      "name": "extra group",
+      "expected_accept": false,
+      "v5_accept": false,
+      "v6_accept": false
+    },
+    {
+      "name": "duplicate group",
+      "expected_accept": false,
+      "v5_accept": false,
+      "v6_accept": false
+    },
+    {
+      "name": "wrong type",
+      "expected_accept": false,
+      "v5_accept": false,
+      "v6_accept": false
+    },
+    {
+      "name": "extra field",
+      "expected_accept": false,
+      "v5_accept": false,
+      "v6_accept": false
+    },
+    {
+      "name": "missing field",
+      "expected_accept": false,
+      "v5_accept": false,
+      "v6_accept": false
+    },
+    {
+      "name": "duplicate JSON key",
+      "expected_accept": false,
+      "v5_accept": true,
+      "v6_accept": false
+    },
+    {
+      "name": "boolean parity error",
+      "expected_accept": false,
+      "v5_accept": true,
+      "v6_accept": false
+    }
+  ],
+  "watermark": ".dlw"
+}

@@ -1,0 +1,63 @@
+{
+  "schema": "ADA-311N.reproduction.v1",
+  "baseline": "942e69298b57503e58215e523d17d68aec683e02",
+  "environment": {
+    "node": "v22.16.0",
+    "python": "3.13.5",
+    "cargo_on_path": false,
+    "rustc_on_path": false
+  },
+  "verified_git_blobs": {
+    "reference-schema.mjs": "f834f31dae5c10894e8aa283cc2781db3f236233",
+    "reference-schema.test.mjs": "dbe1ae0e1848e9883e72bc02c96deeaa24a91deb",
+    "ada-307n-hash-benchmark.mjs": "9f0724fa36d8db9c412bca7500815627c273c6f1"
+  },
+  "schema_test": {
+    "status": "PASS",
+    "valid": 6,
+    "rejected": 14,
+    "checks": 20
+  },
+  "benchmark": {
+    "scope": "in-memory synthetic SHA-256 chain; not IndexedDB or Rust",
+    "repetitions": 7,
+    "checks": 28,
+    "results": [
+      {
+        "n": 24,
+        "full_ms": 0.15854000000000212,
+        "incremental_ms": 0.005408000000002744,
+        "digest_match": true
+      },
+      {
+        "n": 240,
+        "full_ms": 0.842252000000002,
+        "incremental_ms": 0.004988000000004433,
+        "digest_match": true
+      },
+      {
+        "n": 2400,
+        "full_ms": 9.331256999999994,
+        "incremental_ms": 0.004696999999993068,
+        "digest_match": true
+      },
+      {
+        "n": 24000,
+        "full_ms": 58.39415599999995,
+        "incremental_ms": 0.005047999999987951,
+        "digest_match": true
+      }
+    ]
+  },
+  "limits": [
+    "Publication and release loader regressions not reproduced in this turn",
+    "Rust and browser storage execution not tested",
+    "Timing is host-specific"
+  ],
+  "authority": "OBSERVE_ONLY",
+  "growth": [
+    41,
+    40
+  ],
+  "watermark": ".dlw"
+}

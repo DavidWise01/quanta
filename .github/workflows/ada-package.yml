@@ -36,6 +36,8 @@ jobs:
           import hashlib,json,os,pathlib,subprocess
           p=pathlib.Path("package/ada_browser.wasm")
           receipt={"schema":"ADA-281N.package.v1","source_commit":os.environ["GITHUB_SHA"],"toolchain":subprocess.check_output(["rustc","+1.85.1","-Vv"],text=True),"sha256":hashlib.sha256(p.read_bytes()).hexdigest(),"bytes":p.stat().st_size,"double_build_equal":True,"parity":json.loads(pathlib.Path("package/parity.json").read_text()),"authority":"OBSERVE_ONLY","watermark":".dlw"}
+          sources={"ledger":"ledger-incremental.mjs","contention":"ledger-contention.test.mjs","abort":"ledger-abort.test.mjs"}
+          receipt["transaction_sources"]={k:hashlib.sha256((pathlib.Path("ada/wasm")/v).read_bytes()).hexdigest() for k,v in sources.items()}
           pathlib.Path("package/manifest.json").write_text(json.dumps(receipt,indent=2)+"\n")
           PY
       - name: Chromium acceptance against staged package
@@ -50,9 +52,10 @@ jobs:
           cat package/chromium.json
           node ada/wasm/ledger-contention.test.mjs > package/ledger-contention.json
           node ada/wasm/ledger-abort.test.mjs > package/ledger-abort.json
+          python3 ada/wasm/bind-transaction-receipts.py package
           cat package/ledger-contention.json package/ledger-abort.json
       - name: Verify publication eligibility
-        run: python3 ada/wasm/verify-publication-v3.py package "$GITHUB_SHA"
+        run: python3 ada/wasm/verify-publication-v4.py package "$GITHUB_SHA"
       - uses: actions/upload-artifact@v4
         with:
           name: ada-281n-wasm-package
@@ -76,7 +79,7 @@ jobs:
           path: accepted
       - name: Validate and append versioned binary
         run: |
-          python3 ada/wasm/verify-publication-v3.py accepted "$GITHUB_SHA"
+          python3 ada/wasm/verify-publication-v4.py accepted "$GITHUB_SHA"
           dest="ada/wasm/releases/$GITHUB_SHA"
           test ! -e "$dest"
           mkdir -p "$dest"

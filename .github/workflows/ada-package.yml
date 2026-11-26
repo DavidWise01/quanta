@@ -54,6 +54,12 @@ jobs:
           node ada/wasm/ledger-abort.test.mjs > package/ledger-abort.json
           python3 ada/wasm/bind-transaction-receipts.py package
           cat package/ledger-contention.json package/ledger-abort.json
+          dest="ada/wasm/releases/$GITHUB_SHA"
+          test ! -e "$dest"
+          mkdir -p "$dest"
+          cp package/* "$dest/"
+          node ada/wasm/unified-acceptance.test.mjs > package/unified-acceptance.json
+          cat package/unified-acceptance.json
       - name: Verify publication eligibility
         run: python3 ada/wasm/verify-publication-v4.py package "$GITHUB_SHA"
       - uses: actions/upload-artifact@v4
@@ -83,7 +89,7 @@ jobs:
           dest="ada/wasm/releases/$GITHUB_SHA"
           test ! -e "$dest"
           mkdir -p "$dest"
-          cp accepted/{ada_browser.wasm,manifest.json,parity.json,reference-schema.json,chromium.json,ledger-contention.json,ledger-abort.json} "$dest/"
+          cp accepted/{ada_browser.wasm,manifest.json,parity.json,reference-schema.json,chromium.json,ledger-contention.json,ledger-abort.json,unified-acceptance.json} "$dest/"
           git add -- "$dest"
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"

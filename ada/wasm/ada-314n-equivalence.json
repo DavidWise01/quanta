@@ -1,0 +1,37 @@
+{
+  "schema": "ADA-314N.model.v1",
+  "reference_blob": "76d360486b3cad6b73df12d75340d229987d7c53",
+  "scope": "independent Python model; not native Rust",
+  "states": 78,
+  "epoch_boundaries": 1001,
+  "comparisons": 78078,
+  "period_checks": 1000,
+  "changes": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "default_final": [
+    8,
+    0
+  ],
+  "native_tests": null,
+  "production_abi_changed": false,
+  "growth": [
+    41,
+    40
+  ],
+  "watermark": ".dlw"
+}

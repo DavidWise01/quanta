@@ -52,3 +52,34 @@ jobs:
         with:
           name: ada-281n-wasm-package
           path: package/
+      - name: Verify publication eligibility
+        run: python3 ada/wasm/verify-publication.py package "$GITHUB_SHA"
+  publish:
+    needs: package
+    if: github.event_name == 'workflow_dispatch' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: write
+    concurrency:
+      group: ada-versioned-publication
+      cancel-in-progress: false
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/download-artifact@v4
+        with:
+          name: ada-281n-wasm-package
+          path: accepted
+      - name: Validate and append versioned binary
+        run: |
+          python3 ada/wasm/verify-publication.py accepted "$GITHUB_SHA"
+          dest="ada/wasm/releases/$GITHUB_SHA"
+          test ! -e "$dest"
+          mkdir -p "$dest"
+          cp accepted/{ada_browser.wasm,manifest.json,parity.json,reference-schema.json,chromium.json} "$dest/"
+          git add -- "$dest"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "ADA accepted WASM package $GITHUB_SHA"
+          git push origin HEAD:main

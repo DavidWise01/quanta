@@ -1,0 +1,94 @@
+{
+  "schema": "ADA-320N.freeze.v1",
+  "baseline": "4e42d8a6bb3d376d5267b1c4dcc4a6d55bd5649b",
+  "files": [
+    {
+      "path": "ada/wasm/phase-xiii-freeze.json",
+      "blob": "a77a185ed2194fe2d1c66b36dec36fa30f6c7229"
+    },
+    {
+      "path": "ada/wasm/ada-311n-reproduction.json",
+      "blob": "6f20a1fa0b4893643cd38a557346d7e4ed5c0381"
+    },
+    {
+      "path": "ada/wasm/verify-publication-v3.py",
+      "blob": "7775baf69159807a3264a1b1f726470704d3c195"
+    },
+    {
+      "path": "ada/wasm/verify-publication-v4.py",
+      "blob": "e9dcdea60e364ef52e5d2e5eef4d4ba6588a1749"
+    },
+    {
+      "path": "ada/wasm/verify-publication-v5.py",
+      "blob": "9ad374cfb5b99dff2972f95b98db4cb781b39b44"
+    },
+    {
+      "path": "ada/wasm/release-loader-v3.mjs",
+      "blob": "cd10d3dab09ef98b989366161036d28b5b34bfb1"
+    },
+    {
+      "path": "ada/wasm/bind-transaction-receipts.py",
+      "blob": "a8055dbf8ba20f36a98ef2f5d7d48e681f376cfd"
+    },
+    {
+      "path": "ada/wasm/ada-314n-equilibrium-model.py",
+      "blob": "926371c4074ca7bc510e992544dbc1b50a808722"
+    },
+    {
+      "path": "ada/wasm/ada-314n-equivalence.json",
+      "blob": "bd192954e5942ef4745364e89b7db2f21011e553"
+    },
+    {
+      "path": "ada/wasm/src/equilibrium.rs",
+      "blob": "92d7082bb45fe14f3b3abb20c17ee64ec35dd340"
+    },
+    {
+      "path": "ada/wasm/ada-316n-benchmark.py",
+      "blob": "577342e9cf7a0606ef6472d0a99750d34b64a41e"
+    },
+    {
+      "path": "ada/wasm/ada-316n-results.json",
+      "blob": "c1aba149915411a467661e14ba3704d6a25fa6e1"
+    },
+    {
+      "path": "ada/ada-318n-unified-dimensions.html",
+      "blob": "c805cc413ece2fb58d1338bed06d039fe88c6899"
+    },
+    {
+      "path": "ada/wasm/unified-acceptance.test.mjs",
+      "blob": "82cde755fd041fc22c2d8e3b4bea2afd3180e669"
+    },
+    {
+      "path": ".github/workflows/ada-package.yml",
+      "blob": "f312295b1e019acd9dbf182eacc39bcb8b95e5e0"
+    }
+  ],
+  "phase": 14,
+  "iterations": [
+    311,
+    320
+  ],
+  "growth": [
+    41,
+    40
+  ],
+  "epoch": 24,
+  "memory": 8,
+  "ticks": 360,
+  "pumps": 3,
+  "horizon": 24000,
+  "authority": "OBSERVE_ONLY",
+  "status": "SOURCE_FROZEN_RUNTIME_HOLD",
+  "evidence": "Earlier model and benchmark receipts retained as recorded claims; not reexecuted in this freeze.",
+  "required_release_files": 8,
+  "unresolved": [
+    "native compilation and parity",
+    "unified browser acceptance execution",
+    "V5 fault regression execution",
+    "browser loader does not independently require eighth receipt",
+    "public release and Pages deployment",
+    "optimized and observed-history recovery functions not active ABI",
+    "independent authentication and truncation detection"
+  ],
+  "watermark": ".dlw"
+}

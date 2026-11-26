@@ -1,0 +1,18 @@
+{
+  "schema": "ADA-305N.contention.v1",
+  "ledger_blob": "e29a43a5414b92d87e42f51f41b7fd1efcd9d330",
+  "observed": {
+    "node_indexeddb": "undefined",
+    "chromium_launch": "PASS",
+    "chromium_default_context_indexeddb_open": "SecurityError: access denied"
+  },
+  "contention_tests_executed": 0,
+  "status": "HOLD",
+  "harness": "ada/wasm/ledger-contention.test.mjs",
+  "growth": [
+    41,
+    40
+  ],
+  "authority": "OBSERVE_ONLY",
+  "watermark": ".dlw"
+}

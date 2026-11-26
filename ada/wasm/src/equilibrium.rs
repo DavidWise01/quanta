@@ -77,3 +77,37 @@ mod cycle_tests{
   assert_eq!(at_cycle(u32::MAX),None);
  }
 }
+
+// ADA-315N .dlw — opt-in periodic policy evaluation, not production ABI.
+pub fn replay_periodic(mut p:Equilibrium, histories:&[[Option<usize>;8]], epochs:u32)->Option<Equilibrium>{
+ if !(3..=8).contains(&p.window)||p.gate>12||histories.is_empty()||histories.len()>15||epochs>1000{return None;}
+ let period=histories.len() as u32;
+ for _ in 0..epochs/period{
+  let before=p;
+  for h in histories{p=adjust(p,h);}
+  if p==before{break;}
+ }
+ for h in histories.iter().take((epochs%period) as usize){p=adjust(p,h);}
+ Some(p)
+}
+#[cfg(test)]
+mod adaptive_period_tests{
+ use super::*;
+ #[test] fn all_adaptive_periods(){
+  let s=[Some(0);8];let v=[Some(0),Some(1),Some(0),Some(1),Some(0),Some(1),Some(0),Some(1)];
+  let m=[None;8];let h=[Some(0),Some(0),Some(0),Some(0),Some(1),Some(1),Some(1),Some(1)];let i=[Some(3);8];
+  let patterns=vec![vec![s],vec![v],vec![m],vec![h],vec![i],vec![v,s],vec![v,v,s],vec![s,s,v],vec![m,v,s,h],vec![v;15],vec![s;15],[v,s,m,h,i].repeat(3)];
+  for seq in patterns{
+   for window in 3..=8{for gate in 0..=12{
+    let initial=Equilibrium{window,gate};let mut reference=initial;
+    for epoch in 0..=1000{
+     assert_eq!(replay_periodic(initial,&seq,epoch),Some(reference));
+     if epoch<1000{reference=adjust(reference,&seq[epoch as usize%seq.len()]);}
+    }
+   }}
+  }
+  assert_eq!(replay_periodic(Equilibrium::default(),&[],0),None);
+  assert_eq!(replay_periodic(Equilibrium::default(),&[s],1001),None);
+  assert_eq!(replay_periodic(Equilibrium{window:2,gate:0},&[s],0),None);
+ }
+}

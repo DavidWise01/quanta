@@ -1,0 +1,98 @@
+{
+  "schema": "ADA-310N.freeze.v1",
+  "baseline_commit": "f8a8a834fba4112f02dc921da07bf22a365f06ff",
+  "ancestor_manifest": "ada/wasm/phase-xii-freeze.json",
+  "files": [
+    {
+      "path": "ada/wasm/phase-xii-freeze.json",
+      "blob": "c33a8855d9a9c6ab99167bb015e7e8f39fe2df7c"
+    },
+    {
+      "path": "ada/wasm/ada-301n-environment.json",
+      "blob": "a563a9882d379df3ee02a5ba5441b17ba30e7576"
+    },
+    {
+      "path": "ada/wasm/ada-302n-publication-regression.json",
+      "blob": "7aab2e29309bb5dbad76fdf237592ae09f03e66f"
+    },
+    {
+      "path": "ada/wasm/ada-303n-loader-regression.json",
+      "blob": "74d2a22d05b2466b01937e35e199e581ea781001"
+    },
+    {
+      "path": "ada/wasm/ada-304n-native-reconciliation.json",
+      "blob": "4d4b06adc8d576ce087b4382be14a359bc2becba"
+    },
+    {
+      "path": "ada/wasm/ledger-contention.test.mjs",
+      "blob": "3a63f52197cc886d6b34c2c2ef6ffd176bdb01c1"
+    },
+    {
+      "path": "ada/wasm/ada-305n-contention-evidence.json",
+      "blob": "ea5f5d4b5d4e4f71cadda89d98e30430da90f416"
+    },
+    {
+      "path": "ada/wasm/ledger-abort.test.mjs",
+      "blob": "63584117a3e62aa77dcdb17edabba1bbea80a55a"
+    },
+    {
+      "path": "ada/wasm/ada-307n-hash-benchmark.mjs",
+      "blob": "9f0724fa36d8db9c412bca7500815627c273c6f1"
+    },
+    {
+      "path": "ada/wasm/ada-307n-benchmark.json",
+      "blob": "44a554cf6bfb6b9802cdb9e22f44268c6af9c9c8"
+    },
+    {
+      "path": "ada/wasm/src/equilibrium.rs",
+      "blob": "76d360486b3cad6b73df12d75340d229987d7c53"
+    },
+    {
+      "path": "ada/wasm/verify-publication-v2.py",
+      "blob": "5a5b535bfd496ea35f33a5c5035a8afadd1070bd"
+    },
+    {
+      "path": "ada/wasm/release-loader-v2.mjs",
+      "blob": "f090ddd1eee1bc51ab93caf152fbf4674a0a1bad"
+    },
+    {
+      "path": ".github/workflows/ada-package.yml",
+      "blob": "677444caa9b0b88940c868887f8f3bf63a34c472"
+    },
+    {
+      "path": "ada/ada-309n-qualified-operation.html",
+      "blob": "8308690d48959dce6a0780ca3579f2b764e12283"
+    }
+  ],
+  "growth": [
+    41,
+    40
+  ],
+  "epoch": 24,
+  "memory": 8,
+  "ticks": 360,
+  "pumps": 3,
+  "horizon": 24000,
+  "authority": "OBSERVE_ONLY",
+  "status": "SOURCE_INVENTORY_FROZEN_RUNTIME_HOLD",
+  "reported_evidence": {
+    "prior_receipts_not_reexecuted": true,
+    "hash_benchmark_comparisons": 28,
+    "publication_regressions": 12,
+    "loader_regressions": 11
+  },
+  "configured": {
+    "native_parity": 57933,
+    "cycle_assertions": 2003,
+    "transaction_conditions": 15,
+    "release_files": 7
+  },
+  "unresolved": [
+    "actual native build and parity",
+    "actual Chromium contention and abort tests",
+    "V2 gate execution",
+    "release publication and Pages deployment",
+    "previously reported measurements not reproduced in this freeze"
+  ],
+  "watermark": ".dlw"
+}

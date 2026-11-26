@@ -1,0 +1,31 @@
+{
+  "schema": "ADA-301N.environment.v1",
+  "ancestor": "98fc10dcf550967249971924b3c8046f60a1e26e",
+  "observed": {
+    "node": "22.16.0",
+    "python": "3.13.5",
+    "chromium": "144.0.7559.96",
+    "playwright_python": true,
+    "rustc_on_path": false,
+    "cargo_on_path": false,
+    "node_minimal_wasm": "PASS",
+    "chromium_launch": "PASS",
+    "chromium_javascript": {
+      "expression": "1+1",
+      "result": 2
+    },
+    "chromium_indexeddb_type": "object"
+  },
+  "limitations": [
+    "Minimal WASM module is not ADA Rust binary",
+    "IndexedDB object presence does not prove database access",
+    "No navigation or full browser acceptance attempted",
+    "No public deployment verified"
+  ],
+  "authority": "OBSERVE_ONLY",
+  "growth": [
+    41,
+    40
+  ],
+  "watermark": ".dlw"
+}

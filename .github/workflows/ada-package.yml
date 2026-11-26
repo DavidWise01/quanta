@@ -48,12 +48,15 @@ jobs:
           for i in $(seq 1 30); do curl -fsS http://127.0.0.1:8765/ada/wasm/package/manifest.json >/dev/null && break; sleep 1; done
           node ada/wasm/chromium-acceptance.mjs > package/chromium.json
           cat package/chromium.json
+          node ada/wasm/ledger-contention.test.mjs > package/ledger-contention.json
+          node ada/wasm/ledger-abort.test.mjs > package/ledger-abort.json
+          cat package/ledger-contention.json package/ledger-abort.json
+      - name: Verify publication eligibility
+        run: python3 ada/wasm/verify-publication.py package "$GITHUB_SHA"
       - uses: actions/upload-artifact@v4
         with:
           name: ada-281n-wasm-package
           path: package/
-      - name: Verify publication eligibility
-        run: python3 ada/wasm/verify-publication.py package "$GITHUB_SHA"
   publish:
     needs: package
     if: github.event_name == 'workflow_dispatch' && github.ref == 'refs/heads/main'
@@ -77,7 +80,7 @@ jobs:
           dest="ada/wasm/releases/$GITHUB_SHA"
           test ! -e "$dest"
           mkdir -p "$dest"
-          cp accepted/{ada_browser.wasm,manifest.json,parity.json,reference-schema.json,chromium.json} "$dest/"
+          cp accepted/{ada_browser.wasm,manifest.json,parity.json,reference-schema.json,chromium.json,ledger-contention.json,ledger-abort.json} "$dest/"
           git add -- "$dest"
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"

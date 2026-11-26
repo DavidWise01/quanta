@@ -1,0 +1,97 @@
+{
+  "schema": "ADA-300N.freeze.v1",
+  "baseline_commit": "7e06f78a594a540e8491d53f0f8b26b63ee7769a",
+  "ancestor_manifest": "ada/wasm/phase-xi-freeze.json",
+  "files": [
+    {
+      "path": "ada/wasm/phase-xi-freeze.json",
+      "blob": "60830c7ff334af26dd830788abe0e3ecc09cc748"
+    },
+    {
+      "path": "ada/wasm/ada-291n-ci-evidence.json",
+      "blob": "127fdce163621e9749a1b665d3007fd5d234c968"
+    },
+    {
+      "path": "ada/wasm/reference-schema.mjs",
+      "blob": "f834f31dae5c10894e8aa283cc2781db3f236233"
+    },
+    {
+      "path": "ada/wasm/reference-schema.test.mjs",
+      "blob": "dbe1ae0e1848e9883e72bc02c96deeaa24a91deb"
+    },
+    {
+      "path": "ada/wasm/parity-strict.mjs",
+      "blob": "18d76c3738271fb91ec701bdd679d66ccb33afca"
+    },
+    {
+      "path": "ada/wasm/ada-294n-local-qualification.json",
+      "blob": "a387951ab213e81985b7a90e1eae477f28c7e9f8"
+    },
+    {
+      "path": "ada/wasm/verify-publication.py",
+      "blob": "9c13fd65f5867951ab094fe96298697348fc0b14"
+    },
+    {
+      "path": ".github/workflows/ada-package.yml",
+      "blob": "a7f3f69769df5a453cb8d304c7660b7bee2e8fbb"
+    },
+    {
+      "path": "ada/wasm/release-loader.mjs",
+      "blob": "e3f3cd345f254cb627a23813b59662131b713600"
+    },
+    {
+      "path": "ada/ada-296n-public-release.html",
+      "blob": "a7652dfd43fa8817312ac6fd90c22b0f74e87f1b"
+    },
+    {
+      "path": "ada/wasm/ledger-recovery.mjs",
+      "blob": "00c971f271e6a9f56c398b3ac562d4ace6e53b1b"
+    },
+    {
+      "path": "ada/ada-297n-ledger-recovery.html",
+      "blob": "5fd6297dbe9af9f24fa8031b2aa25851cbd29ec2"
+    },
+    {
+      "path": "ada/wasm/ledger-incremental.mjs",
+      "blob": "e29a43a5414b92d87e42f51f41b7fd1efcd9d330"
+    },
+    {
+      "path": "ada/wasm/replay-context.mjs",
+      "blob": "a2d06f965a09738c825373c9c008a9ef66d280dc"
+    },
+    {
+      "path": "ada/ada-299n-operational-lab.html",
+      "blob": "2121aec90b5a444c42e4ddeb43feb1a99b7584b4"
+    }
+  ],
+  "growth": [
+    41,
+    40
+  ],
+  "epoch": 24,
+  "memory": 8,
+  "ticks": 360,
+  "pumps": 3,
+  "horizon": 24000,
+  "authority": "OBSERVE_ONLY",
+  "status": "SOURCE_PINNED_RUNTIME_PENDING",
+  "evidence": {
+    "prior_receipt": "ada/wasm/ada-294n-local-qualification.json",
+    "reported_schema_passes": 20,
+    "new_runtime_tests": 0,
+    "native_parity_expected": 57933,
+    "native_parity_actual": null,
+    "chromium_full": null,
+    "release": null,
+    "pages": null,
+    "performance": null
+  },
+  "limitations": [
+    "Prior local results recorded but not independently reproduced in this freeze",
+    "Publication receipt consistency is not independent authentication",
+    "Incremental session assumes approved append-only writers",
+    "Local deletion and rollback not independently detectable",
+    "No verified public binary"
+  ],
+  "watermark": ".dlw"
+}

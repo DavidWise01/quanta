@@ -1,0 +1,82 @@
+{
+  "schema": "ADA-303N.regression.v1",
+  "source_blobs": {
+    "loader.mjs": "f933bf307b3ed6df9370e17bf32b9874bb5f72dc",
+    "release-loader.mjs": "e3f3cd345f254cb627a23813b59662131b713600"
+  },
+  "host": "Node v22.16.0",
+  "delivery": "mock fetch; real WebAssembly compile and instantiate",
+  "checks": 11,
+  "passed": 11,
+  "failed": 0,
+  "invalid_accepted": 0,
+  "cases": [
+    {
+      "name": "invalid commit",
+      "observed": "Expected lowercase source commit required",
+      "pass": true
+    },
+    {
+      "name": "empty wasm",
+      "observed": "Missing ABI export ada_abi_version",
+      "pass": true
+    },
+    {
+      "name": "missing binary",
+      "observed": "ada_browser.wasm: HTTP 404",
+      "pass": true
+    },
+    {
+      "name": "wrong length",
+      "observed": "Binary length mismatch",
+      "pass": true
+    },
+    {
+      "name": "bad digest",
+      "observed": "Binary digest mismatch",
+      "pass": true
+    },
+    {
+      "name": "wrong source",
+      "observed": "Release parity rejected",
+      "pass": true
+    },
+    {
+      "name": "bad parity",
+      "observed": "Release parity rejected",
+      "pass": true
+    },
+    {
+      "name": "bad schema",
+      "observed": "Release reference schema rejected",
+      "pass": true
+    },
+    {
+      "name": "bad chromium",
+      "observed": "Release Chromium receipt rejected",
+      "pass": true
+    },
+    {
+      "name": "missing receipt",
+      "observed": "chromium.json: HTTP 404",
+      "pass": true
+    },
+    {
+      "name": "wrong authority",
+      "observed": "Package manifest rejected",
+      "pass": true
+    }
+  ],
+  "limitations": [
+    "No genuine ADA binary tested",
+    "No browser or network transport tested",
+    "Receipts are not authenticated",
+    "Compatible positive path not tested"
+  ],
+  "growth": [
+    41,
+    40
+  ],
+  "authority": "OBSERVE_ONLY",
+  "watermark": ".dlw"
+}

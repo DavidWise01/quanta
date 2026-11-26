@@ -1,0 +1,37 @@
+{
+  "schema": "ADA-304N.reconciliation.v1",
+  "source_blob": "fcfd09c0840925639841681dadf73cc792f83f1d",
+  "observed": {
+    "local_rustc_on_path": false,
+    "local_cargo_on_path": false,
+    "node": "22.16.0",
+    "python": "3.13.5",
+    "direct_api": "DNS resolution failed",
+    "commit": "39a6aeac5e1f264110d89eaf5e590dbb65c893eb",
+    "combined_status_entries": 0,
+    "pr_workflow_runs": 0
+  },
+  "reference_inventory": {
+    "generations": 720,
+    "rows_per_generation": 80,
+    "inheritance": 256,
+    "edges": 64,
+    "consequences": 9,
+    "invalid": 4,
+    "total": 57933
+  },
+  "native_tests": null,
+  "wasm_parity": null,
+  "status": "HOLD",
+  "limits": [
+    "PR-only workflow discovery cannot establish push workflow status",
+    "Source row count is not executed parity",
+    "No compiler available on PATH"
+  ],
+  "growth": [
+    41,
+    40
+  ],
+  "authority": "OBSERVE_ONLY",
+  "watermark": ".dlw"
+}

@@ -1,0 +1,83 @@
+{
+  "schema": "ADA-302N.regression.v1",
+  "validator_blob": "9c13fd65f5867951ab094fe96298697348fc0b14",
+  "execution": "local Python subprocess with isolated temporary fixtures",
+  "checks": 12,
+  "passed": 12,
+  "failed": 0,
+  "accepted": 1,
+  "rejected": 11,
+  "cases": [
+    {
+      "name": "consistent synthetic",
+      "expected": "ACCEPT",
+      "observed": "ACCEPT"
+    },
+    {
+      "name": "wrong digest",
+      "expected": "REJECT",
+      "observed": "REJECT"
+    },
+    {
+      "name": "wrong source",
+      "expected": "REJECT",
+      "observed": "REJECT"
+    },
+    {
+      "name": "wrong length",
+      "expected": "REJECT",
+      "observed": "REJECT"
+    },
+    {
+      "name": "double build false",
+      "expected": "REJECT",
+      "observed": "REJECT"
+    },
+    {
+      "name": "wrong authority",
+      "expected": "REJECT",
+      "observed": "REJECT"
+    },
+    {
+      "name": "wrong parity count",
+      "expected": "REJECT",
+      "observed": "REJECT"
+    },
+    {
+      "name": "missing receipt",
+      "expected": "REJECT",
+      "observed": "REJECT"
+    },
+    {
+      "name": "bad chromium status",
+      "expected": "REJECT",
+      "observed": "REJECT"
+    },
+    {
+      "name": "bad schema count",
+      "expected": "REJECT",
+      "observed": "REJECT"
+    },
+    {
+      "name": "corrupt binary",
+      "expected": "REJECT",
+      "observed": "REJECT"
+    },
+    {
+      "name": "wrong chromium digest",
+      "expected": "REJECT",
+      "observed": "REJECT"
+    }
+  ],
+  "limitations": [
+    "Synthetic receipts do not authenticate actual CI execution",
+    "Minimal WASM header module accepted with consistent receipts",
+    "No ADA binary compiled or published"
+  ],
+  "authority": "OBSERVE_ONLY",
+  "growth": [
+    41,
+    40
+  ],
+  "watermark": ".dlw"
+}

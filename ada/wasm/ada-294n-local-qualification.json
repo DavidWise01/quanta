@@ -1,0 +1,34 @@
+{
+  "schema": "ADA-294N.evidence.v1",
+  "source_blobs": {
+    "reference-schema.mjs": "f834f31dae5c10894e8aa283cc2781db3f236233",
+    "reference-schema.test.mjs": "dbe1ae0e1848e9883e72bc02c96deeaa24a91deb",
+    "loader.mjs": "f933bf307b3ed6df9370e17bf32b9874bb5f72dc"
+  },
+  "local_node": {
+    "version": "22.16.0",
+    "status": "PASS",
+    "checks": 20,
+    "valid": 6,
+    "rejected": 14
+  },
+  "chromium": {
+    "version": "144.0.7559.96",
+    "launch": "PASS",
+    "navigation": "BLOCKED",
+    "error": "net::ERR_BLOCKED_BY_ADMINISTRATOR",
+    "executed_loader_checks": 0,
+    "planned_negative_checks": 5
+  },
+  "rust": {
+    "cargo_available": false,
+    "rustc_available": false
+  },
+  "qualification": {
+    "wasm_parity": null,
+    "full_chromium": null,
+    "pages": null
+  },
+  "status": "PARTIAL_EVIDENCE_HOLD",
+  "watermark": ".dlw"
+}

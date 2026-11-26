@@ -61,7 +61,7 @@ jobs:
           node ada/wasm/unified-acceptance.test.mjs > package/unified-acceptance.json
           cat package/unified-acceptance.json
       - name: Verify publication eligibility
-        run: python3 ada/wasm/verify-publication-v4.py package "$GITHUB_SHA"
+        run: python3 ada/wasm/verify-publication-v5.py package "$GITHUB_SHA"
       - uses: actions/upload-artifact@v4
         with:
           name: ada-281n-wasm-package
@@ -85,7 +85,7 @@ jobs:
           path: accepted
       - name: Validate and append versioned binary
         run: |
-          python3 ada/wasm/verify-publication-v4.py accepted "$GITHUB_SHA"
+          python3 ada/wasm/verify-publication-v5.py accepted "$GITHUB_SHA"
           dest="ada/wasm/releases/$GITHUB_SHA"
           test ! -e "$dest"
           mkdir -p "$dest"

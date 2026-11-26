@@ -30,7 +30,8 @@ jobs:
           mkdir -p package
           cp "$RUNNER_TEMP/build-a/wasm32-unknown-unknown/release/ada_browser.wasm" package/
           cargo +1.85.1 run --locked --quiet --release --manifest-path ada/wasm/Cargo.toml --bin parity > native.tsv
-          node ada/wasm/parity.mjs package/ada_browser.wasm native.tsv > package/parity.json
+          node ada/wasm/reference-schema.test.mjs > package/reference-schema.json
+          node ada/wasm/parity-strict.mjs package/ada_browser.wasm native.tsv > package/parity.json
           python3 - <<'PY'
           import hashlib,json,os,pathlib,subprocess
           p=pathlib.Path("package/ada_browser.wasm")

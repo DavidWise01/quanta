@@ -111,3 +111,34 @@ mod adaptive_period_tests{
   assert_eq!(replay_periodic(Equilibrium{window:2,gate:0},&[s],0),None);
  }
 }
+
+// ADA-317N .dlw — derive policy from ordered sealed epoch observations.
+// Storage authentication is a caller responsibility; never trust saved policy.
+#[derive(Clone,Debug,PartialEq,Eq)]
+pub struct SealedObservation {pub epoch:u32,pub samples:[Option<usize>;8]}
+pub fn recover_observed(history:&[SealedObservation])->Option<Equilibrium>{
+ if history.len()>1000{return None;}
+ let mut p=Equilibrium::default();
+ for (i,row) in history.iter().enumerate(){
+  if row.epoch!=i as u32+1||row.samples.iter().any(|x|matches!(x,Some(n) if *n>2)){return None;}
+  p=adjust(p,&row.samples);
+ }
+ Some(p)
+}
+#[cfg(test)]
+mod recovery_tests{
+ use super::*;
+ #[test] fn every_sealed_prefix(){
+  let stable=[Some(0);8];let volatile=[Some(0),Some(1),Some(0),Some(1),Some(0),Some(1),Some(0),Some(1)];
+  let missing=[None;8];let mut rows=Vec::new();let mut p=Equilibrium::default();
+  assert_eq!(recover_observed(&rows),Some(p));
+  for e in 1..=1000 {
+   let samples=match e%5{0=>missing,1|2=>volatile,_=>stable};
+   rows.push(SealedObservation{epoch:e,samples});p=adjust(p,&samples);
+   assert_eq!(recover_observed(&rows),Some(p));
+  }
+  let mut bad=rows.clone();bad[5].epoch=5;assert_eq!(recover_observed(&bad),None);
+  let mut bad=rows.clone();bad[0].samples[0]=Some(3);assert_eq!(recover_observed(&bad),None);
+  rows.push(SealedObservation{epoch:1001,samples:stable});assert_eq!(recover_observed(&rows),None);
+ }
+}

@@ -1,0 +1,117 @@
+{
+  "scope": "Python model only",
+  "horizon": 1000,
+  "states": 78,
+  "repetitions": 3,
+  "comparisons": 2808,
+  "results": [
+    {
+      "name": "stable",
+      "period": 1,
+      "max_work": 13,
+      "min_work": 1,
+      "sum_work": 581,
+      "full_ms": 72.151649,
+      "fast_ms": 0.567526
+    },
+    {
+      "name": "volatile",
+      "period": 1,
+      "max_work": 13,
+      "min_work": 1,
+      "sum_work": 581,
+      "full_ms": 73.570229,
+      "fast_ms": 0.673022
+    },
+    {
+      "name": "missing",
+      "period": 1,
+      "max_work": 1,
+      "min_work": 1,
+      "sum_work": 78,
+      "full_ms": 18.421327,
+      "fast_ms": 0.040629
+    },
+    {
+      "name": "neutral",
+      "period": 1,
+      "max_work": 1,
+      "min_work": 1,
+      "sum_work": 78,
+      "full_ms": 69.650175,
+      "fast_ms": 0.09504
+    },
+    {
+      "name": "invalid",
+      "period": 1,
+      "max_work": 1,
+      "min_work": 1,
+      "sum_work": 78,
+      "full_ms": 18.144218,
+      "fast_ms": 0.04046
+    },
+    {
+      "name": "balanced",
+      "period": 2,
+      "max_work": 4,
+      "min_work": 2,
+      "sum_work": 192,
+      "full_ms": 74.26369,
+      "fast_ms": 0.204702
+    },
+    {
+      "name": "contract bias",
+      "period": 3,
+      "max_work": 37,
+      "min_work": 4,
+      "sum_work": 1599,
+      "full_ms": 73.298505,
+      "fast_ms": 1.471698
+    },
+    {
+      "name": "expand bias",
+      "period": 3,
+      "max_work": 37,
+      "min_work": 4,
+      "sum_work": 1599,
+      "full_ms": 76.020605,
+      "fast_ms": 1.593167
+    },
+    {
+      "name": "mixed",
+      "period": 4,
+      "max_work": 8,
+      "min_work": 4,
+      "sum_work": 384,
+      "full_ms": 61.395907,
+      "fast_ms": 0.336976
+    },
+    {
+      "name": "volatile 15",
+      "period": 15,
+      "max_work": 40,
+      "min_work": 25,
+      "sum_work": 3105,
+      "full_ms": 75.975358,
+      "fast_ms": 2.900453
+    },
+    {
+      "name": "stable 15",
+      "period": 15,
+      "max_work": 40,
+      "min_work": 25,
+      "sum_work": 3105,
+      "full_ms": 76.164918,
+      "fast_ms": 3.022013
+    },
+    {
+      "name": "mixed 15",
+      "period": 15,
+      "max_work": 40,
+      "min_work": 25,
+      "sum_work": 2220,
+      "full_ms": 55.535673,
+      "fast_ms": 1.467262
+    }
+  ]
+}

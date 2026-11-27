@@ -1,0 +1,34 @@
+{
+  "schema": "ADA-331N.environment.v1",
+  "baseline": "40fdd14a8c085682da19513a36dd58a2c5811dcc",
+  "local": {
+    "node": "/opt/nvm/versions/node/v22.16.0/bin/node",
+    "python": "/opt/pyvenv/bin/python3",
+    "cargo_found": false,
+    "rustc_found": false,
+    "search_roots": [
+      "/usr",
+      "/opt",
+      "/root",
+      "/home"
+    ],
+    "github_api_address": null,
+    "pages_address": null,
+    "prior_artifact_directories": [
+      "ada321",
+      "ada323",
+      "ada324",
+      "ada328"
+    ]
+  },
+  "connector": {
+    "statuses": [],
+    "pr_workflow_runs": [],
+    "general_run_listing": false,
+    "dispatch": false,
+    "artifact_acquired": false
+  },
+  "native": "HOLD",
+  "authority": "OBSERVE_ONLY",
+  "watermark": ".dlw"
+}

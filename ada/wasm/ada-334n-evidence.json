@@ -1,0 +1,16 @@
+{
+  "schema": "ADA-334N.evidence.v1",
+  "scope": "Reexecuted at ADA-335N; Python/Node model and synthetic ZIP only",
+  "vectors": {
+    "matched": 12,
+    "valid": 7,
+    "rejected": 5
+  },
+  "archive": {
+    "matched": 14,
+    "rejected": 12,
+    "accepted": 2
+  },
+  "native": "HOLD",
+  "watermark": ".dlw"
+}

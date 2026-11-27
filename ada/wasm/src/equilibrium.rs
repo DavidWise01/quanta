@@ -255,3 +255,39 @@ mod head_commitment_tests{
   assert_eq!(recover_committed(&rows[..1],&prefix,fake),recover_observed(&rows[..1]));
  }
 }
+
+// ADA-328N .dlw — unified observation-only qualification.
+#[derive(Clone,Copy,Debug,PartialEq,Eq)]
+pub enum UnifiedQualification{Rejected,Consistent(Equilibrium),Disagreement{recovered:Equilibrium,live:Equilibrium}}
+pub fn qualify_history(history:&[SealedObservation],anchor:&HeadCommitment,live:Equilibrium,sha256:impl FnOnce(&[u8])->[u8;32])->UnifiedQualification{
+ if !(3..=8).contains(&live.window)||live.gate>12{return UnifiedQualification::Rejected;}
+ match recover_committed(history,anchor,sha256){
+  None=>UnifiedQualification::Rejected,
+  Some(recovered) if recovered==live=>UnifiedQualification::Consistent(recovered),
+  Some(recovered)=>UnifiedQualification::Disagreement{recovered,live},
+ }
+}
+#[cfg(test)]
+mod canonical_vector_tests{
+ use super::*;
+ #[test] fn canonical_bytes(){
+  let cases=vec![
+   (vec![],"4144412d3332374e3a7365616c65642d686973746f72793a76310000000000"),
+   (vec![SealedObservation{epoch:1,samples:[Some(0);8]}],"4144412d3332374e3a7365616c65642d686973746f72793a76310000000001000000010101010101010101"),
+   (vec![SealedObservation{epoch:1,samples:[None;8]}],"4144412d3332374e3a7365616c65642d686973746f72793a76310000000001000000010000000000000000"),
+   (vec![SealedObservation{epoch:1,samples:[Some(0),Some(1),Some(2),None,Some(0),Some(1),Some(2),None]},SealedObservation{epoch:2,samples:[Some(2);8]}],"4144412d3332374e3a7365616c65642d686973746f72793a76310000000002000000010102030001020300000000020303030303030303")
+  ];
+  for (rows,expected) in cases{
+   let bytes=head_preimage(&rows).unwrap();
+   let hex=bytes.iter().map(|b|format!("{b:02x}")).collect::<Vec<_>>().join("");
+   assert_eq!(hex,expected);
+   // Test-only digest double: the external SHA-256 vectors qualify encoding separately.
+   let anchor=HeadCommitment{epoch:rows.len() as u32,digest:[7;32]};
+   let live=recover_observed(&rows).unwrap();
+   assert_eq!(qualify_history(&rows,&anchor,live,|_|[7;32]),UnifiedQualification::Consistent(live));
+   assert_eq!(qualify_history(&rows,&anchor,live,|_|[8;32]),UnifiedQualification::Rejected);
+   let wrong=Equilibrium{window:if live.window==8{7}else{8},gate:live.gate};
+   assert_eq!(qualify_history(&rows,&anchor,wrong,|_|[7;32]),UnifiedQualification::Disagreement{recovered:live,live:wrong});
+  }
+ }
+}

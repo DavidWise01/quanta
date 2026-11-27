@@ -1,0 +1,18 @@
+{
+  "schema": "ADA-335N.evidence.v1",
+  "scope": "Python model, shared adjustment law; not native execution or independent provenance",
+  "counts": {
+    "consistent": 1001,
+    "digest": 1001,
+    "policy": 1001,
+    "head": 1001,
+    "bounds": 1001,
+    "truncation": 1000
+  },
+  "matched": 6005,
+  "prior_rechecks": 26,
+  "native": "HOLD",
+  "rust_blob": "7aee2893b4bdb169177885a38b8b49a77fc4725a",
+  "authority": "OBSERVE_ONLY",
+  "watermark": ".dlw"
+}

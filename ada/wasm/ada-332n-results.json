@@ -1,0 +1,93 @@
+{
+  "scope": "synthetic archives only",
+  "cases": [
+    {
+      "case": "valid",
+      "expected": true,
+      "accepted": true,
+      "match": true
+    },
+    {
+      "case": "missing",
+      "expected": false,
+      "accepted": false,
+      "match": true
+    },
+    {
+      "case": "extra",
+      "expected": false,
+      "accepted": false,
+      "match": true
+    },
+    {
+      "case": "wrong_source",
+      "expected": false,
+      "accepted": false,
+      "match": true
+    },
+    {
+      "case": "wrong_blob",
+      "expected": false,
+      "accepted": false,
+      "match": true
+    },
+    {
+      "case": "wrong_compiler",
+      "expected": false,
+      "accepted": false,
+      "match": true
+    },
+    {
+      "case": "failed_suite",
+      "expected": false,
+      "accepted": false,
+      "match": true
+    },
+    {
+      "case": "wrong_suite",
+      "expected": false,
+      "accepted": false,
+      "match": true
+    },
+    {
+      "case": "checksum_tamper",
+      "expected": false,
+      "accepted": false,
+      "match": true
+    },
+    {
+      "case": "duplicate_inventory",
+      "expected": false,
+      "accepted": false,
+      "match": true
+    },
+    {
+      "case": "traversal",
+      "expected": false,
+      "accepted": false,
+      "match": true
+    },
+    {
+      "case": "oversized",
+      "expected": false,
+      "accepted": false,
+      "match": true
+    },
+    {
+      "case": "duplicate_entry",
+      "expected": false,
+      "accepted": false,
+      "match": true
+    },
+    {
+      "case": "forged_consistent",
+      "expected": true,
+      "accepted": true,
+      "match": true
+    }
+  ],
+  "matched": 14,
+  "verifier_blob": "5bc1671a3be6c705573bab90a329684a19912cd9",
+  "native": "HOLD",
+  "watermark": ".dlw"
+}

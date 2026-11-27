@@ -1,0 +1,108 @@
+{
+  "schema": "ADA-330N.freeze.v1",
+  "baseline": "9728d02520ef263f653d7843656e0033444b86b1",
+  "phase": 15,
+  "iterations": [
+    321,
+    330
+  ],
+  "files": [
+    {
+      "path": "ada/wasm/phase-xiv-freeze.json",
+      "blob": "1d9026030aaf89c7dd5261e6cd02260f2816e337"
+    },
+    {
+      "path": "ada/wasm/verify-publication-v6.py",
+      "blob": "f5a61e339709a528ebc6a3887a21136fc7ab2866"
+    },
+    {
+      "path": "ada/wasm/ada-321n-regression.py",
+      "blob": "96acead021f8bc44c9e244f013cd6340ae6e7685"
+    },
+    {
+      "path": "ada/wasm/ada-321n-evidence.json",
+      "blob": "e25f7341a09a37db82dfcb6ca1f1fb5905949c1c"
+    },
+    {
+      "path": "ada/wasm/strict-release-json.mjs",
+      "blob": "8fdf831f32a554268c57c36f1260eae63245a91f"
+    },
+    {
+      "path": "ada/wasm/release-loader-v4.mjs",
+      "blob": "d8cf3b0cd9cffc00ca232fd6e1037cc3ac778144"
+    },
+    {
+      "path": "ada/ada-322n-public-dimensions.html",
+      "blob": "da9b2f15e1e38830b0b2d441c869ccb4f5bb2978"
+    },
+    {
+      "path": "ada/wasm/ada-323n-regression.mjs",
+      "blob": "c8ed722e37364ea3c55a72031dfdf06dfe358b3a"
+    },
+    {
+      "path": "ada/wasm/ada-323n-evidence.json",
+      "blob": "ae3fc88f300ac435ab26facb4dc47c0cc66591e2"
+    },
+    {
+      "path": "ada/wasm/ada-324n-evidence.json",
+      "blob": "1a67c2367c8d1d76065917a43a823a6ba314d696"
+    },
+    {
+      "path": ".github/workflows/ada-native-evidence.yml",
+      "blob": "ffdc62a50d52cc61c66c43402243436af6af4554"
+    },
+    {
+      "path": ".github/workflows/ada-package.yml",
+      "blob": "5d7f6c92bd576f17f40fa45be6c204171558272d"
+    },
+    {
+      "path": "ada/wasm/src/equilibrium.rs",
+      "blob": "1bc0715e8850cb51fd1fc3003b29d59ac48be021"
+    },
+    {
+      "path": "ada/ada-325n-differential-operation.html",
+      "blob": "e09740450af379f2ef139b196816e5e5ec1d2b11"
+    },
+    {
+      "path": "ada/wasm/ada-328n-vectors.json",
+      "blob": "b4263fd120c5c1e09e14eda74b25c464e40b3724"
+    },
+    {
+      "path": "ada/wasm/ada-328n-vectors.test.mjs",
+      "blob": "de10e00f484fc1bfeef01dbbc31435d971ffa38f"
+    },
+    {
+      "path": "ada/ada-328n-unified-qualification.html",
+      "blob": "7f52cacd1bd714590ef8163b22adc9c79695d23e"
+    },
+    {
+      "path": "ada/wasm/ada-329n-acceptance.json",
+      "blob": "cf8a6f090b5f6dd2b98cd99824ef546864a6e006"
+    },
+    {
+      "path": "ada/ada-329n-public-acceptance.html",
+      "blob": "6075bd900d417a9cd823d2fbe1faa4ba895bb8e2"
+    }
+  ],
+  "growth": [
+    41,
+    40
+  ],
+  "epoch": 24,
+  "memory": 8,
+  "ticks": 360,
+  "pumps": 3,
+  "horizon": 24000,
+  "authority": "OBSERVE_ONLY",
+  "status": "SOURCE_FROZEN_RUNTIME_HOLD",
+  "evidence": "Historical execution receipts retained as reported results; this freeze verifies source inventory, not native execution.",
+  "unresolved": [
+    "native compiler and test evidence",
+    "actual public browser acceptance",
+    "Pages deployment",
+    "trusted external head custody",
+    "production ABI integration",
+    "native cryptographic implementation"
+  ],
+  "watermark": ".dlw"
+}

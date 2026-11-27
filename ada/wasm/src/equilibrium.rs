@@ -336,3 +336,36 @@ mod host_sha256_tests{
   }
  }
 }
+
+// ADA-335N .dlw — combined observation receipt; neither result activates policy.
+#[cfg(all(target_os="linux",not(target_arch="wasm32")))]
+#[derive(Clone,Copy,Debug,PartialEq,Eq)]
+pub struct QualificationReceipt{
+ pub synthetic:Differential,
+ pub observed:UnifiedQualification,
+}
+#[cfg(all(target_os="linux",not(target_arch="wasm32")))]
+pub fn qualification_receipt(g:u32,history:&[SealedObservation],anchor:&HeadCommitment,live:Equilibrium)->std::io::Result<QualificationReceipt>{
+ let synthetic=compare_periodic(g);
+ let observed=if g>24000||g/24!=anchor.epoch{UnifiedQualification::Rejected}else{qualify_host(history,anchor,live)?};
+ Ok(QualificationReceipt{synthetic,observed})
+}
+#[cfg(all(test,target_os="linux",not(target_arch="wasm32")))]
+mod qualification_receipt_tests{
+ use super::*;
+ #[test] fn combined_boundaries(){
+  let rows=[SealedObservation{epoch:1,samples:[Some(0);8]}];
+  let live=recover_observed(&rows).unwrap();
+  let mut anchor=HeadCommitment{epoch:1,digest:host_sha256(&head_preimage(&rows).unwrap()).unwrap()};
+  let receipt=qualification_receipt(24,&rows,&anchor,live).unwrap();
+  assert!(matches!(receipt.synthetic,Differential::Match(_)));
+  assert_eq!(receipt.observed,UnifiedQualification::Consistent(live));
+  assert_eq!(qualification_receipt(0,&rows,&anchor,live).unwrap().observed,UnifiedQualification::Rejected);
+  assert_eq!(qualification_receipt(24001,&rows,&anchor,live).unwrap().synthetic,Differential::OutsideHorizon);
+  assert_eq!(qualification_receipt(24,&[],&anchor,live).unwrap().observed,UnifiedQualification::Rejected);
+  let wrong=Equilibrium{window:7,gate:0};
+  assert_eq!(qualification_receipt(24,&rows,&anchor,wrong).unwrap().observed,UnifiedQualification::Disagreement{recovered:live,live:wrong});
+  anchor.digest[0]^=1;
+  assert_eq!(qualification_receipt(24,&rows,&anchor,live).unwrap().observed,UnifiedQualification::Rejected);
+ }
+}

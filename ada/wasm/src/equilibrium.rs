@@ -165,3 +165,50 @@ mod differential_tests{
   assert_eq!(compare_periodic(u32::MAX),Differential::OutsideHorizon);
  }
 }
+
+// ADA-326N .dlw — observe recovery parity without promoting cached policy.
+#[derive(Clone,Copy,Debug,PartialEq,Eq)]
+pub enum RecoveryComparison {
+ Match(Equilibrium),
+ Mismatch{recovered:Equilibrium,live:Equilibrium},
+ InvalidHistory,
+ HeadMismatch,
+ InvalidLivePolicy,
+}
+pub fn compare_recovered(history:&[SealedObservation],expected_epoch:u32,live:Equilibrium)->RecoveryComparison{
+ if expected_epoch>1000||history.len()>1000{return RecoveryComparison::InvalidHistory;}
+ if history.len()!=expected_epoch as usize{return RecoveryComparison::HeadMismatch;}
+ if !(3..=8).contains(&live.window)||live.gate>12{return RecoveryComparison::InvalidLivePolicy;}
+ match recover_observed(history){
+  None=>RecoveryComparison::InvalidHistory,
+  Some(recovered) if recovered==live=>RecoveryComparison::Match(recovered),
+  Some(recovered)=>RecoveryComparison::Mismatch{recovered,live},
+ }
+}
+#[cfg(test)]
+mod recovery_comparison_tests{
+ use super::*;
+ #[test] fn differential_recovery(){
+  let mut rows=Vec::new();let mut live=Equilibrium::default();
+  assert_eq!(compare_recovered(&rows,0,live),RecoveryComparison::Match(live));
+  let mut seed=17u32;
+  for epoch in 1..=1000 {
+   seed=seed.wrapping_mul(1664525).wrapping_add(1013904223);
+   let samples=match (seed>>16)%5{
+    0=>[None;8],1=>[Some(0);8],2=>[Some(0),Some(1),Some(0),Some(1),Some(0),Some(1),Some(0),Some(1)],
+    3=>[Some(1),Some(1),Some(1),Some(1),Some(2),Some(2),Some(2),Some(2)],
+    _=>[Some(2);8],
+   };
+   rows.push(SealedObservation{epoch,samples});
+   live=adjust(live,&samples);
+   assert_eq!(compare_recovered(&rows,epoch,live),RecoveryComparison::Match(live));
+   let wrong=Equilibrium{window:if live.window==8{7}else{8},gate:live.gate};
+   assert_eq!(compare_recovered(&rows,epoch,wrong),RecoveryComparison::Mismatch{recovered:live,live:wrong});
+   assert_eq!(compare_recovered(&rows[..rows.len()-1],epoch,live),RecoveryComparison::HeadMismatch);
+  }
+  let mut bad=rows.clone();bad[0].epoch=2;
+  assert_eq!(compare_recovered(&bad,1000,live),RecoveryComparison::InvalidHistory);
+  assert_eq!(compare_recovered(&rows,1000,Equilibrium{window:2,gate:0}),RecoveryComparison::InvalidLivePolicy);
+  assert_eq!(compare_recovered(&rows,1001,live),RecoveryComparison::InvalidHistory);
+ }
+}

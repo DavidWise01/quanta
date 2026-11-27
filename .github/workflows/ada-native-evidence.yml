@@ -23,7 +23,7 @@ jobs:
           git rev-parse HEAD > evidence/source.txt
           test "$(cat evidence/source.txt)" = "$GITHUB_SHA"
           git hash-object ada/wasm/src/equilibrium.rs > evidence/equilibrium-blob.txt
-          for suite in cycle_tests adaptive_period_tests recovery_tests differential_tests recovery_comparison_tests head_commitment_tests canonical_vector_tests host_sha256_tests; do
+          for suite in cycle_tests adaptive_period_tests recovery_tests differential_tests recovery_comparison_tests head_commitment_tests canonical_vector_tests host_sha256_tests qualification_receipt_tests; do
             cargo +1.85.1 test --locked --manifest-path ada/wasm/Cargo.toml --lib "$suite" -- --nocapture 2>&1 | tee "evidence/$suite.log"
             grep -Eq 'test result: ok\. 1 passed; 0 failed;' "evidence/$suite.log"
           done

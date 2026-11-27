@@ -1,0 +1,11 @@
+{
+  "schema": "ADA-333N.evidence.v1",
+  "scope": "local Python hashlib and /usr/bin/sha256sum on stored canonical preimages; not Rust execution",
+  "vectors": 4,
+  "digest_calculations": 8,
+  "matched": 8,
+  "native": "HOLD",
+  "rust_blob": "b8c98c25064efc9b143d486d94a8f930a6c1fe20",
+  "authority": "OBSERVE_ONLY",
+  "watermark": ".dlw"
+}

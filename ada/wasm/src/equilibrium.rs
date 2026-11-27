@@ -142,3 +142,26 @@ mod recovery_tests{
   rows.push(SealedObservation{epoch:1001,samples:stable});assert_eq!(recover_observed(&rows),None);
  }
 }
+
+// ADA-325N .dlw — differential observation only; no ABI or policy switch.
+#[derive(Clone,Copy,Debug,PartialEq,Eq)]
+pub enum Differential { Match(Equilibrium), Mismatch{reference:Equilibrium,candidate:Equilibrium}, OutsideHorizon }
+pub fn compare_periodic(g:u32)->Differential{
+ match (at(g),at_cycle(g)){
+  (Some(reference),Some(candidate)) if reference==candidate=>Differential::Match(reference),
+  (Some(reference),Some(candidate))=>Differential::Mismatch{reference,candidate},
+  _=>Differential::OutsideHorizon,
+ }
+}
+#[cfg(test)]
+mod differential_tests{
+ use super::*;
+ #[test] fn differential_boundary(){
+  for epoch in 0..=1000{
+   let g=epoch*24;
+   assert_eq!(compare_periodic(g),Differential::Match(at(g).unwrap()));
+  }
+  assert_eq!(compare_periodic(24001),Differential::OutsideHorizon);
+  assert_eq!(compare_periodic(u32::MAX),Differential::OutsideHorizon);
+ }
+}

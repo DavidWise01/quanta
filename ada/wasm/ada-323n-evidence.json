@@ -1,0 +1,162 @@
+{
+  "node": "v22.16.0",
+  "blob": "8fdf831f32a554268c57c36f1260eae63245a91f",
+  "scope": "Node parser and receipt unit tests; not browser or WASM execution",
+  "cases": [
+    {
+      "name": "nested",
+      "expected": true,
+      "actual": true,
+      "match": true
+    },
+    {
+      "name": "escaped string",
+      "expected": true,
+      "actual": true,
+      "match": true
+    },
+    {
+      "name": "same key different objects",
+      "expected": true,
+      "actual": true,
+      "match": true
+    },
+    {
+      "name": "duplicate",
+      "expected": false,
+      "actual": false,
+      "match": true
+    },
+    {
+      "name": "escaped duplicate",
+      "expected": false,
+      "actual": false,
+      "match": true
+    },
+    {
+      "name": "nested duplicate",
+      "expected": false,
+      "actual": false,
+      "match": true
+    },
+    {
+      "name": "NaN",
+      "expected": false,
+      "actual": false,
+      "match": true
+    },
+    {
+      "name": "overflow",
+      "expected": false,
+      "actual": false,
+      "match": true
+    },
+    {
+      "name": "trailing",
+      "expected": false,
+      "actual": false,
+      "match": true
+    },
+    {
+      "name": "leading zero",
+      "expected": false,
+      "actual": false,
+      "match": true
+    },
+    {
+      "name": "trailing comma",
+      "expected": false,
+      "actual": false,
+      "match": true
+    },
+    {
+      "name": "depth",
+      "expected": false,
+      "actual": false,
+      "match": true
+    },
+    {
+      "name": "missing colon",
+      "expected": false,
+      "actual": false,
+      "match": true
+    },
+    {
+      "name": "negative exponent",
+      "expected": true,
+      "actual": true,
+      "match": true
+    },
+    {
+      "name": "valid receipt",
+      "expected": true,
+      "actual": true,
+      "match": true
+    },
+    {
+      "name": "wrong source",
+      "expected": false,
+      "actual": false,
+      "match": true
+    },
+    {
+      "name": "wrong digest",
+      "expected": false,
+      "actual": false,
+      "match": true
+    },
+    {
+      "name": "failed status",
+      "expected": false,
+      "actual": false,
+      "match": true
+    },
+    {
+      "name": "missing group",
+      "expected": false,
+      "actual": false,
+      "match": true
+    },
+    {
+      "name": "reordered",
+      "expected": false,
+      "actual": false,
+      "match": true
+    },
+    {
+      "name": "extra field",
+      "expected": false,
+      "actual": false,
+      "match": true
+    },
+    {
+      "name": "null",
+      "expected": false,
+      "actual": false,
+      "match": true
+    },
+    {
+      "name": "array",
+      "expected": false,
+      "actual": false,
+      "match": true
+    },
+    {
+      "name": "boolean checks",
+      "expected": false,
+      "actual": false,
+      "match": true
+    }
+  ],
+  "matched": 24,
+  "ci": {
+    "commit": "22f719e374d5c71a4be867d50895219bd84d6fc2",
+    "statuses": [],
+    "pr_workflow_runs": [],
+    "direct_api": "DNS resolution failed",
+    "cargo_on_path": false,
+    "rustc_on_path": false,
+    "native_evidence": null
+  },
+  "watermark": ".dlw"
+}

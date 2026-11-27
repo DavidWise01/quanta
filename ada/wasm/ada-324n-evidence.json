@@ -1,0 +1,27 @@
+{
+  "schema": "ADA-324N.evidence.v1",
+  "equilibrium_blob": "92d7082bb45fe14f3b3abb20c17ee64ec35dd340",
+  "local": {
+    "node_path": "/opt/nvm/versions/node/v22.16.0/bin/node",
+    "python": "3.13.5",
+    "cargo_on_path": false,
+    "rustc_on_path": false,
+    "github_api_hostname_resolved": false,
+    "model_reproduction": {
+      "scope": "independent Python model",
+      "patterns": 12,
+      "states": 78,
+      "epochs": 1001,
+      "checks": 936936,
+      "mismatches": 0
+    }
+  },
+  "native": {
+    "status": "HOLD",
+    "configured_assertions": 939946,
+    "execution": null,
+    "workflow": ".github/workflows/ada-native-evidence.yml"
+  },
+  "authority": "OBSERVE_ONLY",
+  "watermark": ".dlw"
+}

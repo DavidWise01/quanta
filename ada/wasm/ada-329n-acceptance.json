@@ -1,0 +1,31 @@
+{
+  "schema": "ADA-329N.acceptance.v1",
+  "source": "f1368e00b94926f01ca831be767a224184c5ffc3",
+  "source_blobs": {
+    "ada/ada-328n-unified-qualification.html": "7f52cacd1bd714590ef8163b22adc9c79695d23e",
+    "ada/wasm/ada-328n-vectors.json": "b4263fd120c5c1e09e14eda74b25c464e40b3724",
+    "ada/wasm/ada-328n-vectors.test.mjs": "de10e00f484fc1bfeef01dbbc31435d971ffa38f"
+  },
+  "local": {
+    "vector_blob_match": true,
+    "python_preimage_matches": 4,
+    "python_sha256_matches": 4,
+    "cargo_on_path": false,
+    "rustc_on_path": false,
+    "github_dns": "failed",
+    "pages_dns": "failed"
+  },
+  "ci": {
+    "statuses": [],
+    "pr_workflow_runs": [],
+    "native_artifact": null
+  },
+  "public": {
+    "http_status": null,
+    "html_digest": null,
+    "browser_execution": null,
+    "status": "HOLD"
+  },
+  "authority": "OBSERVE_ONLY",
+  "watermark": ".dlw"
+}

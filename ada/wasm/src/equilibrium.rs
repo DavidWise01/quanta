@@ -291,3 +291,48 @@ mod canonical_vector_tests{
   }
  }
 }
+
+// ADA-333N .dlw — isolated Linux native provider; no WASM ABI changes.
+#[cfg(all(not(target_arch="wasm32"),target_os="linux"))]
+pub fn host_sha256(bytes:&[u8])->std::io::Result<[u8;32]>{
+ use std::{io::{Write,Error,ErrorKind},process::{Command,Stdio}};
+ let mut child=Command::new("/usr/bin/sha256sum").stdin(Stdio::piped()).stdout(Stdio::piped()).stderr(Stdio::null()).spawn()?;
+ let result=child.stdin.take().ok_or_else(||Error::new(ErrorKind::Other,"missing stdin")).and_then(|mut input|input.write_all(bytes));
+ if let Err(e)=result{let _=child.kill();let _=child.wait();return Err(e);}
+ let out=child.wait_with_output()?;
+ if !out.status.success(){return Err(Error::new(ErrorKind::Other,"SHA-256 provider failed"));}
+ let h=out.stdout.get(..64).ok_or_else(||Error::new(ErrorKind::InvalidData,"short digest"))?;
+ let mut digest=[0u8;32];
+ for (i,pair) in h.chunks_exact(2).enumerate(){
+  let s=std::str::from_utf8(pair).map_err(|e|Error::new(ErrorKind::InvalidData,e))?;
+  digest[i]=u8::from_str_radix(s,16).map_err(|e|Error::new(ErrorKind::InvalidData,e))?;
+ }
+ Ok(digest)
+}
+#[cfg(all(not(target_arch="wasm32"),target_os="linux"))]
+pub fn qualify_host(history:&[SealedObservation],anchor:&HeadCommitment,live:Equilibrium)->std::io::Result<UnifiedQualification>{
+ let Some(bytes)=head_preimage(history) else{return Ok(UnifiedQualification::Rejected)};
+ let digest=host_sha256(&bytes)?;
+ Ok(qualify_history(history,anchor,live,|_|digest))
+}
+#[cfg(all(test,target_os="linux",not(target_arch="wasm32")))]
+mod host_sha256_tests{
+ use super::*;
+ #[test] fn standard_provider(){
+  let fixtures=[
+   (vec![],"ce8eb3cb9a0c38e5b6d0ed5ce91c2a629e29219df1e932b84e8222fe5f69676d"),
+   (vec![SealedObservation{epoch:1,samples:[Some(0);8]}],"9c8923ac6e8e15d3c44767cc3c4a692890878b83820535317c11a30bcb3185f0"),
+   (vec![SealedObservation{epoch:1,samples:[None;8]}],"c57648266492f5b2091f33543103297741d184bb96e2388a7621ceea0776265d"),
+   (vec![SealedObservation{epoch:1,samples:[Some(0),Some(1),Some(2),None,Some(0),Some(1),Some(2),None]},SealedObservation{epoch:2,samples:[Some(2);8]}],"08a8dfe5ec7accbc78869f5c617af473e07b1987b161dcbce7d95ae6cc9538d5")
+  ];
+  for (rows,expected) in fixtures{
+   let digest=host_sha256(&head_preimage(&rows).unwrap()).unwrap();
+   assert_eq!(digest.iter().map(|b|format!("{b:02x}")).collect::<Vec<_>>().join(""),expected);
+   let mut anchor=HeadCommitment{epoch:rows.len() as u32,digest};
+   let live=recover_observed(&rows).unwrap();
+   assert_eq!(qualify_host(&rows,&anchor,live).unwrap(),UnifiedQualification::Consistent(live));
+   anchor.digest[0]^=1;
+   assert_eq!(qualify_host(&rows,&anchor,live).unwrap(),UnifiedQualification::Rejected);
+  }
+ }
+}

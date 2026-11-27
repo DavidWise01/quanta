@@ -1,0 +1,13 @@
+{
+  "scope": "freeze local rechecks",
+  "node": "v22.16.0",
+  "parser_blob": "8fdf831f32a554268c57c36f1260eae63245a91f",
+  "parser_receipt_tests": 24,
+  "passed": 24,
+  "vector_blob": "b4263fd120c5c1e09e14eda74b25c464e40b3724",
+  "stored_preimage_sha256_matches": 4,
+  "cargo_on_path": false,
+  "rustc_on_path": false,
+  "native": "HOLD",
+  "watermark": ".dlw"
+}

@@ -212,3 +212,46 @@ mod recovery_comparison_tests{
   assert_eq!(compare_recovered(&rows,1001,live),RecoveryComparison::InvalidHistory);
  }
 }
+
+// ADA-327N .dlw — canonical commitment preimage, caller supplies SHA-256.
+// The retained anchor must be obtained outside the rollback domain.
+pub fn head_preimage(history:&[SealedObservation])->Option<Vec<u8>>{
+ recover_observed(history)?;
+ let mut bytes=b"ADA-327N:sealed-history:v1\0".to_vec();
+ bytes.extend_from_slice(&(history.len() as u32).to_be_bytes());
+ for row in history{
+  bytes.extend_from_slice(&row.epoch.to_be_bytes());
+  for sample in row.samples{
+   bytes.push(match sample{None=>0,Some(v)=>1+v as u8});
+  }
+ }
+ Some(bytes)
+}
+#[derive(Clone,Copy,Debug,PartialEq,Eq)]
+pub struct HeadCommitment{pub epoch:u32,pub digest:[u8;32]}
+pub fn recover_committed(history:&[SealedObservation],anchor:&HeadCommitment,sha256:impl FnOnce(&[u8])->[u8;32])->Option<Equilibrium>{
+ if history.len()!=anchor.epoch as usize{return None;}
+ let bytes=head_preimage(history)?;
+ if sha256(&bytes)!=anchor.digest{return None;}
+ recover_observed(history)
+}
+#[cfg(test)]
+mod head_commitment_tests{
+ use super::*;
+ // Test double only: verifies preimage binding and gate wiring, not cryptography.
+ fn fake(bytes:&[u8])->[u8;32]{let mut d=[0u8;32];for (i,b) in bytes.iter().enumerate(){d[i%32]^=*b;}d}
+ #[test] fn head_boundaries(){
+  let rows=vec![SealedObservation{epoch:1,samples:[Some(0);8]},SealedObservation{epoch:2,samples:[None;8]}];
+  let bytes=head_preimage(&rows).unwrap();
+  let anchor=HeadCommitment{epoch:2,digest:fake(&bytes)};
+  assert_eq!(recover_committed(&rows,&anchor,fake),recover_observed(&rows));
+  assert_eq!(recover_committed(&rows[..1],&anchor,fake),None);
+  let mut changed=rows.clone();changed[0].samples[0]=Some(1);
+  assert_ne!(head_preimage(&changed),Some(bytes));
+  assert_eq!(recover_committed(&changed,&anchor,fake),None);
+  changed[0].epoch=2;
+  assert_eq!(head_preimage(&changed),None);
+  let prefix=HeadCommitment{epoch:1,digest:fake(&head_preimage(&rows[..1]).unwrap())};
+  assert_eq!(recover_committed(&rows[..1],&prefix,fake),recover_observed(&rows[..1]));
+ }
+}
